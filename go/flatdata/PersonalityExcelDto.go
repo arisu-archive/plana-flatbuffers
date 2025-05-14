@@ -28,7 +28,7 @@ func (t *PersonalityExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *PersonalityExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishPersonalityExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

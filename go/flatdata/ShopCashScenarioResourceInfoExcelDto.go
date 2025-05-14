@@ -30,7 +30,7 @@ func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Build
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ShopCashScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishShopCashScenarioResourceInfoExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

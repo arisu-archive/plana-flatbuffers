@@ -34,7 +34,7 @@ func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *CouponStuffExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishCouponStuffExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

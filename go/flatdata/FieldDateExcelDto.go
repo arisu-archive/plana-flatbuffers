@@ -56,7 +56,7 @@ func (t *FieldDateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *FieldDateExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishFieldDateExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

@@ -37,7 +37,7 @@ func (t *SchoolDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *SchoolDungeonRewardExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishSchoolDungeonRewardExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

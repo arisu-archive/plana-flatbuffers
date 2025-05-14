@@ -32,7 +32,7 @@ func (t *RaidStageSeasonRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *RaidStageSeasonRewardExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishRaidStageSeasonRewardExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

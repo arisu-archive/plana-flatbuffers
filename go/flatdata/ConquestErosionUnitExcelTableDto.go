@@ -32,7 +32,7 @@ func (t *ConquestErosionUnitExcelTableDto) MarshalModel(b *flatbuffers.Builder) 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ConquestErosionUnitExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishConquestErosionUnitExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

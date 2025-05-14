@@ -49,7 +49,7 @@ func (t *MinigameRoadPuzzleRoadRoundExcelDto) MarshalModel(b *flatbuffers.Builde
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *MinigameRoadPuzzleRoadRoundExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishMinigameRoadPuzzleRoadRoundExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

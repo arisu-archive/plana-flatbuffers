@@ -32,7 +32,7 @@ func (t *WeekDungeonOpenScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) f
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *WeekDungeonOpenScheduleExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishWeekDungeonOpenScheduleExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

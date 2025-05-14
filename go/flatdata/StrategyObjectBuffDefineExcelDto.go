@@ -34,7 +34,7 @@ func (t *StrategyObjectBuffDefineExcelDto) MarshalModel(b *flatbuffers.Builder) 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *StrategyObjectBuffDefineExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishStrategyObjectBuffDefineExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

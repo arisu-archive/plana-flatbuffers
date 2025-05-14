@@ -32,7 +32,7 @@ func (t *ShiftingCraftRecipeExcelTableDto) MarshalModel(b *flatbuffers.Builder) 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ShiftingCraftRecipeExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishShiftingCraftRecipeExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

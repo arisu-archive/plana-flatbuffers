@@ -28,7 +28,7 @@ func (t *WorldRaidFavorBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *WorldRaidFavorBuffExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishWorldRaidFavorBuffExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

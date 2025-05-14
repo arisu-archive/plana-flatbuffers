@@ -32,7 +32,7 @@ func (t *TacticEntityEffectFilterExcelTableDto) MarshalModel(b *flatbuffers.Buil
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *TacticEntityEffectFilterExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishTacticEntityEffectFilterExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

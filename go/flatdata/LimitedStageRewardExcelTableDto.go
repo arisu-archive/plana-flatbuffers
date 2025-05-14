@@ -32,7 +32,7 @@ func (t *LimitedStageRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) f
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *LimitedStageRewardExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishLimitedStageRewardExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

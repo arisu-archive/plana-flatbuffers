@@ -38,7 +38,7 @@ func (t *FurnitureTemplateElementExcelDto) MarshalModel(b *flatbuffers.Builder) 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *FurnitureTemplateElementExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishFurnitureTemplateElementExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

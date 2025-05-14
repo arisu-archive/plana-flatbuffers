@@ -36,7 +36,7 @@ func (t *RecipeSelectionAutoUseExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *RecipeSelectionAutoUseExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishRecipeSelectionAutoUseExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

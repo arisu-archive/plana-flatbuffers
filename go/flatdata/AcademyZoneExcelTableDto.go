@@ -32,7 +32,7 @@ func (t *AcademyZoneExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *AcademyZoneExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishAcademyZoneExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

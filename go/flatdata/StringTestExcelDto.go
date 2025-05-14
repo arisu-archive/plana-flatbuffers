@@ -34,7 +34,7 @@ func (t *StringTestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *StringTestExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishStringTestExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

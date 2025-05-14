@@ -40,7 +40,7 @@ func (t *MiniGameShootingGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *MiniGameShootingGeasExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishMiniGameShootingGeasExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

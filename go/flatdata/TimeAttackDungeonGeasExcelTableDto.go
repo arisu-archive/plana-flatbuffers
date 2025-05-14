@@ -32,7 +32,7 @@ func (t *TimeAttackDungeonGeasExcelTableDto) MarshalModel(b *flatbuffers.Builder
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *TimeAttackDungeonGeasExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishTimeAttackDungeonGeasExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

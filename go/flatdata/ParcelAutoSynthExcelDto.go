@@ -42,7 +42,7 @@ func (t *ParcelAutoSynthExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ParcelAutoSynthExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishParcelAutoSynthExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

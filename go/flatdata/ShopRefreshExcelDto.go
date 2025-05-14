@@ -48,7 +48,7 @@ func (t *ShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ShopRefreshExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishShopRefreshExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

@@ -41,7 +41,7 @@ func (t *CharacterPotentialRewardExcelDto) MarshalModel(b *flatbuffers.Builder) 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *CharacterPotentialRewardExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishCharacterPotentialRewardExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

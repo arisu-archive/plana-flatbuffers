@@ -65,7 +65,7 @@ func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *BGMExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishBGMExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

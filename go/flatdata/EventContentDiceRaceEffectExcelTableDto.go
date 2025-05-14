@@ -32,7 +32,7 @@ func (t *EventContentDiceRaceEffectExcelTableDto) MarshalModel(b *flatbuffers.Bu
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *EventContentDiceRaceEffectExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishEventContentDiceRaceEffectExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

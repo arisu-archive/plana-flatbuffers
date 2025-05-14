@@ -60,7 +60,7 @@ func (t *ArenaNPCExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ArenaNPCExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishArenaNPCExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

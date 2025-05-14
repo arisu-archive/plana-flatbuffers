@@ -30,7 +30,7 @@ func (t *GroundVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *GroundVector3Dto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishGroundVector3Buffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

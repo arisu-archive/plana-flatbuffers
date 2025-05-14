@@ -67,7 +67,7 @@ func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *MessagePopupExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishMessagePopupExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

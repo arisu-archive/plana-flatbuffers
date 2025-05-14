@@ -32,7 +32,7 @@ func (t *CharacterIllustCoordinateExcelTableDto) MarshalModel(b *flatbuffers.Bui
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *CharacterIllustCoordinateExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishCharacterIllustCoordinateExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

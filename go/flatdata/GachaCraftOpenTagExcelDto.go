@@ -32,7 +32,7 @@ func (t *GachaCraftOpenTagExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *GachaCraftOpenTagExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishGachaCraftOpenTagExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

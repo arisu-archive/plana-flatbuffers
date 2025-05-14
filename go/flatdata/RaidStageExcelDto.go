@@ -110,7 +110,7 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *RaidStageExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishRaidStageExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

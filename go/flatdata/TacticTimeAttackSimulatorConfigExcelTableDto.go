@@ -32,7 +32,7 @@ func (t *TacticTimeAttackSimulatorConfigExcelTableDto) MarshalModel(b *flatbuffe
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *TacticTimeAttackSimulatorConfigExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishTacticTimeAttackSimulatorConfigExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

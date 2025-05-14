@@ -52,7 +52,7 @@ func (t *CafeRankExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *CafeRankExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishCafeRankExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

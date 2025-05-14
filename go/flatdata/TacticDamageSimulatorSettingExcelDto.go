@@ -62,7 +62,7 @@ func (t *TacticDamageSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Build
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *TacticDamageSimulatorSettingExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishTacticDamageSimulatorSettingExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

@@ -41,7 +41,7 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *PropMotionDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishPropMotionBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

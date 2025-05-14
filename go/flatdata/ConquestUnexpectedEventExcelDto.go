@@ -48,7 +48,7 @@ func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) f
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ConquestUnexpectedEventExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishConquestUnexpectedEventExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

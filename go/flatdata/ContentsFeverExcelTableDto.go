@@ -32,7 +32,7 @@ func (t *ContentsFeverExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbu
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ContentsFeverExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishContentsFeverExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

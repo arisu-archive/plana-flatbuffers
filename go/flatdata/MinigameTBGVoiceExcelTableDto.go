@@ -32,7 +32,7 @@ func (t *MinigameTBGVoiceExcelTableDto) MarshalModel(b *flatbuffers.Builder) fla
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *MinigameTBGVoiceExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishMinigameTBGVoiceExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

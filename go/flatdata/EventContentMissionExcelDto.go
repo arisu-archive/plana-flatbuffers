@@ -128,7 +128,7 @@ func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *EventContentMissionExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishEventContentMissionExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

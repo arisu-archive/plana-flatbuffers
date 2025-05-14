@@ -32,7 +32,7 @@ func (t *EventContentFortuneGachaModifyExcelTableDto) MarshalModel(b *flatbuffer
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *EventContentFortuneGachaModifyExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishEventContentFortuneGachaModifyExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

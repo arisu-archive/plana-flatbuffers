@@ -52,7 +52,7 @@ func (t *AcademyMessangerExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *AcademyMessangerExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishAcademyMessangerExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

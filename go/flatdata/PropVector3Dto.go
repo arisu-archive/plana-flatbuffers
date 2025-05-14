@@ -30,7 +30,7 @@ func (t *PropVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *PropVector3Dto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishPropVector3Buffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

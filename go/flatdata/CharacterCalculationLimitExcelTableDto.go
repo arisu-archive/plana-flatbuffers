@@ -32,7 +32,7 @@ func (t *CharacterCalculationLimitExcelTableDto) MarshalModel(b *flatbuffers.Bui
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *CharacterCalculationLimitExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishCharacterCalculationLimitExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

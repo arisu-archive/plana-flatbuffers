@@ -32,7 +32,7 @@ func (t *TacticSkipExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *TacticSkipExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishTacticSkipExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

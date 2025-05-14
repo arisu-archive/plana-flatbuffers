@@ -32,7 +32,7 @@ func (t *ConquestProgressResourceExcelTableDto) MarshalModel(b *flatbuffers.Buil
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ConquestProgressResourceExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishConquestProgressResourceExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

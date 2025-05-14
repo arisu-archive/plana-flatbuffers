@@ -34,7 +34,7 @@ func (t *ConstFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ConstFieldExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishConstFieldExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

@@ -48,7 +48,7 @@ func (t *MiniGameShootingStageRewardExcelDto) MarshalModel(b *flatbuffers.Builde
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *MiniGameShootingStageRewardExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishMiniGameShootingStageRewardExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

@@ -47,7 +47,7 @@ func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *VideoExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishVideoExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

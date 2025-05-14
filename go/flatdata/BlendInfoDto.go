@@ -30,7 +30,7 @@ func (t *BlendInfoDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *BlendInfoDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishBlendInfoBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

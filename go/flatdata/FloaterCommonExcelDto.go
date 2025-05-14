@@ -36,7 +36,7 @@ func (t *FloaterCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *FloaterCommonExcelDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishFloaterCommonExcelBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

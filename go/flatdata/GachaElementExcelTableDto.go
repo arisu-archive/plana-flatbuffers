@@ -32,7 +32,7 @@ func (t *GachaElementExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *GachaElementExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishGachaElementExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 
