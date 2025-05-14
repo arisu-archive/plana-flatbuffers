@@ -1,0 +1,9 @@
+include "WorldRaidFavorBuffExcel.fbs";
+
+namespace FlatData;
+
+table WorldRaidFavorBuffExcelTable {
+    data_list: [WorldRaidFavorBuffExcel];
+}
+
+root_type WorldRaidFavorBuffExcelTable;

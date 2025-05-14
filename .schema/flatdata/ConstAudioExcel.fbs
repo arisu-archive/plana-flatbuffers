@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table ConstAudioExcel {
+    default_snap_shot_name: string;
+    battle_snap_shot_name: string;
+    raid_snap_shot_name: string;
+    ex_skill_cut_in_snap_shot_name: string;
+}

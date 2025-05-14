@@ -1,0 +1,9 @@
+include "ScenarioExcel.fbs";
+
+namespace FlatData;
+
+table ScenarioExcelTable {
+    data_list: [ScenarioExcel];
+}
+
+root_type ScenarioExcelTable;

@@ -1,0 +1,9 @@
+include "RecipeSelectionGroupExcel.fbs";
+
+namespace FlatData;
+
+table RecipeSelectionGroupExcelTable {
+    data_list: [RecipeSelectionGroupExcel];
+}
+
+root_type RecipeSelectionGroupExcelTable;

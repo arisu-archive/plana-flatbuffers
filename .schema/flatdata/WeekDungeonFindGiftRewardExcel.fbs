@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table WeekDungeonFindGiftRewardExcel {
+    stage_reward_id: long;
+    dev_name: string;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [long];
+    reward_parcel_probability: [long];
+    drop_item_model_prefab_path: [string];
+}

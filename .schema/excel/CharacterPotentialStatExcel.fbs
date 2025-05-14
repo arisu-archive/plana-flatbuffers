@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table CharacterPotentialStatExcel {
+    potential_stat_group_id: long;
+    potential_level: int;
+    recipe_id: long;
+    stat_bonus_rate: long;
+}
+
+root_type CharacterPotentialStatExcel;

@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ContentResultType: int {
+    Failure = 0,
+    Success = 1,
+}

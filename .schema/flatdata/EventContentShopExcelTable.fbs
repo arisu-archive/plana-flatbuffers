@@ -1,0 +1,9 @@
+include "EventContentShopExcel.fbs";
+
+namespace FlatData;
+
+table EventContentShopExcelTable {
+    data_list: [EventContentShopExcel];
+}
+
+root_type EventContentShopExcelTable;

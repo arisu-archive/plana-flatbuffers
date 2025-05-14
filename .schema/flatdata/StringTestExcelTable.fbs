@@ -1,0 +1,9 @@
+include "StringTestExcel.fbs";
+
+namespace FlatData;
+
+table StringTestExcelTable {
+    data_list: [StringTestExcel];
+}
+
+root_type StringTestExcelTable;

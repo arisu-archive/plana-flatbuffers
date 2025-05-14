@@ -1,0 +1,13 @@
+include "Nation.fbs";
+
+namespace MX.Data.Excel;
+
+table VideoExcel {
+    id: long;
+    nation: [Nation];
+    video_path: [string];
+    sound_path: [string];
+    sound_volume: [float];
+}
+
+root_type VideoExcel;

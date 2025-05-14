@@ -1,0 +1,9 @@
+include "FieldInteractionExcel.fbs";
+
+namespace FlatData;
+
+table FieldInteractionExcelTable {
+    data_list: [FieldInteractionExcel];
+}
+
+root_type FieldInteractionExcelTable;

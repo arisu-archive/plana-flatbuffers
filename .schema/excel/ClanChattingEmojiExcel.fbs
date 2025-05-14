@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table ClanChattingEmojiExcel {
+    id: long;
+    tab_group_id: int;
+    display_order: int;
+    image_path_kr: string;
+    image_path_jp: string;
+}
+
+root_type ClanChattingEmojiExcel;

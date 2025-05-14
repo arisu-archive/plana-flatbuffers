@@ -1,0 +1,9 @@
+include "EventContentSeasonExcel.fbs";
+
+namespace FlatData;
+
+table EventContentSeasonExcelTable {
+    data_list: [EventContentSeasonExcel];
+}
+
+root_type EventContentSeasonExcelTable;

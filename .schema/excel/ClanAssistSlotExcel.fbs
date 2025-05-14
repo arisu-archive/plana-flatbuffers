@@ -1,0 +1,16 @@
+include "EchelonType.fbs";
+
+namespace MX.Data.Excel;
+
+table ClanAssistSlotExcel {
+    slot_id: long;
+    echelon_type: EchelonType;
+    slot_number: long;
+    assist_term_reward_period_from_sec: long;
+    assist_reward_limit: long;
+    assist_rent_reward_daily_max_count: long;
+    assist_rental_fee_amount: long;
+    assist_rental_fee_amount_stranger: long;
+}
+
+root_type ClanAssistSlotExcel;

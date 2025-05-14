@@ -1,0 +1,9 @@
+include "ArenaNPCExcel.fbs";
+
+namespace FlatData;
+
+table ArenaNPCExcelTable {
+    data_list: [ArenaNPCExcel];
+}
+
+root_type ArenaNPCExcelTable;

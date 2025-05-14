@@ -1,0 +1,9 @@
+include "EventContentDebuffRewardExcel.fbs";
+
+namespace FlatData;
+
+table EventContentDebuffRewardExcelTable {
+    data_list: [EventContentDebuffRewardExcel];
+}
+
+root_type EventContentDebuffRewardExcelTable;

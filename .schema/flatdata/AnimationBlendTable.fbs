@@ -1,0 +1,9 @@
+include "BlendData.fbs";
+
+namespace FlatData;
+
+table AnimationBlendTable {
+    data_list: [BlendData];
+}
+
+root_type AnimationBlendTable;

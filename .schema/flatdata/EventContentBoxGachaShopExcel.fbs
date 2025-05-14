@@ -1,0 +1,12 @@
+namespace FlatData;
+
+table EventContentBoxGachaShopExcel {
+    event_content_id: long;
+    group_id: long;
+    group_element_amount: long;
+    round: long;
+    is_legacy: bool;
+    is_prize: bool;
+    goods_id: [long];
+    display_order: long;
+}

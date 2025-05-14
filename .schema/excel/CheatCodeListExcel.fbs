@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table CheatCodeListExcel {
+    id: long;
+    cheat_code: [string];
+    input_title: [string];
+    desc: string;
+}
+
+root_type CheatCodeListExcel;

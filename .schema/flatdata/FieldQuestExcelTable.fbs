@@ -1,0 +1,9 @@
+include "FieldQuestExcel.fbs";
+
+namespace FlatData;
+
+table FieldQuestExcelTable {
+    data_list: [FieldQuestExcel];
+}
+
+root_type FieldQuestExcelTable;

@@ -1,0 +1,53 @@
+include "Club.fbs";
+include "EchelonExtensionType.fbs";
+include "EventContentType.fbs";
+include "ScenarioModeSubTypes.fbs";
+include "ScenarioModeTypes.fbs";
+include "StageDifficulty.fbs";
+include "StageTopography.fbs";
+
+namespace MX.Data.Excel;
+
+table ScenarioModeExcel {
+    mode_id: long;
+    mode_type: ScenarioModeTypes;
+    sub_type: ScenarioModeSubTypes;
+    volume_id: long;
+    chapter_id: long;
+    episode_id: long;
+    exposed_time: string;
+    hide: bool;
+    open: bool;
+    is_continue: bool;
+    episode_continue_mode_id: long;
+    front_scenario_group_id: [long];
+    strategy_id: long;
+    ground_id: long;
+    is_defeat_battle: bool;
+    battle_duration: long;
+    back_scenario_group_id: [long];
+    cleared_mode_id: [long];
+    scenario_mode_reward_id: long;
+    is_scenario_special_reward: bool;
+    account_level_limit: long;
+    cleared_stage_id: long;
+    need_club: Club;
+    need_club_student_count: int;
+    event_content_id: long;
+    event_content_type: EventContentType;
+    event_content_condition: long;
+    event_content_condition_group: long;
+    map_difficulty: StageDifficulty;
+    step_index: int;
+    recommend_level: int;
+    event_icon_parcel_path: string;
+    event_banner_title: uint;
+    lof: bool;
+    stage_topography: StageTopography;
+    fixed_echelon_id: long;
+    complete_report_event_name: string;
+    echelon_extension_type: EchelonExtensionType;
+    collection_group_id: long;
+}
+
+root_type ScenarioModeExcel;

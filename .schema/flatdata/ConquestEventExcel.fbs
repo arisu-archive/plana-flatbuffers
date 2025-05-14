@@ -1,0 +1,32 @@
+include "ConquestEventType.fbs";
+
+namespace FlatData;
+
+table ConquestEventExcel {
+    event_content_id: long;
+    main_story_event_content_id: long;
+    conquest_event_type: ConquestEventType;
+    use_erosion: bool;
+    use_unexpected_event: bool;
+    use_calculate: bool;
+    use_conquest_object: bool;
+    evnet_map_goal_localize: string;
+    evnet_map_name_localize: string;
+    map_enter_scenario_group_id: long;
+    evnet_scenario_bg: string;
+    manage_unit_change: int;
+    assist_count: int;
+    play_time_limit_in_seconds: int;
+    animation_unit_amount_min: int;
+    animation_unit_amount_max: int;
+    animation_unit_delay: float;
+    localize_unexpected: string;
+    localize_erosions: string;
+    localize_step: string;
+    localize_tile: string;
+    localize_map_info: string;
+    localize_manage: string;
+    localize_upgrade: string;
+    localize_treasure_box: string;
+    individual_erosion_daily_count: long;
+}

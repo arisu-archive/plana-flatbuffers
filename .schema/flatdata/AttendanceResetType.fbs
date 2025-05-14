@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum AttendanceResetType: int {
+    User = 0,
+    Server = 1,
+}

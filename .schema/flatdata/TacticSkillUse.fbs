@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum TacticSkillUse: int {
+    None = 0,
+    Auto = 1,
+    Manual = 2,
+}

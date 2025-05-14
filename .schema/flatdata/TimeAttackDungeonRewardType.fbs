@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum TimeAttackDungeonRewardType: int {
+    Fixed = 0,
+    TimeWeight = 1,
+}

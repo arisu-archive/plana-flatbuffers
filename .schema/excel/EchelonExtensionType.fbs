@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum EchelonExtensionType: int {
+    Base = 0,
+    Extension = 1,
+}

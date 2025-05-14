@@ -1,0 +1,9 @@
+include "FieldTutorialExcel.fbs";
+
+namespace FlatData;
+
+table FieldTutorialExcelTable {
+    data_list: [FieldTutorialExcel];
+}
+
+root_type FieldTutorialExcelTable;

@@ -1,0 +1,9 @@
+include "WorldRaidBossGroupExcel.fbs";
+
+namespace FlatData;
+
+table WorldRaidBossGroupExcelTable {
+    data_list: [WorldRaidBossGroupExcel];
+}
+
+root_type WorldRaidBossGroupExcelTable;

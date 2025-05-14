@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum DreamMakerEndingRewardType: int {
+    None = 0,
+    FirstEndingReward = 1,
+    LoopEndingReward = 2,
+}

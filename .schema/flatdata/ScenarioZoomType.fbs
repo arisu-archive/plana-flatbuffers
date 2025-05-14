@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ScenarioZoomType: int {
+    Instant = 0,
+    Slide = 1,
+}

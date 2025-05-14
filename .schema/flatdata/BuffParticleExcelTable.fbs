@@ -1,0 +1,9 @@
+include "BuffParticleExcel.fbs";
+
+namespace FlatData;
+
+table BuffParticleExcelTable {
+    data_list: [BuffParticleExcel];
+}
+
+root_type BuffParticleExcelTable;

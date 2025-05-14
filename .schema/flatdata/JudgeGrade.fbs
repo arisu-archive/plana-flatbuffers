@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum JudgeGrade: int {
+    None = 0,
+    Miss = 1,
+    Attack = 2,
+    Critical = 3,
+}

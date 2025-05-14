@@ -1,0 +1,16 @@
+include "Rarity.fbs";
+
+namespace FlatData;
+
+table ArenaNPCExcel {
+    unique_id: long;
+    rank: long;
+    npc_account_level: long;
+    npc_level: long;
+    npc_level_deviation: long;
+    npc_star_grade: long;
+    exception_character_rarities: [Rarity];
+    exception_main_character_ids: [long];
+    exception_support_character_ids: [long];
+    exception_tss_ids: [long];
+}

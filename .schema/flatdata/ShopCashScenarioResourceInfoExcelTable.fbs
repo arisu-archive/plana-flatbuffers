@@ -1,0 +1,9 @@
+include "ShopCashScenarioResourceInfoExcel.fbs";
+
+namespace FlatData;
+
+table ShopCashScenarioResourceInfoExcelTable {
+    data_list: [ShopCashScenarioResourceInfoExcel];
+}
+
+root_type ShopCashScenarioResourceInfoExcelTable;

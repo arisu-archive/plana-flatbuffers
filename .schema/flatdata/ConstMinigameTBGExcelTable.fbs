@@ -1,0 +1,9 @@
+include "ConstMinigameTBGExcel.fbs";
+
+namespace FlatData;
+
+table ConstMinigameTBGExcelTable {
+    data_list: [ConstMinigameTBGExcel];
+}
+
+root_type ConstMinigameTBGExcelTable;

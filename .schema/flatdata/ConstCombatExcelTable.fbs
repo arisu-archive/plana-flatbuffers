@@ -1,0 +1,9 @@
+include "ConstCombatExcel.fbs";
+
+namespace FlatData;
+
+table ConstCombatExcelTable {
+    data_list: [ConstCombatExcel];
+}
+
+root_type ConstCombatExcelTable;

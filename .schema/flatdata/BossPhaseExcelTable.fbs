@@ -1,0 +1,9 @@
+include "BossPhaseExcel.fbs";
+
+namespace FlatData;
+
+table BossPhaseExcelTable {
+    data_list: [BossPhaseExcel];
+}
+
+root_type BossPhaseExcelTable;

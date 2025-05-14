@@ -1,0 +1,9 @@
+include "ConstNewbieContentExcel.fbs";
+
+namespace FlatData;
+
+table ConstNewbieContentExcelTable {
+    data_list: [ConstNewbieContentExcel];
+}
+
+root_type ConstNewbieContentExcelTable;

@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum CVCollectionType: int {
+    CVNormal = 0,
+    CVEvent = 1,
+    CVEtc = 2,
+}

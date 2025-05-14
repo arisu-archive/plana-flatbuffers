@@ -1,0 +1,5 @@
+namespace FlatData;
+
+enum SkillCategory: int {
+    None = 0,
+}

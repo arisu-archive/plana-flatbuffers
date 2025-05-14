@@ -1,0 +1,7 @@
+include "RoadPuzzleMapTileType.fbs";
+
+namespace FlatData;
+
+table MinigameRoadExcel {
+    none: [RoadPuzzleMapTileType];
+}

@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table LocalizeFieldExcel {
+    key: uint;
+    kr: string;
+    jp: string;
+}

@@ -1,0 +1,9 @@
+include "CharacterAIExcel.fbs";
+
+namespace FlatData;
+
+table CharacterAIExcelTable {
+    data_list: [CharacterAIExcel];
+}
+
+root_type CharacterAIExcelTable;

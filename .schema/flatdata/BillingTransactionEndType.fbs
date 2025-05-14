@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum BillingTransactionEndType: int {
+    None = 0,
+    Success = 1,
+    Cancel = 2,
+}

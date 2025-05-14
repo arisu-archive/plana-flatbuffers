@@ -1,0 +1,9 @@
+include "CafeInteractionExcel.fbs";
+
+namespace FlatData;
+
+table CafeInteractionExcelTable {
+    data_list: [CafeInteractionExcel];
+}
+
+root_type CafeInteractionExcelTable;

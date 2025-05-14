@@ -1,0 +1,9 @@
+include "DefaultCharacterExcel.fbs";
+
+namespace FlatData;
+
+table DefaultCharacterExcelTable {
+    data_list: [DefaultCharacterExcel];
+}
+
+root_type DefaultCharacterExcelTable;

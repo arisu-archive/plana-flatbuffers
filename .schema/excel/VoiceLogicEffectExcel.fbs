@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table VoiceLogicEffectExcel {
+    logic_effect_name_hash: uint;
+    self: bool;
+    priority: int;
+    voice_hash: [uint];
+    voice_id: uint;
+}
+
+root_type VoiceLogicEffectExcel;

@@ -1,0 +1,9 @@
+include "Club.fbs";
+include "Tag.fbs";
+
+namespace FlatData;
+
+table TagExcel {
+    furniture: Tag;
+    none: Club;
+}

@@ -1,0 +1,9 @@
+include "MinigameTBGObjectExcel.fbs";
+
+namespace FlatData;
+
+table MinigameTBGObjectExcelTable {
+    data_list: [MinigameTBGObjectExcel];
+}
+
+root_type MinigameTBGObjectExcelTable;

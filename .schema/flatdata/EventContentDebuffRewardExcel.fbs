@@ -1,0 +1,10 @@
+include "EventContentItemType.fbs";
+
+namespace FlatData;
+
+table EventContentDebuffRewardExcel {
+    event_content_id: long;
+    event_stage_id: long;
+    event_content_item_type: EventContentItemType;
+    reward_percentage: long;
+}

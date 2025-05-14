@@ -1,0 +1,9 @@
+include "DuplicateBonusExcel.fbs";
+
+namespace FlatData;
+
+table DuplicateBonusExcelTable {
+    data_list: [DuplicateBonusExcel];
+}
+
+root_type DuplicateBonusExcelTable;

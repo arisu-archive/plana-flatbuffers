@@ -1,0 +1,14 @@
+namespace MX.Data.Excel;
+
+table UnderCoverStageExcel {
+    group_id: long;
+    stage_name_file: string;
+    stage_try_count: int;
+    apply_skip: bool;
+    skip_count: int;
+    show_clear_scene: bool;
+    stage_tips: uint;
+    stage_name: uint;
+}
+
+root_type UnderCoverStageExcel;

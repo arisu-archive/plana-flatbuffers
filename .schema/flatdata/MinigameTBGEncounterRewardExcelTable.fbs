@@ -1,0 +1,9 @@
+include "MinigameTBGEncounterRewardExcel.fbs";
+
+namespace FlatData;
+
+table MinigameTBGEncounterRewardExcelTable {
+    data_list: [MinigameTBGEncounterRewardExcel];
+}
+
+root_type MinigameTBGEncounterRewardExcelTable;

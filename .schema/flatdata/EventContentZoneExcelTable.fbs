@@ -1,0 +1,9 @@
+include "EventContentZoneExcel.fbs";
+
+namespace FlatData;
+
+table EventContentZoneExcelTable {
+    data_list: [EventContentZoneExcel];
+}
+
+root_type EventContentZoneExcelTable;

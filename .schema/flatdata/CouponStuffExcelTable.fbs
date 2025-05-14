@@ -1,0 +1,9 @@
+include "CouponStuffExcel.fbs";
+
+namespace FlatData;
+
+table CouponStuffExcelTable {
+    data_list: [CouponStuffExcel];
+}
+
+root_type CouponStuffExcelTable;

@@ -1,0 +1,9 @@
+include "LocalizeFieldExcel.fbs";
+
+namespace FlatData;
+
+table LocalizeFieldExcelTable {
+    data_list: [LocalizeFieldExcel];
+}
+
+root_type LocalizeFieldExcelTable;

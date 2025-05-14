@@ -1,0 +1,19 @@
+include "FieldConditionType.fbs";
+include "FieldWorldMapButtonType.fbs";
+
+namespace FlatData;
+
+table FieldWorldMapZoneExcel {
+    id: long;
+    group_id: int;
+    date: int;
+    open_condition_type: FieldConditionType;
+    open_condition_id: long;
+    close_condition_type: FieldConditionType;
+    close_condition_id: long;
+    result_field_scene: long;
+    field_stage_interaction_id: long;
+    world_map_button_type: FieldWorldMapButtonType;
+    localize_code: uint;
+    new_tag_display: bool;
+}

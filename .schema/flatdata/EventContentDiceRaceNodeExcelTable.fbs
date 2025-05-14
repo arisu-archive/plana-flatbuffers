@@ -1,0 +1,9 @@
+include "EventContentDiceRaceNodeExcel.fbs";
+
+namespace FlatData;
+
+table EventContentDiceRaceNodeExcelTable {
+    data_list: [EventContentDiceRaceNodeExcel];
+}
+
+root_type EventContentDiceRaceNodeExcelTable;

@@ -1,0 +1,9 @@
+include "TimeAttackDungeonSeasonManageExcel.fbs";
+
+namespace FlatData;
+
+table TimeAttackDungeonSeasonManageExcelTable {
+    data_list: [TimeAttackDungeonSeasonManageExcel];
+}
+
+root_type TimeAttackDungeonSeasonManageExcelTable;

@@ -1,0 +1,9 @@
+include "WeekDungeonGroupBuffExcel.fbs";
+
+namespace FlatData;
+
+table WeekDungeonGroupBuffExcelTable {
+    data_list: [WeekDungeonGroupBuffExcel];
+}
+
+root_type WeekDungeonGroupBuffExcelTable;

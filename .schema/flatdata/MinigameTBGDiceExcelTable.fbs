@@ -1,0 +1,9 @@
+include "MinigameTBGDiceExcel.fbs";
+
+namespace FlatData;
+
+table MinigameTBGDiceExcelTable {
+    data_list: [MinigameTBGDiceExcel];
+}
+
+root_type MinigameTBGDiceExcelTable;

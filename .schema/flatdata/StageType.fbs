@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum StageType: int {
+    Main = 0,
+    Sub = 1,
+}

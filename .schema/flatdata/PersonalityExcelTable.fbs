@@ -1,0 +1,9 @@
+include "PersonalityExcel.fbs";
+
+namespace FlatData;
+
+table PersonalityExcelTable {
+    data_list: [PersonalityExcel];
+}
+
+root_type PersonalityExcelTable;

@@ -1,0 +1,10 @@
+include "EventContentItemType.fbs";
+
+namespace FlatData;
+
+table EventContentCharacterBonusExcel {
+    event_content_id: long;
+    character_id: long;
+    event_content_item_type: [EventContentItemType];
+    bonus_percentage: [long];
+}

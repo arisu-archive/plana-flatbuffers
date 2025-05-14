@@ -1,0 +1,9 @@
+include "EventContentCardExcel.fbs";
+
+namespace FlatData;
+
+table EventContentCardExcelTable {
+    data_list: [EventContentCardExcel];
+}
+
+root_type EventContentCardExcelTable;

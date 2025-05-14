@@ -1,0 +1,9 @@
+include "WeekDungeonRewardExcel.fbs";
+
+namespace FlatData;
+
+table WeekDungeonRewardExcelTable {
+    data_list: [WeekDungeonRewardExcel];
+}
+
+root_type WeekDungeonRewardExcelTable;

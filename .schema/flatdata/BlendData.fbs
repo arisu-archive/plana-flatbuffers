@@ -1,0 +1,8 @@
+include "BlendInfo.fbs";
+
+namespace FlatData;
+
+table BlendData {
+    type: int;
+    info_list: [BlendInfo];
+}

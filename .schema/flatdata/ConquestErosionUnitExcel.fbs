@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table ConquestErosionUnitExcel {
+    tile_prefab_id: long;
+    mass_erosion_unit_id: long;
+    mass_erosion_unit_rotation_y: float;
+    individual_erosion_unit_id: long;
+    individual_erosion_unit_rotation_y: float;
+}

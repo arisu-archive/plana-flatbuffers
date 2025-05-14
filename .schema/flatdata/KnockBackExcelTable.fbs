@@ -1,0 +1,9 @@
+include "KnockBackExcel.fbs";
+
+namespace FlatData;
+
+table KnockBackExcelTable {
+    data_list: [KnockBackExcel];
+}
+
+root_type KnockBackExcelTable;

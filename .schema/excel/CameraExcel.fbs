@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table CameraExcel {
+    unique_id: long;
+    min_distance: float;
+    max_distance: float;
+    rotation_x: float;
+    rotation_y: float;
+    move_instantly: bool;
+    move_instantly_rotation_save: bool;
+    left_margin: float;
+    bottom_margin: float;
+    ignore_enemies: bool;
+    use_rail_point_compensation: bool;
+}
+
+root_type CameraExcel;

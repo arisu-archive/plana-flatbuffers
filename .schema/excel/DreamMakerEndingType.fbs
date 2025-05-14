@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum DreamMakerEndingType: int {
+    None = 0,
+    Normal = 1,
+    Special = 2,
+}

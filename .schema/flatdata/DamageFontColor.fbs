@@ -1,0 +1,9 @@
+namespace FlatData;
+
+enum DamageFontColor: int {
+    Blue = 0,
+    White = 1,
+    Yellow = 2,
+    Red = 3,
+    Green = 4,
+}

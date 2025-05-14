@@ -1,0 +1,9 @@
+include "FieldStoryStageExcel.fbs";
+
+namespace FlatData;
+
+table FieldStoryStageExcelTable {
+    data_list: [FieldStoryStageExcel];
+}
+
+root_type FieldStoryStageExcelTable;

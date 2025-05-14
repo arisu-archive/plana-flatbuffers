@@ -1,0 +1,9 @@
+include "TranscendenceRecipeExcel.fbs";
+
+namespace FlatData;
+
+table TranscendenceRecipeExcelTable {
+    data_list: [TranscendenceRecipeExcel];
+}
+
+root_type TranscendenceRecipeExcelTable;

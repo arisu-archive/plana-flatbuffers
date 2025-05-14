@@ -1,0 +1,18 @@
+namespace MX.Data.Excel;
+
+table MultiFloorRaidSeasonManageExcel {
+    season_id: long;
+    lobby_enter_scenario: uint;
+    show_lobby_banner: bool;
+    season_start_date: string;
+    end_note_label_start_date: string;
+    season_end_date: string;
+    settlement_end_date: string;
+    open_raid_boss_group_id: string;
+    enter_scenario_key: uint;
+    lobby_img_path: string;
+    level_img_path: string;
+    play_tip: string;
+}
+
+root_type MultiFloorRaidSeasonManageExcel;

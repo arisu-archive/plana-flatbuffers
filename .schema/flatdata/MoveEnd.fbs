@@ -1,0 +1,9 @@
+include "Motion.fbs";
+
+namespace FlatData;
+
+table MoveEnd {
+    normal: Motion;
+    stand: Motion;
+    kneel: Motion;
+}

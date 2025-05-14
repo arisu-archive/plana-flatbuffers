@@ -1,0 +1,9 @@
+include "CharacterWeaponExpBonusExcel.fbs";
+
+namespace FlatData;
+
+table CharacterWeaponExpBonusExcelTable {
+    data_list: [CharacterWeaponExpBonusExcel];
+}
+
+root_type CharacterWeaponExpBonusExcelTable;

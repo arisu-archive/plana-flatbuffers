@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum StrategyEnvironment: int {
+    None = 0,
+    MapFog = 1,
+}

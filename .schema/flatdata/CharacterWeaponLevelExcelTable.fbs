@@ -1,0 +1,9 @@
+include "CharacterWeaponLevelExcel.fbs";
+
+namespace FlatData;
+
+table CharacterWeaponLevelExcelTable {
+    data_list: [CharacterWeaponLevelExcel];
+}
+
+root_type CharacterWeaponLevelExcelTable;

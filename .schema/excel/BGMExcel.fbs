@@ -1,0 +1,16 @@
+include "Nation.fbs";
+
+namespace MX.Data.Excel;
+
+table BGMExcel {
+    id: long;
+    nation: [Nation];
+    path: [string];
+    volume: [float];
+    loop_start_time: [float];
+    loop_end_time: [float];
+    loop_transtion_time: [float];
+    loop_offset_time: [float];
+}
+
+root_type BGMExcel;

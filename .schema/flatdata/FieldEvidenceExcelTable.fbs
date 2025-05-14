@@ -1,0 +1,9 @@
+include "FieldEvidenceExcel.fbs";
+
+namespace FlatData;
+
+table FieldEvidenceExcelTable {
+    data_list: [FieldEvidenceExcel];
+}
+
+root_type FieldEvidenceExcelTable;

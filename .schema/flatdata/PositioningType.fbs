@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum PositioningType: int {
+    CloseToObstacle = 0,
+    CloseToTarget = 1,
+}

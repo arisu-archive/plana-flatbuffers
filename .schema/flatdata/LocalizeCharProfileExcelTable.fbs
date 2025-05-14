@@ -1,0 +1,9 @@
+include "LocalizeCharProfileExcel.fbs";
+
+namespace FlatData;
+
+table LocalizeCharProfileExcelTable {
+    data_list: [LocalizeCharProfileExcel];
+}
+
+root_type LocalizeCharProfileExcelTable;

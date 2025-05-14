@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+include "RewardTag.fbs";
+
+namespace FlatData;
+
+table CampaignStageRewardExcel {
+    group_id: long;
+    reward_tag: RewardTag;
+    stage_reward_prob: int;
+    stage_reward_parcel_type: ParcelType;
+    stage_reward_id: long;
+    stage_reward_amount: int;
+    is_displayed: bool;
+}

@@ -1,0 +1,23 @@
+include "DialogCategory.fbs";
+include "DialogType.fbs";
+include "EmojiEvent.fbs";
+include "ScenarioBGType.fbs";
+include "ScenarioCharacterAction.fbs";
+include "ScenarioContentType.fbs";
+include "ScenarioZoomAnchors.fbs";
+include "ScenarioZoomType.fbs";
+include "StoryCondition.fbs";
+
+namespace FlatData;
+
+table ScenarioExcel {
+    none: [ScenarioBGType];
+    idle: [ScenarioCharacterAction];
+    cafe: DialogCategory;
+    talk: DialogType;
+    open: StoryCondition;
+    enter_conver: EmojiEvent;
+    center: ScenarioZoomAnchors;
+    instant: ScenarioZoomType;
+    prologue: ScenarioContentType;
+}

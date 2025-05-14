@@ -1,0 +1,9 @@
+include "NormalSkillTemplateExcel.fbs";
+
+namespace FlatData;
+
+table NormalSkillTemplateExcelTable {
+    data_list: [NormalSkillTemplateExcel];
+}
+
+root_type NormalSkillTemplateExcelTable;

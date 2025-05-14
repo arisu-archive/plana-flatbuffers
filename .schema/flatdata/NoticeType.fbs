@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum NoticeType: int {
+    None = 0,
+    Notice = 1,
+    Event = 2,
+}

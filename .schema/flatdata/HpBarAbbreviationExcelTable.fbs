@@ -1,0 +1,9 @@
+include "HpBarAbbreviationExcel.fbs";
+
+namespace FlatData;
+
+table HpBarAbbreviationExcelTable {
+    data_list: [HpBarAbbreviationExcel];
+}
+
+root_type HpBarAbbreviationExcelTable;

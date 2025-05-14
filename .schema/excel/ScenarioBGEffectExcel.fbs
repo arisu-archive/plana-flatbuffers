@@ -1,0 +1,15 @@
+include "ScenarioBGScroll.fbs";
+
+namespace MX.Data.Excel;
+
+table ScenarioBGEffectExcel {
+    name: uint;
+    effect: string;
+    effect2: string;
+    scroll: ScenarioBGScroll;
+    scroll_time: long;
+    scroll_from: long;
+    scroll_to: long;
+}
+
+root_type ScenarioBGEffectExcel;

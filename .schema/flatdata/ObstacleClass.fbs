@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ObstacleClass: int {
+    MAIN = 0,
+    SUB = 1,
+}

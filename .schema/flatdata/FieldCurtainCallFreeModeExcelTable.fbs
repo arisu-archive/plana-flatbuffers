@@ -1,0 +1,9 @@
+include "FieldCurtainCallFreeModeExcel.fbs";
+
+namespace FlatData;
+
+table FieldCurtainCallFreeModeExcelTable {
+    data_list: [FieldCurtainCallFreeModeExcel];
+}
+
+root_type FieldCurtainCallFreeModeExcelTable;

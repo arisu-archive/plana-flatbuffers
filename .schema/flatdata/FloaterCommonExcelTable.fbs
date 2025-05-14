@@ -1,0 +1,9 @@
+include "FloaterCommonExcel.fbs";
+
+namespace FlatData;
+
+table FloaterCommonExcelTable {
+    data_list: [FloaterCommonExcel];
+}
+
+root_type FloaterCommonExcelTable;

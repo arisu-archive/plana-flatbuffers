@@ -1,0 +1,23 @@
+include "CVCollectionType.fbs";
+include "Nation.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterVoiceExcel {
+    character_voice_unique_id: long;
+    character_voice_group_id: long;
+    voice_hash: uint;
+    only_one: bool;
+    priority: int;
+    display_order: long;
+    collection_visible: bool;
+    cv_collection_type: CVCollectionType;
+    unlock_favor_rank: long;
+    localize_cv_group: string;
+    nation: [Nation];
+    volume: [float];
+    delay: [float];
+    path: [string];
+}
+
+root_type CharacterVoiceExcel;

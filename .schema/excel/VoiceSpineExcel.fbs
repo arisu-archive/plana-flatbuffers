@@ -1,0 +1,13 @@
+include "Nation.fbs";
+
+namespace MX.Data.Excel;
+
+table VoiceSpineExcel {
+    unique_id: long;
+    id: uint;
+    nation: [Nation];
+    path: [string];
+    sound_volume: [float];
+}
+
+root_type VoiceSpineExcel;

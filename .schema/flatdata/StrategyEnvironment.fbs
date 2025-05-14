@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum StrategyEnvironment: int {
+    None = 0,
+    MapFog = 1,
+}

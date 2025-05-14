@@ -1,0 +1,17 @@
+include "MultipleConditionCheckType.fbs";
+
+namespace MX.Data.Excel;
+
+table WorldRaidConditionExcel {
+    id: long;
+    lock_ui: [string];
+    hide_when_locked: bool;
+    account_level: long;
+    scenario_mode_id: [long];
+    campaign_stage_id: [long];
+    multiple_condition_check_type: MultipleConditionCheckType;
+    after_when_date: string;
+    world_raid_boss_kill: [long];
+}
+
+root_type WorldRaidConditionExcel;

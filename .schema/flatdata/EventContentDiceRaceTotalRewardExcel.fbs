@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table EventContentDiceRaceTotalRewardExcel {
+    event_content_id: long;
+    reward_id: long;
+    required_lap_finish_count: int;
+    display_lap_finish_count: int;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [long];
+}

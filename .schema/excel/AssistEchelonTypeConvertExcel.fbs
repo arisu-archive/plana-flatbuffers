@@ -1,0 +1,10 @@
+include "EchelonType.fbs";
+
+namespace MX.Data.Excel;
+
+table AssistEchelonTypeConvertExcel {
+    contents: EchelonType;
+    convert_to: EchelonType;
+}
+
+root_type AssistEchelonTypeConvertExcel;

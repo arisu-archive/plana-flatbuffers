@@ -1,0 +1,9 @@
+include "MinigameTBGSeasonExcel.fbs";
+
+namespace FlatData;
+
+table MinigameTBGSeasonExcelTable {
+    data_list: [MinigameTBGSeasonExcel];
+}
+
+root_type MinigameTBGSeasonExcelTable;

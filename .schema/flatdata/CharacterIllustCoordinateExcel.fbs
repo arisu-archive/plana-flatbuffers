@@ -1,0 +1,10 @@
+namespace FlatData;
+
+table CharacterIllustCoordinateExcel {
+    id: long;
+    character_body_center_x: float;
+    character_body_center_y: float;
+    default_scale: float;
+    min_scale: float;
+    max_scale: float;
+}

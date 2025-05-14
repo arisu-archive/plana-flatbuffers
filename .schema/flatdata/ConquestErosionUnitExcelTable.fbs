@@ -1,0 +1,9 @@
+include "ConquestErosionUnitExcel.fbs";
+
+namespace FlatData;
+
+table ConquestErosionUnitExcelTable {
+    data_list: [ConquestErosionUnitExcel];
+}
+
+root_type ConquestErosionUnitExcelTable;

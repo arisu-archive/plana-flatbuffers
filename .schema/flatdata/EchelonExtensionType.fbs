@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum EchelonExtensionType: int {
+    Base = 0,
+    Extension = 1,
+}

@@ -1,0 +1,9 @@
+include "CampaignChapterExcel.fbs";
+
+namespace FlatData;
+
+table CampaignChapterExcelTable {
+    data_list: [CampaignChapterExcel];
+}
+
+root_type CampaignChapterExcelTable;

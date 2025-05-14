@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum MessagePopupImagePositionType: int {
+    ImageFirst = 0,
+    TextFirst = 1,
+}

@@ -1,0 +1,9 @@
+include "TacticArenaSimulatorSettingExcel.fbs";
+
+namespace FlatData;
+
+table TacticArenaSimulatorSettingExcelTable {
+    data_list: [TacticArenaSimulatorSettingExcel];
+}
+
+root_type TacticArenaSimulatorSettingExcelTable;

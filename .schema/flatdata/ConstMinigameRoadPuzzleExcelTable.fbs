@@ -1,0 +1,9 @@
+include "ConstMinigameRoadPuzzleExcel.fbs";
+
+namespace FlatData;
+
+table ConstMinigameRoadPuzzleExcelTable {
+    data_list: [ConstMinigameRoadPuzzleExcel];
+}
+
+root_type ConstMinigameRoadPuzzleExcelTable;

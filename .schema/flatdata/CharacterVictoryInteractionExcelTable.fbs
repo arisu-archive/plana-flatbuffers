@@ -1,0 +1,9 @@
+include "CharacterVictoryInteractionExcel.fbs";
+
+namespace FlatData;
+
+table CharacterVictoryInteractionExcelTable {
+    data_list: [CharacterVictoryInteractionExcel];
+}
+
+root_type CharacterVictoryInteractionExcelTable;

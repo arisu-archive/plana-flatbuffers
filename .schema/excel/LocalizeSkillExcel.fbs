@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table LocalizeSkillExcel {
+    key: uint;
+    name_kr: string;
+    description_kr: string;
+    skill_invoke_localize_kr: string;
+    name_jp: string;
+    description_jp: string;
+    skill_invoke_localize_jp: string;
+}
+
+root_type LocalizeSkillExcel;

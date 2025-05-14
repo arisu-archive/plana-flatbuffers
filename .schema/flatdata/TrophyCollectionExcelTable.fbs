@@ -1,0 +1,9 @@
+include "TrophyCollectionExcel.fbs";
+
+namespace FlatData;
+
+table TrophyCollectionExcelTable {
+    data_list: [TrophyCollectionExcel];
+}
+
+root_type TrophyCollectionExcelTable;

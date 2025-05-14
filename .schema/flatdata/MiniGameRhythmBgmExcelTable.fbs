@@ -1,0 +1,9 @@
+include "MiniGameRhythmBgmExcel.fbs";
+
+namespace FlatData;
+
+table MiniGameRhythmBgmExcelTable {
+    data_list: [MiniGameRhythmBgmExcel];
+}
+
+root_type MiniGameRhythmBgmExcelTable;

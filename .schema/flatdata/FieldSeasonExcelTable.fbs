@@ -1,0 +1,9 @@
+include "FieldSeasonExcel.fbs";
+
+namespace FlatData;
+
+table FieldSeasonExcelTable {
+    data_list: [FieldSeasonExcel];
+}
+
+root_type FieldSeasonExcelTable;

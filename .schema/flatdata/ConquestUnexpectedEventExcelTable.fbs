@@ -1,0 +1,9 @@
+include "ConquestUnexpectedEventExcel.fbs";
+
+namespace FlatData;
+
+table ConquestUnexpectedEventExcelTable {
+    data_list: [ConquestUnexpectedEventExcel];
+}
+
+root_type ConquestUnexpectedEventExcelTable;

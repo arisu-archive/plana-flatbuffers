@@ -1,0 +1,9 @@
+include "ConquestStepExcel.fbs";
+
+namespace FlatData;
+
+table ConquestStepExcelTable {
+    data_list: [ConquestStepExcel];
+}
+
+root_type ConquestStepExcelTable;

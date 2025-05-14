@@ -1,0 +1,9 @@
+include "TacticSkipExcel.fbs";
+
+namespace FlatData;
+
+table TacticSkipExcelTable {
+    data_list: [TacticSkipExcel];
+}
+
+root_type TacticSkipExcelTable;

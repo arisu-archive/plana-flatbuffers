@@ -1,0 +1,12 @@
+include "ConquestProgressType.fbs";
+
+namespace FlatData;
+
+table ConquestProgressResourceExcel {
+    id: long;
+    event_content_id: long;
+    group: ConquestProgressType;
+    progress_resource: string;
+    voice_id: [uint];
+    progress_localize_code: string;
+}

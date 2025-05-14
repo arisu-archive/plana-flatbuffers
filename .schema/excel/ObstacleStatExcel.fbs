@@ -1,0 +1,21 @@
+namespace MX.Data.Excel;
+
+table ObstacleStatExcel {
+    string_id: uint;
+    name: string;
+    max_hp1: long;
+    max_hp100: long;
+    block_rate: long;
+    dodge: long;
+    can_not_stand_range: long;
+    highlight_floater_height: float;
+    enhance_light_armor_rate: long;
+    enhance_heavy_armor_rate: long;
+    enhance_unarmed_rate: long;
+    enhance_elastic_armor_rate: long;
+    enhance_structure_rate: long;
+    enhance_normal_armor_rate: long;
+    reduce_ex_damaged_rate: long;
+}
+
+root_type ObstacleStatExcel;

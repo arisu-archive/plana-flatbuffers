@@ -1,0 +1,21 @@
+include "AcademyMessageConditions.fbs";
+include "AcademyMessageTypes.fbs";
+
+namespace FlatData;
+
+table AcademyMessanger3Excel {
+    message_group_id: long;
+    id: long;
+    character_id: long;
+    message_condition: AcademyMessageConditions;
+    condition_value: long;
+    pre_condition_group_id: long;
+    pre_condition_favor_schedule_id: long;
+    favor_schedule_id: long;
+    next_group_id: long;
+    feedback_time_millisec: long;
+    message_type: AcademyMessageTypes;
+    image_path: string;
+    message_kr: string;
+    message_jp: string;
+}

@@ -1,0 +1,31 @@
+namespace FlatData;
+
+table TacticalSupportSystemExcel {
+    id: long;
+    summoned_time: long;
+    default_personality_id: long;
+    can_targeting: bool;
+    can_cover: bool;
+    obstacle_unique_name: string;
+    obstacle_cover_range: long;
+    summon_skilll_group_id: string;
+    crash_obstacle_obb_width: long;
+    crash_obstacle_obb_height: long;
+    is_tss_blocked_node_check: bool;
+    number_of_uses: int;
+    inventory_offset_x: float;
+    inventory_offset_y: float;
+    inventory_offset_z: float;
+    interaction_char: long;
+    character_interaction_start_delay: long;
+    get_on_start_effect_path: string;
+    get_on_end_effect_path: string;
+    summoner_character_id: long;
+    interaction_frame: int;
+    tsa_interaction_add_duration: long;
+    interaction_student_ex_skill_group_id: string;
+    interaction_skill_card_texture: string;
+    interaction_skill_spine: string;
+    retreat_frame: int;
+    destroy_frame: int;
+}

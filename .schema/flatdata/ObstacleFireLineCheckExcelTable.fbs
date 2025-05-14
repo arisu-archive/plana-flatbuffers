@@ -1,0 +1,9 @@
+include "ObstacleFireLineCheckExcel.fbs";
+
+namespace FlatData;
+
+table ObstacleFireLineCheckExcelTable {
+    data_list: [ObstacleFireLineCheckExcel];
+}
+
+root_type ObstacleFireLineCheckExcelTable;

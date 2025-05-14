@@ -1,0 +1,37 @@
+include "VoiceEvent.fbs";
+
+namespace FlatData;
+
+table CharacterVictoryInteractionExcel {
+    interaction_id: long;
+    costume_id01: long;
+    position_index01: int;
+    victory_start_animation_path01: string;
+    victory_end_animation_path01: string;
+    voice_event01: VoiceEvent;
+    costume_id02: long;
+    position_index02: int;
+    victory_start_animation_path02: string;
+    victory_end_animation_path02: string;
+    voice_event02: VoiceEvent;
+    costume_id03: long;
+    position_index03: int;
+    victory_start_animation_path03: string;
+    victory_end_animation_path03: string;
+    voice_event03: VoiceEvent;
+    costume_id04: long;
+    position_index04: int;
+    victory_start_animation_path04: string;
+    victory_end_animation_path04: string;
+    voice_event04: VoiceEvent;
+    costume_id05: long;
+    position_index05: int;
+    victory_start_animation_path05: string;
+    victory_end_animation_path05: string;
+    voice_event05: VoiceEvent;
+    costume_id06: long;
+    position_index06: int;
+    victory_start_animation_path06: string;
+    victory_end_animation_path06: string;
+    voice_event06: VoiceEvent;
+}

@@ -1,0 +1,9 @@
+include "AcademyMessangerExcel.fbs";
+
+namespace FlatData;
+
+table AcademyMessangerExcelTable {
+    data_list: [AcademyMessangerExcel];
+}
+
+root_type AcademyMessangerExcelTable;

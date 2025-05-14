@@ -1,0 +1,9 @@
+include "StrategyObjectBuffDefineExcel.fbs";
+
+namespace FlatData;
+
+table StrategyObjectBuffDefineExcelTable {
+    data_list: [StrategyObjectBuffDefineExcel];
+}
+
+root_type StrategyObjectBuffDefineExcelTable;

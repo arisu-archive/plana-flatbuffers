@@ -1,0 +1,9 @@
+include "EventContentSpecialOperationsExcel.fbs";
+
+namespace FlatData;
+
+table EventContentSpecialOperationsExcelTable {
+    data_list: [EventContentSpecialOperationsExcel];
+}
+
+root_type EventContentSpecialOperationsExcelTable;

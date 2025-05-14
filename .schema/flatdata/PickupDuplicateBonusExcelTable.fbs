@@ -1,0 +1,9 @@
+include "PickupDuplicateBonusExcel.fbs";
+
+namespace FlatData;
+
+table PickupDuplicateBonusExcelTable {
+    data_list: [PickupDuplicateBonusExcel];
+}
+
+root_type PickupDuplicateBonusExcelTable;

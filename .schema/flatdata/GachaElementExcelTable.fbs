@@ -1,0 +1,9 @@
+include "GachaElementExcel.fbs";
+
+namespace FlatData;
+
+table GachaElementExcelTable {
+    data_list: [GachaElementExcel];
+}
+
+root_type GachaElementExcelTable;

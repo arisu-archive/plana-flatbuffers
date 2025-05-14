@@ -1,0 +1,10 @@
+namespace FlatData;
+
+table FieldEvidenceExcel {
+    unique_id: long;
+    season_id: long;
+    name_localize_key: string;
+    description_localize_key: string;
+    detail_localize_key: string;
+    image_path: string;
+}

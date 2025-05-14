@@ -1,0 +1,9 @@
+include "EventContentBoxGachaElementExcel.fbs";
+
+namespace FlatData;
+
+table EventContentBoxGachaElementExcelTable {
+    data_list: [EventContentBoxGachaElementExcel];
+}
+
+root_type EventContentBoxGachaElementExcelTable;

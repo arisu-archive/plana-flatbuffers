@@ -1,0 +1,9 @@
+include "ItemExcel.fbs";
+
+namespace FlatData;
+
+table ItemExcelTable {
+    data_list: [ItemExcel];
+}
+
+root_type ItemExcelTable;

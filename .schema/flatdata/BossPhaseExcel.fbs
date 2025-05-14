@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table BossPhaseExcel {
+    id: long;
+    ai_phase: long;
+    normal_attack_skill_unique_name: string;
+    use_ex_skill: [bool];
+}

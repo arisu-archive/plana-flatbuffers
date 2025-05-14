@@ -1,0 +1,9 @@
+include "LimitedStageExcel.fbs";
+
+namespace FlatData;
+
+table LimitedStageExcelTable {
+    data_list: [LimitedStageExcel];
+}
+
+root_type LimitedStageExcelTable;

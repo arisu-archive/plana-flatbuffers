@@ -1,0 +1,9 @@
+include "ConstArenaExcel.fbs";
+
+namespace FlatData;
+
+table ConstArenaExcelTable {
+    data_list: [ConstArenaExcel];
+}
+
+root_type ConstArenaExcelTable;

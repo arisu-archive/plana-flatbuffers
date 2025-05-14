@@ -1,0 +1,12 @@
+include "TacticEntityType.fbs";
+
+namespace FlatData;
+
+table FloaterCommonExcel {
+    id: long;
+    tactic_entity_type: TacticEntityType;
+    floater_offset_pos_x: int;
+    floater_offset_pos_y: int;
+    floater_random_pos_range_x: int;
+    floater_random_pos_range_y: int;
+}

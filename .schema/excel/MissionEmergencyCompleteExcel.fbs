@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table MissionEmergencyCompleteExcel {
+    mission_id: long;
+    emergency_complete: bool;
+}
+
+root_type MissionEmergencyCompleteExcel;

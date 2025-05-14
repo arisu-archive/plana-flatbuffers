@@ -1,0 +1,9 @@
+include "CharacterDialogFieldExcel.fbs";
+
+namespace FlatData;
+
+table CharacterDialogFieldExcelTable {
+    data_list: [CharacterDialogFieldExcel];
+}
+
+root_type CharacterDialogFieldExcelTable;

@@ -1,0 +1,25 @@
+include "EquipmentOptionType.fbs";
+include "StatLevelUpType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterGearExcel {
+    id: long;
+    character_id: long;
+    stat_level_up_type: StatLevelUpType;
+    tier: long;
+    next_tier_equipment: long;
+    recipe_id: long;
+    open_favor_level: long;
+    max_level: long;
+    learn_skill_slot: string;
+    stat_type: [EquipmentOptionType];
+    min_stat_value: [long];
+    max_stat_value: [long];
+    icon: string;
+    localize_etc_id: uint;
+    tags: [Tag];
+}
+
+root_type CharacterGearExcel;

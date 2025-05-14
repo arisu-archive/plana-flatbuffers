@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum TileState: int {
+    None = 0,
+    PartiallyConquested = 1,
+    FullyConquested = 2,
+}

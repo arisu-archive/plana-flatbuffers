@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum ScenarioEffectDepth: int {
+    None = 0,
+    AboveBg = 1,
+    AboveCharacter = 2,
+    AboveAll = 3,
+}

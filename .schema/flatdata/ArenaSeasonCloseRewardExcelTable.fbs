@@ -1,0 +1,9 @@
+include "ArenaSeasonCloseRewardExcel.fbs";
+
+namespace FlatData;
+
+table ArenaSeasonCloseRewardExcelTable {
+    data_list: [ArenaSeasonCloseRewardExcel];
+}
+
+root_type ArenaSeasonCloseRewardExcelTable;

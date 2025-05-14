@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table FavorLevelExcel {
+    level: long;
+    exp_type: [long];
+}
+
+root_type FavorLevelExcel;

@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table WorldRaidFavorBuffExcel {
+    world_raid_favor_rank: long;
+    world_raid_favor_rank_bonus: long;
+}

@@ -1,0 +1,11 @@
+include "ServiceActionType.fbs";
+
+namespace MX.Data.Excel;
+
+table ServiceActionExcel {
+    service_action_type: ServiceActionType;
+    is_legacy: bool;
+    goods_id: long;
+}
+
+root_type ServiceActionExcel;

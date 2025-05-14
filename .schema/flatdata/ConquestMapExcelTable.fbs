@@ -1,0 +1,9 @@
+include "ConquestMapExcel.fbs";
+
+namespace FlatData;
+
+table ConquestMapExcelTable {
+    data_list: [ConquestMapExcel];
+}
+
+root_type ConquestMapExcelTable;

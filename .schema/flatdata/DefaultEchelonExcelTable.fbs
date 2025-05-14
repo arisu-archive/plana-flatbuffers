@@ -1,0 +1,9 @@
+include "DefaultEchelonExcel.fbs";
+
+namespace FlatData;
+
+table DefaultEchelonExcelTable {
+    data_list: [DefaultEchelonExcel];
+}
+
+root_type DefaultEchelonExcelTable;

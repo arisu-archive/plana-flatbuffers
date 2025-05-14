@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table EventContentBoxGachaManageExcel {
+    event_content_id: long;
+    round: long;
+    goods_id: long;
+    is_loop: bool;
+}

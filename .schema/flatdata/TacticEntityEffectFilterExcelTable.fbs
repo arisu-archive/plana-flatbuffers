@@ -1,0 +1,9 @@
+include "TacticEntityEffectFilterExcel.fbs";
+
+namespace FlatData;
+
+table TacticEntityEffectFilterExcelTable {
+    data_list: [TacticEntityEffectFilterExcel];
+}
+
+root_type TacticEntityEffectFilterExcelTable;

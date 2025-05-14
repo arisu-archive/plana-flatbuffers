@@ -1,0 +1,9 @@
+include "PropMotion.fbs";
+
+namespace FlatData;
+
+table PropRootMotionFlat {
+    root_motions: [PropMotion];
+}
+
+root_type PropRootMotionFlat;

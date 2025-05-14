@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table Position {
+    x: float;
+    z: float;
+}

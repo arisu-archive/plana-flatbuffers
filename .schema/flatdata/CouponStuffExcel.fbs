@@ -1,0 +1,11 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table CouponStuffExcel {
+    stuff_id: long;
+    parcel_type: ParcelType;
+    parcel_id: long;
+    limit_amount: int;
+    coupon_stuff_name_localize_key: string;
+}

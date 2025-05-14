@@ -1,0 +1,9 @@
+include "PropVector3.fbs";
+
+namespace FlatData;
+
+table PropMotion {
+    name: string;
+    positions: [PropVector3];
+    rotations: [PropVector3];
+}

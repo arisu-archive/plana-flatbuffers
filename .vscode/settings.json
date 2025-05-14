@@ -1,0 +1,21 @@
+{
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+    "--fast",
+    "--fix",
+  ],
+  "gopls": {
+    "formatting.local": "github.com/arisu-archive/plana-flatbuffers",
+    "formatting.gofumpt": true
+  },
+  "cSpell.words": [
+    "arisu",
+    "bluearchive",
+    "fbsgen",
+    "fbsutils",
+    "flatbuffers",
+    "flatdata",
+    "Sript",
+    "unmarshals"
+  ]
+}

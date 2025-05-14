@@ -1,0 +1,9 @@
+include "TerrainAdaptationFactorExcel.fbs";
+
+namespace FlatData;
+
+table TerrainAdaptationFactorExcelTable {
+    data_list: [TerrainAdaptationFactorExcel];
+}
+
+root_type TerrainAdaptationFactorExcelTable;

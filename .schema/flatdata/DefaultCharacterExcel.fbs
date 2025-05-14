@@ -1,0 +1,16 @@
+namespace FlatData;
+
+table DefaultCharacterExcel {
+    character_id: long;
+    favorite_character: bool;
+    level: int;
+    exp: int;
+    favor_exp: int;
+    favor_rank: int;
+    star_grade: int;
+    ex_skill_level: int;
+    passive_skill_level: int;
+    extra_passive_skill_level: int;
+    common_skill_level: int;
+    leader_skill_level: int;
+}

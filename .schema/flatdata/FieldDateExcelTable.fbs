@@ -1,0 +1,9 @@
+include "FieldDateExcel.fbs";
+
+namespace FlatData;
+
+table FieldDateExcelTable {
+    data_list: [FieldDateExcel];
+}
+
+root_type FieldDateExcelTable;

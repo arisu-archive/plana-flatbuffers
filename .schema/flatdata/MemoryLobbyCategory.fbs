@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum MemoryLobbyCategory: int {
+    None = 0,
+    UILobbySpecial = 1,
+    UILobbySpecial2 = 2,
+}

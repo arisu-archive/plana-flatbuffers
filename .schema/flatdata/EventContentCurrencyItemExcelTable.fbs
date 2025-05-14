@@ -1,0 +1,9 @@
+include "EventContentCurrencyItemExcel.fbs";
+
+namespace FlatData;
+
+table EventContentCurrencyItemExcelTable {
+    data_list: [EventContentCurrencyItemExcel];
+}
+
+root_type EventContentCurrencyItemExcelTable;

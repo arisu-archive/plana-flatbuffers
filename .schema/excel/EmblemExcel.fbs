@@ -1,0 +1,32 @@
+include "EmblemCategory.fbs";
+include "EmblemCheckPassType.fbs";
+include "EmblemDisplayType.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table EmblemExcel {
+    id: long;
+    category: EmblemCategory;
+    rarity: Rarity;
+    display_order: long;
+    localize_etc_id: uint;
+    localize_code_id: uint;
+    use_at_localize_id: long;
+    emblem_text_visible: bool;
+    icon_path: string;
+    emblem_icon_path: string;
+    emblem_icon_num_control: int;
+    emblem_icon_bg_path: string;
+    emblem_bg_path_jp: string;
+    emblem_bg_path_kr: string;
+    display_type: EmblemDisplayType;
+    display_start_date: string;
+    display_end_date: string;
+    dislpay_favor_level: int;
+    check_pass_type: EmblemCheckPassType;
+    emblem_parameter: long;
+    check_pass_count: long;
+}
+
+root_type EmblemExcel;

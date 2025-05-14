@@ -1,0 +1,9 @@
+namespace FlatData;
+
+enum SkillPriorityCheckCondition: int {
+    None = 0,
+    HPRateUnder = 1,
+    DebuffCountOver = 2,
+    BuffCountOver = 3,
+    CrowdControlOver = 4,
+}

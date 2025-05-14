@@ -1,0 +1,16 @@
+namespace FlatData;
+
+table MinigameTBGEncounterOptionExcel {
+    option_group_id: long;
+    unique_id: long;
+    slot_index: int;
+    option_title_localize: string;
+    option_success_localize: string;
+    option_success_reward_group_id: long;
+    option_success_or_higher_dice_count: int;
+    option_great_success_or_higher_dice_count: int;
+    option_fail_localize: string;
+    option_fail_less_dice_count: int;
+    runaway_or_higher_dice_count: int;
+    reward_hide: bool;
+}

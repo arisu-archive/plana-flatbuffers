@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum StickerCheckPassType: int {
+    None = 0,
+    ClearScenarioModeId = 1,
+    ClearCampaignStageId = 2,
+}

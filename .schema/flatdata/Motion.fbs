@@ -1,0 +1,8 @@
+include "Position.fbs";
+
+namespace FlatData;
+
+table Motion {
+    name: string;
+    positions: [Position];
+}

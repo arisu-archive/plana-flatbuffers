@@ -1,0 +1,9 @@
+include "DefaultParcelExcel.fbs";
+
+namespace FlatData;
+
+table DefaultParcelExcelTable {
+    data_list: [DefaultParcelExcel];
+}
+
+root_type DefaultParcelExcelTable;

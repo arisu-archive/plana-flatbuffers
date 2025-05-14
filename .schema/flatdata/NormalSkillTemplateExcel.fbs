@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table NormalSkillTemplateExcel {
+    index: long;
+    first_cool_time: float;
+    cool_time: float;
+    multi_ani: bool;
+}

@@ -1,0 +1,9 @@
+include "CampaignStageExcel.fbs";
+
+namespace FlatData;
+
+table CampaignStageExcelTable {
+    data_list: [CampaignStageExcel];
+}
+
+root_type CampaignStageExcelTable;

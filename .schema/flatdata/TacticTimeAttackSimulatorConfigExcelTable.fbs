@@ -1,0 +1,9 @@
+include "TacticTimeAttackSimulatorConfigExcel.fbs";
+
+namespace FlatData;
+
+table TacticTimeAttackSimulatorConfigExcelTable {
+    data_list: [TacticTimeAttackSimulatorConfigExcel];
+}
+
+root_type TacticTimeAttackSimulatorConfigExcelTable;

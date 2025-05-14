@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ContentsChangeType: int {
+    None = 0,
+    WorldRaidBossDamageRatio = 1,
+    WorldRaidBossGroupDate = 2,
+}

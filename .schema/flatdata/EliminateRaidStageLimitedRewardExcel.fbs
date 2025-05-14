@@ -1,0 +1,10 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table EliminateRaidStageLimitedRewardExcel {
+    limited_reward_id: long;
+    limited_reward_parcel_type: [ParcelType];
+    limited_reward_parcel_unique_id: [long];
+    limited_reward_amount: [long];
+}

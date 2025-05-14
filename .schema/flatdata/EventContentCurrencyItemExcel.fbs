@@ -1,0 +1,10 @@
+include "EventContentItemType.fbs";
+
+namespace FlatData;
+
+table EventContentCurrencyItemExcel {
+    event_content_id: long;
+    event_content_item_type: EventContentItemType;
+    item_unique_id: long;
+    use_short_cut_content_type: string;
+}

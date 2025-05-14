@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum SoundType: int {
+    UI = 0,
+    BGM = 1,
+    FX = 2,
+}

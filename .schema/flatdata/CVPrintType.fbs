@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum CVPrintType: int {
+    CharacterOverwrite = 0,
+    PrefabOverwrite = 1,
+    Add = 2,
+}

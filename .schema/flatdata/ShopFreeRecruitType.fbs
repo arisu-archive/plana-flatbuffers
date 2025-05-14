@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ShopFreeRecruitType: int {
+    None = 0,
+    Accumulation = 1,
+    Reset = 2,
+}

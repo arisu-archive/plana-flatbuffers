@@ -1,0 +1,9 @@
+include "CharacterDialogEmojiExcel.fbs";
+
+namespace FlatData;
+
+table CharacterDialogEmojiExcelTable {
+    data_list: [CharacterDialogEmojiExcel];
+}
+
+root_type CharacterDialogEmojiExcelTable;

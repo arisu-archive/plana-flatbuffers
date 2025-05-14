@@ -1,0 +1,9 @@
+include "ConquestCalculateExcel.fbs";
+
+namespace FlatData;
+
+table ConquestCalculateExcelTable {
+    data_list: [ConquestCalculateExcel];
+}
+
+root_type ConquestCalculateExcelTable;

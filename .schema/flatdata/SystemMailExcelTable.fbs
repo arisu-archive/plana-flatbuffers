@@ -1,0 +1,9 @@
+include "SystemMailExcel.fbs";
+
+namespace FlatData;
+
+table SystemMailExcelTable {
+    data_list: [SystemMailExcel];
+}
+
+root_type SystemMailExcelTable;

@@ -1,0 +1,9 @@
+include "CharacterCalculationLimitExcel.fbs";
+
+namespace FlatData;
+
+table CharacterCalculationLimitExcelTable {
+    data_list: [CharacterCalculationLimitExcel];
+}
+
+root_type CharacterCalculationLimitExcelTable;

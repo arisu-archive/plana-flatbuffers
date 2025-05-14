@@ -1,0 +1,9 @@
+include "BulletArmorDamageFactorExcel.fbs";
+
+namespace FlatData;
+
+table BulletArmorDamageFactorExcelTable {
+    data_list: [BulletArmorDamageFactorExcel];
+}
+
+root_type BulletArmorDamageFactorExcelTable;

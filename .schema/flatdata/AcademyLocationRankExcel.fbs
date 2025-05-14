@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table AcademyLocationRankExcel {
+    rank: long;
+    rank_exp: long;
+    total_exp: long;
+}

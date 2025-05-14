@@ -1,0 +1,9 @@
+include "FieldRewardExcel.fbs";
+
+namespace FlatData;
+
+table FieldRewardExcelTable {
+    data_list: [FieldRewardExcel];
+}
+
+root_type FieldRewardExcelTable;

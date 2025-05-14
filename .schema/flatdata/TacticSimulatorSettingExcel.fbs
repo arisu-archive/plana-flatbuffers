@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table TacticSimulatorSettingExcel {
+    ground_id: long;
+    fixed_echelon_id: long;
+}

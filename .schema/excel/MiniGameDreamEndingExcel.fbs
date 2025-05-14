@@ -1,0 +1,16 @@
+include "DreamMakerEndingCondition.fbs";
+include "DreamMakerEndingType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameDreamEndingExcel {
+    event_content_id: long;
+    ending_id: long;
+    dream_maker_ending_type: DreamMakerEndingType;
+    order: int;
+    scenario_group_id: long;
+    ending_condition: [DreamMakerEndingCondition];
+    ending_condition_value: [long];
+}
+
+root_type MiniGameDreamEndingExcel;

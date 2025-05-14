@@ -1,0 +1,9 @@
+include "TacticDamageSimulatorSettingExcel.fbs";
+
+namespace FlatData;
+
+table TacticDamageSimulatorSettingExcelTable {
+    data_list: [TacticDamageSimulatorSettingExcel];
+}
+
+root_type TacticDamageSimulatorSettingExcelTable;

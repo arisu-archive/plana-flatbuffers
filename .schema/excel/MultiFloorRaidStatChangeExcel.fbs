@@ -1,0 +1,13 @@
+include "StatType.fbs";
+
+namespace MX.Data.Excel;
+
+table MultiFloorRaidStatChangeExcel {
+    stat_change_id: long;
+    stat_type: [StatType];
+    stat_add: [long];
+    stat_multiply: [long];
+    apply_character_id: [long];
+}
+
+root_type MultiFloorRaidStatChangeExcel;

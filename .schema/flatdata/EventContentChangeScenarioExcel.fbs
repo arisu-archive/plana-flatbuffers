@@ -1,0 +1,10 @@
+include "EventChangeType.fbs";
+
+namespace FlatData;
+
+table EventContentChangeScenarioExcel {
+    event_content_id: long;
+    change_type: EventChangeType;
+    change_count: long;
+    scenario_group_id: long;
+}

@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ClanJoinOption: int {
+    Free = 0,
+    Permission = 1,
+    All = 2,
+}

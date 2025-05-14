@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table CharacterLevelExcel {
+    level: int;
+    exp: long;
+    total_exp: long;
+}

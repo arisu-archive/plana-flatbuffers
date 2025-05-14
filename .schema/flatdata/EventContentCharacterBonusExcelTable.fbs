@@ -1,0 +1,9 @@
+include "EventContentCharacterBonusExcel.fbs";
+
+namespace FlatData;
+
+table EventContentCharacterBonusExcelTable {
+    data_list: [EventContentCharacterBonusExcel];
+}
+
+root_type EventContentCharacterBonusExcelTable;

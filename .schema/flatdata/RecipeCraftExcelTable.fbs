@@ -1,0 +1,9 @@
+include "RecipeCraftExcel.fbs";
+
+namespace FlatData;
+
+table RecipeCraftExcelTable {
+    data_list: [RecipeCraftExcel];
+}
+
+root_type RecipeCraftExcelTable;

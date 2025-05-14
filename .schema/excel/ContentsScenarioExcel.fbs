@@ -1,0 +1,13 @@
+include "ScenarioContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table ContentsScenarioExcel {
+    id: uint;
+    localize_id: uint;
+    display_order: int;
+    scenario_content_type: ScenarioContentType;
+    scenario_group_id: [long];
+}
+
+root_type ContentsScenarioExcel;

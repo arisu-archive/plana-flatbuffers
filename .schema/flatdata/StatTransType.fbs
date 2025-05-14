@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum StatTransType: int {
+    SpecialTransStat = 0,
+    TSATransStat = 1,
+}

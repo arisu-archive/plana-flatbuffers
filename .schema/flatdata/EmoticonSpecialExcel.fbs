@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table EmoticonSpecialExcel {
+    unique_id: long;
+    character_unique_id: long;
+    random: string;
+}

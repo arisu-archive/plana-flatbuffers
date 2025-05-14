@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ShowSkillCutIn: int {
+    None = 0,
+    Once = 1,
+    Always = 2,
+}

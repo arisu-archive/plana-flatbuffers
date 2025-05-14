@@ -1,0 +1,9 @@
+include "FieldWorldMapZoneExcel.fbs";
+
+namespace FlatData;
+
+table FieldWorldMapZoneExcelTable {
+    data_list: [FieldWorldMapZoneExcel];
+}
+
+root_type FieldWorldMapZoneExcelTable;

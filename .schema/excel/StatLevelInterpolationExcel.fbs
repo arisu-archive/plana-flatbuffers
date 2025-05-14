@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table StatLevelInterpolationExcel {
+    level: long;
+    stat_type_index: [long];
+}
+
+root_type StatLevelInterpolationExcel;

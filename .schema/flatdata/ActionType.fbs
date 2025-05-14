@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ActionType: int {
+    Crush = 0,
+    Courage = 1,
+    Tactic = 2,
+}

@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table CharacterVoiceSubtitleExcel {
+    localize_cv_group: string;
+    character_voice_group_id: long;
+    duration: long;
+    separate: bool;
+    localize_kr: string;
+    localize_jp: string;
+}
+
+root_type CharacterVoiceSubtitleExcel;

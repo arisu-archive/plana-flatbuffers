@@ -1,0 +1,9 @@
+include "ShopCashExcel.fbs";
+
+namespace FlatData;
+
+table ShopCashExcelTable {
+    data_list: [ShopCashExcel];
+}
+
+root_type ShopCashExcelTable;

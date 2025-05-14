@@ -1,0 +1,9 @@
+include "ConstAudioExcel.fbs";
+
+namespace FlatData;
+
+table ConstAudioExcelTable {
+    data_list: [ConstAudioExcel];
+}
+
+root_type ConstAudioExcelTable;

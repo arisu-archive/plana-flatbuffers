@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum AmplifyDoTRemoveCondition: int {
+    None = 0,
+    ApplyCount = 1,
+}

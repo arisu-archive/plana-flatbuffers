@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table InformationExcel {
+    group_id: long;
+    page_name: string;
+    localize_code_id: string;
+    tutorial_parent_name: [string];
+    ui_name: [string];
+}
+
+root_type InformationExcel;

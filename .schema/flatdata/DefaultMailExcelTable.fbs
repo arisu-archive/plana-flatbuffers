@@ -1,0 +1,9 @@
+include "DefaultMailExcel.fbs";
+
+namespace FlatData;
+
+table DefaultMailExcelTable {
+    data_list: [DefaultMailExcel];
+}
+
+root_type DefaultMailExcelTable;

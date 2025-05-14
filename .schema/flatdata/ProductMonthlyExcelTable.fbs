@@ -1,0 +1,9 @@
+include "ProductMonthlyExcel.fbs";
+
+namespace FlatData;
+
+table ProductMonthlyExcelTable {
+    data_list: [ProductMonthlyExcel];
+}
+
+root_type ProductMonthlyExcelTable;

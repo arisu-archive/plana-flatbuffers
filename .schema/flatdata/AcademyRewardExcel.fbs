@@ -1,0 +1,26 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table AcademyRewardExcel {
+    location: string;
+    schedule_group_id: long;
+    order_in_group: long;
+    id: long;
+    progress_texture: string;
+    localize_etc_id: uint;
+    location_rank: long;
+    favor_exp: long;
+    secret_stone_amount: long;
+    secret_stone_prob: long;
+    extra_favor_exp: long;
+    extra_favor_exp_prob: long;
+    extra_reward_parcel_type: [ParcelType];
+    extra_reward_parcel_id: [long];
+    extra_reward_amount: [long];
+    extra_reward_prob: [long];
+    is_extra_reward_displayed: [bool];
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_amount: [long];
+}

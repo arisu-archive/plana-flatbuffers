@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum ReArrangeTargetType: int {
+    AllySelf = 0,
+    AllyAll = 1,
+    AllyUnitType = 2,
+    AllyGroup = 3,
+}

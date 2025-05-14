@@ -1,0 +1,9 @@
+include "WorldRaidStageRewardExcel.fbs";
+
+namespace FlatData;
+
+table WorldRaidStageRewardExcelTable {
+    data_list: [WorldRaidStageRewardExcel];
+}
+
+root_type WorldRaidStageRewardExcelTable;

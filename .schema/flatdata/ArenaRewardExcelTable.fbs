@@ -1,0 +1,9 @@
+include "ArenaRewardExcel.fbs";
+
+namespace FlatData;
+
+table ArenaRewardExcelTable {
+    data_list: [ArenaRewardExcel];
+}
+
+root_type ArenaRewardExcelTable;

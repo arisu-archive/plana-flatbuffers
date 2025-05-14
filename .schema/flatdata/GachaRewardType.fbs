@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum GachaRewardType: int {
+    None = 0,
+    Eligma = 1,
+    Eleph = 2,
+}

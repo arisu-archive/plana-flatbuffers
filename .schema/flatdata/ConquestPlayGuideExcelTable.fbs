@@ -1,0 +1,9 @@
+include "ConquestPlayGuideExcel.fbs";
+
+namespace FlatData;
+
+table ConquestPlayGuideExcelTable {
+    data_list: [ConquestPlayGuideExcel];
+}
+
+root_type ConquestPlayGuideExcelTable;

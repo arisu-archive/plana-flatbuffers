@@ -1,0 +1,9 @@
+include "FieldMasteryLevelExcel.fbs";
+
+namespace FlatData;
+
+table FieldMasteryLevelExcelTable {
+    data_list: [FieldMasteryLevelExcel];
+}
+
+root_type FieldMasteryLevelExcelTable;

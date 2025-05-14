@@ -1,0 +1,38 @@
+include "Anniversary.fbs";
+include "CVCollectionType.fbs";
+include "DialogCategory.fbs";
+include "DialogCondition.fbs";
+include "DialogType.fbs";
+include "ProductionStep.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterDialogExcel {
+    character_id: long;
+    costume_unique_id: long;
+    display_order: long;
+    production_step: ProductionStep;
+    dialog_category: DialogCategory;
+    dialog_condition: DialogCondition;
+    anniversary: Anniversary;
+    start_date: string;
+    end_date: string;
+    group_id: long;
+    dialog_type: DialogType;
+    action_name: string;
+    duration: long;
+    animation_name: string;
+    localize_kr: string;
+    localize_jp: string;
+    voice_id: [uint];
+    apply_position: bool;
+    pos_x: float;
+    pos_y: float;
+    collection_visible: bool;
+    cv_collection_type: CVCollectionType;
+    unlock_favor_rank: long;
+    unlock_equip_weapon: bool;
+    localize_cv_group: string;
+}
+
+root_type CharacterDialogExcel;

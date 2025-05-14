@@ -1,0 +1,9 @@
+include "EliminateRaidSeasonManageExcel.fbs";
+
+namespace FlatData;
+
+table EliminateRaidSeasonManageExcelTable {
+    data_list: [EliminateRaidSeasonManageExcel];
+}
+
+root_type EliminateRaidSeasonManageExcelTable;

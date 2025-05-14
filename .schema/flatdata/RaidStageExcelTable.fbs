@@ -1,0 +1,9 @@
+include "RaidStageExcel.fbs";
+
+namespace FlatData;
+
+table RaidStageExcelTable {
+    data_list: [RaidStageExcel];
+}
+
+root_type RaidStageExcelTable;

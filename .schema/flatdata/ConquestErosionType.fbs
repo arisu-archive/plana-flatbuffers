@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ConquestErosionType: int {
+    None = 0,
+    IndividualErosion = 1,
+    MassErosion = 2,
+}

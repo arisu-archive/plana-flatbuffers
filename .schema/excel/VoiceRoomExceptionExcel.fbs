@@ -1,0 +1,11 @@
+include "CVPrintType.fbs";
+
+namespace MX.Data.Excel;
+
+table VoiceRoomExceptionExcel {
+    costume_unique_id: long;
+    linked_character_voice_print_type: CVPrintType;
+    linked_costume_unique_id: long;
+}
+
+root_type VoiceRoomExceptionExcel;

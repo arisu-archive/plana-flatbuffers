@@ -1,0 +1,13 @@
+namespace FlatData;
+
+table LocalizeGachaShopExcel {
+    gacha_shop_id: long;
+    tab_name_kr: string;
+    tab_name_jp: string;
+    title_name_kr: string;
+    title_name_jp: string;
+    sub_title_kr: string;
+    sub_title_jp: string;
+    gacha_description_kr: string;
+    gacha_description_jp: string;
+}

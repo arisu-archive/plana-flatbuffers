@@ -1,0 +1,9 @@
+include "EventContentBuffGroupExcel.fbs";
+
+namespace FlatData;
+
+table EventContentBuffGroupExcelTable {
+    data_list: [EventContentBuffGroupExcel];
+}
+
+root_type EventContentBuffGroupExcelTable;

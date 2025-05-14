@@ -1,0 +1,19 @@
+include "ParcelType.fbs";
+include "StageDifficulty.fbs";
+
+namespace FlatData;
+
+table ConquestStepExcel {
+    event_content_id: long;
+    map_difficulty: StageDifficulty;
+    step: int;
+    step_goal_localize: string;
+    step_enter_scenario_group_id: long;
+    step_enter_item_type: ParcelType;
+    step_enter_item_unique_id: long;
+    step_enter_item_amount: long;
+    unexpected_event_unit_id: [long];
+    unexpected_event_prefab: string;
+    treasure_box_object_id: long;
+    treasure_box_count_per_step_open: int;
+}

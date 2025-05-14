@@ -1,0 +1,9 @@
+include "ConstMiniGameShootingExcel.fbs";
+
+namespace FlatData;
+
+table ConstMiniGameShootingExcelTable {
+    data_list: [ConstMiniGameShootingExcel];
+}
+
+root_type ConstMiniGameShootingExcelTable;

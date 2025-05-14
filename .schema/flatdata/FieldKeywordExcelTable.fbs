@@ -1,0 +1,9 @@
+include "FieldKeywordExcel.fbs";
+
+namespace FlatData;
+
+table FieldKeywordExcelTable {
+    data_list: [FieldKeywordExcel];
+}
+
+root_type FieldKeywordExcelTable;

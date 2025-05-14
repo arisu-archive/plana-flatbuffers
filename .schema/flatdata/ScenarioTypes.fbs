@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ScenarioTypes: int {
+    None = 0,
+    Title = 1,
+    Place = 2,
+}

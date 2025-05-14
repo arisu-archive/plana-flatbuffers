@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table ParcelAutoSynthExcel {
+    require_parcel_type: ParcelType;
+    require_parcel_id: long;
+    require_parcel_amount: long;
+    synth_start_amount: long;
+    synth_end_amount: long;
+    synth_max_item: bool;
+    result_parcel_type: ParcelType;
+    result_parcel_id: long;
+    result_parcel_amount: long;
+}

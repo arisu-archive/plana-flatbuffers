@@ -1,0 +1,23 @@
+include "MessagePopupButtonType.fbs";
+include "MessagePopupImagePositionType.fbs";
+include "MessagePopupLayout.fbs";
+
+namespace MX.Data.Excel;
+
+table MessagePopupExcel {
+    string_id: uint;
+    message_popup_layout: MessagePopupLayout;
+    order_type: MessagePopupImagePositionType;
+    image: string;
+    title_text: uint;
+    sub_title_text: uint;
+    message_text: uint;
+    condition_text: [uint];
+    display_x_button: bool;
+    button: [MessagePopupButtonType];
+    button_text: [uint];
+    button_command: [string];
+    button_parameter: [string];
+}
+
+root_type MessagePopupExcel;

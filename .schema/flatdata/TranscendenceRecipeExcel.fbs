@@ -1,0 +1,14 @@
+include "CurrencyTypes.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table TranscendenceRecipeExcel {
+    id: long;
+    dev_name: string;
+    cost_currency_type: CurrencyTypes;
+    cost_currency_amount: long;
+    parcel_type: [ParcelType];
+    parcel_id: [long];
+    parcel_amount: [int];
+}

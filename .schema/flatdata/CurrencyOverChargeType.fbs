@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum CurrencyOverChargeType: int {
+    CanNotCharge = 0,
+    FitToLimit = 1,
+    ChargeOverLimit = 2,
+}

@@ -1,0 +1,36 @@
+include "AccountState.fbs";
+include "MissionCategory.fbs";
+include "MissionCompleteConditionType.fbs";
+include "MissionResetType.fbs";
+include "MissionToastDisplayConditionType.fbs";
+include "ParcelType.fbs";
+include "Tag.fbs";
+
+namespace FlatData;
+
+table MiniGameMissionExcel {
+    id: long;
+    event_content_id: long;
+    group_id: long;
+    group_name: string;
+    category: MissionCategory;
+    description: uint;
+    reset_type: MissionResetType;
+    toast_display_type: MissionToastDisplayConditionType;
+    toast_image_path: string;
+    view_flag: bool;
+    display_order: long;
+    pre_mission_id: [long];
+    account_type: AccountState;
+    account_level: long;
+    shortcut_ui: [string];
+    complete_condition_type: MissionCompleteConditionType;
+    is_complete_extension_time: bool;
+    complete_condition_count: long;
+    complete_condition_parameter: [long];
+    complete_condition_parameter_tag: [Tag];
+    reward_icon: string;
+    mission_reward_parcel_type: [ParcelType];
+    mission_reward_parcel_id: [long];
+    mission_reward_amount: [int];
+}

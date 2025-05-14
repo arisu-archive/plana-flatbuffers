@@ -1,0 +1,10 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table EventContentMeetupInfoExcel {
+    event_content_id: long;
+    cost_parcel_type: ParcelType;
+    cost_id: long;
+    cost_amount: int;
+}

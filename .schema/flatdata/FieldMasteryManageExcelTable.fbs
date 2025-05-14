@@ -1,0 +1,9 @@
+include "FieldMasteryManageExcel.fbs";
+
+namespace FlatData;
+
+table FieldMasteryManageExcelTable {
+    data_list: [FieldMasteryManageExcel];
+}
+
+root_type FieldMasteryManageExcelTable;

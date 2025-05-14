@@ -1,0 +1,9 @@
+include "CafeRankExcel.fbs";
+
+namespace FlatData;
+
+table CafeRankExcelTable {
+    data_list: [CafeRankExcel];
+}
+
+root_type CafeRankExcelTable;

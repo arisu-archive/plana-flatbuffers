@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table ShopFreeRecruitPeriodExcel {
+    shop_free_recruit_id: long;
+    shop_free_recruit_interval_id: long;
+    interval_date: string;
+    free_recruit_count: int;
+}

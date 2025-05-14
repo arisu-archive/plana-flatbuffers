@@ -1,0 +1,9 @@
+include "SpecialLobbyIllustExcel.fbs";
+
+namespace FlatData;
+
+table SpecialLobbyIllustExcelTable {
+    data_list: [SpecialLobbyIllustExcel];
+}
+
+root_type SpecialLobbyIllustExcelTable;

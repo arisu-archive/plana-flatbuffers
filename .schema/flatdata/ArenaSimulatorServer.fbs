@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum ArenaSimulatorServer: int {
+    Preset = 0,
+    Live = 1,
+    Dev = 2,
+    QA = 3,
+}

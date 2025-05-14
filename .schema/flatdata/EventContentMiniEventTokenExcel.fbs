@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table EventContentMiniEventTokenExcel {
+    event_content_id: long;
+    item_unique_id: long;
+    maximum_amount: long;
+}

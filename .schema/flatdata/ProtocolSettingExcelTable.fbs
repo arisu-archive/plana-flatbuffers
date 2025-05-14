@@ -1,0 +1,9 @@
+include "ProtocolSettingExcel.fbs";
+
+namespace FlatData;
+
+table ProtocolSettingExcelTable {
+    data_list: [ProtocolSettingExcel];
+}
+
+root_type ProtocolSettingExcelTable;

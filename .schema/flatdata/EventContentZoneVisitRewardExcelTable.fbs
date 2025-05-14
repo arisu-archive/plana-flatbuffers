@@ -1,0 +1,9 @@
+include "EventContentZoneVisitRewardExcel.fbs";
+
+namespace FlatData;
+
+table EventContentZoneVisitRewardExcelTable {
+    data_list: [EventContentZoneVisitRewardExcel];
+}
+
+root_type EventContentZoneVisitRewardExcelTable;

@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum CVCollectionType: int {
+    CVNormal = 0,
+    CVEvent = 1,
+    CVEtc = 2,
+}

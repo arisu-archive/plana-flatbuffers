@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameRoadPuzzleInfoExcel {
+    event_content_id: long;
+    event_use_cost_type: ParcelType;
+    event_use_cost_id: long;
+    cost_goods_id: long;
+    rail_set_reward_id: long;
+    instant_clear_round: int;
+}
+
+root_type MiniGameRoadPuzzleInfoExcel;

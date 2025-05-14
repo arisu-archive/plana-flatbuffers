@@ -1,0 +1,9 @@
+include "LimitedStageSeasonExcel.fbs";
+
+namespace FlatData;
+
+table LimitedStageSeasonExcelTable {
+    data_list: [LimitedStageSeasonExcel];
+}
+
+root_type LimitedStageSeasonExcelTable;

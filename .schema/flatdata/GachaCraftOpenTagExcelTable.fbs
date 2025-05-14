@@ -1,0 +1,9 @@
+include "GachaCraftOpenTagExcel.fbs";
+
+namespace FlatData;
+
+table GachaCraftOpenTagExcelTable {
+    data_list: [GachaCraftOpenTagExcel];
+}
+
+root_type GachaCraftOpenTagExcelTable;

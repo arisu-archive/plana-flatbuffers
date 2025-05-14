@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum TacticSpeed: int {
+    None = 0,
+    Slow = 1,
+    Normal = 2,
+    Fast = 3,
+}

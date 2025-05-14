@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum SquadType: int {
+    None = 0,
+    Main = 1,
+    Support = 2,
+    TSS = 3,
+}

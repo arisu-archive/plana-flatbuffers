@@ -1,0 +1,40 @@
+include "ContentType.fbs";
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "StageTopography.fbs";
+include "StrategyEnvironment.fbs";
+
+namespace FlatData;
+
+table CampaignStageExcel {
+    id: long;
+    deprecated: bool;
+    name: string;
+    stage_number: string;
+    cleard_scenario_id: long;
+    battle_duration: long;
+    stage_enter_cost_type: ParcelType;
+    stage_enter_cost_id: long;
+    stage_enter_cost_amount: int;
+    stage_enter_echelon_count: int;
+    star_condition_tactic_rank_s_count: long;
+    star_condition_turn_count: long;
+    enter_scenario_group_id: [long];
+    clear_scenario_group_id: [long];
+    strategy_map: string;
+    strategy_map_bg: string;
+    campaign_stage_reward_id: long;
+    max_turn: int;
+    stage_topography: StageTopography;
+    recommand_level: int;
+    bgm_id: string;
+    strategy_environment: StrategyEnvironment;
+    ground_id: long;
+    strategy_skip_ground_id: int;
+    content_type: ContentType;
+    bgm_id_c9738509: long;
+    first_clear_report_event_name: string;
+    tactic_reward_exp: long;
+    fixed_echelon_id: long;
+    echelon_extension_type: EchelonExtensionType;
+}

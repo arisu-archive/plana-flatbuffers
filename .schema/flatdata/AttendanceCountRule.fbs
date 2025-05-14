@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum AttendanceCountRule: int {
+    Accumulation = 0,
+    Date = 1,
+}

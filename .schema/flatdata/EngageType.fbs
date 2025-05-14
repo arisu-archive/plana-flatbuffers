@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum EngageType: int {
+    SearchAndMove = 0,
+    HoldPosition = 1,
+}

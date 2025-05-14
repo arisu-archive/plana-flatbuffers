@@ -1,0 +1,9 @@
+include "CharacterIllustCoordinateExcel.fbs";
+
+namespace FlatData;
+
+table CharacterIllustCoordinateExcelTable {
+    data_list: [CharacterIllustCoordinateExcel];
+}
+
+root_type CharacterIllustCoordinateExcelTable;

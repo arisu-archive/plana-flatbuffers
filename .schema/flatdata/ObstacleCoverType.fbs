@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ObstacleCoverType: int {
+    None = 0,
+    Cover = 1,
+    Shelter = 2,
+}

@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table ScenarioCharacterEmotionExcel {
+    emoticon_name: string;
+    name: uint;
+}
+
+root_type ScenarioCharacterEmotionExcel;

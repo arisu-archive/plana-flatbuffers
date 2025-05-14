@@ -1,0 +1,30 @@
+include "CurrencyTypes.fbs";
+
+namespace FlatData;
+
+table ConstStrategyExcel {
+    hexa_map_boundary_offset: float;
+    hexa_map_start_camera_offset: float;
+    camera_zoom_max: float;
+    camera_zoom_min: float;
+    camera_zoom_default: float;
+    heal_cost_type: CurrencyTypes;
+    heal_cost_amount: [long];
+    can_heal_hp_rate: int;
+    play_time_limit_in_seconds: long;
+    adventure_echelon_count: int;
+    raid_echelon_count: int;
+    default_echelon_count: int;
+    event_content_echelon_count: int;
+    time_attack_dungeon_echelon_count: int;
+    world_raid_echelon_count: int;
+    tactic_skip_clear_time_seconds: int;
+    tactic_skip_frame_per_second: int;
+    conquest_echelon_count: int;
+    story_echelon_count: int;
+    multi_sweep_preset_count: int;
+    multi_sweep_preset_name_max_length: int;
+    multi_sweep_preset_select_stage_max_count: int;
+    multi_sweep_preset_max_sweep_count: int;
+    multi_sweep_preset_select_parcel_max_count: int;
+}

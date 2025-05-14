@@ -1,0 +1,15 @@
+namespace FlatData;
+
+table ScenarioScriptField1Excel {
+    group_id: long;
+    selection_group: long;
+    bgm_id: long;
+    sound: string;
+    transition: uint;
+    bg_name: uint;
+    bg_effect: uint;
+    popup_file_name: string;
+    script_kr: string;
+    text_jp: string;
+    voice_jp: string;
+}

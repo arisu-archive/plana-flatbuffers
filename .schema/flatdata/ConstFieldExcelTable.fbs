@@ -1,0 +1,9 @@
+include "ConstFieldExcel.fbs";
+
+namespace FlatData;
+
+table ConstFieldExcelTable {
+    data_list: [ConstFieldExcel];
+}
+
+root_type ConstFieldExcelTable;

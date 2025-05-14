@@ -1,0 +1,9 @@
+include "ScenarioReplayExcel.fbs";
+
+namespace FlatData;
+
+table ScenarioReplayExcelTable {
+    data_list: [ScenarioReplayExcel];
+}
+
+root_type ScenarioReplayExcelTable;

@@ -1,0 +1,18 @@
+namespace FlatData;
+
+table ConstMinigameRoadPuzzleExcel {
+    road_puzzle_map_boundary_offset_left: float;
+    road_puzzle_map_boundary_offset_right: float;
+    road_puzzle_map_boundary_offset_top: float;
+    road_puzzle_map_boundary_offset_bottom: float;
+    road_puzzle_map_center_offset_x: float;
+    road_puzzle_map_center_offset_y: float;
+    camera_angle: float;
+    camera_zoom_max: float;
+    camera_zoom_min: float;
+    camera_zoom_default: float;
+    stage_loading_progress_time: float;
+    tile_rotation_degree: int;
+    start_stage_index: int;
+    loop_stage_index: int;
+}

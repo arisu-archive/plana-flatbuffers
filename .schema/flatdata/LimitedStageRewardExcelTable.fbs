@@ -1,0 +1,9 @@
+include "LimitedStageRewardExcel.fbs";
+
+namespace FlatData;
+
+table LimitedStageRewardExcelTable {
+    data_list: [LimitedStageRewardExcel];
+}
+
+root_type LimitedStageRewardExcelTable;

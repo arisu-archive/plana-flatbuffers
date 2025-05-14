@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum Anniversary: int {
+    None = 0,
+    UserBDay = 1,
+    StudentBDay = 2,
+}

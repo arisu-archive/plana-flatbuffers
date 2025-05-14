@@ -1,0 +1,9 @@
+include "ArenaMapExcel.fbs";
+
+namespace FlatData;
+
+table ArenaMapExcelTable {
+    data_list: [ArenaMapExcel];
+}
+
+root_type ArenaMapExcelTable;

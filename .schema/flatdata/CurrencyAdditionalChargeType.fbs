@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum CurrencyAdditionalChargeType: int {
+    EnableAutoChargeOverLimit = 0,
+    DisableAutoChargeOverLimit = 1,
+}

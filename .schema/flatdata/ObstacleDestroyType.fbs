@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ObstacleDestroyType: int {
+    Remain = 0,
+    Remove = 1,
+}

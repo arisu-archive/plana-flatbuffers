@@ -1,0 +1,9 @@
+include "TimeAttackDungeonExcel.fbs";
+
+namespace FlatData;
+
+table TimeAttackDungeonExcelTable {
+    data_list: [TimeAttackDungeonExcel];
+}
+
+root_type TimeAttackDungeonExcelTable;

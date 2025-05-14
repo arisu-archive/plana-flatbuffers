@@ -1,0 +1,9 @@
+include "RecipeSelectionAutoUseExcel.fbs";
+
+namespace FlatData;
+
+table RecipeSelectionAutoUseExcelTable {
+    data_list: [RecipeSelectionAutoUseExcel];
+}
+
+root_type RecipeSelectionAutoUseExcelTable;

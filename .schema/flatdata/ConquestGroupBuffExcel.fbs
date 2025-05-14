@@ -1,0 +1,10 @@
+include "School.fbs";
+
+namespace FlatData;
+
+table ConquestGroupBuffExcel {
+    conquest_buff_id: long;
+    school: [School];
+    recommand_localize_etc_id: uint;
+    skill_group_id: string;
+}

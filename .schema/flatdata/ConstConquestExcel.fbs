@@ -1,0 +1,10 @@
+namespace FlatData;
+
+table ConstConquestExcel {
+    manage_unit_change: int;
+    assist_count: int;
+    play_time_limit_in_seconds: int;
+    animation_unit_amount_min: int;
+    animation_unit_amount_max: int;
+    animation_unit_delay: float;
+}

@@ -1,0 +1,9 @@
+include "FixedStrategyExcel.fbs";
+
+namespace FlatData;
+
+table FixedStrategyExcelTable {
+    data_list: [FixedStrategyExcel];
+}
+
+root_type FixedStrategyExcelTable;

@@ -1,0 +1,9 @@
+include "ConstConquestExcel.fbs";
+
+namespace FlatData;
+
+table ConstConquestExcelTable {
+    data_list: [ConstConquestExcel];
+}
+
+root_type ConstConquestExcelTable;

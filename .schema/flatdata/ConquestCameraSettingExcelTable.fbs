@@ -1,0 +1,9 @@
+include "ConquestCameraSettingExcel.fbs";
+
+namespace FlatData;
+
+table ConquestCameraSettingExcelTable {
+    data_list: [ConquestCameraSettingExcel];
+}
+
+root_type ConquestCameraSettingExcelTable;

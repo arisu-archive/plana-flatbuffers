@@ -1,0 +1,40 @@
+include "ContentType.fbs";
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "StageDifficulty.fbs";
+include "StageTopography.fbs";
+include "StarGoalType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameDefenseStageExcel {
+    id: long;
+    name: string;
+    event_content_id: long;
+    stage_difficulty: StageDifficulty;
+    stage_difficulty_localize: uint;
+    stage_number: int;
+    stage_display: int;
+    prev_stage_id: long;
+    echelon_extension_type: EchelonExtensionType;
+    battle_duration: long;
+    stage_enter_cost_type: ParcelType;
+    stage_enter_cost_id: long;
+    stage_enter_cost_amount: int;
+    event_content_stage_reward_id: long;
+    enter_scenario_group_id: [long];
+    clear_scenario_group_id: [long];
+    stage_topography: StageTopography;
+    recommand_level: int;
+    ground_id: long;
+    content_type: ContentType;
+    star_goal: [StarGoalType];
+    star_goal_amount: [int];
+    defense_formation_bg_prefab: string;
+    defense_formation_bg_prefab_scale: float;
+    fixed_echelon: long;
+    mininage_defense_fixed_stat_id: long;
+    stage_hint: uint;
+}
+
+root_type MiniGameDefenseStageExcel;

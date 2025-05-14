@@ -1,0 +1,9 @@
+include "ConstStrategyExcel.fbs";
+
+namespace FlatData;
+
+table ConstStrategyExcelTable {
+    data_list: [ConstStrategyExcel];
+}
+
+root_type ConstStrategyExcelTable;

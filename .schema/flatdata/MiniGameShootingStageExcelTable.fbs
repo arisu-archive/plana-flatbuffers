@@ -1,0 +1,9 @@
+include "MiniGameShootingStageExcel.fbs";
+
+namespace FlatData;
+
+table MiniGameShootingStageExcelTable {
+    data_list: [MiniGameShootingStageExcel];
+}
+
+root_type MiniGameShootingStageExcelTable;

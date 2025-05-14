@@ -1,0 +1,10 @@
+namespace FlatData;
+
+table TacticTimeAttackSimulatorConfigExcel {
+    order: long;
+    repeat: long;
+    preset_group_id: long;
+    attack_striker_num: long;
+    attack_special_num: long;
+    geas_id: long;
+}

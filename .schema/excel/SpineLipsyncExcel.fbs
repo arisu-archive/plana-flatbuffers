@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table SpineLipsyncExcel {
+    voice_id: uint;
+    anim_json: string;
+}
+
+root_type SpineLipsyncExcel;

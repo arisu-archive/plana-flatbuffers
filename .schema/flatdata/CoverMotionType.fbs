@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum CoverMotionType: int {
+    All = 0,
+    Kneel = 1,
+}

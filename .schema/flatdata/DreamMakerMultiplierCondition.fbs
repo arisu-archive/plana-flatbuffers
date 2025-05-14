@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum DreamMakerMultiplierCondition: int {
+    None = 0,
+    Round = 1,
+    CollectionCount = 2,
+    EndingCount = 3,
+}

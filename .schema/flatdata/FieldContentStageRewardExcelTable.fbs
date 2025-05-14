@@ -1,0 +1,9 @@
+include "FieldContentStageRewardExcel.fbs";
+
+namespace FlatData;
+
+table FieldContentStageRewardExcelTable {
+    data_list: [FieldContentStageRewardExcel];
+}
+
+root_type FieldContentStageRewardExcelTable;

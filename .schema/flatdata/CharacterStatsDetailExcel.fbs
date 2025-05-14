@@ -1,0 +1,9 @@
+include "StatType.fbs";
+
+namespace FlatData;
+
+table CharacterStatsDetailExcel {
+    id: long;
+    detail_show_stats: [StatType];
+    is_stats_percent: [bool];
+}

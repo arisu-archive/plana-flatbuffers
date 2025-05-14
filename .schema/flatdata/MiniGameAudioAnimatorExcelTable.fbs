@@ -1,0 +1,9 @@
+include "MiniGameAudioAnimatorExcel.fbs";
+
+namespace FlatData;
+
+table MiniGameAudioAnimatorExcelTable {
+    data_list: [MiniGameAudioAnimatorExcel];
+}
+
+root_type MiniGameAudioAnimatorExcelTable;

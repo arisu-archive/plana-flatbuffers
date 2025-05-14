@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ScenarioModeSubTypes: int {
+    None = 0,
+    Club = 1,
+}

@@ -1,0 +1,9 @@
+include "EventContentSpineDialogOffsetExcel.fbs";
+
+namespace FlatData;
+
+table EventContentSpineDialogOffsetExcelTable {
+    data_list: [EventContentSpineDialogOffsetExcel];
+}
+
+root_type EventContentSpineDialogOffsetExcelTable;

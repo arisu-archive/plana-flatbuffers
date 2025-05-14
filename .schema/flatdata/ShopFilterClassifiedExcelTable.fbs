@@ -1,0 +1,9 @@
+include "ShopFilterClassifiedExcel.fbs";
+
+namespace FlatData;
+
+table ShopFilterClassifiedExcelTable {
+    data_list: [ShopFilterClassifiedExcel];
+}
+
+root_type ShopFilterClassifiedExcelTable;

@@ -1,0 +1,11 @@
+include "ShortcutContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShortcutTypeExcel {
+    id: long;
+    is_ascending: bool;
+    content_type: [ShortcutContentType];
+}
+
+root_type ShortcutTypeExcel;

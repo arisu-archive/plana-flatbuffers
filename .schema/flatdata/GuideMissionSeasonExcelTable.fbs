@@ -1,0 +1,9 @@
+include "GuideMissionSeasonExcel.fbs";
+
+namespace FlatData;
+
+table GuideMissionSeasonExcelTable {
+    data_list: [GuideMissionSeasonExcel];
+}
+
+root_type GuideMissionSeasonExcelTable;

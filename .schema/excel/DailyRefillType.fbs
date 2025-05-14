@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum DailyRefillType: int {
+    None = 0,
+    Default = 1,
+    Login = 2,
+}

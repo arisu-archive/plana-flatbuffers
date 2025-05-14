@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum PotentialStatBonusRateType: int {
+    None = 0,
+    MaxHP = 1,
+    AttackPower = 2,
+    HealPower = 3,
+}

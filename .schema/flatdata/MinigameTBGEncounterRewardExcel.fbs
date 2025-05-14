@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+include "TBGOptionSuccessType.fbs";
+
+namespace FlatData;
+
+table MinigameTBGEncounterRewardExcel {
+    group_id: long;
+    unique_id: long;
+    tbg_option_success_type: TBGOptionSuccessType;
+    paremeter: long;
+    parcel_type: ParcelType;
+    parcel_id: long;
+    amount: long;
+    prob: int;
+}

@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ConquestObjectType: int {
+    None = 0,
+    ParcelOneTimePerAccount = 1,
+}

@@ -1,0 +1,9 @@
+include "EliminateRaidStageSeasonRewardExcel.fbs";
+
+namespace FlatData;
+
+table EliminateRaidStageSeasonRewardExcelTable {
+    data_list: [EliminateRaidStageSeasonRewardExcel];
+}
+
+root_type EliminateRaidStageSeasonRewardExcelTable;

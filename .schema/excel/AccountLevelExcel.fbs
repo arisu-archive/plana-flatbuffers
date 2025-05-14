@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table AccountLevelExcel {
+    id: long;
+    level: long;
+    exp: long;
+    newbie_exp_ratio: int;
+    close_interval: int;
+    ap_auto_charge_max: long;
+    need_report_event: bool;
+}
+
+root_type AccountLevelExcel;

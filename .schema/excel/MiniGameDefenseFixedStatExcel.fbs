@@ -1,0 +1,21 @@
+namespace MX.Data.Excel;
+
+table MiniGameDefenseFixedStatExcel {
+    minigame_defense_fixed_stat_id: long;
+    level: int;
+    grade: int;
+    ex_skill_level: int;
+    none_ex_skill_level: int;
+    equipment1_tier: int;
+    equipment1_level: int;
+    equipment2_tier: int;
+    equipment2_level: int;
+    equipment3_tier: int;
+    equipment3_level: int;
+    character_weapon_grade: int;
+    character_weapon_level: int;
+    character_gear_tier: int;
+    character_gear_level: int;
+}
+
+root_type MiniGameDefenseFixedStatExcel;

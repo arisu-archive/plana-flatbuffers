@@ -1,0 +1,9 @@
+include "ScenarioScriptField1Excel.fbs";
+
+namespace FlatData;
+
+table ScenarioScriptField1ExcelTable {
+    data_list: [ScenarioScriptField1Excel];
+}
+
+root_type ScenarioScriptField1ExcelTable;

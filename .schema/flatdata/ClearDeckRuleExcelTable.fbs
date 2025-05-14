@@ -1,0 +1,9 @@
+include "ClearDeckRuleExcel.fbs";
+
+namespace FlatData;
+
+table ClearDeckRuleExcelTable {
+    data_list: [ClearDeckRuleExcel];
+}
+
+root_type ClearDeckRuleExcelTable;

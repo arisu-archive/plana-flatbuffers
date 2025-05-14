@@ -1,0 +1,9 @@
+include "DefaultFurnitureExcel.fbs";
+
+namespace FlatData;
+
+table DefaultFurnitureExcelTable {
+    data_list: [DefaultFurnitureExcel];
+}
+
+root_type DefaultFurnitureExcelTable;

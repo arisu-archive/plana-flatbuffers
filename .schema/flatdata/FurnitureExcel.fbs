@@ -1,0 +1,53 @@
+include "FurnitureCategory.fbs";
+include "FurnitureFunctionType.fbs";
+include "FurnitureSubCategory.fbs";
+include "ProductionStep.fbs";
+include "Rarity.fbs";
+include "Tag.fbs";
+
+namespace FlatData;
+
+table FurnitureExcel {
+    id: long;
+    production_step: ProductionStep;
+    rarity: Rarity;
+    category: FurnitureCategory;
+    sub_category: FurnitureSubCategory;
+    check_floor_decoration: bool;
+    localize_etc_id: uint;
+    star_grade_init: int;
+    tier: long;
+    icon: string;
+    size_width: int;
+    size_height: int;
+    other_size: int;
+    expand_width: int;
+    enable: bool;
+    reverse_rotation: bool;
+    prefab: string;
+    prefab_expand: string;
+    sub_prefab: string;
+    sub_expand_prefab: string;
+    corner_prefab: string;
+    stackable_max: long;
+    recipe_craft_id: long;
+    set_groudp_id: long;
+    comfort_bonus: long;
+    visit_operation_type: long;
+    visit_bonus_operation_type: long;
+    tags: [Tag];
+    craft_quality_tier0: long;
+    craft_quality_tier1: long;
+    craft_quality_tier2: long;
+    shifting_craft_quality: long;
+    furniture_function_type: FurnitureFunctionType;
+    furniture_function_parameter: [long];
+    video_id: long;
+    event_collection_id: long;
+    furniture_bubble_offset_x: long;
+    furniture_bubble_offset_y: long;
+    cafe_character_state_req: [string];
+    cafe_character_state_add: [string];
+    cafe_character_state_make: [string];
+    cafe_character_state_only: [string];
+}

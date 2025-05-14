@@ -1,0 +1,9 @@
+include "ConstEventCommonExcel.fbs";
+
+namespace FlatData;
+
+table ConstEventCommonExcelTable {
+    data_list: [ConstEventCommonExcel];
+}
+
+root_type ConstEventCommonExcelTable;

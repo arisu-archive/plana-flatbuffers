@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum StickerGetConditionType: int {
+    None = 0,
+    StickerCheckPass = 1,
+    GetStickerCondition = 2,
+}

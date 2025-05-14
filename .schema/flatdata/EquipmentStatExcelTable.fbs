@@ -1,0 +1,9 @@
+include "EquipmentStatExcel.fbs";
+
+namespace FlatData;
+
+table EquipmentStatExcelTable {
+    data_list: [EquipmentStatExcel];
+}
+
+root_type EquipmentStatExcelTable;

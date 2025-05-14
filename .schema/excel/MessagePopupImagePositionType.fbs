@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum MessagePopupImagePositionType: int {
+    ImageFirst = 0,
+    TextFirst = 1,
+}

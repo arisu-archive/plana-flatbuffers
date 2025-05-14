@@ -1,0 +1,9 @@
+include "TagExcel.fbs";
+
+namespace FlatData;
+
+table TagExcelTable {
+    data_list: [TagExcel];
+}
+
+root_type TagExcelTable;

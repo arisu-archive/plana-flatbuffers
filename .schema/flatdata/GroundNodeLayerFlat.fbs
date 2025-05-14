@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table GroundNodeLayerFlat {
+    layers: [byte];
+}
+
+root_type GroundNodeLayerFlat;

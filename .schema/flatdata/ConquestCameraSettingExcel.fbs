@@ -1,0 +1,15 @@
+namespace FlatData;
+
+table ConquestCameraSettingExcel {
+    id: long;
+    conquest_map_boundary_offset_left: float;
+    conquest_map_boundary_offset_right: float;
+    conquest_map_boundary_offset_top: float;
+    conquest_map_boundary_offset_bottom: float;
+    conquest_map_center_offset_x: float;
+    conquest_map_center_offset_y: float;
+    camera_angle: float;
+    camera_zoom_max: float;
+    camera_zoom_min: float;
+    camera_zoom_default: float;
+}

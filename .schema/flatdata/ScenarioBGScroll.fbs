@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum ScenarioBGScroll: int {
+    None = 0,
+    Vertical = 1,
+    Horizontal = 2,
+}

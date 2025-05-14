@@ -1,0 +1,14 @@
+namespace FlatData;
+
+table MiniGameRhythmBgmExcel {
+    rhythm_bgm_id: long;
+    event_content_id: long;
+    stage_select_image_path: string;
+    bpm: long;
+    bgm: long;
+    bgm_name_text: string;
+    bgm_artist_text: string;
+    has_lyricist: bool;
+    bgm_composer_text: string;
+    bgm_length: int;
+}

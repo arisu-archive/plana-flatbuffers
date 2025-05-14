@@ -1,0 +1,9 @@
+include "AnimatorData.fbs";
+
+namespace FlatData;
+
+table AnimatorDataTable {
+    data_list: [AnimatorData];
+}
+
+root_type AnimatorDataTable;

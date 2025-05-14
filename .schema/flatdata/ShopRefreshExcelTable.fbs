@@ -1,0 +1,9 @@
+include "ShopRefreshExcel.fbs";
+
+namespace FlatData;
+
+table ShopRefreshExcelTable {
+    data_list: [ShopRefreshExcel];
+}
+
+root_type ShopRefreshExcelTable;

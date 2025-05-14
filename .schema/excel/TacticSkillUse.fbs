@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum TacticSkillUse: int {
+    None = 0,
+    Auto = 1,
+    Manual = 2,
+}

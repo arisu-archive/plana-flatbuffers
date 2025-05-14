@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table LocalizeExcel {
+    key: uint;
+    kr: string;
+    jp: string;
+}
+
+root_type LocalizeExcel;

@@ -1,0 +1,9 @@
+include "EventContentMiniEventShortCutExcel.fbs";
+
+namespace FlatData;
+
+table EventContentMiniEventShortCutExcelTable {
+    data_list: [EventContentMiniEventShortCutExcel];
+}
+
+root_type EventContentMiniEventShortCutExcelTable;

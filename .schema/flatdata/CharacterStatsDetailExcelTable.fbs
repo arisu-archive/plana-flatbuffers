@@ -1,0 +1,9 @@
+include "CharacterStatsDetailExcel.fbs";
+
+namespace FlatData;
+
+table CharacterStatsDetailExcelTable {
+    data_list: [CharacterStatsDetailExcel];
+}
+
+root_type CharacterStatsDetailExcelTable;

@@ -1,0 +1,9 @@
+include "ShopFreeRecruitPeriodExcel.fbs";
+
+namespace FlatData;
+
+table ShopFreeRecruitPeriodExcelTable {
+    data_list: [ShopFreeRecruitPeriodExcel];
+}
+
+root_type ShopFreeRecruitPeriodExcelTable;

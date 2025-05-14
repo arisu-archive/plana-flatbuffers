@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum SkillPriorityCheckTarget: int {
+    Ally = 0,
+    Enemy = 1,
+    All = 2,
+}

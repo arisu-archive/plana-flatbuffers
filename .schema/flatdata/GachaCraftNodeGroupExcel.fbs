@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table GachaCraftNodeGroupExcel {
+    node_id: long;
+    gacha_group_id: long;
+    prob_weight: long;
+}

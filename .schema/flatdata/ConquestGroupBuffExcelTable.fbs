@@ -1,0 +1,9 @@
+include "ConquestGroupBuffExcel.fbs";
+
+namespace FlatData;
+
+table ConquestGroupBuffExcelTable {
+    data_list: [ConquestGroupBuffExcel];
+}
+
+root_type ConquestGroupBuffExcelTable;

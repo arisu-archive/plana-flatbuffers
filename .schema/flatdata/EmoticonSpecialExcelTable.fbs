@@ -1,0 +1,9 @@
+include "EmoticonSpecialExcel.fbs";
+
+namespace FlatData;
+
+table EmoticonSpecialExcelTable {
+    data_list: [EmoticonSpecialExcel];
+}
+
+root_type EmoticonSpecialExcelTable;

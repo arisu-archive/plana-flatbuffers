@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum RaidStatus: int {
+    None = 0,
+    Playing = 1,
+    Clear = 2,
+    Close = 3,
+}

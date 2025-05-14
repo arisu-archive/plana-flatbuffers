@@ -1,0 +1,9 @@
+include "EventContentMiniEventTokenExcel.fbs";
+
+namespace FlatData;
+
+table EventContentMiniEventTokenExcelTable {
+    data_list: [EventContentMiniEventTokenExcel];
+}
+
+root_type EventContentMiniEventTokenExcelTable;

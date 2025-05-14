@@ -1,0 +1,9 @@
+include "FieldSceneExcel.fbs";
+
+namespace FlatData;
+
+table FieldSceneExcelTable {
+    data_list: [FieldSceneExcel];
+}
+
+root_type FieldSceneExcelTable;
