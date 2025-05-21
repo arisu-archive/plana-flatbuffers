@@ -17,19 +17,11 @@ func GetRootAsEventContentMeetupInfoExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishEventContentMeetupInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentMeetupInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentMeetupInfoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentMeetupInfoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentMeetupInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentMeetupInfoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

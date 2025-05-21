@@ -25,7 +25,7 @@ class BlendInfo(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BlendInfo
-    def From(self):
+    def From_(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -45,32 +45,18 @@ class BlendInfo(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def BlendInfoStart(builder):
-    builder.StartObject(3)
-
+def BlendInfoStart(builder): builder.StartObject(3)
 def Start(builder):
-    BlendInfoStart(builder)
-
-def BlendInfoAddFrom(builder, from_):
-    builder.PrependInt32Slot(0, from_, 0)
-
-def AddFrom(builder, from_):
-    BlendInfoAddFrom(builder, from_)
-
-def BlendInfoAddTo(builder, to):
-    builder.PrependInt32Slot(1, to, 0)
-
+    return BlendInfoStart(builder)
+def BlendInfoAddFrom_(builder, from_): builder.PrependInt32Slot(0, from_, 0)
+def AddFrom_(builder, from_):
+    return BlendInfoAddFrom_(builder, from_)
+def BlendInfoAddTo(builder, to): builder.PrependInt32Slot(1, to, 0)
 def AddTo(builder, to):
-    BlendInfoAddTo(builder, to)
-
-def BlendInfoAddBlend(builder, blend):
-    builder.PrependFloat32Slot(2, blend, 0.0)
-
+    return BlendInfoAddTo(builder, to)
+def BlendInfoAddBlend(builder, blend): builder.PrependFloat32Slot(2, blend, 0.0)
 def AddBlend(builder, blend):
-    BlendInfoAddBlend(builder, blend)
-
-def BlendInfoEnd(builder):
-    return builder.EndObject()
-
+    return BlendInfoAddBlend(builder, blend)
+def BlendInfoEnd(builder): return builder.EndObject()
 def End(builder):
     return BlendInfoEnd(builder)

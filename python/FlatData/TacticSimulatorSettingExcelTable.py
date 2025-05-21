@@ -49,26 +49,15 @@ class TacticSimulatorSettingExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TacticSimulatorSettingExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TacticSimulatorSettingExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TacticSimulatorSettingExcelTableStart(builder)
-
-def TacticSimulatorSettingExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TacticSimulatorSettingExcelTableStart(builder)
+def TacticSimulatorSettingExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TacticSimulatorSettingExcelTableAddDataList(builder, dataList)
-
-def TacticSimulatorSettingExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TacticSimulatorSettingExcelTableAddDataList(builder, dataList)
+def TacticSimulatorSettingExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TacticSimulatorSettingExcelTableStartDataListVector(builder, numElems)
-
-def TacticSimulatorSettingExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TacticSimulatorSettingExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticSimulatorSettingExcelTableEnd(builder)

@@ -49,26 +49,15 @@ class TacticTimeAttackSimulatorConfigExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TacticTimeAttackSimulatorConfigExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TacticTimeAttackSimulatorConfigExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TacticTimeAttackSimulatorConfigExcelTableStart(builder)
-
-def TacticTimeAttackSimulatorConfigExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TacticTimeAttackSimulatorConfigExcelTableStart(builder)
+def TacticTimeAttackSimulatorConfigExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TacticTimeAttackSimulatorConfigExcelTableAddDataList(builder, dataList)
-
-def TacticTimeAttackSimulatorConfigExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TacticTimeAttackSimulatorConfigExcelTableAddDataList(builder, dataList)
+def TacticTimeAttackSimulatorConfigExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TacticTimeAttackSimulatorConfigExcelTableStartDataListVector(builder, numElems)
-
-def TacticTimeAttackSimulatorConfigExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TacticTimeAttackSimulatorConfigExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticTimeAttackSimulatorConfigExcelTableEnd(builder)

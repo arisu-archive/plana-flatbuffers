@@ -17,19 +17,11 @@ func GetRootAsCharacterCalculationLimitExcelTable(buf []byte, offset flatbuffers
 	return x
 }
 
-func FinishCharacterCalculationLimitExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterCalculationLimitExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterCalculationLimitExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterCalculationLimitExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterCalculationLimitExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterCalculationLimitExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

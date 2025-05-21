@@ -49,26 +49,15 @@ class EventContentFortuneGachaModifyExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentFortuneGachaModifyExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentFortuneGachaModifyExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentFortuneGachaModifyExcelTableStart(builder)
-
-def EventContentFortuneGachaModifyExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentFortuneGachaModifyExcelTableStart(builder)
+def EventContentFortuneGachaModifyExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentFortuneGachaModifyExcelTableAddDataList(builder, dataList)
-
-def EventContentFortuneGachaModifyExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentFortuneGachaModifyExcelTableAddDataList(builder, dataList)
+def EventContentFortuneGachaModifyExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentFortuneGachaModifyExcelTableStartDataListVector(builder, numElems)
-
-def EventContentFortuneGachaModifyExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentFortuneGachaModifyExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentFortuneGachaModifyExcelTableEnd(builder)

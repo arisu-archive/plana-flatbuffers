@@ -87,68 +87,36 @@ class MiniGameDreamParameterExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameDreamParameterExcelStart(builder):
-    builder.StartObject(9)
-
+def MiniGameDreamParameterExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    MiniGameDreamParameterExcelStart(builder)
-
-def MiniGameDreamParameterExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return MiniGameDreamParameterExcelStart(builder)
+def MiniGameDreamParameterExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    MiniGameDreamParameterExcelAddId(builder, id)
-
-def MiniGameDreamParameterExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
-
+    return MiniGameDreamParameterExcelAddId(builder, id)
+def MiniGameDreamParameterExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MiniGameDreamParameterExcelAddEventContentId(builder, eventContentId)
-
-def MiniGameDreamParameterExcelAddParameterType(builder, parameterType):
-    builder.PrependInt32Slot(2, parameterType, 0)
-
+    return MiniGameDreamParameterExcelAddEventContentId(builder, eventContentId)
+def MiniGameDreamParameterExcelAddParameterType(builder, parameterType): builder.PrependInt32Slot(2, parameterType, 0)
 def AddParameterType(builder, parameterType):
-    MiniGameDreamParameterExcelAddParameterType(builder, parameterType)
-
-def MiniGameDreamParameterExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(3, localizeEtcId, 0)
-
+    return MiniGameDreamParameterExcelAddParameterType(builder, parameterType)
+def MiniGameDreamParameterExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    MiniGameDreamParameterExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def MiniGameDreamParameterExcelAddIconPath(builder, iconPath):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
-
+    return MiniGameDreamParameterExcelAddLocalizeEtcId(builder, localizeEtcId)
+def MiniGameDreamParameterExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
-    MiniGameDreamParameterExcelAddIconPath(builder, iconPath)
-
-def MiniGameDreamParameterExcelAddParameterBase(builder, parameterBase):
-    builder.PrependInt64Slot(5, parameterBase, 0)
-
+    return MiniGameDreamParameterExcelAddIconPath(builder, iconPath)
+def MiniGameDreamParameterExcelAddParameterBase(builder, parameterBase): builder.PrependInt64Slot(5, parameterBase, 0)
 def AddParameterBase(builder, parameterBase):
-    MiniGameDreamParameterExcelAddParameterBase(builder, parameterBase)
-
-def MiniGameDreamParameterExcelAddParameterBaseMax(builder, parameterBaseMax):
-    builder.PrependInt64Slot(6, parameterBaseMax, 0)
-
+    return MiniGameDreamParameterExcelAddParameterBase(builder, parameterBase)
+def MiniGameDreamParameterExcelAddParameterBaseMax(builder, parameterBaseMax): builder.PrependInt64Slot(6, parameterBaseMax, 0)
 def AddParameterBaseMax(builder, parameterBaseMax):
-    MiniGameDreamParameterExcelAddParameterBaseMax(builder, parameterBaseMax)
-
-def MiniGameDreamParameterExcelAddParameterMin(builder, parameterMin):
-    builder.PrependInt64Slot(7, parameterMin, 0)
-
+    return MiniGameDreamParameterExcelAddParameterBaseMax(builder, parameterBaseMax)
+def MiniGameDreamParameterExcelAddParameterMin(builder, parameterMin): builder.PrependInt64Slot(7, parameterMin, 0)
 def AddParameterMin(builder, parameterMin):
-    MiniGameDreamParameterExcelAddParameterMin(builder, parameterMin)
-
-def MiniGameDreamParameterExcelAddParameterMax(builder, parameterMax):
-    builder.PrependInt64Slot(8, parameterMax, 0)
-
+    return MiniGameDreamParameterExcelAddParameterMin(builder, parameterMin)
+def MiniGameDreamParameterExcelAddParameterMax(builder, parameterMax): builder.PrependInt64Slot(8, parameterMax, 0)
 def AddParameterMax(builder, parameterMax):
-    MiniGameDreamParameterExcelAddParameterMax(builder, parameterMax)
-
-def MiniGameDreamParameterExcelEnd(builder):
-    return builder.EndObject()
-
+    return MiniGameDreamParameterExcelAddParameterMax(builder, parameterMax)
+def MiniGameDreamParameterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameDreamParameterExcelEnd(builder)

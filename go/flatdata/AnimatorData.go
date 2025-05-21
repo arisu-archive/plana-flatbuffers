@@ -17,19 +17,11 @@ func GetRootAsAnimatorData(buf []byte, offset flatbuffers.UOffsetT) *AnimatorDat
 	return x
 }
 
-func FinishAnimatorDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAnimatorData(buf []byte, offset flatbuffers.UOffsetT) *AnimatorData {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AnimatorData{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAnimatorDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AnimatorData) Init(buf []byte, i flatbuffers.UOffsetT) {

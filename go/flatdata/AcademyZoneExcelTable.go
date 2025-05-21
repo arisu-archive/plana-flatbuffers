@@ -17,19 +17,11 @@ func GetRootAsAcademyZoneExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Ac
 	return x
 }
 
-func FinishAcademyZoneExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAcademyZoneExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AcademyZoneExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AcademyZoneExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAcademyZoneExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AcademyZoneExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

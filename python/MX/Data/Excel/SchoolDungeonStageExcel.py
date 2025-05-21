@@ -263,152 +263,78 @@ class SchoolDungeonStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def SchoolDungeonStageExcelStart(builder):
-    builder.StartObject(17)
-
+def SchoolDungeonStageExcelStart(builder): builder.StartObject(17)
 def Start(builder):
-    SchoolDungeonStageExcelStart(builder)
-
-def SchoolDungeonStageExcelAddStageId(builder, stageId):
-    builder.PrependInt64Slot(0, stageId, 0)
-
+    return SchoolDungeonStageExcelStart(builder)
+def SchoolDungeonStageExcelAddStageId(builder, stageId): builder.PrependInt64Slot(0, stageId, 0)
 def AddStageId(builder, stageId):
-    SchoolDungeonStageExcelAddStageId(builder, stageId)
-
-def SchoolDungeonStageExcelAddDungeonType(builder, dungeonType):
-    builder.PrependInt32Slot(1, dungeonType, 0)
-
+    return SchoolDungeonStageExcelAddStageId(builder, stageId)
+def SchoolDungeonStageExcelAddDungeonType(builder, dungeonType): builder.PrependInt32Slot(1, dungeonType, 0)
 def AddDungeonType(builder, dungeonType):
-    SchoolDungeonStageExcelAddDungeonType(builder, dungeonType)
-
-def SchoolDungeonStageExcelAddDifficulty(builder, difficulty):
-    builder.PrependInt32Slot(2, difficulty, 0)
-
+    return SchoolDungeonStageExcelAddDungeonType(builder, dungeonType)
+def SchoolDungeonStageExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(2, difficulty, 0)
 def AddDifficulty(builder, difficulty):
-    SchoolDungeonStageExcelAddDifficulty(builder, difficulty)
-
-def SchoolDungeonStageExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(3, battleDuration, 0)
-
+    return SchoolDungeonStageExcelAddDifficulty(builder, difficulty)
+def SchoolDungeonStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(3, battleDuration, 0)
 def AddBattleDuration(builder, battleDuration):
-    SchoolDungeonStageExcelAddBattleDuration(builder, battleDuration)
-
-def SchoolDungeonStageExcelAddPrevStageId(builder, prevStageId):
-    builder.PrependInt64Slot(4, prevStageId, 0)
-
+    return SchoolDungeonStageExcelAddBattleDuration(builder, battleDuration)
+def SchoolDungeonStageExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(4, prevStageId, 0)
 def AddPrevStageId(builder, prevStageId):
-    SchoolDungeonStageExcelAddPrevStageId(builder, prevStageId)
-
-def SchoolDungeonStageExcelAddStageEnterCostType(builder, stageEnterCostType):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostType), 0)
-
+    return SchoolDungeonStageExcelAddPrevStageId(builder, prevStageId)
+def SchoolDungeonStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostType), 0)
 def AddStageEnterCostType(builder, stageEnterCostType):
-    SchoolDungeonStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-
-def SchoolDungeonStageExcelStartStageEnterCostTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return SchoolDungeonStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+def SchoolDungeonStageExcelStartStageEnterCostTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStageEnterCostTypeVector(builder, numElems):
     return SchoolDungeonStageExcelStartStageEnterCostTypeVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddStageEnterCostId(builder, stageEnterCostId):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostId), 0)
-
+def SchoolDungeonStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostId), 0)
 def AddStageEnterCostId(builder, stageEnterCostId):
-    SchoolDungeonStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-
-def SchoolDungeonStageExcelStartStageEnterCostIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return SchoolDungeonStageExcelAddStageEnterCostId(builder, stageEnterCostId)
+def SchoolDungeonStageExcelStartStageEnterCostIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStageEnterCostIdVector(builder, numElems):
     return SchoolDungeonStageExcelStartStageEnterCostIdVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostAmount), 0)
-
+def SchoolDungeonStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostAmount), 0)
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    SchoolDungeonStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-
-def SchoolDungeonStageExcelStartStageEnterCostAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return SchoolDungeonStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+def SchoolDungeonStageExcelStartStageEnterCostAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStageEnterCostAmountVector(builder, numElems):
     return SchoolDungeonStageExcelStartStageEnterCostAmountVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostMinimumAmount), 0)
-
+def SchoolDungeonStageExcelAddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostMinimumAmount), 0)
 def AddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount):
-    SchoolDungeonStageExcelAddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount)
-
-def SchoolDungeonStageExcelStartStageEnterCostMinimumAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return SchoolDungeonStageExcelAddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount)
+def SchoolDungeonStageExcelStartStageEnterCostMinimumAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStageEnterCostMinimumAmountVector(builder, numElems):
     return SchoolDungeonStageExcelStartStageEnterCostMinimumAmountVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddGroundId(builder, groundId):
-    builder.PrependInt32Slot(9, groundId, 0)
-
+def SchoolDungeonStageExcelAddGroundId(builder, groundId): builder.PrependInt32Slot(9, groundId, 0)
 def AddGroundId(builder, groundId):
-    SchoolDungeonStageExcelAddGroundId(builder, groundId)
-
-def SchoolDungeonStageExcelAddStarGoal(builder, starGoal):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
-
+    return SchoolDungeonStageExcelAddGroundId(builder, groundId)
+def SchoolDungeonStageExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
 def AddStarGoal(builder, starGoal):
-    SchoolDungeonStageExcelAddStarGoal(builder, starGoal)
-
-def SchoolDungeonStageExcelStartStarGoalVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return SchoolDungeonStageExcelAddStarGoal(builder, starGoal)
+def SchoolDungeonStageExcelStartStarGoalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalVector(builder, numElems):
     return SchoolDungeonStageExcelStartStarGoalVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddStarGoalAmount(builder, starGoalAmount):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
-
+def SchoolDungeonStageExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
 def AddStarGoalAmount(builder, starGoalAmount):
-    SchoolDungeonStageExcelAddStarGoalAmount(builder, starGoalAmount)
-
-def SchoolDungeonStageExcelStartStarGoalAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return SchoolDungeonStageExcelAddStarGoalAmount(builder, starGoalAmount)
+def SchoolDungeonStageExcelStartStarGoalAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalAmountVector(builder, numElems):
     return SchoolDungeonStageExcelStartStarGoalAmountVector(builder, numElems)
-
-def SchoolDungeonStageExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(12, stageTopography, 0)
-
+def SchoolDungeonStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(12, stageTopography, 0)
 def AddStageTopography(builder, stageTopography):
-    SchoolDungeonStageExcelAddStageTopography(builder, stageTopography)
-
-def SchoolDungeonStageExcelAddRecommandLevel(builder, recommandLevel):
-    builder.PrependInt64Slot(13, recommandLevel, 0)
-
+    return SchoolDungeonStageExcelAddStageTopography(builder, stageTopography)
+def SchoolDungeonStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt64Slot(13, recommandLevel, 0)
 def AddRecommandLevel(builder, recommandLevel):
-    SchoolDungeonStageExcelAddRecommandLevel(builder, recommandLevel)
-
-def SchoolDungeonStageExcelAddStageRewardId(builder, stageRewardId):
-    builder.PrependInt64Slot(14, stageRewardId, 0)
-
+    return SchoolDungeonStageExcelAddRecommandLevel(builder, recommandLevel)
+def SchoolDungeonStageExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(14, stageRewardId, 0)
 def AddStageRewardId(builder, stageRewardId):
-    SchoolDungeonStageExcelAddStageRewardId(builder, stageRewardId)
-
-def SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    builder.PrependInt64Slot(15, playTimeLimitInSeconds, 0)
-
+    return SchoolDungeonStageExcelAddStageRewardId(builder, stageRewardId)
+def SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt64Slot(15, playTimeLimitInSeconds, 0)
 def AddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
-
-def SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType):
-    builder.PrependInt32Slot(16, echelonExtensionType, 0)
-
+    return SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
+def SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(16, echelonExtensionType, 0)
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
-
-def SchoolDungeonStageExcelEnd(builder):
-    return builder.EndObject()
-
+    return SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def SchoolDungeonStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SchoolDungeonStageExcelEnd(builder)

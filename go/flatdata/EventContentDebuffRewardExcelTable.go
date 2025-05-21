@@ -17,19 +17,11 @@ func GetRootAsEventContentDebuffRewardExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
-func FinishEventContentDebuffRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentDebuffRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentDebuffRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentDebuffRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentDebuffRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentDebuffRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

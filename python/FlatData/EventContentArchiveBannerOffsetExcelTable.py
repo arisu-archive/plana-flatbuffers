@@ -49,26 +49,15 @@ class EventContentArchiveBannerOffsetExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentArchiveBannerOffsetExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentArchiveBannerOffsetExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentArchiveBannerOffsetExcelTableStart(builder)
-
-def EventContentArchiveBannerOffsetExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentArchiveBannerOffsetExcelTableStart(builder)
+def EventContentArchiveBannerOffsetExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentArchiveBannerOffsetExcelTableAddDataList(builder, dataList)
-
-def EventContentArchiveBannerOffsetExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentArchiveBannerOffsetExcelTableAddDataList(builder, dataList)
+def EventContentArchiveBannerOffsetExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentArchiveBannerOffsetExcelTableStartDataListVector(builder, numElems)
-
-def EventContentArchiveBannerOffsetExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentArchiveBannerOffsetExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentArchiveBannerOffsetExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsEventContentLocationRewardExcelTable(buf []byte, offset flatbuffer
 	return x
 }
 
-func FinishEventContentLocationRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentLocationRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentLocationRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentLocationRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentLocationRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentLocationRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

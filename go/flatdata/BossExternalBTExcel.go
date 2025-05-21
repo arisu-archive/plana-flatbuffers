@@ -17,19 +17,11 @@ func GetRootAsBossExternalBTExcel(buf []byte, offset flatbuffers.UOffsetT) *Boss
 	return x
 }
 
-func FinishBossExternalBTExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsBossExternalBTExcel(buf []byte, offset flatbuffers.UOffsetT) *BossExternalBTExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BossExternalBTExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedBossExternalBTExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BossExternalBTExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

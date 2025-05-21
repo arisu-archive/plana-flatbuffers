@@ -17,19 +17,11 @@ func GetRootAsCharacterPotentialRewardExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishCharacterPotentialRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterPotentialRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterPotentialRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterPotentialRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterPotentialRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterPotentialRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

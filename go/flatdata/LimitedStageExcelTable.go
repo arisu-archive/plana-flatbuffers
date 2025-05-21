@@ -17,19 +17,11 @@ func GetRootAsLimitedStageExcelTable(buf []byte, offset flatbuffers.UOffsetT) *L
 	return x
 }
 
-func FinishLimitedStageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsLimitedStageExcelTable(buf []byte, offset flatbuffers.UOffsetT) *LimitedStageExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LimitedStageExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedLimitedStageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LimitedStageExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum TimeAttackDungeonRewardType: int {
+    Fixed = 0,
+    TimeWeight = 1,
+}

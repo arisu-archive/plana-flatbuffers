@@ -2,4 +2,7 @@
 
 # namespace: FlatData
 
-# NOTE PurchaseSourceType.py does not declare any structs or enums
+class PurchaseSourceType(object):
+    None_ = 0
+    Product = 1
+    ProductMonthly = 2

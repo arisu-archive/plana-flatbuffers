@@ -17,19 +17,11 @@ func GetRootAsEchelonConstraintExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishEchelonConstraintExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEchelonConstraintExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EchelonConstraintExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EchelonConstraintExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEchelonConstraintExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EchelonConstraintExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsGachaElementRecursiveExcelTable(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
-func FinishGachaElementRecursiveExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGachaElementRecursiveExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GachaElementRecursiveExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaElementRecursiveExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGachaElementRecursiveExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaElementRecursiveExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

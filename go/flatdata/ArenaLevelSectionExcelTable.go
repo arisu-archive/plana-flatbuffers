@@ -17,19 +17,11 @@ func GetRootAsArenaLevelSectionExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishArenaLevelSectionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsArenaLevelSectionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ArenaLevelSectionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaLevelSectionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedArenaLevelSectionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaLevelSectionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

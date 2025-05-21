@@ -49,26 +49,15 @@ class DefaultMailExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def DefaultMailExcelTableStart(builder):
-    builder.StartObject(1)
-
+def DefaultMailExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    DefaultMailExcelTableStart(builder)
-
-def DefaultMailExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return DefaultMailExcelTableStart(builder)
+def DefaultMailExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    DefaultMailExcelTableAddDataList(builder, dataList)
-
-def DefaultMailExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return DefaultMailExcelTableAddDataList(builder, dataList)
+def DefaultMailExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return DefaultMailExcelTableStartDataListVector(builder, numElems)
-
-def DefaultMailExcelTableEnd(builder):
-    return builder.EndObject()
-
+def DefaultMailExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return DefaultMailExcelTableEnd(builder)

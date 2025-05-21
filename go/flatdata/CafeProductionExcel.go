@@ -17,19 +17,11 @@ func GetRootAsCafeProductionExcel(buf []byte, offset flatbuffers.UOffsetT) *Cafe
 	return x
 }
 
-func FinishCafeProductionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCafeProductionExcel(buf []byte, offset flatbuffers.UOffsetT) *CafeProductionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CafeProductionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCafeProductionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CafeProductionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

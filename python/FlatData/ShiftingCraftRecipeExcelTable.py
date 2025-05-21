@@ -49,26 +49,15 @@ class ShiftingCraftRecipeExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ShiftingCraftRecipeExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ShiftingCraftRecipeExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ShiftingCraftRecipeExcelTableStart(builder)
-
-def ShiftingCraftRecipeExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ShiftingCraftRecipeExcelTableStart(builder)
+def ShiftingCraftRecipeExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ShiftingCraftRecipeExcelTableAddDataList(builder, dataList)
-
-def ShiftingCraftRecipeExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ShiftingCraftRecipeExcelTableAddDataList(builder, dataList)
+def ShiftingCraftRecipeExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ShiftingCraftRecipeExcelTableStartDataListVector(builder, numElems)
-
-def ShiftingCraftRecipeExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ShiftingCraftRecipeExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ShiftingCraftRecipeExcelTableEnd(builder)

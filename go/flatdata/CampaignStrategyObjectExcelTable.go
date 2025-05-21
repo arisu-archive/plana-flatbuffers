@@ -17,19 +17,11 @@ func GetRootAsCampaignStrategyObjectExcelTable(buf []byte, offset flatbuffers.UO
 	return x
 }
 
-func FinishCampaignStrategyObjectExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCampaignStrategyObjectExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CampaignStrategyObjectExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CampaignStrategyObjectExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCampaignStrategyObjectExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CampaignStrategyObjectExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

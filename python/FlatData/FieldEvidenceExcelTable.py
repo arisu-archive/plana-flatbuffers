@@ -49,26 +49,15 @@ class FieldEvidenceExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldEvidenceExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FieldEvidenceExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FieldEvidenceExcelTableStart(builder)
-
-def FieldEvidenceExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FieldEvidenceExcelTableStart(builder)
+def FieldEvidenceExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FieldEvidenceExcelTableAddDataList(builder, dataList)
-
-def FieldEvidenceExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FieldEvidenceExcelTableAddDataList(builder, dataList)
+def FieldEvidenceExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FieldEvidenceExcelTableStartDataListVector(builder, numElems)
-
-def FieldEvidenceExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FieldEvidenceExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldEvidenceExcelTableEnd(builder)

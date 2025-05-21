@@ -17,19 +17,11 @@ func GetRootAsShopFreeRecruitPeriodExcelTable(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
-func FinishShopFreeRecruitPeriodExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsShopFreeRecruitPeriodExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShopFreeRecruitPeriodExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopFreeRecruitPeriodExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedShopFreeRecruitPeriodExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopFreeRecruitPeriodExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

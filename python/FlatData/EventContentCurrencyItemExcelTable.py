@@ -49,26 +49,15 @@ class EventContentCurrencyItemExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentCurrencyItemExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentCurrencyItemExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentCurrencyItemExcelTableStart(builder)
-
-def EventContentCurrencyItemExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentCurrencyItemExcelTableStart(builder)
+def EventContentCurrencyItemExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentCurrencyItemExcelTableAddDataList(builder, dataList)
-
-def EventContentCurrencyItemExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentCurrencyItemExcelTableAddDataList(builder, dataList)
+def EventContentCurrencyItemExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentCurrencyItemExcelTableStartDataListVector(builder, numElems)
-
-def EventContentCurrencyItemExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentCurrencyItemExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentCurrencyItemExcelTableEnd(builder)

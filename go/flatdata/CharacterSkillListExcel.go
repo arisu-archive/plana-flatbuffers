@@ -17,19 +17,11 @@ func GetRootAsCharacterSkillListExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishCharacterSkillListExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterSkillListExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterSkillListExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterSkillListExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterSkillListExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterSkillListExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

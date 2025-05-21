@@ -1,0 +1,14 @@
+include "ShopFreeRecruitType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopFreeRecruitExcel {
+    id: long;
+    free_recruit_period_from: string;
+    free_recruit_period_to: string;
+    free_recruit_type: ShopFreeRecruitType;
+    free_recruit_decoration_image_path: string;
+    shop_recruit_id: [long];
+}
+
+root_type ShopFreeRecruitExcel;

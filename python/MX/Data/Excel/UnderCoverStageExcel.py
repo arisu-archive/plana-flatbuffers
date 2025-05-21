@@ -80,62 +80,33 @@ class UnderCoverStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def UnderCoverStageExcelStart(builder):
-    builder.StartObject(8)
-
+def UnderCoverStageExcelStart(builder): builder.StartObject(8)
 def Start(builder):
-    UnderCoverStageExcelStart(builder)
-
-def UnderCoverStageExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return UnderCoverStageExcelStart(builder)
+def UnderCoverStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    UnderCoverStageExcelAddGroupId(builder, groupId)
-
-def UnderCoverStageExcelAddStageNameFile(builder, stageNameFile):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(stageNameFile), 0)
-
+    return UnderCoverStageExcelAddGroupId(builder, groupId)
+def UnderCoverStageExcelAddStageNameFile(builder, stageNameFile): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(stageNameFile), 0)
 def AddStageNameFile(builder, stageNameFile):
-    UnderCoverStageExcelAddStageNameFile(builder, stageNameFile)
-
-def UnderCoverStageExcelAddStageTryCount(builder, stageTryCount):
-    builder.PrependInt32Slot(2, stageTryCount, 0)
-
+    return UnderCoverStageExcelAddStageNameFile(builder, stageNameFile)
+def UnderCoverStageExcelAddStageTryCount(builder, stageTryCount): builder.PrependInt32Slot(2, stageTryCount, 0)
 def AddStageTryCount(builder, stageTryCount):
-    UnderCoverStageExcelAddStageTryCount(builder, stageTryCount)
-
-def UnderCoverStageExcelAddApplySkip(builder, applySkip):
-    builder.PrependBoolSlot(3, applySkip, 0)
-
+    return UnderCoverStageExcelAddStageTryCount(builder, stageTryCount)
+def UnderCoverStageExcelAddApplySkip(builder, applySkip): builder.PrependBoolSlot(3, applySkip, 0)
 def AddApplySkip(builder, applySkip):
-    UnderCoverStageExcelAddApplySkip(builder, applySkip)
-
-def UnderCoverStageExcelAddSkipCount(builder, skipCount):
-    builder.PrependInt32Slot(4, skipCount, 0)
-
+    return UnderCoverStageExcelAddApplySkip(builder, applySkip)
+def UnderCoverStageExcelAddSkipCount(builder, skipCount): builder.PrependInt32Slot(4, skipCount, 0)
 def AddSkipCount(builder, skipCount):
-    UnderCoverStageExcelAddSkipCount(builder, skipCount)
-
-def UnderCoverStageExcelAddShowClearScene(builder, showClearScene):
-    builder.PrependBoolSlot(5, showClearScene, 0)
-
+    return UnderCoverStageExcelAddSkipCount(builder, skipCount)
+def UnderCoverStageExcelAddShowClearScene(builder, showClearScene): builder.PrependBoolSlot(5, showClearScene, 0)
 def AddShowClearScene(builder, showClearScene):
-    UnderCoverStageExcelAddShowClearScene(builder, showClearScene)
-
-def UnderCoverStageExcelAddStageTips(builder, stageTips):
-    builder.PrependUint32Slot(6, stageTips, 0)
-
+    return UnderCoverStageExcelAddShowClearScene(builder, showClearScene)
+def UnderCoverStageExcelAddStageTips(builder, stageTips): builder.PrependUint32Slot(6, stageTips, 0)
 def AddStageTips(builder, stageTips):
-    UnderCoverStageExcelAddStageTips(builder, stageTips)
-
-def UnderCoverStageExcelAddStageName(builder, stageName):
-    builder.PrependUint32Slot(7, stageName, 0)
-
+    return UnderCoverStageExcelAddStageTips(builder, stageTips)
+def UnderCoverStageExcelAddStageName(builder, stageName): builder.PrependUint32Slot(7, stageName, 0)
 def AddStageName(builder, stageName):
-    UnderCoverStageExcelAddStageName(builder, stageName)
-
-def UnderCoverStageExcelEnd(builder):
-    return builder.EndObject()
-
+    return UnderCoverStageExcelAddStageName(builder, stageName)
+def UnderCoverStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return UnderCoverStageExcelEnd(builder)

@@ -49,26 +49,15 @@ class TagExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TagExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TagExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TagExcelTableStart(builder)
-
-def TagExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TagExcelTableStart(builder)
+def TagExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TagExcelTableAddDataList(builder, dataList)
-
-def TagExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TagExcelTableAddDataList(builder, dataList)
+def TagExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TagExcelTableStartDataListVector(builder, numElems)
-
-def TagExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TagExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TagExcelTableEnd(builder)

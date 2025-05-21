@@ -2,4 +2,7 @@
 
 # namespace: FlatData
 
-# NOTE FieldConditionClass.py does not declare any structs or enums
+class FieldConditionClass(object):
+    AndOr = 0
+    OrAnd = 1
+    Multi = 2

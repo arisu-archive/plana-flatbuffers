@@ -49,26 +49,15 @@ class GachaCraftNodeGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GachaCraftNodeGroupExcelTableStart(builder):
-    builder.StartObject(1)
-
+def GachaCraftNodeGroupExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    GachaCraftNodeGroupExcelTableStart(builder)
-
-def GachaCraftNodeGroupExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return GachaCraftNodeGroupExcelTableStart(builder)
+def GachaCraftNodeGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    GachaCraftNodeGroupExcelTableAddDataList(builder, dataList)
-
-def GachaCraftNodeGroupExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return GachaCraftNodeGroupExcelTableAddDataList(builder, dataList)
+def GachaCraftNodeGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return GachaCraftNodeGroupExcelTableStartDataListVector(builder, numElems)
-
-def GachaCraftNodeGroupExcelTableEnd(builder):
-    return builder.EndObject()
-
+def GachaCraftNodeGroupExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return GachaCraftNodeGroupExcelTableEnd(builder)

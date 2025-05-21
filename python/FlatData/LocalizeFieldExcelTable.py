@@ -49,26 +49,15 @@ class LocalizeFieldExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LocalizeFieldExcelTableStart(builder):
-    builder.StartObject(1)
-
+def LocalizeFieldExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    LocalizeFieldExcelTableStart(builder)
-
-def LocalizeFieldExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return LocalizeFieldExcelTableStart(builder)
+def LocalizeFieldExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    LocalizeFieldExcelTableAddDataList(builder, dataList)
-
-def LocalizeFieldExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return LocalizeFieldExcelTableAddDataList(builder, dataList)
+def LocalizeFieldExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return LocalizeFieldExcelTableStartDataListVector(builder, numElems)
-
-def LocalizeFieldExcelTableEnd(builder):
-    return builder.EndObject()
-
+def LocalizeFieldExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeFieldExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsFieldRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Fi
 	return x
 }
 
-func FinishFieldRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

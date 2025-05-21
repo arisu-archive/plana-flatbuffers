@@ -49,26 +49,15 @@ class EventContentCharacterBonusExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentCharacterBonusExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentCharacterBonusExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentCharacterBonusExcelTableStart(builder)
-
-def EventContentCharacterBonusExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentCharacterBonusExcelTableStart(builder)
+def EventContentCharacterBonusExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentCharacterBonusExcelTableAddDataList(builder, dataList)
-
-def EventContentCharacterBonusExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentCharacterBonusExcelTableAddDataList(builder, dataList)
+def EventContentCharacterBonusExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentCharacterBonusExcelTableStartDataListVector(builder, numElems)
-
-def EventContentCharacterBonusExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentCharacterBonusExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentCharacterBonusExcelTableEnd(builder)

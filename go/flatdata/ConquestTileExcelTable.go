@@ -17,19 +17,11 @@ func GetRootAsConquestTileExcelTable(buf []byte, offset flatbuffers.UOffsetT) *C
 	return x
 }
 
-func FinishConquestTileExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConquestTileExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestTileExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestTileExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConquestTileExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestTileExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

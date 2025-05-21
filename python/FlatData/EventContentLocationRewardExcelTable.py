@@ -49,26 +49,15 @@ class EventContentLocationRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentLocationRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentLocationRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentLocationRewardExcelTableStart(builder)
-
-def EventContentLocationRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentLocationRewardExcelTableStart(builder)
+def EventContentLocationRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentLocationRewardExcelTableAddDataList(builder, dataList)
-
-def EventContentLocationRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentLocationRewardExcelTableAddDataList(builder, dataList)
+def EventContentLocationRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentLocationRewardExcelTableStartDataListVector(builder, numElems)
-
-def EventContentLocationRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentLocationRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentLocationRewardExcelTableEnd(builder)

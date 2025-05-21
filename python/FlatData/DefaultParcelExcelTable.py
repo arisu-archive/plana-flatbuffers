@@ -49,26 +49,15 @@ class DefaultParcelExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def DefaultParcelExcelTableStart(builder):
-    builder.StartObject(1)
-
+def DefaultParcelExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    DefaultParcelExcelTableStart(builder)
-
-def DefaultParcelExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return DefaultParcelExcelTableStart(builder)
+def DefaultParcelExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    DefaultParcelExcelTableAddDataList(builder, dataList)
-
-def DefaultParcelExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return DefaultParcelExcelTableAddDataList(builder, dataList)
+def DefaultParcelExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return DefaultParcelExcelTableStartDataListVector(builder, numElems)
-
-def DefaultParcelExcelTableEnd(builder):
-    return builder.EndObject()
-
+def DefaultParcelExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return DefaultParcelExcelTableEnd(builder)

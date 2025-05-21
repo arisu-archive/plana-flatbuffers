@@ -49,26 +49,15 @@ class MiniGameAudioAnimatorExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MiniGameAudioAnimatorExcelTableStart(builder):
-    builder.StartObject(1)
-
+def MiniGameAudioAnimatorExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    MiniGameAudioAnimatorExcelTableStart(builder)
-
-def MiniGameAudioAnimatorExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return MiniGameAudioAnimatorExcelTableStart(builder)
+def MiniGameAudioAnimatorExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    MiniGameAudioAnimatorExcelTableAddDataList(builder, dataList)
-
-def MiniGameAudioAnimatorExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameAudioAnimatorExcelTableAddDataList(builder, dataList)
+def MiniGameAudioAnimatorExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return MiniGameAudioAnimatorExcelTableStartDataListVector(builder, numElems)
-
-def MiniGameAudioAnimatorExcelTableEnd(builder):
-    return builder.EndObject()
-
+def MiniGameAudioAnimatorExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameAudioAnimatorExcelTableEnd(builder)

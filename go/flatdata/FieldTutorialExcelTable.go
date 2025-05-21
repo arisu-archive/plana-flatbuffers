@@ -17,19 +17,11 @@ func GetRootAsFieldTutorialExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishFieldTutorialExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldTutorialExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldTutorialExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldTutorialExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldTutorialExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldTutorialExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

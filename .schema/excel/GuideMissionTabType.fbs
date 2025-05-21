@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum GuideMissionTabType: int {
+    None = 0,
+    Daily = 1,
+    StageClear = 2,
+}

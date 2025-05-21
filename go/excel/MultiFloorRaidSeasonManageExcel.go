@@ -17,19 +17,11 @@ func GetRootAsMultiFloorRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
-func FinishMultiFloorRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMultiFloorRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOffsetT) *MultiFloorRaidSeasonManageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MultiFloorRaidSeasonManageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMultiFloorRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MultiFloorRaidSeasonManageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

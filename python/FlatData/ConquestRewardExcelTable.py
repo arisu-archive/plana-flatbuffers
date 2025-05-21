@@ -49,26 +49,15 @@ class ConquestRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConquestRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConquestRewardExcelTableStart(builder)
-
-def ConquestRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConquestRewardExcelTableStart(builder)
+def ConquestRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConquestRewardExcelTableAddDataList(builder, dataList)
-
-def ConquestRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestRewardExcelTableAddDataList(builder, dataList)
+def ConquestRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConquestRewardExcelTableStartDataListVector(builder, numElems)
-
-def ConquestRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConquestRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestRewardExcelTableEnd(builder)

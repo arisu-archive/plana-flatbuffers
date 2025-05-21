@@ -17,19 +17,11 @@ func GetRootAsProductMonthlyExcel(buf []byte, offset flatbuffers.UOffsetT) *Prod
 	return x
 }
 
-func FinishProductMonthlyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsProductMonthlyExcel(buf []byte, offset flatbuffers.UOffsetT) *ProductMonthlyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ProductMonthlyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedProductMonthlyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ProductMonthlyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

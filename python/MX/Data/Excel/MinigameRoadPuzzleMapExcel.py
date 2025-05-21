@@ -154,92 +154,48 @@ class MinigameRoadPuzzleMapExcel(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def MinigameRoadPuzzleMapExcelStart(builder):
-    builder.StartObject(10)
-
+def MinigameRoadPuzzleMapExcelStart(builder): builder.StartObject(10)
 def Start(builder):
-    MinigameRoadPuzzleMapExcelStart(builder)
-
-def MinigameRoadPuzzleMapExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MinigameRoadPuzzleMapExcelStart(builder)
+def MinigameRoadPuzzleMapExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MinigameRoadPuzzleMapExcelAddEventContentId(builder, eventContentId)
-
-def MinigameRoadPuzzleMapExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(1, uniqueId, 0)
-
+    return MinigameRoadPuzzleMapExcelAddEventContentId(builder, eventContentId)
+def MinigameRoadPuzzleMapExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    MinigameRoadPuzzleMapExcelAddUniqueId(builder, uniqueId)
-
-def MinigameRoadPuzzleMapExcelAddMapGroupId(builder, mapGroupId):
-    builder.PrependInt64Slot(2, mapGroupId, 0)
-
+    return MinigameRoadPuzzleMapExcelAddUniqueId(builder, uniqueId)
+def MinigameRoadPuzzleMapExcelAddMapGroupId(builder, mapGroupId): builder.PrependInt64Slot(2, mapGroupId, 0)
 def AddMapGroupId(builder, mapGroupId):
-    MinigameRoadPuzzleMapExcelAddMapGroupId(builder, mapGroupId)
-
-def MinigameRoadPuzzleMapExcelAddMap(builder, map):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(map), 0)
-
+    return MinigameRoadPuzzleMapExcelAddMapGroupId(builder, mapGroupId)
+def MinigameRoadPuzzleMapExcelAddMap(builder, map): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(map), 0)
 def AddMap(builder, map):
-    MinigameRoadPuzzleMapExcelAddMap(builder, map)
-
-def MinigameRoadPuzzleMapExcelAddMapBg(builder, mapBg):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(mapBg), 0)
-
+    return MinigameRoadPuzzleMapExcelAddMap(builder, map)
+def MinigameRoadPuzzleMapExcelAddMapBg(builder, mapBg): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(mapBg), 0)
 def AddMapBg(builder, mapBg):
-    MinigameRoadPuzzleMapExcelAddMapBg(builder, mapBg)
-
-def MinigameRoadPuzzleMapExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(5, bgmId, 0)
-
+    return MinigameRoadPuzzleMapExcelAddMapBg(builder, mapBg)
+def MinigameRoadPuzzleMapExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(5, bgmId, 0)
 def AddBgmId(builder, bgmId):
-    MinigameRoadPuzzleMapExcelAddBgmId(builder, bgmId)
-
-def MinigameRoadPuzzleMapExcelAddAvailableRailTile(builder, availableRailTile):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(availableRailTile), 0)
-
+    return MinigameRoadPuzzleMapExcelAddBgmId(builder, bgmId)
+def MinigameRoadPuzzleMapExcelAddAvailableRailTile(builder, availableRailTile): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(availableRailTile), 0)
 def AddAvailableRailTile(builder, availableRailTile):
-    MinigameRoadPuzzleMapExcelAddAvailableRailTile(builder, availableRailTile)
-
-def MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MinigameRoadPuzzleMapExcelAddAvailableRailTile(builder, availableRailTile)
+def MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartAvailableRailTileVector(builder, numElems):
     return MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(builder, numElems)
-
-def MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(builder, availableRailTileAmount):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(availableRailTileAmount), 0)
-
+def MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(builder, availableRailTileAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(availableRailTileAmount), 0)
 def AddAvailableRailTileAmount(builder, availableRailTileAmount):
-    MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(builder, availableRailTileAmount)
-
-def MinigameRoadPuzzleMapExcelStartAvailableRailTileAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(builder, availableRailTileAmount)
+def MinigameRoadPuzzleMapExcelStartAvailableRailTileAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartAvailableRailTileAmountVector(builder, numElems):
     return MinigameRoadPuzzleMapExcelStartAvailableRailTileAmountVector(builder, numElems)
-
-def MinigameRoadPuzzleMapExcelAddOriginalTileCount(builder, originalTileCount):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(originalTileCount), 0)
-
+def MinigameRoadPuzzleMapExcelAddOriginalTileCount(builder, originalTileCount): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(originalTileCount), 0)
 def AddOriginalTileCount(builder, originalTileCount):
-    MinigameRoadPuzzleMapExcelAddOriginalTileCount(builder, originalTileCount)
-
-def MinigameRoadPuzzleMapExcelStartOriginalTileCountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MinigameRoadPuzzleMapExcelAddOriginalTileCount(builder, originalTileCount)
+def MinigameRoadPuzzleMapExcelStartOriginalTileCountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartOriginalTileCountVector(builder, numElems):
     return MinigameRoadPuzzleMapExcelStartOriginalTileCountVector(builder, numElems)
-
-def MinigameRoadPuzzleMapExcelAddTrainSpeed(builder, trainSpeed):
-    builder.PrependFloat32Slot(9, trainSpeed, 0.0)
-
+def MinigameRoadPuzzleMapExcelAddTrainSpeed(builder, trainSpeed): builder.PrependFloat32Slot(9, trainSpeed, 0.0)
 def AddTrainSpeed(builder, trainSpeed):
-    MinigameRoadPuzzleMapExcelAddTrainSpeed(builder, trainSpeed)
-
-def MinigameRoadPuzzleMapExcelEnd(builder):
-    return builder.EndObject()
-
+    return MinigameRoadPuzzleMapExcelAddTrainSpeed(builder, trainSpeed)
+def MinigameRoadPuzzleMapExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameRoadPuzzleMapExcelEnd(builder)

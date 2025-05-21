@@ -17,19 +17,11 @@ func GetRootAsAccountLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *Accoun
 	return x
 }
 
-func FinishAccountLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAccountLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *AccountLevelExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AccountLevelExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAccountLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AccountLevelExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

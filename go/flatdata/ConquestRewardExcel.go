@@ -17,19 +17,11 @@ func GetRootAsConquestRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *Conq
 	return x
 }
 
-func FinishConquestRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConquestRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConquestRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,0 +1,37 @@
+include "ParcelType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopInfoExcel {
+    category_type: ShopCategoryType;
+    is_refresh: bool;
+    is_sold_out_dimmed: bool;
+    cost_parcel_type: [ParcelType];
+    cost_parcel_id: [long];
+    auto_refresh_cool_time: long;
+    refresh_able_count: long;
+    goods_id: [long];
+    open_period_from: string;
+    open_period_to: string;
+    shop_product_update_time: string;
+    display_parcel_type: ParcelType;
+    display_parcel_id: long;
+    is_shop_visible: bool;
+    display_order: int;
+    shop_update_date: int;
+    shop_update_group_id1: int;
+    shop_update_group_id2: int;
+    shop_update_group_id3: int;
+    shop_update_group_id4: int;
+    shop_update_group_id5: int;
+    shop_update_group_id6: int;
+    shop_update_group_id7: int;
+    shop_update_group_id8: int;
+    shop_update_group_id9: int;
+    shop_update_group_id10: int;
+    shop_update_group_id11: int;
+    shop_update_group_id12: int;
+}
+
+root_type ShopInfoExcel;

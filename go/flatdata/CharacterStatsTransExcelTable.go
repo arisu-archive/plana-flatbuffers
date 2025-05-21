@@ -17,19 +17,11 @@ func GetRootAsCharacterStatsTransExcelTable(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishCharacterStatsTransExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterStatsTransExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterStatsTransExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterStatsTransExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterStatsTransExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterStatsTransExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

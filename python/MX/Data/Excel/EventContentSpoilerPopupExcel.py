@@ -59,44 +59,24 @@ class EventContentSpoilerPopupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentSpoilerPopupExcelStart(builder):
-    builder.StartObject(5)
-
+def EventContentSpoilerPopupExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    EventContentSpoilerPopupExcelStart(builder)
-
-def EventContentSpoilerPopupExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentSpoilerPopupExcelStart(builder)
+def EventContentSpoilerPopupExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentSpoilerPopupExcelAddEventContentId(builder, eventContentId)
-
-def EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupTitle), 0)
-
+    return EventContentSpoilerPopupExcelAddEventContentId(builder, eventContentId)
+def EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupTitle), 0)
 def AddSpoilerPopupTitle(builder, spoilerPopupTitle):
-    EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle)
-
-def EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupDescription), 0)
-
+    return EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle)
+def EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupDescription), 0)
 def AddSpoilerPopupDescription(builder, spoilerPopupDescription):
-    EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription)
-
-def EventContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp):
-    builder.PrependBoolSlot(3, isWarningPopUp, 0)
-
+    return EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription)
+def EventContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp): builder.PrependBoolSlot(3, isWarningPopUp, 0)
 def AddIsWarningPopUp(builder, isWarningPopUp):
-    EventContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp)
-
-def EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId):
-    builder.PrependInt64Slot(4, conditionScenarioModeId, 0)
-
+    return EventContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp)
+def EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId): builder.PrependInt64Slot(4, conditionScenarioModeId, 0)
 def AddConditionScenarioModeId(builder, conditionScenarioModeId):
-    EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId)
-
-def EventContentSpoilerPopupExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId)
+def EventContentSpoilerPopupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentSpoilerPopupExcelEnd(builder)

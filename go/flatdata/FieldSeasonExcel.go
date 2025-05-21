@@ -17,19 +17,11 @@ func GetRootAsFieldSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSe
 	return x
 }
 
-func FinishFieldSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

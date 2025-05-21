@@ -17,19 +17,11 @@ func GetRootAsFieldDateExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldDate
 	return x
 }
 
-func FinishFieldDateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldDateExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldDateExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldDateExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldDateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldDateExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -30,6 +30,9 @@ type CampaignStageExcelDto struct {
 	MaxTurn                       int32                `json:"max_turn"`
 	StageTopography               StageTopography      `json:"stage_topography"`
 	RecommandLevel                int32                `json:"recommand_level"`
+	RecommandLevelGapForGuide     int32                `json:"recommand_level_gap_for_guide"`
+	MinEquipmentTierForGuide      []int64              `json:"min_equipment_tier_for_guide"`
+	MinSkillLevelForGuide         []int64              `json:"min_skill_level_for_guide"`
 	BgmId                         string               `json:"bgm_id"`
 	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
 	GroundId                      int64                `json:"ground_id"`
@@ -76,6 +79,17 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CampaignStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddRecommandLevelGapForGuide(b, fbsutils.Convert(t.RecommandLevelGapForGuide, t.FlatBuffer.TableKey))
+	CampaignStageExcelStartMinEquipmentTierForGuideVector(b, len(t.MinEquipmentTierForGuide))
+	for i := range len(t.MinEquipmentTierForGuide) {
+		b.PrependInt64(fbsutils.Convert(t.MinEquipmentTierForGuide[len(t.MinEquipmentTierForGuide)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignStageExcelAddMinEquipmentTierForGuide(b, b.EndVector(len(t.MinEquipmentTierForGuide)))
+	CampaignStageExcelStartMinSkillLevelForGuideVector(b, len(t.MinSkillLevelForGuide))
+	for i := range len(t.MinSkillLevelForGuide) {
+		b.PrependInt64(fbsutils.Convert(t.MinSkillLevelForGuide[len(t.MinSkillLevelForGuide)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignStageExcelAddMinSkillLevelForGuide(b, b.EndVector(len(t.MinSkillLevelForGuide)))
 	CampaignStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
@@ -127,6 +141,15 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.RecommandLevelGapForGuide = fbsutils.Convert(e.RecommandLevelGapForGuide(), t.FlatBuffer.TableKey)
+	t.MinEquipmentTierForGuide = make([]int64, e.MinEquipmentTierForGuideLength())
+	for i := range e.MinEquipmentTierForGuideLength() {
+		t.MinEquipmentTierForGuide[i] = fbsutils.Convert(e.MinEquipmentTierForGuide(i), t.FlatBuffer.TableKey)
+	}
+	t.MinSkillLevelForGuide = make([]int64, e.MinSkillLevelForGuideLength())
+	for i := range e.MinSkillLevelForGuideLength() {
+		t.MinSkillLevelForGuide[i] = fbsutils.Convert(e.MinSkillLevelForGuide(i), t.FlatBuffer.TableKey)
+	}
 	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)

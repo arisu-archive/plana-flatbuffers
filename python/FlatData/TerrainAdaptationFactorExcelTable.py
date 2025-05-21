@@ -49,26 +49,15 @@ class TerrainAdaptationFactorExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TerrainAdaptationFactorExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TerrainAdaptationFactorExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TerrainAdaptationFactorExcelTableStart(builder)
-
-def TerrainAdaptationFactorExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TerrainAdaptationFactorExcelTableStart(builder)
+def TerrainAdaptationFactorExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TerrainAdaptationFactorExcelTableAddDataList(builder, dataList)
-
-def TerrainAdaptationFactorExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TerrainAdaptationFactorExcelTableAddDataList(builder, dataList)
+def TerrainAdaptationFactorExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TerrainAdaptationFactorExcelTableStartDataListVector(builder, numElems)
-
-def TerrainAdaptationFactorExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TerrainAdaptationFactorExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TerrainAdaptationFactorExcelTableEnd(builder)

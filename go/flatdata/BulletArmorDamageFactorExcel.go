@@ -17,19 +17,11 @@ func GetRootAsBulletArmorDamageFactorExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishBulletArmorDamageFactorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsBulletArmorDamageFactorExcel(buf []byte, offset flatbuffers.UOffsetT) *BulletArmorDamageFactorExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BulletArmorDamageFactorExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedBulletArmorDamageFactorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BulletArmorDamageFactorExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -160,92 +160,48 @@ class WorldRaidConditionExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         return o == 0
 
-def WorldRaidConditionExcelStart(builder):
-    builder.StartObject(9)
-
+def WorldRaidConditionExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    WorldRaidConditionExcelStart(builder)
-
-def WorldRaidConditionExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return WorldRaidConditionExcelStart(builder)
+def WorldRaidConditionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    WorldRaidConditionExcelAddId(builder, id)
-
-def WorldRaidConditionExcelAddLockUi(builder, lockUi):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
-
+    return WorldRaidConditionExcelAddId(builder, id)
+def WorldRaidConditionExcelAddLockUi(builder, lockUi): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
 def AddLockUi(builder, lockUi):
-    WorldRaidConditionExcelAddLockUi(builder, lockUi)
-
-def WorldRaidConditionExcelStartLockUiVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return WorldRaidConditionExcelAddLockUi(builder, lockUi)
+def WorldRaidConditionExcelStartLockUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartLockUiVector(builder, numElems):
     return WorldRaidConditionExcelStartLockUiVector(builder, numElems)
-
-def WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked):
-    builder.PrependBoolSlot(2, hideWhenLocked, 0)
-
+def WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked): builder.PrependBoolSlot(2, hideWhenLocked, 0)
 def AddHideWhenLocked(builder, hideWhenLocked):
-    WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
-
-def WorldRaidConditionExcelAddAccountLevel(builder, accountLevel):
-    builder.PrependInt64Slot(3, accountLevel, 0)
-
+    return WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
+def WorldRaidConditionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(3, accountLevel, 0)
 def AddAccountLevel(builder, accountLevel):
-    WorldRaidConditionExcelAddAccountLevel(builder, accountLevel)
-
-def WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioModeId), 0)
-
+    return WorldRaidConditionExcelAddAccountLevel(builder, accountLevel)
+def WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioModeId), 0)
 def AddScenarioModeId(builder, scenarioModeId):
-    WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId)
-
-def WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId)
+def WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartScenarioModeIdVector(builder, numElems):
     return WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems)
-
-def WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(campaignStageId), 0)
-
+def WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(campaignStageId), 0)
 def AddCampaignStageId(builder, campaignStageId):
-    WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId)
-
-def WorldRaidConditionExcelStartCampaignStageIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId)
+def WorldRaidConditionExcelStartCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCampaignStageIdVector(builder, numElems):
     return WorldRaidConditionExcelStartCampaignStageIdVector(builder, numElems)
-
-def WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    builder.PrependInt32Slot(6, multipleConditionCheckType, 0)
-
+def WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType): builder.PrependInt32Slot(6, multipleConditionCheckType, 0)
 def AddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
-
-def WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(afterWhenDate), 0)
-
+    return WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
+def WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(afterWhenDate), 0)
 def AddAfterWhenDate(builder, afterWhenDate):
-    WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate)
-
-def WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(worldRaidBossKill), 0)
-
+    return WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate)
+def WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(worldRaidBossKill), 0)
 def AddWorldRaidBossKill(builder, worldRaidBossKill):
-    WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill)
-
-def WorldRaidConditionExcelStartWorldRaidBossKillVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill)
+def WorldRaidConditionExcelStartWorldRaidBossKillVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartWorldRaidBossKillVector(builder, numElems):
     return WorldRaidConditionExcelStartWorldRaidBossKillVector(builder, numElems)
-
-def WorldRaidConditionExcelEnd(builder):
-    return builder.EndObject()
-
+def WorldRaidConditionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return WorldRaidConditionExcelEnd(builder)

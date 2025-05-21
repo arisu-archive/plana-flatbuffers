@@ -2,4 +2,12 @@
 
 # namespace: FlatData
 
-# NOTE GachaDisplayTag.py does not declare any structs or enums
+class GachaDisplayTag(object):
+    None_ = 0
+    Limited = 1
+    TwoStar = 2
+    ThreeStar = 3
+    Free = 4
+    New = 5
+    Fes = 6
+    SelectRecruit = 7

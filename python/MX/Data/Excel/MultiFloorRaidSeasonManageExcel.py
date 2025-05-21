@@ -108,86 +108,45 @@ class MultiFloorRaidSeasonManageExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MultiFloorRaidSeasonManageExcelStart(builder):
-    builder.StartObject(12)
-
+def MultiFloorRaidSeasonManageExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    MultiFloorRaidSeasonManageExcelStart(builder)
-
-def MultiFloorRaidSeasonManageExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(0, seasonId, 0)
-
+    return MultiFloorRaidSeasonManageExcelStart(builder)
+def MultiFloorRaidSeasonManageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
 def AddSeasonId(builder, seasonId):
-    MultiFloorRaidSeasonManageExcelAddSeasonId(builder, seasonId)
-
-def MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(builder, lobbyEnterScenario):
-    builder.PrependUint32Slot(1, lobbyEnterScenario, 0)
-
+    return MultiFloorRaidSeasonManageExcelAddSeasonId(builder, seasonId)
+def MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(builder, lobbyEnterScenario): builder.PrependUint32Slot(1, lobbyEnterScenario, 0)
 def AddLobbyEnterScenario(builder, lobbyEnterScenario):
-    MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(builder, lobbyEnterScenario)
-
-def MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder, showLobbyBanner):
-    builder.PrependBoolSlot(2, showLobbyBanner, 0)
-
+    return MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(builder, lobbyEnterScenario)
+def MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder, showLobbyBanner): builder.PrependBoolSlot(2, showLobbyBanner, 0)
 def AddShowLobbyBanner(builder, showLobbyBanner):
-    MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder, showLobbyBanner)
-
-def MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder, seasonStartDate):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartDate), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder, showLobbyBanner)
+def MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder, seasonStartDate): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartDate), 0)
 def AddSeasonStartDate(builder, seasonStartDate):
-    MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder, seasonStartDate)
-
-def MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(endNoteLabelStartDate), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder, seasonStartDate)
+def MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(endNoteLabelStartDate), 0)
 def AddEndNoteLabelStartDate(builder, endNoteLabelStartDate):
-    MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
-
-def MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder, seasonEndDate):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndDate), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+def MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder, seasonEndDate): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndDate), 0)
 def AddSeasonEndDate(builder, seasonEndDate):
-    MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder, seasonEndDate)
-
-def MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder, seasonEndDate)
+def MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
 def AddSettlementEndDate(builder, settlementEndDate):
-    MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
-
-def MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroupId), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
+def MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroupId), 0)
 def AddOpenRaidBossGroupId(builder, openRaidBossGroupId):
-    MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId)
-
-def MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder, enterScenarioKey):
-    builder.PrependUint32Slot(8, enterScenarioKey, 0)
-
+    return MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId)
+def MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder, enterScenarioKey): builder.PrependUint32Slot(8, enterScenarioKey, 0)
 def AddEnterScenarioKey(builder, enterScenarioKey):
-    MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder, enterScenarioKey)
-
-def MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder, lobbyImgPath):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyImgPath), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder, enterScenarioKey)
+def MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder, lobbyImgPath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyImgPath), 0)
 def AddLobbyImgPath(builder, lobbyImgPath):
-    MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder, lobbyImgPath)
-
-def MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder, levelImgPath):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(levelImgPath), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder, lobbyImgPath)
+def MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder, levelImgPath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(levelImgPath), 0)
 def AddLevelImgPath(builder, levelImgPath):
-    MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder, levelImgPath)
-
-def MultiFloorRaidSeasonManageExcelAddPlayTip(builder, playTip):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(playTip), 0)
-
+    return MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder, levelImgPath)
+def MultiFloorRaidSeasonManageExcelAddPlayTip(builder, playTip): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(playTip), 0)
 def AddPlayTip(builder, playTip):
-    MultiFloorRaidSeasonManageExcelAddPlayTip(builder, playTip)
-
-def MultiFloorRaidSeasonManageExcelEnd(builder):
-    return builder.EndObject()
-
+    return MultiFloorRaidSeasonManageExcelAddPlayTip(builder, playTip)
+def MultiFloorRaidSeasonManageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MultiFloorRaidSeasonManageExcelEnd(builder)

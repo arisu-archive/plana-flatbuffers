@@ -17,19 +17,11 @@ func GetRootAsEventContentSpineDialogOffsetExcel(buf []byte, offset flatbuffers.
 	return x
 }
 
-func FinishEventContentSpineDialogOffsetExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentSpineDialogOffsetExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentSpineDialogOffsetExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentSpineDialogOffsetExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentSpineDialogOffsetExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

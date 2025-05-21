@@ -17,19 +17,11 @@ func GetRootAsBGMExcel(buf []byte, offset flatbuffers.UOffsetT) *BGMExcel {
 	return x
 }
 
-func FinishBGMExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsBGMExcel(buf []byte, offset flatbuffers.UOffsetT) *BGMExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BGMExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedBGMExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BGMExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

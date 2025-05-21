@@ -17,19 +17,11 @@ func GetRootAsPersonalityExcel(buf []byte, offset flatbuffers.UOffsetT) *Persona
 	return x
 }
 
-func FinishPersonalityExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsPersonalityExcel(buf []byte, offset flatbuffers.UOffsetT) *PersonalityExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PersonalityExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedPersonalityExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PersonalityExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

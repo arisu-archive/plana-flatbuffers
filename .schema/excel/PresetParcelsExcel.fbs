@@ -1,0 +1,12 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table PresetParcelsExcel {
+    parcel_type: ParcelType;
+    parcel_id: long;
+    preset_group_id: long;
+    parcel_amount: long;
+}
+
+root_type PresetParcelsExcel;

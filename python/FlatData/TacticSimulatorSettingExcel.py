@@ -2,4 +2,51 @@
 
 # namespace: FlatData
 
-# NOTE TacticSimulatorSettingExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class TacticSimulatorSettingExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = TacticSimulatorSettingExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsTacticSimulatorSettingExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # TacticSimulatorSettingExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # TacticSimulatorSettingExcel
+    def GroundId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticSimulatorSettingExcel
+    def FixedEchelonId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+def TacticSimulatorSettingExcelStart(builder): builder.StartObject(2)
+def Start(builder):
+    return TacticSimulatorSettingExcelStart(builder)
+def TacticSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(0, groundId, 0)
+def AddGroundId(builder, groundId):
+    return TacticSimulatorSettingExcelAddGroundId(builder, groundId)
+def TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(1, fixedEchelonId, 0)
+def AddFixedEchelonId(builder, fixedEchelonId):
+    return TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId)
+def TacticSimulatorSettingExcelEnd(builder): return builder.EndObject()
+def End(builder):
+    return TacticSimulatorSettingExcelEnd(builder)

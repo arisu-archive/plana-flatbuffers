@@ -17,19 +17,11 @@ func GetRootAsCampaignChapterExcel(buf []byte, offset flatbuffers.UOffsetT) *Cam
 	return x
 }
 
-func FinishCampaignChapterExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCampaignChapterExcel(buf []byte, offset flatbuffers.UOffsetT) *CampaignChapterExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CampaignChapterExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCampaignChapterExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CampaignChapterExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

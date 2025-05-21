@@ -49,26 +49,15 @@ class ShopInfoExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ShopInfoExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ShopInfoExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ShopInfoExcelTableStart(builder)
-
-def ShopInfoExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ShopInfoExcelTableStart(builder)
+def ShopInfoExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ShopInfoExcelTableAddDataList(builder, dataList)
-
-def ShopInfoExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ShopInfoExcelTableAddDataList(builder, dataList)
+def ShopInfoExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ShopInfoExcelTableStartDataListVector(builder, numElems)
-
-def ShopInfoExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ShopInfoExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopInfoExcelTableEnd(builder)

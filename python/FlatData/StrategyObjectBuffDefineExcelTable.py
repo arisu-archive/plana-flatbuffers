@@ -49,26 +49,15 @@ class StrategyObjectBuffDefineExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def StrategyObjectBuffDefineExcelTableStart(builder):
-    builder.StartObject(1)
-
+def StrategyObjectBuffDefineExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    StrategyObjectBuffDefineExcelTableStart(builder)
-
-def StrategyObjectBuffDefineExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return StrategyObjectBuffDefineExcelTableStart(builder)
+def StrategyObjectBuffDefineExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    StrategyObjectBuffDefineExcelTableAddDataList(builder, dataList)
-
-def StrategyObjectBuffDefineExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return StrategyObjectBuffDefineExcelTableAddDataList(builder, dataList)
+def StrategyObjectBuffDefineExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return StrategyObjectBuffDefineExcelTableStartDataListVector(builder, numElems)
-
-def StrategyObjectBuffDefineExcelTableEnd(builder):
-    return builder.EndObject()
-
+def StrategyObjectBuffDefineExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return StrategyObjectBuffDefineExcelTableEnd(builder)

@@ -49,26 +49,15 @@ class ShopRecruitExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ShopRecruitExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ShopRecruitExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ShopRecruitExcelTableStart(builder)
-
-def ShopRecruitExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ShopRecruitExcelTableStart(builder)
+def ShopRecruitExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ShopRecruitExcelTableAddDataList(builder, dataList)
-
-def ShopRecruitExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ShopRecruitExcelTableAddDataList(builder, dataList)
+def ShopRecruitExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ShopRecruitExcelTableStartDataListVector(builder, numElems)
-
-def ShopRecruitExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ShopRecruitExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopRecruitExcelTableEnd(builder)

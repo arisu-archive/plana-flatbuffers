@@ -17,19 +17,11 @@ func GetRootAsCurrencyExcel(buf []byte, offset flatbuffers.UOffsetT) *CurrencyEx
 	return x
 }
 
-func FinishCurrencyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCurrencyExcel(buf []byte, offset flatbuffers.UOffsetT) *CurrencyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CurrencyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCurrencyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CurrencyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

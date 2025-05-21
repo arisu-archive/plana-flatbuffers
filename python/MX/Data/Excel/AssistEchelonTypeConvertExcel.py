@@ -38,26 +38,15 @@ class AssistEchelonTypeConvertExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def AssistEchelonTypeConvertExcelStart(builder):
-    builder.StartObject(2)
-
+def AssistEchelonTypeConvertExcelStart(builder): builder.StartObject(2)
 def Start(builder):
-    AssistEchelonTypeConvertExcelStart(builder)
-
-def AssistEchelonTypeConvertExcelAddContents(builder, contents):
-    builder.PrependInt32Slot(0, contents, 0)
-
+    return AssistEchelonTypeConvertExcelStart(builder)
+def AssistEchelonTypeConvertExcelAddContents(builder, contents): builder.PrependInt32Slot(0, contents, 0)
 def AddContents(builder, contents):
-    AssistEchelonTypeConvertExcelAddContents(builder, contents)
-
-def AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo):
-    builder.PrependInt32Slot(1, convertTo, 0)
-
+    return AssistEchelonTypeConvertExcelAddContents(builder, contents)
+def AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo): builder.PrependInt32Slot(1, convertTo, 0)
 def AddConvertTo(builder, convertTo):
-    AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo)
-
-def AssistEchelonTypeConvertExcelEnd(builder):
-    return builder.EndObject()
-
+    return AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo)
+def AssistEchelonTypeConvertExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AssistEchelonTypeConvertExcelEnd(builder)

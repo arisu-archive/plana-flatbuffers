@@ -17,19 +17,11 @@ func GetRootAsAcademyMessanger2Excel(buf []byte, offset flatbuffers.UOffsetT) *A
 	return x
 }
 
-func FinishAcademyMessanger2ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAcademyMessanger2Excel(buf []byte, offset flatbuffers.UOffsetT) *AcademyMessanger2Excel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AcademyMessanger2Excel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAcademyMessanger2ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AcademyMessanger2Excel) Init(buf []byte, i flatbuffers.UOffsetT) {

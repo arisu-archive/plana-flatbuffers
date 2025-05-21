@@ -17,19 +17,11 @@ func GetRootAsMoveEnd(buf []byte, offset flatbuffers.UOffsetT) *MoveEnd {
 	return x
 }
 
-func FinishMoveEndBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMoveEnd(buf []byte, offset flatbuffers.UOffsetT) *MoveEnd {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MoveEnd{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMoveEndBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MoveEnd) Init(buf []byte, i flatbuffers.UOffsetT) {

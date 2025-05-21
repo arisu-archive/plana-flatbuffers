@@ -17,19 +17,11 @@ func GetRootAsConstMinigameTBGExcel(buf []byte, offset flatbuffers.UOffsetT) *Co
 	return x
 }
 
-func FinishConstMinigameTBGExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstMinigameTBGExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstMinigameTBGExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstMinigameTBGExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstMinigameTBGExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstMinigameTBGExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

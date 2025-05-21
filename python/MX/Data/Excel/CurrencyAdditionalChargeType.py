@@ -2,4 +2,6 @@
 
 # namespace: Excel
 
-# NOTE CurrencyAdditionalChargeType.py does not declare any structs or enums
+class CurrencyAdditionalChargeType(object):
+    EnableAutoChargeOverLimit = 0
+    DisableAutoChargeOverLimit = 1

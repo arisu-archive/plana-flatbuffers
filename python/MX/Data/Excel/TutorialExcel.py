@@ -99,68 +99,36 @@ class TutorialExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def TutorialExcelStart(builder):
-    builder.StartObject(7)
-
+def TutorialExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    TutorialExcelStart(builder)
-
-def TutorialExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return TutorialExcelStart(builder)
+def TutorialExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    TutorialExcelAddId(builder, id)
-
-def TutorialExcelAddCompletionReportEventName(builder, completionReportEventName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(completionReportEventName), 0)
-
+    return TutorialExcelAddId(builder, id)
+def TutorialExcelAddCompletionReportEventName(builder, completionReportEventName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(completionReportEventName), 0)
 def AddCompletionReportEventName(builder, completionReportEventName):
-    TutorialExcelAddCompletionReportEventName(builder, completionReportEventName)
-
-def TutorialExcelAddCompulsoryTutorial(builder, compulsoryTutorial):
-    builder.PrependBoolSlot(2, compulsoryTutorial, 0)
-
+    return TutorialExcelAddCompletionReportEventName(builder, completionReportEventName)
+def TutorialExcelAddCompulsoryTutorial(builder, compulsoryTutorial): builder.PrependBoolSlot(2, compulsoryTutorial, 0)
 def AddCompulsoryTutorial(builder, compulsoryTutorial):
-    TutorialExcelAddCompulsoryTutorial(builder, compulsoryTutorial)
-
-def TutorialExcelAddDescriptionTutorial(builder, descriptionTutorial):
-    builder.PrependBoolSlot(3, descriptionTutorial, 0)
-
+    return TutorialExcelAddCompulsoryTutorial(builder, compulsoryTutorial)
+def TutorialExcelAddDescriptionTutorial(builder, descriptionTutorial): builder.PrependBoolSlot(3, descriptionTutorial, 0)
 def AddDescriptionTutorial(builder, descriptionTutorial):
-    TutorialExcelAddDescriptionTutorial(builder, descriptionTutorial)
-
-def TutorialExcelAddTutorialStageId(builder, tutorialStageId):
-    builder.PrependInt64Slot(4, tutorialStageId, 0)
-
+    return TutorialExcelAddDescriptionTutorial(builder, descriptionTutorial)
+def TutorialExcelAddTutorialStageId(builder, tutorialStageId): builder.PrependInt64Slot(4, tutorialStageId, 0)
 def AddTutorialStageId(builder, tutorialStageId):
-    TutorialExcelAddTutorialStageId(builder, tutorialStageId)
-
-def TutorialExcelAddUiName(builder, uiName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(uiName), 0)
-
+    return TutorialExcelAddTutorialStageId(builder, tutorialStageId)
+def TutorialExcelAddUiName(builder, uiName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(uiName), 0)
 def AddUiName(builder, uiName):
-    TutorialExcelAddUiName(builder, uiName)
-
-def TutorialExcelStartUiNameVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TutorialExcelAddUiName(builder, uiName)
+def TutorialExcelStartUiNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartUiNameVector(builder, numElems):
     return TutorialExcelStartUiNameVector(builder, numElems)
-
-def TutorialExcelAddTutorialParentName(builder, tutorialParentName):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialParentName), 0)
-
+def TutorialExcelAddTutorialParentName(builder, tutorialParentName): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialParentName), 0)
 def AddTutorialParentName(builder, tutorialParentName):
-    TutorialExcelAddTutorialParentName(builder, tutorialParentName)
-
-def TutorialExcelStartTutorialParentNameVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TutorialExcelAddTutorialParentName(builder, tutorialParentName)
+def TutorialExcelStartTutorialParentNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTutorialParentNameVector(builder, numElems):
     return TutorialExcelStartTutorialParentNameVector(builder, numElems)
-
-def TutorialExcelEnd(builder):
-    return builder.EndObject()
-
+def TutorialExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TutorialExcelEnd(builder)

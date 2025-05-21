@@ -17,19 +17,11 @@ func GetRootAsOpenConditionExcel(buf []byte, offset flatbuffers.UOffsetT) *OpenC
 	return x
 }
 
-func FinishOpenConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsOpenConditionExcel(buf []byte, offset flatbuffers.UOffsetT) *OpenConditionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &OpenConditionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedOpenConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *OpenConditionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

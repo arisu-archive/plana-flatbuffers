@@ -17,19 +17,11 @@ func GetRootAsEventContentSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishEventContentSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

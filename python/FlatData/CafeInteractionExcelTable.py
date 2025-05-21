@@ -49,26 +49,15 @@ class CafeInteractionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CafeInteractionExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CafeInteractionExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CafeInteractionExcelTableStart(builder)
-
-def CafeInteractionExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CafeInteractionExcelTableStart(builder)
+def CafeInteractionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CafeInteractionExcelTableAddDataList(builder, dataList)
-
-def CafeInteractionExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CafeInteractionExcelTableAddDataList(builder, dataList)
+def CafeInteractionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CafeInteractionExcelTableStartDataListVector(builder, numElems)
-
-def CafeInteractionExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CafeInteractionExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeInteractionExcelTableEnd(builder)

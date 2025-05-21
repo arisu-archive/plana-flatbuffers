@@ -49,26 +49,15 @@ class NormalSkillTemplateExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def NormalSkillTemplateExcelTableStart(builder):
-    builder.StartObject(1)
-
+def NormalSkillTemplateExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    NormalSkillTemplateExcelTableStart(builder)
-
-def NormalSkillTemplateExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return NormalSkillTemplateExcelTableStart(builder)
+def NormalSkillTemplateExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    NormalSkillTemplateExcelTableAddDataList(builder, dataList)
-
-def NormalSkillTemplateExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return NormalSkillTemplateExcelTableAddDataList(builder, dataList)
+def NormalSkillTemplateExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return NormalSkillTemplateExcelTableStartDataListVector(builder, numElems)
-
-def NormalSkillTemplateExcelTableEnd(builder):
-    return builder.EndObject()
-
+def NormalSkillTemplateExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return NormalSkillTemplateExcelTableEnd(builder)

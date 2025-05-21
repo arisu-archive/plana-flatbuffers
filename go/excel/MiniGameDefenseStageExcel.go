@@ -17,19 +17,11 @@ func GetRootAsMiniGameDefenseStageExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishMiniGameDefenseStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMiniGameDefenseStageExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameDefenseStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameDefenseStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMiniGameDefenseStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameDefenseStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

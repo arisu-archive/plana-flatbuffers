@@ -17,19 +17,11 @@ func GetRootAsAcademyTicketExcel(buf []byte, offset flatbuffers.UOffsetT) *Acade
 	return x
 }
 
-func FinishAcademyTicketExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAcademyTicketExcel(buf []byte, offset flatbuffers.UOffsetT) *AcademyTicketExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AcademyTicketExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAcademyTicketExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AcademyTicketExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

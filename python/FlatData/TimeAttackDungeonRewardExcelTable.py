@@ -49,26 +49,15 @@ class TimeAttackDungeonRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TimeAttackDungeonRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TimeAttackDungeonRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TimeAttackDungeonRewardExcelTableStart(builder)
-
-def TimeAttackDungeonRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TimeAttackDungeonRewardExcelTableStart(builder)
+def TimeAttackDungeonRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TimeAttackDungeonRewardExcelTableAddDataList(builder, dataList)
-
-def TimeAttackDungeonRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TimeAttackDungeonRewardExcelTableAddDataList(builder, dataList)
+def TimeAttackDungeonRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TimeAttackDungeonRewardExcelTableStartDataListVector(builder, numElems)
-
-def TimeAttackDungeonRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TimeAttackDungeonRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TimeAttackDungeonRewardExcelTableEnd(builder)

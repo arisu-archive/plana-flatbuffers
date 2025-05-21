@@ -17,19 +17,11 @@ func GetRootAsGroundVector3(buf []byte, offset flatbuffers.UOffsetT) *GroundVect
 	return x
 }
 
-func FinishGroundVector3Buffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGroundVector3(buf []byte, offset flatbuffers.UOffsetT) *GroundVector3 {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundVector3{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGroundVector3Buffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundVector3) Init(buf []byte, i flatbuffers.UOffsetT) {

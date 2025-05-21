@@ -17,19 +17,11 @@ func GetRootAsFieldMasteryExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldM
 	return x
 }
 
-func FinishFieldMasteryExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldMasteryExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldMasteryExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldMasteryExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldMasteryExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldMasteryExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

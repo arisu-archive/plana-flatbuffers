@@ -17,19 +17,11 @@ func GetRootAsRootMotionFlat(buf []byte, offset flatbuffers.UOffsetT) *RootMotio
 	return x
 }
 
-func FinishRootMotionFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsRootMotionFlat(buf []byte, offset flatbuffers.UOffsetT) *RootMotionFlat {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RootMotionFlat{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedRootMotionFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RootMotionFlat) Init(buf []byte, i flatbuffers.UOffsetT) {

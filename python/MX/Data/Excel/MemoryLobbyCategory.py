@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE MemoryLobbyCategory.py does not declare any structs or enums
+class MemoryLobbyCategory(object):
+    None_ = 0
+    UILobbySpecial = 1
+    UILobbySpecial2 = 2

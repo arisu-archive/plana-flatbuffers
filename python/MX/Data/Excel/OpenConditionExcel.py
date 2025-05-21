@@ -190,146 +190,75 @@ class OpenConditionExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def OpenConditionExcelStart(builder):
-    builder.StartObject(20)
-
+def OpenConditionExcelStart(builder): builder.StartObject(20)
 def Start(builder):
-    OpenConditionExcelStart(builder)
-
-def OpenConditionExcelAddOpenConditionContentType(builder, openConditionContentType):
-    builder.PrependInt32Slot(0, openConditionContentType, 0)
-
+    return OpenConditionExcelStart(builder)
+def OpenConditionExcelAddOpenConditionContentType(builder, openConditionContentType): builder.PrependInt32Slot(0, openConditionContentType, 0)
 def AddOpenConditionContentType(builder, openConditionContentType):
-    OpenConditionExcelAddOpenConditionContentType(builder, openConditionContentType)
-
-def OpenConditionExcelAddLockUi(builder, lockUi):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
-
+    return OpenConditionExcelAddOpenConditionContentType(builder, openConditionContentType)
+def OpenConditionExcelAddLockUi(builder, lockUi): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
 def AddLockUi(builder, lockUi):
-    OpenConditionExcelAddLockUi(builder, lockUi)
-
-def OpenConditionExcelStartLockUiVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return OpenConditionExcelAddLockUi(builder, lockUi)
+def OpenConditionExcelStartLockUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartLockUiVector(builder, numElems):
     return OpenConditionExcelStartLockUiVector(builder, numElems)
-
-def OpenConditionExcelAddShortcutPopupPriority(builder, shortcutPopupPriority):
-    builder.PrependInt64Slot(2, shortcutPopupPriority, 0)
-
+def OpenConditionExcelAddShortcutPopupPriority(builder, shortcutPopupPriority): builder.PrependInt64Slot(2, shortcutPopupPriority, 0)
 def AddShortcutPopupPriority(builder, shortcutPopupPriority):
-    OpenConditionExcelAddShortcutPopupPriority(builder, shortcutPopupPriority)
-
-def OpenConditionExcelAddShortcutUiName(builder, shortcutUiName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUiName), 0)
-
+    return OpenConditionExcelAddShortcutPopupPriority(builder, shortcutPopupPriority)
+def OpenConditionExcelAddShortcutUiName(builder, shortcutUiName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUiName), 0)
 def AddShortcutUiName(builder, shortcutUiName):
-    OpenConditionExcelAddShortcutUiName(builder, shortcutUiName)
-
-def OpenConditionExcelStartShortcutUiNameVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return OpenConditionExcelAddShortcutUiName(builder, shortcutUiName)
+def OpenConditionExcelStartShortcutUiNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShortcutUiNameVector(builder, numElems):
     return OpenConditionExcelStartShortcutUiNameVector(builder, numElems)
-
-def OpenConditionExcelAddShortcutParam(builder, shortcutParam):
-    builder.PrependInt32Slot(4, shortcutParam, 0)
-
+def OpenConditionExcelAddShortcutParam(builder, shortcutParam): builder.PrependInt32Slot(4, shortcutParam, 0)
 def AddShortcutParam(builder, shortcutParam):
-    OpenConditionExcelAddShortcutParam(builder, shortcutParam)
-
-def OpenConditionExcelAddScene(builder, scene):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(scene), 0)
-
+    return OpenConditionExcelAddShortcutParam(builder, shortcutParam)
+def OpenConditionExcelAddScene(builder, scene): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(scene), 0)
 def AddScene(builder, scene):
-    OpenConditionExcelAddScene(builder, scene)
-
-def OpenConditionExcelAddHideWhenLocked(builder, hideWhenLocked):
-    builder.PrependBoolSlot(6, hideWhenLocked, 0)
-
+    return OpenConditionExcelAddScene(builder, scene)
+def OpenConditionExcelAddHideWhenLocked(builder, hideWhenLocked): builder.PrependBoolSlot(6, hideWhenLocked, 0)
 def AddHideWhenLocked(builder, hideWhenLocked):
-    OpenConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
-
-def OpenConditionExcelAddAccountLevel(builder, accountLevel):
-    builder.PrependInt64Slot(7, accountLevel, 0)
-
+    return OpenConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
+def OpenConditionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(7, accountLevel, 0)
 def AddAccountLevel(builder, accountLevel):
-    OpenConditionExcelAddAccountLevel(builder, accountLevel)
-
-def OpenConditionExcelAddScenarioModeId(builder, scenarioModeId):
-    builder.PrependInt64Slot(8, scenarioModeId, 0)
-
+    return OpenConditionExcelAddAccountLevel(builder, accountLevel)
+def OpenConditionExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependInt64Slot(8, scenarioModeId, 0)
 def AddScenarioModeId(builder, scenarioModeId):
-    OpenConditionExcelAddScenarioModeId(builder, scenarioModeId)
-
-def OpenConditionExcelAddCampaignStageId(builder, campaignStageId):
-    builder.PrependInt64Slot(9, campaignStageId, 0)
-
+    return OpenConditionExcelAddScenarioModeId(builder, scenarioModeId)
+def OpenConditionExcelAddCampaignStageId(builder, campaignStageId): builder.PrependInt64Slot(9, campaignStageId, 0)
 def AddCampaignStageId(builder, campaignStageId):
-    OpenConditionExcelAddCampaignStageId(builder, campaignStageId)
-
-def OpenConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    builder.PrependInt32Slot(10, multipleConditionCheckType, 0)
-
+    return OpenConditionExcelAddCampaignStageId(builder, campaignStageId)
+def OpenConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType): builder.PrependInt32Slot(10, multipleConditionCheckType, 0)
 def AddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    OpenConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
-
-def OpenConditionExcelAddOpenDayOfWeek(builder, openDayOfWeek):
-    builder.PrependInt32Slot(11, openDayOfWeek, 0)
-
+    return OpenConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
+def OpenConditionExcelAddOpenDayOfWeek(builder, openDayOfWeek): builder.PrependInt32Slot(11, openDayOfWeek, 0)
 def AddOpenDayOfWeek(builder, openDayOfWeek):
-    OpenConditionExcelAddOpenDayOfWeek(builder, openDayOfWeek)
-
-def OpenConditionExcelAddOpenHour(builder, openHour):
-    builder.PrependInt64Slot(12, openHour, 0)
-
+    return OpenConditionExcelAddOpenDayOfWeek(builder, openDayOfWeek)
+def OpenConditionExcelAddOpenHour(builder, openHour): builder.PrependInt64Slot(12, openHour, 0)
 def AddOpenHour(builder, openHour):
-    OpenConditionExcelAddOpenHour(builder, openHour)
-
-def OpenConditionExcelAddCloseDayOfWeek(builder, closeDayOfWeek):
-    builder.PrependInt32Slot(13, closeDayOfWeek, 0)
-
+    return OpenConditionExcelAddOpenHour(builder, openHour)
+def OpenConditionExcelAddCloseDayOfWeek(builder, closeDayOfWeek): builder.PrependInt32Slot(13, closeDayOfWeek, 0)
 def AddCloseDayOfWeek(builder, closeDayOfWeek):
-    OpenConditionExcelAddCloseDayOfWeek(builder, closeDayOfWeek)
-
-def OpenConditionExcelAddCloseHour(builder, closeHour):
-    builder.PrependInt64Slot(14, closeHour, 0)
-
+    return OpenConditionExcelAddCloseDayOfWeek(builder, closeDayOfWeek)
+def OpenConditionExcelAddCloseHour(builder, closeHour): builder.PrependInt64Slot(14, closeHour, 0)
 def AddCloseHour(builder, closeHour):
-    OpenConditionExcelAddCloseHour(builder, closeHour)
-
-def OpenConditionExcelAddOpenedCafeId(builder, openedCafeId):
-    builder.PrependInt64Slot(15, openedCafeId, 0)
-
+    return OpenConditionExcelAddCloseHour(builder, closeHour)
+def OpenConditionExcelAddOpenedCafeId(builder, openedCafeId): builder.PrependInt64Slot(15, openedCafeId, 0)
 def AddOpenedCafeId(builder, openedCafeId):
-    OpenConditionExcelAddOpenedCafeId(builder, openedCafeId)
-
-def OpenConditionExcelAddCafeIdforCafeRank(builder, cafeIdforCafeRank):
-    builder.PrependInt64Slot(16, cafeIdforCafeRank, 0)
-
+    return OpenConditionExcelAddOpenedCafeId(builder, openedCafeId)
+def OpenConditionExcelAddCafeIdforCafeRank(builder, cafeIdforCafeRank): builder.PrependInt64Slot(16, cafeIdforCafeRank, 0)
 def AddCafeIdforCafeRank(builder, cafeIdforCafeRank):
-    OpenConditionExcelAddCafeIdforCafeRank(builder, cafeIdforCafeRank)
-
-def OpenConditionExcelAddCafeRank(builder, cafeRank):
-    builder.PrependInt64Slot(17, cafeRank, 0)
-
+    return OpenConditionExcelAddCafeIdforCafeRank(builder, cafeIdforCafeRank)
+def OpenConditionExcelAddCafeRank(builder, cafeRank): builder.PrependInt64Slot(17, cafeRank, 0)
 def AddCafeRank(builder, cafeRank):
-    OpenConditionExcelAddCafeRank(builder, cafeRank)
-
-def OpenConditionExcelAddContentsOpenShow(builder, contentsOpenShow):
-    builder.PrependBoolSlot(18, contentsOpenShow, 0)
-
+    return OpenConditionExcelAddCafeRank(builder, cafeRank)
+def OpenConditionExcelAddContentsOpenShow(builder, contentsOpenShow): builder.PrependBoolSlot(18, contentsOpenShow, 0)
 def AddContentsOpenShow(builder, contentsOpenShow):
-    OpenConditionExcelAddContentsOpenShow(builder, contentsOpenShow)
-
-def OpenConditionExcelAddContentsOpenShortcutUi(builder, contentsOpenShortcutUi):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(contentsOpenShortcutUi), 0)
-
+    return OpenConditionExcelAddContentsOpenShow(builder, contentsOpenShow)
+def OpenConditionExcelAddContentsOpenShortcutUi(builder, contentsOpenShortcutUi): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(contentsOpenShortcutUi), 0)
 def AddContentsOpenShortcutUi(builder, contentsOpenShortcutUi):
-    OpenConditionExcelAddContentsOpenShortcutUi(builder, contentsOpenShortcutUi)
-
-def OpenConditionExcelEnd(builder):
-    return builder.EndObject()
-
+    return OpenConditionExcelAddContentsOpenShortcutUi(builder, contentsOpenShortcutUi)
+def OpenConditionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return OpenConditionExcelEnd(builder)

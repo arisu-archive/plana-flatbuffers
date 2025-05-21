@@ -17,19 +17,11 @@ func GetRootAsConquestObjectExcel(buf []byte, offset flatbuffers.UOffsetT) *Conq
 	return x
 }
 
-func FinishConquestObjectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConquestObjectExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestObjectExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestObjectExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConquestObjectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestObjectExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsEventContentZoneExcelTable(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishEventContentZoneExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentZoneExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentZoneExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentZoneExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentZoneExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentZoneExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

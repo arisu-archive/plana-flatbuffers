@@ -49,26 +49,15 @@ class LimitedStageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LimitedStageExcelTableStart(builder):
-    builder.StartObject(1)
-
+def LimitedStageExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    LimitedStageExcelTableStart(builder)
-
-def LimitedStageExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return LimitedStageExcelTableStart(builder)
+def LimitedStageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    LimitedStageExcelTableAddDataList(builder, dataList)
-
-def LimitedStageExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return LimitedStageExcelTableAddDataList(builder, dataList)
+def LimitedStageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return LimitedStageExcelTableStartDataListVector(builder, numElems)
-
-def LimitedStageExcelTableEnd(builder):
-    return builder.EndObject()
-
+def LimitedStageExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return LimitedStageExcelTableEnd(builder)

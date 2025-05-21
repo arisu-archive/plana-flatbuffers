@@ -49,26 +49,15 @@ class CharacterVictoryInteractionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterVictoryInteractionExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CharacterVictoryInteractionExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CharacterVictoryInteractionExcelTableStart(builder)
-
-def CharacterVictoryInteractionExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CharacterVictoryInteractionExcelTableStart(builder)
+def CharacterVictoryInteractionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CharacterVictoryInteractionExcelTableAddDataList(builder, dataList)
-
-def CharacterVictoryInteractionExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterVictoryInteractionExcelTableAddDataList(builder, dataList)
+def CharacterVictoryInteractionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CharacterVictoryInteractionExcelTableStartDataListVector(builder, numElems)
-
-def CharacterVictoryInteractionExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CharacterVictoryInteractionExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterVictoryInteractionExcelTableEnd(builder)

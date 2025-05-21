@@ -17,19 +17,11 @@ func GetRootAsCampaignStageRewardExcelTable(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishCampaignStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCampaignStageRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CampaignStageRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CampaignStageRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCampaignStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CampaignStageRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

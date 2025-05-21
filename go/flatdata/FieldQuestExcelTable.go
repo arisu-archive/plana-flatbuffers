@@ -17,19 +17,11 @@ func GetRootAsFieldQuestExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Fie
 	return x
 }
 
-func FinishFieldQuestExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldQuestExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldQuestExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldQuestExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldQuestExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldQuestExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -161,98 +161,51 @@ class EventContentTreasureRewardExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentTreasureRewardExcelStart(builder):
-    builder.StartObject(11)
-
+def EventContentTreasureRewardExcelStart(builder): builder.StartObject(11)
 def Start(builder):
-    EventContentTreasureRewardExcelStart(builder)
-
-def EventContentTreasureRewardExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EventContentTreasureRewardExcelStart(builder)
+def EventContentTreasureRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EventContentTreasureRewardExcelAddId(builder, id)
-
-def EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
-
+    return EventContentTreasureRewardExcelAddId(builder, id)
+def EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
 def AddLocalizeCodeId(builder, localizeCodeId):
-    EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
-
-def EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth):
-    builder.PrependInt32Slot(2, cellUnderImageWidth, 0)
-
+    return EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+def EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth): builder.PrependInt32Slot(2, cellUnderImageWidth, 0)
 def AddCellUnderImageWidth(builder, cellUnderImageWidth):
-    EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth)
-
-def EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight):
-    builder.PrependInt32Slot(3, cellUnderImageHeight, 0)
-
+    return EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth)
+def EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight): builder.PrependInt32Slot(3, cellUnderImageHeight, 0)
 def AddCellUnderImageHeight(builder, cellUnderImageHeight):
-    EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight)
-
-def EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage):
-    builder.PrependBoolSlot(4, hiddenImage, 0)
-
+    return EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight)
+def EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage): builder.PrependBoolSlot(4, hiddenImage, 0)
 def AddHiddenImage(builder, hiddenImage):
-    EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage)
-
-def EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+    return EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage)
+def EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, numElems)
-
-def EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
+def EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems)
-
-def EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
+def EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelAmountVector(builder, numElems):
     return EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems)
-
-def EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(cellUnderImagePath), 0)
-
+def EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(cellUnderImagePath), 0)
 def AddCellUnderImagePath(builder, cellUnderImagePath):
-    EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath)
-
-def EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSmallImagePath), 0)
-
+    return EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath)
+def EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSmallImagePath), 0)
 def AddTreasureSmallImagePath(builder, treasureSmallImagePath):
-    EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath)
-
-def EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSizeIconPath), 0)
-
+    return EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath)
+def EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSizeIconPath), 0)
 def AddTreasureSizeIconPath(builder, treasureSizeIconPath):
-    EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath)
-
-def EventContentTreasureRewardExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath)
+def EventContentTreasureRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentTreasureRewardExcelEnd(builder)

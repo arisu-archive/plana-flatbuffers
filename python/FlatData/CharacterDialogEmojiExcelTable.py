@@ -49,26 +49,15 @@ class CharacterDialogEmojiExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterDialogEmojiExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CharacterDialogEmojiExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CharacterDialogEmojiExcelTableStart(builder)
-
-def CharacterDialogEmojiExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CharacterDialogEmojiExcelTableStart(builder)
+def CharacterDialogEmojiExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CharacterDialogEmojiExcelTableAddDataList(builder, dataList)
-
-def CharacterDialogEmojiExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterDialogEmojiExcelTableAddDataList(builder, dataList)
+def CharacterDialogEmojiExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CharacterDialogEmojiExcelTableStartDataListVector(builder, numElems)
-
-def CharacterDialogEmojiExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CharacterDialogEmojiExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterDialogEmojiExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsTrophyCollectionExcel(buf []byte, offset flatbuffers.UOffsetT) *Tr
 	return x
 }
 
-func FinishTrophyCollectionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTrophyCollectionExcel(buf []byte, offset flatbuffers.UOffsetT) *TrophyCollectionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TrophyCollectionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTrophyCollectionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TrophyCollectionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsObstacleFireLineCheckExcelTable(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
-func FinishObstacleFireLineCheckExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsObstacleFireLineCheckExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ObstacleFireLineCheckExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ObstacleFireLineCheckExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedObstacleFireLineCheckExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ObstacleFireLineCheckExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsVoiceExcel(buf []byte, offset flatbuffers.UOffsetT) *VoiceExcel {
 	return x
 }
 
-func FinishVoiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsVoiceExcel(buf []byte, offset flatbuffers.UOffsetT) *VoiceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &VoiceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedVoiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *VoiceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

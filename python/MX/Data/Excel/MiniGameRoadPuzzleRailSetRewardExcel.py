@@ -126,68 +126,36 @@ class MiniGameRoadPuzzleRailSetRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
-def MiniGameRoadPuzzleRailSetRewardExcelStart(builder):
-    builder.StartObject(6)
-
+def MiniGameRoadPuzzleRailSetRewardExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    MiniGameRoadPuzzleRailSetRewardExcelStart(builder)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelStart(builder)
+def MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder, eventContentId)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(1, uniqueId, 0)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder, eventContentId)
+def MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder, uniqueId)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder, localizePrefabId):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(localizePrefabId), 0)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder, uniqueId)
+def MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder, localizePrefabId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(localizePrefabId), 0)
 def AddLocalizePrefabId(builder, localizePrefabId):
-    MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder, localizePrefabId)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder, localizePrefabId)
+def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder, numElems)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
+def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(builder, numElems)
-
-def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
+def MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelAmountVector(builder, numElems):
     return MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder, numElems)
-
-def MiniGameRoadPuzzleRailSetRewardExcelEnd(builder):
-    return builder.EndObject()
-
+def MiniGameRoadPuzzleRailSetRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameRoadPuzzleRailSetRewardExcelEnd(builder)

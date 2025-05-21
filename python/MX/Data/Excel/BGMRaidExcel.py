@@ -45,32 +45,18 @@ class BGMRaidExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def BGMRaidExcelStart(builder):
-    builder.StartObject(3)
-
+def BGMRaidExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    BGMRaidExcelStart(builder)
-
-def BGMRaidExcelAddStageId(builder, stageId):
-    builder.PrependInt64Slot(0, stageId, 0)
-
+    return BGMRaidExcelStart(builder)
+def BGMRaidExcelAddStageId(builder, stageId): builder.PrependInt64Slot(0, stageId, 0)
 def AddStageId(builder, stageId):
-    BGMRaidExcelAddStageId(builder, stageId)
-
-def BGMRaidExcelAddPhaseIndex(builder, phaseIndex):
-    builder.PrependInt64Slot(1, phaseIndex, 0)
-
+    return BGMRaidExcelAddStageId(builder, stageId)
+def BGMRaidExcelAddPhaseIndex(builder, phaseIndex): builder.PrependInt64Slot(1, phaseIndex, 0)
 def AddPhaseIndex(builder, phaseIndex):
-    BGMRaidExcelAddPhaseIndex(builder, phaseIndex)
-
-def BGMRaidExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(2, bgmId, 0)
-
+    return BGMRaidExcelAddPhaseIndex(builder, phaseIndex)
+def BGMRaidExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(2, bgmId, 0)
 def AddBgmId(builder, bgmId):
-    BGMRaidExcelAddBgmId(builder, bgmId)
-
-def BGMRaidExcelEnd(builder):
-    return builder.EndObject()
-
+    return BGMRaidExcelAddBgmId(builder, bgmId)
+def BGMRaidExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BGMRaidExcelEnd(builder)

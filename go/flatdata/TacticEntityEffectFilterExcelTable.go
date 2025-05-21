@@ -17,19 +17,11 @@ func GetRootAsTacticEntityEffectFilterExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
-func FinishTacticEntityEffectFilterExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTacticEntityEffectFilterExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TacticEntityEffectFilterExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TacticEntityEffectFilterExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTacticEntityEffectFilterExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TacticEntityEffectFilterExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
