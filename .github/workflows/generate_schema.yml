@@ -1,7 +1,7 @@
 name: Update library
 on:
   schedule:
-    - cron: '0 */2 * * 2'
+    - cron: '0 */2 * * 3'
   workflow_dispatch:
     inputs:
       force_update:
