@@ -17,19 +17,11 @@ func GetRootAsMiniGameMissionExcel(buf []byte, offset flatbuffers.UOffsetT) *Min
 	return x
 }
 
-func FinishMiniGameMissionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMiniGameMissionExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameMissionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameMissionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMiniGameMissionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameMissionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -328,8 +320,46 @@ func (rcv *MiniGameMissionExcel) RewardIcon() []byte {
 	return nil
 }
 
-func (rcv *MiniGameMissionExcel) MissionRewardParcelType(j int) ParcelType {
+func (rcv *MiniGameMissionExcel) CompleteConditionMissionId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) CompleteConditionMissionIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) MutateCompleteConditionMissionId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameMissionExcel) CompleteConditionMissionCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) MutateCompleteConditionMissionCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
+}
+
+func (rcv *MiniGameMissionExcel) MissionRewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -338,7 +368,7 @@ func (rcv *MiniGameMissionExcel) MissionRewardParcelType(j int) ParcelType {
 }
 
 func (rcv *MiniGameMissionExcel) MissionRewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -346,7 +376,7 @@ func (rcv *MiniGameMissionExcel) MissionRewardParcelTypeLength() int {
 }
 
 func (rcv *MiniGameMissionExcel) MutateMissionRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -355,7 +385,7 @@ func (rcv *MiniGameMissionExcel) MutateMissionRewardParcelType(j int, n ParcelTy
 }
 
 func (rcv *MiniGameMissionExcel) MissionRewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -364,7 +394,7 @@ func (rcv *MiniGameMissionExcel) MissionRewardParcelId(j int) int64 {
 }
 
 func (rcv *MiniGameMissionExcel) MissionRewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -372,7 +402,7 @@ func (rcv *MiniGameMissionExcel) MissionRewardParcelIdLength() int {
 }
 
 func (rcv *MiniGameMissionExcel) MutateMissionRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -381,7 +411,7 @@ func (rcv *MiniGameMissionExcel) MutateMissionRewardParcelId(j int, n int64) boo
 }
 
 func (rcv *MiniGameMissionExcel) MissionRewardAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -390,7 +420,7 @@ func (rcv *MiniGameMissionExcel) MissionRewardAmount(j int) int32 {
 }
 
 func (rcv *MiniGameMissionExcel) MissionRewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -398,7 +428,85 @@ func (rcv *MiniGameMissionExcel) MissionRewardAmountLength() int {
 }
 
 func (rcv *MiniGameMissionExcel) MutateMissionRewardAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) MutateConditionRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) MutateConditionRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardAmount(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) ConditionRewardAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameMissionExcel) MutateConditionRewardAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -407,7 +515,7 @@ func (rcv *MiniGameMissionExcel) MutateMissionRewardAmount(j int, n int32) bool 
 }
 
 func MiniGameMissionExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(24)
+	builder.StartObject(29)
 }
 func MiniGameMissionExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -484,22 +592,49 @@ func MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder *flatb
 func MiniGameMissionExcelAddRewardIcon(builder *flatbuffers.Builder, rewardIcon flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(rewardIcon), 0)
 }
+func MiniGameMissionExcelAddCompleteConditionMissionId(builder *flatbuffers.Builder, completeConditionMissionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(completeConditionMissionId), 0)
+}
+func MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func MiniGameMissionExcelAddCompleteConditionMissionCount(builder *flatbuffers.Builder, completeConditionMissionCount int64) {
+	builder.PrependInt64Slot(22, completeConditionMissionCount, 0)
+}
 func MiniGameMissionExcelAddMissionRewardParcelType(builder *flatbuffers.Builder, missionRewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(missionRewardParcelType), 0)
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(missionRewardParcelType), 0)
 }
 func MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameMissionExcelAddMissionRewardParcelId(builder *flatbuffers.Builder, missionRewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(missionRewardParcelId), 0)
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(missionRewardParcelId), 0)
 }
 func MiniGameMissionExcelStartMissionRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func MiniGameMissionExcelAddMissionRewardAmount(builder *flatbuffers.Builder, missionRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(missionRewardAmount), 0)
+	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(missionRewardAmount), 0)
 }
 func MiniGameMissionExcelStartMissionRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameMissionExcelAddConditionRewardParcelType(builder *flatbuffers.Builder, conditionRewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(conditionRewardParcelType), 0)
+}
+func MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameMissionExcelAddConditionRewardParcelId(builder *flatbuffers.Builder, conditionRewardParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(conditionRewardParcelId), 0)
+}
+func MiniGameMissionExcelStartConditionRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func MiniGameMissionExcelAddConditionRewardAmount(builder *flatbuffers.Builder, conditionRewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(conditionRewardAmount), 0)
+}
+func MiniGameMissionExcelStartConditionRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameMissionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

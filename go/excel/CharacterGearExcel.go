@@ -17,19 +17,11 @@ func GetRootAsCharacterGearExcel(buf []byte, offset flatbuffers.UOffsetT) *Chara
 	return x
 }
 
-func FinishCharacterGearExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterGearExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterGearExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterGearExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterGearExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterGearExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

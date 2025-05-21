@@ -49,26 +49,15 @@ class FieldRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FieldRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FieldRewardExcelTableStart(builder)
-
-def FieldRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FieldRewardExcelTableStart(builder)
+def FieldRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FieldRewardExcelTableAddDataList(builder, dataList)
-
-def FieldRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FieldRewardExcelTableAddDataList(builder, dataList)
+def FieldRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FieldRewardExcelTableStartDataListVector(builder, numElems)
-
-def FieldRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FieldRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldRewardExcelTableEnd(builder)

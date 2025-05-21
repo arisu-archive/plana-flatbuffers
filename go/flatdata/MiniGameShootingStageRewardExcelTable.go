@@ -17,19 +17,11 @@ func GetRootAsMiniGameShootingStageRewardExcelTable(buf []byte, offset flatbuffe
 	return x
 }
 
-func FinishMiniGameShootingStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMiniGameShootingStageRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *MiniGameShootingStageRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameShootingStageRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMiniGameShootingStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameShootingStageRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

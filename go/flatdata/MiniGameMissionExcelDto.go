@@ -31,9 +31,14 @@ type MiniGameMissionExcelDto struct {
 	CompleteConditionParameter    []int64                          `json:"complete_condition_parameter"`
 	CompleteConditionParameterTag []Tag                            `json:"complete_condition_parameter_tag"`
 	RewardIcon                    string                           `json:"reward_icon"`
+	CompleteConditionMissionId    []int64                          `json:"complete_condition_mission_id"`
+	CompleteConditionMissionCount int64                            `json:"complete_condition_mission_count"`
 	MissionRewardParcelType       []ParcelType                     `json:"mission_reward_parcel_type"`
 	MissionRewardParcelId         []int64                          `json:"mission_reward_parcel_id"`
 	MissionRewardAmount           []int32                          `json:"mission_reward_amount"`
+	ConditionRewardParcelType     []ParcelType                     `json:"condition_reward_parcel_type"`
+	ConditionRewardParcelId       []int64                          `json:"condition_reward_parcel_id"`
+	ConditionRewardAmount         []int32                          `json:"condition_reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -79,6 +84,12 @@ func (t *MiniGameMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	MiniGameMissionExcelAddCompleteConditionParameterTag(b, b.EndVector(len(t.CompleteConditionParameterTag)))
 	MiniGameMissionExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	MiniGameMissionExcelStartCompleteConditionMissionIdVector(b, len(t.CompleteConditionMissionId))
+	for i := range len(t.CompleteConditionMissionId) {
+		b.PrependInt64(fbsutils.Convert(t.CompleteConditionMissionId[len(t.CompleteConditionMissionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameMissionExcelAddCompleteConditionMissionId(b, b.EndVector(len(t.CompleteConditionMissionId)))
+	MiniGameMissionExcelAddCompleteConditionMissionCount(b, fbsutils.Convert(t.CompleteConditionMissionCount, t.FlatBuffer.TableKey))
 	MiniGameMissionExcelStartMissionRewardParcelTypeVector(b, len(t.MissionRewardParcelType))
 	for i := range len(t.MissionRewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.MissionRewardParcelType[len(t.MissionRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -94,6 +105,21 @@ func (t *MiniGameMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		b.PrependInt32(fbsutils.Convert(t.MissionRewardAmount[len(t.MissionRewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameMissionExcelAddMissionRewardAmount(b, b.EndVector(len(t.MissionRewardAmount)))
+	MiniGameMissionExcelStartConditionRewardParcelTypeVector(b, len(t.ConditionRewardParcelType))
+	for i := range len(t.ConditionRewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ConditionRewardParcelType[len(t.ConditionRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameMissionExcelAddConditionRewardParcelType(b, b.EndVector(len(t.ConditionRewardParcelType)))
+	MiniGameMissionExcelStartConditionRewardParcelIdVector(b, len(t.ConditionRewardParcelId))
+	for i := range len(t.ConditionRewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ConditionRewardParcelId[len(t.ConditionRewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameMissionExcelAddConditionRewardParcelId(b, b.EndVector(len(t.ConditionRewardParcelId)))
+	MiniGameMissionExcelStartConditionRewardAmountVector(b, len(t.ConditionRewardAmount))
+	for i := range len(t.ConditionRewardAmount) {
+		b.PrependInt32(fbsutils.Convert(t.ConditionRewardAmount[len(t.ConditionRewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameMissionExcelAddConditionRewardAmount(b, b.EndVector(len(t.ConditionRewardAmount)))
 	return MiniGameMissionExcelEnd(b)
 }
 
@@ -142,6 +168,11 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 		t.CompleteConditionParameterTag[i] = Tag(fbsutils.Convert(int32(e.CompleteConditionParameterTag(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
+	t.CompleteConditionMissionId = make([]int64, e.CompleteConditionMissionIdLength())
+	for i := range e.CompleteConditionMissionIdLength() {
+		t.CompleteConditionMissionId[i] = fbsutils.Convert(e.CompleteConditionMissionId(i), t.FlatBuffer.TableKey)
+	}
+	t.CompleteConditionMissionCount = fbsutils.Convert(e.CompleteConditionMissionCount(), t.FlatBuffer.TableKey)
 	t.MissionRewardParcelType = make([]ParcelType, e.MissionRewardParcelTypeLength())
 	for i := range e.MissionRewardParcelTypeLength() {
 		t.MissionRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.MissionRewardParcelType(i)), t.FlatBuffer.TableKey))
@@ -153,6 +184,18 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 	t.MissionRewardAmount = make([]int32, e.MissionRewardAmountLength())
 	for i := range e.MissionRewardAmountLength() {
 		t.MissionRewardAmount[i] = fbsutils.Convert(e.MissionRewardAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.ConditionRewardParcelType = make([]ParcelType, e.ConditionRewardParcelTypeLength())
+	for i := range e.ConditionRewardParcelTypeLength() {
+		t.ConditionRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ConditionRewardParcelType(i)), t.FlatBuffer.TableKey))
+	}
+	t.ConditionRewardParcelId = make([]int64, e.ConditionRewardParcelIdLength())
+	for i := range e.ConditionRewardParcelIdLength() {
+		t.ConditionRewardParcelId[i] = fbsutils.Convert(e.ConditionRewardParcelId(i), t.FlatBuffer.TableKey)
+	}
+	t.ConditionRewardAmount = make([]int32, e.ConditionRewardAmountLength())
+	for i := range e.ConditionRewardAmountLength() {
+		t.ConditionRewardAmount[i] = fbsutils.Convert(e.ConditionRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -17,19 +17,11 @@ func GetRootAsGachaGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaGro
 	return x
 }
 
-func FinishGachaGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGachaGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGachaGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

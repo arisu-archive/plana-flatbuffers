@@ -17,19 +17,11 @@ func GetRootAsCostumeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Costum
 	return x
 }
 
-func FinishCostumeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCostumeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CostumeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CostumeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCostumeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CostumeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

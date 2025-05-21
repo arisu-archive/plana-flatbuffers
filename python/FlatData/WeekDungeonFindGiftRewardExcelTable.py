@@ -49,26 +49,15 @@ class WeekDungeonFindGiftRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def WeekDungeonFindGiftRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def WeekDungeonFindGiftRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    WeekDungeonFindGiftRewardExcelTableStart(builder)
-
-def WeekDungeonFindGiftRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return WeekDungeonFindGiftRewardExcelTableStart(builder)
+def WeekDungeonFindGiftRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    WeekDungeonFindGiftRewardExcelTableAddDataList(builder, dataList)
-
-def WeekDungeonFindGiftRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return WeekDungeonFindGiftRewardExcelTableAddDataList(builder, dataList)
+def WeekDungeonFindGiftRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return WeekDungeonFindGiftRewardExcelTableStartDataListVector(builder, numElems)
-
-def WeekDungeonFindGiftRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def WeekDungeonFindGiftRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return WeekDungeonFindGiftRewardExcelTableEnd(builder)

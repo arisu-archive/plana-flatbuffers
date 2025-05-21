@@ -17,19 +17,11 @@ func GetRootAsCharacterDialogFieldExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
-func FinishCharacterDialogFieldExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterDialogFieldExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogFieldExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogFieldExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterDialogFieldExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogFieldExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -135,98 +135,51 @@ class ScenarioContentCollectionExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def ScenarioContentCollectionExcelStart(builder):
-    builder.StartObject(13)
-
+def ScenarioContentCollectionExcelStart(builder): builder.StartObject(13)
 def Start(builder):
-    ScenarioContentCollectionExcelStart(builder)
-
-def ScenarioContentCollectionExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ScenarioContentCollectionExcelStart(builder)
+def ScenarioContentCollectionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ScenarioContentCollectionExcelAddId(builder, id)
-
-def ScenarioContentCollectionExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(1, groupId, 0)
-
+    return ScenarioContentCollectionExcelAddId(builder, id)
+def ScenarioContentCollectionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
 def AddGroupId(builder, groupId):
-    ScenarioContentCollectionExcelAddGroupId(builder, groupId)
-
-def ScenarioContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType):
-    builder.PrependInt32Slot(2, unlockConditionType, 0)
-
+    return ScenarioContentCollectionExcelAddGroupId(builder, groupId)
+def ScenarioContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType): builder.PrependInt32Slot(2, unlockConditionType, 0)
 def AddUnlockConditionType(builder, unlockConditionType):
-    ScenarioContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType)
-
-def ScenarioContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(unlockConditionParameter), 0)
-
+    return ScenarioContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType)
+def ScenarioContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(unlockConditionParameter), 0)
 def AddUnlockConditionParameter(builder, unlockConditionParameter):
-    ScenarioContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter)
-
-def ScenarioContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ScenarioContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter)
+def ScenarioContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartUnlockConditionParameterVector(builder, numElems):
     return ScenarioContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems)
-
-def ScenarioContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    builder.PrependInt32Slot(4, multipleConditionCheckType, 0)
-
+def ScenarioContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType): builder.PrependInt32Slot(4, multipleConditionCheckType, 0)
 def AddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    ScenarioContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
-
-def ScenarioContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount):
-    builder.PrependInt64Slot(5, unlockConditionCount, 0)
-
+    return ScenarioContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
+def ScenarioContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount): builder.PrependInt64Slot(5, unlockConditionCount, 0)
 def AddUnlockConditionCount(builder, unlockConditionCount):
-    ScenarioContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount)
-
-def ScenarioContentCollectionExcelAddIsObject(builder, isObject):
-    builder.PrependBoolSlot(6, isObject, 0)
-
+    return ScenarioContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount)
+def ScenarioContentCollectionExcelAddIsObject(builder, isObject): builder.PrependBoolSlot(6, isObject, 0)
 def AddIsObject(builder, isObject):
-    ScenarioContentCollectionExcelAddIsObject(builder, isObject)
-
-def ScenarioContentCollectionExcelAddIsHorizon(builder, isHorizon):
-    builder.PrependBoolSlot(7, isHorizon, 0)
-
+    return ScenarioContentCollectionExcelAddIsObject(builder, isObject)
+def ScenarioContentCollectionExcelAddIsHorizon(builder, isHorizon): builder.PrependBoolSlot(7, isHorizon, 0)
 def AddIsHorizon(builder, isHorizon):
-    ScenarioContentCollectionExcelAddIsHorizon(builder, isHorizon)
-
-def ScenarioContentCollectionExcelAddEmblemResource(builder, emblemResource):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(emblemResource), 0)
-
+    return ScenarioContentCollectionExcelAddIsHorizon(builder, isHorizon)
+def ScenarioContentCollectionExcelAddEmblemResource(builder, emblemResource): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(emblemResource), 0)
 def AddEmblemResource(builder, emblemResource):
-    ScenarioContentCollectionExcelAddEmblemResource(builder, emblemResource)
-
-def ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(thumbResource), 0)
-
+    return ScenarioContentCollectionExcelAddEmblemResource(builder, emblemResource)
+def ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(thumbResource), 0)
 def AddThumbResource(builder, thumbResource):
-    ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource)
-
-def ScenarioContentCollectionExcelAddFullResource(builder, fullResource):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(fullResource), 0)
-
+    return ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource)
+def ScenarioContentCollectionExcelAddFullResource(builder, fullResource): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(fullResource), 0)
 def AddFullResource(builder, fullResource):
-    ScenarioContentCollectionExcelAddFullResource(builder, fullResource)
-
-def ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(11, localizeEtcId, 0)
-
+    return ScenarioContentCollectionExcelAddFullResource(builder, fullResource)
+def ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(11, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
-
+    return ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
+def ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
 def AddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
-    ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
-
-def ScenarioContentCollectionExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
+def ScenarioContentCollectionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioContentCollectionExcelEnd(builder)

@@ -49,26 +49,15 @@ class GuideMissionSeasonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GuideMissionSeasonExcelTableStart(builder):
-    builder.StartObject(1)
-
+def GuideMissionSeasonExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    GuideMissionSeasonExcelTableStart(builder)
-
-def GuideMissionSeasonExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return GuideMissionSeasonExcelTableStart(builder)
+def GuideMissionSeasonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    GuideMissionSeasonExcelTableAddDataList(builder, dataList)
-
-def GuideMissionSeasonExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return GuideMissionSeasonExcelTableAddDataList(builder, dataList)
+def GuideMissionSeasonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return GuideMissionSeasonExcelTableStartDataListVector(builder, numElems)
-
-def GuideMissionSeasonExcelTableEnd(builder):
-    return builder.EndObject()
-
+def GuideMissionSeasonExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return GuideMissionSeasonExcelTableEnd(builder)

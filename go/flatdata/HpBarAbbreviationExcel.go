@@ -17,19 +17,11 @@ func GetRootAsHpBarAbbreviationExcel(buf []byte, offset flatbuffers.UOffsetT) *H
 	return x
 }
 
-func FinishHpBarAbbreviationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsHpBarAbbreviationExcel(buf []byte, offset flatbuffers.UOffsetT) *HpBarAbbreviationExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &HpBarAbbreviationExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedHpBarAbbreviationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *HpBarAbbreviationExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

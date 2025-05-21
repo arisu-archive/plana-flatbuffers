@@ -17,19 +17,11 @@ func GetRootAsEventContentMiniEventShortCutExcelTable(buf []byte, offset flatbuf
 	return x
 }
 
-func FinishEventContentMiniEventShortCutExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentMiniEventShortCutExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentMiniEventShortCutExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentMiniEventShortCutExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentMiniEventShortCutExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentMiniEventShortCutExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

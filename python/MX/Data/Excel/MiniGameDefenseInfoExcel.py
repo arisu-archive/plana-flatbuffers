@@ -59,44 +59,24 @@ class MiniGameDefenseInfoExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def MiniGameDefenseInfoExcelStart(builder):
-    builder.StartObject(5)
-
+def MiniGameDefenseInfoExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    MiniGameDefenseInfoExcelStart(builder)
-
-def MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MiniGameDefenseInfoExcelStart(builder)
+def MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId)
-
-def MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType):
-    builder.PrependInt32Slot(1, defenseBattleParcelType, 0)
-
+    return MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId)
+def MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType): builder.PrependInt32Slot(1, defenseBattleParcelType, 0)
 def AddDefenseBattleParcelType(builder, defenseBattleParcelType):
-    MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType)
-
-def MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId):
-    builder.PrependInt64Slot(2, defenseBattleParcelId, 0)
-
+    return MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType)
+def MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId): builder.PrependInt64Slot(2, defenseBattleParcelId, 0)
 def AddDefenseBattleParcelId(builder, defenseBattleParcelId):
-    MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId)
-
-def MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
-    builder.PrependInt64Slot(3, defenseBattleMultiplierMax, 0)
-
+    return MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId)
+def MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax): builder.PrependInt64Slot(3, defenseBattleMultiplierMax, 0)
 def AddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
-    MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax)
-
-def MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion):
-    builder.PrependBoolSlot(4, disableRootMotion, 0)
-
+    return MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax)
+def MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion): builder.PrependBoolSlot(4, disableRootMotion, 0)
 def AddDisableRootMotion(builder, disableRootMotion):
-    MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion)
-
-def MiniGameDefenseInfoExcelEnd(builder):
-    return builder.EndObject()
-
+    return MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion)
+def MiniGameDefenseInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameDefenseInfoExcelEnd(builder)

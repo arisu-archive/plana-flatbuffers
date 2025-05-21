@@ -17,19 +17,11 @@ func GetRootAsEventContentStageExcel(buf []byte, offset flatbuffers.UOffsetT) *E
 	return x
 }
 
-func FinishEventContentStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentStageExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

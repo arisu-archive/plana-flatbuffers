@@ -52,38 +52,21 @@ class MinigameDreamVoiceExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameDreamVoiceExcelStart(builder):
-    builder.StartObject(4)
-
+def MinigameDreamVoiceExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    MinigameDreamVoiceExcelStart(builder)
-
-def MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MinigameDreamVoiceExcelStart(builder)
+def MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId)
-
-def MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(1, uniqueId, 0)
-
+    return MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId)
+def MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId)
-
-def MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition):
-    builder.PrependInt32Slot(2, voiceCondition, 0)
-
+    return MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId)
+def MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition): builder.PrependInt32Slot(2, voiceCondition, 0)
 def AddVoiceCondition(builder, voiceCondition):
-    MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition)
-
-def MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip):
-    builder.PrependUint32Slot(3, voiceClip, 0)
-
+    return MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition)
+def MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip): builder.PrependUint32Slot(3, voiceClip, 0)
 def AddVoiceClip(builder, voiceClip):
-    MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip)
-
-def MinigameDreamVoiceExcelEnd(builder):
-    return builder.EndObject()
-
+    return MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip)
+def MinigameDreamVoiceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameDreamVoiceExcelEnd(builder)

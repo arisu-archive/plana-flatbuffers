@@ -87,68 +87,36 @@ class ScenarioBGNameExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioBGNameExcelStart(builder):
-    builder.StartObject(9)
-
+def ScenarioBGNameExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    ScenarioBGNameExcelStart(builder)
-
-def ScenarioBGNameExcelAddName(builder, name):
-    builder.PrependUint32Slot(0, name, 0)
-
+    return ScenarioBGNameExcelStart(builder)
+def ScenarioBGNameExcelAddName(builder, name): builder.PrependUint32Slot(0, name, 0)
 def AddName(builder, name):
-    ScenarioBGNameExcelAddName(builder, name)
-
-def ScenarioBGNameExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(1, productionStep, 0)
-
+    return ScenarioBGNameExcelAddName(builder, name)
+def ScenarioBGNameExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(1, productionStep, 0)
 def AddProductionStep(builder, productionStep):
-    ScenarioBGNameExcelAddProductionStep(builder, productionStep)
-
-def ScenarioBGNameExcelAddBgFileName(builder, bgFileName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bgFileName), 0)
-
+    return ScenarioBGNameExcelAddProductionStep(builder, productionStep)
+def ScenarioBGNameExcelAddBgFileName(builder, bgFileName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bgFileName), 0)
 def AddBgFileName(builder, bgFileName):
-    ScenarioBGNameExcelAddBgFileName(builder, bgFileName)
-
-def ScenarioBGNameExcelAddBgType(builder, bgType):
-    builder.PrependInt32Slot(3, bgType, 0)
-
+    return ScenarioBGNameExcelAddBgFileName(builder, bgFileName)
+def ScenarioBGNameExcelAddBgType(builder, bgType): builder.PrependInt32Slot(3, bgType, 0)
 def AddBgType(builder, bgType):
-    ScenarioBGNameExcelAddBgType(builder, bgType)
-
-def ScenarioBGNameExcelAddAnimationRoot(builder, animationRoot):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(animationRoot), 0)
-
+    return ScenarioBGNameExcelAddBgType(builder, bgType)
+def ScenarioBGNameExcelAddAnimationRoot(builder, animationRoot): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(animationRoot), 0)
 def AddAnimationRoot(builder, animationRoot):
-    ScenarioBGNameExcelAddAnimationRoot(builder, animationRoot)
-
-def ScenarioBGNameExcelAddAnimationName(builder, animationName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
-
+    return ScenarioBGNameExcelAddAnimationRoot(builder, animationRoot)
+def ScenarioBGNameExcelAddAnimationName(builder, animationName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
 def AddAnimationName(builder, animationName):
-    ScenarioBGNameExcelAddAnimationName(builder, animationName)
-
-def ScenarioBGNameExcelAddSpineScale(builder, spineScale):
-    builder.PrependFloat32Slot(6, spineScale, 0.0)
-
+    return ScenarioBGNameExcelAddAnimationName(builder, animationName)
+def ScenarioBGNameExcelAddSpineScale(builder, spineScale): builder.PrependFloat32Slot(6, spineScale, 0.0)
 def AddSpineScale(builder, spineScale):
-    ScenarioBGNameExcelAddSpineScale(builder, spineScale)
-
-def ScenarioBGNameExcelAddSpineLocalPosX(builder, spineLocalPosX):
-    builder.PrependInt32Slot(7, spineLocalPosX, 0)
-
+    return ScenarioBGNameExcelAddSpineScale(builder, spineScale)
+def ScenarioBGNameExcelAddSpineLocalPosX(builder, spineLocalPosX): builder.PrependInt32Slot(7, spineLocalPosX, 0)
 def AddSpineLocalPosX(builder, spineLocalPosX):
-    ScenarioBGNameExcelAddSpineLocalPosX(builder, spineLocalPosX)
-
-def ScenarioBGNameExcelAddSpineLocalPosY(builder, spineLocalPosY):
-    builder.PrependInt32Slot(8, spineLocalPosY, 0)
-
+    return ScenarioBGNameExcelAddSpineLocalPosX(builder, spineLocalPosX)
+def ScenarioBGNameExcelAddSpineLocalPosY(builder, spineLocalPosY): builder.PrependInt32Slot(8, spineLocalPosY, 0)
 def AddSpineLocalPosY(builder, spineLocalPosY):
-    ScenarioBGNameExcelAddSpineLocalPosY(builder, spineLocalPosY)
-
-def ScenarioBGNameExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioBGNameExcelAddSpineLocalPosY(builder, spineLocalPosY)
+def ScenarioBGNameExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioBGNameExcelEnd(builder)

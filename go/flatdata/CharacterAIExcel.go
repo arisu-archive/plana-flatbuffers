@@ -17,19 +17,11 @@ func GetRootAsCharacterAIExcel(buf []byte, offset flatbuffers.UOffsetT) *Charact
 	return x
 }
 
-func FinishCharacterAIExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterAIExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterAIExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterAIExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterAIExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterAIExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

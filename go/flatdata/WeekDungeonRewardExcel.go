@@ -17,19 +17,11 @@ func GetRootAsWeekDungeonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *W
 	return x
 }
 
-func FinishWeekDungeonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsWeekDungeonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *WeekDungeonRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WeekDungeonRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedWeekDungeonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WeekDungeonRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

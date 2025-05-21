@@ -2,4 +2,8 @@
 
 # namespace: FlatData
 
-# NOTE PurchaseCountResetType.py does not declare any structs or enums
+class PurchaseCountResetType(object):
+    None_ = 0
+    Day = 1
+    Week = 2
+    Month = 3

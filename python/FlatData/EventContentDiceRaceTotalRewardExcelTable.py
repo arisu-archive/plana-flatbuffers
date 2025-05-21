@@ -49,26 +49,15 @@ class EventContentDiceRaceTotalRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentDiceRaceTotalRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentDiceRaceTotalRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentDiceRaceTotalRewardExcelTableStart(builder)
-
-def EventContentDiceRaceTotalRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentDiceRaceTotalRewardExcelTableStart(builder)
+def EventContentDiceRaceTotalRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentDiceRaceTotalRewardExcelTableAddDataList(builder, dataList)
-
-def EventContentDiceRaceTotalRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentDiceRaceTotalRewardExcelTableAddDataList(builder, dataList)
+def EventContentDiceRaceTotalRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentDiceRaceTotalRewardExcelTableStartDataListVector(builder, numElems)
-
-def EventContentDiceRaceTotalRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentDiceRaceTotalRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentDiceRaceTotalRewardExcelTableEnd(builder)

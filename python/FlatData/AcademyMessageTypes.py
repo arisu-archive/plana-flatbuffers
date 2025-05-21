@@ -2,4 +2,7 @@
 
 # namespace: FlatData
 
-# NOTE AcademyMessageTypes.py does not declare any structs or enums
+class AcademyMessageTypes(object):
+    None_ = 0
+    Text = 1
+    Image = 2

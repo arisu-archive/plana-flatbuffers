@@ -49,26 +49,15 @@ class ProductMonthlyExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ProductMonthlyExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ProductMonthlyExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ProductMonthlyExcelTableStart(builder)
-
-def ProductMonthlyExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ProductMonthlyExcelTableStart(builder)
+def ProductMonthlyExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ProductMonthlyExcelTableAddDataList(builder, dataList)
-
-def ProductMonthlyExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ProductMonthlyExcelTableAddDataList(builder, dataList)
+def ProductMonthlyExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ProductMonthlyExcelTableStartDataListVector(builder, numElems)
-
-def ProductMonthlyExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ProductMonthlyExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ProductMonthlyExcelTableEnd(builder)

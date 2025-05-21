@@ -17,19 +17,11 @@ func GetRootAsObstacleStatExcel(buf []byte, offset flatbuffers.UOffsetT) *Obstac
 	return x
 }
 
-func FinishObstacleStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsObstacleStatExcel(buf []byte, offset flatbuffers.UOffsetT) *ObstacleStatExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ObstacleStatExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedObstacleStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ObstacleStatExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

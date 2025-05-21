@@ -2,4 +2,9 @@
 
 # namespace: FlatData
 
-# NOTE ConquestConditionType.py does not declare any structs or enums
+class ConquestConditionType(object):
+    None_ = 0
+    OpenDateOffset = 1
+    ItemAcquire = 2
+    ParcelUse = 3
+    KillUnit = 4

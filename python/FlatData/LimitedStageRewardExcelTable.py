@@ -49,26 +49,15 @@ class LimitedStageRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LimitedStageRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def LimitedStageRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    LimitedStageRewardExcelTableStart(builder)
-
-def LimitedStageRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return LimitedStageRewardExcelTableStart(builder)
+def LimitedStageRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    LimitedStageRewardExcelTableAddDataList(builder, dataList)
-
-def LimitedStageRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return LimitedStageRewardExcelTableAddDataList(builder, dataList)
+def LimitedStageRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return LimitedStageRewardExcelTableStartDataListVector(builder, numElems)
-
-def LimitedStageRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def LimitedStageRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return LimitedStageRewardExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsTimeAttackDungeonExcel(buf []byte, offset flatbuffers.UOffsetT) *T
 	return x
 }
 
-func FinishTimeAttackDungeonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTimeAttackDungeonExcel(buf []byte, offset flatbuffers.UOffsetT) *TimeAttackDungeonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TimeAttackDungeonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTimeAttackDungeonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TimeAttackDungeonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

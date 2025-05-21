@@ -49,26 +49,15 @@ class MiniGameRhythmBgmExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MiniGameRhythmBgmExcelTableStart(builder):
-    builder.StartObject(1)
-
+def MiniGameRhythmBgmExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    MiniGameRhythmBgmExcelTableStart(builder)
-
-def MiniGameRhythmBgmExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return MiniGameRhythmBgmExcelTableStart(builder)
+def MiniGameRhythmBgmExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    MiniGameRhythmBgmExcelTableAddDataList(builder, dataList)
-
-def MiniGameRhythmBgmExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameRhythmBgmExcelTableAddDataList(builder, dataList)
+def MiniGameRhythmBgmExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return MiniGameRhythmBgmExcelTableStartDataListVector(builder, numElems)
-
-def MiniGameRhythmBgmExcelTableEnd(builder):
-    return builder.EndObject()
-
+def MiniGameRhythmBgmExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameRhythmBgmExcelTableEnd(builder)

@@ -30,7 +30,12 @@ table MiniGameMissionExcel {
     complete_condition_parameter: [long];
     complete_condition_parameter_tag: [Tag];
     reward_icon: string;
+    complete_condition_mission_id: [long];
+    complete_condition_mission_count: long;
     mission_reward_parcel_type: [ParcelType];
     mission_reward_parcel_id: [long];
     mission_reward_amount: [int];
+    condition_reward_parcel_type: [ParcelType];
+    condition_reward_parcel_id: [long];
+    condition_reward_amount: [int];
 }

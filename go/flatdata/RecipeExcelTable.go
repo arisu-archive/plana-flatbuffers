@@ -17,19 +17,11 @@ func GetRootAsRecipeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *RecipeE
 	return x
 }
 
-func FinishRecipeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsRecipeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *RecipeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RecipeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedRecipeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RecipeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

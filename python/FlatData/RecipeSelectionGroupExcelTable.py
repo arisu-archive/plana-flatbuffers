@@ -49,26 +49,15 @@ class RecipeSelectionGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def RecipeSelectionGroupExcelTableStart(builder):
-    builder.StartObject(1)
-
+def RecipeSelectionGroupExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    RecipeSelectionGroupExcelTableStart(builder)
-
-def RecipeSelectionGroupExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return RecipeSelectionGroupExcelTableStart(builder)
+def RecipeSelectionGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    RecipeSelectionGroupExcelTableAddDataList(builder, dataList)
-
-def RecipeSelectionGroupExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RecipeSelectionGroupExcelTableAddDataList(builder, dataList)
+def RecipeSelectionGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return RecipeSelectionGroupExcelTableStartDataListVector(builder, numElems)
-
-def RecipeSelectionGroupExcelTableEnd(builder):
-    return builder.EndObject()
-
+def RecipeSelectionGroupExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeSelectionGroupExcelTableEnd(builder)

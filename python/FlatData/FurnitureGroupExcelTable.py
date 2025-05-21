@@ -49,26 +49,15 @@ class FurnitureGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FurnitureGroupExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FurnitureGroupExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FurnitureGroupExcelTableStart(builder)
-
-def FurnitureGroupExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FurnitureGroupExcelTableStart(builder)
+def FurnitureGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FurnitureGroupExcelTableAddDataList(builder, dataList)
-
-def FurnitureGroupExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureGroupExcelTableAddDataList(builder, dataList)
+def FurnitureGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FurnitureGroupExcelTableStartDataListVector(builder, numElems)
-
-def FurnitureGroupExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FurnitureGroupExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FurnitureGroupExcelTableEnd(builder)

@@ -51,26 +51,15 @@ class GroundNodeLayerFlat(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GroundNodeLayerFlatStart(builder):
-    builder.StartObject(1)
-
+def GroundNodeLayerFlatStart(builder): builder.StartObject(1)
 def Start(builder):
-    GroundNodeLayerFlatStart(builder)
-
-def GroundNodeLayerFlatAddLayers(builder, layers):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(layers), 0)
-
+    return GroundNodeLayerFlatStart(builder)
+def GroundNodeLayerFlatAddLayers(builder, layers): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(layers), 0)
 def AddLayers(builder, layers):
-    GroundNodeLayerFlatAddLayers(builder, layers)
-
-def GroundNodeLayerFlatStartLayersVector(builder, numElems):
-    return builder.StartVector(1, numElems, 1)
-
+    return GroundNodeLayerFlatAddLayers(builder, layers)
+def GroundNodeLayerFlatStartLayersVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartLayersVector(builder, numElems):
     return GroundNodeLayerFlatStartLayersVector(builder, numElems)
-
-def GroundNodeLayerFlatEnd(builder):
-    return builder.EndObject()
-
+def GroundNodeLayerFlatEnd(builder): return builder.EndObject()
 def End(builder):
     return GroundNodeLayerFlatEnd(builder)

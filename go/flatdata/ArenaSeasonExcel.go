@@ -17,19 +17,11 @@ func GetRootAsArenaSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaSe
 	return x
 }
 
-func FinishArenaSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsArenaSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedArenaSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

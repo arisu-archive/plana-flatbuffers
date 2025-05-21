@@ -49,26 +49,15 @@ class BossPhaseExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def BossPhaseExcelTableStart(builder):
-    builder.StartObject(1)
-
+def BossPhaseExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    BossPhaseExcelTableStart(builder)
-
-def BossPhaseExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return BossPhaseExcelTableStart(builder)
+def BossPhaseExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    BossPhaseExcelTableAddDataList(builder, dataList)
-
-def BossPhaseExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return BossPhaseExcelTableAddDataList(builder, dataList)
+def BossPhaseExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return BossPhaseExcelTableStartDataListVector(builder, numElems)
-
-def BossPhaseExcelTableEnd(builder):
-    return builder.EndObject()
-
+def BossPhaseExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return BossPhaseExcelTableEnd(builder)

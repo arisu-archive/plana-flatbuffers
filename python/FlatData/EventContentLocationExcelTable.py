@@ -49,26 +49,15 @@ class EventContentLocationExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentLocationExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentLocationExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentLocationExcelTableStart(builder)
-
-def EventContentLocationExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentLocationExcelTableStart(builder)
+def EventContentLocationExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentLocationExcelTableAddDataList(builder, dataList)
-
-def EventContentLocationExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentLocationExcelTableAddDataList(builder, dataList)
+def EventContentLocationExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentLocationExcelTableStartDataListVector(builder, numElems)
-
-def EventContentLocationExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentLocationExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentLocationExcelTableEnd(builder)

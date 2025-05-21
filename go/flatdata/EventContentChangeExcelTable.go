@@ -17,19 +17,11 @@ func GetRootAsEventContentChangeExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishEventContentChangeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentChangeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentChangeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentChangeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentChangeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentChangeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

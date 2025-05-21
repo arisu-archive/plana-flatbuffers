@@ -2,4 +2,6 @@
 
 # namespace: FlatData
 
-# NOTE ObstacleDestroyType.py does not declare any structs or enums
+class ObstacleDestroyType(object):
+    Remain = 0
+    Remove = 1

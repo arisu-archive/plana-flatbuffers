@@ -17,19 +17,11 @@ func GetRootAsConstArenaExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstAre
 	return x
 }
 
-func FinishConstArenaExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstArenaExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstArenaExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstArenaExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstArenaExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstArenaExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

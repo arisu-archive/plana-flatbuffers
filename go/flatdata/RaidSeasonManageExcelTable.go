@@ -17,19 +17,11 @@ func GetRootAsRaidSeasonManageExcelTable(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishRaidSeasonManageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsRaidSeasonManageExcelTable(buf []byte, offset flatbuffers.UOffsetT) *RaidSeasonManageExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RaidSeasonManageExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedRaidSeasonManageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RaidSeasonManageExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

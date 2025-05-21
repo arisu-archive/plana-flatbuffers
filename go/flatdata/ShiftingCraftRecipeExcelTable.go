@@ -17,19 +17,11 @@ func GetRootAsShiftingCraftRecipeExcelTable(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishShiftingCraftRecipeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsShiftingCraftRecipeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShiftingCraftRecipeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShiftingCraftRecipeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedShiftingCraftRecipeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShiftingCraftRecipeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

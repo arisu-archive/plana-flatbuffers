@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE Anniversary.py does not declare any structs or enums
+class Anniversary(object):
+    None_ = 0
+    UserBDay = 1
+    StudentBDay = 2

@@ -2,4 +2,8 @@
 
 # namespace: FlatData
 
-# NOTE ConquestTeamType.py does not declare any structs or enums
+class ConquestTeamType(object):
+    None_ = 0
+    Team1 = 1
+    Team2 = 2
+    Team3 = 3

@@ -2,4 +2,6 @@
 
 # namespace: Excel
 
-# NOTE AttendanceCountRule.py does not declare any structs or enums
+class AttendanceCountRule(object):
+    Accumulation = 0
+    Date = 1

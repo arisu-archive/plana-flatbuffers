@@ -49,26 +49,15 @@ class AcademyLocationRankExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AcademyLocationRankExcelTableStart(builder):
-    builder.StartObject(1)
-
+def AcademyLocationRankExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    AcademyLocationRankExcelTableStart(builder)
-
-def AcademyLocationRankExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return AcademyLocationRankExcelTableStart(builder)
+def AcademyLocationRankExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    AcademyLocationRankExcelTableAddDataList(builder, dataList)
-
-def AcademyLocationRankExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AcademyLocationRankExcelTableAddDataList(builder, dataList)
+def AcademyLocationRankExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AcademyLocationRankExcelTableStartDataListVector(builder, numElems)
-
-def AcademyLocationRankExcelTableEnd(builder):
-    return builder.EndObject()
-
+def AcademyLocationRankExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return AcademyLocationRankExcelTableEnd(builder)

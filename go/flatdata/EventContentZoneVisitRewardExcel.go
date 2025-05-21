@@ -17,19 +17,11 @@ func GetRootAsEventContentZoneVisitRewardExcel(buf []byte, offset flatbuffers.UO
 	return x
 }
 
-func FinishEventContentZoneVisitRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentZoneVisitRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentZoneVisitRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentZoneVisitRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentZoneVisitRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentZoneVisitRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

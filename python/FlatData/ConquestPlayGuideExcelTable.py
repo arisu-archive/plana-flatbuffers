@@ -49,26 +49,15 @@ class ConquestPlayGuideExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestPlayGuideExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConquestPlayGuideExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConquestPlayGuideExcelTableStart(builder)
-
-def ConquestPlayGuideExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConquestPlayGuideExcelTableStart(builder)
+def ConquestPlayGuideExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConquestPlayGuideExcelTableAddDataList(builder, dataList)
-
-def ConquestPlayGuideExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestPlayGuideExcelTableAddDataList(builder, dataList)
+def ConquestPlayGuideExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConquestPlayGuideExcelTableStartDataListVector(builder, numElems)
-
-def ConquestPlayGuideExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConquestPlayGuideExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestPlayGuideExcelTableEnd(builder)

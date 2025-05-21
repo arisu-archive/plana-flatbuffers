@@ -2,4 +2,8 @@
 
 # namespace: FlatData
 
-# NOTE PotentialStatBonusRateType.py does not declare any structs or enums
+class PotentialStatBonusRateType(object):
+    None_ = 0
+    MaxHP = 1
+    AttackPower = 2
+    HealPower = 3

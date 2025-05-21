@@ -49,26 +49,15 @@ class ConstMinigameTBGExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstMinigameTBGExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConstMinigameTBGExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConstMinigameTBGExcelTableStart(builder)
-
-def ConstMinigameTBGExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConstMinigameTBGExcelTableStart(builder)
+def ConstMinigameTBGExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConstMinigameTBGExcelTableAddDataList(builder, dataList)
-
-def ConstMinigameTBGExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConstMinigameTBGExcelTableAddDataList(builder, dataList)
+def ConstMinigameTBGExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConstMinigameTBGExcelTableStartDataListVector(builder, numElems)
-
-def ConstMinigameTBGExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConstMinigameTBGExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstMinigameTBGExcelTableEnd(builder)

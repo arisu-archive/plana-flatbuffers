@@ -56,32 +56,18 @@ class BlendData(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
-def BlendDataStart(builder):
-    builder.StartObject(2)
-
+def BlendDataStart(builder): builder.StartObject(2)
 def Start(builder):
-    BlendDataStart(builder)
-
-def BlendDataAddType(builder, type):
-    builder.PrependInt32Slot(0, type, 0)
-
+    return BlendDataStart(builder)
+def BlendDataAddType(builder, type): builder.PrependInt32Slot(0, type, 0)
 def AddType(builder, type):
-    BlendDataAddType(builder, type)
-
-def BlendDataAddInfoList(builder, infoList):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(infoList), 0)
-
+    return BlendDataAddType(builder, type)
+def BlendDataAddInfoList(builder, infoList): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(infoList), 0)
 def AddInfoList(builder, infoList):
-    BlendDataAddInfoList(builder, infoList)
-
-def BlendDataStartInfoListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return BlendDataAddInfoList(builder, infoList)
+def BlendDataStartInfoListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartInfoListVector(builder, numElems):
     return BlendDataStartInfoListVector(builder, numElems)
-
-def BlendDataEnd(builder):
-    return builder.EndObject()
-
+def BlendDataEnd(builder): return builder.EndObject()
 def End(builder):
     return BlendDataEnd(builder)

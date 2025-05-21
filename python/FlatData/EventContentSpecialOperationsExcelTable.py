@@ -49,26 +49,15 @@ class EventContentSpecialOperationsExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentSpecialOperationsExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentSpecialOperationsExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentSpecialOperationsExcelTableStart(builder)
-
-def EventContentSpecialOperationsExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentSpecialOperationsExcelTableStart(builder)
+def EventContentSpecialOperationsExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentSpecialOperationsExcelTableAddDataList(builder, dataList)
-
-def EventContentSpecialOperationsExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentSpecialOperationsExcelTableAddDataList(builder, dataList)
+def EventContentSpecialOperationsExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentSpecialOperationsExcelTableStartDataListVector(builder, numElems)
-
-def EventContentSpecialOperationsExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentSpecialOperationsExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentSpecialOperationsExcelTableEnd(builder)

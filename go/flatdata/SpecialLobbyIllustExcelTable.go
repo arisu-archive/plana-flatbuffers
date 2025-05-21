@@ -17,19 +17,11 @@ func GetRootAsSpecialLobbyIllustExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishSpecialLobbyIllustExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsSpecialLobbyIllustExcelTable(buf []byte, offset flatbuffers.UOffsetT) *SpecialLobbyIllustExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SpecialLobbyIllustExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedSpecialLobbyIllustExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SpecialLobbyIllustExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

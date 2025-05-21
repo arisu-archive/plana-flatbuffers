@@ -49,26 +49,15 @@ class LocalizeGachaShopExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LocalizeGachaShopExcelTableStart(builder):
-    builder.StartObject(1)
-
+def LocalizeGachaShopExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    LocalizeGachaShopExcelTableStart(builder)
-
-def LocalizeGachaShopExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return LocalizeGachaShopExcelTableStart(builder)
+def LocalizeGachaShopExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    LocalizeGachaShopExcelTableAddDataList(builder, dataList)
-
-def LocalizeGachaShopExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return LocalizeGachaShopExcelTableAddDataList(builder, dataList)
+def LocalizeGachaShopExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return LocalizeGachaShopExcelTableStartDataListVector(builder, numElems)
-
-def LocalizeGachaShopExcelTableEnd(builder):
-    return builder.EndObject()
-
+def LocalizeGachaShopExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeGachaShopExcelTableEnd(builder)

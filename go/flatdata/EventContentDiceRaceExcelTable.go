@@ -17,19 +17,11 @@ func GetRootAsEventContentDiceRaceExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
-func FinishEventContentDiceRaceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentDiceRaceExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentDiceRaceExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentDiceRaceExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentDiceRaceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentDiceRaceExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

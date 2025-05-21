@@ -49,26 +49,15 @@ class EventContentStageTotalRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentStageTotalRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentStageTotalRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentStageTotalRewardExcelTableStart(builder)
-
-def EventContentStageTotalRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentStageTotalRewardExcelTableStart(builder)
+def EventContentStageTotalRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentStageTotalRewardExcelTableAddDataList(builder, dataList)
-
-def EventContentStageTotalRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentStageTotalRewardExcelTableAddDataList(builder, dataList)
+def EventContentStageTotalRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentStageTotalRewardExcelTableStartDataListVector(builder, numElems)
-
-def EventContentStageTotalRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentStageTotalRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentStageTotalRewardExcelTableEnd(builder)

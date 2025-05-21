@@ -17,19 +17,11 @@ func GetRootAsBlendData(buf []byte, offset flatbuffers.UOffsetT) *BlendData {
 	return x
 }
 
-func FinishBlendDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsBlendData(buf []byte, offset flatbuffers.UOffsetT) *BlendData {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BlendData{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedBlendDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BlendData) Init(buf []byte, i flatbuffers.UOffsetT) {

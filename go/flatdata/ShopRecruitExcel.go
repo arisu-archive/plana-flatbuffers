@@ -17,19 +17,11 @@ func GetRootAsShopRecruitExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopRec
 	return x
 }
 
-func FinishShopRecruitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsShopRecruitExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopRecruitExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopRecruitExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedShopRecruitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopRecruitExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

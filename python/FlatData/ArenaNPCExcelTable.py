@@ -49,26 +49,15 @@ class ArenaNPCExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ArenaNPCExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ArenaNPCExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ArenaNPCExcelTableStart(builder)
-
-def ArenaNPCExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ArenaNPCExcelTableStart(builder)
+def ArenaNPCExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ArenaNPCExcelTableAddDataList(builder, dataList)
-
-def ArenaNPCExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ArenaNPCExcelTableAddDataList(builder, dataList)
+def ArenaNPCExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ArenaNPCExcelTableStartDataListVector(builder, numElems)
-
-def ArenaNPCExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ArenaNPCExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ArenaNPCExcelTableEnd(builder)

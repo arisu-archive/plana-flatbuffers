@@ -49,26 +49,15 @@ class CampaignChapterRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CampaignChapterRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CampaignChapterRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CampaignChapterRewardExcelTableStart(builder)
-
-def CampaignChapterRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CampaignChapterRewardExcelTableStart(builder)
+def CampaignChapterRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CampaignChapterRewardExcelTableAddDataList(builder, dataList)
-
-def CampaignChapterRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CampaignChapterRewardExcelTableAddDataList(builder, dataList)
+def CampaignChapterRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CampaignChapterRewardExcelTableStartDataListVector(builder, numElems)
-
-def CampaignChapterRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CampaignChapterRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CampaignChapterRewardExcelTableEnd(builder)

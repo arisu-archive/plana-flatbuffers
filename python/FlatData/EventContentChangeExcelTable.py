@@ -49,26 +49,15 @@ class EventContentChangeExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentChangeExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentChangeExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentChangeExcelTableStart(builder)
-
-def EventContentChangeExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentChangeExcelTableStart(builder)
+def EventContentChangeExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentChangeExcelTableAddDataList(builder, dataList)
-
-def EventContentChangeExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentChangeExcelTableAddDataList(builder, dataList)
+def EventContentChangeExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentChangeExcelTableStartDataListVector(builder, numElems)
-
-def EventContentChangeExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentChangeExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentChangeExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsTerrainAdaptationFactorExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishTerrainAdaptationFactorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTerrainAdaptationFactorExcel(buf []byte, offset flatbuffers.UOffsetT) *TerrainAdaptationFactorExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TerrainAdaptationFactorExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTerrainAdaptationFactorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TerrainAdaptationFactorExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -2,4 +2,9 @@
 
 # namespace: Excel
 
-# NOTE AccountState.py does not declare any structs or enums
+class AccountState(object):
+    WaitingSignIn = 0
+    Normal = 1
+    Dormant = 2
+    Comeback = 3
+    Newbie = 4

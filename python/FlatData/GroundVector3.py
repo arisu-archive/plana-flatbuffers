@@ -45,32 +45,18 @@ class GroundVector3(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def GroundVector3Start(builder):
-    builder.StartObject(3)
-
+def GroundVector3Start(builder): builder.StartObject(3)
 def Start(builder):
-    GroundVector3Start(builder)
-
-def GroundVector3AddX(builder, x):
-    builder.PrependFloat32Slot(0, x, 0.0)
-
+    return GroundVector3Start(builder)
+def GroundVector3AddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
 def AddX(builder, x):
-    GroundVector3AddX(builder, x)
-
-def GroundVector3AddY(builder, y):
-    builder.PrependFloat32Slot(1, y, 0.0)
-
+    return GroundVector3AddX(builder, x)
+def GroundVector3AddY(builder, y): builder.PrependFloat32Slot(1, y, 0.0)
 def AddY(builder, y):
-    GroundVector3AddY(builder, y)
-
-def GroundVector3AddZ(builder, z):
-    builder.PrependFloat32Slot(2, z, 0.0)
-
+    return GroundVector3AddY(builder, y)
+def GroundVector3AddZ(builder, z): builder.PrependFloat32Slot(2, z, 0.0)
 def AddZ(builder, z):
-    GroundVector3AddZ(builder, z)
-
-def GroundVector3End(builder):
-    return builder.EndObject()
-
+    return GroundVector3AddZ(builder, z)
+def GroundVector3End(builder): return builder.EndObject()
 def End(builder):
     return GroundVector3End(builder)

@@ -49,26 +49,15 @@ class FurnitureTemplateElementExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FurnitureTemplateElementExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FurnitureTemplateElementExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FurnitureTemplateElementExcelTableStart(builder)
-
-def FurnitureTemplateElementExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FurnitureTemplateElementExcelTableStart(builder)
+def FurnitureTemplateElementExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FurnitureTemplateElementExcelTableAddDataList(builder, dataList)
-
-def FurnitureTemplateElementExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureTemplateElementExcelTableAddDataList(builder, dataList)
+def FurnitureTemplateElementExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FurnitureTemplateElementExcelTableStartDataListVector(builder, numElems)
-
-def FurnitureTemplateElementExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FurnitureTemplateElementExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FurnitureTemplateElementExcelTableEnd(builder)

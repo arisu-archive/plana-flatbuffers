@@ -17,19 +17,11 @@ func GetRootAsDefaultMailExcelTable(buf []byte, offset flatbuffers.UOffsetT) *De
 	return x
 }
 
-func FinishDefaultMailExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsDefaultMailExcelTable(buf []byte, offset flatbuffers.UOffsetT) *DefaultMailExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &DefaultMailExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedDefaultMailExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *DefaultMailExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

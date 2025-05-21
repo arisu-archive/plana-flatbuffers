@@ -73,56 +73,30 @@ class GroundModuleRewardExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def GroundModuleRewardExcelStart(builder):
-    builder.StartObject(7)
-
+def GroundModuleRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    GroundModuleRewardExcelStart(builder)
-
-def GroundModuleRewardExcelAddGroupId(builder, groupId):
-    builder.PrependUint32Slot(0, groupId, 0)
-
+    return GroundModuleRewardExcelStart(builder)
+def GroundModuleRewardExcelAddGroupId(builder, groupId): builder.PrependUint32Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    GroundModuleRewardExcelAddGroupId(builder, groupId)
-
-def GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(1, rewardParcelType, 0)
-
+    return GroundModuleRewardExcelAddGroupId(builder, groupId)
+def GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(1, rewardParcelType, 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependInt64Slot(2, rewardParcelId, 0)
-
+    return GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(2, rewardParcelId, 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependInt64Slot(3, rewardParcelAmount, 0)
-
+    return GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(3, rewardParcelAmount, 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability):
-    builder.PrependInt64Slot(4, rewardParcelProbability, 0)
-
+    return GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependInt64Slot(4, rewardParcelProbability, 0)
 def AddRewardParcelProbability(builder, rewardParcelProbability):
-    GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
-
-def GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed):
-    builder.PrependBoolSlot(5, isDisplayed, 0)
-
+    return GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
+def GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(5, isDisplayed, 0)
 def AddIsDisplayed(builder, isDisplayed):
-    GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed)
-
-def GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
-
+    return GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed)
+def GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
 def AddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
-    GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
-
-def GroundModuleRewardExcelEnd(builder):
-    return builder.EndObject()
-
+    return GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
+def GroundModuleRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GroundModuleRewardExcelEnd(builder)

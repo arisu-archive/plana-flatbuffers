@@ -17,19 +17,11 @@ func GetRootAsAudioAnimatorExcel(buf []byte, offset flatbuffers.UOffsetT) *Audio
 	return x
 }
 
-func FinishAudioAnimatorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAudioAnimatorExcel(buf []byte, offset flatbuffers.UOffsetT) *AudioAnimatorExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AudioAnimatorExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAudioAnimatorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AudioAnimatorExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

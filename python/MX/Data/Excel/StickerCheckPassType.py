@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE StickerCheckPassType.py does not declare any structs or enums
+class StickerCheckPassType(object):
+    None_ = 0
+    ClearScenarioModeId = 1
+    ClearCampaignStageId = 2

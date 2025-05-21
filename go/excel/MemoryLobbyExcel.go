@@ -17,19 +17,11 @@ func GetRootAsMemoryLobbyExcel(buf []byte, offset flatbuffers.UOffsetT) *MemoryL
 	return x
 }
 
-func FinishMemoryLobbyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMemoryLobbyExcel(buf []byte, offset flatbuffers.UOffsetT) *MemoryLobbyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MemoryLobbyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMemoryLobbyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MemoryLobbyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

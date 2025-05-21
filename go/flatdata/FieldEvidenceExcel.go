@@ -17,19 +17,11 @@ func GetRootAsFieldEvidenceExcel(buf []byte, offset flatbuffers.UOffsetT) *Field
 	return x
 }
 
-func FinishFieldEvidenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldEvidenceExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldEvidenceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldEvidenceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldEvidenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldEvidenceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

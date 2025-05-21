@@ -17,19 +17,11 @@ func GetRootAsStickerPageContentExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishStickerPageContentExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsStickerPageContentExcel(buf []byte, offset flatbuffers.UOffsetT) *StickerPageContentExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StickerPageContentExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedStickerPageContentExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StickerPageContentExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

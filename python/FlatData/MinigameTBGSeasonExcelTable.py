@@ -49,26 +49,15 @@ class MinigameTBGSeasonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MinigameTBGSeasonExcelTableStart(builder):
-    builder.StartObject(1)
-
+def MinigameTBGSeasonExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    MinigameTBGSeasonExcelTableStart(builder)
-
-def MinigameTBGSeasonExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return MinigameTBGSeasonExcelTableStart(builder)
+def MinigameTBGSeasonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    MinigameTBGSeasonExcelTableAddDataList(builder, dataList)
-
-def MinigameTBGSeasonExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MinigameTBGSeasonExcelTableAddDataList(builder, dataList)
+def MinigameTBGSeasonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return MinigameTBGSeasonExcelTableStartDataListVector(builder, numElems)
-
-def MinigameTBGSeasonExcelTableEnd(builder):
-    return builder.EndObject()
-
+def MinigameTBGSeasonExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGSeasonExcelTableEnd(builder)

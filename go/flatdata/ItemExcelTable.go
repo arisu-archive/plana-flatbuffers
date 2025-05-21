@@ -17,19 +17,11 @@ func GetRootAsItemExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ItemExcel
 	return x
 }
 
-func FinishItemExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsItemExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ItemExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ItemExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedItemExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ItemExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

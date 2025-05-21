@@ -17,19 +17,11 @@ func GetRootAsPosition(buf []byte, offset flatbuffers.UOffsetT) *Position {
 	return x
 }
 
-func FinishPositionBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsPosition(buf []byte, offset flatbuffers.UOffsetT) *Position {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &Position{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedPositionBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *Position) Init(buf []byte, i flatbuffers.UOffsetT) {

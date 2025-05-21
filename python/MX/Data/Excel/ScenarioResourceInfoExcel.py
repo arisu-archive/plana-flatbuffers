@@ -108,86 +108,45 @@ class ScenarioResourceInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioResourceInfoExcelStart(builder):
-    builder.StartObject(12)
-
+def ScenarioResourceInfoExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    ScenarioResourceInfoExcelStart(builder)
-
-def ScenarioResourceInfoExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ScenarioResourceInfoExcelStart(builder)
+def ScenarioResourceInfoExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ScenarioResourceInfoExcelAddId(builder, id)
-
-def ScenarioResourceInfoExcelAddScenarioModeId(builder, scenarioModeId):
-    builder.PrependInt64Slot(1, scenarioModeId, 0)
-
+    return ScenarioResourceInfoExcelAddId(builder, id)
+def ScenarioResourceInfoExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependInt64Slot(1, scenarioModeId, 0)
 def AddScenarioModeId(builder, scenarioModeId):
-    ScenarioResourceInfoExcelAddScenarioModeId(builder, scenarioModeId)
-
-def ScenarioResourceInfoExcelAddPriorityOrder(builder, priorityOrder):
-    builder.PrependInt64Slot(2, priorityOrder, 0)
-
+    return ScenarioResourceInfoExcelAddScenarioModeId(builder, scenarioModeId)
+def ScenarioResourceInfoExcelAddPriorityOrder(builder, priorityOrder): builder.PrependInt64Slot(2, priorityOrder, 0)
 def AddPriorityOrder(builder, priorityOrder):
-    ScenarioResourceInfoExcelAddPriorityOrder(builder, priorityOrder)
-
-def ScenarioResourceInfoExcelAddPvDisplayOrder(builder, pvDisplayOrder):
-    builder.PrependInt64Slot(3, pvDisplayOrder, 0)
-
+    return ScenarioResourceInfoExcelAddPriorityOrder(builder, priorityOrder)
+def ScenarioResourceInfoExcelAddPvDisplayOrder(builder, pvDisplayOrder): builder.PrependInt64Slot(3, pvDisplayOrder, 0)
 def AddPvDisplayOrder(builder, pvDisplayOrder):
-    ScenarioResourceInfoExcelAddPvDisplayOrder(builder, pvDisplayOrder)
-
-def ScenarioResourceInfoExcelAddVideoId(builder, videoId):
-    builder.PrependInt64Slot(4, videoId, 0)
-
+    return ScenarioResourceInfoExcelAddPvDisplayOrder(builder, pvDisplayOrder)
+def ScenarioResourceInfoExcelAddVideoId(builder, videoId): builder.PrependInt64Slot(4, videoId, 0)
 def AddVideoId(builder, videoId):
-    ScenarioResourceInfoExcelAddVideoId(builder, videoId)
-
-def ScenarioResourceInfoExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(5, bgmId, 0)
-
+    return ScenarioResourceInfoExcelAddVideoId(builder, videoId)
+def ScenarioResourceInfoExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(5, bgmId, 0)
 def AddBgmId(builder, bgmId):
-    ScenarioResourceInfoExcelAddBgmId(builder, bgmId)
-
-def ScenarioResourceInfoExcelAddAudioName(builder, audioName):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(audioName), 0)
-
+    return ScenarioResourceInfoExcelAddBgmId(builder, bgmId)
+def ScenarioResourceInfoExcelAddAudioName(builder, audioName): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(audioName), 0)
 def AddAudioName(builder, audioName):
-    ScenarioResourceInfoExcelAddAudioName(builder, audioName)
-
-def ScenarioResourceInfoExcelAddSpinePath(builder, spinePath):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spinePath), 0)
-
+    return ScenarioResourceInfoExcelAddAudioName(builder, audioName)
+def ScenarioResourceInfoExcelAddSpinePath(builder, spinePath): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spinePath), 0)
 def AddSpinePath(builder, spinePath):
-    ScenarioResourceInfoExcelAddSpinePath(builder, spinePath)
-
-def ScenarioResourceInfoExcelAddRatio(builder, ratio):
-    builder.PrependInt32Slot(8, ratio, 0)
-
+    return ScenarioResourceInfoExcelAddSpinePath(builder, spinePath)
+def ScenarioResourceInfoExcelAddRatio(builder, ratio): builder.PrependInt32Slot(8, ratio, 0)
 def AddRatio(builder, ratio):
-    ScenarioResourceInfoExcelAddRatio(builder, ratio)
-
-def ScenarioResourceInfoExcelAddLobbyAniPath(builder, lobbyAniPath):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyAniPath), 0)
-
+    return ScenarioResourceInfoExcelAddRatio(builder, ratio)
+def ScenarioResourceInfoExcelAddLobbyAniPath(builder, lobbyAniPath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyAniPath), 0)
 def AddLobbyAniPath(builder, lobbyAniPath):
-    ScenarioResourceInfoExcelAddLobbyAniPath(builder, lobbyAniPath)
-
-def ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(movieCgPath), 0)
-
+    return ScenarioResourceInfoExcelAddLobbyAniPath(builder, lobbyAniPath)
+def ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(movieCgPath), 0)
 def AddMovieCgPath(builder, movieCgPath):
-    ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath)
-
-def ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId):
-    builder.PrependUint32Slot(11, localizeId, 0)
-
+    return ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath)
+def ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId): builder.PrependUint32Slot(11, localizeId, 0)
 def AddLocalizeId(builder, localizeId):
-    ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId)
-
-def ScenarioResourceInfoExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId)
+def ScenarioResourceInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioResourceInfoExcelEnd(builder)

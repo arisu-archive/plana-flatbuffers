@@ -17,19 +17,11 @@ func GetRootAsGuideMissionOpenStageConditionExcelTable(buf []byte, offset flatbu
 	return x
 }
 
-func FinishGuideMissionOpenStageConditionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGuideMissionOpenStageConditionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GuideMissionOpenStageConditionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GuideMissionOpenStageConditionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGuideMissionOpenStageConditionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GuideMissionOpenStageConditionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

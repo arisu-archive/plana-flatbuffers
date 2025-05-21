@@ -49,26 +49,15 @@ class ConstFieldExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstFieldExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConstFieldExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConstFieldExcelTableStart(builder)
-
-def ConstFieldExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConstFieldExcelTableStart(builder)
+def ConstFieldExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConstFieldExcelTableAddDataList(builder, dataList)
-
-def ConstFieldExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConstFieldExcelTableAddDataList(builder, dataList)
+def ConstFieldExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConstFieldExcelTableStartDataListVector(builder, numElems)
-
-def ConstFieldExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConstFieldExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstFieldExcelTableEnd(builder)

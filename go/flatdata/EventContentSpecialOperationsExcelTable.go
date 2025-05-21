@@ -17,19 +17,11 @@ func GetRootAsEventContentSpecialOperationsExcelTable(buf []byte, offset flatbuf
 	return x
 }
 
-func FinishEventContentSpecialOperationsExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentSpecialOperationsExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentSpecialOperationsExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentSpecialOperationsExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentSpecialOperationsExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentSpecialOperationsExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

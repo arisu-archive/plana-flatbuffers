@@ -17,19 +17,11 @@ func GetRootAsCharacterTranscendenceExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishCharacterTranscendenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterTranscendenceExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterTranscendenceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterTranscendenceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterTranscendenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterTranscendenceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

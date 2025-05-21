@@ -17,19 +17,11 @@ func GetRootAsEventContentShopRefreshExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishEventContentShopRefreshExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentShopRefreshExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentShopRefreshExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentShopRefreshExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentShopRefreshExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentShopRefreshExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

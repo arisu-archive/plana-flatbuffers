@@ -17,19 +17,11 @@ func GetRootAsCouponStuffExcel(buf []byte, offset flatbuffers.UOffsetT) *CouponS
 	return x
 }
 
-func FinishCouponStuffExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCouponStuffExcel(buf []byte, offset flatbuffers.UOffsetT) *CouponStuffExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CouponStuffExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCouponStuffExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CouponStuffExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

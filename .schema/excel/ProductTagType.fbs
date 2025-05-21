@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum ProductTagType: int {
+    Monthly = 0,
+    Weekly = 1,
+    Biweekly = 2,
+}

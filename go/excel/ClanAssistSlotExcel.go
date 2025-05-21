@@ -17,19 +17,11 @@ func GetRootAsClanAssistSlotExcel(buf []byte, offset flatbuffers.UOffsetT) *Clan
 	return x
 }
 
-func FinishClanAssistSlotExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsClanAssistSlotExcel(buf []byte, offset flatbuffers.UOffsetT) *ClanAssistSlotExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ClanAssistSlotExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedClanAssistSlotExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ClanAssistSlotExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

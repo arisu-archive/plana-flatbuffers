@@ -2,4 +2,81 @@
 
 # namespace: FlatData
 
-# NOTE StrategyObjectBuffDefineExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class StrategyObjectBuffDefineExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = StrategyObjectBuffDefineExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsStrategyObjectBuffDefineExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # StrategyObjectBuffDefineExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # StrategyObjectBuffDefineExcel
+    def StrategyObjectBuffId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # StrategyObjectBuffDefineExcel
+    def StrategyObjectTurn(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # StrategyObjectBuffDefineExcel
+    def SkillGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # StrategyObjectBuffDefineExcel
+    def LocalizeCodeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # StrategyObjectBuffDefineExcel
+    def IconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def StrategyObjectBuffDefineExcelStart(builder): builder.StartObject(5)
+def Start(builder):
+    return StrategyObjectBuffDefineExcelStart(builder)
+def StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder, strategyObjectBuffId): builder.PrependInt64Slot(0, strategyObjectBuffId, 0)
+def AddStrategyObjectBuffId(builder, strategyObjectBuffId):
+    return StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder, strategyObjectBuffId)
+def StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder, strategyObjectTurn): builder.PrependInt32Slot(1, strategyObjectTurn, 0)
+def AddStrategyObjectTurn(builder, strategyObjectTurn):
+    return StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder, strategyObjectTurn)
+def StrategyObjectBuffDefineExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
+def AddSkillGroupId(builder, skillGroupId):
+    return StrategyObjectBuffDefineExcelAddSkillGroupId(builder, skillGroupId)
+def StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(3, localizeCodeId, 0)
+def AddLocalizeCodeId(builder, localizeCodeId):
+    return StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder, localizeCodeId)
+def StrategyObjectBuffDefineExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+def AddIconPath(builder, iconPath):
+    return StrategyObjectBuffDefineExcelAddIconPath(builder, iconPath)
+def StrategyObjectBuffDefineExcelEnd(builder): return builder.EndObject()
+def End(builder):
+    return StrategyObjectBuffDefineExcelEnd(builder)

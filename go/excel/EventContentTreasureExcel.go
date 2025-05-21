@@ -17,19 +17,11 @@ func GetRootAsEventContentTreasureExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishEventContentTreasureExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentTreasureExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentTreasureExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentTreasureExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentTreasureExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentTreasureExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

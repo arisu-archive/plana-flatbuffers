@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum MissionToastDisplayConditionType: int {
+    Always = 0,
+    Complete = 1,
+    Never = 2,
+}

@@ -17,19 +17,11 @@ func GetRootAsTutorialExcel(buf []byte, offset flatbuffers.UOffsetT) *TutorialEx
 	return x
 }
 
-func FinishTutorialExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTutorialExcel(buf []byte, offset flatbuffers.UOffsetT) *TutorialExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TutorialExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTutorialExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TutorialExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

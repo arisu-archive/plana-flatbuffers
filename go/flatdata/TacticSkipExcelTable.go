@@ -17,19 +17,11 @@ func GetRootAsTacticSkipExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Tac
 	return x
 }
 
-func FinishTacticSkipExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTacticSkipExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TacticSkipExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TacticSkipExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTacticSkipExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TacticSkipExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsFixedEchelonSettingExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
-func FinishFixedEchelonSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFixedEchelonSettingExcel(buf []byte, offset flatbuffers.UOffsetT) *FixedEchelonSettingExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FixedEchelonSettingExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFixedEchelonSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FixedEchelonSettingExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

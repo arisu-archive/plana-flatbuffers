@@ -17,19 +17,11 @@ func GetRootAsAssistEchelonTypeConvertExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishAssistEchelonTypeConvertExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAssistEchelonTypeConvertExcel(buf []byte, offset flatbuffers.UOffsetT) *AssistEchelonTypeConvertExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AssistEchelonTypeConvertExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAssistEchelonTypeConvertExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AssistEchelonTypeConvertExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

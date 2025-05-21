@@ -2,4 +2,81 @@
 
 # namespace: FlatData
 
-# NOTE DefaultFurnitureExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class DefaultFurnitureExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = DefaultFurnitureExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsDefaultFurnitureExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # DefaultFurnitureExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # DefaultFurnitureExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # DefaultFurnitureExcel
+    def Location(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # DefaultFurnitureExcel
+    def PositionX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # DefaultFurnitureExcel
+    def PositionY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # DefaultFurnitureExcel
+    def Rotation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+def DefaultFurnitureExcelStart(builder): builder.StartObject(5)
+def Start(builder):
+    return DefaultFurnitureExcelStart(builder)
+def DefaultFurnitureExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+def AddId(builder, id):
+    return DefaultFurnitureExcelAddId(builder, id)
+def DefaultFurnitureExcelAddLocation(builder, location): builder.PrependInt32Slot(1, location, 0)
+def AddLocation(builder, location):
+    return DefaultFurnitureExcelAddLocation(builder, location)
+def DefaultFurnitureExcelAddPositionX(builder, positionX): builder.PrependFloat32Slot(2, positionX, 0.0)
+def AddPositionX(builder, positionX):
+    return DefaultFurnitureExcelAddPositionX(builder, positionX)
+def DefaultFurnitureExcelAddPositionY(builder, positionY): builder.PrependFloat32Slot(3, positionY, 0.0)
+def AddPositionY(builder, positionY):
+    return DefaultFurnitureExcelAddPositionY(builder, positionY)
+def DefaultFurnitureExcelAddRotation(builder, rotation): builder.PrependFloat32Slot(4, rotation, 0.0)
+def AddRotation(builder, rotation):
+    return DefaultFurnitureExcelAddRotation(builder, rotation)
+def DefaultFurnitureExcelEnd(builder): return builder.EndObject()
+def End(builder):
+    return DefaultFurnitureExcelEnd(builder)

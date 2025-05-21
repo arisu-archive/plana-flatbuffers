@@ -49,26 +49,15 @@ class RecipeIngredientExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def RecipeIngredientExcelTableStart(builder):
-    builder.StartObject(1)
-
+def RecipeIngredientExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    RecipeIngredientExcelTableStart(builder)
-
-def RecipeIngredientExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return RecipeIngredientExcelTableStart(builder)
+def RecipeIngredientExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    RecipeIngredientExcelTableAddDataList(builder, dataList)
-
-def RecipeIngredientExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RecipeIngredientExcelTableAddDataList(builder, dataList)
+def RecipeIngredientExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return RecipeIngredientExcelTableStartDataListVector(builder, numElems)
-
-def RecipeIngredientExcelTableEnd(builder):
-    return builder.EndObject()
-
+def RecipeIngredientExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeIngredientExcelTableEnd(builder)
