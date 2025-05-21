@@ -87,68 +87,36 @@ class ScenarioCharacterNameExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def ScenarioCharacterNameExcelStart(builder):
-    builder.StartObject(9)
-
+def ScenarioCharacterNameExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    ScenarioCharacterNameExcelStart(builder)
-
-def ScenarioCharacterNameExcelAddCharacterName(builder, characterName):
-    builder.PrependUint32Slot(0, characterName, 0)
-
+    return ScenarioCharacterNameExcelStart(builder)
+def ScenarioCharacterNameExcelAddCharacterName(builder, characterName): builder.PrependUint32Slot(0, characterName, 0)
 def AddCharacterName(builder, characterName):
-    ScenarioCharacterNameExcelAddCharacterName(builder, characterName)
-
-def ScenarioCharacterNameExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(1, productionStep, 0)
-
+    return ScenarioCharacterNameExcelAddCharacterName(builder, characterName)
+def ScenarioCharacterNameExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(1, productionStep, 0)
 def AddProductionStep(builder, productionStep):
-    ScenarioCharacterNameExcelAddProductionStep(builder, productionStep)
-
-def ScenarioCharacterNameExcelAddNameKr(builder, nameKr):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
-
+    return ScenarioCharacterNameExcelAddProductionStep(builder, productionStep)
+def ScenarioCharacterNameExcelAddNameKr(builder, nameKr): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
 def AddNameKr(builder, nameKr):
-    ScenarioCharacterNameExcelAddNameKr(builder, nameKr)
-
-def ScenarioCharacterNameExcelAddNicknameKr(builder, nicknameKr):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(nicknameKr), 0)
-
+    return ScenarioCharacterNameExcelAddNameKr(builder, nameKr)
+def ScenarioCharacterNameExcelAddNicknameKr(builder, nicknameKr): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(nicknameKr), 0)
 def AddNicknameKr(builder, nicknameKr):
-    ScenarioCharacterNameExcelAddNicknameKr(builder, nicknameKr)
-
-def ScenarioCharacterNameExcelAddNameJp(builder, nameJp):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(nameJp), 0)
-
+    return ScenarioCharacterNameExcelAddNicknameKr(builder, nicknameKr)
+def ScenarioCharacterNameExcelAddNameJp(builder, nameJp): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(nameJp), 0)
 def AddNameJp(builder, nameJp):
-    ScenarioCharacterNameExcelAddNameJp(builder, nameJp)
-
-def ScenarioCharacterNameExcelAddNicknameJp(builder, nicknameJp):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(nicknameJp), 0)
-
+    return ScenarioCharacterNameExcelAddNameJp(builder, nameJp)
+def ScenarioCharacterNameExcelAddNicknameJp(builder, nicknameJp): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(nicknameJp), 0)
 def AddNicknameJp(builder, nicknameJp):
-    ScenarioCharacterNameExcelAddNicknameJp(builder, nicknameJp)
-
-def ScenarioCharacterNameExcelAddShape(builder, shape):
-    builder.PrependInt32Slot(6, shape, 0)
-
+    return ScenarioCharacterNameExcelAddNicknameJp(builder, nicknameJp)
+def ScenarioCharacterNameExcelAddShape(builder, shape): builder.PrependInt32Slot(6, shape, 0)
 def AddShape(builder, shape):
-    ScenarioCharacterNameExcelAddShape(builder, shape)
-
-def ScenarioCharacterNameExcelAddSpinePrefabName(builder, spinePrefabName):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spinePrefabName), 0)
-
+    return ScenarioCharacterNameExcelAddShape(builder, shape)
+def ScenarioCharacterNameExcelAddSpinePrefabName(builder, spinePrefabName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spinePrefabName), 0)
 def AddSpinePrefabName(builder, spinePrefabName):
-    ScenarioCharacterNameExcelAddSpinePrefabName(builder, spinePrefabName)
-
-def ScenarioCharacterNameExcelAddSmallPortrait(builder, smallPortrait):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(smallPortrait), 0)
-
+    return ScenarioCharacterNameExcelAddSpinePrefabName(builder, spinePrefabName)
+def ScenarioCharacterNameExcelAddSmallPortrait(builder, smallPortrait): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(smallPortrait), 0)
 def AddSmallPortrait(builder, smallPortrait):
-    ScenarioCharacterNameExcelAddSmallPortrait(builder, smallPortrait)
-
-def ScenarioCharacterNameExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioCharacterNameExcelAddSmallPortrait(builder, smallPortrait)
+def ScenarioCharacterNameExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioCharacterNameExcelEnd(builder)

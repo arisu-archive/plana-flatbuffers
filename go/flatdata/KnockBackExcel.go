@@ -17,19 +17,11 @@ func GetRootAsKnockBackExcel(buf []byte, offset flatbuffers.UOffsetT) *KnockBack
 	return x
 }
 
-func FinishKnockBackExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsKnockBackExcel(buf []byte, offset flatbuffers.UOffsetT) *KnockBackExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &KnockBackExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedKnockBackExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *KnockBackExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

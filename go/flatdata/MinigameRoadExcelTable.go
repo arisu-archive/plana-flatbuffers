@@ -17,19 +17,11 @@ func GetRootAsMinigameRoadExcelTable(buf []byte, offset flatbuffers.UOffsetT) *M
 	return x
 }
 
-func FinishMinigameRoadExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMinigameRoadExcelTable(buf []byte, offset flatbuffers.UOffsetT) *MinigameRoadExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameRoadExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMinigameRoadExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameRoadExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

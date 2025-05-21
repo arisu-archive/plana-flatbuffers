@@ -17,19 +17,11 @@ func GetRootAsSkillExcel(buf []byte, offset flatbuffers.UOffsetT) *SkillExcel {
 	return x
 }
 
-func FinishSkillExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsSkillExcel(buf []byte, offset flatbuffers.UOffsetT) *SkillExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SkillExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedSkillExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SkillExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

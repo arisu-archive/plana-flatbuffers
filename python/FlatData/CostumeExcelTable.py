@@ -49,26 +49,15 @@ class CostumeExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CostumeExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CostumeExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CostumeExcelTableStart(builder)
-
-def CostumeExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CostumeExcelTableStart(builder)
+def CostumeExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CostumeExcelTableAddDataList(builder, dataList)
-
-def CostumeExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CostumeExcelTableAddDataList(builder, dataList)
+def CostumeExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CostumeExcelTableStartDataListVector(builder, numElems)
-
-def CostumeExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CostumeExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CostumeExcelTableEnd(builder)

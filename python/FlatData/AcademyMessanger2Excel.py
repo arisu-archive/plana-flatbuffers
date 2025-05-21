@@ -2,4 +2,171 @@
 
 # namespace: FlatData
 
-# NOTE AcademyMessanger2Excel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class AcademyMessanger2Excel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = AcademyMessanger2Excel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsAcademyMessanger2Excel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # AcademyMessanger2Excel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # AcademyMessanger2Excel
+    def MessageGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def CharacterId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def MessageCondition(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def ConditionValue(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def PreConditionGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def PreConditionFavorScheduleId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def FavorScheduleId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def NextGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def FeedbackTimeMillisec(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def MessageType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyMessanger2Excel
+    def ImagePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AcademyMessanger2Excel
+    def MessageKr(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AcademyMessanger2Excel
+    def MessageJp(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def AcademyMessanger2ExcelStart(builder): builder.StartObject(14)
+def Start(builder):
+    return AcademyMessanger2ExcelStart(builder)
+def AcademyMessanger2ExcelAddMessageGroupId(builder, messageGroupId): builder.PrependInt64Slot(0, messageGroupId, 0)
+def AddMessageGroupId(builder, messageGroupId):
+    return AcademyMessanger2ExcelAddMessageGroupId(builder, messageGroupId)
+def AcademyMessanger2ExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return AcademyMessanger2ExcelAddId(builder, id)
+def AcademyMessanger2ExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(2, characterId, 0)
+def AddCharacterId(builder, characterId):
+    return AcademyMessanger2ExcelAddCharacterId(builder, characterId)
+def AcademyMessanger2ExcelAddMessageCondition(builder, messageCondition): builder.PrependInt32Slot(3, messageCondition, 0)
+def AddMessageCondition(builder, messageCondition):
+    return AcademyMessanger2ExcelAddMessageCondition(builder, messageCondition)
+def AcademyMessanger2ExcelAddConditionValue(builder, conditionValue): builder.PrependInt64Slot(4, conditionValue, 0)
+def AddConditionValue(builder, conditionValue):
+    return AcademyMessanger2ExcelAddConditionValue(builder, conditionValue)
+def AcademyMessanger2ExcelAddPreConditionGroupId(builder, preConditionGroupId): builder.PrependInt64Slot(5, preConditionGroupId, 0)
+def AddPreConditionGroupId(builder, preConditionGroupId):
+    return AcademyMessanger2ExcelAddPreConditionGroupId(builder, preConditionGroupId)
+def AcademyMessanger2ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId): builder.PrependInt64Slot(6, preConditionFavorScheduleId, 0)
+def AddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId):
+    return AcademyMessanger2ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId)
+def AcademyMessanger2ExcelAddFavorScheduleId(builder, favorScheduleId): builder.PrependInt64Slot(7, favorScheduleId, 0)
+def AddFavorScheduleId(builder, favorScheduleId):
+    return AcademyMessanger2ExcelAddFavorScheduleId(builder, favorScheduleId)
+def AcademyMessanger2ExcelAddNextGroupId(builder, nextGroupId): builder.PrependInt64Slot(8, nextGroupId, 0)
+def AddNextGroupId(builder, nextGroupId):
+    return AcademyMessanger2ExcelAddNextGroupId(builder, nextGroupId)
+def AcademyMessanger2ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec): builder.PrependInt64Slot(9, feedbackTimeMillisec, 0)
+def AddFeedbackTimeMillisec(builder, feedbackTimeMillisec):
+    return AcademyMessanger2ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec)
+def AcademyMessanger2ExcelAddMessageType(builder, messageType): builder.PrependInt32Slot(10, messageType, 0)
+def AddMessageType(builder, messageType):
+    return AcademyMessanger2ExcelAddMessageType(builder, messageType)
+def AcademyMessanger2ExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+def AddImagePath(builder, imagePath):
+    return AcademyMessanger2ExcelAddImagePath(builder, imagePath)
+def AcademyMessanger2ExcelAddMessageKr(builder, messageKr): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(messageKr), 0)
+def AddMessageKr(builder, messageKr):
+    return AcademyMessanger2ExcelAddMessageKr(builder, messageKr)
+def AcademyMessanger2ExcelAddMessageJp(builder, messageJp): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(messageJp), 0)
+def AddMessageJp(builder, messageJp):
+    return AcademyMessanger2ExcelAddMessageJp(builder, messageJp)
+def AcademyMessanger2ExcelEnd(builder): return builder.EndObject()
+def End(builder):
+    return AcademyMessanger2ExcelEnd(builder)

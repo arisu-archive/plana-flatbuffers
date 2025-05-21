@@ -17,19 +17,11 @@ func GetRootAsConstCombatExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCo
 	return x
 }
 
-func FinishConstCombatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstCombatExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCombatExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstCombatExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstCombatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstCombatExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -977,8 +969,20 @@ func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(164, n)
 }
 
+func (rcv *ConstCombatExcel) CampaignAlertPopupLevelGap() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCampaignAlertPopupLevelGap(n int32) bool {
+	return rcv._tab.MutateInt32Slot(166, n)
+}
+
 func ConstCombatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(81)
+	builder.StartObject(82)
 }
 func ConstCombatExcelAddSkillHandCount(builder *flatbuffers.Builder, skillHandCount int32) {
 	builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -1222,6 +1226,9 @@ func ConstCombatExcelAddExcessiveTouchCheckTime(builder *flatbuffers.Builder, ex
 }
 func ConstCombatExcelAddExcessiveTouchCheckCount(builder *flatbuffers.Builder, excessiveTouchCheckCount int32) {
 	builder.PrependInt32Slot(80, excessiveTouchCheckCount, 0)
+}
+func ConstCombatExcelAddCampaignAlertPopupLevelGap(builder *flatbuffers.Builder, campaignAlertPopupLevelGap int32) {
+	builder.PrependInt32Slot(81, campaignAlertPopupLevelGap, 0)
 }
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

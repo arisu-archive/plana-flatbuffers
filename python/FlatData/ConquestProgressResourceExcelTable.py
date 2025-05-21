@@ -49,26 +49,15 @@ class ConquestProgressResourceExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestProgressResourceExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConquestProgressResourceExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConquestProgressResourceExcelTableStart(builder)
-
-def ConquestProgressResourceExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConquestProgressResourceExcelTableStart(builder)
+def ConquestProgressResourceExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConquestProgressResourceExcelTableAddDataList(builder, dataList)
-
-def ConquestProgressResourceExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestProgressResourceExcelTableAddDataList(builder, dataList)
+def ConquestProgressResourceExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConquestProgressResourceExcelTableStartDataListVector(builder, numElems)
-
-def ConquestProgressResourceExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConquestProgressResourceExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestProgressResourceExcelTableEnd(builder)

@@ -49,26 +49,15 @@ class AcademyZoneExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AcademyZoneExcelTableStart(builder):
-    builder.StartObject(1)
-
+def AcademyZoneExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    AcademyZoneExcelTableStart(builder)
-
-def AcademyZoneExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return AcademyZoneExcelTableStart(builder)
+def AcademyZoneExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    AcademyZoneExcelTableAddDataList(builder, dataList)
-
-def AcademyZoneExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AcademyZoneExcelTableAddDataList(builder, dataList)
+def AcademyZoneExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AcademyZoneExcelTableStartDataListVector(builder, numElems)
-
-def AcademyZoneExcelTableEnd(builder):
-    return builder.EndObject()
-
+def AcademyZoneExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return AcademyZoneExcelTableEnd(builder)

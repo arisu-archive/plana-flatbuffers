@@ -66,50 +66,27 @@ class MiniGameDreamDailyPointExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameDreamDailyPointExcelStart(builder):
-    builder.StartObject(6)
-
+def MiniGameDreamDailyPointExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    MiniGameDreamDailyPointExcelStart(builder)
-
-def MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(0, uniqueId, 0)
-
+    return MiniGameDreamDailyPointExcelStart(builder)
+def MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId)
-
-def MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
-
+    return MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId)
+def MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId)
-
-def MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin):
-    builder.PrependInt64Slot(2, totalParameterMin, 0)
-
+    return MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId)
+def MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin): builder.PrependInt64Slot(2, totalParameterMin, 0)
 def AddTotalParameterMin(builder, totalParameterMin):
-    MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin)
-
-def MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax):
-    builder.PrependInt64Slot(3, totalParameterMax, 0)
-
+    return MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin)
+def MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax): builder.PrependInt64Slot(3, totalParameterMax, 0)
 def AddTotalParameterMax(builder, totalParameterMax):
-    MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax)
-
-def MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient):
-    builder.PrependInt64Slot(4, dailyPointCoefficient, 0)
-
+    return MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax)
+def MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient): builder.PrependInt64Slot(4, dailyPointCoefficient, 0)
 def AddDailyPointCoefficient(builder, dailyPointCoefficient):
-    MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient)
-
-def MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
-    builder.PrependInt64Slot(5, dailyPointCorrectionValue, 0)
-
+    return MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient)
+def MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue): builder.PrependInt64Slot(5, dailyPointCorrectionValue, 0)
 def AddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
-    MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue)
-
-def MiniGameDreamDailyPointExcelEnd(builder):
-    return builder.EndObject()
-
+    return MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue)
+def MiniGameDreamDailyPointExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameDreamDailyPointExcelEnd(builder)

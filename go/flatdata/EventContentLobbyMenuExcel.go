@@ -17,19 +17,11 @@ func GetRootAsEventContentLobbyMenuExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishEventContentLobbyMenuExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentLobbyMenuExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentLobbyMenuExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentLobbyMenuExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentLobbyMenuExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentLobbyMenuExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

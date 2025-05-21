@@ -49,26 +49,15 @@ class FieldSeasonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldSeasonExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FieldSeasonExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FieldSeasonExcelTableStart(builder)
-
-def FieldSeasonExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FieldSeasonExcelTableStart(builder)
+def FieldSeasonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FieldSeasonExcelTableAddDataList(builder, dataList)
-
-def FieldSeasonExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FieldSeasonExcelTableAddDataList(builder, dataList)
+def FieldSeasonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FieldSeasonExcelTableStartDataListVector(builder, numElems)
-
-def FieldSeasonExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FieldSeasonExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldSeasonExcelTableEnd(builder)

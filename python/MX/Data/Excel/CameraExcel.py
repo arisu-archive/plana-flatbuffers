@@ -101,80 +101,42 @@ class CameraExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def CameraExcelStart(builder):
-    builder.StartObject(11)
-
+def CameraExcelStart(builder): builder.StartObject(11)
 def Start(builder):
-    CameraExcelStart(builder)
-
-def CameraExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(0, uniqueId, 0)
-
+    return CameraExcelStart(builder)
+def CameraExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    CameraExcelAddUniqueId(builder, uniqueId)
-
-def CameraExcelAddMinDistance(builder, minDistance):
-    builder.PrependFloat32Slot(1, minDistance, 0.0)
-
+    return CameraExcelAddUniqueId(builder, uniqueId)
+def CameraExcelAddMinDistance(builder, minDistance): builder.PrependFloat32Slot(1, minDistance, 0.0)
 def AddMinDistance(builder, minDistance):
-    CameraExcelAddMinDistance(builder, minDistance)
-
-def CameraExcelAddMaxDistance(builder, maxDistance):
-    builder.PrependFloat32Slot(2, maxDistance, 0.0)
-
+    return CameraExcelAddMinDistance(builder, minDistance)
+def CameraExcelAddMaxDistance(builder, maxDistance): builder.PrependFloat32Slot(2, maxDistance, 0.0)
 def AddMaxDistance(builder, maxDistance):
-    CameraExcelAddMaxDistance(builder, maxDistance)
-
-def CameraExcelAddRotationX(builder, rotationX):
-    builder.PrependFloat32Slot(3, rotationX, 0.0)
-
+    return CameraExcelAddMaxDistance(builder, maxDistance)
+def CameraExcelAddRotationX(builder, rotationX): builder.PrependFloat32Slot(3, rotationX, 0.0)
 def AddRotationX(builder, rotationX):
-    CameraExcelAddRotationX(builder, rotationX)
-
-def CameraExcelAddRotationY(builder, rotationY):
-    builder.PrependFloat32Slot(4, rotationY, 0.0)
-
+    return CameraExcelAddRotationX(builder, rotationX)
+def CameraExcelAddRotationY(builder, rotationY): builder.PrependFloat32Slot(4, rotationY, 0.0)
 def AddRotationY(builder, rotationY):
-    CameraExcelAddRotationY(builder, rotationY)
-
-def CameraExcelAddMoveInstantly(builder, moveInstantly):
-    builder.PrependBoolSlot(5, moveInstantly, 0)
-
+    return CameraExcelAddRotationY(builder, rotationY)
+def CameraExcelAddMoveInstantly(builder, moveInstantly): builder.PrependBoolSlot(5, moveInstantly, 0)
 def AddMoveInstantly(builder, moveInstantly):
-    CameraExcelAddMoveInstantly(builder, moveInstantly)
-
-def CameraExcelAddMoveInstantlyRotationSave(builder, moveInstantlyRotationSave):
-    builder.PrependBoolSlot(6, moveInstantlyRotationSave, 0)
-
+    return CameraExcelAddMoveInstantly(builder, moveInstantly)
+def CameraExcelAddMoveInstantlyRotationSave(builder, moveInstantlyRotationSave): builder.PrependBoolSlot(6, moveInstantlyRotationSave, 0)
 def AddMoveInstantlyRotationSave(builder, moveInstantlyRotationSave):
-    CameraExcelAddMoveInstantlyRotationSave(builder, moveInstantlyRotationSave)
-
-def CameraExcelAddLeftMargin(builder, leftMargin):
-    builder.PrependFloat32Slot(7, leftMargin, 0.0)
-
+    return CameraExcelAddMoveInstantlyRotationSave(builder, moveInstantlyRotationSave)
+def CameraExcelAddLeftMargin(builder, leftMargin): builder.PrependFloat32Slot(7, leftMargin, 0.0)
 def AddLeftMargin(builder, leftMargin):
-    CameraExcelAddLeftMargin(builder, leftMargin)
-
-def CameraExcelAddBottomMargin(builder, bottomMargin):
-    builder.PrependFloat32Slot(8, bottomMargin, 0.0)
-
+    return CameraExcelAddLeftMargin(builder, leftMargin)
+def CameraExcelAddBottomMargin(builder, bottomMargin): builder.PrependFloat32Slot(8, bottomMargin, 0.0)
 def AddBottomMargin(builder, bottomMargin):
-    CameraExcelAddBottomMargin(builder, bottomMargin)
-
-def CameraExcelAddIgnoreEnemies(builder, ignoreEnemies):
-    builder.PrependBoolSlot(9, ignoreEnemies, 0)
-
+    return CameraExcelAddBottomMargin(builder, bottomMargin)
+def CameraExcelAddIgnoreEnemies(builder, ignoreEnemies): builder.PrependBoolSlot(9, ignoreEnemies, 0)
 def AddIgnoreEnemies(builder, ignoreEnemies):
-    CameraExcelAddIgnoreEnemies(builder, ignoreEnemies)
-
-def CameraExcelAddUseRailPointCompensation(builder, useRailPointCompensation):
-    builder.PrependBoolSlot(10, useRailPointCompensation, 0)
-
+    return CameraExcelAddIgnoreEnemies(builder, ignoreEnemies)
+def CameraExcelAddUseRailPointCompensation(builder, useRailPointCompensation): builder.PrependBoolSlot(10, useRailPointCompensation, 0)
 def AddUseRailPointCompensation(builder, useRailPointCompensation):
-    CameraExcelAddUseRailPointCompensation(builder, useRailPointCompensation)
-
-def CameraExcelEnd(builder):
-    return builder.EndObject()
-
+    return CameraExcelAddUseRailPointCompensation(builder, useRailPointCompensation)
+def CameraExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CameraExcelEnd(builder)

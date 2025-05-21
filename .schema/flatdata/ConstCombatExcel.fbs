@@ -82,4 +82,5 @@ table ConstCombatExcel {
     check_cheater_max_use_cost_multi_floor_raid: int;
     excessive_touch_check_time: float;
     excessive_touch_check_count: int;
+    campaign_alert_popup_level_gap: int;
 }

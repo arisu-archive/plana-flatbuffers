@@ -49,26 +49,15 @@ class LocalizeCharProfileExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LocalizeCharProfileExcelTableStart(builder):
-    builder.StartObject(1)
-
+def LocalizeCharProfileExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    LocalizeCharProfileExcelTableStart(builder)
-
-def LocalizeCharProfileExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return LocalizeCharProfileExcelTableStart(builder)
+def LocalizeCharProfileExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    LocalizeCharProfileExcelTableAddDataList(builder, dataList)
-
-def LocalizeCharProfileExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return LocalizeCharProfileExcelTableAddDataList(builder, dataList)
+def LocalizeCharProfileExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return LocalizeCharProfileExcelTableStartDataListVector(builder, numElems)
-
-def LocalizeCharProfileExcelTableEnd(builder):
-    return builder.EndObject()
-
+def LocalizeCharProfileExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeCharProfileExcelTableEnd(builder)

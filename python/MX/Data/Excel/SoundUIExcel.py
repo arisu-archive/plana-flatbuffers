@@ -45,32 +45,18 @@ class SoundUIExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def SoundUIExcelStart(builder):
-    builder.StartObject(3)
-
+def SoundUIExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    SoundUIExcelStart(builder)
-
-def SoundUIExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return SoundUIExcelStart(builder)
+def SoundUIExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    SoundUIExcelAddId(builder, id)
-
-def SoundUIExcelAddSoundUniqueId(builder, soundUniqueId):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(soundUniqueId), 0)
-
+    return SoundUIExcelAddId(builder, id)
+def SoundUIExcelAddSoundUniqueId(builder, soundUniqueId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(soundUniqueId), 0)
 def AddSoundUniqueId(builder, soundUniqueId):
-    SoundUIExcelAddSoundUniqueId(builder, soundUniqueId)
-
-def SoundUIExcelAddPath(builder, path):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
-
+    return SoundUIExcelAddSoundUniqueId(builder, soundUniqueId)
+def SoundUIExcelAddPath(builder, path): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
 def AddPath(builder, path):
-    SoundUIExcelAddPath(builder, path)
-
-def SoundUIExcelEnd(builder):
-    return builder.EndObject()
-
+    return SoundUIExcelAddPath(builder, path)
+def SoundUIExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SoundUIExcelEnd(builder)

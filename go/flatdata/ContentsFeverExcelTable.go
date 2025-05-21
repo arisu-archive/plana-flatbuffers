@@ -17,19 +17,11 @@ func GetRootAsContentsFeverExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishContentsFeverExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsContentsFeverExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ContentsFeverExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ContentsFeverExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedContentsFeverExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ContentsFeverExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum MailSortingRule: int {
+    ReceiptDate = 0,
+    ExpireDate = 1,
+}

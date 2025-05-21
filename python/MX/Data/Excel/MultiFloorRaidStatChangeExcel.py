@@ -139,68 +139,36 @@ class MultiFloorRaidStatChangeExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
-def MultiFloorRaidStatChangeExcelStart(builder):
-    builder.StartObject(5)
-
+def MultiFloorRaidStatChangeExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    MultiFloorRaidStatChangeExcelStart(builder)
-
-def MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId):
-    builder.PrependInt64Slot(0, statChangeId, 0)
-
+    return MultiFloorRaidStatChangeExcelStart(builder)
+def MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId): builder.PrependInt64Slot(0, statChangeId, 0)
 def AddStatChangeId(builder, statChangeId):
-    MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId)
-
-def MultiFloorRaidStatChangeExcelAddStatType(builder, statType):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
-
+    return MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId)
+def MultiFloorRaidStatChangeExcelAddStatType(builder, statType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
 def AddStatType(builder, statType):
-    MultiFloorRaidStatChangeExcelAddStatType(builder, statType)
-
-def MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MultiFloorRaidStatChangeExcelAddStatType(builder, statType)
+def MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStatTypeVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems)
-
-def MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(statAdd), 0)
-
+def MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(statAdd), 0)
 def AddStatAdd(builder, statAdd):
-    MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd)
-
-def MultiFloorRaidStatChangeExcelStartStatAddVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd)
+def MultiFloorRaidStatChangeExcelStartStatAddVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStatAddVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartStatAddVector(builder, numElems)
-
-def MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(statMultiply), 0)
-
+def MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(statMultiply), 0)
 def AddStatMultiply(builder, statMultiply):
-    MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply)
-
-def MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply)
+def MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStatMultiplyVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, numElems)
-
-def MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(applyCharacterId), 0)
-
+def MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(applyCharacterId), 0)
 def AddApplyCharacterId(builder, applyCharacterId):
-    MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId)
-
-def MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId)
+def MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartApplyCharacterIdVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems)
-
-def MultiFloorRaidStatChangeExcelEnd(builder):
-    return builder.EndObject()
-
+def MultiFloorRaidStatChangeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MultiFloorRaidStatChangeExcelEnd(builder)

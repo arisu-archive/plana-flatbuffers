@@ -49,26 +49,15 @@ class ObstacleFireLineCheckExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ObstacleFireLineCheckExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ObstacleFireLineCheckExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ObstacleFireLineCheckExcelTableStart(builder)
-
-def ObstacleFireLineCheckExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ObstacleFireLineCheckExcelTableStart(builder)
+def ObstacleFireLineCheckExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ObstacleFireLineCheckExcelTableAddDataList(builder, dataList)
-
-def ObstacleFireLineCheckExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleFireLineCheckExcelTableAddDataList(builder, dataList)
+def ObstacleFireLineCheckExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ObstacleFireLineCheckExcelTableStartDataListVector(builder, numElems)
-
-def ObstacleFireLineCheckExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ObstacleFireLineCheckExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ObstacleFireLineCheckExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsTacticalSupportSystemExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishTacticalSupportSystemExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTacticalSupportSystemExcel(buf []byte, offset flatbuffers.UOffsetT) *TacticalSupportSystemExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TacticalSupportSystemExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTacticalSupportSystemExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TacticalSupportSystemExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

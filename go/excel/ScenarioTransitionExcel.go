@@ -17,19 +17,11 @@ func GetRootAsScenarioTransitionExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishScenarioTransitionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsScenarioTransitionExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioTransitionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioTransitionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedScenarioTransitionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioTransitionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

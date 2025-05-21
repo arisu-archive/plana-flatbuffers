@@ -79,50 +79,27 @@ class VoiceLogicEffectExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def VoiceLogicEffectExcelStart(builder):
-    builder.StartObject(5)
-
+def VoiceLogicEffectExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    VoiceLogicEffectExcelStart(builder)
-
-def VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash):
-    builder.PrependUint32Slot(0, logicEffectNameHash, 0)
-
+    return VoiceLogicEffectExcelStart(builder)
+def VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash): builder.PrependUint32Slot(0, logicEffectNameHash, 0)
 def AddLogicEffectNameHash(builder, logicEffectNameHash):
-    VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash)
-
-def VoiceLogicEffectExcelAddSelf(builder, self):
-    builder.PrependBoolSlot(1, self, 0)
-
+    return VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash)
+def VoiceLogicEffectExcelAddSelf(builder, self): builder.PrependBoolSlot(1, self, 0)
 def AddSelf(builder, self):
-    VoiceLogicEffectExcelAddSelf(builder, self)
-
-def VoiceLogicEffectExcelAddPriority(builder, priority):
-    builder.PrependInt32Slot(2, priority, 0)
-
+    return VoiceLogicEffectExcelAddSelf(builder, self)
+def VoiceLogicEffectExcelAddPriority(builder, priority): builder.PrependInt32Slot(2, priority, 0)
 def AddPriority(builder, priority):
-    VoiceLogicEffectExcelAddPriority(builder, priority)
-
-def VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
-
+    return VoiceLogicEffectExcelAddPriority(builder, priority)
+def VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
 def AddVoiceHash(builder, voiceHash):
-    VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash)
-
-def VoiceLogicEffectExcelStartVoiceHashVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash)
+def VoiceLogicEffectExcelStartVoiceHashVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartVoiceHashVector(builder, numElems):
     return VoiceLogicEffectExcelStartVoiceHashVector(builder, numElems)
-
-def VoiceLogicEffectExcelAddVoiceId(builder, voiceId):
-    builder.PrependUint32Slot(4, voiceId, 0)
-
+def VoiceLogicEffectExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(4, voiceId, 0)
 def AddVoiceId(builder, voiceId):
-    VoiceLogicEffectExcelAddVoiceId(builder, voiceId)
-
-def VoiceLogicEffectExcelEnd(builder):
-    return builder.EndObject()
-
+    return VoiceLogicEffectExcelAddVoiceId(builder, voiceId)
+def VoiceLogicEffectExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return VoiceLogicEffectExcelEnd(builder)

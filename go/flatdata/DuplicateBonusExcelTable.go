@@ -17,19 +17,11 @@ func GetRootAsDuplicateBonusExcelTable(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
-func FinishDuplicateBonusExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsDuplicateBonusExcelTable(buf []byte, offset flatbuffers.UOffsetT) *DuplicateBonusExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &DuplicateBonusExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedDuplicateBonusExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *DuplicateBonusExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

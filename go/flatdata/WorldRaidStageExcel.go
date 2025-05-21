@@ -17,19 +17,11 @@ func GetRootAsWorldRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *Worl
 	return x
 }
 
-func FinishWorldRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsWorldRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedWorldRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

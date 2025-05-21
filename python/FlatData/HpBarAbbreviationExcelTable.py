@@ -49,26 +49,15 @@ class HpBarAbbreviationExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def HpBarAbbreviationExcelTableStart(builder):
-    builder.StartObject(1)
-
+def HpBarAbbreviationExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    HpBarAbbreviationExcelTableStart(builder)
-
-def HpBarAbbreviationExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return HpBarAbbreviationExcelTableStart(builder)
+def HpBarAbbreviationExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    HpBarAbbreviationExcelTableAddDataList(builder, dataList)
-
-def HpBarAbbreviationExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return HpBarAbbreviationExcelTableAddDataList(builder, dataList)
+def HpBarAbbreviationExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return HpBarAbbreviationExcelTableStartDataListVector(builder, numElems)
-
-def HpBarAbbreviationExcelTableEnd(builder):
-    return builder.EndObject()
-
+def HpBarAbbreviationExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return HpBarAbbreviationExcelTableEnd(builder)

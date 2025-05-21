@@ -17,19 +17,11 @@ func GetRootAsMissionEmergencyCompleteExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishMissionEmergencyCompleteExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMissionEmergencyCompleteExcel(buf []byte, offset flatbuffers.UOffsetT) *MissionEmergencyCompleteExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MissionEmergencyCompleteExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMissionEmergencyCompleteExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MissionEmergencyCompleteExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

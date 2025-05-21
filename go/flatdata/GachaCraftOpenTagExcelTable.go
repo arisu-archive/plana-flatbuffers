@@ -17,19 +17,11 @@ func GetRootAsGachaCraftOpenTagExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishGachaCraftOpenTagExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGachaCraftOpenTagExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GachaCraftOpenTagExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaCraftOpenTagExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGachaCraftOpenTagExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaCraftOpenTagExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

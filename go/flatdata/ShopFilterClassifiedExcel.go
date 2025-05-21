@@ -17,19 +17,11 @@ func GetRootAsShopFilterClassifiedExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishShopFilterClassifiedExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsShopFilterClassifiedExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopFilterClassifiedExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopFilterClassifiedExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedShopFilterClassifiedExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopFilterClassifiedExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

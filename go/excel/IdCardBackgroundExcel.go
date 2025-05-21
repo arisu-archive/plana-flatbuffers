@@ -17,19 +17,11 @@ func GetRootAsIdCardBackgroundExcel(buf []byte, offset flatbuffers.UOffsetT) *Id
 	return x
 }
 
-func FinishIdCardBackgroundExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsIdCardBackgroundExcel(buf []byte, offset flatbuffers.UOffsetT) *IdCardBackgroundExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &IdCardBackgroundExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedIdCardBackgroundExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *IdCardBackgroundExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

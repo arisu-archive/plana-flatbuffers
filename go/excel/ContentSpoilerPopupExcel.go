@@ -17,19 +17,11 @@ func GetRootAsContentSpoilerPopupExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
-func FinishContentSpoilerPopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsContentSpoilerPopupExcel(buf []byte, offset flatbuffers.UOffsetT) *ContentSpoilerPopupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ContentSpoilerPopupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedContentSpoilerPopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ContentSpoilerPopupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

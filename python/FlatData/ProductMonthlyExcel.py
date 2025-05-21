@@ -2,4 +2,329 @@
 
 # namespace: FlatData
 
-# NOTE ProductMonthlyExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class ProductMonthlyExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = ProductMonthlyExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsProductMonthlyExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # ProductMonthlyExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # ProductMonthlyExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def ProductId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ProductMonthlyExcel
+    def StoreType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def Price(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def PriceReference(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ProductMonthlyExcel
+    def ProductTagType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def MonthlyDays(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def UseMonthlyProductCheck(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ProductMonthlyExcel
+    def PurchaseCountLimit(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
+
+    # ProductMonthlyExcel
+    def ParcelId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # ProductMonthlyExcel
+    def ParcelAmount(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def ParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        return o == 0
+
+    # ProductMonthlyExcel
+    def EnterCostReduceGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        return o == 0
+
+    # ProductMonthlyExcel
+    def DailyParcelId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        return o == 0
+
+    # ProductMonthlyExcel
+    def DailyParcelAmount(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductMonthlyExcel
+    def DailyParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        return o == 0
+
+def ProductMonthlyExcelStart(builder): builder.StartObject(16)
+def Start(builder):
+    return ProductMonthlyExcelStart(builder)
+def ProductMonthlyExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+def AddId(builder, id):
+    return ProductMonthlyExcelAddId(builder, id)
+def ProductMonthlyExcelAddProductId(builder, productId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(productId), 0)
+def AddProductId(builder, productId):
+    return ProductMonthlyExcelAddProductId(builder, productId)
+def ProductMonthlyExcelAddStoreType(builder, storeType): builder.PrependInt32Slot(2, storeType, 0)
+def AddStoreType(builder, storeType):
+    return ProductMonthlyExcelAddStoreType(builder, storeType)
+def ProductMonthlyExcelAddPrice(builder, price): builder.PrependInt64Slot(3, price, 0)
+def AddPrice(builder, price):
+    return ProductMonthlyExcelAddPrice(builder, price)
+def ProductMonthlyExcelAddPriceReference(builder, priceReference): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(priceReference), 0)
+def AddPriceReference(builder, priceReference):
+    return ProductMonthlyExcelAddPriceReference(builder, priceReference)
+def ProductMonthlyExcelAddProductTagType(builder, productTagType): builder.PrependInt32Slot(5, productTagType, 0)
+def AddProductTagType(builder, productTagType):
+    return ProductMonthlyExcelAddProductTagType(builder, productTagType)
+def ProductMonthlyExcelAddMonthlyDays(builder, monthlyDays): builder.PrependInt64Slot(6, monthlyDays, 0)
+def AddMonthlyDays(builder, monthlyDays):
+    return ProductMonthlyExcelAddMonthlyDays(builder, monthlyDays)
+def ProductMonthlyExcelAddUseMonthlyProductCheck(builder, useMonthlyProductCheck): builder.PrependBoolSlot(7, useMonthlyProductCheck, 0)
+def AddUseMonthlyProductCheck(builder, useMonthlyProductCheck):
+    return ProductMonthlyExcelAddUseMonthlyProductCheck(builder, useMonthlyProductCheck)
+def ProductMonthlyExcelAddPurchaseCountLimit(builder, purchaseCountLimit): builder.PrependInt64Slot(8, purchaseCountLimit, 0)
+def AddPurchaseCountLimit(builder, purchaseCountLimit):
+    return ProductMonthlyExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
+def ProductMonthlyExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+def AddParcelType(builder, parcelType):
+    return ProductMonthlyExcelAddParcelType(builder, parcelType)
+def ProductMonthlyExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartParcelTypeVector(builder, numElems):
+    return ProductMonthlyExcelStartParcelTypeVector(builder, numElems)
+def ProductMonthlyExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+def AddParcelId(builder, parcelId):
+    return ProductMonthlyExcelAddParcelId(builder, parcelId)
+def ProductMonthlyExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartParcelIdVector(builder, numElems):
+    return ProductMonthlyExcelStartParcelIdVector(builder, numElems)
+def ProductMonthlyExcelAddParcelAmount(builder, parcelAmount): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
+def AddParcelAmount(builder, parcelAmount):
+    return ProductMonthlyExcelAddParcelAmount(builder, parcelAmount)
+def ProductMonthlyExcelStartParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartParcelAmountVector(builder, numElems):
+    return ProductMonthlyExcelStartParcelAmountVector(builder, numElems)
+def ProductMonthlyExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId): builder.PrependInt64Slot(12, enterCostReduceGroupId, 0)
+def AddEnterCostReduceGroupId(builder, enterCostReduceGroupId):
+    return ProductMonthlyExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId)
+def ProductMonthlyExcelAddDailyParcelType(builder, dailyParcelType): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(dailyParcelType), 0)
+def AddDailyParcelType(builder, dailyParcelType):
+    return ProductMonthlyExcelAddDailyParcelType(builder, dailyParcelType)
+def ProductMonthlyExcelStartDailyParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartDailyParcelTypeVector(builder, numElems):
+    return ProductMonthlyExcelStartDailyParcelTypeVector(builder, numElems)
+def ProductMonthlyExcelAddDailyParcelId(builder, dailyParcelId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(dailyParcelId), 0)
+def AddDailyParcelId(builder, dailyParcelId):
+    return ProductMonthlyExcelAddDailyParcelId(builder, dailyParcelId)
+def ProductMonthlyExcelStartDailyParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartDailyParcelIdVector(builder, numElems):
+    return ProductMonthlyExcelStartDailyParcelIdVector(builder, numElems)
+def ProductMonthlyExcelAddDailyParcelAmount(builder, dailyParcelAmount): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(dailyParcelAmount), 0)
+def AddDailyParcelAmount(builder, dailyParcelAmount):
+    return ProductMonthlyExcelAddDailyParcelAmount(builder, dailyParcelAmount)
+def ProductMonthlyExcelStartDailyParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartDailyParcelAmountVector(builder, numElems):
+    return ProductMonthlyExcelStartDailyParcelAmountVector(builder, numElems)
+def ProductMonthlyExcelEnd(builder): return builder.EndObject()
+def End(builder):
+    return ProductMonthlyExcelEnd(builder)

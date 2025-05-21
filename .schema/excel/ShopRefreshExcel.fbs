@@ -1,0 +1,21 @@
+include "ProductDisplayTag.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRefreshExcel {
+    id: long;
+    localize_etc_id: uint;
+    is_legacy: bool;
+    goods_id: long;
+    is_bundle: bool;
+    visible_amount: long;
+    display_order: long;
+    category_type: ShopCategoryType;
+    refresh_group: int;
+    prob: int;
+    buy_report_event_name: string;
+    display_tag: ProductDisplayTag;
+}
+
+root_type ShopRefreshExcel;

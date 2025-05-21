@@ -52,38 +52,21 @@ class CharacterPotentialExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def CharacterPotentialExcelStart(builder):
-    builder.StartObject(4)
-
+def CharacterPotentialExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    CharacterPotentialExcelStart(builder)
-
-def CharacterPotentialExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterPotentialExcelStart(builder)
+def CharacterPotentialExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterPotentialExcelAddId(builder, id)
-
-def CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId):
-    builder.PrependInt64Slot(1, potentialStatGroupId, 0)
-
+    return CharacterPotentialExcelAddId(builder, id)
+def CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId): builder.PrependInt64Slot(1, potentialStatGroupId, 0)
 def AddPotentialStatGroupId(builder, potentialStatGroupId):
-    CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
-
-def CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType):
-    builder.PrependInt32Slot(2, potentialStatBonusRateType, 0)
-
+    return CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
+def CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType): builder.PrependInt32Slot(2, potentialStatBonusRateType, 0)
 def AddPotentialStatBonusRateType(builder, potentialStatBonusRateType):
-    CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType)
-
-def CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat):
-    builder.PrependBoolSlot(3, isUnnecessaryStat, 0)
-
+    return CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType)
+def CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat): builder.PrependBoolSlot(3, isUnnecessaryStat, 0)
 def AddIsUnnecessaryStat(builder, isUnnecessaryStat):
-    CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat)
-
-def CharacterPotentialExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat)
+def CharacterPotentialExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterPotentialExcelEnd(builder)

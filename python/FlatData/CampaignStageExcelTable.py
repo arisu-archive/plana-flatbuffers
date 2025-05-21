@@ -49,26 +49,15 @@ class CampaignStageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CampaignStageExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CampaignStageExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CampaignStageExcelTableStart(builder)
-
-def CampaignStageExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CampaignStageExcelTableStart(builder)
+def CampaignStageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CampaignStageExcelTableAddDataList(builder, dataList)
-
-def CampaignStageExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CampaignStageExcelTableAddDataList(builder, dataList)
+def CampaignStageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CampaignStageExcelTableStartDataListVector(builder, numElems)
-
-def CampaignStageExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CampaignStageExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CampaignStageExcelTableEnd(builder)

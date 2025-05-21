@@ -49,26 +49,15 @@ class ClearDeckRuleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ClearDeckRuleExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ClearDeckRuleExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ClearDeckRuleExcelTableStart(builder)
-
-def ClearDeckRuleExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ClearDeckRuleExcelTableStart(builder)
+def ClearDeckRuleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ClearDeckRuleExcelTableAddDataList(builder, dataList)
-
-def ClearDeckRuleExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ClearDeckRuleExcelTableAddDataList(builder, dataList)
+def ClearDeckRuleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ClearDeckRuleExcelTableStartDataListVector(builder, numElems)
-
-def ClearDeckRuleExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ClearDeckRuleExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ClearDeckRuleExcelTableEnd(builder)

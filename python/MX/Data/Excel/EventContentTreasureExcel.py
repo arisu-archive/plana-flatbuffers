@@ -59,44 +59,24 @@ class EventContentTreasureExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentTreasureExcelStart(builder):
-    builder.StartObject(5)
-
+def EventContentTreasureExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    EventContentTreasureExcelStart(builder)
-
-def EventContentTreasureExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentTreasureExcelStart(builder)
+def EventContentTreasureExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentTreasureExcelAddEventContentId(builder, eventContentId)
-
-def EventContentTreasureExcelAddTitleLocalize(builder, titleLocalize):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalize), 0)
-
+    return EventContentTreasureExcelAddEventContentId(builder, eventContentId)
+def EventContentTreasureExcelAddTitleLocalize(builder, titleLocalize): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalize), 0)
 def AddTitleLocalize(builder, titleLocalize):
-    EventContentTreasureExcelAddTitleLocalize(builder, titleLocalize)
-
-def EventContentTreasureExcelAddLoopRound(builder, loopRound):
-    builder.PrependInt32Slot(2, loopRound, 0)
-
+    return EventContentTreasureExcelAddTitleLocalize(builder, titleLocalize)
+def EventContentTreasureExcelAddLoopRound(builder, loopRound): builder.PrependInt32Slot(2, loopRound, 0)
 def AddLoopRound(builder, loopRound):
-    EventContentTreasureExcelAddLoopRound(builder, loopRound)
-
-def EventContentTreasureExcelAddUsePrefabName(builder, usePrefabName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
-
+    return EventContentTreasureExcelAddLoopRound(builder, loopRound)
+def EventContentTreasureExcelAddUsePrefabName(builder, usePrefabName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
 def AddUsePrefabName(builder, usePrefabName):
-    EventContentTreasureExcelAddUsePrefabName(builder, usePrefabName)
-
-def EventContentTreasureExcelAddTreasureBgImagePath(builder, treasureBgImagePath):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(treasureBgImagePath), 0)
-
+    return EventContentTreasureExcelAddUsePrefabName(builder, usePrefabName)
+def EventContentTreasureExcelAddTreasureBgImagePath(builder, treasureBgImagePath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(treasureBgImagePath), 0)
 def AddTreasureBgImagePath(builder, treasureBgImagePath):
-    EventContentTreasureExcelAddTreasureBgImagePath(builder, treasureBgImagePath)
-
-def EventContentTreasureExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentTreasureExcelAddTreasureBgImagePath(builder, treasureBgImagePath)
+def EventContentTreasureExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentTreasureExcelEnd(builder)

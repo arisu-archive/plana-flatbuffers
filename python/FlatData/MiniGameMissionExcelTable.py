@@ -49,26 +49,15 @@ class MiniGameMissionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MiniGameMissionExcelTableStart(builder):
-    builder.StartObject(1)
-
+def MiniGameMissionExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    MiniGameMissionExcelTableStart(builder)
-
-def MiniGameMissionExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return MiniGameMissionExcelTableStart(builder)
+def MiniGameMissionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    MiniGameMissionExcelTableAddDataList(builder, dataList)
-
-def MiniGameMissionExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameMissionExcelTableAddDataList(builder, dataList)
+def MiniGameMissionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return MiniGameMissionExcelTableStartDataListVector(builder, numElems)
-
-def MiniGameMissionExcelTableEnd(builder):
-    return builder.EndObject()
-
+def MiniGameMissionExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameMissionExcelTableEnd(builder)

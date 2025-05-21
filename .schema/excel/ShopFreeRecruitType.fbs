@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum ShopFreeRecruitType: int {
+    None = 0,
+    Accumulation = 1,
+    Reset = 2,
+}

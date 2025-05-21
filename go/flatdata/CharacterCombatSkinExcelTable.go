@@ -17,19 +17,11 @@ func GetRootAsCharacterCombatSkinExcelTable(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
-func FinishCharacterCombatSkinExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterCombatSkinExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterCombatSkinExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterCombatSkinExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterCombatSkinExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterCombatSkinExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

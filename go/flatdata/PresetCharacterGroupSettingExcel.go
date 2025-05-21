@@ -17,19 +17,11 @@ func GetRootAsPresetCharacterGroupSettingExcel(buf []byte, offset flatbuffers.UO
 	return x
 }
 
-func FinishPresetCharacterGroupSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsPresetCharacterGroupSettingExcel(buf []byte, offset flatbuffers.UOffsetT) *PresetCharacterGroupSettingExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PresetCharacterGroupSettingExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedPresetCharacterGroupSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PresetCharacterGroupSettingExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,19 +17,11 @@ func GetRootAsFieldWorldMapZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *F
 	return x
 }
 
-func FinishFieldWorldMapZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldWorldMapZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldWorldMapZoneExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldWorldMapZoneExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldWorldMapZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldWorldMapZoneExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

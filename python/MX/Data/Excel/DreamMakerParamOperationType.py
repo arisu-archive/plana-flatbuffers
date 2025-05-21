@@ -2,4 +2,9 @@
 
 # namespace: Excel
 
-# NOTE DreamMakerParamOperationType.py does not declare any structs or enums
+class DreamMakerParamOperationType(object):
+    None_ = 0
+    GrowUpHigh = 1
+    GrowUp = 2
+    GrowDownHigh = 3
+    GrowDown = 4

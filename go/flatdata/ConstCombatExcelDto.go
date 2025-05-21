@@ -91,6 +91,7 @@ type ConstCombatExcelDto struct {
 	CheckCheaterMaxUseCostMultiFloorRaid            int32   `json:"check_cheater_max_use_cost_multi_floor_raid"`
 	ExcessiveTouchCheckTime                         float32 `json:"excessive_touch_check_time"`
 	ExcessiveTouchCheckCount                        int32   `json:"excessive_touch_check_count"`
+	CampaignAlertPopupLevelGap                      int32   `json:"campaign_alert_popup_level_gap"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -180,6 +181,7 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(b, fbsutils.Convert(t.CheckCheaterMaxUseCostMultiFloorRaid, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddExcessiveTouchCheckTime(b, fbsutils.Convert(t.ExcessiveTouchCheckTime, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddExcessiveTouchCheckCount(b, fbsutils.Convert(t.ExcessiveTouchCheckCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCampaignAlertPopupLevelGap(b, fbsutils.Convert(t.CampaignAlertPopupLevelGap, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -276,6 +278,7 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.CheckCheaterMaxUseCostMultiFloorRaid = fbsutils.Convert(e.CheckCheaterMaxUseCostMultiFloorRaid(), t.FlatBuffer.TableKey)
 	t.ExcessiveTouchCheckTime = fbsutils.Convert(e.ExcessiveTouchCheckTime(), t.FlatBuffer.TableKey)
 	t.ExcessiveTouchCheckCount = fbsutils.Convert(e.ExcessiveTouchCheckCount(), t.FlatBuffer.TableKey)
+	t.CampaignAlertPopupLevelGap = fbsutils.Convert(e.CampaignAlertPopupLevelGap(), t.FlatBuffer.TableKey)
 	return nil
 }
 

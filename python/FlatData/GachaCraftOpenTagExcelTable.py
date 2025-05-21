@@ -49,26 +49,15 @@ class GachaCraftOpenTagExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GachaCraftOpenTagExcelTableStart(builder):
-    builder.StartObject(1)
-
+def GachaCraftOpenTagExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    GachaCraftOpenTagExcelTableStart(builder)
-
-def GachaCraftOpenTagExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return GachaCraftOpenTagExcelTableStart(builder)
+def GachaCraftOpenTagExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    GachaCraftOpenTagExcelTableAddDataList(builder, dataList)
-
-def GachaCraftOpenTagExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return GachaCraftOpenTagExcelTableAddDataList(builder, dataList)
+def GachaCraftOpenTagExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return GachaCraftOpenTagExcelTableStartDataListVector(builder, numElems)
-
-def GachaCraftOpenTagExcelTableEnd(builder):
-    return builder.EndObject()
-
+def GachaCraftOpenTagExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return GachaCraftOpenTagExcelTableEnd(builder)

@@ -49,26 +49,15 @@ class AcademyMessanger3ExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AcademyMessanger3ExcelTableStart(builder):
-    builder.StartObject(1)
-
+def AcademyMessanger3ExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    AcademyMessanger3ExcelTableStart(builder)
-
-def AcademyMessanger3ExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return AcademyMessanger3ExcelTableStart(builder)
+def AcademyMessanger3ExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    AcademyMessanger3ExcelTableAddDataList(builder, dataList)
-
-def AcademyMessanger3ExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AcademyMessanger3ExcelTableAddDataList(builder, dataList)
+def AcademyMessanger3ExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AcademyMessanger3ExcelTableStartDataListVector(builder, numElems)
-
-def AcademyMessanger3ExcelTableEnd(builder):
-    return builder.EndObject()
-
+def AcademyMessanger3ExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return AcademyMessanger3ExcelTableEnd(builder)

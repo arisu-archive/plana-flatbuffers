@@ -49,26 +49,15 @@ class ArenaRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ArenaRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ArenaRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ArenaRewardExcelTableStart(builder)
-
-def ArenaRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ArenaRewardExcelTableStart(builder)
+def ArenaRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ArenaRewardExcelTableAddDataList(builder, dataList)
-
-def ArenaRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ArenaRewardExcelTableAddDataList(builder, dataList)
+def ArenaRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ArenaRewardExcelTableStartDataListVector(builder, numElems)
-
-def ArenaRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ArenaRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ArenaRewardExcelTableEnd(builder)

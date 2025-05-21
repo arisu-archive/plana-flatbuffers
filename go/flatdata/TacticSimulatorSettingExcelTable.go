@@ -17,19 +17,11 @@ func GetRootAsTacticSimulatorSettingExcelTable(buf []byte, offset flatbuffers.UO
 	return x
 }
 
-func FinishTacticSimulatorSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTacticSimulatorSettingExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TacticSimulatorSettingExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TacticSimulatorSettingExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTacticSimulatorSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TacticSimulatorSettingExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

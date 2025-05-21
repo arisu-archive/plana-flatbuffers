@@ -17,19 +17,11 @@ func GetRootAsAcademyFavorScheduleExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
-func FinishAcademyFavorScheduleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAcademyFavorScheduleExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AcademyFavorScheduleExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AcademyFavorScheduleExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAcademyFavorScheduleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AcademyFavorScheduleExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

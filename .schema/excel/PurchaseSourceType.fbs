@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum PurchaseSourceType: int {
+    None = 0,
+    Product = 1,
+    ProductMonthly = 2,
+}

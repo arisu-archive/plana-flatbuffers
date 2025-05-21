@@ -17,19 +17,11 @@ func GetRootAsCharacterVictoryInteractionExcelTable(buf []byte, offset flatbuffe
 	return x
 }
 
-func FinishCharacterVictoryInteractionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterVictoryInteractionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterVictoryInteractionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterVictoryInteractionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterVictoryInteractionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterVictoryInteractionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

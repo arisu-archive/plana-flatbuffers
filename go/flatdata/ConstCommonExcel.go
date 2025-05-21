@@ -17,19 +17,11 @@ func GetRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCo
 	return x
 }
 
-func FinishConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

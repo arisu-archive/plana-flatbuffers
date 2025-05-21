@@ -17,19 +17,11 @@ func GetRootAsShopExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShopExcel
 	return x
 }
 
-func FinishShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsShopExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShopExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -49,26 +49,15 @@ class RaidSeasonManageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def RaidSeasonManageExcelTableStart(builder):
-    builder.StartObject(1)
-
+def RaidSeasonManageExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    RaidSeasonManageExcelTableStart(builder)
-
-def RaidSeasonManageExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return RaidSeasonManageExcelTableStart(builder)
+def RaidSeasonManageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    RaidSeasonManageExcelTableAddDataList(builder, dataList)
-
-def RaidSeasonManageExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RaidSeasonManageExcelTableAddDataList(builder, dataList)
+def RaidSeasonManageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return RaidSeasonManageExcelTableStartDataListVector(builder, numElems)
-
-def RaidSeasonManageExcelTableEnd(builder):
-    return builder.EndObject()
-
+def RaidSeasonManageExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return RaidSeasonManageExcelTableEnd(builder)

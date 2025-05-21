@@ -17,19 +17,11 @@ func GetRootAsCharacterWeaponExpBonusExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishCharacterWeaponExpBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterWeaponExpBonusExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterWeaponExpBonusExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterWeaponExpBonusExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterWeaponExpBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterWeaponExpBonusExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

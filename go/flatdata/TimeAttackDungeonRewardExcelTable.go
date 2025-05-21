@@ -17,19 +17,11 @@ func GetRootAsTimeAttackDungeonRewardExcelTable(buf []byte, offset flatbuffers.U
 	return x
 }
 
-func FinishTimeAttackDungeonRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTimeAttackDungeonRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TimeAttackDungeonRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TimeAttackDungeonRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTimeAttackDungeonRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TimeAttackDungeonRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

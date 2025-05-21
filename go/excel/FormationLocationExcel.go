@@ -17,19 +17,11 @@ func GetRootAsFormationLocationExcel(buf []byte, offset flatbuffers.UOffsetT) *F
 	return x
 }
 
-func FinishFormationLocationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFormationLocationExcel(buf []byte, offset flatbuffers.UOffsetT) *FormationLocationExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FormationLocationExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFormationLocationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FormationLocationExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

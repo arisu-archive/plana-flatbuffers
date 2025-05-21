@@ -2,4 +2,12 @@
 
 # namespace: FlatData
 
-# NOTE ScenarioCharacterAction.py does not declare any structs or enums
+class ScenarioCharacterAction(object):
+    Idle = 0
+    Shake = 1
+    Greeting = 2
+    FalldownLeft = 3
+    FalldownRight = 4
+    Stiff = 5
+    Hophop = 6
+    Jump = 7

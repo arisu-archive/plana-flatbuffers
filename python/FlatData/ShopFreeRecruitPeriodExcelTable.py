@@ -49,26 +49,15 @@ class ShopFreeRecruitPeriodExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ShopFreeRecruitPeriodExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ShopFreeRecruitPeriodExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ShopFreeRecruitPeriodExcelTableStart(builder)
-
-def ShopFreeRecruitPeriodExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ShopFreeRecruitPeriodExcelTableStart(builder)
+def ShopFreeRecruitPeriodExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ShopFreeRecruitPeriodExcelTableAddDataList(builder, dataList)
-
-def ShopFreeRecruitPeriodExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ShopFreeRecruitPeriodExcelTableAddDataList(builder, dataList)
+def ShopFreeRecruitPeriodExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ShopFreeRecruitPeriodExcelTableStartDataListVector(builder, numElems)
-
-def ShopFreeRecruitPeriodExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ShopFreeRecruitPeriodExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopFreeRecruitPeriodExcelTableEnd(builder)

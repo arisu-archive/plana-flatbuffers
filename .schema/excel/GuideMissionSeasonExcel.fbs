@@ -1,0 +1,35 @@
+include "AccountState.fbs";
+include "GuideMissionTabType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table GuideMissionSeasonExcel {
+    id: long;
+    title_localize_code: string;
+    permanent_infomation_localize_code: string;
+    infomation_localize_code: string;
+    account_type: AccountState;
+    enabled: bool;
+    banner_open_date: string;
+    start_date: string;
+    startable_end_date: string;
+    end_date: string;
+    close_banner_after_completion: bool;
+    maximum_login_count: long;
+    expiry_date: long;
+    spine_character_id: long;
+    requirement_parcel_image: string;
+    reward_image: string;
+    lobby_banner_image: string;
+    background_image: string;
+    title_image: string;
+    requirement_parcel_type: ParcelType;
+    requirement_parcel_id: long;
+    requirement_parcel_amount: int;
+    tab_type: GuideMissionTabType;
+    is_permanent: bool;
+    pre_season_id: long;
+}
+
+root_type GuideMissionSeasonExcel;

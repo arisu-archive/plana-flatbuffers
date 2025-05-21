@@ -49,26 +49,15 @@ class ConstCombatExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstCombatExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConstCombatExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConstCombatExcelTableStart(builder)
-
-def ConstCombatExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConstCombatExcelTableStart(builder)
+def ConstCombatExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConstCombatExcelTableAddDataList(builder, dataList)
-
-def ConstCombatExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConstCombatExcelTableAddDataList(builder, dataList)
+def ConstCombatExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConstCombatExcelTableStartDataListVector(builder, numElems)
-
-def ConstCombatExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConstCombatExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstCombatExcelTableEnd(builder)

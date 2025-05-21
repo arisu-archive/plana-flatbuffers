@@ -49,26 +49,15 @@ class TrophyCollectionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TrophyCollectionExcelTableStart(builder):
-    builder.StartObject(1)
-
+def TrophyCollectionExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    TrophyCollectionExcelTableStart(builder)
-
-def TrophyCollectionExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return TrophyCollectionExcelTableStart(builder)
+def TrophyCollectionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    TrophyCollectionExcelTableAddDataList(builder, dataList)
-
-def TrophyCollectionExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TrophyCollectionExcelTableAddDataList(builder, dataList)
+def TrophyCollectionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return TrophyCollectionExcelTableStartDataListVector(builder, numElems)
-
-def TrophyCollectionExcelTableEnd(builder):
-    return builder.EndObject()
-
+def TrophyCollectionExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return TrophyCollectionExcelTableEnd(builder)

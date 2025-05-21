@@ -17,19 +17,11 @@ func GetRootAsLocalizeCharProfileChangeExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
-func FinishLocalizeCharProfileChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsLocalizeCharProfileChangeExcel(buf []byte, offset flatbuffers.UOffsetT) *LocalizeCharProfileChangeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeCharProfileChangeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedLocalizeCharProfileChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeCharProfileChangeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

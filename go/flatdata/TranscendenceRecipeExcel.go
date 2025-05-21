@@ -17,19 +17,11 @@ func GetRootAsTranscendenceRecipeExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
-func FinishTranscendenceRecipeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsTranscendenceRecipeExcel(buf []byte, offset flatbuffers.UOffsetT) *TranscendenceRecipeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TranscendenceRecipeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedTranscendenceRecipeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TranscendenceRecipeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

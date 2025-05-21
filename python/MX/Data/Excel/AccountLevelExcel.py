@@ -73,56 +73,30 @@ class AccountLevelExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def AccountLevelExcelStart(builder):
-    builder.StartObject(7)
-
+def AccountLevelExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    AccountLevelExcelStart(builder)
-
-def AccountLevelExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return AccountLevelExcelStart(builder)
+def AccountLevelExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    AccountLevelExcelAddId(builder, id)
-
-def AccountLevelExcelAddLevel(builder, level):
-    builder.PrependInt64Slot(1, level, 0)
-
+    return AccountLevelExcelAddId(builder, id)
+def AccountLevelExcelAddLevel(builder, level): builder.PrependInt64Slot(1, level, 0)
 def AddLevel(builder, level):
-    AccountLevelExcelAddLevel(builder, level)
-
-def AccountLevelExcelAddExp(builder, exp):
-    builder.PrependInt64Slot(2, exp, 0)
-
+    return AccountLevelExcelAddLevel(builder, level)
+def AccountLevelExcelAddExp(builder, exp): builder.PrependInt64Slot(2, exp, 0)
 def AddExp(builder, exp):
-    AccountLevelExcelAddExp(builder, exp)
-
-def AccountLevelExcelAddNewbieExpRatio(builder, newbieExpRatio):
-    builder.PrependInt32Slot(3, newbieExpRatio, 0)
-
+    return AccountLevelExcelAddExp(builder, exp)
+def AccountLevelExcelAddNewbieExpRatio(builder, newbieExpRatio): builder.PrependInt32Slot(3, newbieExpRatio, 0)
 def AddNewbieExpRatio(builder, newbieExpRatio):
-    AccountLevelExcelAddNewbieExpRatio(builder, newbieExpRatio)
-
-def AccountLevelExcelAddCloseInterval(builder, closeInterval):
-    builder.PrependInt32Slot(4, closeInterval, 0)
-
+    return AccountLevelExcelAddNewbieExpRatio(builder, newbieExpRatio)
+def AccountLevelExcelAddCloseInterval(builder, closeInterval): builder.PrependInt32Slot(4, closeInterval, 0)
 def AddCloseInterval(builder, closeInterval):
-    AccountLevelExcelAddCloseInterval(builder, closeInterval)
-
-def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax):
-    builder.PrependInt64Slot(5, apAutoChargeMax, 0)
-
+    return AccountLevelExcelAddCloseInterval(builder, closeInterval)
+def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax): builder.PrependInt64Slot(5, apAutoChargeMax, 0)
 def AddApAutoChargeMax(builder, apAutoChargeMax):
-    AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
-
-def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent):
-    builder.PrependBoolSlot(6, needReportEvent, 0)
-
+    return AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
+def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent): builder.PrependBoolSlot(6, needReportEvent, 0)
 def AddNeedReportEvent(builder, needReportEvent):
-    AccountLevelExcelAddNeedReportEvent(builder, needReportEvent)
-
-def AccountLevelExcelEnd(builder):
-    return builder.EndObject()
-
+    return AccountLevelExcelAddNeedReportEvent(builder, needReportEvent)
+def AccountLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AccountLevelExcelEnd(builder)

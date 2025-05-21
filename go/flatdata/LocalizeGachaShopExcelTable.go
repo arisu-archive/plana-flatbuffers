@@ -17,19 +17,11 @@ func GetRootAsLocalizeGachaShopExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishLocalizeGachaShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsLocalizeGachaShopExcelTable(buf []byte, offset flatbuffers.UOffsetT) *LocalizeGachaShopExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeGachaShopExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedLocalizeGachaShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeGachaShopExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

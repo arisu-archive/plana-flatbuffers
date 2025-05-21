@@ -49,26 +49,15 @@ class EventContentSpineDialogOffsetExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentSpineDialogOffsetExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentSpineDialogOffsetExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentSpineDialogOffsetExcelTableStart(builder)
-
-def EventContentSpineDialogOffsetExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentSpineDialogOffsetExcelTableStart(builder)
+def EventContentSpineDialogOffsetExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentSpineDialogOffsetExcelTableAddDataList(builder, dataList)
-
-def EventContentSpineDialogOffsetExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentSpineDialogOffsetExcelTableAddDataList(builder, dataList)
+def EventContentSpineDialogOffsetExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentSpineDialogOffsetExcelTableStartDataListVector(builder, numElems)
-
-def EventContentSpineDialogOffsetExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentSpineDialogOffsetExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentSpineDialogOffsetExcelTableEnd(builder)

@@ -49,26 +49,15 @@ class RecipeCraftExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def RecipeCraftExcelTableStart(builder):
-    builder.StartObject(1)
-
+def RecipeCraftExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    RecipeCraftExcelTableStart(builder)
-
-def RecipeCraftExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return RecipeCraftExcelTableStart(builder)
+def RecipeCraftExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    RecipeCraftExcelTableAddDataList(builder, dataList)
-
-def RecipeCraftExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RecipeCraftExcelTableAddDataList(builder, dataList)
+def RecipeCraftExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return RecipeCraftExcelTableStartDataListVector(builder, numElems)
-
-def RecipeCraftExcelTableEnd(builder):
-    return builder.EndObject()
-
+def RecipeCraftExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeCraftExcelTableEnd(builder)

@@ -52,38 +52,21 @@ class MinigameRoadPuzzleMapTileExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameRoadPuzzleMapTileExcelStart(builder):
-    builder.StartObject(4)
-
+def MinigameRoadPuzzleMapTileExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    MinigameRoadPuzzleMapTileExcelStart(builder)
-
-def MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MinigameRoadPuzzleMapTileExcelStart(builder)
+def MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId)
-
-def MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(1, uniqueId, 0)
-
+    return MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId)
+def MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId)
-
-def MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-
+    return MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId)
+def MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
 def AddPrefabName(builder, prefabName):
-    MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName)
-
-def MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType):
-    builder.PrependInt32Slot(3, mapTileType, 0)
-
+    return MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName)
+def MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType): builder.PrependInt32Slot(3, mapTileType, 0)
 def AddMapTileType(builder, mapTileType):
-    MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType)
-
-def MinigameRoadPuzzleMapTileExcelEnd(builder):
-    return builder.EndObject()
-
+    return MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType)
+def MinigameRoadPuzzleMapTileExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameRoadPuzzleMapTileExcelEnd(builder)

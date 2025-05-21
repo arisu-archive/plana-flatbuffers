@@ -2,4 +2,9 @@
 
 # namespace: FlatData
 
-# NOTE ScenarioModeReplayTypes.py does not declare any structs or enums
+class ScenarioModeReplayTypes(object):
+    None_ = 0
+    Event = 1
+    Favor = 2
+    Work = 3
+    EventMeetup = 4

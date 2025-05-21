@@ -17,19 +17,11 @@ func GetRootAsConstCommonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Co
 	return x
 }
 
-func FinishConstCommonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstCommonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstCommonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstCommonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstCommonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstCommonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -106,62 +106,33 @@ class MiniGameDreamCollectionScenarioExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameDreamCollectionScenarioExcelStart(builder):
-    builder.StartObject(6)
-
+def MiniGameDreamCollectionScenarioExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    MiniGameDreamCollectionScenarioExcelStart(builder)
-
-def MiniGameDreamCollectionScenarioExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return MiniGameDreamCollectionScenarioExcelStart(builder)
+def MiniGameDreamCollectionScenarioExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    MiniGameDreamCollectionScenarioExcelAddId(builder, id)
-
-def MiniGameDreamCollectionScenarioExcelAddIsSkip(builder, isSkip):
-    builder.PrependBoolSlot(1, isSkip, 0)
-
+    return MiniGameDreamCollectionScenarioExcelAddId(builder, id)
+def MiniGameDreamCollectionScenarioExcelAddIsSkip(builder, isSkip): builder.PrependBoolSlot(1, isSkip, 0)
 def AddIsSkip(builder, isSkip):
-    MiniGameDreamCollectionScenarioExcelAddIsSkip(builder, isSkip)
-
-def MiniGameDreamCollectionScenarioExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
-
+    return MiniGameDreamCollectionScenarioExcelAddIsSkip(builder, isSkip)
+def MiniGameDreamCollectionScenarioExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MiniGameDreamCollectionScenarioExcelAddEventContentId(builder, eventContentId)
-
-def MiniGameDreamCollectionScenarioExcelAddParameter(builder, parameter):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(parameter), 0)
-
+    return MiniGameDreamCollectionScenarioExcelAddEventContentId(builder, eventContentId)
+def MiniGameDreamCollectionScenarioExcelAddParameter(builder, parameter): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(parameter), 0)
 def AddParameter(builder, parameter):
-    MiniGameDreamCollectionScenarioExcelAddParameter(builder, parameter)
-
-def MiniGameDreamCollectionScenarioExcelStartParameterVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameDreamCollectionScenarioExcelAddParameter(builder, parameter)
+def MiniGameDreamCollectionScenarioExcelStartParameterVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartParameterVector(builder, numElems):
     return MiniGameDreamCollectionScenarioExcelStartParameterVector(builder, numElems)
-
-def MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder, parameterAmount):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(parameterAmount), 0)
-
+def MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder, parameterAmount): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(parameterAmount), 0)
 def AddParameterAmount(builder, parameterAmount):
-    MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder, parameterAmount)
-
-def MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder, parameterAmount)
+def MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartParameterAmountVector(builder, numElems):
     return MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(builder, numElems)
-
-def MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder, scenarioGroupId):
-    builder.PrependInt64Slot(5, scenarioGroupId, 0)
-
+def MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(5, scenarioGroupId, 0)
 def AddScenarioGroupId(builder, scenarioGroupId):
-    MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
-
-def MiniGameDreamCollectionScenarioExcelEnd(builder):
-    return builder.EndObject()
-
+    return MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+def MiniGameDreamCollectionScenarioExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameDreamCollectionScenarioExcelEnd(builder)

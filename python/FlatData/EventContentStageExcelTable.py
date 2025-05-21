@@ -49,26 +49,15 @@ class EventContentStageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentStageExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentStageExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentStageExcelTableStart(builder)
-
-def EventContentStageExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentStageExcelTableStart(builder)
+def EventContentStageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentStageExcelTableAddDataList(builder, dataList)
-
-def EventContentStageExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentStageExcelTableAddDataList(builder, dataList)
+def EventContentStageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentStageExcelTableStartDataListVector(builder, numElems)
-
-def EventContentStageExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentStageExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentStageExcelTableEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsGoodsExcel(buf []byte, offset flatbuffers.UOffsetT) *GoodsExcel {
 	return x
 }
 
-func FinishGoodsExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGoodsExcel(buf []byte, offset flatbuffers.UOffsetT) *GoodsExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GoodsExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGoodsExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GoodsExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

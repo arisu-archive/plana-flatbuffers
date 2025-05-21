@@ -17,19 +17,11 @@ func GetRootAsEventContentCurrencyItemExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
-func FinishEventContentCurrencyItemExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentCurrencyItemExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentCurrencyItemExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentCurrencyItemExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentCurrencyItemExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentCurrencyItemExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

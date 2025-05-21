@@ -49,26 +49,15 @@ class ConstArenaExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstArenaExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ConstArenaExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ConstArenaExcelTableStart(builder)
-
-def ConstArenaExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ConstArenaExcelTableStart(builder)
+def ConstArenaExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ConstArenaExcelTableAddDataList(builder, dataList)
-
-def ConstArenaExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConstArenaExcelTableAddDataList(builder, dataList)
+def ConstArenaExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ConstArenaExcelTableStartDataListVector(builder, numElems)
-
-def ConstArenaExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ConstArenaExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstArenaExcelTableEnd(builder)

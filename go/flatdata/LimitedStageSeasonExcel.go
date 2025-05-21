@@ -17,19 +17,11 @@ func GetRootAsLimitedStageSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
-func FinishLimitedStageSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsLimitedStageSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *LimitedStageSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LimitedStageSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedLimitedStageSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LimitedStageSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

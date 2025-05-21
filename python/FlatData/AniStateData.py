@@ -126,92 +126,48 @@ class AniStateData(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
 
-def AniStateDataStart(builder):
-    builder.StartObject(12)
-
+def AniStateDataStart(builder): builder.StartObject(12)
 def Start(builder):
-    AniStateDataStart(builder)
-
-def AniStateDataAddStateName(builder, stateName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(stateName), 0)
-
+    return AniStateDataStart(builder)
+def AniStateDataAddStateName(builder, stateName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(stateName), 0)
 def AddStateName(builder, stateName):
-    AniStateDataAddStateName(builder, stateName)
-
-def AniStateDataAddStatePrefix(builder, statePrefix):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statePrefix), 0)
-
+    return AniStateDataAddStateName(builder, stateName)
+def AniStateDataAddStatePrefix(builder, statePrefix): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statePrefix), 0)
 def AddStatePrefix(builder, statePrefix):
-    AniStateDataAddStatePrefix(builder, statePrefix)
-
-def AniStateDataAddStateNameWithPrefix(builder, stateNameWithPrefix):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stateNameWithPrefix), 0)
-
+    return AniStateDataAddStatePrefix(builder, statePrefix)
+def AniStateDataAddStateNameWithPrefix(builder, stateNameWithPrefix): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stateNameWithPrefix), 0)
 def AddStateNameWithPrefix(builder, stateNameWithPrefix):
-    AniStateDataAddStateNameWithPrefix(builder, stateNameWithPrefix)
-
-def AniStateDataAddTag(builder, tag):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tag), 0)
-
+    return AniStateDataAddStateNameWithPrefix(builder, stateNameWithPrefix)
+def AniStateDataAddTag(builder, tag): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tag), 0)
 def AddTag(builder, tag):
-    AniStateDataAddTag(builder, tag)
-
-def AniStateDataAddSpeedParameterName(builder, speedParameterName):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(speedParameterName), 0)
-
+    return AniStateDataAddTag(builder, tag)
+def AniStateDataAddSpeedParameterName(builder, speedParameterName): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(speedParameterName), 0)
 def AddSpeedParameterName(builder, speedParameterName):
-    AniStateDataAddSpeedParameterName(builder, speedParameterName)
-
-def AniStateDataAddSpeedParamter(builder, speedParamter):
-    builder.PrependFloat32Slot(5, speedParamter, 0.0)
-
+    return AniStateDataAddSpeedParameterName(builder, speedParameterName)
+def AniStateDataAddSpeedParamter(builder, speedParamter): builder.PrependFloat32Slot(5, speedParamter, 0.0)
 def AddSpeedParamter(builder, speedParamter):
-    AniStateDataAddSpeedParamter(builder, speedParamter)
-
-def AniStateDataAddStateSpeed(builder, stateSpeed):
-    builder.PrependFloat32Slot(6, stateSpeed, 0.0)
-
+    return AniStateDataAddSpeedParamter(builder, speedParamter)
+def AniStateDataAddStateSpeed(builder, stateSpeed): builder.PrependFloat32Slot(6, stateSpeed, 0.0)
 def AddStateSpeed(builder, stateSpeed):
-    AniStateDataAddStateSpeed(builder, stateSpeed)
-
-def AniStateDataAddClipName(builder, clipName):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(clipName), 0)
-
+    return AniStateDataAddStateSpeed(builder, stateSpeed)
+def AniStateDataAddClipName(builder, clipName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(clipName), 0)
 def AddClipName(builder, clipName):
-    AniStateDataAddClipName(builder, clipName)
-
-def AniStateDataAddLength(builder, length):
-    builder.PrependFloat32Slot(8, length, 0.0)
-
+    return AniStateDataAddClipName(builder, clipName)
+def AniStateDataAddLength(builder, length): builder.PrependFloat32Slot(8, length, 0.0)
 def AddLength(builder, length):
-    AniStateDataAddLength(builder, length)
-
-def AniStateDataAddFrameRate(builder, frameRate):
-    builder.PrependFloat32Slot(9, frameRate, 0.0)
-
+    return AniStateDataAddLength(builder, length)
+def AniStateDataAddFrameRate(builder, frameRate): builder.PrependFloat32Slot(9, frameRate, 0.0)
 def AddFrameRate(builder, frameRate):
-    AniStateDataAddFrameRate(builder, frameRate)
-
-def AniStateDataAddIsLooping(builder, isLooping):
-    builder.PrependBoolSlot(10, isLooping, 0)
-
+    return AniStateDataAddFrameRate(builder, frameRate)
+def AniStateDataAddIsLooping(builder, isLooping): builder.PrependBoolSlot(10, isLooping, 0)
 def AddIsLooping(builder, isLooping):
-    AniStateDataAddIsLooping(builder, isLooping)
-
-def AniStateDataAddEvents(builder, events):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(events), 0)
-
+    return AniStateDataAddIsLooping(builder, isLooping)
+def AniStateDataAddEvents(builder, events): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(events), 0)
 def AddEvents(builder, events):
-    AniStateDataAddEvents(builder, events)
-
-def AniStateDataStartEventsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AniStateDataAddEvents(builder, events)
+def AniStateDataStartEventsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEventsVector(builder, numElems):
     return AniStateDataStartEventsVector(builder, numElems)
-
-def AniStateDataEnd(builder):
-    return builder.EndObject()
-
+def AniStateDataEnd(builder): return builder.EndObject()
 def End(builder):
     return AniStateDataEnd(builder)

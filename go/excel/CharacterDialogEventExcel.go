@@ -17,19 +17,11 @@ func GetRootAsCharacterDialogEventExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishCharacterDialogEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterDialogEventExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogEventExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogEventExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterDialogEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogEventExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

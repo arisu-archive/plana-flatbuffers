@@ -17,19 +17,11 @@ func GetRootAsClearDeckRuleExcel(buf []byte, offset flatbuffers.UOffsetT) *Clear
 	return x
 }
 
-func FinishClearDeckRuleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsClearDeckRuleExcel(buf []byte, offset flatbuffers.UOffsetT) *ClearDeckRuleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ClearDeckRuleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedClearDeckRuleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ClearDeckRuleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -49,26 +49,15 @@ class FieldKeywordExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldKeywordExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FieldKeywordExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FieldKeywordExcelTableStart(builder)
-
-def FieldKeywordExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FieldKeywordExcelTableStart(builder)
+def FieldKeywordExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FieldKeywordExcelTableAddDataList(builder, dataList)
-
-def FieldKeywordExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FieldKeywordExcelTableAddDataList(builder, dataList)
+def FieldKeywordExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FieldKeywordExcelTableStartDataListVector(builder, numElems)
-
-def FieldKeywordExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FieldKeywordExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldKeywordExcelTableEnd(builder)

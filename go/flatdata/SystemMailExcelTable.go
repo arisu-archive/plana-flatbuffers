@@ -17,19 +17,11 @@ func GetRootAsSystemMailExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Sys
 	return x
 }
 
-func FinishSystemMailExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsSystemMailExcelTable(buf []byte, offset flatbuffers.UOffsetT) *SystemMailExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SystemMailExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedSystemMailExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SystemMailExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

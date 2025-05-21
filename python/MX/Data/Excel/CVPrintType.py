@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE CVPrintType.py does not declare any structs or enums
+class CVPrintType(object):
+    CharacterOverwrite = 0
+    PrefabOverwrite = 1
+    Add = 2

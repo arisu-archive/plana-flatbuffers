@@ -49,26 +49,15 @@ class SkillExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def SkillExcelTableStart(builder):
-    builder.StartObject(1)
-
+def SkillExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    SkillExcelTableStart(builder)
-
-def SkillExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return SkillExcelTableStart(builder)
+def SkillExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    SkillExcelTableAddDataList(builder, dataList)
-
-def SkillExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return SkillExcelTableAddDataList(builder, dataList)
+def SkillExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return SkillExcelTableStartDataListVector(builder, numElems)
-
-def SkillExcelTableEnd(builder):
-    return builder.EndObject()
-
+def SkillExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return SkillExcelTableEnd(builder)

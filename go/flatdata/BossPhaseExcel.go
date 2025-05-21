@@ -17,19 +17,11 @@ func GetRootAsBossPhaseExcel(buf []byte, offset flatbuffers.UOffsetT) *BossPhase
 	return x
 }
 
-func FinishBossPhaseExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsBossPhaseExcel(buf []byte, offset flatbuffers.UOffsetT) *BossPhaseExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BossPhaseExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedBossPhaseExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BossPhaseExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

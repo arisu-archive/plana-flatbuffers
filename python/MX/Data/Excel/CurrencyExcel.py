@@ -191,146 +191,75 @@ class CurrencyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CurrencyExcelStart(builder):
-    builder.StartObject(21)
-
+def CurrencyExcelStart(builder): builder.StartObject(21)
 def Start(builder):
-    CurrencyExcelStart(builder)
-
-def CurrencyExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CurrencyExcelStart(builder)
+def CurrencyExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CurrencyExcelAddId(builder, id)
-
-def CurrencyExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(1, localizeEtcId, 0)
-
+    return CurrencyExcelAddId(builder, id)
+def CurrencyExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(1, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    CurrencyExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def CurrencyExcelAddCurrencyType(builder, currencyType):
-    builder.PrependInt32Slot(2, currencyType, 0)
-
+    return CurrencyExcelAddLocalizeEtcId(builder, localizeEtcId)
+def CurrencyExcelAddCurrencyType(builder, currencyType): builder.PrependInt32Slot(2, currencyType, 0)
 def AddCurrencyType(builder, currencyType):
-    CurrencyExcelAddCurrencyType(builder, currencyType)
-
-def CurrencyExcelAddCurrencyName(builder, currencyName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(currencyName), 0)
-
+    return CurrencyExcelAddCurrencyType(builder, currencyType)
+def CurrencyExcelAddCurrencyName(builder, currencyName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(currencyName), 0)
 def AddCurrencyName(builder, currencyName):
-    CurrencyExcelAddCurrencyName(builder, currencyName)
-
-def CurrencyExcelAddIcon(builder, icon):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
-
+    return CurrencyExcelAddCurrencyName(builder, currencyName)
+def CurrencyExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 def AddIcon(builder, icon):
-    CurrencyExcelAddIcon(builder, icon)
-
-def CurrencyExcelAddRarity(builder, rarity):
-    builder.PrependInt32Slot(5, rarity, 0)
-
+    return CurrencyExcelAddIcon(builder, icon)
+def CurrencyExcelAddRarity(builder, rarity): builder.PrependInt32Slot(5, rarity, 0)
 def AddRarity(builder, rarity):
-    CurrencyExcelAddRarity(builder, rarity)
-
-def CurrencyExcelAddAutoChargeMsc(builder, autoChargeMsc):
-    builder.PrependInt32Slot(6, autoChargeMsc, 0)
-
+    return CurrencyExcelAddRarity(builder, rarity)
+def CurrencyExcelAddAutoChargeMsc(builder, autoChargeMsc): builder.PrependInt32Slot(6, autoChargeMsc, 0)
 def AddAutoChargeMsc(builder, autoChargeMsc):
-    CurrencyExcelAddAutoChargeMsc(builder, autoChargeMsc)
-
-def CurrencyExcelAddAutoChargeAmount(builder, autoChargeAmount):
-    builder.PrependInt32Slot(7, autoChargeAmount, 0)
-
+    return CurrencyExcelAddAutoChargeMsc(builder, autoChargeMsc)
+def CurrencyExcelAddAutoChargeAmount(builder, autoChargeAmount): builder.PrependInt32Slot(7, autoChargeAmount, 0)
 def AddAutoChargeAmount(builder, autoChargeAmount):
-    CurrencyExcelAddAutoChargeAmount(builder, autoChargeAmount)
-
-def CurrencyExcelAddCurrencyOverChargeType(builder, currencyOverChargeType):
-    builder.PrependInt32Slot(8, currencyOverChargeType, 0)
-
+    return CurrencyExcelAddAutoChargeAmount(builder, autoChargeAmount)
+def CurrencyExcelAddCurrencyOverChargeType(builder, currencyOverChargeType): builder.PrependInt32Slot(8, currencyOverChargeType, 0)
 def AddCurrencyOverChargeType(builder, currencyOverChargeType):
-    CurrencyExcelAddCurrencyOverChargeType(builder, currencyOverChargeType)
-
-def CurrencyExcelAddCurrencyAdditionalChargeType(builder, currencyAdditionalChargeType):
-    builder.PrependInt32Slot(9, currencyAdditionalChargeType, 0)
-
+    return CurrencyExcelAddCurrencyOverChargeType(builder, currencyOverChargeType)
+def CurrencyExcelAddCurrencyAdditionalChargeType(builder, currencyAdditionalChargeType): builder.PrependInt32Slot(9, currencyAdditionalChargeType, 0)
 def AddCurrencyAdditionalChargeType(builder, currencyAdditionalChargeType):
-    CurrencyExcelAddCurrencyAdditionalChargeType(builder, currencyAdditionalChargeType)
-
-def CurrencyExcelAddChargeLimit(builder, chargeLimit):
-    builder.PrependInt64Slot(10, chargeLimit, 0)
-
+    return CurrencyExcelAddCurrencyAdditionalChargeType(builder, currencyAdditionalChargeType)
+def CurrencyExcelAddChargeLimit(builder, chargeLimit): builder.PrependInt64Slot(10, chargeLimit, 0)
 def AddChargeLimit(builder, chargeLimit):
-    CurrencyExcelAddChargeLimit(builder, chargeLimit)
-
-def CurrencyExcelAddOverChargeLimit(builder, overChargeLimit):
-    builder.PrependInt64Slot(11, overChargeLimit, 0)
-
+    return CurrencyExcelAddChargeLimit(builder, chargeLimit)
+def CurrencyExcelAddOverChargeLimit(builder, overChargeLimit): builder.PrependInt64Slot(11, overChargeLimit, 0)
 def AddOverChargeLimit(builder, overChargeLimit):
-    CurrencyExcelAddOverChargeLimit(builder, overChargeLimit)
-
-def CurrencyExcelAddSpriteName(builder, spriteName):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(spriteName), 0)
-
+    return CurrencyExcelAddOverChargeLimit(builder, overChargeLimit)
+def CurrencyExcelAddSpriteName(builder, spriteName): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(spriteName), 0)
 def AddSpriteName(builder, spriteName):
-    CurrencyExcelAddSpriteName(builder, spriteName)
-
-def CurrencyExcelAddDailyRefillType(builder, dailyRefillType):
-    builder.PrependInt32Slot(13, dailyRefillType, 0)
-
+    return CurrencyExcelAddSpriteName(builder, spriteName)
+def CurrencyExcelAddDailyRefillType(builder, dailyRefillType): builder.PrependInt32Slot(13, dailyRefillType, 0)
 def AddDailyRefillType(builder, dailyRefillType):
-    CurrencyExcelAddDailyRefillType(builder, dailyRefillType)
-
-def CurrencyExcelAddDailyRefillAmount(builder, dailyRefillAmount):
-    builder.PrependInt64Slot(14, dailyRefillAmount, 0)
-
+    return CurrencyExcelAddDailyRefillType(builder, dailyRefillType)
+def CurrencyExcelAddDailyRefillAmount(builder, dailyRefillAmount): builder.PrependInt64Slot(14, dailyRefillAmount, 0)
 def AddDailyRefillAmount(builder, dailyRefillAmount):
-    CurrencyExcelAddDailyRefillAmount(builder, dailyRefillAmount)
-
-def CurrencyExcelAddDailyRefillTime(builder, dailyRefillTime):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(dailyRefillTime), 0)
-
+    return CurrencyExcelAddDailyRefillAmount(builder, dailyRefillAmount)
+def CurrencyExcelAddDailyRefillTime(builder, dailyRefillTime): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(dailyRefillTime), 0)
 def AddDailyRefillTime(builder, dailyRefillTime):
-    CurrencyExcelAddDailyRefillTime(builder, dailyRefillTime)
-
-def CurrencyExcelStartDailyRefillTimeVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return CurrencyExcelAddDailyRefillTime(builder, dailyRefillTime)
+def CurrencyExcelStartDailyRefillTimeVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartDailyRefillTimeVector(builder, numElems):
     return CurrencyExcelStartDailyRefillTimeVector(builder, numElems)
-
-def CurrencyExcelAddExpirationDateTime(builder, expirationDateTime):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(expirationDateTime), 0)
-
+def CurrencyExcelAddExpirationDateTime(builder, expirationDateTime): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(expirationDateTime), 0)
 def AddExpirationDateTime(builder, expirationDateTime):
-    CurrencyExcelAddExpirationDateTime(builder, expirationDateTime)
-
-def CurrencyExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
-    builder.PrependInt32Slot(17, expirationNotifyDateIn, 0)
-
+    return CurrencyExcelAddExpirationDateTime(builder, expirationDateTime)
+def CurrencyExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn): builder.PrependInt32Slot(17, expirationNotifyDateIn, 0)
 def AddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
-    CurrencyExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn)
-
-def CurrencyExcelAddExpiryChangeParcelType(builder, expiryChangeParcelType):
-    builder.PrependInt32Slot(18, expiryChangeParcelType, 0)
-
+    return CurrencyExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn)
+def CurrencyExcelAddExpiryChangeParcelType(builder, expiryChangeParcelType): builder.PrependInt32Slot(18, expiryChangeParcelType, 0)
 def AddExpiryChangeParcelType(builder, expiryChangeParcelType):
-    CurrencyExcelAddExpiryChangeParcelType(builder, expiryChangeParcelType)
-
-def CurrencyExcelAddExpiryChangeId(builder, expiryChangeId):
-    builder.PrependInt64Slot(19, expiryChangeId, 0)
-
+    return CurrencyExcelAddExpiryChangeParcelType(builder, expiryChangeParcelType)
+def CurrencyExcelAddExpiryChangeId(builder, expiryChangeId): builder.PrependInt64Slot(19, expiryChangeId, 0)
 def AddExpiryChangeId(builder, expiryChangeId):
-    CurrencyExcelAddExpiryChangeId(builder, expiryChangeId)
-
-def CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount):
-    builder.PrependInt64Slot(20, expiryChangeAmount, 0)
-
+    return CurrencyExcelAddExpiryChangeId(builder, expiryChangeId)
+def CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount): builder.PrependInt64Slot(20, expiryChangeAmount, 0)
 def AddExpiryChangeAmount(builder, expiryChangeAmount):
-    CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount)
-
-def CurrencyExcelEnd(builder):
-    return builder.EndObject()
-
+    return CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount)
+def CurrencyExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CurrencyExcelEnd(builder)

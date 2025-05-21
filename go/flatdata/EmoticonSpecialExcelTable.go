@@ -17,19 +17,11 @@ func GetRootAsEmoticonSpecialExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishEmoticonSpecialExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEmoticonSpecialExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EmoticonSpecialExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EmoticonSpecialExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEmoticonSpecialExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EmoticonSpecialExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

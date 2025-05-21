@@ -27,6 +27,9 @@ table CampaignStageExcel {
     max_turn: int;
     stage_topography: StageTopography;
     recommand_level: int;
+    recommand_level_gap_for_guide: int;
+    min_equipment_tier_for_guide: [long];
+    min_skill_level_for_guide: [long];
     bgm_id: string;
     strategy_environment: StrategyEnvironment;
     ground_id: long;

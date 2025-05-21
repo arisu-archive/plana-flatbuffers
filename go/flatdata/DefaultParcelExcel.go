@@ -17,19 +17,11 @@ func GetRootAsDefaultParcelExcel(buf []byte, offset flatbuffers.UOffsetT) *Defau
 	return x
 }
 
-func FinishDefaultParcelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsDefaultParcelExcel(buf []byte, offset flatbuffers.UOffsetT) *DefaultParcelExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &DefaultParcelExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedDefaultParcelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *DefaultParcelExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

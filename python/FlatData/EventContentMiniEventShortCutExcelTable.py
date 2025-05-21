@@ -49,26 +49,15 @@ class EventContentMiniEventShortCutExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentMiniEventShortCutExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EventContentMiniEventShortCutExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EventContentMiniEventShortCutExcelTableStart(builder)
-
-def EventContentMiniEventShortCutExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EventContentMiniEventShortCutExcelTableStart(builder)
+def EventContentMiniEventShortCutExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EventContentMiniEventShortCutExcelTableAddDataList(builder, dataList)
-
-def EventContentMiniEventShortCutExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMiniEventShortCutExcelTableAddDataList(builder, dataList)
+def EventContentMiniEventShortCutExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EventContentMiniEventShortCutExcelTableStartDataListVector(builder, numElems)
-
-def EventContentMiniEventShortCutExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EventContentMiniEventShortCutExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentMiniEventShortCutExcelTableEnd(builder)

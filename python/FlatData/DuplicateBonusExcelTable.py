@@ -49,26 +49,15 @@ class DuplicateBonusExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def DuplicateBonusExcelTableStart(builder):
-    builder.StartObject(1)
-
+def DuplicateBonusExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    DuplicateBonusExcelTableStart(builder)
-
-def DuplicateBonusExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return DuplicateBonusExcelTableStart(builder)
+def DuplicateBonusExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    DuplicateBonusExcelTableAddDataList(builder, dataList)
-
-def DuplicateBonusExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return DuplicateBonusExcelTableAddDataList(builder, dataList)
+def DuplicateBonusExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return DuplicateBonusExcelTableStartDataListVector(builder, numElems)
-
-def DuplicateBonusExcelTableEnd(builder):
-    return builder.EndObject()
-
+def DuplicateBonusExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return DuplicateBonusExcelTableEnd(builder)

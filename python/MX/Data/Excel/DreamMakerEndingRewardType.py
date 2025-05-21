@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE DreamMakerEndingRewardType.py does not declare any structs or enums
+class DreamMakerEndingRewardType(object):
+    None_ = 0
+    FirstEndingReward = 1
+    LoopEndingReward = 2

@@ -17,19 +17,11 @@ func GetRootAsGuideMissionSeasonExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishGuideMissionSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGuideMissionSeasonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GuideMissionSeasonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GuideMissionSeasonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGuideMissionSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GuideMissionSeasonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

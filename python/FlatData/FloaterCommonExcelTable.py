@@ -49,26 +49,15 @@ class FloaterCommonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FloaterCommonExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FloaterCommonExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FloaterCommonExcelTableStart(builder)
-
-def FloaterCommonExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FloaterCommonExcelTableStart(builder)
+def FloaterCommonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FloaterCommonExcelTableAddDataList(builder, dataList)
-
-def FloaterCommonExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FloaterCommonExcelTableAddDataList(builder, dataList)
+def FloaterCommonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FloaterCommonExcelTableStartDataListVector(builder, numElems)
-
-def FloaterCommonExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FloaterCommonExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FloaterCommonExcelTableEnd(builder)
