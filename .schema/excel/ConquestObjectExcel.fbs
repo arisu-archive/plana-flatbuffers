@@ -1,0 +1,21 @@
+include "ConquestObjectType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ConquestObjectExcel {
+    id: long;
+    event_content_id: long;
+    conquest_object_type: ConquestObjectType;
+    key: uint;
+    name: string;
+    prefab_name: string;
+    conquest_reward_parcel_type: ParcelType;
+    conquest_reward_id: long;
+    conquest_reward_amount: int;
+    disposable: bool;
+    step_index: int;
+    step_object_count: int;
+}
+
+root_type ConquestObjectExcel;

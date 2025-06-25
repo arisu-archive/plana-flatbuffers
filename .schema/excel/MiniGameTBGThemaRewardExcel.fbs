@@ -1,0 +1,17 @@
+include "MiniGameTBGThemaRewardType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTBGThemaRewardExcel {
+    event_content_id: long;
+    thema_round: int;
+    thema_unique_id: int;
+    is_loop: bool;
+    mini_game_tbg_thema_reward_type: MiniGameTBGThemaRewardType;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [int];
+}
+
+root_type MiniGameTBGThemaRewardExcel;

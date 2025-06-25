@@ -87,7 +87,8 @@ const (
 	StatTypeHealedMysticRate           StatType = 77
 	StatTypeHealedSonicRate            StatType = 78
 	StatTypeHealedNormalRate           StatType = 79
-	StatTypeMax                        StatType = 80
+	StatTypeGrowthScore                StatType = 80
+	StatTypeMax                        StatType = 81
 )
 
 var EnumNamesStatType = map[StatType]string{
@@ -171,6 +172,7 @@ var EnumNamesStatType = map[StatType]string{
 	StatTypeHealedMysticRate:           "HealedMysticRate",
 	StatTypeHealedSonicRate:            "HealedSonicRate",
 	StatTypeHealedNormalRate:           "HealedNormalRate",
+	StatTypeGrowthScore:                "GrowthScore",
 	StatTypeMax:                        "Max",
 }
 
@@ -255,6 +257,7 @@ var EnumValuesStatType = map[string]StatType{
 	"HealedMysticRate":           StatTypeHealedMysticRate,
 	"HealedSonicRate":            StatTypeHealedSonicRate,
 	"HealedNormalRate":           StatTypeHealedNormalRate,
+	"GrowthScore":                StatTypeGrowthScore,
 	"Max":                        StatTypeMax,
 }
 

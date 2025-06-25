@@ -1251,7 +1251,56 @@ class ConstCommonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstCommonExcelStart(builder): builder.StartObject(161)
+    # ConstCommonExcel
+    def RankBracketPercentage1(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(326))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage2(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(328))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage3(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(330))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage4(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(332))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage5(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(334))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage6(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(336))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCommonExcel
+    def RankBracketPercentage7(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(338))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+def ConstCommonExcelStart(builder): builder.StartObject(168)
 def Start(builder):
     return ConstCommonExcelStart(builder)
 def ConstCommonExcelAddCampaignMainStageMaxRank(builder, campaignMainStageMaxRank): builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -1752,6 +1801,27 @@ def AddCafeRandomVisitMinLastLogin(builder, cafeRandomVisitMinLastLogin):
 def ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(builder, cafeTravelSyncIntervalByMillisec): builder.PrependInt32Slot(160, cafeTravelSyncIntervalByMillisec, 0)
 def AddCafeTravelSyncIntervalByMillisec(builder, cafeTravelSyncIntervalByMillisec):
     return ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(builder, cafeTravelSyncIntervalByMillisec)
+def ConstCommonExcelAddRankBracketPercentage1(builder, rankBracketPercentage1): builder.PrependInt32Slot(161, rankBracketPercentage1, 0)
+def AddRankBracketPercentage1(builder, rankBracketPercentage1):
+    return ConstCommonExcelAddRankBracketPercentage1(builder, rankBracketPercentage1)
+def ConstCommonExcelAddRankBracketPercentage2(builder, rankBracketPercentage2): builder.PrependInt32Slot(162, rankBracketPercentage2, 0)
+def AddRankBracketPercentage2(builder, rankBracketPercentage2):
+    return ConstCommonExcelAddRankBracketPercentage2(builder, rankBracketPercentage2)
+def ConstCommonExcelAddRankBracketPercentage3(builder, rankBracketPercentage3): builder.PrependInt32Slot(163, rankBracketPercentage3, 0)
+def AddRankBracketPercentage3(builder, rankBracketPercentage3):
+    return ConstCommonExcelAddRankBracketPercentage3(builder, rankBracketPercentage3)
+def ConstCommonExcelAddRankBracketPercentage4(builder, rankBracketPercentage4): builder.PrependInt32Slot(164, rankBracketPercentage4, 0)
+def AddRankBracketPercentage4(builder, rankBracketPercentage4):
+    return ConstCommonExcelAddRankBracketPercentage4(builder, rankBracketPercentage4)
+def ConstCommonExcelAddRankBracketPercentage5(builder, rankBracketPercentage5): builder.PrependInt32Slot(165, rankBracketPercentage5, 0)
+def AddRankBracketPercentage5(builder, rankBracketPercentage5):
+    return ConstCommonExcelAddRankBracketPercentage5(builder, rankBracketPercentage5)
+def ConstCommonExcelAddRankBracketPercentage6(builder, rankBracketPercentage6): builder.PrependInt32Slot(166, rankBracketPercentage6, 0)
+def AddRankBracketPercentage6(builder, rankBracketPercentage6):
+    return ConstCommonExcelAddRankBracketPercentage6(builder, rankBracketPercentage6)
+def ConstCommonExcelAddRankBracketPercentage7(builder, rankBracketPercentage7): builder.PrependInt32Slot(167, rankBracketPercentage7, 0)
+def AddRankBracketPercentage7(builder, rankBracketPercentage7):
+    return ConstCommonExcelAddRankBracketPercentage7(builder, rankBracketPercentage7)
 def ConstCommonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstCommonExcelEnd(builder)

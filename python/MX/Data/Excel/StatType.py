@@ -83,4 +83,5 @@ class StatType(object):
     HealedMysticRate = 77
     HealedSonicRate = 78
     HealedNormalRate = 79
-    Max = 80
+    GrowthScore = 80
+    Max = 81

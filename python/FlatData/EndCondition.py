@@ -10,3 +10,4 @@ class EndCondition(object):
     HitCount = 4
     None_ = 5
     UseExSkillCount = 6
+    UseTargetSlotExSkillCount = 7

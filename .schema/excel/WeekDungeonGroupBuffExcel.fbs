@@ -1,0 +1,13 @@
+include "School.fbs";
+
+namespace MX.Data.Excel;
+
+table WeekDungeonGroupBuffExcel {
+    week_dungeon_buff_id: long;
+    school: School;
+    recommand_localize_etc_id: uint;
+    formation_localize_etc_id: uint;
+    skill_group_id: string;
+}
+
+root_type WeekDungeonGroupBuffExcel;
