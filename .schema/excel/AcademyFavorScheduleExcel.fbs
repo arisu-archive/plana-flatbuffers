@@ -1,0 +1,20 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table AcademyFavorScheduleExcel {
+    id: long;
+    character_id: long;
+    schedule_group_id: long;
+    order_in_group: long;
+    location: string;
+    localize_scenario_id: uint;
+    favor_rank: long;
+    secret_stone_amount: long;
+    scenario_sript_group_id: long;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_amount: [long];
+}
+
+root_type AcademyFavorScheduleExcel;

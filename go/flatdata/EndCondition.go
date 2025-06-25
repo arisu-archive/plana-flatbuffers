@@ -7,33 +7,36 @@ import "strconv"
 type EndCondition int32
 
 const (
-	EndConditionDuration        EndCondition = 0
-	EndConditionReloadCount     EndCondition = 1
-	EndConditionAmmoCount       EndCondition = 2
-	EndConditionAmmoHit         EndCondition = 3
-	EndConditionHitCount        EndCondition = 4
-	EndConditionNone            EndCondition = 5
-	EndConditionUseExSkillCount EndCondition = 6
+	EndConditionDuration                  EndCondition = 0
+	EndConditionReloadCount               EndCondition = 1
+	EndConditionAmmoCount                 EndCondition = 2
+	EndConditionAmmoHit                   EndCondition = 3
+	EndConditionHitCount                  EndCondition = 4
+	EndConditionNone                      EndCondition = 5
+	EndConditionUseExSkillCount           EndCondition = 6
+	EndConditionUseTargetSlotExSkillCount EndCondition = 7
 )
 
 var EnumNamesEndCondition = map[EndCondition]string{
-	EndConditionDuration:        "Duration",
-	EndConditionReloadCount:     "ReloadCount",
-	EndConditionAmmoCount:       "AmmoCount",
-	EndConditionAmmoHit:         "AmmoHit",
-	EndConditionHitCount:        "HitCount",
-	EndConditionNone:            "None",
-	EndConditionUseExSkillCount: "UseExSkillCount",
+	EndConditionDuration:                  "Duration",
+	EndConditionReloadCount:               "ReloadCount",
+	EndConditionAmmoCount:                 "AmmoCount",
+	EndConditionAmmoHit:                   "AmmoHit",
+	EndConditionHitCount:                  "HitCount",
+	EndConditionNone:                      "None",
+	EndConditionUseExSkillCount:           "UseExSkillCount",
+	EndConditionUseTargetSlotExSkillCount: "UseTargetSlotExSkillCount",
 }
 
 var EnumValuesEndCondition = map[string]EndCondition{
-	"Duration":        EndConditionDuration,
-	"ReloadCount":     EndConditionReloadCount,
-	"AmmoCount":       EndConditionAmmoCount,
-	"AmmoHit":         EndConditionAmmoHit,
-	"HitCount":        EndConditionHitCount,
-	"None":            EndConditionNone,
-	"UseExSkillCount": EndConditionUseExSkillCount,
+	"Duration":                  EndConditionDuration,
+	"ReloadCount":               EndConditionReloadCount,
+	"AmmoCount":                 EndConditionAmmoCount,
+	"AmmoHit":                   EndConditionAmmoHit,
+	"HitCount":                  EndConditionHitCount,
+	"None":                      EndConditionNone,
+	"UseExSkillCount":           EndConditionUseExSkillCount,
+	"UseTargetSlotExSkillCount": EndConditionUseTargetSlotExSkillCount,
 }
 
 func (v EndCondition) String() string {

@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum UIEnemyCountType: int {
+    Normal = 0,
+    None = 1,
+    Wave = 2,
+    FindGift = 3,
+}

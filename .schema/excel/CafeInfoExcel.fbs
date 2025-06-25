@@ -1,0 +1,12 @@
+include "OpenConditionContent.fbs";
+
+namespace MX.Data.Excel;
+
+table CafeInfoExcel {
+    cafe_id: long;
+    is_default: bool;
+    open_condition_cafe_id: OpenConditionContent;
+    open_condition_cafe_invite: OpenConditionContent;
+}
+
+root_type CafeInfoExcel;

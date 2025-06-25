@@ -1,0 +1,17 @@
+include "ParcelType.fbs";
+include "RecipeType.fbs";
+
+namespace MX.Data.Excel;
+
+table RecipeExcel {
+    id: long;
+    recipe_type: RecipeType;
+    recipe_ingredient_id: long;
+    recipe_selection_group_id: long;
+    parcel_type: [ParcelType];
+    parcel_id: [long];
+    result_amount_min: [long];
+    result_amount_max: [long];
+}
+
+root_type RecipeExcel;

@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table FurnitureTemplateExcel {
+    furniture_template_id: long;
+    funiture_template_title: uint;
+    thumbnail_image_path: string;
+    image_path: string;
+}
+
+root_type FurnitureTemplateExcel;

@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum TBGPortalCondition: int {
+    None = 0,
+    ObjectAllEncounter = 1,
+    Round = 2,
+}

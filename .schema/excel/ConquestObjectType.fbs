@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum ConquestObjectType: int {
+    None = 0,
+    ParcelOneTimePerAccount = 1,
+}
