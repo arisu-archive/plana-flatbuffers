@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum TacticEnvironment: int {
+    None = 0,
+    WarFog = 1,
+}

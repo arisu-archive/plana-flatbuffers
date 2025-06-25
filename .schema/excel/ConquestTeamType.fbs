@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum ConquestTeamType: int {
+    None = 0,
+    Team1 = 1,
+    Team2 = 2,
+    Team3 = 3,
+}

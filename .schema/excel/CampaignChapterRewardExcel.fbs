@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table CampaignChapterRewardExcel {
+    id: long;
+    campaign_chapter_star: long;
+    chapter_reward_parcel_type: [ParcelType];
+    chapter_reward_id: [long];
+    chapter_reward_amount: [int];
+}
+
+root_type CampaignChapterRewardExcel;

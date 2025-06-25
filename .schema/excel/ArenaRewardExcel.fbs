@@ -1,0 +1,18 @@
+include "ArenaRewardType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ArenaRewardExcel {
+    unique_id: long;
+    arena_reward_type: ArenaRewardType;
+    rank_start: long;
+    rank_end: long;
+    rank_icon_path: string;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_unique_id: [long];
+    reward_parcel_unique_name: [string];
+    reward_parcel_amount: [long];
+}
+
+root_type ArenaRewardExcel;

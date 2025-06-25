@@ -4,6 +4,7 @@ include "ShowSkillCutIn.fbs";
 include "StageTopography.fbs";
 include "TacticSkillUse.fbs";
 include "TacticSpeed.fbs";
+include "UIEnemyCountType.fbs";
 
 namespace MX.Data.Excel;
 
@@ -52,6 +53,7 @@ table GroundExcel {
     show_npc_skill_cut_in: ShowSkillCutIn;
     immune_hit_before_time_out_end: bool;
     ui_battle_hide_from_scratch: bool;
+    ui_enemy_count: UIEnemyCountType;
     battle_ready_timeline_path: string;
     before_victory_timeline_path: string;
     skip_battle_end: bool;

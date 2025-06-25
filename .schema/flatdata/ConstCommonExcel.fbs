@@ -166,4 +166,11 @@ table ConstCommonExcel {
     cafe_random_visit_min_comfort_bonus: long;
     cafe_random_visit_min_last_login: int;
     cafe_travel_sync_interval_by_millisec: int;
+    rank_bracket_percentage1: int;
+    rank_bracket_percentage2: int;
+    rank_bracket_percentage3: int;
+    rank_bracket_percentage4: int;
+    rank_bracket_percentage5: int;
+    rank_bracket_percentage6: int;
+    rank_bracket_percentage7: int;
 }

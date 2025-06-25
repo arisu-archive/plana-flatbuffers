@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum AcademyMessageTypes: int {
+    None = 0,
+    Text = 1,
+    Image = 2,
+}

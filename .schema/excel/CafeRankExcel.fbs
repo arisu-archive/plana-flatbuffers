@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+table CafeRankExcel {
+    cafe_id: long;
+    rank: long;
+    recipe_id: long;
+    comfort_max: long;
+    tag_count_max: long;
+    character_visit_min: int;
+    character_visit_max: int;
+    cafe_visit_weight_base: int;
+    cafe_visit_weight_tag_bonus_step: [int];
+    cafe_visit_weight_tag_bonus: [int];
+}
+
+root_type CafeRankExcel;

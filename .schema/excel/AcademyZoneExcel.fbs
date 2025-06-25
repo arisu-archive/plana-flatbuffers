@@ -1,0 +1,15 @@
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table AcademyZoneExcel {
+    id: long;
+    location_id: long;
+    location_rank_for_unlock: long;
+    localize_etc_id: uint;
+    student_visit_prob: [long];
+    reward_group_id: long;
+    tags: [Tag];
+}
+
+root_type AcademyZoneExcel;

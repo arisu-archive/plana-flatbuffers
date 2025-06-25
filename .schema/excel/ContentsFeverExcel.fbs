@@ -1,0 +1,14 @@
+include "FeverBattleType.fbs";
+include "SkillPriorityCheckTarget.fbs";
+
+namespace MX.Data.Excel;
+
+table ContentsFeverExcel {
+    condition_content: FeverBattleType;
+    skill_fever_check_condition: SkillPriorityCheckTarget;
+    skill_cost_fever: long;
+    fever_start_time: long;
+    fever_duration_time: long;
+}
+
+root_type ContentsFeverExcel;

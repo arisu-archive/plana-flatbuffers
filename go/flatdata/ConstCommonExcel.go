@@ -2023,8 +2023,92 @@ func (rcv *ConstCommonExcel) MutateCafeTravelSyncIntervalByMillisec(n int32) boo
 	return rcv._tab.MutateInt32Slot(324, n)
 }
 
+func (rcv *ConstCommonExcel) RankBracketPercentage1() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(326))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage1(n int32) bool {
+	return rcv._tab.MutateInt32Slot(326, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage2() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(328))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage2(n int32) bool {
+	return rcv._tab.MutateInt32Slot(328, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage3() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(330))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage3(n int32) bool {
+	return rcv._tab.MutateInt32Slot(330, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage4() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(332))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage4(n int32) bool {
+	return rcv._tab.MutateInt32Slot(332, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage5() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(334))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage5(n int32) bool {
+	return rcv._tab.MutateInt32Slot(334, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage6() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(336))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage6(n int32) bool {
+	return rcv._tab.MutateInt32Slot(336, n)
+}
+
+func (rcv *ConstCommonExcel) RankBracketPercentage7() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(338))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage7(n int32) bool {
+	return rcv._tab.MutateInt32Slot(338, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(161)
+	builder.StartObject(168)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2523,6 +2607,27 @@ func ConstCommonExcelAddCafeRandomVisitMinLastLogin(builder *flatbuffers.Builder
 }
 func ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(builder *flatbuffers.Builder, cafeTravelSyncIntervalByMillisec int32) {
 	builder.PrependInt32Slot(160, cafeTravelSyncIntervalByMillisec, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage1(builder *flatbuffers.Builder, rankBracketPercentage1 int32) {
+	builder.PrependInt32Slot(161, rankBracketPercentage1, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage2(builder *flatbuffers.Builder, rankBracketPercentage2 int32) {
+	builder.PrependInt32Slot(162, rankBracketPercentage2, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage3(builder *flatbuffers.Builder, rankBracketPercentage3 int32) {
+	builder.PrependInt32Slot(163, rankBracketPercentage3, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage4(builder *flatbuffers.Builder, rankBracketPercentage4 int32) {
+	builder.PrependInt32Slot(164, rankBracketPercentage4, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage5(builder *flatbuffers.Builder, rankBracketPercentage5 int32) {
+	builder.PrependInt32Slot(165, rankBracketPercentage5, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage6(builder *flatbuffers.Builder, rankBracketPercentage6 int32) {
+	builder.PrependInt32Slot(166, rankBracketPercentage6, 0)
+}
+func ConstCommonExcelAddRankBracketPercentage7(builder *flatbuffers.Builder, rankBracketPercentage7 int32) {
+	builder.PrependInt32Slot(167, rankBracketPercentage7, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

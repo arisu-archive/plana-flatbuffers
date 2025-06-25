@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum FurnitureCategory: int {
+    Furnitures = 0,
+    Decorations = 1,
+    Interiors = 2,
+}

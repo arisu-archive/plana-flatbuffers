@@ -171,6 +171,13 @@ type ConstCommonExcelDto struct {
 	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
 	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
 	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
+	RankBracketPercentage1                     int32            `json:"rank_bracket_percentage1"`
+	RankBracketPercentage2                     int32            `json:"rank_bracket_percentage2"`
+	RankBracketPercentage3                     int32            `json:"rank_bracket_percentage3"`
+	RankBracketPercentage4                     int32            `json:"rank_bracket_percentage4"`
+	RankBracketPercentage5                     int32            `json:"rank_bracket_percentage5"`
+	RankBracketPercentage6                     int32            `json:"rank_bracket_percentage6"`
+	RankBracketPercentage7                     int32            `json:"rank_bracket_percentage7"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -360,6 +367,13 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeRandomVisitMinLastLogin(b, fbsutils.Convert(t.CafeRandomVisitMinLastLogin, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(b, fbsutils.Convert(t.CafeTravelSyncIntervalByMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage1(b, fbsutils.Convert(t.RankBracketPercentage1, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage2(b, fbsutils.Convert(t.RankBracketPercentage2, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage3(b, fbsutils.Convert(t.RankBracketPercentage3, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage4(b, fbsutils.Convert(t.RankBracketPercentage4, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage5(b, fbsutils.Convert(t.RankBracketPercentage5, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage6(b, fbsutils.Convert(t.RankBracketPercentage6, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage7(b, fbsutils.Convert(t.RankBracketPercentage7, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -551,6 +565,13 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
 	t.CafeRandomVisitMinLastLogin = fbsutils.Convert(e.CafeRandomVisitMinLastLogin(), t.FlatBuffer.TableKey)
 	t.CafeTravelSyncIntervalByMillisec = fbsutils.Convert(e.CafeTravelSyncIntervalByMillisec(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage1 = fbsutils.Convert(e.RankBracketPercentage1(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage2 = fbsutils.Convert(e.RankBracketPercentage2(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage3 = fbsutils.Convert(e.RankBracketPercentage3(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage4 = fbsutils.Convert(e.RankBracketPercentage4(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage5 = fbsutils.Convert(e.RankBracketPercentage5(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage6 = fbsutils.Convert(e.RankBracketPercentage6(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage7 = fbsutils.Convert(e.RankBracketPercentage7(), t.FlatBuffer.TableKey)
 	return nil
 }
 
