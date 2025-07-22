@@ -11,6 +11,7 @@ table CharacterSkillListExcel {
     tsa_interaction_id: long;
     normal_skill_group_id: [string];
     normal_skill_time_line_index: [int];
+    select_ex_skill_action_skill_slot: int;
     ex_skill_group_id: [string];
     ex_skill_cut_in_time_line_index: [string];
     ex_skill_level_time_line_index: [string];

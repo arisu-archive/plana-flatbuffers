@@ -161,18 +161,58 @@ class GoodsExcel(object):
         return o == 0
 
     # GoodsExcel
-    def ConsumeGachaTicketType(self):
+    def ConsumeGachaTicketType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # GoodsExcel
-    def ConsumeGachaTicketTypeAmount(self):
+    def ConsumeGachaTicketTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # GoodsExcel
+    def ConsumeGachaTicketTypeAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
 
     # GoodsExcel
     def ProductIdAos(self):
@@ -369,12 +409,18 @@ def AddConsumeCondition(builder, consumeCondition):
 def GoodsExcelStartConsumeConditionVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartConsumeConditionVector(builder, numElems):
     return GoodsExcelStartConsumeConditionVector(builder, numElems)
-def GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType): builder.PrependInt32Slot(8, consumeGachaTicketType, 0)
+def GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketType), 0)
 def AddConsumeGachaTicketType(builder, consumeGachaTicketType):
     return GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType)
-def GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount): builder.PrependInt64Slot(9, consumeGachaTicketTypeAmount, 0)
+def GoodsExcelStartConsumeGachaTicketTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartConsumeGachaTicketTypeVector(builder, numElems):
+    return GoodsExcelStartConsumeGachaTicketTypeVector(builder, numElems)
+def GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketTypeAmount), 0)
 def AddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount):
     return GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount)
+def GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartConsumeGachaTicketTypeAmountVector(builder, numElems):
+    return GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems)
 def GoodsExcelAddProductIdAos(builder, productIdAos): builder.PrependInt64Slot(10, productIdAos, 0)
 def AddProductIdAos(builder, productIdAos):
     return GoodsExcelAddProductIdAos(builder, productIdAos)

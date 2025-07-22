@@ -109,7 +109,6 @@ type ConstCommonExcelDto struct {
 	MonthlyProductCheckDays                    int32            `json:"monthly_product_check_days"`
 	WeaponLvUpCoefficient                      int32            `json:"weapon_lv_up_coefficient"`
 	ShowRaidMyListCount                        int32            `json:"show_raid_my_list_count"`
-	MaxLevelExpMasterCoinRatio                 int32            `json:"max_level_exp_master_coin_ratio"`
 	RaidEnterCostType                          ParcelType       `json:"raid_enter_cost_type"`
 	RaidEnterCostId                            int64            `json:"raid_enter_cost_id"`
 	RaidTicketCost                             int64            `json:"raid_ticket_cost"`
@@ -178,6 +177,11 @@ type ConstCommonExcelDto struct {
 	RankBracketPercentage5                     int32            `json:"rank_bracket_percentage5"`
 	RankBracketPercentage6                     int32            `json:"rank_bracket_percentage6"`
 	RankBracketPercentage7                     int32            `json:"rank_bracket_percentage7"`
+	ExpiryBattlePassItemReceiveDay             int32            `json:"expiry_battle_pass_item_receive_day"`
+	BattlePassFlavorTextIdleDurationMilliSec   int64            `json:"battle_pass_flavor_text_idle_duration_milli_sec"`
+	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
+	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
+	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -301,7 +305,6 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddMonthlyProductCheckDays(b, fbsutils.Convert(t.MonthlyProductCheckDays, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddWeaponLvUpCoefficient(b, fbsutils.Convert(t.WeaponLvUpCoefficient, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddShowRaidMyListCount(b, fbsutils.Convert(t.ShowRaidMyListCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMaxLevelExpMasterCoinRatio(b, fbsutils.Convert(t.MaxLevelExpMasterCoinRatio, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidEnterCostType(b, fbsutils.Convert(t.RaidEnterCostType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidEnterCostId(b, fbsutils.Convert(t.RaidEnterCostId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidTicketCost(b, fbsutils.Convert(t.RaidTicketCost, t.FlatBuffer.TableKey))
@@ -374,6 +377,11 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddRankBracketPercentage5(b, fbsutils.Convert(t.RankBracketPercentage5, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRankBracketPercentage6(b, fbsutils.Convert(t.RankBracketPercentage6, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRankBracketPercentage7(b, fbsutils.Convert(t.RankBracketPercentage7, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpiryBattlePassItemReceiveDay(b, fbsutils.Convert(t.ExpiryBattlePassItemReceiveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBattlePassFlavorTextIdleDurationMilliSec(b, fbsutils.Convert(t.BattlePassFlavorTextIdleDurationMilliSec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBattlePassEndImminentDay(b, fbsutils.Convert(t.BattlePassEndImminentDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBattlePassExpIconPath(b, b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -500,7 +508,6 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.MonthlyProductCheckDays = fbsutils.Convert(e.MonthlyProductCheckDays(), t.FlatBuffer.TableKey)
 	t.WeaponLvUpCoefficient = fbsutils.Convert(e.WeaponLvUpCoefficient(), t.FlatBuffer.TableKey)
 	t.ShowRaidMyListCount = fbsutils.Convert(e.ShowRaidMyListCount(), t.FlatBuffer.TableKey)
-	t.MaxLevelExpMasterCoinRatio = fbsutils.Convert(e.MaxLevelExpMasterCoinRatio(), t.FlatBuffer.TableKey)
 	t.RaidEnterCostType = ParcelType(fbsutils.Convert(int32(e.RaidEnterCostType()), t.FlatBuffer.TableKey))
 	t.RaidEnterCostId = fbsutils.Convert(e.RaidEnterCostId(), t.FlatBuffer.TableKey)
 	t.RaidTicketCost = fbsutils.Convert(e.RaidTicketCost(), t.FlatBuffer.TableKey)
@@ -572,6 +579,11 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.RankBracketPercentage5 = fbsutils.Convert(e.RankBracketPercentage5(), t.FlatBuffer.TableKey)
 	t.RankBracketPercentage6 = fbsutils.Convert(e.RankBracketPercentage6(), t.FlatBuffer.TableKey)
 	t.RankBracketPercentage7 = fbsutils.Convert(e.RankBracketPercentage7(), t.FlatBuffer.TableKey)
+	t.ExpiryBattlePassItemReceiveDay = fbsutils.Convert(e.ExpiryBattlePassItemReceiveDay(), t.FlatBuffer.TableKey)
+	t.BattlePassFlavorTextIdleDurationMilliSec = fbsutils.Convert(e.BattlePassFlavorTextIdleDurationMilliSec(), t.FlatBuffer.TableKey)
+	t.BattlePassEndImminentDay = fbsutils.Convert(e.BattlePassEndImminentDay(), t.FlatBuffer.TableKey)
+	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
+	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -23,6 +23,7 @@ type EventContentCollectionExcelDto struct {
 	EmblemResource             string                     `json:"emblem_resource"`
 	ThumbResource              string                     `json:"thumb_resource"`
 	FullResource               string                     `json:"full_resource"`
+	Decoration                 string                     `json:"decoration"`
 	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
 	SubNameLocalizeCodeId      string                     `json:"sub_name_localize_code_id"`
 }
@@ -50,6 +51,7 @@ func (t *EventContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	EventContentCollectionExcelAddEmblemResource(b, b.CreateString(fbsutils.Convert(t.EmblemResource, t.FlatBuffer.TableKey)))
 	EventContentCollectionExcelAddThumbResource(b, b.CreateString(fbsutils.Convert(t.ThumbResource, t.FlatBuffer.TableKey)))
 	EventContentCollectionExcelAddFullResource(b, b.CreateString(fbsutils.Convert(t.FullResource, t.FlatBuffer.TableKey)))
+	EventContentCollectionExcelAddDecoration(b, b.CreateString(fbsutils.Convert(t.Decoration, t.FlatBuffer.TableKey)))
 	EventContentCollectionExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentCollectionExcelAddSubNameLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.SubNameLocalizeCodeId, t.FlatBuffer.TableKey)))
 	return EventContentCollectionExcelEnd(b)
@@ -83,6 +85,7 @@ func (t *EventContentCollectionExcelDto) UnmarshalMessage(e *EventContentCollect
 	t.EmblemResource = fbsutils.Convert(string(e.EmblemResource()), t.FlatBuffer.TableKey)
 	t.ThumbResource = fbsutils.Convert(string(e.ThumbResource()), t.FlatBuffer.TableKey)
 	t.FullResource = fbsutils.Convert(string(e.FullResource()), t.FlatBuffer.TableKey)
+	t.Decoration = fbsutils.Convert(string(e.Decoration()), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.SubNameLocalizeCodeId = fbsutils.Convert(string(e.SubNameLocalizeCodeId()), t.FlatBuffer.TableKey)
 	return nil

@@ -15,6 +15,7 @@ const (
 	EndConditionNone                      EndCondition = 5
 	EndConditionUseExSkillCount           EndCondition = 6
 	EndConditionUseTargetSlotExSkillCount EndCondition = 7
+	EndConditionUseExSkillOverloadedCount EndCondition = 8
 )
 
 var EnumNamesEndCondition = map[EndCondition]string{
@@ -26,6 +27,7 @@ var EnumNamesEndCondition = map[EndCondition]string{
 	EndConditionNone:                      "None",
 	EndConditionUseExSkillCount:           "UseExSkillCount",
 	EndConditionUseTargetSlotExSkillCount: "UseTargetSlotExSkillCount",
+	EndConditionUseExSkillOverloadedCount: "UseExSkillOverloadedCount",
 }
 
 var EnumValuesEndCondition = map[string]EndCondition{
@@ -37,6 +39,7 @@ var EnumValuesEndCondition = map[string]EndCondition{
 	"None":                      EndConditionNone,
 	"UseExSkillCount":           EndConditionUseExSkillCount,
 	"UseTargetSlotExSkillCount": EndConditionUseTargetSlotExSkillCount,
+	"UseExSkillOverloadedCount": EndConditionUseExSkillOverloadedCount,
 }
 
 func (v EndCondition) String() string {

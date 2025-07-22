@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table LocalizeCCGExcel {
+    key: uint;
+    kr: string;
+    jp: string;
+}

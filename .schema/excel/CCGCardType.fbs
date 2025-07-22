@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum CCGCardType: int {
+    None = 0,
+    Spell = 1,
+    Equipment = 2,
+    Zone = 3,
+}

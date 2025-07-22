@@ -1,0 +1,13 @@
+include "CCGCharacterType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameCCGEnemyExcel {
+    id: long;
+    group_id: long;
+    character_type: CCGCharacterType;
+    order: int;
+    character_id: long;
+}
+
+root_type MinigameCCGEnemyExcel;

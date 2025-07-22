@@ -84,4 +84,6 @@ class StatType(object):
     HealedSonicRate = 78
     HealedNormalRate = 79
     GrowthScore = 80
-    Max = 81
+    CharacterBulletTypeEnhanceRate = 81
+    MaxCostIncrease = 82
+    Max = 83

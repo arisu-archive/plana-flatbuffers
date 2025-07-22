@@ -9,4 +9,5 @@ enum EndCondition: int {
     None = 5,
     UseExSkillCount = 6,
     UseTargetSlotExSkillCount = 7,
+    UseExSkillOverloadedCount = 8,
 }

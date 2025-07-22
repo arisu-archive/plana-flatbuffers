@@ -36,6 +36,8 @@ const (
 	DialogConditionMiniGameDreamMakerEnough03 DialogCondition = 26
 	DialogConditionMiniGameDreamMakerEnough04 DialogCondition = 27
 	DialogConditionMiniGameDreamMakerDefault  DialogCondition = 28
+	DialogConditionPassLevelUp                DialogCondition = 29
+	DialogConditionUnlockPassReward           DialogCondition = 30
 )
 
 var EnumNamesDialogCondition = map[DialogCondition]string{
@@ -68,6 +70,8 @@ var EnumNamesDialogCondition = map[DialogCondition]string{
 	DialogConditionMiniGameDreamMakerEnough03: "MiniGameDreamMakerEnough03",
 	DialogConditionMiniGameDreamMakerEnough04: "MiniGameDreamMakerEnough04",
 	DialogConditionMiniGameDreamMakerDefault:  "MiniGameDreamMakerDefault",
+	DialogConditionPassLevelUp:                "PassLevelUp",
+	DialogConditionUnlockPassReward:           "UnlockPassReward",
 }
 
 var EnumValuesDialogCondition = map[string]DialogCondition{
@@ -100,6 +104,8 @@ var EnumValuesDialogCondition = map[string]DialogCondition{
 	"MiniGameDreamMakerEnough03": DialogConditionMiniGameDreamMakerEnough03,
 	"MiniGameDreamMakerEnough04": DialogConditionMiniGameDreamMakerEnough04,
 	"MiniGameDreamMakerDefault":  DialogConditionMiniGameDreamMakerDefault,
+	"PassLevelUp":                DialogConditionPassLevelUp,
+	"UnlockPassReward":           DialogConditionUnlockPassReward,
 }
 
 func (v DialogCondition) String() string {

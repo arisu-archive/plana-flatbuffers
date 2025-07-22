@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table MinigameCCGStartDeckCharacterExcel {
+    ccg_id: long;
+    character_id: long;
+}
+
+root_type MinigameCCGStartDeckCharacterExcel;

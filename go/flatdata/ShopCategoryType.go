@@ -42,6 +42,9 @@ const (
 	ShopCategoryTypeBeforehandGacha     ShopCategoryType = 32
 	ShopCategoryTypeEliminateRaid       ShopCategoryType = 33
 	ShopCategoryTypeGlobalSpecialGacha  ShopCategoryType = 34
+	ShopCategoryTypeSelectPickupGacha   ShopCategoryType = 35
+	ShopCategoryTypeGemDaily            ShopCategoryType = 36
+	ShopCategoryTypeGemWeekly           ShopCategoryType = 37
 )
 
 var EnumNamesShopCategoryType = map[ShopCategoryType]string{
@@ -80,6 +83,9 @@ var EnumNamesShopCategoryType = map[ShopCategoryType]string{
 	ShopCategoryTypeBeforehandGacha:     "BeforehandGacha",
 	ShopCategoryTypeEliminateRaid:       "EliminateRaid",
 	ShopCategoryTypeGlobalSpecialGacha:  "GlobalSpecialGacha",
+	ShopCategoryTypeSelectPickupGacha:   "SelectPickupGacha",
+	ShopCategoryTypeGemDaily:            "GemDaily",
+	ShopCategoryTypeGemWeekly:           "GemWeekly",
 }
 
 var EnumValuesShopCategoryType = map[string]ShopCategoryType{
@@ -118,6 +124,9 @@ var EnumValuesShopCategoryType = map[string]ShopCategoryType{
 	"BeforehandGacha":     ShopCategoryTypeBeforehandGacha,
 	"EliminateRaid":       ShopCategoryTypeEliminateRaid,
 	"GlobalSpecialGacha":  ShopCategoryTypeGlobalSpecialGacha,
+	"SelectPickupGacha":   ShopCategoryTypeSelectPickupGacha,
+	"GemDaily":            ShopCategoryTypeGemDaily,
+	"GemWeekly":           ShopCategoryTypeGemWeekly,
 }
 
 func (v ShopCategoryType) String() string {

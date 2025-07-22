@@ -13,3 +13,6 @@ class GachaTicketType(object):
     PackagePropertyThreeStar = 7
     Temp_1 = 8
     PackageAcademyThreeStar = 9
+    SelectPickup = 10
+    SelectPickupOnce = 11
+    PackageLimitedThreeStar = 12

@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum CCGEntityType: int {
+    None = 0,
+    Character = 1,
+    Card = 2,
+}

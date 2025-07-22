@@ -18,8 +18,8 @@ type GoodsExcelDto struct {
 	ConsumeParcelId              []int64            `json:"consume_parcel_id"`
 	ConsumeParcelAmount          []int64            `json:"consume_parcel_amount"`
 	ConsumeCondition             []ConsumeCondition `json:"consume_condition"`
-	ConsumeGachaTicketType       GachaTicketType    `json:"consume_gacha_ticket_type"`
-	ConsumeGachaTicketTypeAmount int64              `json:"consume_gacha_ticket_type_amount"`
+	ConsumeGachaTicketType       []GachaTicketType  `json:"consume_gacha_ticket_type"`
+	ConsumeGachaTicketTypeAmount []int64            `json:"consume_gacha_ticket_type_amount"`
 	ProductIdAos                 int64              `json:"product_id_aos"`
 	ProductIdiOs                 int64              `json:"product_idi_os"`
 	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
@@ -57,8 +57,16 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeCondition[len(t.ConsumeCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeCondition(b, b.EndVector(len(t.ConsumeCondition)))
-	GoodsExcelAddConsumeGachaTicketType(b, fbsutils.Convert(t.ConsumeGachaTicketType, t.FlatBuffer.TableKey))
-	GoodsExcelAddConsumeGachaTicketTypeAmount(b, fbsutils.Convert(t.ConsumeGachaTicketTypeAmount, t.FlatBuffer.TableKey))
+	GoodsExcelStartConsumeGachaTicketTypeVector(b, len(t.ConsumeGachaTicketType))
+	for i := range len(t.ConsumeGachaTicketType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeGachaTicketType[len(t.ConsumeGachaTicketType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeGachaTicketType(b, b.EndVector(len(t.ConsumeGachaTicketType)))
+	GoodsExcelStartConsumeGachaTicketTypeAmountVector(b, len(t.ConsumeGachaTicketTypeAmount))
+	for i := range len(t.ConsumeGachaTicketTypeAmount) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeGachaTicketTypeAmount[len(t.ConsumeGachaTicketTypeAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeGachaTicketTypeAmount(b, b.EndVector(len(t.ConsumeGachaTicketTypeAmount)))
 	GoodsExcelAddProductIdAos(b, fbsutils.Convert(t.ProductIdAos, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
 	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
@@ -119,8 +127,14 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	for i := range e.ConsumeConditionLength() {
 		t.ConsumeCondition[i] = ConsumeCondition(fbsutils.Convert(int32(e.ConsumeCondition(i)), t.FlatBuffer.TableKey))
 	}
-	t.ConsumeGachaTicketType = GachaTicketType(fbsutils.Convert(int32(e.ConsumeGachaTicketType()), t.FlatBuffer.TableKey))
-	t.ConsumeGachaTicketTypeAmount = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(), t.FlatBuffer.TableKey)
+	t.ConsumeGachaTicketType = make([]GachaTicketType, e.ConsumeGachaTicketTypeLength())
+	for i := range e.ConsumeGachaTicketTypeLength() {
+		t.ConsumeGachaTicketType[i] = GachaTicketType(fbsutils.Convert(int32(e.ConsumeGachaTicketType(i)), t.FlatBuffer.TableKey))
+	}
+	t.ConsumeGachaTicketTypeAmount = make([]int64, e.ConsumeGachaTicketTypeAmountLength())
+	for i := range e.ConsumeGachaTicketTypeAmountLength() {
+		t.ConsumeGachaTicketTypeAmount[i] = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(i), t.FlatBuffer.TableKey)
+	}
 	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
 	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
 	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())

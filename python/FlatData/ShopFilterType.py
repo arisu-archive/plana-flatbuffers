@@ -40,3 +40,4 @@ class ShopFilterType(object):
     ShopFilterDUMMY_7 = 34
     ETC = 35
     Bundle = 36
+    FavorItem = 37

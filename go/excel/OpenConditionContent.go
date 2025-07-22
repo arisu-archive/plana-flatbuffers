@@ -64,6 +64,7 @@ const (
 	OpenConditionContentStrategySkip                      OpenConditionContent = 54
 	OpenConditionContentMinigameDreamMaker                OpenConditionContent = 55
 	OpenConditionContentMiniGameDefense                   OpenConditionContent = 56
+	OpenConditionContentMiniGameCCG                       OpenConditionContent = 57
 )
 
 var EnumNamesOpenConditionContent = map[OpenConditionContent]string{
@@ -124,6 +125,7 @@ var EnumNamesOpenConditionContent = map[OpenConditionContent]string{
 	OpenConditionContentStrategySkip:                      "StrategySkip",
 	OpenConditionContentMinigameDreamMaker:                "MinigameDreamMaker",
 	OpenConditionContentMiniGameDefense:                   "MiniGameDefense",
+	OpenConditionContentMiniGameCCG:                       "MiniGameCCG",
 }
 
 var EnumValuesOpenConditionContent = map[string]OpenConditionContent{
@@ -184,6 +186,7 @@ var EnumValuesOpenConditionContent = map[string]OpenConditionContent{
 	"StrategySkip":                      OpenConditionContentStrategySkip,
 	"MinigameDreamMaker":                OpenConditionContentMinigameDreamMaker,
 	"MiniGameDefense":                   OpenConditionContentMiniGameDefense,
+	"MiniGameCCG":                       OpenConditionContentMiniGameCCG,
 }
 
 func (v OpenConditionContent) String() string {

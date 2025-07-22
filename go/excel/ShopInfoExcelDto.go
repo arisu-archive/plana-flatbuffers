@@ -10,34 +10,37 @@ import (
 // ShopInfoExcelDto represents a FlatBuffers table
 type ShopInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	CategoryType          ShopCategoryType `json:"category_type"`
-	IsRefresh             bool             `json:"is_refresh"`
-	IsSoldOutDimmed       bool             `json:"is_sold_out_dimmed"`
-	CostParcelType        []ParcelType     `json:"cost_parcel_type"`
-	CostParcelId          []int64          `json:"cost_parcel_id"`
-	AutoRefreshCoolTime   int64            `json:"auto_refresh_cool_time"`
-	RefreshAbleCount      int64            `json:"refresh_able_count"`
-	GoodsId               []int64          `json:"goods_id"`
-	OpenPeriodFrom        string           `json:"open_period_from"`
-	OpenPeriodTo          string           `json:"open_period_to"`
-	ShopProductUpdateTime string           `json:"shop_product_update_time"`
-	DisplayParcelType     ParcelType       `json:"display_parcel_type"`
-	DisplayParcelId       int64            `json:"display_parcel_id"`
-	IsShopVisible         bool             `json:"is_shop_visible"`
-	DisplayOrder          int32            `json:"display_order"`
-	ShopUpdateDate        int32            `json:"shop_update_date"`
-	ShopUpdateGroupId1    int32            `json:"shop_update_group_id1"`
-	ShopUpdateGroupId2    int32            `json:"shop_update_group_id2"`
-	ShopUpdateGroupId3    int32            `json:"shop_update_group_id3"`
-	ShopUpdateGroupId4    int32            `json:"shop_update_group_id4"`
-	ShopUpdateGroupId5    int32            `json:"shop_update_group_id5"`
-	ShopUpdateGroupId6    int32            `json:"shop_update_group_id6"`
-	ShopUpdateGroupId7    int32            `json:"shop_update_group_id7"`
-	ShopUpdateGroupId8    int32            `json:"shop_update_group_id8"`
-	ShopUpdateGroupId9    int32            `json:"shop_update_group_id9"`
-	ShopUpdateGroupId10   int32            `json:"shop_update_group_id10"`
-	ShopUpdateGroupId11   int32            `json:"shop_update_group_id11"`
-	ShopUpdateGroupId12   int32            `json:"shop_update_group_id12"`
+	CategoryType          ShopCategoryType      `json:"category_type"`
+	IsRefresh             bool                  `json:"is_refresh"`
+	IsSoldOutDimmed       bool                  `json:"is_sold_out_dimmed"`
+	CostParcelType        []ParcelType          `json:"cost_parcel_type"`
+	CostParcelId          []int64               `json:"cost_parcel_id"`
+	AutoRefreshCoolTime   int64                 `json:"auto_refresh_cool_time"`
+	ShopRefresherType     ShopRefresherType     `json:"shop_refresher_type"`
+	ShopRefreshPeriodType ShopRefreshPeriodType `json:"shop_refresh_period_type"`
+	RefreshAbleCount      int64                 `json:"refresh_able_count"`
+	GoodsId               []int64               `json:"goods_id"`
+	OpenPeriodFrom        string                `json:"open_period_from"`
+	OpenPeriodTo          string                `json:"open_period_to"`
+	RefreshPeriodBaseTime string                `json:"refresh_period_base_time"`
+	ShopProductUpdateTime string                `json:"shop_product_update_time"`
+	DisplayParcelType     ParcelType            `json:"display_parcel_type"`
+	DisplayParcelId       int64                 `json:"display_parcel_id"`
+	IsShopVisible         bool                  `json:"is_shop_visible"`
+	DisplayOrder          int32                 `json:"display_order"`
+	ShopUpdateDate        int32                 `json:"shop_update_date"`
+	ShopUpdateGroupId1    int32                 `json:"shop_update_group_id1"`
+	ShopUpdateGroupId2    int32                 `json:"shop_update_group_id2"`
+	ShopUpdateGroupId3    int32                 `json:"shop_update_group_id3"`
+	ShopUpdateGroupId4    int32                 `json:"shop_update_group_id4"`
+	ShopUpdateGroupId5    int32                 `json:"shop_update_group_id5"`
+	ShopUpdateGroupId6    int32                 `json:"shop_update_group_id6"`
+	ShopUpdateGroupId7    int32                 `json:"shop_update_group_id7"`
+	ShopUpdateGroupId8    int32                 `json:"shop_update_group_id8"`
+	ShopUpdateGroupId9    int32                 `json:"shop_update_group_id9"`
+	ShopUpdateGroupId10   int32                 `json:"shop_update_group_id10"`
+	ShopUpdateGroupId11   int32                 `json:"shop_update_group_id11"`
+	ShopUpdateGroupId12   int32                 `json:"shop_update_group_id12"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -57,6 +60,8 @@ func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	}
 	ShopInfoExcelAddCostParcelId(b, b.EndVector(len(t.CostParcelId)))
 	ShopInfoExcelAddAutoRefreshCoolTime(b, fbsutils.Convert(t.AutoRefreshCoolTime, t.FlatBuffer.TableKey))
+	ShopInfoExcelAddShopRefresherType(b, fbsutils.Convert(t.ShopRefresherType, t.FlatBuffer.TableKey))
+	ShopInfoExcelAddShopRefreshPeriodType(b, fbsutils.Convert(t.ShopRefreshPeriodType, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddRefreshAbleCount(b, fbsutils.Convert(t.RefreshAbleCount, t.FlatBuffer.TableKey))
 	ShopInfoExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
@@ -65,6 +70,7 @@ func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
 	ShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
 	ShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
+	ShopInfoExcelAddRefreshPeriodBaseTime(b, b.CreateString(fbsutils.Convert(t.RefreshPeriodBaseTime, t.FlatBuffer.TableKey)))
 	ShopInfoExcelAddShopProductUpdateTime(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateTime, t.FlatBuffer.TableKey)))
 	ShopInfoExcelAddDisplayParcelType(b, fbsutils.Convert(t.DisplayParcelType, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddDisplayParcelId(b, fbsutils.Convert(t.DisplayParcelId, t.FlatBuffer.TableKey))
@@ -107,6 +113,8 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 		t.CostParcelId[i] = fbsutils.Convert(e.CostParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.AutoRefreshCoolTime = fbsutils.Convert(e.AutoRefreshCoolTime(), t.FlatBuffer.TableKey)
+	t.ShopRefresherType = ShopRefresherType(fbsutils.Convert(int32(e.ShopRefresherType()), t.FlatBuffer.TableKey))
+	t.ShopRefreshPeriodType = ShopRefreshPeriodType(fbsutils.Convert(int32(e.ShopRefreshPeriodType()), t.FlatBuffer.TableKey))
 	t.RefreshAbleCount = fbsutils.Convert(e.RefreshAbleCount(), t.FlatBuffer.TableKey)
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
@@ -114,6 +122,7 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 	}
 	t.OpenPeriodFrom = fbsutils.Convert(string(e.OpenPeriodFrom()), t.FlatBuffer.TableKey)
 	t.OpenPeriodTo = fbsutils.Convert(string(e.OpenPeriodTo()), t.FlatBuffer.TableKey)
+	t.RefreshPeriodBaseTime = fbsutils.Convert(string(e.RefreshPeriodBaseTime()), t.FlatBuffer.TableKey)
 	t.ShopProductUpdateTime = fbsutils.Convert(string(e.ShopProductUpdateTime()), t.FlatBuffer.TableKey)
 	t.DisplayParcelType = ParcelType(fbsutils.Convert(int32(e.DisplayParcelType()), t.FlatBuffer.TableKey))
 	t.DisplayParcelId = fbsutils.Convert(e.DisplayParcelId(), t.FlatBuffer.TableKey)

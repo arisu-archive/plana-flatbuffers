@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table GachaSelectPickupGroupExcel {
+    id: long;
+    gacha_group_id: long;
+    character_id: long;
+}
+
+root_type GachaSelectPickupGroupExcel;

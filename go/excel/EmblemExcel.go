@@ -181,8 +181,16 @@ func (rcv *EmblemExcel) EmblemBgPathKr() []byte {
 	return nil
 }
 
-func (rcv *EmblemExcel) DisplayType() EmblemDisplayType {
+func (rcv *EmblemExcel) EmblemEffectPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EmblemExcel) DisplayType() EmblemDisplayType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return EmblemDisplayType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -190,18 +198,10 @@ func (rcv *EmblemExcel) DisplayType() EmblemDisplayType {
 }
 
 func (rcv *EmblemExcel) MutateDisplayType(n EmblemDisplayType) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
+	return rcv._tab.MutateInt32Slot(34, int32(n))
 }
 
 func (rcv *EmblemExcel) DisplayStartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EmblemExcel) DisplayEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -209,8 +209,16 @@ func (rcv *EmblemExcel) DisplayEndDate() []byte {
 	return nil
 }
 
-func (rcv *EmblemExcel) DislpayFavorLevel() int32 {
+func (rcv *EmblemExcel) DisplayEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EmblemExcel) DislpayFavorLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -218,11 +226,11 @@ func (rcv *EmblemExcel) DislpayFavorLevel() int32 {
 }
 
 func (rcv *EmblemExcel) MutateDislpayFavorLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
+	return rcv._tab.MutateInt32Slot(40, n)
 }
 
 func (rcv *EmblemExcel) CheckPassType() EmblemCheckPassType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return EmblemCheckPassType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -230,22 +238,10 @@ func (rcv *EmblemExcel) CheckPassType() EmblemCheckPassType {
 }
 
 func (rcv *EmblemExcel) MutateCheckPassType(n EmblemCheckPassType) bool {
-	return rcv._tab.MutateInt32Slot(40, int32(n))
+	return rcv._tab.MutateInt32Slot(42, int32(n))
 }
 
 func (rcv *EmblemExcel) EmblemParameter() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EmblemExcel) MutateEmblemParameter(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
-}
-
-func (rcv *EmblemExcel) CheckPassCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -253,12 +249,24 @@ func (rcv *EmblemExcel) CheckPassCount() int64 {
 	return 0
 }
 
-func (rcv *EmblemExcel) MutateCheckPassCount(n int64) bool {
+func (rcv *EmblemExcel) MutateEmblemParameter(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
+func (rcv *EmblemExcel) CheckPassCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EmblemExcel) MutateCheckPassCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(46, n)
+}
+
 func EmblemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(21)
+	builder.StartObject(22)
 }
 func EmblemExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -302,26 +310,29 @@ func EmblemExcelAddEmblemBgPathJp(builder *flatbuffers.Builder, emblemBgPathJp f
 func EmblemExcelAddEmblemBgPathKr(builder *flatbuffers.Builder, emblemBgPathKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(emblemBgPathKr), 0)
 }
+func EmblemExcelAddEmblemEffectPath(builder *flatbuffers.Builder, emblemEffectPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(emblemEffectPath), 0)
+}
 func EmblemExcelAddDisplayType(builder *flatbuffers.Builder, displayType EmblemDisplayType) {
-	builder.PrependInt32Slot(14, int32(displayType), 0)
+	builder.PrependInt32Slot(15, int32(displayType), 0)
 }
 func EmblemExcelAddDisplayStartDate(builder *flatbuffers.Builder, displayStartDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(displayStartDate), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(displayStartDate), 0)
 }
 func EmblemExcelAddDisplayEndDate(builder *flatbuffers.Builder, displayEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(displayEndDate), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(displayEndDate), 0)
 }
 func EmblemExcelAddDislpayFavorLevel(builder *flatbuffers.Builder, dislpayFavorLevel int32) {
-	builder.PrependInt32Slot(17, dislpayFavorLevel, 0)
+	builder.PrependInt32Slot(18, dislpayFavorLevel, 0)
 }
 func EmblemExcelAddCheckPassType(builder *flatbuffers.Builder, checkPassType EmblemCheckPassType) {
-	builder.PrependInt32Slot(18, int32(checkPassType), 0)
+	builder.PrependInt32Slot(19, int32(checkPassType), 0)
 }
 func EmblemExcelAddEmblemParameter(builder *flatbuffers.Builder, emblemParameter int64) {
-	builder.PrependInt64Slot(19, emblemParameter, 0)
+	builder.PrependInt64Slot(20, emblemParameter, 0)
 }
 func EmblemExcelAddCheckPassCount(builder *flatbuffers.Builder, checkPassCount int64) {
-	builder.PrependInt64Slot(20, checkPassCount, 0)
+	builder.PrependInt64Slot(21, checkPassCount, 0)
 }
 func EmblemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

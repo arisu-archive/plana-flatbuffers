@@ -17,6 +17,9 @@ const (
 	GachaTicketTypePackagePropertyThreeStar GachaTicketType = 7
 	GachaTicketTypeTemp_1                   GachaTicketType = 8
 	GachaTicketTypePackageAcademyThreeStar  GachaTicketType = 9
+	GachaTicketTypeSelectPickup             GachaTicketType = 10
+	GachaTicketTypeSelectPickupOnce         GachaTicketType = 11
+	GachaTicketTypePackageLimitedThreeStar  GachaTicketType = 12
 )
 
 var EnumNamesGachaTicketType = map[GachaTicketType]string{
@@ -30,6 +33,9 @@ var EnumNamesGachaTicketType = map[GachaTicketType]string{
 	GachaTicketTypePackagePropertyThreeStar: "PackagePropertyThreeStar",
 	GachaTicketTypeTemp_1:                   "Temp_1",
 	GachaTicketTypePackageAcademyThreeStar:  "PackageAcademyThreeStar",
+	GachaTicketTypeSelectPickup:             "SelectPickup",
+	GachaTicketTypeSelectPickupOnce:         "SelectPickupOnce",
+	GachaTicketTypePackageLimitedThreeStar:  "PackageLimitedThreeStar",
 }
 
 var EnumValuesGachaTicketType = map[string]GachaTicketType{
@@ -43,6 +49,9 @@ var EnumValuesGachaTicketType = map[string]GachaTicketType{
 	"PackagePropertyThreeStar": GachaTicketTypePackagePropertyThreeStar,
 	"Temp_1":                   GachaTicketTypeTemp_1,
 	"PackageAcademyThreeStar":  GachaTicketTypePackageAcademyThreeStar,
+	"SelectPickup":             GachaTicketTypeSelectPickup,
+	"SelectPickupOnce":         GachaTicketTypeSelectPickupOnce,
+	"PackageLimitedThreeStar":  GachaTicketTypePackageLimitedThreeStar,
 }
 
 func (v GachaTicketType) String() string {

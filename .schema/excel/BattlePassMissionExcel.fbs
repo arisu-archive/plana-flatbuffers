@@ -1,0 +1,29 @@
+include "MissionCategory.fbs";
+include "MissionCompleteConditionType.fbs";
+include "MissionResetType.fbs";
+include "MissionToastDisplayConditionType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table BattlePassMissionExcel {
+    battle_pass_id: long;
+    id: long;
+    category: MissionCategory;
+    pre_mission_id: [long];
+    description: uint;
+    reset_type: MissionResetType;
+    toast_display_type: MissionToastDisplayConditionType;
+    toast_image_path: string;
+    view_flag: bool;
+    display_order: long;
+    shortcut_ui: [string];
+    challenge_stage_shortcut: long;
+    complete_condition_type: MissionCompleteConditionType;
+    complete_condition_count: long;
+    complete_condition_parameter: [long];
+    complete_condition_parameter_tag: [Tag];
+    battle_pass_exp_amount: int;
+}
+
+root_type BattlePassMissionExcel;

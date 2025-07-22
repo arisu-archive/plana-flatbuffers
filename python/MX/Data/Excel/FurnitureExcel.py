@@ -410,7 +410,14 @@ class FurnitureExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         return o == 0
 
-def FurnitureExcelStart(builder): builder.StartObject(42)
+    # FurnitureExcel
+    def HideCraftShortcut(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(88))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+def FurnitureExcelStart(builder): builder.StartObject(43)
 def Start(builder):
     return FurnitureExcelStart(builder)
 def FurnitureExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -557,6 +564,9 @@ def AddCafeCharacterStateOnly(builder, cafeCharacterStateOnly):
 def FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateOnlyVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems)
+def FurnitureExcelAddHideCraftShortcut(builder, hideCraftShortcut): builder.PrependBoolSlot(42, hideCraftShortcut, 0)
+def AddHideCraftShortcut(builder, hideCraftShortcut):
+    return FurnitureExcelAddHideCraftShortcut(builder, hideCraftShortcut)
 def FurnitureExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FurnitureExcelEnd(builder)

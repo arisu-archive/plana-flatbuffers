@@ -136,20 +136,27 @@ class EventContentCollectionExcel(object):
         return None
 
     # EventContentCollectionExcel
-    def LocalizeEtcId(self):
+    def Decoration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EventContentCollectionExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentCollectionExcel
     def SubNameLocalizeCodeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentCollectionExcelStart(builder): builder.StartObject(15)
+def EventContentCollectionExcelStart(builder): builder.StartObject(16)
 def Start(builder):
     return EventContentCollectionExcelStart(builder)
 def EventContentCollectionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -194,10 +201,13 @@ def AddThumbResource(builder, thumbResource):
 def EventContentCollectionExcelAddFullResource(builder, fullResource): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(fullResource), 0)
 def AddFullResource(builder, fullResource):
     return EventContentCollectionExcelAddFullResource(builder, fullResource)
-def EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(13, localizeEtcId, 0)
+def EventContentCollectionExcelAddDecoration(builder, decoration): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(decoration), 0)
+def AddDecoration(builder, decoration):
+    return EventContentCollectionExcelAddDecoration(builder, decoration)
+def EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(14, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
     return EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
+def EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
 def AddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
     return EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
 def EventContentCollectionExcelEnd(builder): return builder.EndObject()

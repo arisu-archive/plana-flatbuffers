@@ -214,20 +214,27 @@ class SkillExcel(object):
         return 0
 
     # SkillExcel
-    def TextureSkillCardForFormConversion(self):
+    def SelectExSkillToolTipId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def TextureSkillCardForFormConversion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # SkillExcel
     def SkillCardLabelPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def SkillExcelStart(builder): builder.StartObject(29)
+def SkillExcelStart(builder): builder.StartObject(30)
 def Start(builder):
     return SkillExcelStart(builder)
 def SkillExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -311,10 +318,13 @@ def AddPublicSpeechDuration(builder, publicSpeechDuration):
 def SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId): builder.PrependInt64Slot(26, additionalToolTipId, 0)
 def AddAdditionalToolTipId(builder, additionalToolTipId):
     return SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId)
-def SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCardForFormConversion), 0)
+def SkillExcelAddSelectExSkillToolTipId(builder, selectExSkillToolTipId): builder.PrependInt64Slot(27, selectExSkillToolTipId, 0)
+def AddSelectExSkillToolTipId(builder, selectExSkillToolTipId):
+    return SkillExcelAddSelectExSkillToolTipId(builder, selectExSkillToolTipId)
+def SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCardForFormConversion), 0)
 def AddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion):
     return SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion)
-def SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(skillCardLabelPath), 0)
+def SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(skillCardLabelPath), 0)
 def AddSkillCardLabelPath(builder, skillCardLabelPath):
     return SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
 def SkillExcelEnd(builder): return builder.EndObject()

@@ -21,6 +21,7 @@ table CostumeExcel {
     spine_resource_name_diorama_for_form_conversion: [string];
     entity_material_type: EntityMaterialType;
     model_prefab_name: string;
+    animator_name: string;
     cafe_model_prefab_name: string;
     echelon_model_prefab_name: string;
     strategy_model_prefab_name: string;

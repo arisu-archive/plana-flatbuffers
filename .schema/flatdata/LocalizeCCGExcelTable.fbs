@@ -1,0 +1,9 @@
+include "LocalizeCCGExcel.fbs";
+
+namespace FlatData;
+
+table LocalizeCCGExcelTable {
+    data_list: [LocalizeCCGExcel];
+}
+
+root_type LocalizeCCGExcelTable;

@@ -26,6 +26,7 @@ type CostumeExcelDto struct {
 	SpineResourceNameDioramaForFormConversion []string           `json:"spine_resource_name_diorama_for_form_conversion"`
 	EntityMaterialType                        EntityMaterialType `json:"entity_material_type"`
 	ModelPrefabName                           string             `json:"model_prefab_name"`
+	AnimatorName                              string             `json:"animator_name"`
 	CafeModelPrefabName                       string             `json:"cafe_model_prefab_name"`
 	EchelonModelPrefabName                    string             `json:"echelon_model_prefab_name"`
 	StrategyModelPrefabName                   string             `json:"strategy_model_prefab_name"`
@@ -70,6 +71,7 @@ func (t *CostumeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	CostumeExcelAddSpineResourceNameDioramaForFormConversion(b, b.EndVector(len(t.SpineResourceNameDioramaForFormConversion)))
 	CostumeExcelAddEntityMaterialType(b, fbsutils.Convert(t.EntityMaterialType, t.FlatBuffer.TableKey))
 	CostumeExcelAddModelPrefabName(b, b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddAnimatorName(b, b.CreateString(fbsutils.Convert(t.AnimatorName, t.FlatBuffer.TableKey)))
 	CostumeExcelAddCafeModelPrefabName(b, b.CreateString(fbsutils.Convert(t.CafeModelPrefabName, t.FlatBuffer.TableKey)))
 	CostumeExcelAddEchelonModelPrefabName(b, b.CreateString(fbsutils.Convert(t.EchelonModelPrefabName, t.FlatBuffer.TableKey)))
 	CostumeExcelAddStrategyModelPrefabName(b, b.CreateString(fbsutils.Convert(t.StrategyModelPrefabName, t.FlatBuffer.TableKey)))
@@ -124,6 +126,7 @@ func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
 	}
 	t.EntityMaterialType = EntityMaterialType(fbsutils.Convert(int32(e.EntityMaterialType()), t.FlatBuffer.TableKey))
 	t.ModelPrefabName = fbsutils.Convert(string(e.ModelPrefabName()), t.FlatBuffer.TableKey)
+	t.AnimatorName = fbsutils.Convert(string(e.AnimatorName()), t.FlatBuffer.TableKey)
 	t.CafeModelPrefabName = fbsutils.Convert(string(e.CafeModelPrefabName()), t.FlatBuffer.TableKey)
 	t.EchelonModelPrefabName = fbsutils.Convert(string(e.EchelonModelPrefabName()), t.FlatBuffer.TableKey)
 	t.StrategyModelPrefabName = fbsutils.Convert(string(e.StrategyModelPrefabName()), t.FlatBuffer.TableKey)

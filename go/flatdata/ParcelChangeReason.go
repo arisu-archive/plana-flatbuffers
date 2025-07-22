@@ -190,6 +190,13 @@ const (
 	ParcelChangeReasonCurrency_ExpireChange                ParcelChangeReason = 180
 	ParcelChangeReasonConquest_ErosionBattleResult         ParcelChangeReason = 181
 	ParcelChangeReasonConquest_EnterErosionBattle          ParcelChangeReason = 182
+	ParcelChangeReasonBattlePass_BuyLevel                  ParcelChangeReason = 183
+	ParcelChangeReasonBattlePass_Reward                    ParcelChangeReason = 184
+	ParcelChangeReasonShop_SelectedPickupGacha             ParcelChangeReason = 185
+	ParcelChangeReasonBilling_PurchaseProductSelect        ParcelChangeReason = 186
+	ParcelChangeReasonAccount_LevelReward                  ParcelChangeReason = 187
+	ParcelChangeReasonMiniGame_CCGCompleteGame             ParcelChangeReason = 188
+	ParcelChangeReasonMiniGame_CCGBuyPerk                  ParcelChangeReason = 189
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -376,6 +383,13 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonCurrency_ExpireChange:                "Currency_ExpireChange",
 	ParcelChangeReasonConquest_ErosionBattleResult:         "Conquest_ErosionBattleResult",
 	ParcelChangeReasonConquest_EnterErosionBattle:          "Conquest_EnterErosionBattle",
+	ParcelChangeReasonBattlePass_BuyLevel:                  "BattlePass_BuyLevel",
+	ParcelChangeReasonBattlePass_Reward:                    "BattlePass_Reward",
+	ParcelChangeReasonShop_SelectedPickupGacha:             "Shop_SelectedPickupGacha",
+	ParcelChangeReasonBilling_PurchaseProductSelect:        "Billing_PurchaseProductSelect",
+	ParcelChangeReasonAccount_LevelReward:                  "Account_LevelReward",
+	ParcelChangeReasonMiniGame_CCGCompleteGame:             "MiniGame_CCGCompleteGame",
+	ParcelChangeReasonMiniGame_CCGBuyPerk:                  "MiniGame_CCGBuyPerk",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -562,6 +576,13 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"Currency_ExpireChange":                ParcelChangeReasonCurrency_ExpireChange,
 	"Conquest_ErosionBattleResult":         ParcelChangeReasonConquest_ErosionBattleResult,
 	"Conquest_EnterErosionBattle":          ParcelChangeReasonConquest_EnterErosionBattle,
+	"BattlePass_BuyLevel":                  ParcelChangeReasonBattlePass_BuyLevel,
+	"BattlePass_Reward":                    ParcelChangeReasonBattlePass_Reward,
+	"Shop_SelectedPickupGacha":             ParcelChangeReasonShop_SelectedPickupGacha,
+	"Billing_PurchaseProductSelect":        ParcelChangeReasonBilling_PurchaseProductSelect,
+	"Account_LevelReward":                  ParcelChangeReasonAccount_LevelReward,
+	"MiniGame_CCGCompleteGame":             ParcelChangeReasonMiniGame_CCGCompleteGame,
+	"MiniGame_CCGBuyPerk":                  ParcelChangeReasonMiniGame_CCGBuyPerk,
 }
 
 func (v ParcelChangeReason) String() string {
