@@ -9,3 +9,4 @@ class ProductCategory(object):
     Package = 3
     GachaDirect = 4
     TimeLimit = 5
+    BattlePass = 6

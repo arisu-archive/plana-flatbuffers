@@ -1,5 +1,6 @@
 include "ProductDisplayTag.fbs";
 include "ShopCategoryType.fbs";
+include "ShopPurchasePopupType.fbs";
 
 namespace MX.Data.Excel;
 
@@ -9,7 +10,9 @@ table ShopRefreshExcel {
     is_legacy: bool;
     goods_id: long;
     is_bundle: bool;
+    shop_purchase_popup_type: ShopPurchasePopupType;
     visible_amount: long;
+    purchase_count_limit: long;
     display_order: long;
     category_type: ShopCategoryType;
     refresh_group: int;

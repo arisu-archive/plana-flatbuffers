@@ -1,5 +1,7 @@
 include "ParcelType.fbs";
 include "ShopCategoryType.fbs";
+include "ShopRefreshPeriodType.fbs";
+include "ShopRefresherType.fbs";
 
 namespace MX.Data.Excel;
 
@@ -10,10 +12,13 @@ table ShopInfoExcel {
     cost_parcel_type: [ParcelType];
     cost_parcel_id: [long];
     auto_refresh_cool_time: long;
+    shop_refresher_type: ShopRefresherType;
+    shop_refresh_period_type: ShopRefreshPeriodType;
     refresh_able_count: long;
     goods_id: [long];
     open_period_from: string;
     open_period_to: string;
+    refresh_period_base_time: string;
     shop_product_update_time: string;
     display_parcel_type: ParcelType;
     display_parcel_id: long;

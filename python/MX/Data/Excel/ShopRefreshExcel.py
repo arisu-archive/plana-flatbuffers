@@ -60,55 +60,69 @@ class ShopRefreshExcel(object):
         return False
 
     # ShopRefreshExcel
-    def VisibleAmount(self):
+    def ShopPurchasePopupType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ShopRefreshExcel
-    def DisplayOrder(self):
+    def VisibleAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRefreshExcel
-    def CategoryType(self):
+    def PurchaseCountLimit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRefreshExcel
-    def RefreshGroup(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRefreshExcel
-    def Prob(self):
+    def CategoryType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ShopRefreshExcel
-    def BuyReportEventName(self):
+    def RefreshGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRefreshExcel
+    def Prob(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRefreshExcel
+    def BuyReportEventName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopRefreshExcel
     def DisplayTag(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ShopRefreshExcelStart(builder): builder.StartObject(12)
+def ShopRefreshExcelStart(builder): builder.StartObject(14)
 def Start(builder):
     return ShopRefreshExcelStart(builder)
 def ShopRefreshExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -126,25 +140,31 @@ def AddGoodsId(builder, goodsId):
 def ShopRefreshExcelAddIsBundle(builder, isBundle): builder.PrependBoolSlot(4, isBundle, 0)
 def AddIsBundle(builder, isBundle):
     return ShopRefreshExcelAddIsBundle(builder, isBundle)
-def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount): builder.PrependInt64Slot(5, visibleAmount, 0)
+def ShopRefreshExcelAddShopPurchasePopupType(builder, shopPurchasePopupType): builder.PrependInt32Slot(5, shopPurchasePopupType, 0)
+def AddShopPurchasePopupType(builder, shopPurchasePopupType):
+    return ShopRefreshExcelAddShopPurchasePopupType(builder, shopPurchasePopupType)
+def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount): builder.PrependInt64Slot(6, visibleAmount, 0)
 def AddVisibleAmount(builder, visibleAmount):
     return ShopRefreshExcelAddVisibleAmount(builder, visibleAmount)
-def ShopRefreshExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(6, displayOrder, 0)
+def ShopRefreshExcelAddPurchaseCountLimit(builder, purchaseCountLimit): builder.PrependInt64Slot(7, purchaseCountLimit, 0)
+def AddPurchaseCountLimit(builder, purchaseCountLimit):
+    return ShopRefreshExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
+def ShopRefreshExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(8, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
     return ShopRefreshExcelAddDisplayOrder(builder, displayOrder)
-def ShopRefreshExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(7, categoryType, 0)
+def ShopRefreshExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(9, categoryType, 0)
 def AddCategoryType(builder, categoryType):
     return ShopRefreshExcelAddCategoryType(builder, categoryType)
-def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(8, refreshGroup, 0)
+def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(10, refreshGroup, 0)
 def AddRefreshGroup(builder, refreshGroup):
     return ShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
-def ShopRefreshExcelAddProb(builder, prob): builder.PrependInt32Slot(9, prob, 0)
+def ShopRefreshExcelAddProb(builder, prob): builder.PrependInt32Slot(11, prob, 0)
 def AddProb(builder, prob):
     return ShopRefreshExcelAddProb(builder, prob)
-def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
 def AddBuyReportEventName(builder, buyReportEventName):
     return ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
-def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(11, displayTag, 0)
+def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(13, displayTag, 0)
 def AddDisplayTag(builder, displayTag):
     return ShopRefreshExcelAddDisplayTag(builder, displayTag)
 def ShopRefreshExcelEnd(builder): return builder.EndObject()

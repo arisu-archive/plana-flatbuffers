@@ -1,0 +1,9 @@
+include "BattleExcel.fbs";
+
+namespace FlatData;
+
+table BattleExcelTable {
+    data_list: [BattleExcel];
+}
+
+root_type BattleExcelTable;

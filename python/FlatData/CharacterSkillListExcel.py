@@ -128,8 +128,15 @@ class CharacterSkillListExcel(object):
         return o == 0
 
     # CharacterSkillListExcel
-    def ExSkillGroupId(self, j):
+    def SelectExSkillActionSkillSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterSkillListExcel
+    def ExSkillGroupId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -137,19 +144,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def ExSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def ExSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
 
     # CharacterSkillListExcel
     def ExSkillCutInTimeLineIndex(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -157,19 +164,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def ExSkillCutInTimeLineIndexLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def ExSkillCutInTimeLineIndexIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         return o == 0
 
     # CharacterSkillListExcel
     def ExSkillLevelTimeLineIndex(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -177,19 +184,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def ExSkillLevelTimeLineIndexLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def ExSkillLevelTimeLineIndexIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         return o == 0
 
     # CharacterSkillListExcel
     def PublicSkillGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -197,19 +204,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def PublicSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def PublicSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         return o == 0
 
     # CharacterSkillListExcel
     def PublicSkillTimeLineIndex(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -217,26 +224,26 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def PublicSkillTimeLineIndexAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CharacterSkillListExcel
     def PublicSkillTimeLineIndexLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def PublicSkillTimeLineIndexIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         return o == 0
 
     # CharacterSkillListExcel
     def PassiveSkillGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -244,19 +251,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def PassiveSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def PassiveSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         return o == 0
 
     # CharacterSkillListExcel
     def LeaderSkillGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -264,19 +271,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def LeaderSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def LeaderSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         return o == 0
 
     # CharacterSkillListExcel
     def ExtraPassiveSkillGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -284,19 +291,19 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def ExtraPassiveSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def ExtraPassiveSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         return o == 0
 
     # CharacterSkillListExcel
     def HiddenPassiveSkillGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -304,17 +311,17 @@ class CharacterSkillListExcel(object):
 
     # CharacterSkillListExcel
     def HiddenPassiveSkillGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterSkillListExcel
     def HiddenPassiveSkillGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         return o == 0
 
-def CharacterSkillListExcelStart(builder): builder.StartObject(19)
+def CharacterSkillListExcelStart(builder): builder.StartObject(20)
 def Start(builder):
     return CharacterSkillListExcelStart(builder)
 def CharacterSkillListExcelAddCharacterSkillListGroupId(builder, characterSkillListGroupId): builder.PrependInt64Slot(0, characterSkillListGroupId, 0)
@@ -353,55 +360,58 @@ def AddNormalSkillTimeLineIndex(builder, normalSkillTimeLineIndex):
 def CharacterSkillListExcelStartNormalSkillTimeLineIndexVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartNormalSkillTimeLineIndexVector(builder, numElems):
     return CharacterSkillListExcelStartNormalSkillTimeLineIndexVector(builder, numElems)
-def CharacterSkillListExcelAddExSkillGroupId(builder, exSkillGroupId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillGroupId), 0)
+def CharacterSkillListExcelAddSelectExSkillActionSkillSlot(builder, selectExSkillActionSkillSlot): builder.PrependInt32Slot(10, selectExSkillActionSkillSlot, 0)
+def AddSelectExSkillActionSkillSlot(builder, selectExSkillActionSkillSlot):
+    return CharacterSkillListExcelAddSelectExSkillActionSkillSlot(builder, selectExSkillActionSkillSlot)
+def CharacterSkillListExcelAddExSkillGroupId(builder, exSkillGroupId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillGroupId), 0)
 def AddExSkillGroupId(builder, exSkillGroupId):
     return CharacterSkillListExcelAddExSkillGroupId(builder, exSkillGroupId)
 def CharacterSkillListExcelStartExSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExSkillGroupIdVector(builder, numElems):
     return CharacterSkillListExcelStartExSkillGroupIdVector(builder, numElems)
-def CharacterSkillListExcelAddExSkillCutInTimeLineIndex(builder, exSkillCutInTimeLineIndex): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillCutInTimeLineIndex), 0)
+def CharacterSkillListExcelAddExSkillCutInTimeLineIndex(builder, exSkillCutInTimeLineIndex): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillCutInTimeLineIndex), 0)
 def AddExSkillCutInTimeLineIndex(builder, exSkillCutInTimeLineIndex):
     return CharacterSkillListExcelAddExSkillCutInTimeLineIndex(builder, exSkillCutInTimeLineIndex)
 def CharacterSkillListExcelStartExSkillCutInTimeLineIndexVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExSkillCutInTimeLineIndexVector(builder, numElems):
     return CharacterSkillListExcelStartExSkillCutInTimeLineIndexVector(builder, numElems)
-def CharacterSkillListExcelAddExSkillLevelTimeLineIndex(builder, exSkillLevelTimeLineIndex): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillLevelTimeLineIndex), 0)
+def CharacterSkillListExcelAddExSkillLevelTimeLineIndex(builder, exSkillLevelTimeLineIndex): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillLevelTimeLineIndex), 0)
 def AddExSkillLevelTimeLineIndex(builder, exSkillLevelTimeLineIndex):
     return CharacterSkillListExcelAddExSkillLevelTimeLineIndex(builder, exSkillLevelTimeLineIndex)
 def CharacterSkillListExcelStartExSkillLevelTimeLineIndexVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExSkillLevelTimeLineIndexVector(builder, numElems):
     return CharacterSkillListExcelStartExSkillLevelTimeLineIndexVector(builder, numElems)
-def CharacterSkillListExcelAddPublicSkillGroupId(builder, publicSkillGroupId): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillGroupId), 0)
+def CharacterSkillListExcelAddPublicSkillGroupId(builder, publicSkillGroupId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillGroupId), 0)
 def AddPublicSkillGroupId(builder, publicSkillGroupId):
     return CharacterSkillListExcelAddPublicSkillGroupId(builder, publicSkillGroupId)
 def CharacterSkillListExcelStartPublicSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPublicSkillGroupIdVector(builder, numElems):
     return CharacterSkillListExcelStartPublicSkillGroupIdVector(builder, numElems)
-def CharacterSkillListExcelAddPublicSkillTimeLineIndex(builder, publicSkillTimeLineIndex): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillTimeLineIndex), 0)
+def CharacterSkillListExcelAddPublicSkillTimeLineIndex(builder, publicSkillTimeLineIndex): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillTimeLineIndex), 0)
 def AddPublicSkillTimeLineIndex(builder, publicSkillTimeLineIndex):
     return CharacterSkillListExcelAddPublicSkillTimeLineIndex(builder, publicSkillTimeLineIndex)
 def CharacterSkillListExcelStartPublicSkillTimeLineIndexVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPublicSkillTimeLineIndexVector(builder, numElems):
     return CharacterSkillListExcelStartPublicSkillTimeLineIndexVector(builder, numElems)
-def CharacterSkillListExcelAddPassiveSkillGroupId(builder, passiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(passiveSkillGroupId), 0)
+def CharacterSkillListExcelAddPassiveSkillGroupId(builder, passiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(passiveSkillGroupId), 0)
 def AddPassiveSkillGroupId(builder, passiveSkillGroupId):
     return CharacterSkillListExcelAddPassiveSkillGroupId(builder, passiveSkillGroupId)
 def CharacterSkillListExcelStartPassiveSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPassiveSkillGroupIdVector(builder, numElems):
     return CharacterSkillListExcelStartPassiveSkillGroupIdVector(builder, numElems)
-def CharacterSkillListExcelAddLeaderSkillGroupId(builder, leaderSkillGroupId): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(leaderSkillGroupId), 0)
+def CharacterSkillListExcelAddLeaderSkillGroupId(builder, leaderSkillGroupId): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(leaderSkillGroupId), 0)
 def AddLeaderSkillGroupId(builder, leaderSkillGroupId):
     return CharacterSkillListExcelAddLeaderSkillGroupId(builder, leaderSkillGroupId)
 def CharacterSkillListExcelStartLeaderSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartLeaderSkillGroupIdVector(builder, numElems):
     return CharacterSkillListExcelStartLeaderSkillGroupIdVector(builder, numElems)
-def CharacterSkillListExcelAddExtraPassiveSkillGroupId(builder, extraPassiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(extraPassiveSkillGroupId), 0)
+def CharacterSkillListExcelAddExtraPassiveSkillGroupId(builder, extraPassiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(extraPassiveSkillGroupId), 0)
 def AddExtraPassiveSkillGroupId(builder, extraPassiveSkillGroupId):
     return CharacterSkillListExcelAddExtraPassiveSkillGroupId(builder, extraPassiveSkillGroupId)
 def CharacterSkillListExcelStartExtraPassiveSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExtraPassiveSkillGroupIdVector(builder, numElems):
     return CharacterSkillListExcelStartExtraPassiveSkillGroupIdVector(builder, numElems)
-def CharacterSkillListExcelAddHiddenPassiveSkillGroupId(builder, hiddenPassiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(hiddenPassiveSkillGroupId), 0)
+def CharacterSkillListExcelAddHiddenPassiveSkillGroupId(builder, hiddenPassiveSkillGroupId): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(hiddenPassiveSkillGroupId), 0)
 def AddHiddenPassiveSkillGroupId(builder, hiddenPassiveSkillGroupId):
     return CharacterSkillListExcelAddHiddenPassiveSkillGroupId(builder, hiddenPassiveSkillGroupId)
 def CharacterSkillListExcelStartHiddenPassiveSkillGroupIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)

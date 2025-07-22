@@ -7,21 +7,27 @@ import "strconv"
 type PurchaseSourceType int32
 
 const (
-	PurchaseSourceTypeNone           PurchaseSourceType = 0
-	PurchaseSourceTypeProduct        PurchaseSourceType = 1
-	PurchaseSourceTypeProductMonthly PurchaseSourceType = 2
+	PurchaseSourceTypeNone              PurchaseSourceType = 0
+	PurchaseSourceTypeProduct           PurchaseSourceType = 1
+	PurchaseSourceTypeProductMonthly    PurchaseSourceType = 2
+	PurchaseSourceTypeProductBattlePass PurchaseSourceType = 3
+	PurchaseSourceTypeProductSelect     PurchaseSourceType = 4
 )
 
 var EnumNamesPurchaseSourceType = map[PurchaseSourceType]string{
-	PurchaseSourceTypeNone:           "None",
-	PurchaseSourceTypeProduct:        "Product",
-	PurchaseSourceTypeProductMonthly: "ProductMonthly",
+	PurchaseSourceTypeNone:              "None",
+	PurchaseSourceTypeProduct:           "Product",
+	PurchaseSourceTypeProductMonthly:    "ProductMonthly",
+	PurchaseSourceTypeProductBattlePass: "ProductBattlePass",
+	PurchaseSourceTypeProductSelect:     "ProductSelect",
 }
 
 var EnumValuesPurchaseSourceType = map[string]PurchaseSourceType{
-	"None":           PurchaseSourceTypeNone,
-	"Product":        PurchaseSourceTypeProduct,
-	"ProductMonthly": PurchaseSourceTypeProductMonthly,
+	"None":              PurchaseSourceTypeNone,
+	"Product":           PurchaseSourceTypeProduct,
+	"ProductMonthly":    PurchaseSourceTypeProductMonthly,
+	"ProductBattlePass": PurchaseSourceTypeProductBattlePass,
+	"ProductSelect":     PurchaseSourceTypeProductSelect,
 }
 
 func (v PurchaseSourceType) String() string {

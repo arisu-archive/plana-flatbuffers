@@ -172,8 +172,20 @@ func (rcv *CharacterSkillListExcel) MutateNormalSkillTimeLineIndex(j int, n int3
 	return false
 }
 
-func (rcv *CharacterSkillListExcel) ExSkillGroupId(j int) []byte {
+func (rcv *CharacterSkillListExcel) SelectExSkillActionSkillSlot() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterSkillListExcel) MutateSelectExSkillActionSkillSlot(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *CharacterSkillListExcel) ExSkillGroupId(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -182,7 +194,7 @@ func (rcv *CharacterSkillListExcel) ExSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) ExSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -190,7 +202,7 @@ func (rcv *CharacterSkillListExcel) ExSkillGroupIdLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) ExSkillCutInTimeLineIndex(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -199,7 +211,7 @@ func (rcv *CharacterSkillListExcel) ExSkillCutInTimeLineIndex(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) ExSkillCutInTimeLineIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -207,7 +219,7 @@ func (rcv *CharacterSkillListExcel) ExSkillCutInTimeLineIndexLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) ExSkillLevelTimeLineIndex(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -216,7 +228,7 @@ func (rcv *CharacterSkillListExcel) ExSkillLevelTimeLineIndex(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) ExSkillLevelTimeLineIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -224,7 +236,7 @@ func (rcv *CharacterSkillListExcel) ExSkillLevelTimeLineIndexLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) PublicSkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -233,7 +245,7 @@ func (rcv *CharacterSkillListExcel) PublicSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) PublicSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -241,7 +253,7 @@ func (rcv *CharacterSkillListExcel) PublicSkillGroupIdLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) PublicSkillTimeLineIndex(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -250,7 +262,7 @@ func (rcv *CharacterSkillListExcel) PublicSkillTimeLineIndex(j int) int32 {
 }
 
 func (rcv *CharacterSkillListExcel) PublicSkillTimeLineIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -258,7 +270,7 @@ func (rcv *CharacterSkillListExcel) PublicSkillTimeLineIndexLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) MutatePublicSkillTimeLineIndex(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -267,7 +279,7 @@ func (rcv *CharacterSkillListExcel) MutatePublicSkillTimeLineIndex(j int, n int3
 }
 
 func (rcv *CharacterSkillListExcel) PassiveSkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -276,7 +288,7 @@ func (rcv *CharacterSkillListExcel) PassiveSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) PassiveSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -284,7 +296,7 @@ func (rcv *CharacterSkillListExcel) PassiveSkillGroupIdLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) LeaderSkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -293,7 +305,7 @@ func (rcv *CharacterSkillListExcel) LeaderSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) LeaderSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -301,7 +313,7 @@ func (rcv *CharacterSkillListExcel) LeaderSkillGroupIdLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) ExtraPassiveSkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -310,7 +322,7 @@ func (rcv *CharacterSkillListExcel) ExtraPassiveSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) ExtraPassiveSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -318,7 +330,7 @@ func (rcv *CharacterSkillListExcel) ExtraPassiveSkillGroupIdLength() int {
 }
 
 func (rcv *CharacterSkillListExcel) HiddenPassiveSkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -327,7 +339,7 @@ func (rcv *CharacterSkillListExcel) HiddenPassiveSkillGroupId(j int) []byte {
 }
 
 func (rcv *CharacterSkillListExcel) HiddenPassiveSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -335,7 +347,7 @@ func (rcv *CharacterSkillListExcel) HiddenPassiveSkillGroupIdLength() int {
 }
 
 func CharacterSkillListExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(19)
+	builder.StartObject(20)
 }
 func CharacterSkillListExcelAddCharacterSkillListGroupId(builder *flatbuffers.Builder, characterSkillListGroupId int64) {
 	builder.PrependInt64Slot(0, characterSkillListGroupId, 0)
@@ -373,56 +385,59 @@ func CharacterSkillListExcelAddNormalSkillTimeLineIndex(builder *flatbuffers.Bui
 func CharacterSkillListExcelStartNormalSkillTimeLineIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func CharacterSkillListExcelAddSelectExSkillActionSkillSlot(builder *flatbuffers.Builder, selectExSkillActionSkillSlot int32) {
+	builder.PrependInt32Slot(10, selectExSkillActionSkillSlot, 0)
+}
 func CharacterSkillListExcelAddExSkillGroupId(builder *flatbuffers.Builder, exSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(exSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(exSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartExSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddExSkillCutInTimeLineIndex(builder *flatbuffers.Builder, exSkillCutInTimeLineIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(exSkillCutInTimeLineIndex), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(exSkillCutInTimeLineIndex), 0)
 }
 func CharacterSkillListExcelStartExSkillCutInTimeLineIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddExSkillLevelTimeLineIndex(builder *flatbuffers.Builder, exSkillLevelTimeLineIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(exSkillLevelTimeLineIndex), 0)
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(exSkillLevelTimeLineIndex), 0)
 }
 func CharacterSkillListExcelStartExSkillLevelTimeLineIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddPublicSkillGroupId(builder *flatbuffers.Builder, publicSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(publicSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(publicSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartPublicSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddPublicSkillTimeLineIndex(builder *flatbuffers.Builder, publicSkillTimeLineIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(publicSkillTimeLineIndex), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(publicSkillTimeLineIndex), 0)
 }
 func CharacterSkillListExcelStartPublicSkillTimeLineIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddPassiveSkillGroupId(builder *flatbuffers.Builder, passiveSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(passiveSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(passiveSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartPassiveSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddLeaderSkillGroupId(builder *flatbuffers.Builder, leaderSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(leaderSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(leaderSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartLeaderSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddExtraPassiveSkillGroupId(builder *flatbuffers.Builder, extraPassiveSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(extraPassiveSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(extraPassiveSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartExtraPassiveSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterSkillListExcelAddHiddenPassiveSkillGroupId(builder *flatbuffers.Builder, hiddenPassiveSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(hiddenPassiveSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(hiddenPassiveSkillGroupId), 0)
 }
 func CharacterSkillListExcelStartHiddenPassiveSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

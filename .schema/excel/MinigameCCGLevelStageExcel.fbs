@@ -1,0 +1,24 @@
+include "CCGStageRewardType.fbs";
+include "CCGStageType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameCCGLevelStageExcel {
+    id: long;
+    group_id: long;
+    enemy_group_id: [long];
+    stage_type: CCGStageType;
+    camp_discard_card_count: int;
+    camp_spr_path: string;
+    camp_background_path: string;
+    reward_type: CCGStageRewardType;
+    reward_count: int;
+    reward_card_group_id: long;
+    card_rarity_group_id: long;
+    is_skip_intro_scenario: bool;
+    intro_scenario_group_id: long;
+    is_skip_outro_scenario: bool;
+    outro_scenario_group_id: long;
+}
+
+root_type MinigameCCGLevelStageExcel;

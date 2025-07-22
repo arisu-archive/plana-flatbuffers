@@ -97,19 +97,19 @@ func (rcv *AudioAnimatorExcel) MutateIgnoreInterruptPlay(n bool) bool {
 	return rcv._tab.MutateBoolSlot(14, n)
 }
 
-func (rcv *AudioAnimatorExcel) Volume() float32 {
+func (rcv *AudioAnimatorExcel) IgnoreVelocity() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return false
 }
 
-func (rcv *AudioAnimatorExcel) MutateVolume(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
+func (rcv *AudioAnimatorExcel) MutateIgnoreVelocity(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
 }
 
-func (rcv *AudioAnimatorExcel) Delay() float32 {
+func (rcv *AudioAnimatorExcel) Volume() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -117,23 +117,23 @@ func (rcv *AudioAnimatorExcel) Delay() float32 {
 	return 0.0
 }
 
-func (rcv *AudioAnimatorExcel) MutateDelay(n float32) bool {
+func (rcv *AudioAnimatorExcel) MutateVolume(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(18, n)
 }
 
-func (rcv *AudioAnimatorExcel) RandomPitchMin() int32 {
+func (rcv *AudioAnimatorExcel) Delay() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *AudioAnimatorExcel) MutateRandomPitchMin(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+func (rcv *AudioAnimatorExcel) MutateDelay(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(20, n)
 }
 
-func (rcv *AudioAnimatorExcel) RandomPitchMax() int32 {
+func (rcv *AudioAnimatorExcel) RandomPitchMin() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -141,11 +141,11 @@ func (rcv *AudioAnimatorExcel) RandomPitchMax() int32 {
 	return 0
 }
 
-func (rcv *AudioAnimatorExcel) MutateRandomPitchMax(n int32) bool {
+func (rcv *AudioAnimatorExcel) MutateRandomPitchMin(n int32) bool {
 	return rcv._tab.MutateInt32Slot(22, n)
 }
 
-func (rcv *AudioAnimatorExcel) AudioPriority() int32 {
+func (rcv *AudioAnimatorExcel) RandomPitchMax() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -153,12 +153,24 @@ func (rcv *AudioAnimatorExcel) AudioPriority() int32 {
 	return 0
 }
 
-func (rcv *AudioAnimatorExcel) MutateAudioPriority(n int32) bool {
+func (rcv *AudioAnimatorExcel) MutateRandomPitchMax(n int32) bool {
 	return rcv._tab.MutateInt32Slot(24, n)
 }
 
-func (rcv *AudioAnimatorExcel) AudioClipPath(j int) []byte {
+func (rcv *AudioAnimatorExcel) AudioPriority() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AudioAnimatorExcel) MutateAudioPriority(n int32) bool {
+	return rcv._tab.MutateInt32Slot(26, n)
+}
+
+func (rcv *AudioAnimatorExcel) AudioClipPath(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -167,7 +179,7 @@ func (rcv *AudioAnimatorExcel) AudioClipPath(j int) []byte {
 }
 
 func (rcv *AudioAnimatorExcel) AudioClipPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -175,7 +187,7 @@ func (rcv *AudioAnimatorExcel) AudioClipPathLength() int {
 }
 
 func (rcv *AudioAnimatorExcel) VoiceHash(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -184,7 +196,7 @@ func (rcv *AudioAnimatorExcel) VoiceHash(j int) uint32 {
 }
 
 func (rcv *AudioAnimatorExcel) VoiceHashLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -192,7 +204,7 @@ func (rcv *AudioAnimatorExcel) VoiceHashLength() int {
 }
 
 func (rcv *AudioAnimatorExcel) MutateVoiceHash(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -201,7 +213,7 @@ func (rcv *AudioAnimatorExcel) MutateVoiceHash(j int, n uint32) bool {
 }
 
 func AudioAnimatorExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(13)
+	builder.StartObject(14)
 }
 func AudioAnimatorExcelAddControllerNameHash(builder *flatbuffers.Builder, controllerNameHash uint32) {
 	builder.PrependUint32Slot(0, controllerNameHash, 0)
@@ -221,29 +233,32 @@ func AudioAnimatorExcelAddIgnoreInterruptDelay(builder *flatbuffers.Builder, ign
 func AudioAnimatorExcelAddIgnoreInterruptPlay(builder *flatbuffers.Builder, ignoreInterruptPlay bool) {
 	builder.PrependBoolSlot(5, ignoreInterruptPlay, false)
 }
+func AudioAnimatorExcelAddIgnoreVelocity(builder *flatbuffers.Builder, ignoreVelocity bool) {
+	builder.PrependBoolSlot(6, ignoreVelocity, false)
+}
 func AudioAnimatorExcelAddVolume(builder *flatbuffers.Builder, volume float32) {
-	builder.PrependFloat32Slot(6, volume, 0.0)
+	builder.PrependFloat32Slot(7, volume, 0.0)
 }
 func AudioAnimatorExcelAddDelay(builder *flatbuffers.Builder, delay float32) {
-	builder.PrependFloat32Slot(7, delay, 0.0)
+	builder.PrependFloat32Slot(8, delay, 0.0)
 }
 func AudioAnimatorExcelAddRandomPitchMin(builder *flatbuffers.Builder, randomPitchMin int32) {
-	builder.PrependInt32Slot(8, randomPitchMin, 0)
+	builder.PrependInt32Slot(9, randomPitchMin, 0)
 }
 func AudioAnimatorExcelAddRandomPitchMax(builder *flatbuffers.Builder, randomPitchMax int32) {
-	builder.PrependInt32Slot(9, randomPitchMax, 0)
+	builder.PrependInt32Slot(10, randomPitchMax, 0)
 }
 func AudioAnimatorExcelAddAudioPriority(builder *flatbuffers.Builder, audioPriority int32) {
-	builder.PrependInt32Slot(10, audioPriority, 0)
+	builder.PrependInt32Slot(11, audioPriority, 0)
 }
 func AudioAnimatorExcelAddAudioClipPath(builder *flatbuffers.Builder, audioClipPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(audioClipPath), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(audioClipPath), 0)
 }
 func AudioAnimatorExcelStartAudioClipPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func AudioAnimatorExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(voiceHash), 0)
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(voiceHash), 0)
 }
 func AudioAnimatorExcelStartVoiceHashVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

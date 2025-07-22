@@ -16,6 +16,7 @@ type AudioAnimatorExcelDto struct {
 	StateName            string   `json:"state_name"`
 	IgnoreInterruptDelay bool     `json:"ignore_interrupt_delay"`
 	IgnoreInterruptPlay  bool     `json:"ignore_interrupt_play"`
+	IgnoreVelocity       bool     `json:"ignore_velocity"`
 	Volume               float32  `json:"volume"`
 	Delay                float32  `json:"delay"`
 	RandomPitchMin       int32    `json:"random_pitch_min"`
@@ -34,6 +35,7 @@ func (t *AudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	AudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
 	AudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
 	AudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
+	AudioAnimatorExcelAddIgnoreVelocity(b, t.IgnoreVelocity)
 	AudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
 	AudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
 	AudioAnimatorExcelAddRandomPitchMin(b, fbsutils.Convert(t.RandomPitchMin, t.FlatBuffer.TableKey))
@@ -67,6 +69,7 @@ func (t *AudioAnimatorExcelDto) UnmarshalMessage(e *AudioAnimatorExcel) error {
 	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
 	t.IgnoreInterruptDelay = e.IgnoreInterruptDelay()
 	t.IgnoreInterruptPlay = e.IgnoreInterruptPlay()
+	t.IgnoreVelocity = e.IgnoreVelocity()
 	t.Volume = fbsutils.Convert(e.Volume(), t.FlatBuffer.TableKey)
 	t.Delay = fbsutils.Convert(e.Delay(), t.FlatBuffer.TableKey)
 	t.RandomPitchMin = fbsutils.Convert(e.RandomPitchMin(), t.FlatBuffer.TableKey)

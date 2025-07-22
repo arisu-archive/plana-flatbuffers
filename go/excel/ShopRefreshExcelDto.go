@@ -10,18 +10,20 @@ import (
 // ShopRefreshExcelDto represents a FlatBuffers table
 type ShopRefreshExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                 int64             `json:"id"`
-	LocalizeEtcId      uint32            `json:"localize_etc_id"`
-	IsLegacy           bool              `json:"is_legacy"`
-	GoodsId            int64             `json:"goods_id"`
-	IsBundle           bool              `json:"is_bundle"`
-	VisibleAmount      int64             `json:"visible_amount"`
-	DisplayOrder       int64             `json:"display_order"`
-	CategoryType       ShopCategoryType  `json:"category_type"`
-	RefreshGroup       int32             `json:"refresh_group"`
-	Prob               int32             `json:"prob"`
-	BuyReportEventName string            `json:"buy_report_event_name"`
-	DisplayTag         ProductDisplayTag `json:"display_tag"`
+	Id                    int64                 `json:"id"`
+	LocalizeEtcId         uint32                `json:"localize_etc_id"`
+	IsLegacy              bool                  `json:"is_legacy"`
+	GoodsId               int64                 `json:"goods_id"`
+	IsBundle              bool                  `json:"is_bundle"`
+	ShopPurchasePopupType ShopPurchasePopupType `json:"shop_purchase_popup_type"`
+	VisibleAmount         int64                 `json:"visible_amount"`
+	PurchaseCountLimit    int64                 `json:"purchase_count_limit"`
+	DisplayOrder          int64                 `json:"display_order"`
+	CategoryType          ShopCategoryType      `json:"category_type"`
+	RefreshGroup          int32                 `json:"refresh_group"`
+	Prob                  int32                 `json:"prob"`
+	BuyReportEventName    string                `json:"buy_report_event_name"`
+	DisplayTag            ProductDisplayTag     `json:"display_tag"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,7 +34,9 @@ func (t *ShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRefreshExcelAddIsLegacy(b, t.IsLegacy)
 	ShopRefreshExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddIsBundle(b, t.IsBundle)
+	ShopRefreshExcelAddShopPurchasePopupType(b, fbsutils.Convert(t.ShopPurchasePopupType, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddVisibleAmount(b, fbsutils.Convert(t.VisibleAmount, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
@@ -56,7 +60,9 @@ func (t *ShopRefreshExcelDto) UnmarshalMessage(e *ShopRefreshExcel) error {
 	t.IsLegacy = e.IsLegacy()
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
 	t.IsBundle = e.IsBundle()
+	t.ShopPurchasePopupType = ShopPurchasePopupType(fbsutils.Convert(int32(e.ShopPurchasePopupType()), t.FlatBuffer.TableKey))
 	t.VisibleAmount = fbsutils.Convert(e.VisibleAmount(), t.FlatBuffer.TableKey)
+	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)

@@ -1,0 +1,9 @@
+include "GachaSelectPickupGroupExcel.fbs";
+
+namespace FlatData;
+
+table GachaSelectPickupGroupExcelTable {
+    data_list: [GachaSelectPickupGroupExcel];
+}
+
+root_type GachaSelectPickupGroupExcelTable;

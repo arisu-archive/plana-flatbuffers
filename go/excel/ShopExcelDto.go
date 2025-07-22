@@ -14,6 +14,7 @@ type ShopExcelDto struct {
 	LocalizeEtcId                uint32                 `json:"localize_etc_id"`
 	CategoryType                 ShopCategoryType       `json:"category_type"`
 	IsLegacy                     bool                   `json:"is_legacy"`
+	UseBigPopup                  bool                   `json:"use_big_popup"`
 	GoodsId                      []int64                `json:"goods_id"`
 	DisplayOrder                 int64                  `json:"display_order"`
 	SalePeriodFrom               string                 `json:"sale_period_from"`
@@ -34,6 +35,7 @@ func (t *ShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	ShopExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	ShopExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	ShopExcelAddIsLegacy(b, t.IsLegacy)
+	ShopExcelAddUseBigPopup(b, t.UseBigPopup)
 	ShopExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
@@ -65,6 +67,7 @@ func (t *ShopExcelDto) UnmarshalMessage(e *ShopExcel) error {
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.IsLegacy = e.IsLegacy()
+	t.UseBigPopup = e.UseBigPopup()
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
 		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)

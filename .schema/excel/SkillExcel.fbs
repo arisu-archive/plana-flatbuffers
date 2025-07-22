@@ -30,6 +30,7 @@ table SkillExcel {
     is_show_speechbubble: bool;
     public_speech_duration: int;
     additional_tool_tip_id: long;
+    select_ex_skill_tool_tip_id: long;
     texture_skill_card_for_form_conversion: string;
     skill_card_label_path: string;
 }

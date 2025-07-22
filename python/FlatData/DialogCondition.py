@@ -32,3 +32,5 @@ class DialogCondition(object):
     MiniGameDreamMakerEnough03 = 26
     MiniGameDreamMakerEnough04 = 27
     MiniGameDreamMakerDefault = 28
+    PassLevelUp = 29
+    UnlockPassReward = 30

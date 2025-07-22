@@ -1,0 +1,9 @@
+include "MinigameCardExcel.fbs";
+
+namespace FlatData;
+
+table MinigameCardExcelTable {
+    data_list: [MinigameCardExcel];
+}
+
+root_type MinigameCardExcelTable;

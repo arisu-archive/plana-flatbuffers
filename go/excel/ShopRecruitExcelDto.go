@@ -34,6 +34,8 @@ type ShopRecruitExcelDto struct {
 	DirectPayInvisibleTokenId  int64                  `json:"direct_pay_invisible_token_id"`
 	DirectPayAndroidShopCashId int64                  `json:"direct_pay_android_shop_cash_id"`
 	DirectPayAppleShopCashId   int64                  `json:"direct_pay_apple_shop_cash_id"`
+	SelectAbleGachaGroupId     int64                  `json:"select_able_gacha_group_id"`
+	MaxSelectCharacterNum      int64                  `json:"max_select_character_num"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -71,6 +73,8 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddDirectPayInvisibleTokenId(b, fbsutils.Convert(t.DirectPayInvisibleTokenId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDirectPayAndroidShopCashId(b, fbsutils.Convert(t.DirectPayAndroidShopCashId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDirectPayAppleShopCashId(b, fbsutils.Convert(t.DirectPayAppleShopCashId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddSelectAbleGachaGroupId(b, fbsutils.Convert(t.SelectAbleGachaGroupId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddMaxSelectCharacterNum(b, fbsutils.Convert(t.MaxSelectCharacterNum, t.FlatBuffer.TableKey))
 	return ShopRecruitExcelEnd(b)
 }
 
@@ -113,6 +117,8 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.DirectPayInvisibleTokenId = fbsutils.Convert(e.DirectPayInvisibleTokenId(), t.FlatBuffer.TableKey)
 	t.DirectPayAndroidShopCashId = fbsutils.Convert(e.DirectPayAndroidShopCashId(), t.FlatBuffer.TableKey)
 	t.DirectPayAppleShopCashId = fbsutils.Convert(e.DirectPayAppleShopCashId(), t.FlatBuffer.TableKey)
+	t.SelectAbleGachaGroupId = fbsutils.Convert(e.SelectAbleGachaGroupId(), t.FlatBuffer.TableKey)
+	t.MaxSelectCharacterNum = fbsutils.Convert(e.MaxSelectCharacterNum(), t.FlatBuffer.TableKey)
 	return nil
 }
 

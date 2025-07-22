@@ -104,7 +104,6 @@ table ConstCommonExcel {
     monthly_product_check_days: int;
     weapon_lv_up_coefficient: int;
     show_raid_my_list_count: int;
-    max_level_exp_master_coin_ratio: int;
     raid_enter_cost_type: ParcelType;
     raid_enter_cost_id: long;
     raid_ticket_cost: long;
@@ -173,4 +172,9 @@ table ConstCommonExcel {
     rank_bracket_percentage5: int;
     rank_bracket_percentage6: int;
     rank_bracket_percentage7: int;
+    expiry_battle_pass_item_receive_day: int;
+    battle_pass_flavor_text_idle_duration_milli_sec: long;
+    battle_pass_end_imminent_day: int;
+    battle_pass_exp_icon_path: string;
+    cafe_camera_drag_threshold: float;
 }

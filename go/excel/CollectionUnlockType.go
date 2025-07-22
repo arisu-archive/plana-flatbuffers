@@ -18,6 +18,7 @@ const (
 	CollectionUnlockTypeMinigameEnter               CollectionUnlockType = 8
 	CollectionUnlockTypeMinigameDreamMakerParameter CollectionUnlockType = 9
 	CollectionUnlockTypeClearSpecificScenario       CollectionUnlockType = 10
+	CollectionUnlockTypeMinigameCCGBuyPerk          CollectionUnlockType = 11
 )
 
 var EnumNamesCollectionUnlockType = map[CollectionUnlockType]string{
@@ -32,6 +33,7 @@ var EnumNamesCollectionUnlockType = map[CollectionUnlockType]string{
 	CollectionUnlockTypeMinigameEnter:               "MinigameEnter",
 	CollectionUnlockTypeMinigameDreamMakerParameter: "MinigameDreamMakerParameter",
 	CollectionUnlockTypeClearSpecificScenario:       "ClearSpecificScenario",
+	CollectionUnlockTypeMinigameCCGBuyPerk:          "MinigameCCGBuyPerk",
 }
 
 var EnumValuesCollectionUnlockType = map[string]CollectionUnlockType{
@@ -46,6 +48,7 @@ var EnumValuesCollectionUnlockType = map[string]CollectionUnlockType{
 	"MinigameEnter":               CollectionUnlockTypeMinigameEnter,
 	"MinigameDreamMakerParameter": CollectionUnlockTypeMinigameDreamMakerParameter,
 	"ClearSpecificScenario":       CollectionUnlockTypeClearSpecificScenario,
+	"MinigameCCGBuyPerk":          CollectionUnlockTypeMinigameCCGBuyPerk,
 }
 
 func (v CollectionUnlockType) String() string {

@@ -191,8 +191,16 @@ func (rcv *EventContentCollectionExcel) FullResource() []byte {
 	return nil
 }
 
-func (rcv *EventContentCollectionExcel) LocalizeEtcId() uint32 {
+func (rcv *EventContentCollectionExcel) Decoration() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentCollectionExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -200,11 +208,11 @@ func (rcv *EventContentCollectionExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentCollectionExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(30, n)
+	return rcv._tab.MutateUint32Slot(32, n)
 }
 
 func (rcv *EventContentCollectionExcel) SubNameLocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -212,7 +220,7 @@ func (rcv *EventContentCollectionExcel) SubNameLocalizeCodeId() []byte {
 }
 
 func EventContentCollectionExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(15)
+	builder.StartObject(16)
 }
 func EventContentCollectionExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -256,11 +264,14 @@ func EventContentCollectionExcelAddThumbResource(builder *flatbuffers.Builder, t
 func EventContentCollectionExcelAddFullResource(builder *flatbuffers.Builder, fullResource flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(fullResource), 0)
 }
+func EventContentCollectionExcelAddDecoration(builder *flatbuffers.Builder, decoration flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(decoration), 0)
+}
 func EventContentCollectionExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(13, localizeEtcId, 0)
+	builder.PrependUint32Slot(14, localizeEtcId, 0)
 }
 func EventContentCollectionExcelAddSubNameLocalizeCodeId(builder *flatbuffers.Builder, subNameLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
 }
 func EventContentCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
