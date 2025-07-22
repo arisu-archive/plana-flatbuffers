@@ -77,10 +77,15 @@ table ConstCombatExcel {
     echelon_extension_engage_with_supporter_timeline_path: string;
     echelon_extension_victory_timeline_path: string;
     echelon_extension_echelon_max_common_cost: int;
+    echelon_max_overload_cost: long;
+    echelon_extension_max_overload_cost: long;
     echelon_extension_echelon_init_common_cost: int;
     echelon_extension_cost_regen_ratio: long;
+    echelon_overload_cost_regen_ratio: long;
+    echelon_extension_overload_cost_regen_ratio: long;
     check_cheater_max_use_cost_multi_floor_raid: int;
     excessive_touch_check_time: float;
     excessive_touch_check_count: int;
     campaign_alert_popup_level_gap: int;
+    move_correction_skip_ratio: int;
 }

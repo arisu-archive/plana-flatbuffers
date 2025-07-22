@@ -7,36 +7,39 @@ import "strconv"
 type GachaDisplayTag int32
 
 const (
-	GachaDisplayTagNone          GachaDisplayTag = 0
-	GachaDisplayTagLimited       GachaDisplayTag = 1
-	GachaDisplayTagTwoStar       GachaDisplayTag = 2
-	GachaDisplayTagThreeStar     GachaDisplayTag = 3
-	GachaDisplayTagFree          GachaDisplayTag = 4
-	GachaDisplayTagNew           GachaDisplayTag = 5
-	GachaDisplayTagFes           GachaDisplayTag = 6
-	GachaDisplayTagSelectRecruit GachaDisplayTag = 7
+	GachaDisplayTagNone             GachaDisplayTag = 0
+	GachaDisplayTagLimited          GachaDisplayTag = 1
+	GachaDisplayTagTwoStar          GachaDisplayTag = 2
+	GachaDisplayTagThreeStar        GachaDisplayTag = 3
+	GachaDisplayTagFree             GachaDisplayTag = 4
+	GachaDisplayTagNew              GachaDisplayTag = 5
+	GachaDisplayTagFes              GachaDisplayTag = 6
+	GachaDisplayTagSelectRecruit    GachaDisplayTag = 7
+	GachaDisplayTagLimitedThreeStar GachaDisplayTag = 8
 )
 
 var EnumNamesGachaDisplayTag = map[GachaDisplayTag]string{
-	GachaDisplayTagNone:          "None",
-	GachaDisplayTagLimited:       "Limited",
-	GachaDisplayTagTwoStar:       "TwoStar",
-	GachaDisplayTagThreeStar:     "ThreeStar",
-	GachaDisplayTagFree:          "Free",
-	GachaDisplayTagNew:           "New",
-	GachaDisplayTagFes:           "Fes",
-	GachaDisplayTagSelectRecruit: "SelectRecruit",
+	GachaDisplayTagNone:             "None",
+	GachaDisplayTagLimited:          "Limited",
+	GachaDisplayTagTwoStar:          "TwoStar",
+	GachaDisplayTagThreeStar:        "ThreeStar",
+	GachaDisplayTagFree:             "Free",
+	GachaDisplayTagNew:              "New",
+	GachaDisplayTagFes:              "Fes",
+	GachaDisplayTagSelectRecruit:    "SelectRecruit",
+	GachaDisplayTagLimitedThreeStar: "LimitedThreeStar",
 }
 
 var EnumValuesGachaDisplayTag = map[string]GachaDisplayTag{
-	"None":          GachaDisplayTagNone,
-	"Limited":       GachaDisplayTagLimited,
-	"TwoStar":       GachaDisplayTagTwoStar,
-	"ThreeStar":     GachaDisplayTagThreeStar,
-	"Free":          GachaDisplayTagFree,
-	"New":           GachaDisplayTagNew,
-	"Fes":           GachaDisplayTagFes,
-	"SelectRecruit": GachaDisplayTagSelectRecruit,
+	"None":             GachaDisplayTagNone,
+	"Limited":          GachaDisplayTagLimited,
+	"TwoStar":          GachaDisplayTagTwoStar,
+	"ThreeStar":        GachaDisplayTagThreeStar,
+	"Free":             GachaDisplayTagFree,
+	"New":              GachaDisplayTagNew,
+	"Fes":              GachaDisplayTagFes,
+	"SelectRecruit":    GachaDisplayTagSelectRecruit,
+	"LimitedThreeStar": GachaDisplayTagLimitedThreeStar,
 }
 
 func (v GachaDisplayTag) String() string {

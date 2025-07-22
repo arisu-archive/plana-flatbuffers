@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table SkillSelectExTooltipExcel {
+    group_id: long;
+    selectable_ex_skill_group_id: string;
+    skill_use_condition_localize_id: string;
+}
+
+root_type SkillSelectExTooltipExcel;

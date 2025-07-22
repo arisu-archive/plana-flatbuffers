@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table MinigameCCGPerkExcel {
+    id: long;
+    ccg_id: long;
+    cost_parcel_amount: int;
+    reroll_point: int;
+    discard_point: int;
+    environment_logic_effect_id: [long];
+    required_perk_id: [long];
+    shop_order: int;
+    shop_icon: string;
+    shop_localize_title: uint;
+    shop_localize_desc: uint;
+}
+
+root_type MinigameCCGPerkExcel;

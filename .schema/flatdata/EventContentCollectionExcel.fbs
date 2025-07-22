@@ -17,6 +17,7 @@ table EventContentCollectionExcel {
     emblem_resource: string;
     thumb_resource: string;
     full_resource: string;
+    decoration: string;
     localize_etc_id: uint;
     sub_name_localize_code_id: string;
 }

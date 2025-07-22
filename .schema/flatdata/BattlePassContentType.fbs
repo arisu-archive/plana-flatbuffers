@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum BattlePassContentType: int {
+    Lobby = 0,
+    Mission = 1,
+}

@@ -19,6 +19,7 @@ const (
 	EmblemCategoryEtc_Anniversary EmblemCategory = 9
 	EmblemCategoryMultiFloorRaid  EmblemCategory = 10
 	EmblemCategoryPotential       EmblemCategory = 11
+	EmblemCategoryBattlePass      EmblemCategory = 12
 )
 
 var EnumNamesEmblemCategory = map[EmblemCategory]string{
@@ -34,6 +35,7 @@ var EnumNamesEmblemCategory = map[EmblemCategory]string{
 	EmblemCategoryEtc_Anniversary: "Etc_Anniversary",
 	EmblemCategoryMultiFloorRaid:  "MultiFloorRaid",
 	EmblemCategoryPotential:       "Potential",
+	EmblemCategoryBattlePass:      "BattlePass",
 }
 
 var EnumValuesEmblemCategory = map[string]EmblemCategory{
@@ -49,6 +51,7 @@ var EnumValuesEmblemCategory = map[string]EmblemCategory{
 	"Etc_Anniversary": EmblemCategoryEtc_Anniversary,
 	"MultiFloorRaid":  EmblemCategoryMultiFloorRaid,
 	"Potential":       EmblemCategoryPotential,
+	"BattlePass":      EmblemCategoryBattlePass,
 }
 
 func (v EmblemCategory) String() string {

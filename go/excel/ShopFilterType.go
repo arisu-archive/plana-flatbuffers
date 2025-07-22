@@ -44,6 +44,7 @@ const (
 	ShopFilterTypeShopFilterDUMMY_7  ShopFilterType = 34
 	ShopFilterTypeETC                ShopFilterType = 35
 	ShopFilterTypeBundle             ShopFilterType = 36
+	ShopFilterTypeFavorItem          ShopFilterType = 37
 )
 
 var EnumNamesShopFilterType = map[ShopFilterType]string{
@@ -84,6 +85,7 @@ var EnumNamesShopFilterType = map[ShopFilterType]string{
 	ShopFilterTypeShopFilterDUMMY_7:  "ShopFilterDUMMY_7",
 	ShopFilterTypeETC:                "ETC",
 	ShopFilterTypeBundle:             "Bundle",
+	ShopFilterTypeFavorItem:          "FavorItem",
 }
 
 var EnumValuesShopFilterType = map[string]ShopFilterType{
@@ -124,6 +126,7 @@ var EnumValuesShopFilterType = map[string]ShopFilterType{
 	"ShopFilterDUMMY_7":  ShopFilterTypeShopFilterDUMMY_7,
 	"ETC":                ShopFilterTypeETC,
 	"Bundle":             ShopFilterTypeBundle,
+	"FavorItem":          ShopFilterTypeFavorItem,
 }
 
 func (v ShopFilterType) String() string {

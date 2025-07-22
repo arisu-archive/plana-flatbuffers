@@ -52,6 +52,7 @@ type FurnitureExcelDto struct {
 	CafeCharacterStateAdd      []string              `json:"cafe_character_state_add"`
 	CafeCharacterStateMake     []string              `json:"cafe_character_state_make"`
 	CafeCharacterStateOnly     []string              `json:"cafe_character_state_only"`
+	HideCraftShortcut          bool                  `json:"hide_craft_shortcut"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -123,6 +124,7 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateOnly[len(t.CafeCharacterStateOnly)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateOnly(b, b.EndVector(len(t.CafeCharacterStateOnly)))
+	FurnitureExcelAddHideCraftShortcut(b, t.HideCraftShortcut)
 	return FurnitureExcelEnd(b)
 }
 
@@ -195,6 +197,7 @@ func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	for i := range e.CafeCharacterStateOnlyLength() {
 		t.CafeCharacterStateOnly[i] = fbsutils.Convert(string(e.CafeCharacterStateOnly(i)), t.FlatBuffer.TableKey)
 	}
+	t.HideCraftShortcut = e.HideCraftShortcut()
 	return nil
 }
 

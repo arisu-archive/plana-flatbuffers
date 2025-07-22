@@ -32,7 +32,7 @@ const (
 	MissionCompleteConditionTypeAchieve_GetItem                                       MissionCompleteConditionType = 22
 	MissionCompleteConditionTypeReset_GetFavorLevel                                   MissionCompleteConditionType = 23
 	MissionCompleteConditionTypeReset___Deprecated_EquipmentAtSpecificLevelCount      MissionCompleteConditionType = 24
-	MissionCompleteConditionTypeReset_EquipmentAtSpecificTierUpCount                  MissionCompleteConditionType = 25
+	MissionCompleteConditionTypeAchieve_EquipmentAtSpecificTierUpCount                MissionCompleteConditionType = 25
 	MissionCompleteConditionTypeReset_CharacterAtSpecificLevelCount                   MissionCompleteConditionType = 26
 	MissionCompleteConditionTypeReset_CharacterAtSpecificTranscendenceCount           MissionCompleteConditionType = 27
 	MissionCompleteConditionTypeAchieve_CharacterSkillLevelUpCount                    MissionCompleteConditionType = 28
@@ -182,6 +182,15 @@ const (
 	MissionCompleteConditionTypeReset_RoadpuzzleTileCount                             MissionCompleteConditionType = 172
 	MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle                    MissionCompleteConditionType = 173
 	MissionCompleteConditionTypeReset_ClearCountRoadpuzzle                            MissionCompleteConditionType = 174
+	MissionCompleteConditionTypeReset_CCGResultCount                                  MissionCompleteConditionType = 175
+	MissionCompleteConditionTypeReset_CCGCompleteCount                                MissionCompleteConditionType = 176
+	MissionCompleteConditionTypeReset_CCGUseCostCount                                 MissionCompleteConditionType = 177
+	MissionCompleteConditionTypeReset_CCGTotalDamageCount                             MissionCompleteConditionType = 178
+	MissionCompleteConditionTypeReset_CCGRetreatCount                                 MissionCompleteConditionType = 179
+	MissionCompleteConditionTypeReset_CCGSkillWithTagCount                            MissionCompleteConditionType = 180
+	MissionCompleteConditionTypeReset_CCGActivatePerkCount                            MissionCompleteConditionType = 181
+	MissionCompleteConditionTypeReset_ClearMultiFloorRaid                             MissionCompleteConditionType = 182
+	MissionCompleteConditionTypeReset_DayCompleteMission                              MissionCompleteConditionType = 183
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -210,7 +219,7 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeAchieve_GetItem:                                       "Achieve_GetItem",
 	MissionCompleteConditionTypeReset_GetFavorLevel:                                   "Reset_GetFavorLevel",
 	MissionCompleteConditionTypeReset___Deprecated_EquipmentAtSpecificLevelCount:      "Reset___Deprecated_EquipmentAtSpecificLevelCount",
-	MissionCompleteConditionTypeReset_EquipmentAtSpecificTierUpCount:                  "Reset_EquipmentAtSpecificTierUpCount",
+	MissionCompleteConditionTypeAchieve_EquipmentAtSpecificTierUpCount:                "Achieve_EquipmentAtSpecificTierUpCount",
 	MissionCompleteConditionTypeReset_CharacterAtSpecificLevelCount:                   "Reset_CharacterAtSpecificLevelCount",
 	MissionCompleteConditionTypeReset_CharacterAtSpecificTranscendenceCount:           "Reset_CharacterAtSpecificTranscendenceCount",
 	MissionCompleteConditionTypeAchieve_CharacterSkillLevelUpCount:                    "Achieve_CharacterSkillLevelUpCount",
@@ -360,6 +369,15 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_RoadpuzzleTileCount:                             "Reset_RoadpuzzleTileCount",
 	MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle:                    "Reset_ClearSpecificRoundRoadpuzzle",
 	MissionCompleteConditionTypeReset_ClearCountRoadpuzzle:                            "Reset_ClearCountRoadpuzzle",
+	MissionCompleteConditionTypeReset_CCGResultCount:                                  "Reset_CCGResultCount",
+	MissionCompleteConditionTypeReset_CCGCompleteCount:                                "Reset_CCGCompleteCount",
+	MissionCompleteConditionTypeReset_CCGUseCostCount:                                 "Reset_CCGUseCostCount",
+	MissionCompleteConditionTypeReset_CCGTotalDamageCount:                             "Reset_CCGTotalDamageCount",
+	MissionCompleteConditionTypeReset_CCGRetreatCount:                                 "Reset_CCGRetreatCount",
+	MissionCompleteConditionTypeReset_CCGSkillWithTagCount:                            "Reset_CCGSkillWithTagCount",
+	MissionCompleteConditionTypeReset_CCGActivatePerkCount:                            "Reset_CCGActivatePerkCount",
+	MissionCompleteConditionTypeReset_ClearMultiFloorRaid:                             "Reset_ClearMultiFloorRaid",
+	MissionCompleteConditionTypeReset_DayCompleteMission:                              "Reset_DayCompleteMission",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -388,7 +406,7 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Achieve_GetItem":                                       MissionCompleteConditionTypeAchieve_GetItem,
 	"Reset_GetFavorLevel":                                   MissionCompleteConditionTypeReset_GetFavorLevel,
 	"Reset___Deprecated_EquipmentAtSpecificLevelCount":      MissionCompleteConditionTypeReset___Deprecated_EquipmentAtSpecificLevelCount,
-	"Reset_EquipmentAtSpecificTierUpCount":                  MissionCompleteConditionTypeReset_EquipmentAtSpecificTierUpCount,
+	"Achieve_EquipmentAtSpecificTierUpCount":                MissionCompleteConditionTypeAchieve_EquipmentAtSpecificTierUpCount,
 	"Reset_CharacterAtSpecificLevelCount":                   MissionCompleteConditionTypeReset_CharacterAtSpecificLevelCount,
 	"Reset_CharacterAtSpecificTranscendenceCount":           MissionCompleteConditionTypeReset_CharacterAtSpecificTranscendenceCount,
 	"Achieve_CharacterSkillLevelUpCount":                    MissionCompleteConditionTypeAchieve_CharacterSkillLevelUpCount,
@@ -538,6 +556,15 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_RoadpuzzleTileCount":                             MissionCompleteConditionTypeReset_RoadpuzzleTileCount,
 	"Reset_ClearSpecificRoundRoadpuzzle":                    MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle,
 	"Reset_ClearCountRoadpuzzle":                            MissionCompleteConditionTypeReset_ClearCountRoadpuzzle,
+	"Reset_CCGResultCount":                                  MissionCompleteConditionTypeReset_CCGResultCount,
+	"Reset_CCGCompleteCount":                                MissionCompleteConditionTypeReset_CCGCompleteCount,
+	"Reset_CCGUseCostCount":                                 MissionCompleteConditionTypeReset_CCGUseCostCount,
+	"Reset_CCGTotalDamageCount":                             MissionCompleteConditionTypeReset_CCGTotalDamageCount,
+	"Reset_CCGRetreatCount":                                 MissionCompleteConditionTypeReset_CCGRetreatCount,
+	"Reset_CCGSkillWithTagCount":                            MissionCompleteConditionTypeReset_CCGSkillWithTagCount,
+	"Reset_CCGActivatePerkCount":                            MissionCompleteConditionTypeReset_CCGActivatePerkCount,
+	"Reset_ClearMultiFloorRaid":                             MissionCompleteConditionTypeReset_ClearMultiFloorRaid,
+	"Reset_DayCompleteMission":                              MissionCompleteConditionTypeReset_DayCompleteMission,
 }
 
 func (v MissionCompleteConditionType) String() string {

@@ -557,48 +557,83 @@ class ConstCombatExcel(object):
         return 0
 
     # ConstCombatExcel
-    def EchelonExtensionEchelonInitCommonCost(self):
+    def EchelonMaxOverloadCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(156))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EchelonExtensionCostRegenRatio(self):
+    def EchelonExtensionMaxOverloadCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(158))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CheckCheaterMaxUseCostMultiFloorRaid(self):
+    def EchelonExtensionEchelonInitCommonCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(160))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def ExcessiveTouchCheckTime(self):
+    def EchelonExtensionCostRegenRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(162))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def EchelonOverloadCostRegenRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(164))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def EchelonExtensionOverloadCostRegenRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(166))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def CheckCheaterMaxUseCostMultiFloorRaid(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(168))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def ExcessiveTouchCheckTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(170))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
     def ExcessiveTouchCheckCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(164))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(172))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def CampaignAlertPopupLevelGap(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(166))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(174))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstCombatExcelStart(builder): builder.StartObject(82)
+    # ConstCombatExcel
+    def MoveCorrectionSkipRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(176))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+def ConstCombatExcelStart(builder): builder.StartObject(87)
 def Start(builder):
     return ConstCombatExcelStart(builder)
 def ConstCombatExcelAddSkillHandCount(builder, skillHandCount): builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -829,24 +864,39 @@ def AddEchelonExtensionVictoryTimelinePath(builder, echelonExtensionVictoryTimel
 def ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost): builder.PrependInt32Slot(75, echelonExtensionEchelonMaxCommonCost, 0)
 def AddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost):
     return ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost)
-def ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost): builder.PrependInt32Slot(76, echelonExtensionEchelonInitCommonCost, 0)
+def ConstCombatExcelAddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost): builder.PrependInt64Slot(76, echelonMaxOverloadCost, 0)
+def AddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost):
+    return ConstCombatExcelAddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost)
+def ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost): builder.PrependInt64Slot(77, echelonExtensionMaxOverloadCost, 0)
+def AddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost):
+    return ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost)
+def ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost): builder.PrependInt32Slot(78, echelonExtensionEchelonInitCommonCost, 0)
 def AddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost):
     return ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost)
-def ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio): builder.PrependInt64Slot(77, echelonExtensionCostRegenRatio, 0)
+def ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio): builder.PrependInt64Slot(79, echelonExtensionCostRegenRatio, 0)
 def AddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio):
     return ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio)
-def ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid): builder.PrependInt32Slot(78, checkCheaterMaxUseCostMultiFloorRaid, 0)
+def ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio): builder.PrependInt64Slot(80, echelonOverloadCostRegenRatio, 0)
+def AddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio):
+    return ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio)
+def ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio): builder.PrependInt64Slot(81, echelonExtensionOverloadCostRegenRatio, 0)
+def AddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio):
+    return ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio)
+def ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid): builder.PrependInt32Slot(82, checkCheaterMaxUseCostMultiFloorRaid, 0)
 def AddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid):
     return ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid)
-def ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime): builder.PrependFloat32Slot(79, excessiveTouchCheckTime, 0.0)
+def ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime): builder.PrependFloat32Slot(83, excessiveTouchCheckTime, 0.0)
 def AddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime):
     return ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime)
-def ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount): builder.PrependInt32Slot(80, excessiveTouchCheckCount, 0)
+def ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount): builder.PrependInt32Slot(84, excessiveTouchCheckCount, 0)
 def AddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount):
     return ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount)
-def ConstCombatExcelAddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap): builder.PrependInt32Slot(81, campaignAlertPopupLevelGap, 0)
+def ConstCombatExcelAddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap): builder.PrependInt32Slot(85, campaignAlertPopupLevelGap, 0)
 def AddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap):
     return ConstCombatExcelAddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap)
+def ConstCombatExcelAddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio): builder.PrependInt32Slot(86, moveCorrectionSkipRatio, 0)
+def AddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio):
+    return ConstCombatExcelAddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio)
 def ConstCombatExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstCombatExcelEnd(builder)

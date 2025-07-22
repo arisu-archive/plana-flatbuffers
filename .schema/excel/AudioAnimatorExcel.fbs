@@ -7,6 +7,7 @@ table AudioAnimatorExcel {
     state_name: string;
     ignore_interrupt_delay: bool;
     ignore_interrupt_play: bool;
+    ignore_velocity: bool;
     volume: float;
     delay: float;
     random_pitch_min: int;

@@ -1,0 +1,33 @@
+include "CVCollectionType.fbs";
+include "DialogCategory.fbs";
+include "DialogCondition.fbs";
+include "DialogConditionDetail.fbs";
+include "DialogType.fbs";
+include "ProductionStep.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterDialogBattlePassExcel {
+    costume_unique_id: long;
+    original_character_id: long;
+    display_order: long;
+    battle_pass_id: long;
+    production_step: ProductionStep;
+    dialog_category: DialogCategory;
+    dialog_condition: DialogCondition;
+    dialog_condition_detail: DialogConditionDetail;
+    dialog_condition_detail_value: long;
+    group_id: long;
+    dialog_type: DialogType;
+    duration: long;
+    animation_name: string;
+    localize_kr: string;
+    localize_jp: string;
+    voice_id: [uint];
+    collection_visible: bool;
+    cv_collection_type: CVCollectionType;
+    unlock_battle_pass_id: long;
+    localize_cv_group: string;
+}
+
+root_type CharacterDialogBattlePassExcel;

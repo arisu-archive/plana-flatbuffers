@@ -909,19 +909,19 @@ func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonMaxCommonCost(n int32)
 	return rcv._tab.MutateInt32Slot(154, n)
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionEchelonInitCommonCost() int32 {
+func (rcv *ConstCombatExcel) EchelonMaxOverloadCost() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonInitCommonCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(156, n)
+func (rcv *ConstCombatExcel) MutateEchelonMaxOverloadCost(n int64) bool {
+	return rcv._tab.MutateInt64Slot(156, n)
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
+func (rcv *ConstCombatExcel) EchelonExtensionMaxOverloadCost() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -929,11 +929,11 @@ func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonExtensionCostRegenRatio(n int64) bool {
+func (rcv *ConstCombatExcel) MutateEchelonExtensionMaxOverloadCost(n int64) bool {
 	return rcv._tab.MutateInt64Slot(158, n)
 }
 
-func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostMultiFloorRaid() int32 {
+func (rcv *ConstCombatExcel) EchelonExtensionEchelonInitCommonCost() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -941,12 +941,60 @@ func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostMultiFloorRaid() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostMultiFloorRaid(n int32) bool {
+func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonInitCommonCost(n int32) bool {
 	return rcv._tab.MutateInt32Slot(160, n)
 }
 
-func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
+func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(162))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateEchelonExtensionCostRegenRatio(n int64) bool {
+	return rcv._tab.MutateInt64Slot(162, n)
+}
+
+func (rcv *ConstCombatExcel) EchelonOverloadCostRegenRatio() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateEchelonOverloadCostRegenRatio(n int64) bool {
+	return rcv._tab.MutateInt64Slot(164, n)
+}
+
+func (rcv *ConstCombatExcel) EchelonExtensionOverloadCostRegenRatio() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateEchelonExtensionOverloadCostRegenRatio(n int64) bool {
+	return rcv._tab.MutateInt64Slot(166, n)
+}
+
+func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostMultiFloorRaid() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(168))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostMultiFloorRaid(n int32) bool {
+	return rcv._tab.MutateInt32Slot(168, n)
+}
+
+func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(170))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -954,11 +1002,11 @@ func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
 }
 
 func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(162, n)
+	return rcv._tab.MutateFloat32Slot(170, n)
 }
 
 func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(172))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -966,11 +1014,11 @@ func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(164, n)
+	return rcv._tab.MutateInt32Slot(172, n)
 }
 
 func (rcv *ConstCombatExcel) CampaignAlertPopupLevelGap() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(174))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -978,11 +1026,23 @@ func (rcv *ConstCombatExcel) CampaignAlertPopupLevelGap() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateCampaignAlertPopupLevelGap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(166, n)
+	return rcv._tab.MutateInt32Slot(174, n)
+}
+
+func (rcv *ConstCombatExcel) MoveCorrectionSkipRatio() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(176))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateMoveCorrectionSkipRatio(n int32) bool {
+	return rcv._tab.MutateInt32Slot(176, n)
 }
 
 func ConstCombatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(82)
+	builder.StartObject(87)
 }
 func ConstCombatExcelAddSkillHandCount(builder *flatbuffers.Builder, skillHandCount int32) {
 	builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -1212,23 +1272,38 @@ func ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(builder *flatbuffers
 func ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder *flatbuffers.Builder, echelonExtensionEchelonMaxCommonCost int32) {
 	builder.PrependInt32Slot(75, echelonExtensionEchelonMaxCommonCost, 0)
 }
+func ConstCombatExcelAddEchelonMaxOverloadCost(builder *flatbuffers.Builder, echelonMaxOverloadCost int64) {
+	builder.PrependInt64Slot(76, echelonMaxOverloadCost, 0)
+}
+func ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder *flatbuffers.Builder, echelonExtensionMaxOverloadCost int64) {
+	builder.PrependInt64Slot(77, echelonExtensionMaxOverloadCost, 0)
+}
 func ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder *flatbuffers.Builder, echelonExtensionEchelonInitCommonCost int32) {
-	builder.PrependInt32Slot(76, echelonExtensionEchelonInitCommonCost, 0)
+	builder.PrependInt32Slot(78, echelonExtensionEchelonInitCommonCost, 0)
 }
 func ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder *flatbuffers.Builder, echelonExtensionCostRegenRatio int64) {
-	builder.PrependInt64Slot(77, echelonExtensionCostRegenRatio, 0)
+	builder.PrependInt64Slot(79, echelonExtensionCostRegenRatio, 0)
+}
+func ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder *flatbuffers.Builder, echelonOverloadCostRegenRatio int64) {
+	builder.PrependInt64Slot(80, echelonOverloadCostRegenRatio, 0)
+}
+func ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder *flatbuffers.Builder, echelonExtensionOverloadCostRegenRatio int64) {
+	builder.PrependInt64Slot(81, echelonExtensionOverloadCostRegenRatio, 0)
 }
 func ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder *flatbuffers.Builder, checkCheaterMaxUseCostMultiFloorRaid int32) {
-	builder.PrependInt32Slot(78, checkCheaterMaxUseCostMultiFloorRaid, 0)
+	builder.PrependInt32Slot(82, checkCheaterMaxUseCostMultiFloorRaid, 0)
 }
 func ConstCombatExcelAddExcessiveTouchCheckTime(builder *flatbuffers.Builder, excessiveTouchCheckTime float32) {
-	builder.PrependFloat32Slot(79, excessiveTouchCheckTime, 0.0)
+	builder.PrependFloat32Slot(83, excessiveTouchCheckTime, 0.0)
 }
 func ConstCombatExcelAddExcessiveTouchCheckCount(builder *flatbuffers.Builder, excessiveTouchCheckCount int32) {
-	builder.PrependInt32Slot(80, excessiveTouchCheckCount, 0)
+	builder.PrependInt32Slot(84, excessiveTouchCheckCount, 0)
 }
 func ConstCombatExcelAddCampaignAlertPopupLevelGap(builder *flatbuffers.Builder, campaignAlertPopupLevelGap int32) {
-	builder.PrependInt32Slot(81, campaignAlertPopupLevelGap, 0)
+	builder.PrependInt32Slot(85, campaignAlertPopupLevelGap, 0)
+}
+func ConstCombatExcelAddMoveCorrectionSkipRatio(builder *flatbuffers.Builder, moveCorrectionSkipRatio int32) {
+	builder.PrependInt32Slot(86, moveCorrectionSkipRatio, 0)
 }
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

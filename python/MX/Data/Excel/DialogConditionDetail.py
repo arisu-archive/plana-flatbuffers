@@ -7,3 +7,4 @@ class DialogConditionDetail(object):
     Day = 1
     Close = 2
     MiniGameDreamMakerDay = 3
+    PassLevel = 4

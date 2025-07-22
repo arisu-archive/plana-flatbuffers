@@ -561,8 +561,20 @@ func (rcv *FurnitureExcel) CafeCharacterStateOnlyLength() int {
 	return 0
 }
 
+func (rcv *FurnitureExcel) HideCraftShortcut() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FurnitureExcel) MutateHideCraftShortcut(n bool) bool {
+	return rcv._tab.MutateBoolSlot(88, n)
+}
+
 func FurnitureExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(42)
+	builder.StartObject(43)
 }
 func FurnitureExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -707,6 +719,9 @@ func FurnitureExcelAddCafeCharacterStateOnly(builder *flatbuffers.Builder, cafeC
 }
 func FurnitureExcelStartCafeCharacterStateOnlyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func FurnitureExcelAddHideCraftShortcut(builder *flatbuffers.Builder, hideCraftShortcut bool) {
+	builder.PrependBoolSlot(42, hideCraftShortcut, false)
 }
 func FurnitureExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

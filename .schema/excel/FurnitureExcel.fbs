@@ -50,6 +50,7 @@ table FurnitureExcel {
     cafe_character_state_add: [string];
     cafe_character_state_make: [string];
     cafe_character_state_only: [string];
+    hide_craft_shortcut: bool;
 }
 
 root_type FurnitureExcel;

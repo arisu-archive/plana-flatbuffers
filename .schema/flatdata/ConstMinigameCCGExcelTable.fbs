@@ -1,0 +1,9 @@
+include "ConstMinigameCCGExcel.fbs";
+
+namespace FlatData;
+
+table ConstMinigameCCGExcelTable {
+    data_list: [ConstMinigameCCGExcel];
+}
+
+root_type ConstMinigameCCGExcelTable;

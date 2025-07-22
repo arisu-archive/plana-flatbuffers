@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum CCGStageRewardType: int {
+    None = 0,
+    All = 1,
+    Random = 2,
+    Select = 3,
+}

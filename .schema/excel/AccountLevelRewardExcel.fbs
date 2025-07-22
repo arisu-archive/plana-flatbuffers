@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table AccountLevelRewardExcel {
+    id: long;
+    level: long;
+    reward_parcel_type: ParcelType;
+    reward_parcel_id: long;
+    reward_parcel_amount: long;
+}
+
+root_type AccountLevelRewardExcel;

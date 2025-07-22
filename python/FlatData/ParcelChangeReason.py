@@ -186,3 +186,10 @@ class ParcelChangeReason(object):
     Currency_ExpireChange = 180
     Conquest_ErosionBattleResult = 181
     Conquest_EnterErosionBattle = 182
+    BattlePass_BuyLevel = 183
+    BattlePass_Reward = 184
+    Shop_SelectedPickupGacha = 185
+    Billing_PurchaseProductSelect = 186
+    Account_LevelReward = 187
+    MiniGame_CCGCompleteGame = 188
+    MiniGame_CCGBuyPerk = 189

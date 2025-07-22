@@ -232,7 +232,21 @@ class ShopRecruitExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ShopRecruitExcelStart(builder): builder.StartObject(24)
+    # ShopRecruitExcel
+    def SelectAbleGachaGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRecruitExcel
+    def MaxSelectCharacterNum(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+def ShopRecruitExcelStart(builder): builder.StartObject(26)
 def Start(builder):
     return ShopRecruitExcelStart(builder)
 def ShopRecruitExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -313,6 +327,12 @@ def AddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId):
 def ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId): builder.PrependInt64Slot(23, directPayAppleShopCashId, 0)
 def AddDirectPayAppleShopCashId(builder, directPayAppleShopCashId):
     return ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId)
+def ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId): builder.PrependInt64Slot(24, selectAbleGachaGroupId, 0)
+def AddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId):
+    return ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId)
+def ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum): builder.PrependInt64Slot(25, maxSelectCharacterNum, 0)
+def AddMaxSelectCharacterNum(builder, maxSelectCharacterNum):
+    return ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum)
 def ShopRecruitExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopRecruitExcelEnd(builder)

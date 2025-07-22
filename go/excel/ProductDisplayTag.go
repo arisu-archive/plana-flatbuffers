@@ -12,6 +12,7 @@ const (
 	ProductDisplayTagHot     ProductDisplayTag = 2
 	ProductDisplayTagSale    ProductDisplayTag = 3
 	ProductDisplayTagLimited ProductDisplayTag = 4
+	ProductDisplayTagFree    ProductDisplayTag = 5
 )
 
 var EnumNamesProductDisplayTag = map[ProductDisplayTag]string{
@@ -20,6 +21,7 @@ var EnumNamesProductDisplayTag = map[ProductDisplayTag]string{
 	ProductDisplayTagHot:     "Hot",
 	ProductDisplayTagSale:    "Sale",
 	ProductDisplayTagLimited: "Limited",
+	ProductDisplayTagFree:    "Free",
 }
 
 var EnumValuesProductDisplayTag = map[string]ProductDisplayTag{
@@ -28,6 +30,7 @@ var EnumValuesProductDisplayTag = map[string]ProductDisplayTag{
 	"Hot":     ProductDisplayTagHot,
 	"Sale":    ProductDisplayTagSale,
 	"Limited": ProductDisplayTagLimited,
+	"Free":    ProductDisplayTagFree,
 }
 
 func (v ProductDisplayTag) String() string {

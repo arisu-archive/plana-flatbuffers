@@ -181,28 +181,56 @@ func (rcv *GoodsExcel) MutateConsumeCondition(j int, n ConsumeCondition) bool {
 	return false
 }
 
-func (rcv *GoodsExcel) ConsumeGachaTicketType() GachaTicketType {
+func (rcv *GoodsExcel) ConsumeGachaTicketType(j int) GachaTicketType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return GachaTicketType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return GachaTicketType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *GoodsExcel) MutateConsumeGachaTicketType(n GachaTicketType) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
+func (rcv *GoodsExcel) ConsumeGachaTicketTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *GoodsExcel) ConsumeGachaTicketTypeAmount() int64 {
+func (rcv *GoodsExcel) MutateConsumeGachaTicketType(j int, n GachaTicketType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *GoodsExcel) ConsumeGachaTicketTypeAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *GoodsExcel) MutateConsumeGachaTicketTypeAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
+func (rcv *GoodsExcel) ConsumeGachaTicketTypeAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *GoodsExcel) MutateConsumeGachaTicketTypeAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *GoodsExcel) ProductIdAos() int64 {
@@ -410,11 +438,17 @@ func GoodsExcelAddConsumeCondition(builder *flatbuffers.Builder, consumeConditio
 func GoodsExcelStartConsumeConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func GoodsExcelAddConsumeGachaTicketType(builder *flatbuffers.Builder, consumeGachaTicketType GachaTicketType) {
-	builder.PrependInt32Slot(8, int32(consumeGachaTicketType), 0)
+func GoodsExcelAddConsumeGachaTicketType(builder *flatbuffers.Builder, consumeGachaTicketType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(consumeGachaTicketType), 0)
 }
-func GoodsExcelAddConsumeGachaTicketTypeAmount(builder *flatbuffers.Builder, consumeGachaTicketTypeAmount int64) {
-	builder.PrependInt64Slot(9, consumeGachaTicketTypeAmount, 0)
+func GoodsExcelStartConsumeGachaTicketTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func GoodsExcelAddConsumeGachaTicketTypeAmount(builder *flatbuffers.Builder, consumeGachaTicketTypeAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(consumeGachaTicketTypeAmount), 0)
+}
+func GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func GoodsExcelAddProductIdAos(builder *flatbuffers.Builder, productIdAos int64) {
 	builder.PrependInt64Slot(10, productIdAos, 0)

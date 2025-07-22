@@ -341,15 +341,19 @@ func (rcv *SkillExcel) MutateAdditionalToolTipId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(56, n)
 }
 
-func (rcv *SkillExcel) TextureSkillCardForFormConversion() []byte {
+func (rcv *SkillExcel) SelectExSkillToolTipId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *SkillExcel) SkillCardLabelPath() []byte {
+func (rcv *SkillExcel) MutateSelectExSkillToolTipId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(58, n)
+}
+
+func (rcv *SkillExcel) TextureSkillCardForFormConversion() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -357,8 +361,16 @@ func (rcv *SkillExcel) SkillCardLabelPath() []byte {
 	return nil
 }
 
+func (rcv *SkillExcel) SkillCardLabelPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func SkillExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(29)
+	builder.StartObject(30)
 }
 func SkillExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -441,11 +453,14 @@ func SkillExcelAddPublicSpeechDuration(builder *flatbuffers.Builder, publicSpeec
 func SkillExcelAddAdditionalToolTipId(builder *flatbuffers.Builder, additionalToolTipId int64) {
 	builder.PrependInt64Slot(26, additionalToolTipId, 0)
 }
+func SkillExcelAddSelectExSkillToolTipId(builder *flatbuffers.Builder, selectExSkillToolTipId int64) {
+	builder.PrependInt64Slot(27, selectExSkillToolTipId, 0)
+}
 func SkillExcelAddTextureSkillCardForFormConversion(builder *flatbuffers.Builder, textureSkillCardForFormConversion flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(textureSkillCardForFormConversion), 0)
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(textureSkillCardForFormConversion), 0)
 }
 func SkillExcelAddSkillCardLabelPath(builder *flatbuffers.Builder, skillCardLabelPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(skillCardLabelPath), 0)
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(skillCardLabelPath), 0)
 }
 func SkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

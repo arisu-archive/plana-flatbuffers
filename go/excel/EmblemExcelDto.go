@@ -24,6 +24,7 @@ type EmblemExcelDto struct {
 	EmblemIconBgPath     string              `json:"emblem_icon_bg_path"`
 	EmblemBgPathJp       string              `json:"emblem_bg_path_jp"`
 	EmblemBgPathKr       string              `json:"emblem_bg_path_kr"`
+	EmblemEffectPath     string              `json:"emblem_effect_path"`
 	DisplayType          EmblemDisplayType   `json:"display_type"`
 	DisplayStartDate     string              `json:"display_start_date"`
 	DisplayEndDate       string              `json:"display_end_date"`
@@ -50,6 +51,7 @@ func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	EmblemExcelAddEmblemIconBgPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconBgPath, t.FlatBuffer.TableKey)))
 	EmblemExcelAddEmblemBgPathJp(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathJp, t.FlatBuffer.TableKey)))
 	EmblemExcelAddEmblemBgPathKr(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathKr, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemEffectPath(b, b.CreateString(fbsutils.Convert(t.EmblemEffectPath, t.FlatBuffer.TableKey)))
 	EmblemExcelAddDisplayType(b, fbsutils.Convert(t.DisplayType, t.FlatBuffer.TableKey))
 	EmblemExcelAddDisplayStartDate(b, b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey)))
 	EmblemExcelAddDisplayEndDate(b, b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey)))
@@ -83,6 +85,7 @@ func (t *EmblemExcelDto) UnmarshalMessage(e *EmblemExcel) error {
 	t.EmblemIconBgPath = fbsutils.Convert(string(e.EmblemIconBgPath()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathJp = fbsutils.Convert(string(e.EmblemBgPathJp()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathKr = fbsutils.Convert(string(e.EmblemBgPathKr()), t.FlatBuffer.TableKey)
+	t.EmblemEffectPath = fbsutils.Convert(string(e.EmblemEffectPath()), t.FlatBuffer.TableKey)
 	t.DisplayType = EmblemDisplayType(fbsutils.Convert(int32(e.DisplayType()), t.FlatBuffer.TableKey))
 	t.DisplayStartDate = fbsutils.Convert(string(e.DisplayStartDate()), t.FlatBuffer.TableKey)
 	t.DisplayEndDate = fbsutils.Convert(string(e.DisplayEndDate()), t.FlatBuffer.TableKey)

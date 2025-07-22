@@ -9,6 +9,7 @@ table ShopExcel {
     localize_etc_id: uint;
     category_type: ShopCategoryType;
     is_legacy: bool;
+    use_big_popup: bool;
     goods_id: [long];
     display_order: long;
     sale_period_from: string;

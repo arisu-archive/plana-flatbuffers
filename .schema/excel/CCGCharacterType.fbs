@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum CCGCharacterType: int {
+    None = 0,
+    Striker = 1,
+    Special = 2,
+}

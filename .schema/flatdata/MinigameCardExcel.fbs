@@ -1,0 +1,7 @@
+include "CCGCharacterType.fbs";
+
+namespace FlatData;
+
+table MinigameCardExcel {
+    none: [CCGCharacterType];
+}

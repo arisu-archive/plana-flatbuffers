@@ -37,6 +37,7 @@ type SkillExcelDto struct {
 	IsShowSpeechbubble                bool       `json:"is_show_speechbubble"`
 	PublicSpeechDuration              int32      `json:"public_speech_duration"`
 	AdditionalToolTipId               int64      `json:"additional_tool_tip_id"`
+	SelectExSkillToolTipId            int64      `json:"select_ex_skill_tool_tip_id"`
 	TextureSkillCardForFormConversion string     `json:"texture_skill_card_for_form_conversion"`
 	SkillCardLabelPath                string     `json:"skill_card_label_path"`
 }
@@ -71,6 +72,7 @@ func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	SkillExcelAddIsShowSpeechbubble(b, t.IsShowSpeechbubble)
 	SkillExcelAddPublicSpeechDuration(b, fbsutils.Convert(t.PublicSpeechDuration, t.FlatBuffer.TableKey))
 	SkillExcelAddAdditionalToolTipId(b, fbsutils.Convert(t.AdditionalToolTipId, t.FlatBuffer.TableKey))
+	SkillExcelAddSelectExSkillToolTipId(b, fbsutils.Convert(t.SelectExSkillToolTipId, t.FlatBuffer.TableKey))
 	SkillExcelAddTextureSkillCardForFormConversion(b, b.CreateString(fbsutils.Convert(t.TextureSkillCardForFormConversion, t.FlatBuffer.TableKey)))
 	SkillExcelAddSkillCardLabelPath(b, b.CreateString(fbsutils.Convert(t.SkillCardLabelPath, t.FlatBuffer.TableKey)))
 	return SkillExcelEnd(b)
@@ -112,6 +114,7 @@ func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
 	t.IsShowSpeechbubble = e.IsShowSpeechbubble()
 	t.PublicSpeechDuration = fbsutils.Convert(e.PublicSpeechDuration(), t.FlatBuffer.TableKey)
 	t.AdditionalToolTipId = fbsutils.Convert(e.AdditionalToolTipId(), t.FlatBuffer.TableKey)
+	t.SelectExSkillToolTipId = fbsutils.Convert(e.SelectExSkillToolTipId(), t.FlatBuffer.TableKey)
 	t.TextureSkillCardForFormConversion = fbsutils.Convert(string(e.TextureSkillCardForFormConversion()), t.FlatBuffer.TableKey)
 	t.SkillCardLabelPath = fbsutils.Convert(string(e.SkillCardLabelPath()), t.FlatBuffer.TableKey)
 	return nil
