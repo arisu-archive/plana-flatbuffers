@@ -17,7 +17,7 @@ jobs:
       version: ${{ steps.get-version.outputs.version }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: develop
           sparse-checkout: |
@@ -62,7 +62,7 @@ jobs:
     if: needs.determine-version.outputs.skip == 'false'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: develop
           sparse-checkout-cone-mode: false
