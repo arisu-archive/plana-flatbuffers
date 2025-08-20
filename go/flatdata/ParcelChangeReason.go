@@ -197,6 +197,7 @@ const (
 	ParcelChangeReasonAccount_LevelReward                  ParcelChangeReason = 187
 	ParcelChangeReasonMiniGame_CCGCompleteGame             ParcelChangeReason = 188
 	ParcelChangeReasonMiniGame_CCGBuyPerk                  ParcelChangeReason = 189
+	ParcelChangeReasonCafe_SummonCharacterTicketUse        ParcelChangeReason = 190
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -390,6 +391,7 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonAccount_LevelReward:                  "Account_LevelReward",
 	ParcelChangeReasonMiniGame_CCGCompleteGame:             "MiniGame_CCGCompleteGame",
 	ParcelChangeReasonMiniGame_CCGBuyPerk:                  "MiniGame_CCGBuyPerk",
+	ParcelChangeReasonCafe_SummonCharacterTicketUse:        "Cafe_SummonCharacterTicketUse",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -583,6 +585,7 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"Account_LevelReward":                  ParcelChangeReasonAccount_LevelReward,
 	"MiniGame_CCGCompleteGame":             ParcelChangeReasonMiniGame_CCGCompleteGame,
 	"MiniGame_CCGBuyPerk":                  ParcelChangeReasonMiniGame_CCGBuyPerk,
+	"Cafe_SummonCharacterTicketUse":        ParcelChangeReasonCafe_SummonCharacterTicketUse,
 }
 
 func (v ParcelChangeReason) String() string {

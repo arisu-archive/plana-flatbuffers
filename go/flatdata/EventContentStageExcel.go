@@ -393,16 +393,8 @@ func (rcv *EventContentStageExcel) MutateRecommandLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(60, n)
 }
 
-func (rcv *EventContentStageExcel) BgmId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *EventContentStageExcel) StrategyEnvironment() StrategyEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -410,11 +402,11 @@ func (rcv *EventContentStageExcel) StrategyEnvironment() StrategyEnvironment {
 }
 
 func (rcv *EventContentStageExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(64, int32(n))
+	return rcv._tab.MutateInt32Slot(62, int32(n))
 }
 
 func (rcv *EventContentStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -422,11 +414,11 @@ func (rcv *EventContentStageExcel) GroundId() int64 {
 }
 
 func (rcv *EventContentStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(66, n)
+	return rcv._tab.MutateInt64Slot(64, n)
 }
 
 func (rcv *EventContentStageExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -434,19 +426,27 @@ func (rcv *EventContentStageExcel) ContentType() ContentType {
 }
 
 func (rcv *EventContentStageExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(68, int32(n))
+	return rcv._tab.MutateInt32Slot(66, int32(n))
 }
 
-func (rcv *EventContentStageExcel) BgmIdC9738509() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+func (rcv *EventContentStageExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentStageExcel) MutateBgmIdC9738509(n int64) bool {
-	return rcv._tab.MutateInt64Slot(70, n)
+func (rcv *EventContentStageExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(68, n)
+}
+
+func (rcv *EventContentStageExcel) BgmIdD0807648() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentStageExcel) InstantClear() bool {
@@ -681,20 +681,20 @@ func EventContentStageExcelAddStageTopography(builder *flatbuffers.Builder, stag
 func EventContentStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
 	builder.PrependInt32Slot(28, recommandLevel, 0)
 }
-func EventContentStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(bgmId), 0)
-}
 func EventContentStageExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
-	builder.PrependInt32Slot(30, int32(strategyEnvironment), 0)
+	builder.PrependInt32Slot(29, int32(strategyEnvironment), 0)
 }
 func EventContentStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(31, groundId, 0)
+	builder.PrependInt64Slot(30, groundId, 0)
 }
 func EventContentStageExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(32, int32(contentType), 0)
+	builder.PrependInt32Slot(31, int32(contentType), 0)
 }
-func EventContentStageExcelAddBgmIdC9738509(builder *flatbuffers.Builder, bgmIdC9738509 int64) {
-	builder.PrependInt64Slot(33, bgmIdC9738509, 0)
+func EventContentStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(32, bgmId, 0)
+}
+func EventContentStageExcelAddBgmIdD0807648(builder *flatbuffers.Builder, bgmIdD0807648 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(bgmIdD0807648), 0)
 }
 func EventContentStageExcelAddInstantClear(builder *flatbuffers.Builder, instantClear bool) {
 	builder.PrependBoolSlot(34, instantClear, false)

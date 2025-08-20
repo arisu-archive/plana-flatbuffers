@@ -333,16 +333,8 @@ func (rcv *LimitedStageExcel) MutateRecommandLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(50, n)
 }
 
-func (rcv *LimitedStageExcel) BgmId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *LimitedStageExcel) StrategyEnvironment() StrategyEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -350,11 +342,11 @@ func (rcv *LimitedStageExcel) StrategyEnvironment() StrategyEnvironment {
 }
 
 func (rcv *LimitedStageExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
+	return rcv._tab.MutateInt32Slot(52, int32(n))
 }
 
 func (rcv *LimitedStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -362,11 +354,11 @@ func (rcv *LimitedStageExcel) GroundId() int64 {
 }
 
 func (rcv *LimitedStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(56, n)
+	return rcv._tab.MutateInt64Slot(54, n)
 }
 
 func (rcv *LimitedStageExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -374,19 +366,27 @@ func (rcv *LimitedStageExcel) ContentType() ContentType {
 }
 
 func (rcv *LimitedStageExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(58, int32(n))
+	return rcv._tab.MutateInt32Slot(56, int32(n))
 }
 
-func (rcv *LimitedStageExcel) BgmIdC9738509() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+func (rcv *LimitedStageExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateBgmIdC9738509(n int64) bool {
-	return rcv._tab.MutateInt64Slot(60, n)
+func (rcv *LimitedStageExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(58, n)
+}
+
+func (rcv *LimitedStageExcel) BgmIdD0807648() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *LimitedStageExcel) InstantClear() bool {
@@ -506,20 +506,20 @@ func LimitedStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopo
 func LimitedStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
 	builder.PrependInt32Slot(23, recommandLevel, 0)
 }
-func LimitedStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(bgmId), 0)
-}
 func LimitedStageExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
-	builder.PrependInt32Slot(25, int32(strategyEnvironment), 0)
+	builder.PrependInt32Slot(24, int32(strategyEnvironment), 0)
 }
 func LimitedStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(26, groundId, 0)
+	builder.PrependInt64Slot(25, groundId, 0)
 }
 func LimitedStageExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(27, int32(contentType), 0)
+	builder.PrependInt32Slot(26, int32(contentType), 0)
 }
-func LimitedStageExcelAddBgmIdC9738509(builder *flatbuffers.Builder, bgmIdC9738509 int64) {
-	builder.PrependInt64Slot(28, bgmIdC9738509, 0)
+func LimitedStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(27, bgmId, 0)
+}
+func LimitedStageExcelAddBgmIdD0807648(builder *flatbuffers.Builder, bgmIdD0807648 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(bgmIdD0807648), 0)
 }
 func LimitedStageExcelAddInstantClear(builder *flatbuffers.Builder, instantClear bool) {
 	builder.PrependBoolSlot(29, instantClear, false)

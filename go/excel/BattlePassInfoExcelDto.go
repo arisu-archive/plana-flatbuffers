@@ -29,7 +29,6 @@ type BattlePassInfoExcelDto struct {
 	LobbyBannerPath               string  `json:"lobby_banner_path"`
 	MainIconParcelPath            string  `json:"main_icon_parcel_path"`
 	PurchaseStepProductImagePath  string  `json:"purchase_step_product_image_path"`
-	PurchaseStepBgImagePath       string  `json:"purchase_step_bg_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -58,7 +57,6 @@ func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	BattlePassInfoExcelAddLobbyBannerPath(b, b.CreateString(fbsutils.Convert(t.LobbyBannerPath, t.FlatBuffer.TableKey)))
 	BattlePassInfoExcelAddMainIconParcelPath(b, b.CreateString(fbsutils.Convert(t.MainIconParcelPath, t.FlatBuffer.TableKey)))
 	BattlePassInfoExcelAddPurchaseStepProductImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepProductImagePath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddPurchaseStepBgImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepBgImagePath, t.FlatBuffer.TableKey)))
 	return BattlePassInfoExcelEnd(b)
 }
 
@@ -93,7 +91,6 @@ func (t *BattlePassInfoExcelDto) UnmarshalMessage(e *BattlePassInfoExcel) error 
 	t.LobbyBannerPath = fbsutils.Convert(string(e.LobbyBannerPath()), t.FlatBuffer.TableKey)
 	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
 	t.PurchaseStepProductImagePath = fbsutils.Convert(string(e.PurchaseStepProductImagePath()), t.FlatBuffer.TableKey)
-	t.PurchaseStepBgImagePath = fbsutils.Convert(string(e.PurchaseStepBgImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

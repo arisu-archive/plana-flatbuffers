@@ -89,7 +89,7 @@ func (rcv *EventContentDiceRaceExcel) MutateIsUsingFixedDice(n bool) bool {
 	return rcv._tab.MutateBoolSlot(12, n)
 }
 
-func (rcv *EventContentDiceRaceExcel) DiceRaceEventType(j int) []byte {
+func (rcv *EventContentDiceRaceExcel) FixedDiceIcon(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -98,7 +98,7 @@ func (rcv *EventContentDiceRaceExcel) DiceRaceEventType(j int) []byte {
 	return nil
 }
 
-func (rcv *EventContentDiceRaceExcel) DiceRaceEventTypeLength() int {
+func (rcv *EventContentDiceRaceExcel) FixedDiceIconLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -106,8 +106,25 @@ func (rcv *EventContentDiceRaceExcel) DiceRaceEventTypeLength() int {
 	return 0
 }
 
+func (rcv *EventContentDiceRaceExcel) DiceRaceEventType(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *EventContentDiceRaceExcel) DiceRaceEventTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
 func EventContentDiceRaceExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func EventContentDiceRaceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -124,8 +141,14 @@ func EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder *flatbuffers.Builder
 func EventContentDiceRaceExcelAddIsUsingFixedDice(builder *flatbuffers.Builder, isUsingFixedDice bool) {
 	builder.PrependBoolSlot(4, isUsingFixedDice, false)
 }
+func EventContentDiceRaceExcelAddFixedDiceIcon(builder *flatbuffers.Builder, fixedDiceIcon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(fixedDiceIcon), 0)
+}
+func EventContentDiceRaceExcelStartFixedDiceIconVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
 func EventContentDiceRaceExcelAddDiceRaceEventType(builder *flatbuffers.Builder, diceRaceEventType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(diceRaceEventType), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(diceRaceEventType), 0)
 }
 func EventContentDiceRaceExcelStartDiceRaceEventTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

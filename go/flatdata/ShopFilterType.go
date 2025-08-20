@@ -36,7 +36,7 @@ const (
 	ShopFilterTypeChaserTotalTicket  ShopFilterType = 26
 	ShopFilterTypeSchoolTotalTicket  ShopFilterType = 27
 	ShopFilterTypeHighlander         ShopFilterType = 28
-	ShopFilterTypeShopFilterDUMMY_2  ShopFilterType = 29
+	ShopFilterTypeWildHunt           ShopFilterType = 29
 	ShopFilterTypeShopFilterDUMMY_3  ShopFilterType = 30
 	ShopFilterTypeShopFilterDUMMY_4  ShopFilterType = 31
 	ShopFilterTypeShopFilterDUMMY_5  ShopFilterType = 32
@@ -77,7 +77,7 @@ var EnumNamesShopFilterType = map[ShopFilterType]string{
 	ShopFilterTypeChaserTotalTicket:  "ChaserTotalTicket",
 	ShopFilterTypeSchoolTotalTicket:  "SchoolTotalTicket",
 	ShopFilterTypeHighlander:         "Highlander",
-	ShopFilterTypeShopFilterDUMMY_2:  "ShopFilterDUMMY_2",
+	ShopFilterTypeWildHunt:           "WildHunt",
 	ShopFilterTypeShopFilterDUMMY_3:  "ShopFilterDUMMY_3",
 	ShopFilterTypeShopFilterDUMMY_4:  "ShopFilterDUMMY_4",
 	ShopFilterTypeShopFilterDUMMY_5:  "ShopFilterDUMMY_5",
@@ -118,7 +118,7 @@ var EnumValuesShopFilterType = map[string]ShopFilterType{
 	"ChaserTotalTicket":  ShopFilterTypeChaserTotalTicket,
 	"SchoolTotalTicket":  ShopFilterTypeSchoolTotalTicket,
 	"Highlander":         ShopFilterTypeHighlander,
-	"ShopFilterDUMMY_2":  ShopFilterTypeShopFilterDUMMY_2,
+	"WildHunt":           ShopFilterTypeWildHunt,
 	"ShopFilterDUMMY_3":  ShopFilterTypeShopFilterDUMMY_3,
 	"ShopFilterDUMMY_4":  ShopFilterTypeShopFilterDUMMY_4,
 	"ShopFilterDUMMY_5":  ShopFilterTypeShopFilterDUMMY_5,

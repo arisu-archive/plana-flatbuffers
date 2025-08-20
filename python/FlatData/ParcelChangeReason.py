@@ -193,3 +193,4 @@ class ParcelChangeReason(object):
     Account_LevelReward = 187
     MiniGame_CCGCompleteGame = 188
     MiniGame_CCGBuyPerk = 189
+    Cafe_SummonCharacterTicketUse = 190

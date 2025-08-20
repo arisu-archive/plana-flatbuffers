@@ -105,8 +105,20 @@ func (rcv *MinigameCCGRewardItemExcel) MutateRewardParcelAmount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
+func (rcv *MinigameCCGRewardItemExcel) DisplayOrder() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGRewardItemExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
 func MinigameCCGRewardItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func MinigameCCGRewardItemExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -125,6 +137,9 @@ func MinigameCCGRewardItemExcelAddRewardParcelId(builder *flatbuffers.Builder, r
 }
 func MinigameCCGRewardItemExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int32) {
 	builder.PrependInt32Slot(5, rewardParcelAmount, 0)
+}
+func MinigameCCGRewardItemExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(6, displayOrder, 0)
 }
 func MinigameCCGRewardItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

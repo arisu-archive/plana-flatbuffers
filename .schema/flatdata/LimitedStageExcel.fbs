@@ -31,11 +31,11 @@ table LimitedStageExcel {
     max_turn: int;
     stage_topography: StageTopography;
     recommand_level: int;
-    bgm_id: string;
     strategy_environment: StrategyEnvironment;
     ground_id: long;
     content_type: ContentType;
-    bgm_id_c9738509: long;
+    bgm_id: long;
+    bgm_id_d0807648: string;
     instant_clear: bool;
     buff_content_id: long;
     challenge_display: bool;

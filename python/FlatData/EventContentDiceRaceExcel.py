@@ -60,7 +60,7 @@ class EventContentDiceRaceExcel(object):
         return False
 
     # EventContentDiceRaceExcel
-    def DiceRaceEventType(self, j):
+    def FixedDiceIcon(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
@@ -68,18 +68,38 @@ class EventContentDiceRaceExcel(object):
         return ""
 
     # EventContentDiceRaceExcel
-    def DiceRaceEventTypeLength(self):
+    def FixedDiceIconLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentDiceRaceExcel
-    def DiceRaceEventTypeIsNone(self):
+    def FixedDiceIconIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
-def EventContentDiceRaceExcelStart(builder): builder.StartObject(6)
+    # EventContentDiceRaceExcel
+    def DiceRaceEventType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # EventContentDiceRaceExcel
+    def DiceRaceEventTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentDiceRaceExcel
+    def DiceRaceEventTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+def EventContentDiceRaceExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return EventContentDiceRaceExcelStart(builder)
 def EventContentDiceRaceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
@@ -97,7 +117,13 @@ def AddDiceRacePawnPrefab(builder, diceRacePawnPrefab):
 def EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice): builder.PrependBoolSlot(4, isUsingFixedDice, 0)
 def AddIsUsingFixedDice(builder, isUsingFixedDice):
     return EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice)
-def EventContentDiceRaceExcelAddDiceRaceEventType(builder, diceRaceEventType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(diceRaceEventType), 0)
+def EventContentDiceRaceExcelAddFixedDiceIcon(builder, fixedDiceIcon): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(fixedDiceIcon), 0)
+def AddFixedDiceIcon(builder, fixedDiceIcon):
+    return EventContentDiceRaceExcelAddFixedDiceIcon(builder, fixedDiceIcon)
+def EventContentDiceRaceExcelStartFixedDiceIconVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartFixedDiceIconVector(builder, numElems):
+    return EventContentDiceRaceExcelStartFixedDiceIconVector(builder, numElems)
+def EventContentDiceRaceExcelAddDiceRaceEventType(builder, diceRaceEventType): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(diceRaceEventType), 0)
 def AddDiceRaceEventType(builder, diceRaceEventType):
     return EventContentDiceRaceExcelAddDiceRaceEventType(builder, diceRaceEventType)
 def EventContentDiceRaceExcelStartDiceRaceEventTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)

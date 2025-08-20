@@ -268,39 +268,39 @@ class EventContentStageExcel(object):
         return 0
 
     # EventContentStageExcel
-    def BgmId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EventContentStageExcel
     def StrategyEnvironment(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentStageExcel
     def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentStageExcel
     def ContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentStageExcel
-    def BgmIdC9738509(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+    def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # EventContentStageExcel
+    def BgmIdD0807648(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentStageExcel
     def InstantClear(self):
@@ -501,21 +501,21 @@ def AddStageTopography(builder, stageTopography):
 def EventContentStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(28, recommandLevel, 0)
 def AddRecommandLevel(builder, recommandLevel):
     return EventContentStageExcelAddRecommandLevel(builder, recommandLevel)
-def EventContentStageExcelAddBgmId(builder, bgmId): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
-def AddBgmId(builder, bgmId):
-    return EventContentStageExcelAddBgmId(builder, bgmId)
-def EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(30, strategyEnvironment, 0)
+def EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(29, strategyEnvironment, 0)
 def AddStrategyEnvironment(builder, strategyEnvironment):
     return EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
-def EventContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(31, groundId, 0)
+def EventContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(30, groundId, 0)
 def AddGroundId(builder, groundId):
     return EventContentStageExcelAddGroundId(builder, groundId)
-def EventContentStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(32, contentType, 0)
+def EventContentStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(31, contentType, 0)
 def AddContentType(builder, contentType):
     return EventContentStageExcelAddContentType(builder, contentType)
-def EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509): builder.PrependInt64Slot(33, bgmIdC9738509, 0)
-def AddBgmIdC9738509(builder, bgmIdC9738509):
-    return EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+def EventContentStageExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(32, bgmId, 0)
+def AddBgmId(builder, bgmId):
+    return EventContentStageExcelAddBgmId(builder, bgmId)
+def EventContentStageExcelAddBgmIdD0807648(builder, bgmIdD0807648): builder.PrependUOffsetTRelativeSlot(33, flatbuffers.number_types.UOffsetTFlags.py_type(bgmIdD0807648), 0)
+def AddBgmIdD0807648(builder, bgmIdD0807648):
+    return EventContentStageExcelAddBgmIdD0807648(builder, bgmIdD0807648)
 def EventContentStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(34, instantClear, 0)
 def AddInstantClear(builder, instantClear):
     return EventContentStageExcelAddInstantClear(builder, instantClear)

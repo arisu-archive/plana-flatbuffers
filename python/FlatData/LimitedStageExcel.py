@@ -233,39 +233,39 @@ class LimitedStageExcel(object):
         return 0
 
     # LimitedStageExcel
-    def BgmId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LimitedStageExcel
     def StrategyEnvironment(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
     def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
     def ContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
-    def BgmIdC9738509(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+    def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # LimitedStageExcel
+    def BgmIdD0807648(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # LimitedStageExcel
     def InstantClear(self):
@@ -369,21 +369,21 @@ def AddStageTopography(builder, stageTopography):
 def LimitedStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(23, recommandLevel, 0)
 def AddRecommandLevel(builder, recommandLevel):
     return LimitedStageExcelAddRecommandLevel(builder, recommandLevel)
-def LimitedStageExcelAddBgmId(builder, bgmId): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
-def AddBgmId(builder, bgmId):
-    return LimitedStageExcelAddBgmId(builder, bgmId)
-def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(25, strategyEnvironment, 0)
+def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(24, strategyEnvironment, 0)
 def AddStrategyEnvironment(builder, strategyEnvironment):
     return LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
-def LimitedStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(26, groundId, 0)
+def LimitedStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(25, groundId, 0)
 def AddGroundId(builder, groundId):
     return LimitedStageExcelAddGroundId(builder, groundId)
-def LimitedStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(27, contentType, 0)
+def LimitedStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(26, contentType, 0)
 def AddContentType(builder, contentType):
     return LimitedStageExcelAddContentType(builder, contentType)
-def LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509): builder.PrependInt64Slot(28, bgmIdC9738509, 0)
-def AddBgmIdC9738509(builder, bgmIdC9738509):
-    return LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+def LimitedStageExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(27, bgmId, 0)
+def AddBgmId(builder, bgmId):
+    return LimitedStageExcelAddBgmId(builder, bgmId)
+def LimitedStageExcelAddBgmIdD0807648(builder, bgmIdD0807648): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(bgmIdD0807648), 0)
+def AddBgmIdD0807648(builder, bgmIdD0807648):
+    return LimitedStageExcelAddBgmIdD0807648(builder, bgmIdD0807648)
 def LimitedStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(29, instantClear, 0)
 def AddInstantClear(builder, instantClear):
     return LimitedStageExcelAddInstantClear(builder, instantClear)

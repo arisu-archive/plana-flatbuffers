@@ -15,15 +15,16 @@ const (
 	FurnitureSubCategoryFurnitureEtc           FurnitureSubCategory = 5
 	FurnitureSubCategoryFurnitureSubCategory1  FurnitureSubCategory = 6
 	FurnitureSubCategoryHomeAppliance          FurnitureSubCategory = 7
-	FurnitureSubCategoryWallDecoration         FurnitureSubCategory = 8
-	FurnitureSubCategoryFloorDecoration        FurnitureSubCategory = 9
-	FurnitureSubCategoryDecorationEtc          FurnitureSubCategory = 10
-	FurnitureSubCategoryDecorationSubCategory1 FurnitureSubCategory = 11
-	FurnitureSubCategoryFloor                  FurnitureSubCategory = 12
-	FurnitureSubCategoryBackground             FurnitureSubCategory = 13
-	FurnitureSubCategoryWallpaper              FurnitureSubCategory = 14
-	FurnitureSubCategoryInteriorsSubCategory1  FurnitureSubCategory = 15
-	FurnitureSubCategoryAll                    FurnitureSubCategory = 16
+	FurnitureSubCategoryTrophy                 FurnitureSubCategory = 8
+	FurnitureSubCategoryWallDecoration         FurnitureSubCategory = 9
+	FurnitureSubCategoryFloorDecoration        FurnitureSubCategory = 10
+	FurnitureSubCategoryDecorationEtc          FurnitureSubCategory = 11
+	FurnitureSubCategoryDecorationSubCategory1 FurnitureSubCategory = 12
+	FurnitureSubCategoryFloor                  FurnitureSubCategory = 13
+	FurnitureSubCategoryBackground             FurnitureSubCategory = 14
+	FurnitureSubCategoryWallpaper              FurnitureSubCategory = 15
+	FurnitureSubCategoryInteriorsSubCategory1  FurnitureSubCategory = 16
+	FurnitureSubCategoryAll                    FurnitureSubCategory = 17
 )
 
 var EnumNamesFurnitureSubCategory = map[FurnitureSubCategory]string{
@@ -35,6 +36,7 @@ var EnumNamesFurnitureSubCategory = map[FurnitureSubCategory]string{
 	FurnitureSubCategoryFurnitureEtc:           "FurnitureEtc",
 	FurnitureSubCategoryFurnitureSubCategory1:  "FurnitureSubCategory1",
 	FurnitureSubCategoryHomeAppliance:          "HomeAppliance",
+	FurnitureSubCategoryTrophy:                 "Trophy",
 	FurnitureSubCategoryWallDecoration:         "WallDecoration",
 	FurnitureSubCategoryFloorDecoration:        "FloorDecoration",
 	FurnitureSubCategoryDecorationEtc:          "DecorationEtc",
@@ -55,6 +57,7 @@ var EnumValuesFurnitureSubCategory = map[string]FurnitureSubCategory{
 	"FurnitureEtc":           FurnitureSubCategoryFurnitureEtc,
 	"FurnitureSubCategory1":  FurnitureSubCategoryFurnitureSubCategory1,
 	"HomeAppliance":          FurnitureSubCategoryHomeAppliance,
+	"Trophy":                 FurnitureSubCategoryTrophy,
 	"WallDecoration":         FurnitureSubCategoryWallDecoration,
 	"FloorDecoration":        FurnitureSubCategoryFloorDecoration,
 	"DecorationEtc":          FurnitureSubCategoryDecorationEtc,
