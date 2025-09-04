@@ -80,7 +80,7 @@ jobs:
       - name: Unzip the file
         run: unzip output.zip -d output "DiffableCs/BlueArchive/**"
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '^1.22.5'
       - name: Generate the schema
