@@ -1,0 +1,19 @@
+include "Club.fbs";
+include "School.fbs";
+include "TacticRole.fbs";
+include "WeaponType.fbs";
+
+namespace MX.Data.Excel;
+
+table EchelonConstraintExcel {
+    group_id: long;
+    is_white_list: bool;
+    character_id: [long];
+    personality_id: [long];
+    weapon_type: WeaponType;
+    school: School;
+    club: Club;
+    role: TacticRole;
+}
+
+root_type EchelonConstraintExcel;

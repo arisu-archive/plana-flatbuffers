@@ -8,7 +8,6 @@ table ArenaSeasonCloseRewardExcel {
     rank_end: long;
     reward_parcel_type: [ParcelType];
     reward_parcel_unique_id: [long];
-    reward_parcel_unique_name: [string];
     reward_parcel_amount: [long];
 }
 

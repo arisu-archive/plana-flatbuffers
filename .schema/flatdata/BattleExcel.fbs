@@ -58,11 +58,11 @@ table BattleExcel {
     position: HitEffectPosition;
     street: StageTopography;
     d: TerrainAdaptationStat;
-    main: ObstacleClass;
     remain: ObstacleDestroyType;
     low: ObstacleHeightType;
     resist: DamageAttribute;
     ally: SkillPriorityCheckTarget;
+    main: ObstacleClass;
     main_166405e7: StageType;
     target_to_caster: KnockbackDirection;
     duration: EndCondition;

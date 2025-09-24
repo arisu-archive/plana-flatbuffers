@@ -1,0 +1,16 @@
+include "MeetupConditionPrintType.fbs";
+include "MeetupConditionType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentMeetupExcel {
+    id: long;
+    event_content_id: long;
+    character_id: long;
+    condition_scenario_group_id: long;
+    condition_type: MeetupConditionType;
+    condition_parameter: [long];
+    condition_print_type: MeetupConditionPrintType;
+}
+
+root_type EventContentMeetupExcel;

@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table EventContentConcentrationExcel {
+    event_content_id: long;
+    cost_goods_id: long;
+    max_card_pair_count: int;
+    max_card_open_count: int;
+    instant_clear_round: int;
+    card_board_prefabs: string;
+}
+
+root_type EventContentConcentrationExcel;

@@ -23,6 +23,7 @@ type GuideMissionSeasonExcelDto struct {
 	CloseBannerAfterCompletion      bool                `json:"close_banner_after_completion"`
 	MaximumLoginCount               int64               `json:"maximum_login_count"`
 	ExpiryDate                      int64               `json:"expiry_date"`
+	IconOrder                       int64               `json:"icon_order"`
 	SpineCharacterId                int64               `json:"spine_character_id"`
 	RequirementParcelImage          string              `json:"requirement_parcel_image"`
 	RewardImage                     string              `json:"reward_image"`
@@ -53,6 +54,7 @@ func (t *GuideMissionSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	GuideMissionSeasonExcelAddCloseBannerAfterCompletion(b, t.CloseBannerAfterCompletion)
 	GuideMissionSeasonExcelAddMaximumLoginCount(b, fbsutils.Convert(t.MaximumLoginCount, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddExpiryDate(b, fbsutils.Convert(t.ExpiryDate, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddSpineCharacterId(b, fbsutils.Convert(t.SpineCharacterId, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddRequirementParcelImage(b, b.CreateString(fbsutils.Convert(t.RequirementParcelImage, t.FlatBuffer.TableKey)))
 	GuideMissionSeasonExcelAddRewardImage(b, b.CreateString(fbsutils.Convert(t.RewardImage, t.FlatBuffer.TableKey)))
@@ -90,6 +92,7 @@ func (t *GuideMissionSeasonExcelDto) UnmarshalMessage(e *GuideMissionSeasonExcel
 	t.CloseBannerAfterCompletion = e.CloseBannerAfterCompletion()
 	t.MaximumLoginCount = fbsutils.Convert(e.MaximumLoginCount(), t.FlatBuffer.TableKey)
 	t.ExpiryDate = fbsutils.Convert(e.ExpiryDate(), t.FlatBuffer.TableKey)
+	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
 	t.SpineCharacterId = fbsutils.Convert(e.SpineCharacterId(), t.FlatBuffer.TableKey)
 	t.RequirementParcelImage = fbsutils.Convert(string(e.RequirementParcelImage()), t.FlatBuffer.TableKey)
 	t.RewardImage = fbsutils.Convert(string(e.RewardImage()), t.FlatBuffer.TableKey)

@@ -15,6 +15,7 @@ type ShopFreeRecruitExcelDto struct {
 	FreeRecruitPeriodTo            string              `json:"free_recruit_period_to"`
 	FreeRecruitType                ShopFreeRecruitType `json:"free_recruit_type"`
 	FreeRecruitDecorationImagePath string              `json:"free_recruit_decoration_image_path"`
+	TenRecruitCountOnly            bool                `json:"ten_recruit_count_only"`
 	ShopRecruitId                  []int64             `json:"shop_recruit_id"`
 }
 
@@ -26,6 +27,7 @@ func (t *ShopFreeRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodTo, t.FlatBuffer.TableKey)))
 	ShopFreeRecruitExcelAddFreeRecruitType(b, fbsutils.Convert(t.FreeRecruitType, t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, b.CreateString(fbsutils.Convert(t.FreeRecruitDecorationImagePath, t.FlatBuffer.TableKey)))
+	ShopFreeRecruitExcelAddTenRecruitCountOnly(b, t.TenRecruitCountOnly)
 	ShopFreeRecruitExcelStartShopRecruitIdVector(b, len(t.ShopRecruitId))
 	for i := range len(t.ShopRecruitId) {
 		b.PrependInt64(fbsutils.Convert(t.ShopRecruitId[len(t.ShopRecruitId)-i-1], t.FlatBuffer.TableKey))
@@ -48,6 +50,7 @@ func (t *ShopFreeRecruitExcelDto) UnmarshalMessage(e *ShopFreeRecruitExcel) erro
 	t.FreeRecruitPeriodTo = fbsutils.Convert(string(e.FreeRecruitPeriodTo()), t.FlatBuffer.TableKey)
 	t.FreeRecruitType = ShopFreeRecruitType(fbsutils.Convert(int32(e.FreeRecruitType()), t.FlatBuffer.TableKey))
 	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
+	t.TenRecruitCountOnly = e.TenRecruitCountOnly()
 	t.ShopRecruitId = make([]int64, e.ShopRecruitIdLength())
 	for i := range e.ShopRecruitIdLength() {
 		t.ShopRecruitId[i] = fbsutils.Convert(e.ShopRecruitId(i), t.FlatBuffer.TableKey)

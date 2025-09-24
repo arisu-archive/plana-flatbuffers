@@ -1,0 +1,12 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentMeetupInfoExcel {
+    event_content_id: long;
+    cost_parcel_type: ParcelType;
+    cost_id: long;
+    cost_amount: int;
+}
+
+root_type EventContentMeetupInfoExcel;

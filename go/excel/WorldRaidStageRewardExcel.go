@@ -93,16 +93,8 @@ func (rcv *WorldRaidStageRewardExcel) MutateClearStageRewardParcelUniqueId(n int
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *WorldRaidStageRewardExcel) ClearStageRewardParcelUniqueName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *WorldRaidStageRewardExcel) ClearStageRewardAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -110,11 +102,11 @@ func (rcv *WorldRaidStageRewardExcel) ClearStageRewardAmount() int64 {
 }
 
 func (rcv *WorldRaidStageRewardExcel) MutateClearStageRewardAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func WorldRaidStageRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(6)
 }
 func WorldRaidStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
 	builder.PrependInt64Slot(0, groupId, 0)
@@ -131,11 +123,8 @@ func WorldRaidStageRewardExcelAddClearStageRewardParcelType(builder *flatbuffers
 func WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder *flatbuffers.Builder, clearStageRewardParcelUniqueId int64) {
 	builder.PrependInt64Slot(4, clearStageRewardParcelUniqueId, 0)
 }
-func WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder *flatbuffers.Builder, clearStageRewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(clearStageRewardParcelUniqueName), 0)
-}
 func WorldRaidStageRewardExcelAddClearStageRewardAmount(builder *flatbuffers.Builder, clearStageRewardAmount int64) {
-	builder.PrependInt64Slot(6, clearStageRewardAmount, 0)
+	builder.PrependInt64Slot(5, clearStageRewardAmount, 0)
 }
 func WorldRaidStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

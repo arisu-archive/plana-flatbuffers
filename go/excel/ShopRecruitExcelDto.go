@@ -22,6 +22,7 @@ type ShopRecruitExcelDto struct {
 	VideoId                    []int64                `json:"video_id"`
 	LinkedRobbyBannerId        int64                  `json:"linked_robby_banner_id"`
 	InfoCharacterId            []int64                `json:"info_character_id"`
+	SalePeriodVisible          bool                   `json:"sale_period_visible"`
 	SalePeriodFrom             string                 `json:"sale_period_from"`
 	SalePeriodTo               string                 `json:"sale_period_to"`
 	RecruitCoinId              int64                  `json:"recruit_coin_id"`
@@ -61,6 +62,7 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.InfoCharacterId[len(t.InfoCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopRecruitExcelAddInfoCharacterId(b, b.EndVector(len(t.InfoCharacterId)))
+	ShopRecruitExcelAddSalePeriodVisible(b, t.SalePeriodVisible)
 	ShopRecruitExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
 	ShopRecruitExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
 	ShopRecruitExcelAddRecruitCoinId(b, fbsutils.Convert(t.RecruitCoinId, t.FlatBuffer.TableKey))
@@ -105,6 +107,7 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	for i := range e.InfoCharacterIdLength() {
 		t.InfoCharacterId[i] = fbsutils.Convert(e.InfoCharacterId(i), t.FlatBuffer.TableKey)
 	}
+	t.SalePeriodVisible = e.SalePeriodVisible()
 	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
 	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
 	t.RecruitCoinId = fbsutils.Convert(e.RecruitCoinId(), t.FlatBuffer.TableKey)

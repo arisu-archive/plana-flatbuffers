@@ -8,7 +8,6 @@ table WorldRaidStageRewardExcel {
     clear_stage_reward_prob: long;
     clear_stage_reward_parcel_type: ParcelType;
     clear_stage_reward_parcel_unique_id: long;
-    clear_stage_reward_parcel_unique_name: string;
     clear_stage_reward_amount: long;
 }
 

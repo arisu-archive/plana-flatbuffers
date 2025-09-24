@@ -30,12 +30,12 @@ table CampaignStageExcel {
     recommand_level_gap_for_guide: int;
     min_equipment_tier_for_guide: [long];
     min_skill_level_for_guide: [long];
-    bgm_id: string;
     strategy_environment: StrategyEnvironment;
     ground_id: long;
     strategy_skip_ground_id: int;
     content_type: ContentType;
-    bgm_id_c9738509: long;
+    bgm_id: long;
+    bgm_id_d0807648: string;
     first_clear_report_event_name: string;
     tactic_reward_exp: long;
     fixed_echelon_id: long;

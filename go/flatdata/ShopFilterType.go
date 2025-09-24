@@ -31,12 +31,12 @@ const (
 	ShopFilterTypeArius              ShopFilterType = 21
 	ShopFilterTypeShanhaijing        ShopFilterType = 22
 	ShopFilterTypeValkyrie           ShopFilterType = 23
-	ShopFilterTypeSRT                ShopFilterType = 24
+	ShopFilterTypeWildHunt           ShopFilterType = 24
 	ShopFilterTypeEvent              ShopFilterType = 25
 	ShopFilterTypeChaserTotalTicket  ShopFilterType = 26
 	ShopFilterTypeSchoolTotalTicket  ShopFilterType = 27
-	ShopFilterTypeHighlander         ShopFilterType = 28
-	ShopFilterTypeShopFilterDUMMY_2  ShopFilterType = 29
+	ShopFilterTypeSRT                ShopFilterType = 28
+	ShopFilterTypeHighlander         ShopFilterType = 29
 	ShopFilterTypeShopFilterDUMMY_3  ShopFilterType = 30
 	ShopFilterTypeShopFilterDUMMY_4  ShopFilterType = 31
 	ShopFilterTypeShopFilterDUMMY_5  ShopFilterType = 32
@@ -72,12 +72,12 @@ var EnumNamesShopFilterType = map[ShopFilterType]string{
 	ShopFilterTypeArius:              "Arius",
 	ShopFilterTypeShanhaijing:        "Shanhaijing",
 	ShopFilterTypeValkyrie:           "Valkyrie",
-	ShopFilterTypeSRT:                "SRT",
+	ShopFilterTypeWildHunt:           "WildHunt",
 	ShopFilterTypeEvent:              "Event",
 	ShopFilterTypeChaserTotalTicket:  "ChaserTotalTicket",
 	ShopFilterTypeSchoolTotalTicket:  "SchoolTotalTicket",
+	ShopFilterTypeSRT:                "SRT",
 	ShopFilterTypeHighlander:         "Highlander",
-	ShopFilterTypeShopFilterDUMMY_2:  "ShopFilterDUMMY_2",
 	ShopFilterTypeShopFilterDUMMY_3:  "ShopFilterDUMMY_3",
 	ShopFilterTypeShopFilterDUMMY_4:  "ShopFilterDUMMY_4",
 	ShopFilterTypeShopFilterDUMMY_5:  "ShopFilterDUMMY_5",
@@ -113,12 +113,12 @@ var EnumValuesShopFilterType = map[string]ShopFilterType{
 	"Arius":              ShopFilterTypeArius,
 	"Shanhaijing":        ShopFilterTypeShanhaijing,
 	"Valkyrie":           ShopFilterTypeValkyrie,
-	"SRT":                ShopFilterTypeSRT,
+	"WildHunt":           ShopFilterTypeWildHunt,
 	"Event":              ShopFilterTypeEvent,
 	"ChaserTotalTicket":  ShopFilterTypeChaserTotalTicket,
 	"SchoolTotalTicket":  ShopFilterTypeSchoolTotalTicket,
+	"SRT":                ShopFilterTypeSRT,
 	"Highlander":         ShopFilterTypeHighlander,
-	"ShopFilterDUMMY_2":  ShopFilterTypeShopFilterDUMMY_2,
 	"ShopFilterDUMMY_3":  ShopFilterTypeShopFilterDUMMY_3,
 	"ShopFilterDUMMY_4":  ShopFilterTypeShopFilterDUMMY_4,
 	"ShopFilterDUMMY_5":  ShopFilterTypeShopFilterDUMMY_5,

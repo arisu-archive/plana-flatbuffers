@@ -1,0 +1,12 @@
+include "EventChangeType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentChangeScenarioExcel {
+    event_content_id: long;
+    change_type: EventChangeType;
+    change_count: long;
+    scenario_group_id: long;
+}
+
+root_type EventContentChangeScenarioExcel;

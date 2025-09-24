@@ -1,0 +1,11 @@
+include "StatType.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterStatsDetailExcel {
+    id: long;
+    detail_show_stats: [StatType];
+    is_stats_percent: [bool];
+}
+
+root_type CharacterStatsDetailExcel;

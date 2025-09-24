@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table TacticSkipExcel {
+    level_diff: int;
+    hp_result: long;
+}
+
+root_type TacticSkipExcel;

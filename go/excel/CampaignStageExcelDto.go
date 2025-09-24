@@ -33,12 +33,12 @@ type CampaignStageExcelDto struct {
 	RecommandLevelGapForGuide     int32                `json:"recommand_level_gap_for_guide"`
 	MinEquipmentTierForGuide      []int64              `json:"min_equipment_tier_for_guide"`
 	MinSkillLevelForGuide         []int64              `json:"min_skill_level_for_guide"`
-	BgmId                         string               `json:"bgm_id"`
 	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
 	GroundId                      int64                `json:"ground_id"`
 	StrategySkipGroundId          int32                `json:"strategy_skip_ground_id"`
 	ContentType                   ContentType          `json:"content_type"`
-	BgmIdC9738509                 int64                `json:"bgm_id_c9738509"`
+	BgmId                         int64                `json:"bgm_id"`
+	BgmIdD0807648                 string               `json:"bgm_id_d0807648"`
 	FirstClearReportEventName     string               `json:"first_clear_report_event_name"`
 	TacticRewardExp               int64                `json:"tactic_reward_exp"`
 	FixedEchelonId                int64                `json:"fixed_echelon_id"`
@@ -87,12 +87,12 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		b.PrependInt64(fbsutils.Convert(t.MinSkillLevelForGuide[len(t.MinSkillLevelForGuide)-i-1], t.FlatBuffer.TableKey))
 	}
 	CampaignStageExcelAddMinSkillLevelForGuide(b, b.EndVector(len(t.MinSkillLevelForGuide)))
-	CampaignStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddStrategySkipGroundId(b, fbsutils.Convert(t.StrategySkipGroundId, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddBgmIdD0807648(b, b.CreateString(fbsutils.Convert(t.BgmIdD0807648, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddFirstClearReportEventName(b, b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddTacticRewardExp(b, fbsutils.Convert(t.TacticRewardExp, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
@@ -144,12 +144,12 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	for i := range e.MinSkillLevelForGuideLength() {
 		t.MinSkillLevelForGuide[i] = fbsutils.Convert(e.MinSkillLevelForGuide(i), t.FlatBuffer.TableKey)
 	}
-	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StrategySkipGroundId = fbsutils.Convert(e.StrategySkipGroundId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.BgmIdD0807648 = fbsutils.Convert(string(e.BgmIdD0807648()), t.FlatBuffer.TableKey)
 	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	t.TacticRewardExp = fbsutils.Convert(e.TacticRewardExp(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)

@@ -32,11 +32,11 @@ type BattleExcelDto struct {
 	Position         HitEffectPosition        `json:"position"`
 	Street           StageTopography          `json:"street"`
 	D                TerrainAdaptationStat    `json:"d"`
-	Main             ObstacleClass            `json:"main"`
 	Remain           ObstacleDestroyType      `json:"remain"`
 	Low              ObstacleHeightType       `json:"low"`
 	Resist           DamageAttribute          `json:"resist"`
 	Ally             SkillPriorityCheckTarget `json:"ally"`
+	Main             ObstacleClass            `json:"main"`
 	Main166405e7     StageType                `json:"main_166405e7"`
 	TargetToCaster   KnockbackDirection       `json:"target_to_caster"`
 	Duration         EndCondition             `json:"duration"`
@@ -82,11 +82,11 @@ func (t *BattleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	BattleExcelAddPosition(b, fbsutils.Convert(t.Position, t.FlatBuffer.TableKey))
 	BattleExcelAddStreet(b, fbsutils.Convert(t.Street, t.FlatBuffer.TableKey))
 	BattleExcelAddD(b, fbsutils.Convert(t.D, t.FlatBuffer.TableKey))
-	BattleExcelAddMain(b, fbsutils.Convert(t.Main, t.FlatBuffer.TableKey))
 	BattleExcelAddRemain(b, fbsutils.Convert(t.Remain, t.FlatBuffer.TableKey))
 	BattleExcelAddLow(b, fbsutils.Convert(t.Low, t.FlatBuffer.TableKey))
 	BattleExcelAddResist(b, fbsutils.Convert(t.Resist, t.FlatBuffer.TableKey))
 	BattleExcelAddAlly(b, fbsutils.Convert(t.Ally, t.FlatBuffer.TableKey))
+	BattleExcelAddMain(b, fbsutils.Convert(t.Main, t.FlatBuffer.TableKey))
 	BattleExcelAddMain166405e7(b, fbsutils.Convert(t.Main166405e7, t.FlatBuffer.TableKey))
 	BattleExcelAddTargetToCaster(b, fbsutils.Convert(t.TargetToCaster, t.FlatBuffer.TableKey))
 	BattleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
@@ -137,11 +137,11 @@ func (t *BattleExcelDto) UnmarshalMessage(e *BattleExcel) error {
 	t.Position = HitEffectPosition(fbsutils.Convert(int32(e.Position()), t.FlatBuffer.TableKey))
 	t.Street = StageTopography(fbsutils.Convert(int32(e.Street()), t.FlatBuffer.TableKey))
 	t.D = TerrainAdaptationStat(fbsutils.Convert(int32(e.D()), t.FlatBuffer.TableKey))
-	t.Main = ObstacleClass(fbsutils.Convert(int32(e.Main()), t.FlatBuffer.TableKey))
 	t.Remain = ObstacleDestroyType(fbsutils.Convert(int32(e.Remain()), t.FlatBuffer.TableKey))
 	t.Low = ObstacleHeightType(fbsutils.Convert(int32(e.Low()), t.FlatBuffer.TableKey))
 	t.Resist = DamageAttribute(fbsutils.Convert(int32(e.Resist()), t.FlatBuffer.TableKey))
 	t.Ally = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.Ally()), t.FlatBuffer.TableKey))
+	t.Main = ObstacleClass(fbsutils.Convert(int32(e.Main()), t.FlatBuffer.TableKey))
 	t.Main166405e7 = StageType(fbsutils.Convert(int32(e.Main166405e7()), t.FlatBuffer.TableKey))
 	t.TargetToCaster = KnockbackDirection(fbsutils.Convert(int32(e.TargetToCaster()), t.FlatBuffer.TableKey))
 	t.Duration = EndCondition(fbsutils.Convert(int32(e.Duration()), t.FlatBuffer.TableKey))
