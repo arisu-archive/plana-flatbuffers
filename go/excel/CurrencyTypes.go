@@ -35,7 +35,9 @@ const (
 	CurrencyTypesEliminateTicketB          CurrencyTypes = 25
 	CurrencyTypesEliminateTicketC          CurrencyTypes = 26
 	CurrencyTypesEliminateTicketD          CurrencyTypes = 27
-	CurrencyTypesMax                       CurrencyTypes = 28
+	CurrencyTypesCafeSummonTicket1         CurrencyTypes = 28
+	CurrencyTypesCafeSummonTicket2         CurrencyTypes = 29
+	CurrencyTypesMax                       CurrencyTypes = 30
 )
 
 var EnumNamesCurrencyTypes = map[CurrencyTypes]string{
@@ -67,6 +69,8 @@ var EnumNamesCurrencyTypes = map[CurrencyTypes]string{
 	CurrencyTypesEliminateTicketB:          "EliminateTicketB",
 	CurrencyTypesEliminateTicketC:          "EliminateTicketC",
 	CurrencyTypesEliminateTicketD:          "EliminateTicketD",
+	CurrencyTypesCafeSummonTicket1:         "CafeSummonTicket1",
+	CurrencyTypesCafeSummonTicket2:         "CafeSummonTicket2",
 	CurrencyTypesMax:                       "Max",
 }
 
@@ -99,6 +103,8 @@ var EnumValuesCurrencyTypes = map[string]CurrencyTypes{
 	"EliminateTicketB":          CurrencyTypesEliminateTicketB,
 	"EliminateTicketC":          CurrencyTypesEliminateTicketC,
 	"EliminateTicketD":          CurrencyTypesEliminateTicketD,
+	"CafeSummonTicket1":         CurrencyTypesCafeSummonTicket1,
+	"CafeSummonTicket2":         CurrencyTypesCafeSummonTicket2,
 	"Max":                       CurrencyTypesMax,
 }
 

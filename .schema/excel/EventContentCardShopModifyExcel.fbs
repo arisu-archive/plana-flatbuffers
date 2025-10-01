@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table EventContentCardShopModifyExcel {
+    event_content_id: long;
+    use_prefab_name: string;
+}
+
+root_type EventContentCardShopModifyExcel;

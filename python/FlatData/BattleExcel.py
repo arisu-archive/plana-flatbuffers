@@ -219,35 +219,35 @@ class BattleExcel(object):
         return 0
 
     # BattleExcel
-    def Main(self):
+    def Remain(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Remain(self):
+    def Low(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Low(self):
+    def Resist(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Resist(self):
+    def Ally(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Ally(self):
+    def Main(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -377,21 +377,21 @@ def AddStreet(builder, street):
 def BattleExcelAddD(builder, d): builder.PrependInt32Slot(21, d, 0)
 def AddD(builder, d):
     return BattleExcelAddD(builder, d)
-def BattleExcelAddMain(builder, main): builder.PrependInt32Slot(22, main, 0)
-def AddMain(builder, main):
-    return BattleExcelAddMain(builder, main)
-def BattleExcelAddRemain(builder, remain): builder.PrependInt32Slot(23, remain, 0)
+def BattleExcelAddRemain(builder, remain): builder.PrependInt32Slot(22, remain, 0)
 def AddRemain(builder, remain):
     return BattleExcelAddRemain(builder, remain)
-def BattleExcelAddLow(builder, low): builder.PrependInt32Slot(24, low, 0)
+def BattleExcelAddLow(builder, low): builder.PrependInt32Slot(23, low, 0)
 def AddLow(builder, low):
     return BattleExcelAddLow(builder, low)
-def BattleExcelAddResist(builder, resist): builder.PrependInt32Slot(25, resist, 0)
+def BattleExcelAddResist(builder, resist): builder.PrependInt32Slot(24, resist, 0)
 def AddResist(builder, resist):
     return BattleExcelAddResist(builder, resist)
-def BattleExcelAddAlly(builder, ally): builder.PrependInt32Slot(26, ally, 0)
+def BattleExcelAddAlly(builder, ally): builder.PrependInt32Slot(25, ally, 0)
 def AddAlly(builder, ally):
     return BattleExcelAddAlly(builder, ally)
+def BattleExcelAddMain(builder, main): builder.PrependInt32Slot(26, main, 0)
+def AddMain(builder, main):
+    return BattleExcelAddMain(builder, main)
 def BattleExcelAddMain166405e7(builder, main166405e7): builder.PrependInt32Slot(27, main166405e7, 0)
 def AddMain166405e7(builder, main166405e7):
     return BattleExcelAddMain166405e7(builder, main166405e7)

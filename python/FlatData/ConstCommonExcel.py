@@ -1328,7 +1328,14 @@ class ConstCommonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def ConstCommonExcelStart(builder): builder.StartObject(172)
+    # ConstCommonExcel
+    def CafeSummonTicketBuyLimitForValidate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(348))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+def ConstCommonExcelStart(builder): builder.StartObject(173)
 def Start(builder):
     return ConstCommonExcelStart(builder)
 def ConstCommonExcelAddCampaignMainStageMaxRank(builder, campaignMainStageMaxRank): builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -1862,6 +1869,9 @@ def AddBattlePassExpIconPath(builder, battlePassExpIconPath):
 def ConstCommonExcelAddCafeCameraDragThreshold(builder, cafeCameraDragThreshold): builder.PrependFloat32Slot(171, cafeCameraDragThreshold, 0.0)
 def AddCafeCameraDragThreshold(builder, cafeCameraDragThreshold):
     return ConstCommonExcelAddCafeCameraDragThreshold(builder, cafeCameraDragThreshold)
+def ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder, cafeSummonTicketBuyLimitForValidate): builder.PrependInt32Slot(172, cafeSummonTicketBuyLimitForValidate, 0)
+def AddCafeSummonTicketBuyLimitForValidate(builder, cafeSummonTicketBuyLimitForValidate):
+    return ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder, cafeSummonTicketBuyLimitForValidate)
 def ConstCommonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstCommonExcelEnd(builder)

@@ -8,6 +8,7 @@ table ShopFreeRecruitExcel {
     free_recruit_period_to: string;
     free_recruit_type: ShopFreeRecruitType;
     free_recruit_decoration_image_path: string;
+    ten_recruit_count_only: bool;
     shop_recruit_id: [long];
 }
 

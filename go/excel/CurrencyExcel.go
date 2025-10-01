@@ -283,8 +283,32 @@ func (rcv *CurrencyExcel) MutateExpiryChangeAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
+func (rcv *CurrencyExcel) ResetType() PeriodType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return PeriodType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateResetType(n PeriodType) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
+}
+
+func (rcv *CurrencyExcel) ResetAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateResetAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
+}
+
 func CurrencyExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(21)
+	builder.StartObject(23)
 }
 func CurrencyExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -351,6 +375,12 @@ func CurrencyExcelAddExpiryChangeId(builder *flatbuffers.Builder, expiryChangeId
 }
 func CurrencyExcelAddExpiryChangeAmount(builder *flatbuffers.Builder, expiryChangeAmount int64) {
 	builder.PrependInt64Slot(20, expiryChangeAmount, 0)
+}
+func CurrencyExcelAddResetType(builder *flatbuffers.Builder, resetType PeriodType) {
+	builder.PrependInt32Slot(21, int32(resetType), 0)
+}
+func CurrencyExcelAddResetAmount(builder *flatbuffers.Builder, resetAmount int64) {
+	builder.PrependInt64Slot(22, resetAmount, 0)
 }
 func CurrencyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

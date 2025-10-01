@@ -17,6 +17,7 @@ table ShopRecruitExcel {
     video_id: [long];
     linked_robby_banner_id: long;
     info_character_id: [long];
+    sale_period_visible: bool;
     sale_period_from: string;
     sale_period_to: string;
     recruit_coin_id: long;

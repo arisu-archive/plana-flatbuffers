@@ -325,20 +325,8 @@ func (rcv *BattleExcel) MutateD(n TerrainAdaptationStat) bool {
 	return rcv._tab.MutateInt32Slot(46, int32(n))
 }
 
-func (rcv *BattleExcel) Main() ObstacleClass {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return ObstacleClass(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateMain(n ObstacleClass) bool {
-	return rcv._tab.MutateInt32Slot(48, int32(n))
-}
-
 func (rcv *BattleExcel) Remain() ObstacleDestroyType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return ObstacleDestroyType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -346,11 +334,11 @@ func (rcv *BattleExcel) Remain() ObstacleDestroyType {
 }
 
 func (rcv *BattleExcel) MutateRemain(n ObstacleDestroyType) bool {
-	return rcv._tab.MutateInt32Slot(50, int32(n))
+	return rcv._tab.MutateInt32Slot(48, int32(n))
 }
 
 func (rcv *BattleExcel) Low() ObstacleHeightType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return ObstacleHeightType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -358,11 +346,11 @@ func (rcv *BattleExcel) Low() ObstacleHeightType {
 }
 
 func (rcv *BattleExcel) MutateLow(n ObstacleHeightType) bool {
-	return rcv._tab.MutateInt32Slot(52, int32(n))
+	return rcv._tab.MutateInt32Slot(50, int32(n))
 }
 
 func (rcv *BattleExcel) Resist() DamageAttribute {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return DamageAttribute(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -370,11 +358,11 @@ func (rcv *BattleExcel) Resist() DamageAttribute {
 }
 
 func (rcv *BattleExcel) MutateResist(n DamageAttribute) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
+	return rcv._tab.MutateInt32Slot(52, int32(n))
 }
 
 func (rcv *BattleExcel) Ally() SkillPriorityCheckTarget {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return SkillPriorityCheckTarget(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -382,6 +370,18 @@ func (rcv *BattleExcel) Ally() SkillPriorityCheckTarget {
 }
 
 func (rcv *BattleExcel) MutateAlly(n SkillPriorityCheckTarget) bool {
+	return rcv._tab.MutateInt32Slot(54, int32(n))
+}
+
+func (rcv *BattleExcel) Main() ObstacleClass {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return ObstacleClass(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateMain(n ObstacleClass) bool {
 	return rcv._tab.MutateInt32Slot(56, int32(n))
 }
 
@@ -544,20 +544,20 @@ func BattleExcelAddStreet(builder *flatbuffers.Builder, street StageTopography) 
 func BattleExcelAddD(builder *flatbuffers.Builder, d TerrainAdaptationStat) {
 	builder.PrependInt32Slot(21, int32(d), 0)
 }
-func BattleExcelAddMain(builder *flatbuffers.Builder, main ObstacleClass) {
-	builder.PrependInt32Slot(22, int32(main), 0)
-}
 func BattleExcelAddRemain(builder *flatbuffers.Builder, remain ObstacleDestroyType) {
-	builder.PrependInt32Slot(23, int32(remain), 0)
+	builder.PrependInt32Slot(22, int32(remain), 0)
 }
 func BattleExcelAddLow(builder *flatbuffers.Builder, low ObstacleHeightType) {
-	builder.PrependInt32Slot(24, int32(low), 0)
+	builder.PrependInt32Slot(23, int32(low), 0)
 }
 func BattleExcelAddResist(builder *flatbuffers.Builder, resist DamageAttribute) {
-	builder.PrependInt32Slot(25, int32(resist), 0)
+	builder.PrependInt32Slot(24, int32(resist), 0)
 }
 func BattleExcelAddAlly(builder *flatbuffers.Builder, ally SkillPriorityCheckTarget) {
-	builder.PrependInt32Slot(26, int32(ally), 0)
+	builder.PrependInt32Slot(25, int32(ally), 0)
+}
+func BattleExcelAddMain(builder *flatbuffers.Builder, main ObstacleClass) {
+	builder.PrependInt32Slot(26, int32(main), 0)
 }
 func BattleExcelAddMain166405e7(builder *flatbuffers.Builder, main166405e7 StageType) {
 	builder.PrependInt32Slot(27, int32(main166405e7), 0)

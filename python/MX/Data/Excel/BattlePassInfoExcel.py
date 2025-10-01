@@ -177,14 +177,7 @@ class BattlePassInfoExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-    # BattlePassInfoExcel
-    def PurchaseStepBgImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-def BattlePassInfoExcelStart(builder): builder.StartObject(20)
+def BattlePassInfoExcelStart(builder): builder.StartObject(19)
 def Start(builder):
     return BattlePassInfoExcelStart(builder)
 def BattlePassInfoExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -247,9 +240,6 @@ def AddMainIconParcelPath(builder, mainIconParcelPath):
 def BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepProductImagePath), 0)
 def AddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath):
     return BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath)
-def BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepBgImagePath), 0)
-def AddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath):
-    return BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath)
 def BattlePassInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattlePassInfoExcelEnd(builder)

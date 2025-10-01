@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum MeetupConditionType: int {
+    None = 0,
+    EventContentStageClear = 1,
+    ScenarioClear = 2,
+}
