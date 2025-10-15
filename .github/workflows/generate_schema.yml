@@ -56,10 +56,31 @@ jobs:
           echo "version=$latest_version" >> $GITHUB_OUTPUT
           echo "skip=false" >> $GITHUB_OUTPUT
 
-  generate-schema:
+  check-branch:
     runs-on: ubuntu-latest
     needs: determine-version
     if: needs.determine-version.outputs.skip == 'false'
+    outputs:
+      should_run: ${{ steps.check-branch.outputs.should_run }}
+    steps:
+      - name: Check if branch already exists
+        id: check-branch
+        run: |
+          branch_name="chore/generate-schema-${{ needs.determine-version.outputs.version }}"
+          if gh api repos/${{ github.repository }}/branches/"$branch_name" --silent 2>/dev/null; then
+            echo "Branch $branch_name already exists. Skipping workflow."
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          else
+            echo "Branch does not exist. Proceeding with schema generation."
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  generate-schema:
+    runs-on: ubuntu-latest
+    needs: [determine-version, check-branch]
+    if: needs.check-branch.outputs.should_run == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
