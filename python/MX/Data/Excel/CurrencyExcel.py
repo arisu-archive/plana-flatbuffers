@@ -191,7 +191,21 @@ class CurrencyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CurrencyExcelStart(builder): builder.StartObject(21)
+    # CurrencyExcel
+    def ResetType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CurrencyExcel
+    def ResetAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+def CurrencyExcelStart(builder): builder.StartObject(23)
 def Start(builder):
     return CurrencyExcelStart(builder)
 def CurrencyExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -260,6 +274,12 @@ def AddExpiryChangeId(builder, expiryChangeId):
 def CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount): builder.PrependInt64Slot(20, expiryChangeAmount, 0)
 def AddExpiryChangeAmount(builder, expiryChangeAmount):
     return CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount)
+def CurrencyExcelAddResetType(builder, resetType): builder.PrependInt32Slot(21, resetType, 0)
+def AddResetType(builder, resetType):
+    return CurrencyExcelAddResetType(builder, resetType)
+def CurrencyExcelAddResetAmount(builder, resetAmount): builder.PrependInt64Slot(22, resetAmount, 0)
+def AddResetAmount(builder, resetAmount):
+    return CurrencyExcelAddResetAmount(builder, resetAmount)
 def CurrencyExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CurrencyExcelEnd(builder)

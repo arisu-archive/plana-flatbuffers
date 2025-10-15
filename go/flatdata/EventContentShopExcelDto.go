@@ -31,6 +31,9 @@ func (t *EventContentShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShop"))
 	}
+	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
+	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_buy_report_event_name := b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey))
 	EventContentShopExcelStart(b)
 	EventContentShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -43,12 +46,12 @@ func (t *EventContentShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	}
 	EventContentShopExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
 	EventContentShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	EventContentShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	EventContentShopExcelAddSalePeriodFrom(b, __offset_sale_period_from)
+	EventContentShopExcelAddSalePeriodTo(b, __offset_sale_period_to)
 	EventContentShopExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
+	EventContentShopExcelAddBuyReportEventName(b, __offset_buy_report_event_name)
 	EventContentShopExcelAddRestrictBuyWhenInventoryFull(b, t.RestrictBuyWhenInventoryFull)
 	return EventContentShopExcelEnd(b)
 }

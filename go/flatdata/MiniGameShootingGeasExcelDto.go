@@ -25,13 +25,15 @@ func (t *MiniGameShootingGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeas"))
 	}
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
+	__offset_geas_data := b.CreateString(fbsutils.Convert(t.GeasData, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelStart(b)
 	MiniGameShootingGeasExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddGeasType(b, fbsutils.Convert(t.GeasType, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	MiniGameShootingGeasExcelAddIcon(b, __offset_icon)
 	MiniGameShootingGeasExcelAddProbability(b, fbsutils.Convert(t.Probability, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddMaxOverlapCount(b, fbsutils.Convert(t.MaxOverlapCount, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddGeasData(b, b.CreateString(fbsutils.Convert(t.GeasData, t.FlatBuffer.TableKey)))
+	MiniGameShootingGeasExcelAddGeasData(b, __offset_geas_data)
 	MiniGameShootingGeasExcelAddNeedGeasId(b, fbsutils.Convert(t.NeedGeasId, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddHideInPausePopup(b, t.HideInPausePopup)
 	return MiniGameShootingGeasExcelEnd(b)

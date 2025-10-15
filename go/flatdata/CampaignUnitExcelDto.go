@@ -31,12 +31,15 @@ func (t *CampaignUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnit"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
+	__offset_strategy_prefab_name := b.CreateString(fbsutils.Convert(t.StrategyPrefabName, t.FlatBuffer.TableKey))
 	CampaignUnitExcelStart(b)
 	CampaignUnitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	CampaignUnitExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	CampaignUnitExcelAddStrategyPrefabName(b, b.CreateString(fbsutils.Convert(t.StrategyPrefabName, t.FlatBuffer.TableKey)))
+	CampaignUnitExcelAddName(b, __offset_name)
+	CampaignUnitExcelAddPrefabName(b, __offset_prefab_name)
+	CampaignUnitExcelAddStrategyPrefabName(b, __offset_strategy_prefab_name)
 	CampaignUnitExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
 	for i := range len(t.EnterScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))

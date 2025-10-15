@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table ObstacleFireLineCheckExcel {
+    my_obstacle_fire_line_check: bool;
+    ally_obstacle_fire_line_check: bool;
+    enemy_obstacle_fire_line_check: bool;
+    empty_obstacle_fire_line_check: bool;
+}
+
+root_type ObstacleFireLineCheckExcel;

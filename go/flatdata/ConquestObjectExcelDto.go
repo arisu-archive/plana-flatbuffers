@@ -29,13 +29,15 @@ func (t *ConquestObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObject"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
 	ConquestObjectExcelStart(b)
 	ConquestObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddConquestObjectType(b, fbsutils.Convert(t.ConquestObjectType, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	ConquestObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	ConquestObjectExcelAddName(b, __offset_name)
+	ConquestObjectExcelAddPrefabName(b, __offset_prefab_name)
 	ConquestObjectExcelAddConquestRewardParcelType(b, fbsutils.Convert(t.ConquestRewardParcelType, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddConquestRewardAmount(b, fbsutils.Convert(t.ConquestRewardAmount, t.FlatBuffer.TableKey))

@@ -20,14 +20,20 @@ func (t *BlendDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
 	}
-	BlendDataStart(b)
-	BlendDataAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	var __offset_info_list flatbuffers.UOffsetT
+	__nestedOffsets_info_list := make([]flatbuffers.UOffsetT, len(t.InfoList))
+	for i := range len(t.InfoList) {
+		t.InfoList[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_info_list[i] = t.InfoList[i].MarshalModel(b)
+	}
 	BlendDataStartInfoListVector(b, len(t.InfoList))
 	for i := range len(t.InfoList) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.InfoList[len(t.InfoList)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_info_list[len(t.InfoList)-i-1])
 	}
-	BlendDataAddInfoList(b, b.EndVector(len(t.InfoList)))
+	__offset_info_list = b.EndVector(len(t.InfoList))
+	BlendDataStart(b)
+	BlendDataAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	BlendDataAddInfoList(b, __offset_info_list)
 	return BlendDataEnd(b)
 }
 

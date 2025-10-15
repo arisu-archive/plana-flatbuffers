@@ -22,12 +22,13 @@ func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
+	__offset_coupon_stuff_name_localize_key := b.CreateString(fbsutils.Convert(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey))
 	CouponStuffExcelStart(b)
 	CouponStuffExcelAddStuffId(b, fbsutils.Convert(t.StuffId, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddLimitAmount(b, fbsutils.Convert(t.LimitAmount, t.FlatBuffer.TableKey))
-	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey)))
+	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, __offset_coupon_stuff_name_localize_key)
 	return CouponStuffExcelEnd(b)
 }
 

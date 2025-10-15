@@ -25,6 +25,7 @@ func (t *WeekDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonReward"))
 	}
+	__offset_drop_item_model_prefab_path := b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelStart(b)
 	WeekDungeonRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
@@ -33,7 +34,7 @@ func (t *WeekDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	WeekDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddIsDisplayed(b, t.IsDisplayed)
-	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
+	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, __offset_drop_item_model_prefab_path)
 	return WeekDungeonRewardExcelEnd(b)
 }
 

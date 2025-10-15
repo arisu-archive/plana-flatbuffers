@@ -1,4 +1,4 @@
-include "ContentType.fbs";
+include "FlatData.ContentType.fbs";
 include "SchoolDungeonType.fbs";
 include "WeekDungeonType.fbs";
 
@@ -6,7 +6,7 @@ namespace MX.Data.Excel;
 
 table FarmingDungeonLocationManageExcel {
     farming_dungeon_location_id: long;
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     week_dungeon_type: WeekDungeonType;
     school_dungeon_type: SchoolDungeonType;
     order: long;

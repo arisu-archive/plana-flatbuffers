@@ -21,11 +21,13 @@ func (t *EventContentFortuneGachaExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGacha"))
 	}
+	__offset_name_image_path := b.CreateString(fbsutils.Convert(t.NameImagePath, t.FlatBuffer.TableKey))
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaExcelStart(b)
 	EventContentFortuneGachaExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaExcelAddNameImagePath(b, b.CreateString(fbsutils.Convert(t.NameImagePath, t.FlatBuffer.TableKey)))
-	EventContentFortuneGachaExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EventContentFortuneGachaExcelAddNameImagePath(b, __offset_name_image_path)
+	EventContentFortuneGachaExcelAddIconPath(b, __offset_icon_path)
 	return EventContentFortuneGachaExcelEnd(b)
 }
 

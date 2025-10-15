@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table EventContentPlayGuideExcel {
+    id: long;
+    event_content_id: long;
+    display_order: int;
+    guide_title: string;
+    guide_image_path: string;
+    guide_text: string;
+}
+
+root_type EventContentPlayGuideExcel;

@@ -1,4 +1,4 @@
-include "ContentType.fbs";
+include "FlatData.ContentType.fbs";
 include "StageTopography.fbs";
 include "StrategyEnvironment.fbs";
 
@@ -16,7 +16,7 @@ table StoryStrategyExcel {
     max_turn: int;
     stage_topography: StageTopography;
     strategy_environment: StrategyEnvironment;
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     bgm_id: long;
     first_clear_report_event_name: string;
 }

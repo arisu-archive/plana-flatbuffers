@@ -24,9 +24,20 @@ func (t *WeekDungeonFindGiftRewardExcelDto) MarshalModel(b *flatbuffers.Builder)
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftReward"))
 	}
+	__offset_dev_name := b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey))
+	var __offset_drop_item_model_prefab_path flatbuffers.UOffsetT
+	__stringOffsets_drop_item_model_prefab_path := make([]flatbuffers.UOffsetT, len(t.DropItemModelPrefabPath))
+	for i := range len(t.DropItemModelPrefabPath) {
+		__stringOffsets_drop_item_model_prefab_path[i] = b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath[i], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(b, len(t.DropItemModelPrefabPath))
+	for i := range len(t.DropItemModelPrefabPath) {
+		b.PrependUOffsetT(__stringOffsets_drop_item_model_prefab_path[len(t.DropItemModelPrefabPath)-i-1])
+	}
+	__offset_drop_item_model_prefab_path = b.EndVector(len(t.DropItemModelPrefabPath))
 	WeekDungeonFindGiftRewardExcelStart(b)
 	WeekDungeonFindGiftRewardExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
-	WeekDungeonFindGiftRewardExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	WeekDungeonFindGiftRewardExcelAddDevName(b, __offset_dev_name)
 	WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -47,11 +58,7 @@ func (t *WeekDungeonFindGiftRewardExcelDto) MarshalModel(b *flatbuffers.Builder)
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelProbability[len(t.RewardParcelProbability)-i-1], t.FlatBuffer.TableKey))
 	}
 	WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(b, b.EndVector(len(t.RewardParcelProbability)))
-	WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(b, len(t.DropItemModelPrefabPath))
-	for i := range len(t.DropItemModelPrefabPath) {
-		b.PrependUOffsetT(b.CreateString(t.DropItemModelPrefabPath[len(t.DropItemModelPrefabPath)-i-1]))
-	}
-	WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(b, b.EndVector(len(t.DropItemModelPrefabPath)))
+	WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(b, __offset_drop_item_model_prefab_path)
 	return WeekDungeonFindGiftRewardExcelEnd(b)
 }
 

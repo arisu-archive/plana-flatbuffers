@@ -47,16 +47,29 @@ func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMission"))
 	}
+	__offset_group_name := b.CreateString(fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey))
+	__offset_toast_image_path := b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey))
+	var __offset_shortcut_ui flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui := make([]flatbuffers.UOffsetT, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		__stringOffsets_shortcut_ui[i] = b.CreateString(fbsutils.Convert(t.ShortcutUi[i], t.FlatBuffer.TableKey))
+	}
+	EventContentMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui[len(t.ShortcutUi)-i-1])
+	}
+	__offset_shortcut_ui = b.EndVector(len(t.ShortcutUi))
+	__offset_reward_icon := b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey))
 	EventContentMissionExcelStart(b)
 	EventContentMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	EventContentMissionExcelAddGroupName(b, b.CreateString(fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey)))
+	EventContentMissionExcelAddGroupName(b, __offset_group_name)
 	EventContentMissionExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	EventContentMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
+	EventContentMissionExcelAddToastImagePath(b, __offset_toast_image_path)
 	EventContentMissionExcelAddViewFlag(b, t.ViewFlag)
 	EventContentMissionExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	EventContentMissionExcelStartPreMissionIdVector(b, len(t.PreMissionId))
@@ -66,11 +79,7 @@ func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	EventContentMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
 	EventContentMissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
-	EventContentMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
-	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
-	}
-	EventContentMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
+	EventContentMissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	EventContentMissionExcelAddChallengeStageShortcut(b, fbsutils.Convert(t.ChallengeStageShortcut, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddIsCompleteExtensionTime(b, t.IsCompleteExtensionTime)
@@ -85,7 +94,7 @@ func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependInt32(fbsutils.Convert(int32(t.CompleteConditionParameterTag[len(t.CompleteConditionParameterTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentMissionExcelAddCompleteConditionParameterTag(b, b.EndVector(len(t.CompleteConditionParameterTag)))
-	EventContentMissionExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	EventContentMissionExcelAddRewardIcon(b, __offset_reward_icon)
 	EventContentMissionExcelStartCompleteConditionMissionIdVector(b, len(t.CompleteConditionMissionId))
 	for i := range len(t.CompleteConditionMissionId) {
 		b.PrependInt64(fbsutils.Convert(t.CompleteConditionMissionId[len(t.CompleteConditionMissionId)-i-1], t.FlatBuffer.TableKey))

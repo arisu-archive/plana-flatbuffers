@@ -36,18 +36,28 @@ func (t *MiniGameShootingCharacterExcelDto) MarshalModel(b *flatbuffers.Builder)
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingCharacter"))
 	}
-	MiniGameShootingCharacterExcelStart(b)
-	MiniGameShootingCharacterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddSpineResourceName(b, b.CreateString(fbsutils.Convert(t.SpineResourceName, t.FlatBuffer.TableKey)))
-	MiniGameShootingCharacterExcelAddBodyRadius(b, fbsutils.Convert(t.BodyRadius, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddModelPrefabName(b, b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey)))
-	MiniGameShootingCharacterExcelAddNormalAttackSkillData(b, b.CreateString(fbsutils.Convert(t.NormalAttackSkillData, t.FlatBuffer.TableKey)))
+	__offset_spine_resource_name := b.CreateString(fbsutils.Convert(t.SpineResourceName, t.FlatBuffer.TableKey))
+	__offset_model_prefab_name := b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey))
+	__offset_normal_attack_skill_data := b.CreateString(fbsutils.Convert(t.NormalAttackSkillData, t.FlatBuffer.TableKey))
+	var __offset_public_skill_data flatbuffers.UOffsetT
+	__stringOffsets_public_skill_data := make([]flatbuffers.UOffsetT, len(t.PublicSkillData))
+	for i := range len(t.PublicSkillData) {
+		__stringOffsets_public_skill_data[i] = b.CreateString(fbsutils.Convert(t.PublicSkillData[i], t.FlatBuffer.TableKey))
+	}
 	MiniGameShootingCharacterExcelStartPublicSkillDataVector(b, len(t.PublicSkillData))
 	for i := range len(t.PublicSkillData) {
-		b.PrependUOffsetT(b.CreateString(t.PublicSkillData[len(t.PublicSkillData)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_public_skill_data[len(t.PublicSkillData)-i-1])
 	}
-	MiniGameShootingCharacterExcelAddPublicSkillData(b, b.EndVector(len(t.PublicSkillData)))
-	MiniGameShootingCharacterExcelAddDeathSkillData(b, b.CreateString(fbsutils.Convert(t.DeathSkillData, t.FlatBuffer.TableKey)))
+	__offset_public_skill_data = b.EndVector(len(t.PublicSkillData))
+	__offset_death_skill_data := b.CreateString(fbsutils.Convert(t.DeathSkillData, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelStart(b)
+	MiniGameShootingCharacterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddSpineResourceName(b, __offset_spine_resource_name)
+	MiniGameShootingCharacterExcelAddBodyRadius(b, fbsutils.Convert(t.BodyRadius, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddModelPrefabName(b, __offset_model_prefab_name)
+	MiniGameShootingCharacterExcelAddNormalAttackSkillData(b, __offset_normal_attack_skill_data)
+	MiniGameShootingCharacterExcelAddPublicSkillData(b, __offset_public_skill_data)
+	MiniGameShootingCharacterExcelAddDeathSkillData(b, __offset_death_skill_data)
 	MiniGameShootingCharacterExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
 	MiniGameShootingCharacterExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
 	MiniGameShootingCharacterExcelAddDefensePower(b, fbsutils.Convert(t.DefensePower, t.FlatBuffer.TableKey))

@@ -20,10 +20,16 @@ func (t *MoveEndDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MoveEnd"))
 	}
+	t.Normal.InitKey(t.FlatBuffer.TableKey)
+	__offset_normal := t.Normal.MarshalModel(b)
+	t.Stand.InitKey(t.FlatBuffer.TableKey)
+	__offset_stand := t.Stand.MarshalModel(b)
+	t.Kneel.InitKey(t.FlatBuffer.TableKey)
+	__offset_kneel := t.Kneel.MarshalModel(b)
 	MoveEndStart(b)
-	MoveEndAddNormal(b, t.Normal.MarshalModel(b))
-	MoveEndAddStand(b, t.Stand.MarshalModel(b))
-	MoveEndAddKneel(b, t.Kneel.MarshalModel(b))
+	MoveEndAddNormal(b, __offset_normal)
+	MoveEndAddStand(b, __offset_stand)
+	MoveEndAddKneel(b, __offset_kneel)
 	return MoveEndEnd(b)
 }
 

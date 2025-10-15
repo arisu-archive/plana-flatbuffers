@@ -30,6 +30,9 @@ func (t *EventContentShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
+	__offset_open_period_from := b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey))
+	__offset_open_period_to := b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey))
+	__offset_shop_product_update_date := b.CreateString(fbsutils.Convert(t.ShopProductUpdateDate, t.FlatBuffer.TableKey))
 	EventContentShopInfoExcelStart(b)
 	EventContentShopInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentShopInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
@@ -53,9 +56,9 @@ func (t *EventContentShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	EventContentShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
-	EventContentShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
-	EventContentShopInfoExcelAddShopProductUpdateDate(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateDate, t.FlatBuffer.TableKey)))
+	EventContentShopInfoExcelAddOpenPeriodFrom(b, __offset_open_period_from)
+	EventContentShopInfoExcelAddOpenPeriodTo(b, __offset_open_period_to)
+	EventContentShopInfoExcelAddShopProductUpdateDate(b, __offset_shop_product_update_date)
 	return EventContentShopInfoExcelEnd(b)
 }
 

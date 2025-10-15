@@ -21,11 +21,12 @@ func (t *EventContentCurrencyItemExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItem"))
 	}
+	__offset_use_short_cut_content_type := b.CreateString(fbsutils.Convert(t.UseShortCutContentType, t.FlatBuffer.TableKey))
 	EventContentCurrencyItemExcelStart(b)
 	EventContentCurrencyItemExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentCurrencyItemExcelAddEventContentItemType(b, fbsutils.Convert(t.EventContentItemType, t.FlatBuffer.TableKey))
 	EventContentCurrencyItemExcelAddItemUniqueId(b, fbsutils.Convert(t.ItemUniqueId, t.FlatBuffer.TableKey))
-	EventContentCurrencyItemExcelAddUseShortCutContentType(b, b.CreateString(fbsutils.Convert(t.UseShortCutContentType, t.FlatBuffer.TableKey)))
+	EventContentCurrencyItemExcelAddUseShortCutContentType(b, __offset_use_short_cut_content_type)
 	return EventContentCurrencyItemExcelEnd(b)
 }
 

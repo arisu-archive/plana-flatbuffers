@@ -32,6 +32,9 @@ func (t *ShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Shop"))
 	}
+	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
+	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_buy_report_event_name := b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey))
 	ShopExcelStart(b)
 	ShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
@@ -43,12 +46,12 @@ func (t *ShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	}
 	ShopExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
 	ShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopExcelAddSalePeriodFrom(b, __offset_sale_period_from)
+	ShopExcelAddSalePeriodTo(b, __offset_sale_period_to)
 	ShopExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
 	ShopExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ShopExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
-	ShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
+	ShopExcelAddBuyReportEventName(b, __offset_buy_report_event_name)
 	ShopExcelAddRestrictBuyWhenInventoryFull(b, t.RestrictBuyWhenInventoryFull)
 	ShopExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	ShopExcelAddShopUpdateGroupId(b, fbsutils.Convert(t.ShopUpdateGroupId, t.FlatBuffer.TableKey))

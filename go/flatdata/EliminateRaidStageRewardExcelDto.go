@@ -24,13 +24,14 @@ func (t *EliminateRaidStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageReward"))
 	}
+	__offset_clear_stage_reward_parcel_unique_name := b.CreateString(fbsutils.Convert(t.ClearStageRewardParcelUniqueName, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelStart(b)
 	EliminateRaidStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelAddIsClearStageRewardHideInfo(b, t.IsClearStageRewardHideInfo)
 	EliminateRaidStageRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueId(b, fbsutils.Convert(t.ClearStageRewardParcelUniqueId, t.FlatBuffer.TableKey))
-	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, b.CreateString(fbsutils.Convert(t.ClearStageRewardParcelUniqueName, t.FlatBuffer.TableKey)))
+	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, __offset_clear_stage_reward_parcel_unique_name)
 	EliminateRaidStageRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	return EliminateRaidStageRewardExcelEnd(b)
 }

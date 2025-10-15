@@ -1,5 +1,5 @@
+include "FlatData.Tag.fbs";
 include "ParcelType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -13,7 +13,7 @@ table ShiftingCraftRecipeExcel {
     require_item_id: long;
     require_item_amount: long;
     require_gold: long;
-    ingredient_tag: [Tag];
+    ingredient_tag: [FlatData.Tag];
     ingredient_exp: long;
 }
 

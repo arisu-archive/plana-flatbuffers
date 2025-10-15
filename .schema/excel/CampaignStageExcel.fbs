@@ -1,5 +1,5 @@
-include "ContentType.fbs";
 include "EchelonExtensionType.fbs";
+include "FlatData.ContentType.fbs";
 include "ParcelType.fbs";
 include "StageTopography.fbs";
 include "StrategyEnvironment.fbs";
@@ -34,7 +34,7 @@ table CampaignStageExcel {
     strategy_environment: StrategyEnvironment;
     ground_id: long;
     strategy_skip_ground_id: int;
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     bgm_id_c9738509: long;
     first_clear_report_event_name: string;
     tactic_reward_exp: long;

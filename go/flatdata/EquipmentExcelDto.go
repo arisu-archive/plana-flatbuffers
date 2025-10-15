@@ -36,6 +36,8 @@ func (t *EquipmentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Equipment"))
 	}
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
+	__offset_image_name := b.CreateString(fbsutils.Convert(t.ImageName, t.FlatBuffer.TableKey))
 	EquipmentExcelStart(b)
 	EquipmentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EquipmentExcelAddEquipmentCategory(b, fbsutils.Convert(t.EquipmentCategory, t.FlatBuffer.TableKey))
@@ -47,8 +49,8 @@ func (t *EquipmentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	EquipmentExcelAddTierInit(b, fbsutils.Convert(t.TierInit, t.FlatBuffer.TableKey))
 	EquipmentExcelAddNextTierEquipment(b, fbsutils.Convert(t.NextTierEquipment, t.FlatBuffer.TableKey))
 	EquipmentExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
-	EquipmentExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	EquipmentExcelAddImageName(b, b.CreateString(fbsutils.Convert(t.ImageName, t.FlatBuffer.TableKey)))
+	EquipmentExcelAddIcon(b, __offset_icon)
+	EquipmentExcelAddImageName(b, __offset_image_name)
 	EquipmentExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))

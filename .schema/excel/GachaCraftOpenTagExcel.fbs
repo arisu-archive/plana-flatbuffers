@@ -1,11 +1,11 @@
 include "CraftNodeTier.fbs";
-include "Tag.fbs";
+include "FlatData.Tag.fbs";
 
 namespace MX.Data.Excel;
 
 table GachaCraftOpenTagExcel {
     node_tier: CraftNodeTier;
-    tag: [Tag];
+    tag: [FlatData.Tag];
 }
 
 root_type GachaCraftOpenTagExcel;

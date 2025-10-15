@@ -6,7 +6,6 @@ table RaidStageSeasonRewardExcel {
     season_reward_id: long;
     season_reward_parcel_type: [ParcelType];
     season_reward_parcel_unique_id: [long];
-    season_reward_parcel_unique_name: [string];
     season_reward_amount: [long];
 }
 

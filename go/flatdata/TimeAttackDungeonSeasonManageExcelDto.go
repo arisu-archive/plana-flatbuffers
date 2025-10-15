@@ -26,11 +26,14 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) MarshalModel(b *flatbuffers.Buil
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManage"))
 	}
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_end_note_label_start_date := b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelStart(b)
 	TimeAttackDungeonSeasonManageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TimeAttackDungeonSeasonManageExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
-	TimeAttackDungeonSeasonManageExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddStartDate(b, __offset_start_date)
+	TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(b, __offset_end_note_label_start_date)
+	TimeAttackDungeonSeasonManageExcelAddEndDate(b, __offset_end_date)
 	TimeAttackDungeonSeasonManageExcelAddUiSlot(b, fbsutils.Convert(t.UiSlot, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelAddDungeonId(b, fbsutils.Convert(t.DungeonId, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(b, len(t.DifficultyGeas))

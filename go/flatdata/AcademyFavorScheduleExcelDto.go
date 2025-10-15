@@ -29,12 +29,13 @@ func (t *AcademyFavorScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyFavorSchedule"))
 	}
+	__offset_location := b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelStart(b)
 	AcademyFavorScheduleExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
-	AcademyFavorScheduleExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
+	AcademyFavorScheduleExcelAddLocation(b, __offset_location)
 	AcademyFavorScheduleExcelAddLocalizeScenarioId(b, fbsutils.Convert(t.LocalizeScenarioId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddFavorRank(b, fbsutils.Convert(t.FavorRank, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddSecretStoneAmount(b, fbsutils.Convert(t.SecretStoneAmount, t.FlatBuffer.TableKey))

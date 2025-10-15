@@ -19,9 +19,10 @@ func (t *PersonalityExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Personality"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	PersonalityExcelStart(b)
 	PersonalityExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	PersonalityExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	PersonalityExcelAddName(b, __offset_name)
 	return PersonalityExcelEnd(b)
 }
 

@@ -116,13 +116,20 @@ class ShopRefreshExcel(object):
         return None
 
     # ShopRefreshExcel
-    def DisplayTag(self):
+    def ProductUpdateTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopRefreshExcel
+    def DisplayTag(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ShopRefreshExcelStart(builder): builder.StartObject(14)
+def ShopRefreshExcelStart(builder): builder.StartObject(15)
 def Start(builder):
     return ShopRefreshExcelStart(builder)
 def ShopRefreshExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -164,7 +171,10 @@ def AddProb(builder, prob):
 def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
 def AddBuyReportEventName(builder, buyReportEventName):
     return ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
-def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(13, displayTag, 0)
+def ShopRefreshExcelAddProductUpdateTime(builder, productUpdateTime): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(productUpdateTime), 0)
+def AddProductUpdateTime(builder, productUpdateTime):
+    return ShopRefreshExcelAddProductUpdateTime(builder, productUpdateTime)
+def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(14, displayTag, 0)
 def AddDisplayTag(builder, displayTag):
     return ShopRefreshExcelAddDisplayTag(builder, displayTag)
 def ShopRefreshExcelEnd(builder): return builder.EndObject()

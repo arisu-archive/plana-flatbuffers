@@ -33,12 +33,14 @@ func (t *ProductMonthlyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductMonthly"))
 	}
+	__offset_product_id := b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey))
+	__offset_price_reference := b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelStart(b)
 	ProductMonthlyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductMonthlyExcelAddProductId(b, __offset_product_id)
 	ProductMonthlyExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddPriceReference(b, b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey)))
+	ProductMonthlyExcelAddPriceReference(b, __offset_price_reference)
 	ProductMonthlyExcelAddProductTagType(b, fbsutils.Convert(t.ProductTagType, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddMonthlyDays(b, fbsutils.Convert(t.MonthlyDays, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddUseMonthlyProductCheck(b, t.UseMonthlyProductCheck)

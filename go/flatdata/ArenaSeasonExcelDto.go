@@ -22,10 +22,12 @@ func (t *ArenaSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeason"))
 	}
+	__offset_season_start_date := b.CreateString(fbsutils.Convert(t.SeasonStartDate, t.FlatBuffer.TableKey))
+	__offset_season_end_date := b.CreateString(fbsutils.Convert(t.SeasonEndDate, t.FlatBuffer.TableKey))
 	ArenaSeasonExcelStart(b)
 	ArenaSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	ArenaSeasonExcelAddSeasonStartDate(b, b.CreateString(fbsutils.Convert(t.SeasonStartDate, t.FlatBuffer.TableKey)))
-	ArenaSeasonExcelAddSeasonEndDate(b, b.CreateString(fbsutils.Convert(t.SeasonEndDate, t.FlatBuffer.TableKey)))
+	ArenaSeasonExcelAddSeasonStartDate(b, __offset_season_start_date)
+	ArenaSeasonExcelAddSeasonEndDate(b, __offset_season_end_date)
 	ArenaSeasonExcelAddSeasonGroupLimit(b, fbsutils.Convert(t.SeasonGroupLimit, t.FlatBuffer.TableKey))
 	ArenaSeasonExcelAddPrevSeasonId(b, fbsutils.Convert(t.PrevSeasonId, t.FlatBuffer.TableKey))
 	return ArenaSeasonExcelEnd(b)

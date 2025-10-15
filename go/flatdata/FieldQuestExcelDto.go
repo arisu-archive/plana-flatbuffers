@@ -27,13 +27,14 @@ func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
+	__offset_asset_path := b.CreateString(fbsutils.Convert(t.AssetPath, t.FlatBuffer.TableKey))
 	FieldQuestExcelStart(b)
 	FieldQuestExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddIsDaily(b, t.IsDaily)
 	FieldQuestExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddAssetPath(b, b.CreateString(fbsutils.Convert(t.AssetPath, t.FlatBuffer.TableKey)))
+	FieldQuestExcelAddAssetPath(b, __offset_asset_path)
 	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddQuestNamKey(b, fbsutils.Convert(t.QuestNamKey, t.FlatBuffer.TableKey))

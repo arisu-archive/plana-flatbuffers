@@ -26,20 +26,30 @@ func (t *EventContentBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuff"))
 	}
+	var __offset_enum_type_value flatbuffers.UOffsetT
+	__stringOffsets_enum_type_value := make([]flatbuffers.UOffsetT, len(t.EnumTypeValue))
+	for i := range len(t.EnumTypeValue) {
+		__stringOffsets_enum_type_value[i] = b.CreateString(fbsutils.Convert(t.EnumTypeValue[i], t.FlatBuffer.TableKey))
+	}
+	EventContentBuffExcelStartEnumTypeValueVector(b, len(t.EnumTypeValue))
+	for i := range len(t.EnumTypeValue) {
+		b.PrependUOffsetT(__stringOffsets_enum_type_value[len(t.EnumTypeValue)-i-1])
+	}
+	__offset_enum_type_value = b.EndVector(len(t.EnumTypeValue))
+	__offset_skill_group_id := b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey))
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_sprite_name := b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey))
+	__offset_buff_description_localize_code_id := b.CreateString(fbsutils.Convert(t.BuffDescriptionLocalizeCodeId, t.FlatBuffer.TableKey))
 	EventContentBuffExcelStart(b)
 	EventContentBuffExcelAddEventContentBuffId(b, fbsutils.Convert(t.EventContentBuffId, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddIsBuff(b, t.IsBuff)
 	EventContentBuffExcelAddCharacterTag(b, fbsutils.Convert(t.CharacterTag, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddEnumType(b, fbsutils.Convert(t.EnumType, t.FlatBuffer.TableKey))
-	EventContentBuffExcelStartEnumTypeValueVector(b, len(t.EnumTypeValue))
-	for i := range len(t.EnumTypeValue) {
-		b.PrependUOffsetT(b.CreateString(t.EnumTypeValue[len(t.EnumTypeValue)-i-1]))
-	}
-	EventContentBuffExcelAddEnumTypeValue(b, b.EndVector(len(t.EnumTypeValue)))
-	EventContentBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
-	EventContentBuffExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	EventContentBuffExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
-	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.BuffDescriptionLocalizeCodeId, t.FlatBuffer.TableKey)))
+	EventContentBuffExcelAddEnumTypeValue(b, __offset_enum_type_value)
+	EventContentBuffExcelAddSkillGroupId(b, __offset_skill_group_id)
+	EventContentBuffExcelAddIconPath(b, __offset_icon_path)
+	EventContentBuffExcelAddSpriteName(b, __offset_sprite_name)
+	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, __offset_buff_description_localize_code_id)
 	return EventContentBuffExcelEnd(b)
 }
 

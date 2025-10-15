@@ -26,12 +26,14 @@ func (t *EventContentZoneVisitRewardExcelDto) MarshalModel(b *flatbuffers.Builde
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitReward"))
 	}
+	__offset_dev_name := b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey))
+	__offset_character_dev_name := b.CreateString(fbsutils.Convert(t.CharacterDevName, t.FlatBuffer.TableKey))
 	EventContentZoneVisitRewardExcelStart(b)
 	EventContentZoneVisitRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentZoneVisitRewardExcelAddEventContentLocationId(b, fbsutils.Convert(t.EventContentLocationId, t.FlatBuffer.TableKey))
-	EventContentZoneVisitRewardExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	EventContentZoneVisitRewardExcelAddDevName(b, __offset_dev_name)
 	EventContentZoneVisitRewardExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	EventContentZoneVisitRewardExcelAddCharacterDevName(b, b.CreateString(fbsutils.Convert(t.CharacterDevName, t.FlatBuffer.TableKey)))
+	EventContentZoneVisitRewardExcelAddCharacterDevName(b, __offset_character_dev_name)
 	EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(b, len(t.VisitRewardParcelType))
 	for i := range len(t.VisitRewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.VisitRewardParcelType[len(t.VisitRewardParcelType)-i-1]), t.FlatBuffer.TableKey))

@@ -30,24 +30,36 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
+	__offset_state_name := b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey))
+	__offset_state_prefix := b.CreateString(fbsutils.Convert(t.StatePrefix, t.FlatBuffer.TableKey))
+	__offset_state_name_with_prefix := b.CreateString(fbsutils.Convert(t.StateNameWithPrefix, t.FlatBuffer.TableKey))
+	__offset_tag := b.CreateString(fbsutils.Convert(t.Tag, t.FlatBuffer.TableKey))
+	__offset_speed_parameter_name := b.CreateString(fbsutils.Convert(t.SpeedParameterName, t.FlatBuffer.TableKey))
+	__offset_clip_name := b.CreateString(fbsutils.Convert(t.ClipName, t.FlatBuffer.TableKey))
+	var __offset_events flatbuffers.UOffsetT
+	__nestedOffsets_events := make([]flatbuffers.UOffsetT, len(t.Events))
+	for i := range len(t.Events) {
+		t.Events[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_events[i] = t.Events[i].MarshalModel(b)
+	}
+	AniStateDataStartEventsVector(b, len(t.Events))
+	for i := range len(t.Events) {
+		b.PrependUOffsetT(__nestedOffsets_events[len(t.Events)-i-1])
+	}
+	__offset_events = b.EndVector(len(t.Events))
 	AniStateDataStart(b)
-	AniStateDataAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
-	AniStateDataAddStatePrefix(b, b.CreateString(fbsutils.Convert(t.StatePrefix, t.FlatBuffer.TableKey)))
-	AniStateDataAddStateNameWithPrefix(b, b.CreateString(fbsutils.Convert(t.StateNameWithPrefix, t.FlatBuffer.TableKey)))
-	AniStateDataAddTag(b, b.CreateString(fbsutils.Convert(t.Tag, t.FlatBuffer.TableKey)))
-	AniStateDataAddSpeedParameterName(b, b.CreateString(fbsutils.Convert(t.SpeedParameterName, t.FlatBuffer.TableKey)))
+	AniStateDataAddStateName(b, __offset_state_name)
+	AniStateDataAddStatePrefix(b, __offset_state_prefix)
+	AniStateDataAddStateNameWithPrefix(b, __offset_state_name_with_prefix)
+	AniStateDataAddTag(b, __offset_tag)
+	AniStateDataAddSpeedParameterName(b, __offset_speed_parameter_name)
 	AniStateDataAddSpeedParamter(b, fbsutils.Convert(t.SpeedParamter, t.FlatBuffer.TableKey))
 	AniStateDataAddStateSpeed(b, fbsutils.Convert(t.StateSpeed, t.FlatBuffer.TableKey))
-	AniStateDataAddClipName(b, b.CreateString(fbsutils.Convert(t.ClipName, t.FlatBuffer.TableKey)))
+	AniStateDataAddClipName(b, __offset_clip_name)
 	AniStateDataAddLength(b, fbsutils.Convert(t.Length, t.FlatBuffer.TableKey))
 	AniStateDataAddFrameRate(b, fbsutils.Convert(t.FrameRate, t.FlatBuffer.TableKey))
 	AniStateDataAddIsLooping(b, t.IsLooping)
-	AniStateDataStartEventsVector(b, len(t.Events))
-	for i := range len(t.Events) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Events[len(t.Events)-i-1].MarshalModel(b))
-	}
-	AniStateDataAddEvents(b, b.EndVector(len(t.Events)))
+	AniStateDataAddEvents(b, __offset_events)
 	return AniStateDataEnd(b)
 }
 

@@ -1,8 +1,8 @@
+include "FlatData.Tag.fbs";
 include "MissionCategory.fbs";
 include "MissionCompleteConditionType.fbs";
 include "MissionResetType.fbs";
 include "MissionToastDisplayConditionType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -22,7 +22,7 @@ table BattlePassMissionExcel {
     complete_condition_type: MissionCompleteConditionType;
     complete_condition_count: long;
     complete_condition_parameter: [long];
-    complete_condition_parameter_tag: [Tag];
+    complete_condition_parameter_tag: [FlatData.Tag];
     battle_pass_exp_amount: int;
 }
 

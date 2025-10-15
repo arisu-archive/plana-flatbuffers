@@ -22,11 +22,12 @@ func (t *EventContentDiceRaceEffectExcelDto) MarshalModel(b *flatbuffers.Builder
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffect"))
 	}
+	__offset_ani_clip := b.CreateString(fbsutils.Convert(t.AniClip, t.FlatBuffer.TableKey))
 	EventContentDiceRaceEffectExcelStart(b)
 	EventContentDiceRaceEffectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
 	EventContentDiceRaceEffectExcelAddIsDiceResult(b, t.IsDiceResult)
-	EventContentDiceRaceEffectExcelAddAniClip(b, b.CreateString(fbsutils.Convert(t.AniClip, t.FlatBuffer.TableKey)))
+	EventContentDiceRaceEffectExcelAddAniClip(b, __offset_ani_clip)
 	EventContentDiceRaceEffectExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))

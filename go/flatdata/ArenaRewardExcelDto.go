@@ -26,12 +26,23 @@ func (t *ArenaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaReward"))
 	}
+	__offset_rank_icon_path := b.CreateString(fbsutils.Convert(t.RankIconPath, t.FlatBuffer.TableKey))
+	var __offset_reward_parcel_unique_name flatbuffers.UOffsetT
+	__stringOffsets_reward_parcel_unique_name := make([]flatbuffers.UOffsetT, len(t.RewardParcelUniqueName))
+	for i := range len(t.RewardParcelUniqueName) {
+		__stringOffsets_reward_parcel_unique_name[i] = b.CreateString(fbsutils.Convert(t.RewardParcelUniqueName[i], t.FlatBuffer.TableKey))
+	}
+	ArenaRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
+	for i := range len(t.RewardParcelUniqueName) {
+		b.PrependUOffsetT(__stringOffsets_reward_parcel_unique_name[len(t.RewardParcelUniqueName)-i-1])
+	}
+	__offset_reward_parcel_unique_name = b.EndVector(len(t.RewardParcelUniqueName))
 	ArenaRewardExcelStart(b)
 	ArenaRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddArenaRewardType(b, fbsutils.Convert(t.ArenaRewardType, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
-	ArenaRewardExcelAddRankIconPath(b, b.CreateString(fbsutils.Convert(t.RankIconPath, t.FlatBuffer.TableKey)))
+	ArenaRewardExcelAddRankIconPath(b, __offset_rank_icon_path)
 	ArenaRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -42,11 +53,7 @@ func (t *ArenaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelUniqueId[len(t.RewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ArenaRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
-	ArenaRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
-	for i := range len(t.RewardParcelUniqueName) {
-		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
-	}
-	ArenaRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
+	ArenaRewardExcelAddRewardParcelUniqueName(b, __offset_reward_parcel_unique_name)
 	ArenaRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))

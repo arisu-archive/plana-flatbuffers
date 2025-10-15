@@ -1,4 +1,4 @@
-include "Tag.fbs";
+include "FlatData.Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -9,7 +9,7 @@ table AcademyZoneExcel {
     localize_etc_id: uint;
     student_visit_prob: [long];
     reward_group_id: long;
-    tags: [Tag];
+    tags: [FlatData.Tag];
 }
 
 root_type AcademyZoneExcel;

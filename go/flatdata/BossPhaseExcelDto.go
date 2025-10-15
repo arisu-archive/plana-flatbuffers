@@ -21,10 +21,11 @@ func (t *BossPhaseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
+	__offset_normal_attack_skill_unique_name := b.CreateString(fbsutils.Convert(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey))
 	BossPhaseExcelStart(b)
 	BossPhaseExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BossPhaseExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
-	BossPhaseExcelAddNormalAttackSkillUniqueName(b, b.CreateString(fbsutils.Convert(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey)))
+	BossPhaseExcelAddNormalAttackSkillUniqueName(b, __offset_normal_attack_skill_unique_name)
 	BossPhaseExcelStartUseExSkillVector(b, len(t.UseExSkill))
 	for i := range len(t.UseExSkill) {
 		b.PrependBool(t.UseExSkill[len(t.UseExSkill)-i-1])

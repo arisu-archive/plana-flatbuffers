@@ -25,8 +25,9 @@ func (t *BulletArmorDamageFactorExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactor"))
 	}
+	__offset_damage_factor_group_id := b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey))
 	BulletArmorDamageFactorExcelStart(b)
-	BulletArmorDamageFactorExcelAddDamageFactorGroupId(b, b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey)))
+	BulletArmorDamageFactorExcelAddDamageFactorGroupId(b, __offset_damage_factor_group_id)
 	BulletArmorDamageFactorExcelAddBulletType(b, fbsutils.Convert(t.BulletType, t.FlatBuffer.TableKey))
 	BulletArmorDamageFactorExcelAddArmorType(b, fbsutils.Convert(t.ArmorType, t.FlatBuffer.TableKey))
 	BulletArmorDamageFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))

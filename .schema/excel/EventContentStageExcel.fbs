@@ -1,0 +1,58 @@
+include "EchelonExtensionType.fbs";
+include "EventContentType.fbs";
+include "FlatData.ContentType.fbs";
+include "ParcelType.fbs";
+include "StageDifficulty.fbs";
+include "StageTopography.fbs";
+include "StarGoalType.fbs";
+include "StrategyEnvironment.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentStageExcel {
+    id: long;
+    name: string;
+    event_content_id: long;
+    stage_difficulty: StageDifficulty;
+    stage_number: string;
+    stage_display: int;
+    prev_stage_id: long;
+    open_date: long;
+    open_event_point: long;
+    open_condition_scenario_permanent_sub_event_id: long;
+    prev_stage_sub_event_id: long;
+    open_condition_scenario_id: long;
+    open_condition_content_type: EventContentType;
+    open_condition_content_id: long;
+    battle_duration: long;
+    stage_enter_cost_type: ParcelType;
+    stage_enter_cost_id: long;
+    stage_enter_cost_amount: int;
+    stage_enter_echelon_count: int;
+    star_condition_tactic_rank_s_count: long;
+    star_condition_turn_count: long;
+    enter_scenario_group_id: [long];
+    clear_scenario_group_id: [long];
+    strategy_map: string;
+    strategy_map_bg: string;
+    event_content_stage_reward_id: long;
+    max_turn: int;
+    stage_topography: StageTopography;
+    recommand_level: int;
+    bgm_id: string;
+    strategy_environment: StrategyEnvironment;
+    ground_id: long;
+    content_type: FlatData.ContentType;
+    bgm_id_c9738509: long;
+    instant_clear: bool;
+    buff_content_id: long;
+    fixed_echelon_id: long;
+    challenge_display: bool;
+    star_goal: [StarGoalType];
+    star_goal_amount: [int];
+    is_defeat_battle: bool;
+    stage_hint: uint;
+    echelon_extension_type: EchelonExtensionType;
+}
+
+root_type EventContentStageExcel;

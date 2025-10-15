@@ -19,13 +19,19 @@ func (t *MinigameTBGDiceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGDice"))
 	}
-	MinigameTBGDiceExcelTableStart(b)
+	var __offset_data_list flatbuffers.UOffsetT
+	__nestedOffsets_data_list := make([]flatbuffers.UOffsetT, len(t.DataList))
+	for i := range len(t.DataList) {
+		t.DataList[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_data_list[i] = t.DataList[i].MarshalModel(b)
+	}
 	MinigameTBGDiceExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.DataList[len(t.DataList)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_data_list[len(t.DataList)-i-1])
 	}
-	MinigameTBGDiceExcelTableAddDataList(b, b.EndVector(len(t.DataList)))
+	__offset_data_list = b.EndVector(len(t.DataList))
+	MinigameTBGDiceExcelTableStart(b)
+	MinigameTBGDiceExcelTableAddDataList(b, __offset_data_list)
 	return MinigameTBGDiceExcelTableEnd(b)
 }
 

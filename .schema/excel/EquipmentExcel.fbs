@@ -1,7 +1,7 @@
 include "EquipmentCategory.fbs";
+include "FlatData.Tag.fbs";
 include "Rarity.fbs";
 include "ShopCategoryType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -18,7 +18,7 @@ table EquipmentExcel {
     stackable_max: int;
     icon: string;
     image_name: string;
-    tags: [Tag];
+    tags: [FlatData.Tag];
     craft_quality_tier0: long;
     craft_quality_tier1: long;
     craft_quality_tier2: long;

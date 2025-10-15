@@ -23,12 +23,15 @@ func (t *ShopFreeRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFreeRecruit"))
 	}
+	__offset_free_recruit_period_from := b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodFrom, t.FlatBuffer.TableKey))
+	__offset_free_recruit_period_to := b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodTo, t.FlatBuffer.TableKey))
+	__offset_free_recruit_decoration_image_path := b.CreateString(fbsutils.Convert(t.FreeRecruitDecorationImagePath, t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelStart(b)
 	ShopFreeRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodFrom, t.FlatBuffer.TableKey)))
-	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodTo, t.FlatBuffer.TableKey)))
+	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, __offset_free_recruit_period_from)
+	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, __offset_free_recruit_period_to)
 	ShopFreeRecruitExcelAddFreeRecruitType(b, fbsutils.Convert(t.FreeRecruitType, t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, b.CreateString(fbsutils.Convert(t.FreeRecruitDecorationImagePath, t.FlatBuffer.TableKey)))
+	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, __offset_free_recruit_decoration_image_path)
 	ShopFreeRecruitExcelStartShopRecruitIdVector(b, len(t.ShopRecruitId))
 	for i := range len(t.ShopRecruitId) {
 		b.PrependInt64(fbsutils.Convert(t.ShopRecruitId[len(t.ShopRecruitId)-i-1], t.FlatBuffer.TableKey))

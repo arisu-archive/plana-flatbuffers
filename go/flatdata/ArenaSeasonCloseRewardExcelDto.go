@@ -24,6 +24,16 @@ func (t *ArenaSeasonCloseRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonCloseReward"))
 	}
+	var __offset_reward_parcel_unique_name flatbuffers.UOffsetT
+	__stringOffsets_reward_parcel_unique_name := make([]flatbuffers.UOffsetT, len(t.RewardParcelUniqueName))
+	for i := range len(t.RewardParcelUniqueName) {
+		__stringOffsets_reward_parcel_unique_name[i] = b.CreateString(fbsutils.Convert(t.RewardParcelUniqueName[i], t.FlatBuffer.TableKey))
+	}
+	ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
+	for i := range len(t.RewardParcelUniqueName) {
+		b.PrependUOffsetT(__stringOffsets_reward_parcel_unique_name[len(t.RewardParcelUniqueName)-i-1])
+	}
+	__offset_reward_parcel_unique_name = b.EndVector(len(t.RewardParcelUniqueName))
 	ArenaSeasonCloseRewardExcelStart(b)
 	ArenaSeasonCloseRewardExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	ArenaSeasonCloseRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
@@ -38,11 +48,7 @@ func (t *ArenaSeasonCloseRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelUniqueId[len(t.RewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
-	ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
-	for i := range len(t.RewardParcelUniqueName) {
-		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
-	}
-	ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
+	ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(b, __offset_reward_parcel_unique_name)
 	ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))

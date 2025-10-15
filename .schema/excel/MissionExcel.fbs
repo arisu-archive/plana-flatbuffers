@@ -1,12 +1,12 @@
 include "AccountState.fbs";
-include "ContentType.fbs";
+include "FlatData.ContentType.fbs";
+include "FlatData.Tag.fbs";
 include "MissionCategory.fbs";
 include "MissionCompleteConditionType.fbs";
 include "MissionResetType.fbs";
 include "MissionToastDisplayConditionType.fbs";
 include "ParcelType.fbs";
 include "SuddenMissionContentType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -23,7 +23,7 @@ table MissionExcel {
     end_date: string;
     end_day: long;
     startable_end_date: string;
-    date_auto_refer: ContentType;
+    date_auto_refer: FlatData.ContentType;
     display_order: long;
     pre_mission_id: [long];
     account_type: AccountState;
@@ -34,7 +34,7 @@ table MissionExcel {
     complete_condition_type: MissionCompleteConditionType;
     complete_condition_count: long;
     complete_condition_parameter: [long];
-    complete_condition_parameter_tag: [Tag];
+    complete_condition_parameter_tag: [FlatData.Tag];
     reward_icon: string;
     mission_reward_parcel_type: [ParcelType];
     mission_reward_parcel_id: [long];

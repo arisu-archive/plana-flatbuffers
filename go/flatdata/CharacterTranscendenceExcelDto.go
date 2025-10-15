@@ -27,6 +27,36 @@ func (t *CharacterTranscendenceExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendence"))
 	}
+	var __offset_skill_slot_a flatbuffers.UOffsetT
+	__stringOffsets_skill_slot_a := make([]flatbuffers.UOffsetT, len(t.SkillSlotA))
+	for i := range len(t.SkillSlotA) {
+		__stringOffsets_skill_slot_a[i] = b.CreateString(fbsutils.Convert(t.SkillSlotA[i], t.FlatBuffer.TableKey))
+	}
+	CharacterTranscendenceExcelStartSkillSlotAVector(b, len(t.SkillSlotA))
+	for i := range len(t.SkillSlotA) {
+		b.PrependUOffsetT(__stringOffsets_skill_slot_a[len(t.SkillSlotA)-i-1])
+	}
+	__offset_skill_slot_a = b.EndVector(len(t.SkillSlotA))
+	var __offset_skill_slot_b flatbuffers.UOffsetT
+	__stringOffsets_skill_slot_b := make([]flatbuffers.UOffsetT, len(t.SkillSlotB))
+	for i := range len(t.SkillSlotB) {
+		__stringOffsets_skill_slot_b[i] = b.CreateString(fbsutils.Convert(t.SkillSlotB[i], t.FlatBuffer.TableKey))
+	}
+	CharacterTranscendenceExcelStartSkillSlotBVector(b, len(t.SkillSlotB))
+	for i := range len(t.SkillSlotB) {
+		b.PrependUOffsetT(__stringOffsets_skill_slot_b[len(t.SkillSlotB)-i-1])
+	}
+	__offset_skill_slot_b = b.EndVector(len(t.SkillSlotB))
+	var __offset_skill_slot_c flatbuffers.UOffsetT
+	__stringOffsets_skill_slot_c := make([]flatbuffers.UOffsetT, len(t.SkillSlotC))
+	for i := range len(t.SkillSlotC) {
+		__stringOffsets_skill_slot_c[i] = b.CreateString(fbsutils.Convert(t.SkillSlotC[i], t.FlatBuffer.TableKey))
+	}
+	CharacterTranscendenceExcelStartSkillSlotCVector(b, len(t.SkillSlotC))
+	for i := range len(t.SkillSlotC) {
+		b.PrependUOffsetT(__stringOffsets_skill_slot_c[len(t.SkillSlotC)-i-1])
+	}
+	__offset_skill_slot_c = b.EndVector(len(t.SkillSlotC))
 	CharacterTranscendenceExcelStart(b)
 	CharacterTranscendenceExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	CharacterTranscendenceExcelStartMaxFavorLevelVector(b, len(t.MaxFavorLevel))
@@ -54,21 +84,9 @@ func (t *CharacterTranscendenceExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		b.PrependInt64(fbsutils.Convert(t.RecipeId[len(t.RecipeId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterTranscendenceExcelAddRecipeId(b, b.EndVector(len(t.RecipeId)))
-	CharacterTranscendenceExcelStartSkillSlotAVector(b, len(t.SkillSlotA))
-	for i := range len(t.SkillSlotA) {
-		b.PrependUOffsetT(b.CreateString(t.SkillSlotA[len(t.SkillSlotA)-i-1]))
-	}
-	CharacterTranscendenceExcelAddSkillSlotA(b, b.EndVector(len(t.SkillSlotA)))
-	CharacterTranscendenceExcelStartSkillSlotBVector(b, len(t.SkillSlotB))
-	for i := range len(t.SkillSlotB) {
-		b.PrependUOffsetT(b.CreateString(t.SkillSlotB[len(t.SkillSlotB)-i-1]))
-	}
-	CharacterTranscendenceExcelAddSkillSlotB(b, b.EndVector(len(t.SkillSlotB)))
-	CharacterTranscendenceExcelStartSkillSlotCVector(b, len(t.SkillSlotC))
-	for i := range len(t.SkillSlotC) {
-		b.PrependUOffsetT(b.CreateString(t.SkillSlotC[len(t.SkillSlotC)-i-1]))
-	}
-	CharacterTranscendenceExcelAddSkillSlotC(b, b.EndVector(len(t.SkillSlotC)))
+	CharacterTranscendenceExcelAddSkillSlotA(b, __offset_skill_slot_a)
+	CharacterTranscendenceExcelAddSkillSlotB(b, __offset_skill_slot_b)
+	CharacterTranscendenceExcelAddSkillSlotC(b, __offset_skill_slot_c)
 	CharacterTranscendenceExcelStartMaxlevelStarVector(b, len(t.MaxlevelStar))
 	for i := range len(t.MaxlevelStar) {
 		b.PrependInt32(fbsutils.Convert(t.MaxlevelStar[len(t.MaxlevelStar)-i-1], t.FlatBuffer.TableKey))

@@ -23,13 +23,16 @@ func (t *EventContentPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentPlayGuide"))
 	}
+	__offset_guide_title := b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey))
+	__offset_guide_image_path := b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey))
+	__offset_guide_text := b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelStart(b)
 	EventContentPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
-	EventContentPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
-	EventContentPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
+	EventContentPlayGuideExcelAddGuideTitle(b, __offset_guide_title)
+	EventContentPlayGuideExcelAddGuideImagePath(b, __offset_guide_image_path)
+	EventContentPlayGuideExcelAddGuideText(b, __offset_guide_text)
 	return EventContentPlayGuideExcelEnd(b)
 }
 

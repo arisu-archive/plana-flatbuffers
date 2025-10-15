@@ -31,4 +31,6 @@ class CurrencyTypes(object):
     EliminateTicketB = 25
     EliminateTicketC = 26
     EliminateTicketD = 27
-    Max = 28
+    CafeSummonTicket1 = 28
+    CafeSummonTicket2 = 29
+    Max = 30

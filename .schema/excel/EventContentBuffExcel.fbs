@@ -1,0 +1,18 @@
+include "EventContentBuffFindRule.fbs";
+include "FlatData.Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentBuffExcel {
+    event_content_buff_id: long;
+    is_buff: bool;
+    character_tag: FlatData.Tag;
+    enum_type: EventContentBuffFindRule;
+    enum_type_value: [string];
+    skill_group_id: string;
+    icon_path: string;
+    sprite_name: string;
+    buff_description_localize_code_id: string;
+}
+
+root_type EventContentBuffExcel;

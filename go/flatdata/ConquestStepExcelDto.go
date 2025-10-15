@@ -29,11 +29,13 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
+	__offset_step_goal_localize := b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey))
+	__offset_unexpected_event_prefab := b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey))
 	ConquestStepExcelStart(b)
 	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepGoalLocalize(b, b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey)))
+	ConquestStepExcelAddStepGoalLocalize(b, __offset_step_goal_localize)
 	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemType(b, fbsutils.Convert(t.StepEnterItemType, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemUniqueId(b, fbsutils.Convert(t.StepEnterItemUniqueId, t.FlatBuffer.TableKey))
@@ -43,7 +45,7 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitId[len(t.UnexpectedEventUnitId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestStepExcelAddUnexpectedEventUnitId(b, b.EndVector(len(t.UnexpectedEventUnitId)))
-	ConquestStepExcelAddUnexpectedEventPrefab(b, b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey)))
+	ConquestStepExcelAddUnexpectedEventPrefab(b, __offset_unexpected_event_prefab)
 	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Convert(t.TreasureBoxObjectId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Convert(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
 	return ConquestStepExcelEnd(b)

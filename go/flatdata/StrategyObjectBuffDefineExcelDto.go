@@ -22,12 +22,14 @@ func (t *StrategyObjectBuffDefineExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefine"))
 	}
+	__offset_skill_group_id := b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey))
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelStart(b)
 	StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(b, fbsutils.Convert(t.StrategyObjectBuffId, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddStrategyObjectTurn(b, fbsutils.Convert(t.StrategyObjectTurn, t.FlatBuffer.TableKey))
-	StrategyObjectBuffDefineExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
+	StrategyObjectBuffDefineExcelAddSkillGroupId(b, __offset_skill_group_id)
 	StrategyObjectBuffDefineExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
-	StrategyObjectBuffDefineExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	StrategyObjectBuffDefineExcelAddIconPath(b, __offset_icon_path)
 	return StrategyObjectBuffDefineExcelEnd(b)
 }
 

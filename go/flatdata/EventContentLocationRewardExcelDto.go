@@ -38,12 +38,14 @@ func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
 	}
+	__offset_location := b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
+	__offset_progress_texture := b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelStart(b)
-	EventContentLocationRewardExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
+	EventContentLocationRewardExcelAddLocation(b, __offset_location)
 	EventContentLocationRewardExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddProgressTexture(b, b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey)))
+	EventContentLocationRewardExcelAddProgressTexture(b, __offset_progress_texture)
 	EventContentLocationRewardExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))

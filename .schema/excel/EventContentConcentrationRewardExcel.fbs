@@ -1,0 +1,20 @@
+include "ConcentrationRewardType.fbs";
+include "ParcelType.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentConcentrationRewardExcel {
+    event_content_id: long;
+    unique_id: long;
+    concentration_reward_type: ConcentrationRewardType;
+    localize_prefab_id: string;
+    rarity: Rarity;
+    round: int;
+    is_loop: bool;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [int];
+}
+
+root_type EventContentConcentrationRewardExcel;

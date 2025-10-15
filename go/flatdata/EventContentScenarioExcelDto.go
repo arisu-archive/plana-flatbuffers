@@ -36,6 +36,7 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenario"))
 	}
+	__offset_recollection_resource := b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelStart(b)
 	EventContentScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -55,7 +56,7 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentScenarioExcelAddConditionEventContentId(b, fbsutils.Convert(t.ConditionEventContentId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddClearedScenarioGroupId(b, fbsutils.Convert(t.ClearedScenarioGroupId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(b, fbsutils.Convert(t.RecollectionSummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddRecollectionResource(b, b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey)))
+	EventContentScenarioExcelAddRecollectionResource(b, __offset_recollection_resource)
 	EventContentScenarioExcelAddIsRecollectionHorizon(b, t.IsRecollectionHorizon)
 	EventContentScenarioExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {

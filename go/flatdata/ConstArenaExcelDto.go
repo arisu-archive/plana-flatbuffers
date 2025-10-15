@@ -50,6 +50,21 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
+	__offset_daily_reward_reset_time := b.CreateString(fbsutils.Convert(t.DailyRewardResetTime, t.FlatBuffer.TableKey))
+	__offset_open_scenario_id := b.CreateString(fbsutils.Convert(t.OpenScenarioId, t.FlatBuffer.TableKey))
+	var __offset_npc_name flatbuffers.UOffsetT
+	__stringOffsets_npc_name := make([]flatbuffers.UOffsetT, len(t.NpcName))
+	for i := range len(t.NpcName) {
+		__stringOffsets_npc_name[i] = b.CreateString(fbsutils.Convert(t.NpcName[i], t.FlatBuffer.TableKey))
+	}
+	ConstArenaExcelStartNpcNameVector(b, len(t.NpcName))
+	for i := range len(t.NpcName) {
+		b.PrependUOffsetT(__stringOffsets_npc_name[len(t.NpcName)-i-1])
+	}
+	__offset_npc_name = b.EndVector(len(t.NpcName))
+	__offset_hidden_character_image_path := b.CreateString(fbsutils.Convert(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey))
+	__offset_show_season_change_info_start_time := b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey))
+	__offset_show_season_change_info_end_time := b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey))
 	ConstArenaExcelStart(b)
 	ConstArenaExcelAddAttackCoolTime(b, fbsutils.Convert(t.AttackCoolTime, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
@@ -60,8 +75,8 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	ConstArenaExcelAddEnterCostType(b, fbsutils.Convert(t.EnterCostType, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddEnterCostId(b, fbsutils.Convert(t.EnterCostId, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddTicketCost(b, fbsutils.Convert(t.TicketCost, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddDailyRewardResetTime(b, b.CreateString(fbsutils.Convert(t.DailyRewardResetTime, t.FlatBuffer.TableKey)))
-	ConstArenaExcelAddOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.OpenScenarioId, t.FlatBuffer.TableKey)))
+	ConstArenaExcelAddDailyRewardResetTime(b, __offset_daily_reward_reset_time)
+	ConstArenaExcelAddOpenScenarioId(b, __offset_open_scenario_id)
 	ConstArenaExcelStartCharacterSlotHideRankVector(b, len(t.CharacterSlotHideRank))
 	for i := range len(t.CharacterSlotHideRank) {
 		b.PrependInt64(fbsutils.Convert(t.CharacterSlotHideRank[len(t.CharacterSlotHideRank)-i-1], t.FlatBuffer.TableKey))
@@ -93,23 +108,19 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		b.PrependInt64(fbsutils.Convert(t.StatSumFactor[len(t.StatSumFactor)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConstArenaExcelAddStatSumFactor(b, b.EndVector(len(t.StatSumFactor)))
-	ConstArenaExcelStartNpcNameVector(b, len(t.NpcName))
-	for i := range len(t.NpcName) {
-		b.PrependUOffsetT(b.CreateString(t.NpcName[len(t.NpcName)-i-1]))
-	}
-	ConstArenaExcelAddNpcName(b, b.EndVector(len(t.NpcName)))
+	ConstArenaExcelAddNpcName(b, __offset_npc_name)
 	ConstArenaExcelAddNpcMainCharacterCount(b, fbsutils.Convert(t.NpcMainCharacterCount, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddNpcSupportCharacterCount(b, fbsutils.Convert(t.NpcSupportCharacterCount, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddNpcCharacterSkillLevel(b, fbsutils.Convert(t.NpcCharacterSkillLevel, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddTimeSpanInDaysForBattleHistory(b, fbsutils.Convert(t.TimeSpanInDaysForBattleHistory, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddHiddenCharacterImagePath(b, b.CreateString(fbsutils.Convert(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey)))
+	ConstArenaExcelAddHiddenCharacterImagePath(b, __offset_hidden_character_image_path)
 	ConstArenaExcelAddDefenseVictoryRewardMaxCount(b, fbsutils.Convert(t.DefenseVictoryRewardMaxCount, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddTopRankerCountLimit(b, fbsutils.Convert(t.TopRankerCountLimit, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddAutoRefreshIntervalMilliSeconds(b, fbsutils.Convert(t.AutoRefreshIntervalMilliSeconds, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddEchelonSettingIntervalMilliSeconds(b, fbsutils.Convert(t.EchelonSettingIntervalMilliSeconds, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddSkipAllowedTimeMilliSeconds(b, fbsutils.Convert(t.SkipAllowedTimeMilliSeconds, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddShowSeasonChangeInfoStartTime(b, b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey)))
-	ConstArenaExcelAddShowSeasonChangeInfoEndTime(b, b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey)))
+	ConstArenaExcelAddShowSeasonChangeInfoStartTime(b, __offset_show_season_change_info_start_time)
+	ConstArenaExcelAddShowSeasonChangeInfoEndTime(b, __offset_show_season_change_info_end_time)
 	ConstArenaExcelAddShowSeasonId(b, fbsutils.Convert(t.ShowSeasonId, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddArenaHistoryQueryLimitDays(b, fbsutils.Convert(t.ArenaHistoryQueryLimitDays, t.FlatBuffer.TableKey))
 	return ConstArenaExcelEnd(b)

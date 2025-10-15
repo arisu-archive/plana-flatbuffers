@@ -25,12 +25,14 @@ func (t *DefaultMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
+	__offset_mail_send_period_from := b.CreateString(fbsutils.Convert(t.MailSendPeriodFrom, t.FlatBuffer.TableKey))
+	__offset_mail_send_period_to := b.CreateString(fbsutils.Convert(t.MailSendPeriodTo, t.FlatBuffer.TableKey))
 	DefaultMailExcelStart(b)
 	DefaultMailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	DefaultMailExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	DefaultMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
-	DefaultMailExcelAddMailSendPeriodFrom(b, b.CreateString(fbsutils.Convert(t.MailSendPeriodFrom, t.FlatBuffer.TableKey)))
-	DefaultMailExcelAddMailSendPeriodTo(b, b.CreateString(fbsutils.Convert(t.MailSendPeriodTo, t.FlatBuffer.TableKey)))
+	DefaultMailExcelAddMailSendPeriodFrom(b, __offset_mail_send_period_from)
+	DefaultMailExcelAddMailSendPeriodTo(b, __offset_mail_send_period_to)
 	DefaultMailExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))

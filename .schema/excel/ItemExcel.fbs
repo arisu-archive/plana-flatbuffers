@@ -1,3 +1,4 @@
+include "FlatData.Tag.fbs";
 include "GachaTicketType.fbs";
 include "ItemCategory.fbs";
 include "MailType.fbs";
@@ -5,7 +6,6 @@ include "ParcelType.fbs";
 include "ProductionStep.fbs";
 include "Rarity.fbs";
 include "ShopCategoryType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -31,7 +31,7 @@ table ItemExcel {
     expiry_change_amount: long;
     can_tier_upgrade: bool;
     tier_upgrade_recipe_craft_id: long;
-    tags: [Tag];
+    tags: [FlatData.Tag];
     craft_quality_tier0: long;
     craft_quality_tier1: long;
     craft_quality_tier2: long;

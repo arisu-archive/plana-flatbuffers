@@ -19,13 +19,19 @@ func (t *CharacterWeaponLevelExcelTableDto) MarshalModel(b *flatbuffers.Builder)
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevel"))
 	}
-	CharacterWeaponLevelExcelTableStart(b)
+	var __offset_data_list flatbuffers.UOffsetT
+	__nestedOffsets_data_list := make([]flatbuffers.UOffsetT, len(t.DataList))
+	for i := range len(t.DataList) {
+		t.DataList[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_data_list[i] = t.DataList[i].MarshalModel(b)
+	}
 	CharacterWeaponLevelExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.DataList[len(t.DataList)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_data_list[len(t.DataList)-i-1])
 	}
-	CharacterWeaponLevelExcelTableAddDataList(b, b.EndVector(len(t.DataList)))
+	__offset_data_list = b.EndVector(len(t.DataList))
+	CharacterWeaponLevelExcelTableStart(b)
+	CharacterWeaponLevelExcelTableAddDataList(b, __offset_data_list)
 	return CharacterWeaponLevelExcelTableEnd(b)
 }
 

@@ -20,10 +20,11 @@ func (t *EmoticonSpecialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecial"))
 	}
+	__offset_random := b.CreateString(fbsutils.Convert(t.Random, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelStart(b)
 	EmoticonSpecialExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelAddCharacterUniqueId(b, fbsutils.Convert(t.CharacterUniqueId, t.FlatBuffer.TableKey))
-	EmoticonSpecialExcelAddRandom(b, b.CreateString(fbsutils.Convert(t.Random, t.FlatBuffer.TableKey)))
+	EmoticonSpecialExcelAddRandom(b, __offset_random)
 	return EmoticonSpecialExcelEnd(b)
 }
 

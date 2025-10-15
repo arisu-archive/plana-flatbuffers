@@ -1,9 +1,9 @@
+include "FlatData.Tag.fbs";
 include "FurnitureCategory.fbs";
 include "FurnitureFunctionType.fbs";
 include "FurnitureSubCategory.fbs";
 include "ProductionStep.fbs";
 include "Rarity.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -35,7 +35,7 @@ table FurnitureExcel {
     comfort_bonus: long;
     visit_operation_type: long;
     visit_bonus_operation_type: long;
-    tags: [Tag];
+    tags: [FlatData.Tag];
     craft_quality_tier0: long;
     craft_quality_tier1: long;
     craft_quality_tier2: long;

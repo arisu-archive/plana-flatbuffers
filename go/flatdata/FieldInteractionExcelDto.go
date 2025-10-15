@@ -31,12 +31,13 @@ func (t *FieldInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
+	__offset_keyword_localize := b.CreateString(fbsutils.Convert(t.KeywordLocalize, t.FlatBuffer.TableKey))
 	FieldInteractionExcelStart(b)
 	FieldInteractionExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddShowEmoji(b, t.ShowEmoji)
-	FieldInteractionExcelAddKeywordLocalize(b, b.CreateString(fbsutils.Convert(t.KeywordLocalize, t.FlatBuffer.TableKey)))
+	FieldInteractionExcelAddKeywordLocalize(b, __offset_keyword_localize)
 	FieldInteractionExcelStartInteractionTypeVector(b, len(t.InteractionType))
 	for i := range len(t.InteractionType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.InteractionType[len(t.InteractionType)-i-1]), t.FlatBuffer.TableKey))

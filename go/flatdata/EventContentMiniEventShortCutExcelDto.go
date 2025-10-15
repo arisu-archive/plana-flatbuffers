@@ -21,11 +21,12 @@ func (t *EventContentMiniEventShortCutExcelDto) MarshalModel(b *flatbuffers.Buil
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCut"))
 	}
+	__offset_shortcut_ui := b.CreateString(fbsutils.Convert(t.ShortcutUi, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelStart(b)
 	EventContentMiniEventShortCutExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelAddShorcutContentType(b, fbsutils.Convert(t.ShorcutContentType, t.FlatBuffer.TableKey))
-	EventContentMiniEventShortCutExcelAddShortcutUi(b, b.CreateString(fbsutils.Convert(t.ShortcutUi, t.FlatBuffer.TableKey)))
+	EventContentMiniEventShortCutExcelAddShortcutUi(b, __offset_shortcut_ui)
 	return EventContentMiniEventShortCutExcelEnd(b)
 }
 

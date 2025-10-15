@@ -1,6 +1,6 @@
 include "EquipmentOptionType.fbs";
+include "FlatData.Tag.fbs";
 include "StatLevelUpType.fbs";
-include "Tag.fbs";
 
 namespace MX.Data.Excel;
 
@@ -19,7 +19,7 @@ table CharacterGearExcel {
     max_stat_value: [long];
     icon: string;
     localize_etc_id: uint;
-    tags: [Tag];
+    tags: [FlatData.Tag];
 }
 
 root_type CharacterGearExcel;

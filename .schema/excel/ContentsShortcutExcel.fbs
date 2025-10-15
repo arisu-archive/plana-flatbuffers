@@ -1,11 +1,11 @@
-include "ContentType.fbs";
+include "FlatData.ContentType.fbs";
 include "StageDifficulty.fbs";
 
 namespace MX.Data.Excel;
 
 table ContentsShortcutExcel {
     unique_id: long;
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     event_content_id: long;
     scenario_mode_volume: long;
     scenario_mode_chapter: long;

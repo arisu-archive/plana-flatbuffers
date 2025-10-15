@@ -1,5 +1,5 @@
-include "ContentType.fbs";
 include "EchelonExtensionType.fbs";
+include "FlatData.ContentType.fbs";
 include "ParcelType.fbs";
 include "StageDifficulty.fbs";
 include "StageTopography.fbs";
@@ -27,7 +27,7 @@ table MiniGameDefenseStageExcel {
     stage_topography: StageTopography;
     recommand_level: int;
     ground_id: long;
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     star_goal: [StarGoalType];
     star_goal_amount: [int];
     defense_formation_bg_prefab: string;

@@ -11,7 +11,6 @@ table ArenaRewardExcel {
     rank_icon_path: string;
     reward_parcel_type: [ParcelType];
     reward_parcel_unique_id: [long];
-    reward_parcel_unique_name: [string];
     reward_parcel_amount: [long];
 }
 

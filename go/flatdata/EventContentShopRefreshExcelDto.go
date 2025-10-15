@@ -27,6 +27,7 @@ func (t *EventContentShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopRefresh"))
 	}
+	__offset_buy_report_event_name := b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey))
 	EventContentShopRefreshExcelStart(b)
 	EventContentShopRefreshExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentShopRefreshExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -37,7 +38,7 @@ func (t *EventContentShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	EventContentShopRefreshExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	EventContentShopRefreshExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
 	EventContentShopRefreshExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	EventContentShopRefreshExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
+	EventContentShopRefreshExcelAddBuyReportEventName(b, __offset_buy_report_event_name)
 	return EventContentShopRefreshExcelEnd(b)
 }
 

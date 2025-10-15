@@ -19,13 +19,19 @@ func (t *PropRootMotionFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropRootMotionFlat"))
 	}
-	PropRootMotionFlatStart(b)
+	var __offset_root_motions flatbuffers.UOffsetT
+	__nestedOffsets_root_motions := make([]flatbuffers.UOffsetT, len(t.RootMotions))
+	for i := range len(t.RootMotions) {
+		t.RootMotions[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_root_motions[i] = t.RootMotions[i].MarshalModel(b)
+	}
 	PropRootMotionFlatStartRootMotionsVector(b, len(t.RootMotions))
 	for i := range len(t.RootMotions) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.RootMotions[len(t.RootMotions)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_root_motions[len(t.RootMotions)-i-1])
 	}
-	PropRootMotionFlatAddRootMotions(b, b.EndVector(len(t.RootMotions)))
+	__offset_root_motions = b.EndVector(len(t.RootMotions))
+	PropRootMotionFlatStart(b)
+	PropRootMotionFlatAddRootMotions(b, __offset_root_motions)
 	return PropRootMotionFlatEnd(b)
 }
 

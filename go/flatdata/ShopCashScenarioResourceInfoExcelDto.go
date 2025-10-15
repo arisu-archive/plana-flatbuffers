@@ -20,10 +20,11 @@ func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Build
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfo"))
 	}
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	ShopCashScenarioResourceInfoExcelStart(b)
 	ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(b, fbsutils.Convert(t.ScenarioResrouceInfoId, t.FlatBuffer.TableKey))
 	ShopCashScenarioResourceInfoExcelAddShopCashId(b, fbsutils.Convert(t.ShopCashId, t.FlatBuffer.TableKey))
-	ShopCashScenarioResourceInfoExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	ShopCashScenarioResourceInfoExcelAddIconPath(b, __offset_icon_path)
 	return ShopCashScenarioResourceInfoExcelEnd(b)
 }
 

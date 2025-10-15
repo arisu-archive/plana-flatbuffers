@@ -1,9 +1,9 @@
-include "ContentType.fbs";
+include "FlatData.ContentType.fbs";
 
 namespace MX.Data.Excel;
 
 table ContentSpoilerPopupExcel {
-    content_type: ContentType;
+    content_type: FlatData.ContentType;
     spoiler_popup_title: string;
     spoiler_popup_description: string;
     is_warning_pop_up: bool;
