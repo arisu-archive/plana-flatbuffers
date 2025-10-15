@@ -10,17 +10,17 @@ import (
 // GrowthScoreCalculationExcelDto represents a FlatBuffers table
 type GrowthScoreCalculationExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                    int64        `json:"id"`
-	IncludeGrowthFactor   GrowthFactor `json:"include_growth_factor"`
 	ConversionCoefficient int64        `json:"conversion_coefficient"`
+	IncludeGrowthFactor   GrowthFactor `json:"include_growth_factor"`
+	Id                    int64        `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GrowthScoreCalculationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GrowthScoreCalculationExcelStart(b)
-	GrowthScoreCalculationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GrowthScoreCalculationExcelAddIncludeGrowthFactor(b, fbsutils.Convert(t.IncludeGrowthFactor, t.FlatBuffer.TableKey))
 	GrowthScoreCalculationExcelAddConversionCoefficient(b, fbsutils.Convert(t.ConversionCoefficient, t.FlatBuffer.TableKey))
+	GrowthScoreCalculationExcelAddIncludeGrowthFactor(b, fbsutils.Convert(t.IncludeGrowthFactor, t.FlatBuffer.TableKey))
+	GrowthScoreCalculationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return GrowthScoreCalculationExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *GrowthScoreCalculationExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GrowthScoreCalculationExcelDto) UnmarshalMessage(e *GrowthScoreCalculationExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IncludeGrowthFactor = GrowthFactor(fbsutils.Convert(int32(e.IncludeGrowthFactor()), t.FlatBuffer.TableKey))
 	t.ConversionCoefficient = fbsutils.Convert(e.ConversionCoefficient(), t.FlatBuffer.TableKey)
+	t.IncludeGrowthFactor = GrowthFactor(fbsutils.Convert(int32(e.IncludeGrowthFactor()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -4,14 +4,14 @@ include "RecipeType.fbs";
 namespace FlatData;
 
 table RecipeCraftExcel {
-    id: long;
-    dev_name: string;
-    recipe_type: RecipeType;
-    recipe_ingredient_id: long;
-    recipe_ingredient_dev_name: string;
-    parcel_type: [ParcelType];
-    parcel_id: [long];
-    parcel_dev_name: [string];
-    result_amount_min: [long];
     result_amount_max: [long];
+    result_amount_min: [long];
+    parcel_dev_name: [string];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
+    recipe_ingredient_dev_name: string;
+    recipe_ingredient_id: long;
+    recipe_type: RecipeType;
+    dev_name: string;
+    id: long;
 }

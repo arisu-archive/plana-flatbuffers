@@ -33,7 +33,7 @@ func (rcv *MoveEnd) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MoveEnd) Normal(obj *Motion) *Motion {
+func (rcv *MoveEnd) Kneel(obj *Motion) *Motion {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		x := rcv._tab.Indirect(o + rcv._tab.Pos)
@@ -59,7 +59,7 @@ func (rcv *MoveEnd) Stand(obj *Motion) *Motion {
 	return nil
 }
 
-func (rcv *MoveEnd) Kneel(obj *Motion) *Motion {
+func (rcv *MoveEnd) Normal(obj *Motion) *Motion {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		x := rcv._tab.Indirect(o + rcv._tab.Pos)
@@ -75,14 +75,14 @@ func (rcv *MoveEnd) Kneel(obj *Motion) *Motion {
 func MoveEndStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func MoveEndAddNormal(builder *flatbuffers.Builder, normal flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(normal), 0)
+func MoveEndAddKneel(builder *flatbuffers.Builder, kneel flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(kneel), 0)
 }
 func MoveEndAddStand(builder *flatbuffers.Builder, stand flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(stand), 0)
 }
-func MoveEndAddKneel(builder *flatbuffers.Builder, kneel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(kneel), 0)
+func MoveEndAddNormal(builder *flatbuffers.Builder, normal flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(normal), 0)
 }
 func MoveEndEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

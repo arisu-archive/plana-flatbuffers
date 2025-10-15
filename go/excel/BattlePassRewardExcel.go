@@ -33,7 +33,7 @@ func (rcv *BattlePassRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BattlePassRewardExcel) Id() int64 {
+func (rcv *BattlePassRewardExcel) RewardParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *BattlePassRewardExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *BattlePassRewardExcel) MutateId(n int64) bool {
+func (rcv *BattlePassRewardExcel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *BattlePassRewardExcel) RewardGroupId() int64 {
+func (rcv *BattlePassRewardExcel) RewardParcelUniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,24 +53,12 @@ func (rcv *BattlePassRewardExcel) RewardGroupId() int64 {
 	return 0
 }
 
-func (rcv *BattlePassRewardExcel) MutateRewardGroupId(n int64) bool {
+func (rcv *BattlePassRewardExcel) MutateRewardParcelUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BattlePassRewardExcel) Level() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *BattlePassRewardExcel) MutateLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *BattlePassRewardExcel) RewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,10 +66,22 @@ func (rcv *BattlePassRewardExcel) RewardParcelType() ParcelType {
 }
 
 func (rcv *BattlePassRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *BattlePassRewardExcel) RewardParcelUniqueId() int64 {
+func (rcv *BattlePassRewardExcel) Level() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *BattlePassRewardExcel) MutateLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *BattlePassRewardExcel) RewardGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *BattlePassRewardExcel) RewardParcelUniqueId() int64 {
 	return 0
 }
 
-func (rcv *BattlePassRewardExcel) MutateRewardParcelUniqueId(n int64) bool {
+func (rcv *BattlePassRewardExcel) MutateRewardGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *BattlePassRewardExcel) RewardParcelAmount() int64 {
+func (rcv *BattlePassRewardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *BattlePassRewardExcel) RewardParcelAmount() int64 {
 	return 0
 }
 
-func (rcv *BattlePassRewardExcel) MutateRewardParcelAmount(n int64) bool {
+func (rcv *BattlePassRewardExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func BattlePassRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func BattlePassRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func BattlePassRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
-	builder.PrependInt64Slot(1, rewardGroupId, 0)
-}
-func BattlePassRewardExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(2, level, 0)
-}
-func BattlePassRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
+func BattlePassRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
+	builder.PrependInt64Slot(0, rewardParcelAmount, 0)
 }
 func BattlePassRewardExcelAddRewardParcelUniqueId(builder *flatbuffers.Builder, rewardParcelUniqueId int64) {
-	builder.PrependInt64Slot(4, rewardParcelUniqueId, 0)
+	builder.PrependInt64Slot(1, rewardParcelUniqueId, 0)
 }
-func BattlePassRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
-	builder.PrependInt64Slot(5, rewardParcelAmount, 0)
+func BattlePassRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
+}
+func BattlePassRewardExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(3, level, 0)
+}
+func BattlePassRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
+	builder.PrependInt64Slot(4, rewardGroupId, 0)
+}
+func BattlePassRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func BattlePassRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

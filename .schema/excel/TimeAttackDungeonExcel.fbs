@@ -3,11 +3,11 @@ include "TimeAttackDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table TimeAttackDungeonExcel {
-    id: long;
-    time_attack_dungeon_type: TimeAttackDungeonType;
-    localize_etc_key: uint;
-    icon_path: string;
     information_group_id: long;
+    icon_path: string;
+    localize_etc_key: uint;
+    time_attack_dungeon_type: TimeAttackDungeonType;
+    id: long;
 }
 
 root_type TimeAttackDungeonExcel;

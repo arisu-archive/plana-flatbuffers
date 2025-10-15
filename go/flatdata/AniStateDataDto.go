@@ -11,18 +11,18 @@ import (
 // AniStateDataDto represents a FlatBuffers table
 type AniStateDataDto struct {
 	fbsutils.FlatBuffer
-	StateName           string            `json:"state_name"`
-	StatePrefix         string            `json:"state_prefix"`
-	StateNameWithPrefix string            `json:"state_name_with_prefix"`
-	Tag                 string            `json:"tag"`
-	SpeedParameterName  string            `json:"speed_parameter_name"`
-	SpeedParamter       float32           `json:"speed_paramter"`
-	StateSpeed          float32           `json:"state_speed"`
-	ClipName            string            `json:"clip_name"`
-	Length              float32           `json:"length"`
-	FrameRate           float32           `json:"frame_rate"`
-	IsLooping           bool              `json:"is_looping"`
 	Events              []AniEventDataDto `json:"events"`
+	IsLooping           bool              `json:"is_looping"`
+	FrameRate           float32           `json:"frame_rate"`
+	Length              float32           `json:"length"`
+	ClipName            string            `json:"clip_name"`
+	StateSpeed          float32           `json:"state_speed"`
+	SpeedParamter       float32           `json:"speed_paramter"`
+	SpeedParameterName  string            `json:"speed_parameter_name"`
+	Tag                 string            `json:"tag"`
+	StateNameWithPrefix string            `json:"state_name_with_prefix"`
+	StatePrefix         string            `json:"state_prefix"`
+	StateName           string            `json:"state_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,23 +31,23 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
 	AniStateDataStart(b)
-	AniStateDataAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
-	AniStateDataAddStatePrefix(b, b.CreateString(fbsutils.Convert(t.StatePrefix, t.FlatBuffer.TableKey)))
-	AniStateDataAddStateNameWithPrefix(b, b.CreateString(fbsutils.Convert(t.StateNameWithPrefix, t.FlatBuffer.TableKey)))
-	AniStateDataAddTag(b, b.CreateString(fbsutils.Convert(t.Tag, t.FlatBuffer.TableKey)))
-	AniStateDataAddSpeedParameterName(b, b.CreateString(fbsutils.Convert(t.SpeedParameterName, t.FlatBuffer.TableKey)))
-	AniStateDataAddSpeedParamter(b, fbsutils.Convert(t.SpeedParamter, t.FlatBuffer.TableKey))
-	AniStateDataAddStateSpeed(b, fbsutils.Convert(t.StateSpeed, t.FlatBuffer.TableKey))
-	AniStateDataAddClipName(b, b.CreateString(fbsutils.Convert(t.ClipName, t.FlatBuffer.TableKey)))
-	AniStateDataAddLength(b, fbsutils.Convert(t.Length, t.FlatBuffer.TableKey))
-	AniStateDataAddFrameRate(b, fbsutils.Convert(t.FrameRate, t.FlatBuffer.TableKey))
-	AniStateDataAddIsLooping(b, t.IsLooping)
 	AniStateDataStartEventsVector(b, len(t.Events))
 	for i := range len(t.Events) {
 		// The array should be reversed.
 		b.PrependUOffsetT(t.Events[len(t.Events)-i-1].MarshalModel(b))
 	}
 	AniStateDataAddEvents(b, b.EndVector(len(t.Events)))
+	AniStateDataAddIsLooping(b, t.IsLooping)
+	AniStateDataAddFrameRate(b, fbsutils.Convert(t.FrameRate, t.FlatBuffer.TableKey))
+	AniStateDataAddLength(b, fbsutils.Convert(t.Length, t.FlatBuffer.TableKey))
+	AniStateDataAddClipName(b, b.CreateString(fbsutils.Convert(t.ClipName, t.FlatBuffer.TableKey)))
+	AniStateDataAddStateSpeed(b, fbsutils.Convert(t.StateSpeed, t.FlatBuffer.TableKey))
+	AniStateDataAddSpeedParamter(b, fbsutils.Convert(t.SpeedParamter, t.FlatBuffer.TableKey))
+	AniStateDataAddSpeedParameterName(b, b.CreateString(fbsutils.Convert(t.SpeedParameterName, t.FlatBuffer.TableKey)))
+	AniStateDataAddTag(b, b.CreateString(fbsutils.Convert(t.Tag, t.FlatBuffer.TableKey)))
+	AniStateDataAddStateNameWithPrefix(b, b.CreateString(fbsutils.Convert(t.StateNameWithPrefix, t.FlatBuffer.TableKey)))
+	AniStateDataAddStatePrefix(b, b.CreateString(fbsutils.Convert(t.StatePrefix, t.FlatBuffer.TableKey)))
+	AniStateDataAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
 	return AniStateDataEnd(b)
 }
 
@@ -63,17 +63,6 @@ func (t *AniStateDataDto) UnmarshalMessage(e *AniStateData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
-	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
-	t.StatePrefix = fbsutils.Convert(string(e.StatePrefix()), t.FlatBuffer.TableKey)
-	t.StateNameWithPrefix = fbsutils.Convert(string(e.StateNameWithPrefix()), t.FlatBuffer.TableKey)
-	t.Tag = fbsutils.Convert(string(e.Tag()), t.FlatBuffer.TableKey)
-	t.SpeedParameterName = fbsutils.Convert(string(e.SpeedParameterName()), t.FlatBuffer.TableKey)
-	t.SpeedParamter = fbsutils.Convert(e.SpeedParamter(), t.FlatBuffer.TableKey)
-	t.StateSpeed = fbsutils.Convert(e.StateSpeed(), t.FlatBuffer.TableKey)
-	t.ClipName = fbsutils.Convert(string(e.ClipName()), t.FlatBuffer.TableKey)
-	t.Length = fbsutils.Convert(e.Length(), t.FlatBuffer.TableKey)
-	t.FrameRate = fbsutils.Convert(e.FrameRate(), t.FlatBuffer.TableKey)
-	t.IsLooping = e.IsLooping()
 	t.Events = make([]AniEventDataDto, e.EventsLength())
 	for i := range e.EventsLength() {
 		d := new(AniEventData)
@@ -82,6 +71,17 @@ func (t *AniStateDataDto) UnmarshalMessage(e *AniStateData) error {
 		}
 		t.Events[i].UnmarshalMessage(d)
 	}
+	t.IsLooping = e.IsLooping()
+	t.FrameRate = fbsutils.Convert(e.FrameRate(), t.FlatBuffer.TableKey)
+	t.Length = fbsutils.Convert(e.Length(), t.FlatBuffer.TableKey)
+	t.ClipName = fbsutils.Convert(string(e.ClipName()), t.FlatBuffer.TableKey)
+	t.StateSpeed = fbsutils.Convert(e.StateSpeed(), t.FlatBuffer.TableKey)
+	t.SpeedParamter = fbsutils.Convert(e.SpeedParamter(), t.FlatBuffer.TableKey)
+	t.SpeedParameterName = fbsutils.Convert(string(e.SpeedParameterName()), t.FlatBuffer.TableKey)
+	t.Tag = fbsutils.Convert(string(e.Tag()), t.FlatBuffer.TableKey)
+	t.StateNameWithPrefix = fbsutils.Convert(string(e.StateNameWithPrefix()), t.FlatBuffer.TableKey)
+	t.StatePrefix = fbsutils.Convert(string(e.StatePrefix()), t.FlatBuffer.TableKey)
+	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

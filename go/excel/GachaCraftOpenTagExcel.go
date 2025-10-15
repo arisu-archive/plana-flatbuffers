@@ -33,20 +33,8 @@ func (rcv *GachaCraftOpenTagExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaCraftOpenTagExcel) NodeTier() CraftNodeTier {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return CraftNodeTier(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *GachaCraftOpenTagExcel) MutateNodeTier(n CraftNodeTier) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *GachaCraftOpenTagExcel) Tag(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -55,7 +43,7 @@ func (rcv *GachaCraftOpenTagExcel) Tag(j int) Tag {
 }
 
 func (rcv *GachaCraftOpenTagExcel) TagLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,7 +51,7 @@ func (rcv *GachaCraftOpenTagExcel) TagLength() int {
 }
 
 func (rcv *GachaCraftOpenTagExcel) MutateTag(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -71,17 +59,29 @@ func (rcv *GachaCraftOpenTagExcel) MutateTag(j int, n Tag) bool {
 	return false
 }
 
+func (rcv *GachaCraftOpenTagExcel) NodeTier() CraftNodeTier {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return CraftNodeTier(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *GachaCraftOpenTagExcel) MutateNodeTier(n CraftNodeTier) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
 func GachaCraftOpenTagExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func GachaCraftOpenTagExcelAddNodeTier(builder *flatbuffers.Builder, nodeTier CraftNodeTier) {
-	builder.PrependInt32Slot(0, int32(nodeTier), 0)
-}
 func GachaCraftOpenTagExcelAddTag(builder *flatbuffers.Builder, tag flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(tag), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(tag), 0)
 }
 func GachaCraftOpenTagExcelStartTagVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func GachaCraftOpenTagExcelAddNodeTier(builder *flatbuffers.Builder, nodeTier CraftNodeTier) {
+	builder.PrependInt32Slot(1, int32(nodeTier), 0)
 }
 func GachaCraftOpenTagExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

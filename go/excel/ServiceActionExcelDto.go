@@ -10,17 +10,17 @@ import (
 // ServiceActionExcelDto represents a FlatBuffers table
 type ServiceActionExcelDto struct {
 	fbsutils.FlatBuffer
-	ServiceActionType ServiceActionType `json:"service_action_type"`
-	IsLegacy          bool              `json:"is_legacy"`
 	GoodsId           int64             `json:"goods_id"`
+	IsLegacy          bool              `json:"is_legacy"`
+	ServiceActionType ServiceActionType `json:"service_action_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ServiceActionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ServiceActionExcelStart(b)
-	ServiceActionExcelAddServiceActionType(b, fbsutils.Convert(t.ServiceActionType, t.FlatBuffer.TableKey))
-	ServiceActionExcelAddIsLegacy(b, t.IsLegacy)
 	ServiceActionExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
+	ServiceActionExcelAddIsLegacy(b, t.IsLegacy)
+	ServiceActionExcelAddServiceActionType(b, fbsutils.Convert(t.ServiceActionType, t.FlatBuffer.TableKey))
 	return ServiceActionExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *ServiceActionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ServiceActionExcelDto) UnmarshalMessage(e *ServiceActionExcel) error {
-	t.ServiceActionType = ServiceActionType(fbsutils.Convert(int32(e.ServiceActionType()), t.FlatBuffer.TableKey))
-	t.IsLegacy = e.IsLegacy()
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
+	t.IsLegacy = e.IsLegacy()
+	t.ServiceActionType = ServiceActionType(fbsutils.Convert(int32(e.ServiceActionType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

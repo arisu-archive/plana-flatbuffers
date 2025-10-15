@@ -33,36 +33,27 @@ func (rcv *OpenConditionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *OpenConditionExcel) OpenConditionContentType() OpenConditionContent {
+func (rcv *OpenConditionExcel) ContentsOpenShortcutUi() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateOpenConditionContentType(n OpenConditionContent) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
-func (rcv *OpenConditionExcel) LockUi(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *OpenConditionExcel) LockUiLength() int {
+func (rcv *OpenConditionExcel) ContentsOpenShow() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *OpenConditionExcel) ShortcutPopupPriority() int64 {
+func (rcv *OpenConditionExcel) MutateContentsOpenShow(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *OpenConditionExcel) CafeRank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -70,12 +61,164 @@ func (rcv *OpenConditionExcel) ShortcutPopupPriority() int64 {
 	return 0
 }
 
-func (rcv *OpenConditionExcel) MutateShortcutPopupPriority(n int64) bool {
+func (rcv *OpenConditionExcel) MutateCafeRank(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *OpenConditionExcel) ShortcutUiName(j int) []byte {
+func (rcv *OpenConditionExcel) CafeIdforCafeRank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateCafeIdforCafeRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *OpenConditionExcel) OpenedCafeId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateOpenedCafeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *OpenConditionExcel) CloseHour() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateCloseHour(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *OpenConditionExcel) CloseDayOfWeek() WeekDay {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateCloseDayOfWeek(n WeekDay) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *OpenConditionExcel) OpenHour() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateOpenHour(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *OpenConditionExcel) OpenDayOfWeek() WeekDay {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateOpenDayOfWeek(n WeekDay) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *OpenConditionExcel) MultipleConditionCheckType() MultipleConditionCheckType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return MultipleConditionCheckType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateMultipleConditionCheckType(n MultipleConditionCheckType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *OpenConditionExcel) CampaignStageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateCampaignStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *OpenConditionExcel) ScenarioModeId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateScenarioModeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *OpenConditionExcel) AccountLevel() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateAccountLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *OpenConditionExcel) HideWhenLocked() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *OpenConditionExcel) MutateHideWhenLocked(n bool) bool {
+	return rcv._tab.MutateBoolSlot(30, n)
+}
+
+func (rcv *OpenConditionExcel) Scene() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *OpenConditionExcel) ShortcutParam() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateShortcutParam(n int32) bool {
+	return rcv._tab.MutateInt32Slot(34, n)
+}
+
+func (rcv *OpenConditionExcel) ShortcutUiName(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -84,166 +227,14 @@ func (rcv *OpenConditionExcel) ShortcutUiName(j int) []byte {
 }
 
 func (rcv *OpenConditionExcel) ShortcutUiNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *OpenConditionExcel) ShortcutParam() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateShortcutParam(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *OpenConditionExcel) Scene() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *OpenConditionExcel) HideWhenLocked() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *OpenConditionExcel) MutateHideWhenLocked(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *OpenConditionExcel) AccountLevel() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateAccountLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *OpenConditionExcel) ScenarioModeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateScenarioModeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *OpenConditionExcel) CampaignStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateCampaignStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *OpenConditionExcel) MultipleConditionCheckType() MultipleConditionCheckType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return MultipleConditionCheckType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateMultipleConditionCheckType(n MultipleConditionCheckType) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
-}
-
-func (rcv *OpenConditionExcel) OpenDayOfWeek() WeekDay {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateOpenDayOfWeek(n WeekDay) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *OpenConditionExcel) OpenHour() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateOpenHour(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
-func (rcv *OpenConditionExcel) CloseDayOfWeek() WeekDay {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateCloseDayOfWeek(n WeekDay) bool {
-	return rcv._tab.MutateInt32Slot(30, int32(n))
-}
-
-func (rcv *OpenConditionExcel) CloseHour() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateCloseHour(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
-}
-
-func (rcv *OpenConditionExcel) OpenedCafeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateOpenedCafeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
-func (rcv *OpenConditionExcel) CafeIdforCafeRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *OpenConditionExcel) MutateCafeIdforCafeRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
-}
-
-func (rcv *OpenConditionExcel) CafeRank() int64 {
+func (rcv *OpenConditionExcel) ShortcutPopupPriority() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -251,98 +242,107 @@ func (rcv *OpenConditionExcel) CafeRank() int64 {
 	return 0
 }
 
-func (rcv *OpenConditionExcel) MutateCafeRank(n int64) bool {
+func (rcv *OpenConditionExcel) MutateShortcutPopupPriority(n int64) bool {
 	return rcv._tab.MutateInt64Slot(38, n)
 }
 
-func (rcv *OpenConditionExcel) ContentsOpenShow() bool {
+func (rcv *OpenConditionExcel) LockUi(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *OpenConditionExcel) MutateContentsOpenShow(n bool) bool {
-	return rcv._tab.MutateBoolSlot(40, n)
-}
-
-func (rcv *OpenConditionExcel) ContentsOpenShortcutUi() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
+}
+
+func (rcv *OpenConditionExcel) LockUiLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) OpenConditionContentType() OpenConditionContent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *OpenConditionExcel) MutateOpenConditionContentType(n OpenConditionContent) bool {
+	return rcv._tab.MutateInt32Slot(42, int32(n))
 }
 
 func OpenConditionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(20)
 }
-func OpenConditionExcelAddOpenConditionContentType(builder *flatbuffers.Builder, openConditionContentType OpenConditionContent) {
-	builder.PrependInt32Slot(0, int32(openConditionContentType), 0)
+func OpenConditionExcelAddContentsOpenShortcutUi(builder *flatbuffers.Builder, contentsOpenShortcutUi flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(contentsOpenShortcutUi), 0)
 }
-func OpenConditionExcelAddLockUi(builder *flatbuffers.Builder, lockUi flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(lockUi), 0)
+func OpenConditionExcelAddContentsOpenShow(builder *flatbuffers.Builder, contentsOpenShow bool) {
+	builder.PrependBoolSlot(1, contentsOpenShow, false)
 }
-func OpenConditionExcelStartLockUiVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func OpenConditionExcelAddCafeRank(builder *flatbuffers.Builder, cafeRank int64) {
+	builder.PrependInt64Slot(2, cafeRank, 0)
 }
-func OpenConditionExcelAddShortcutPopupPriority(builder *flatbuffers.Builder, shortcutPopupPriority int64) {
-	builder.PrependInt64Slot(2, shortcutPopupPriority, 0)
+func OpenConditionExcelAddCafeIdforCafeRank(builder *flatbuffers.Builder, cafeIdforCafeRank int64) {
+	builder.PrependInt64Slot(3, cafeIdforCafeRank, 0)
+}
+func OpenConditionExcelAddOpenedCafeId(builder *flatbuffers.Builder, openedCafeId int64) {
+	builder.PrependInt64Slot(4, openedCafeId, 0)
+}
+func OpenConditionExcelAddCloseHour(builder *flatbuffers.Builder, closeHour int64) {
+	builder.PrependInt64Slot(5, closeHour, 0)
+}
+func OpenConditionExcelAddCloseDayOfWeek(builder *flatbuffers.Builder, closeDayOfWeek WeekDay) {
+	builder.PrependInt32Slot(6, int32(closeDayOfWeek), 0)
+}
+func OpenConditionExcelAddOpenHour(builder *flatbuffers.Builder, openHour int64) {
+	builder.PrependInt64Slot(7, openHour, 0)
+}
+func OpenConditionExcelAddOpenDayOfWeek(builder *flatbuffers.Builder, openDayOfWeek WeekDay) {
+	builder.PrependInt32Slot(8, int32(openDayOfWeek), 0)
+}
+func OpenConditionExcelAddMultipleConditionCheckType(builder *flatbuffers.Builder, multipleConditionCheckType MultipleConditionCheckType) {
+	builder.PrependInt32Slot(9, int32(multipleConditionCheckType), 0)
+}
+func OpenConditionExcelAddCampaignStageId(builder *flatbuffers.Builder, campaignStageId int64) {
+	builder.PrependInt64Slot(10, campaignStageId, 0)
+}
+func OpenConditionExcelAddScenarioModeId(builder *flatbuffers.Builder, scenarioModeId int64) {
+	builder.PrependInt64Slot(11, scenarioModeId, 0)
+}
+func OpenConditionExcelAddAccountLevel(builder *flatbuffers.Builder, accountLevel int64) {
+	builder.PrependInt64Slot(12, accountLevel, 0)
+}
+func OpenConditionExcelAddHideWhenLocked(builder *flatbuffers.Builder, hideWhenLocked bool) {
+	builder.PrependBoolSlot(13, hideWhenLocked, false)
+}
+func OpenConditionExcelAddScene(builder *flatbuffers.Builder, scene flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(scene), 0)
+}
+func OpenConditionExcelAddShortcutParam(builder *flatbuffers.Builder, shortcutParam int32) {
+	builder.PrependInt32Slot(15, shortcutParam, 0)
 }
 func OpenConditionExcelAddShortcutUiName(builder *flatbuffers.Builder, shortcutUiName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(shortcutUiName), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(shortcutUiName), 0)
 }
 func OpenConditionExcelStartShortcutUiNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func OpenConditionExcelAddShortcutParam(builder *flatbuffers.Builder, shortcutParam int32) {
-	builder.PrependInt32Slot(4, shortcutParam, 0)
+func OpenConditionExcelAddShortcutPopupPriority(builder *flatbuffers.Builder, shortcutPopupPriority int64) {
+	builder.PrependInt64Slot(17, shortcutPopupPriority, 0)
 }
-func OpenConditionExcelAddScene(builder *flatbuffers.Builder, scene flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(scene), 0)
+func OpenConditionExcelAddLockUi(builder *flatbuffers.Builder, lockUi flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(lockUi), 0)
 }
-func OpenConditionExcelAddHideWhenLocked(builder *flatbuffers.Builder, hideWhenLocked bool) {
-	builder.PrependBoolSlot(6, hideWhenLocked, false)
+func OpenConditionExcelStartLockUiVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func OpenConditionExcelAddAccountLevel(builder *flatbuffers.Builder, accountLevel int64) {
-	builder.PrependInt64Slot(7, accountLevel, 0)
-}
-func OpenConditionExcelAddScenarioModeId(builder *flatbuffers.Builder, scenarioModeId int64) {
-	builder.PrependInt64Slot(8, scenarioModeId, 0)
-}
-func OpenConditionExcelAddCampaignStageId(builder *flatbuffers.Builder, campaignStageId int64) {
-	builder.PrependInt64Slot(9, campaignStageId, 0)
-}
-func OpenConditionExcelAddMultipleConditionCheckType(builder *flatbuffers.Builder, multipleConditionCheckType MultipleConditionCheckType) {
-	builder.PrependInt32Slot(10, int32(multipleConditionCheckType), 0)
-}
-func OpenConditionExcelAddOpenDayOfWeek(builder *flatbuffers.Builder, openDayOfWeek WeekDay) {
-	builder.PrependInt32Slot(11, int32(openDayOfWeek), 0)
-}
-func OpenConditionExcelAddOpenHour(builder *flatbuffers.Builder, openHour int64) {
-	builder.PrependInt64Slot(12, openHour, 0)
-}
-func OpenConditionExcelAddCloseDayOfWeek(builder *flatbuffers.Builder, closeDayOfWeek WeekDay) {
-	builder.PrependInt32Slot(13, int32(closeDayOfWeek), 0)
-}
-func OpenConditionExcelAddCloseHour(builder *flatbuffers.Builder, closeHour int64) {
-	builder.PrependInt64Slot(14, closeHour, 0)
-}
-func OpenConditionExcelAddOpenedCafeId(builder *flatbuffers.Builder, openedCafeId int64) {
-	builder.PrependInt64Slot(15, openedCafeId, 0)
-}
-func OpenConditionExcelAddCafeIdforCafeRank(builder *flatbuffers.Builder, cafeIdforCafeRank int64) {
-	builder.PrependInt64Slot(16, cafeIdforCafeRank, 0)
-}
-func OpenConditionExcelAddCafeRank(builder *flatbuffers.Builder, cafeRank int64) {
-	builder.PrependInt64Slot(17, cafeRank, 0)
-}
-func OpenConditionExcelAddContentsOpenShow(builder *flatbuffers.Builder, contentsOpenShow bool) {
-	builder.PrependBoolSlot(18, contentsOpenShow, false)
-}
-func OpenConditionExcelAddContentsOpenShortcutUi(builder *flatbuffers.Builder, contentsOpenShortcutUi flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(contentsOpenShortcutUi), 0)
+func OpenConditionExcelAddOpenConditionContentType(builder *flatbuffers.Builder, openConditionContentType OpenConditionContent) {
+	builder.PrependInt32Slot(19, int32(openConditionContentType), 0)
 }
 func OpenConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

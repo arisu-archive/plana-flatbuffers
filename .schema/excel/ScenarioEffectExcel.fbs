@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table ScenarioEffectExcel {
-    effect_name: string;
     name: uint;
+    effect_name: string;
 }
 
 root_type ScenarioEffectExcel;

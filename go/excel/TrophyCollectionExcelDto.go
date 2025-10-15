@@ -10,21 +10,21 @@ import (
 // TrophyCollectionExcelDto represents a FlatBuffers table
 type TrophyCollectionExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId        int64   `json:"group_id"`
-	LocalizeCodeId uint32  `json:"localize_code_id"`
 	FurnitureId    []int64 `json:"furniture_id"`
+	LocalizeCodeId uint32  `json:"localize_code_id"`
+	GroupId        int64   `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TrophyCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TrophyCollectionExcelStart(b)
-	TrophyCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	TrophyCollectionExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	TrophyCollectionExcelStartFurnitureIdVector(b, len(t.FurnitureId))
 	for i := range len(t.FurnitureId) {
 		b.PrependInt64(fbsutils.Convert(t.FurnitureId[len(t.FurnitureId)-i-1], t.FlatBuffer.TableKey))
 	}
 	TrophyCollectionExcelAddFurnitureId(b, b.EndVector(len(t.FurnitureId)))
+	TrophyCollectionExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
+	TrophyCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return TrophyCollectionExcelEnd(b)
 }
 
@@ -37,12 +37,12 @@ func (t *TrophyCollectionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TrophyCollectionExcelDto) UnmarshalMessage(e *TrophyCollectionExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
 	t.FurnitureId = make([]int64, e.FurnitureIdLength())
 	for i := range e.FurnitureIdLength() {
 		t.FurnitureId[i] = fbsutils.Convert(e.FurnitureId(i), t.FlatBuffer.TableKey)
 	}
+	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

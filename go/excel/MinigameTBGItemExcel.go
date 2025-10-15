@@ -33,100 +33,8 @@ func (rcv *MinigameTBGItemExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGItemExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGItemExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameTBGItemExcel) ItemType() TBGItemType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return TBGItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGItemExcel) MutateItemType(n TBGItemType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *MinigameTBGItemExcel) TbgItemEffectType() TBGItemEffectType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return TBGItemEffectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGItemExcel) MutateTbgItemEffectType(n TBGItemEffectType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *MinigameTBGItemExcel) ItemParameter() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGItemExcel) MutateItemParameter(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *MinigameTBGItemExcel) LocalizeEtcId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGItemExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGItemExcel) BuffIcon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGItemExcel) EncounterCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGItemExcel) MutateEncounterCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *MinigameTBGItemExcel) DiceEffectAniClip() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MinigameTBGItemExcel) BuffIconHudVisible() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -134,41 +42,133 @@ func (rcv *MinigameTBGItemExcel) BuffIconHudVisible() bool {
 }
 
 func (rcv *MinigameTBGItemExcel) MutateBuffIconHudVisible(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *MinigameTBGItemExcel) DiceEffectAniClip() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGItemExcel) EncounterCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGItemExcel) MutateEncounterCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *MinigameTBGItemExcel) BuffIcon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGItemExcel) Icon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGItemExcel) LocalizeEtcId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGItemExcel) ItemParameter() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGItemExcel) MutateItemParameter(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *MinigameTBGItemExcel) TbgItemEffectType() TBGItemEffectType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return TBGItemEffectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGItemExcel) MutateTbgItemEffectType(n TBGItemEffectType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *MinigameTBGItemExcel) ItemType() TBGItemType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return TBGItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGItemExcel) MutateItemType(n TBGItemType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *MinigameTBGItemExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGItemExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func MinigameTBGItemExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func MinigameTBGItemExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func MinigameTBGItemExcelAddItemType(builder *flatbuffers.Builder, itemType TBGItemType) {
-	builder.PrependInt32Slot(1, int32(itemType), 0)
-}
-func MinigameTBGItemExcelAddTbgItemEffectType(builder *flatbuffers.Builder, tbgItemEffectType TBGItemEffectType) {
-	builder.PrependInt32Slot(2, int32(tbgItemEffectType), 0)
-}
-func MinigameTBGItemExcelAddItemParameter(builder *flatbuffers.Builder, itemParameter int32) {
-	builder.PrependInt32Slot(3, itemParameter, 0)
-}
-func MinigameTBGItemExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(localizeEtcId), 0)
-}
-func MinigameTBGItemExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(icon), 0)
-}
-func MinigameTBGItemExcelAddBuffIcon(builder *flatbuffers.Builder, buffIcon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(buffIcon), 0)
-}
-func MinigameTBGItemExcelAddEncounterCount(builder *flatbuffers.Builder, encounterCount int32) {
-	builder.PrependInt32Slot(7, encounterCount, 0)
+func MinigameTBGItemExcelAddBuffIconHudVisible(builder *flatbuffers.Builder, buffIconHudVisible bool) {
+	builder.PrependBoolSlot(0, buffIconHudVisible, false)
 }
 func MinigameTBGItemExcelAddDiceEffectAniClip(builder *flatbuffers.Builder, diceEffectAniClip flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(diceEffectAniClip), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(diceEffectAniClip), 0)
 }
-func MinigameTBGItemExcelAddBuffIconHudVisible(builder *flatbuffers.Builder, buffIconHudVisible bool) {
-	builder.PrependBoolSlot(9, buffIconHudVisible, false)
+func MinigameTBGItemExcelAddEncounterCount(builder *flatbuffers.Builder, encounterCount int32) {
+	builder.PrependInt32Slot(2, encounterCount, 0)
+}
+func MinigameTBGItemExcelAddBuffIcon(builder *flatbuffers.Builder, buffIcon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buffIcon), 0)
+}
+func MinigameTBGItemExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(icon), 0)
+}
+func MinigameTBGItemExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(localizeEtcId), 0)
+}
+func MinigameTBGItemExcelAddItemParameter(builder *flatbuffers.Builder, itemParameter int32) {
+	builder.PrependInt32Slot(6, itemParameter, 0)
+}
+func MinigameTBGItemExcelAddTbgItemEffectType(builder *flatbuffers.Builder, tbgItemEffectType TBGItemEffectType) {
+	builder.PrependInt32Slot(7, int32(tbgItemEffectType), 0)
+}
+func MinigameTBGItemExcelAddItemType(builder *flatbuffers.Builder, itemType TBGItemType) {
+	builder.PrependInt32Slot(8, int32(itemType), 0)
+}
+func MinigameTBGItemExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(9, uniqueId, 0)
 }
 func MinigameTBGItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

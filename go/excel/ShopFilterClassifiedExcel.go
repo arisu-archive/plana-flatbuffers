@@ -33,7 +33,7 @@ func (rcv *ShopFilterClassifiedExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopFilterClassifiedExcel) Id() int64 {
+func (rcv *ShopFilterClassifiedExcel) GoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,48 +41,12 @@ func (rcv *ShopFilterClassifiedExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *ShopFilterClassifiedExcel) MutateId(n int64) bool {
+func (rcv *ShopFilterClassifiedExcel) MutateGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ShopFilterClassifiedExcel) CategoryType() ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopFilterClassifiedExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *ShopFilterClassifiedExcel) ConsumeParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopFilterClassifiedExcel) MutateConsumeParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *ShopFilterClassifiedExcel) ConsumeParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopFilterClassifiedExcel) MutateConsumeParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
 func (rcv *ShopFilterClassifiedExcel) ShopFilterType() ShopFilterType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return ShopFilterType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -90,10 +54,46 @@ func (rcv *ShopFilterClassifiedExcel) ShopFilterType() ShopFilterType {
 }
 
 func (rcv *ShopFilterClassifiedExcel) MutateShopFilterType(n ShopFilterType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *ShopFilterClassifiedExcel) ConsumeParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopFilterClassifiedExcel) MutateConsumeParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *ShopFilterClassifiedExcel) ConsumeParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopFilterClassifiedExcel) MutateConsumeParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *ShopFilterClassifiedExcel) CategoryType() ShopCategoryType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopFilterClassifiedExcel) MutateCategoryType(n ShopCategoryType) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *ShopFilterClassifiedExcel) GoodsId() int64 {
+func (rcv *ShopFilterClassifiedExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *ShopFilterClassifiedExcel) GoodsId() int64 {
 	return 0
 }
 
-func (rcv *ShopFilterClassifiedExcel) MutateGoodsId(n int64) bool {
+func (rcv *ShopFilterClassifiedExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func ShopFilterClassifiedExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ShopFilterClassifiedExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ShopFilterClassifiedExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(1, int32(categoryType), 0)
-}
-func ShopFilterClassifiedExcelAddConsumeParcelType(builder *flatbuffers.Builder, consumeParcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(consumeParcelType), 0)
-}
-func ShopFilterClassifiedExcelAddConsumeParcelId(builder *flatbuffers.Builder, consumeParcelId int64) {
-	builder.PrependInt64Slot(3, consumeParcelId, 0)
+func ShopFilterClassifiedExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
+	builder.PrependInt64Slot(0, goodsId, 0)
 }
 func ShopFilterClassifiedExcelAddShopFilterType(builder *flatbuffers.Builder, shopFilterType ShopFilterType) {
-	builder.PrependInt32Slot(4, int32(shopFilterType), 0)
+	builder.PrependInt32Slot(1, int32(shopFilterType), 0)
 }
-func ShopFilterClassifiedExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
-	builder.PrependInt64Slot(5, goodsId, 0)
+func ShopFilterClassifiedExcelAddConsumeParcelId(builder *flatbuffers.Builder, consumeParcelId int64) {
+	builder.PrependInt64Slot(2, consumeParcelId, 0)
+}
+func ShopFilterClassifiedExcelAddConsumeParcelType(builder *flatbuffers.Builder, consumeParcelType ParcelType) {
+	builder.PrependInt32Slot(3, int32(consumeParcelType), 0)
+}
+func ShopFilterClassifiedExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
+	builder.PrependInt32Slot(4, int32(categoryType), 0)
+}
+func ShopFilterClassifiedExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func ShopFilterClassifiedExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

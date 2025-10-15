@@ -33,31 +33,32 @@ func (rcv *ContentsShortcutExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ContentsShortcutExcel) UniqueId() int64 {
+func (rcv *ContentsShortcutExcel) Localize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ContentsShortcutExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ContentsShortcutExcel) ContentType() ContentType {
+func (rcv *ContentsShortcutExcel) ShortcutUiName(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *ContentsShortcutExcel) ShortcutUiNameLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *ContentsShortcutExcel) EventContentId() int64 {
+func (rcv *ContentsShortcutExcel) ShortcutContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,40 +66,44 @@ func (rcv *ContentsShortcutExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateEventContentId(n int64) bool {
+func (rcv *ContentsShortcutExcel) MutateShortcutContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ContentsShortcutExcel) ScenarioModeVolume() int64 {
+func (rcv *ContentsShortcutExcel) ConquestStepIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateScenarioModeVolume(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *ContentsShortcutExcel) MutateConquestStepIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *ContentsShortcutExcel) ScenarioModeChapter() int64 {
+func (rcv *ContentsShortcutExcel) ConquestMapDifficulty() StageDifficulty {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
+		return StageDifficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ContentsShortcutExcel) MutateConquestMapDifficulty(n StageDifficulty) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *ContentsShortcutExcel) ConditionContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateScenarioModeChapter(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *ContentsShortcutExcel) ShortcutOpenTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *ContentsShortcutExcel) MutateConditionContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *ContentsShortcutExcel) ShortcutCloseTime() []byte {
@@ -109,43 +114,39 @@ func (rcv *ContentsShortcutExcel) ShortcutCloseTime() []byte {
 	return nil
 }
 
-func (rcv *ContentsShortcutExcel) ConditionContentId() int64 {
+func (rcv *ContentsShortcutExcel) ShortcutOpenTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ContentsShortcutExcel) ScenarioModeChapter() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateConditionContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *ContentsShortcutExcel) MutateScenarioModeChapter(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *ContentsShortcutExcel) ConquestMapDifficulty() StageDifficulty {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return StageDifficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ContentsShortcutExcel) MutateConquestMapDifficulty(n StageDifficulty) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
-}
-
-func (rcv *ContentsShortcutExcel) ConquestStepIndex() int32 {
+func (rcv *ContentsShortcutExcel) ScenarioModeVolume() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateConquestStepIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
+func (rcv *ContentsShortcutExcel) MutateScenarioModeVolume(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *ContentsShortcutExcel) ShortcutContentId() int64 {
+func (rcv *ContentsShortcutExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -153,79 +154,78 @@ func (rcv *ContentsShortcutExcel) ShortcutContentId() int64 {
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) MutateShortcutContentId(n int64) bool {
+func (rcv *ContentsShortcutExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *ContentsShortcutExcel) ShortcutUiName(j int) []byte {
+func (rcv *ContentsShortcutExcel) ContentType() ContentType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *ContentsShortcutExcel) ShortcutUiNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ContentsShortcutExcel) Localize() []byte {
+func (rcv *ContentsShortcutExcel) MutateContentType(n ContentType) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *ContentsShortcutExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ContentsShortcutExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
 }
 
 func ContentsShortcutExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(13)
 }
-func ContentsShortcutExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func ContentsShortcutExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(1, int32(contentType), 0)
-}
-func ContentsShortcutExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
-}
-func ContentsShortcutExcelAddScenarioModeVolume(builder *flatbuffers.Builder, scenarioModeVolume int64) {
-	builder.PrependInt64Slot(3, scenarioModeVolume, 0)
-}
-func ContentsShortcutExcelAddScenarioModeChapter(builder *flatbuffers.Builder, scenarioModeChapter int64) {
-	builder.PrependInt64Slot(4, scenarioModeChapter, 0)
-}
-func ContentsShortcutExcelAddShortcutOpenTime(builder *flatbuffers.Builder, shortcutOpenTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(shortcutOpenTime), 0)
-}
-func ContentsShortcutExcelAddShortcutCloseTime(builder *flatbuffers.Builder, shortcutCloseTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(shortcutCloseTime), 0)
-}
-func ContentsShortcutExcelAddConditionContentId(builder *flatbuffers.Builder, conditionContentId int64) {
-	builder.PrependInt64Slot(7, conditionContentId, 0)
-}
-func ContentsShortcutExcelAddConquestMapDifficulty(builder *flatbuffers.Builder, conquestMapDifficulty StageDifficulty) {
-	builder.PrependInt32Slot(8, int32(conquestMapDifficulty), 0)
-}
-func ContentsShortcutExcelAddConquestStepIndex(builder *flatbuffers.Builder, conquestStepIndex int32) {
-	builder.PrependInt32Slot(9, conquestStepIndex, 0)
-}
-func ContentsShortcutExcelAddShortcutContentId(builder *flatbuffers.Builder, shortcutContentId int64) {
-	builder.PrependInt64Slot(10, shortcutContentId, 0)
+func ContentsShortcutExcelAddLocalize(builder *flatbuffers.Builder, localize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(localize), 0)
 }
 func ContentsShortcutExcelAddShortcutUiName(builder *flatbuffers.Builder, shortcutUiName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(shortcutUiName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(shortcutUiName), 0)
 }
 func ContentsShortcutExcelStartShortcutUiNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func ContentsShortcutExcelAddLocalize(builder *flatbuffers.Builder, localize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(localize), 0)
+func ContentsShortcutExcelAddShortcutContentId(builder *flatbuffers.Builder, shortcutContentId int64) {
+	builder.PrependInt64Slot(2, shortcutContentId, 0)
+}
+func ContentsShortcutExcelAddConquestStepIndex(builder *flatbuffers.Builder, conquestStepIndex int32) {
+	builder.PrependInt32Slot(3, conquestStepIndex, 0)
+}
+func ContentsShortcutExcelAddConquestMapDifficulty(builder *flatbuffers.Builder, conquestMapDifficulty StageDifficulty) {
+	builder.PrependInt32Slot(4, int32(conquestMapDifficulty), 0)
+}
+func ContentsShortcutExcelAddConditionContentId(builder *flatbuffers.Builder, conditionContentId int64) {
+	builder.PrependInt64Slot(5, conditionContentId, 0)
+}
+func ContentsShortcutExcelAddShortcutCloseTime(builder *flatbuffers.Builder, shortcutCloseTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(shortcutCloseTime), 0)
+}
+func ContentsShortcutExcelAddShortcutOpenTime(builder *flatbuffers.Builder, shortcutOpenTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(shortcutOpenTime), 0)
+}
+func ContentsShortcutExcelAddScenarioModeChapter(builder *flatbuffers.Builder, scenarioModeChapter int64) {
+	builder.PrependInt64Slot(8, scenarioModeChapter, 0)
+}
+func ContentsShortcutExcelAddScenarioModeVolume(builder *flatbuffers.Builder, scenarioModeVolume int64) {
+	builder.PrependInt64Slot(9, scenarioModeVolume, 0)
+}
+func ContentsShortcutExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(10, eventContentId, 0)
+}
+func ContentsShortcutExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
+	builder.PrependInt32Slot(11, int32(contentType), 0)
+}
+func ContentsShortcutExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(12, uniqueId, 0)
 }
 func ContentsShortcutExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

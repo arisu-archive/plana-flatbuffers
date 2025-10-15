@@ -3,10 +3,10 @@ include "DreamMakerVoiceCondition.fbs";
 namespace MX.Data.Excel;
 
 table MinigameDreamVoiceExcel {
-    event_content_id: long;
-    unique_id: long;
-    voice_condition: DreamMakerVoiceCondition;
     voice_clip: uint;
+    voice_condition: DreamMakerVoiceCondition;
+    unique_id: long;
+    event_content_id: long;
 }
 
 root_type MinigameDreamVoiceExcel;

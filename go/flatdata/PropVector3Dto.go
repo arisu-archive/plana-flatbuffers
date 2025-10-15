@@ -10,9 +10,9 @@ import (
 // PropVector3Dto represents a FlatBuffers table
 type PropVector3Dto struct {
 	fbsutils.FlatBuffer
-	X float32 `json:"x"`
-	Y float32 `json:"y"`
 	Z float32 `json:"z"`
+	Y float32 `json:"y"`
+	X float32 `json:"x"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *PropVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropVector3"))
 	}
 	PropVector3Start(b)
-	PropVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	PropVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
 	PropVector3AddZ(b, fbsutils.Convert(t.Z, t.FlatBuffer.TableKey))
+	PropVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
+	PropVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	return PropVector3End(b)
 }
 
@@ -39,9 +39,9 @@ func (t *PropVector3Dto) UnmarshalMessage(e *PropVector3) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropVector3"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)
+	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	return nil
 }
 

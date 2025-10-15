@@ -10,9 +10,9 @@ import (
 // GroundVector3Dto represents a FlatBuffers table
 type GroundVector3Dto struct {
 	fbsutils.FlatBuffer
-	X float32 `json:"x"`
-	Y float32 `json:"y"`
 	Z float32 `json:"z"`
+	Y float32 `json:"y"`
+	X float32 `json:"x"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *GroundVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundVector3"))
 	}
 	GroundVector3Start(b)
-	GroundVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	GroundVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
 	GroundVector3AddZ(b, fbsutils.Convert(t.Z, t.FlatBuffer.TableKey))
+	GroundVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
+	GroundVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	return GroundVector3End(b)
 }
 
@@ -39,9 +39,9 @@ func (t *GroundVector3Dto) UnmarshalMessage(e *GroundVector3) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundVector3"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)
+	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	return nil
 }
 

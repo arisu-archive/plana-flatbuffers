@@ -25,46 +25,59 @@ class ContentsShortcutExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ContentsShortcutExcel
-    def UniqueId(self):
+    def Localize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ContentsShortcutExcel
-    def ContentType(self):
+    def ShortcutUiName(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # ContentsShortcutExcel
+    def ShortcutUiNameLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
 
     # ContentsShortcutExcel
-    def EventContentId(self):
+    def ShortcutUiNameIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # ContentsShortcutExcel
+    def ShortcutContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ScenarioModeVolume(self):
+    def ConquestStepIndex(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ScenarioModeChapter(self):
+    def ConquestMapDifficulty(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ShortcutOpenTime(self):
+    def ConditionContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ContentsShortcutExcel
     def ShortcutCloseTime(self):
@@ -74,105 +87,92 @@ class ContentsShortcutExcel(object):
         return None
 
     # ContentsShortcutExcel
-    def ConditionContentId(self):
+    def ShortcutOpenTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ContentsShortcutExcel
+    def ScenarioModeChapter(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ConquestMapDifficulty(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ContentsShortcutExcel
-    def ConquestStepIndex(self):
+    def ScenarioModeVolume(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ShortcutContentId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ShortcutUiName(self, j):
+    def ContentType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # ContentsShortcutExcel
-    def ShortcutUiNameLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ContentsShortcutExcel
-    def ShortcutUiNameIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        return o == 0
-
-    # ContentsShortcutExcel
-    def Localize(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def ContentsShortcutExcelStart(builder): builder.StartObject(13)
 def Start(builder):
     return ContentsShortcutExcelStart(builder)
-def ContentsShortcutExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return ContentsShortcutExcelAddUniqueId(builder, uniqueId)
-def ContentsShortcutExcelAddContentType(builder, contentType): builder.PrependInt32Slot(1, contentType, 0)
-def AddContentType(builder, contentType):
-    return ContentsShortcutExcelAddContentType(builder, contentType)
-def ContentsShortcutExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return ContentsShortcutExcelAddEventContentId(builder, eventContentId)
-def ContentsShortcutExcelAddScenarioModeVolume(builder, scenarioModeVolume): builder.PrependInt64Slot(3, scenarioModeVolume, 0)
-def AddScenarioModeVolume(builder, scenarioModeVolume):
-    return ContentsShortcutExcelAddScenarioModeVolume(builder, scenarioModeVolume)
-def ContentsShortcutExcelAddScenarioModeChapter(builder, scenarioModeChapter): builder.PrependInt64Slot(4, scenarioModeChapter, 0)
-def AddScenarioModeChapter(builder, scenarioModeChapter):
-    return ContentsShortcutExcelAddScenarioModeChapter(builder, scenarioModeChapter)
-def ContentsShortcutExcelAddShortcutOpenTime(builder, shortcutOpenTime): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutOpenTime), 0)
-def AddShortcutOpenTime(builder, shortcutOpenTime):
-    return ContentsShortcutExcelAddShortcutOpenTime(builder, shortcutOpenTime)
-def ContentsShortcutExcelAddShortcutCloseTime(builder, shortcutCloseTime): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutCloseTime), 0)
-def AddShortcutCloseTime(builder, shortcutCloseTime):
-    return ContentsShortcutExcelAddShortcutCloseTime(builder, shortcutCloseTime)
-def ContentsShortcutExcelAddConditionContentId(builder, conditionContentId): builder.PrependInt64Slot(7, conditionContentId, 0)
-def AddConditionContentId(builder, conditionContentId):
-    return ContentsShortcutExcelAddConditionContentId(builder, conditionContentId)
-def ContentsShortcutExcelAddConquestMapDifficulty(builder, conquestMapDifficulty): builder.PrependInt32Slot(8, conquestMapDifficulty, 0)
-def AddConquestMapDifficulty(builder, conquestMapDifficulty):
-    return ContentsShortcutExcelAddConquestMapDifficulty(builder, conquestMapDifficulty)
-def ContentsShortcutExcelAddConquestStepIndex(builder, conquestStepIndex): builder.PrependInt32Slot(9, conquestStepIndex, 0)
-def AddConquestStepIndex(builder, conquestStepIndex):
-    return ContentsShortcutExcelAddConquestStepIndex(builder, conquestStepIndex)
-def ContentsShortcutExcelAddShortcutContentId(builder, shortcutContentId): builder.PrependInt64Slot(10, shortcutContentId, 0)
-def AddShortcutContentId(builder, shortcutContentId):
-    return ContentsShortcutExcelAddShortcutContentId(builder, shortcutContentId)
-def ContentsShortcutExcelAddShortcutUiName(builder, shortcutUiName): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUiName), 0)
+def ContentsShortcutExcelAddLocalize(builder, localize): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(localize), 0)
+def AddLocalize(builder, localize):
+    return ContentsShortcutExcelAddLocalize(builder, localize)
+def ContentsShortcutExcelAddShortcutUiName(builder, shortcutUiName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUiName), 0)
 def AddShortcutUiName(builder, shortcutUiName):
     return ContentsShortcutExcelAddShortcutUiName(builder, shortcutUiName)
 def ContentsShortcutExcelStartShortcutUiNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShortcutUiNameVector(builder, numElems):
     return ContentsShortcutExcelStartShortcutUiNameVector(builder, numElems)
-def ContentsShortcutExcelAddLocalize(builder, localize): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(localize), 0)
-def AddLocalize(builder, localize):
-    return ContentsShortcutExcelAddLocalize(builder, localize)
+def ContentsShortcutExcelAddShortcutContentId(builder, shortcutContentId): builder.PrependInt64Slot(2, shortcutContentId, 0)
+def AddShortcutContentId(builder, shortcutContentId):
+    return ContentsShortcutExcelAddShortcutContentId(builder, shortcutContentId)
+def ContentsShortcutExcelAddConquestStepIndex(builder, conquestStepIndex): builder.PrependInt32Slot(3, conquestStepIndex, 0)
+def AddConquestStepIndex(builder, conquestStepIndex):
+    return ContentsShortcutExcelAddConquestStepIndex(builder, conquestStepIndex)
+def ContentsShortcutExcelAddConquestMapDifficulty(builder, conquestMapDifficulty): builder.PrependInt32Slot(4, conquestMapDifficulty, 0)
+def AddConquestMapDifficulty(builder, conquestMapDifficulty):
+    return ContentsShortcutExcelAddConquestMapDifficulty(builder, conquestMapDifficulty)
+def ContentsShortcutExcelAddConditionContentId(builder, conditionContentId): builder.PrependInt64Slot(5, conditionContentId, 0)
+def AddConditionContentId(builder, conditionContentId):
+    return ContentsShortcutExcelAddConditionContentId(builder, conditionContentId)
+def ContentsShortcutExcelAddShortcutCloseTime(builder, shortcutCloseTime): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutCloseTime), 0)
+def AddShortcutCloseTime(builder, shortcutCloseTime):
+    return ContentsShortcutExcelAddShortcutCloseTime(builder, shortcutCloseTime)
+def ContentsShortcutExcelAddShortcutOpenTime(builder, shortcutOpenTime): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutOpenTime), 0)
+def AddShortcutOpenTime(builder, shortcutOpenTime):
+    return ContentsShortcutExcelAddShortcutOpenTime(builder, shortcutOpenTime)
+def ContentsShortcutExcelAddScenarioModeChapter(builder, scenarioModeChapter): builder.PrependInt64Slot(8, scenarioModeChapter, 0)
+def AddScenarioModeChapter(builder, scenarioModeChapter):
+    return ContentsShortcutExcelAddScenarioModeChapter(builder, scenarioModeChapter)
+def ContentsShortcutExcelAddScenarioModeVolume(builder, scenarioModeVolume): builder.PrependInt64Slot(9, scenarioModeVolume, 0)
+def AddScenarioModeVolume(builder, scenarioModeVolume):
+    return ContentsShortcutExcelAddScenarioModeVolume(builder, scenarioModeVolume)
+def ContentsShortcutExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(10, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return ContentsShortcutExcelAddEventContentId(builder, eventContentId)
+def ContentsShortcutExcelAddContentType(builder, contentType): builder.PrependInt32Slot(11, contentType, 0)
+def AddContentType(builder, contentType):
+    return ContentsShortcutExcelAddContentType(builder, contentType)
+def ContentsShortcutExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(12, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return ContentsShortcutExcelAddUniqueId(builder, uniqueId)
 def ContentsShortcutExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ContentsShortcutExcelEnd(builder)

@@ -10,37 +10,37 @@ import (
 // ShiftingCraftRecipeExcelDto represents a FlatBuffers table
 type ShiftingCraftRecipeExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64      `json:"id"`
-	DisplayOrder      int64      `json:"display_order"`
-	NotificationId    int32      `json:"notification_id"`
-	ResultParcel      ParcelType `json:"result_parcel"`
-	ResultId          int64      `json:"result_id"`
-	ResultAmount      int64      `json:"result_amount"`
-	RequireItemId     int64      `json:"require_item_id"`
-	RequireItemAmount int64      `json:"require_item_amount"`
-	RequireGold       int64      `json:"require_gold"`
-	IngredientTag     []Tag      `json:"ingredient_tag"`
 	IngredientExp     int64      `json:"ingredient_exp"`
+	IngredientTag     []Tag      `json:"ingredient_tag"`
+	RequireGold       int64      `json:"require_gold"`
+	RequireItemAmount int64      `json:"require_item_amount"`
+	RequireItemId     int64      `json:"require_item_id"`
+	ResultAmount      int64      `json:"result_amount"`
+	ResultId          int64      `json:"result_id"`
+	ResultParcel      ParcelType `json:"result_parcel"`
+	NotificationId    int32      `json:"notification_id"`
+	DisplayOrder      int64      `json:"display_order"`
+	Id                int64      `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShiftingCraftRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShiftingCraftRecipeExcelStart(b)
-	ShiftingCraftRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddNotificationId(b, fbsutils.Convert(t.NotificationId, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddResultParcel(b, fbsutils.Convert(t.ResultParcel, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddResultId(b, fbsutils.Convert(t.ResultId, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddResultAmount(b, fbsutils.Convert(t.ResultAmount, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddRequireItemId(b, fbsutils.Convert(t.RequireItemId, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddRequireItemAmount(b, fbsutils.Convert(t.RequireItemAmount, t.FlatBuffer.TableKey))
-	ShiftingCraftRecipeExcelAddRequireGold(b, fbsutils.Convert(t.RequireGold, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddIngredientExp(b, fbsutils.Convert(t.IngredientExp, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelStartIngredientTagVector(b, len(t.IngredientTag))
 	for i := range len(t.IngredientTag) {
 		b.PrependInt32(fbsutils.Convert(int32(t.IngredientTag[len(t.IngredientTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ShiftingCraftRecipeExcelAddIngredientTag(b, b.EndVector(len(t.IngredientTag)))
-	ShiftingCraftRecipeExcelAddIngredientExp(b, fbsutils.Convert(t.IngredientExp, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddRequireGold(b, fbsutils.Convert(t.RequireGold, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddRequireItemAmount(b, fbsutils.Convert(t.RequireItemAmount, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddRequireItemId(b, fbsutils.Convert(t.RequireItemId, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddResultAmount(b, fbsutils.Convert(t.ResultAmount, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddResultId(b, fbsutils.Convert(t.ResultId, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddResultParcel(b, fbsutils.Convert(t.ResultParcel, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddNotificationId(b, fbsutils.Convert(t.NotificationId, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ShiftingCraftRecipeExcelEnd(b)
 }
 
@@ -53,20 +53,20 @@ func (t *ShiftingCraftRecipeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShiftingCraftRecipeExcelDto) UnmarshalMessage(e *ShiftingCraftRecipeExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.NotificationId = fbsutils.Convert(e.NotificationId(), t.FlatBuffer.TableKey)
-	t.ResultParcel = ParcelType(fbsutils.Convert(int32(e.ResultParcel()), t.FlatBuffer.TableKey))
-	t.ResultId = fbsutils.Convert(e.ResultId(), t.FlatBuffer.TableKey)
-	t.ResultAmount = fbsutils.Convert(e.ResultAmount(), t.FlatBuffer.TableKey)
-	t.RequireItemId = fbsutils.Convert(e.RequireItemId(), t.FlatBuffer.TableKey)
-	t.RequireItemAmount = fbsutils.Convert(e.RequireItemAmount(), t.FlatBuffer.TableKey)
-	t.RequireGold = fbsutils.Convert(e.RequireGold(), t.FlatBuffer.TableKey)
+	t.IngredientExp = fbsutils.Convert(e.IngredientExp(), t.FlatBuffer.TableKey)
 	t.IngredientTag = make([]Tag, e.IngredientTagLength())
 	for i := range e.IngredientTagLength() {
 		t.IngredientTag[i] = Tag(fbsutils.Convert(int32(e.IngredientTag(i)), t.FlatBuffer.TableKey))
 	}
-	t.IngredientExp = fbsutils.Convert(e.IngredientExp(), t.FlatBuffer.TableKey)
+	t.RequireGold = fbsutils.Convert(e.RequireGold(), t.FlatBuffer.TableKey)
+	t.RequireItemAmount = fbsutils.Convert(e.RequireItemAmount(), t.FlatBuffer.TableKey)
+	t.RequireItemId = fbsutils.Convert(e.RequireItemId(), t.FlatBuffer.TableKey)
+	t.ResultAmount = fbsutils.Convert(e.ResultAmount(), t.FlatBuffer.TableKey)
+	t.ResultId = fbsutils.Convert(e.ResultId(), t.FlatBuffer.TableKey)
+	t.ResultParcel = ParcelType(fbsutils.Convert(int32(e.ResultParcel()), t.FlatBuffer.TableKey))
+	t.NotificationId = fbsutils.Convert(e.NotificationId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

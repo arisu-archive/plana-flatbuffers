@@ -10,69 +10,69 @@ import (
 // MinigameTBGSeasonExcelDto represents a FlatBuffers table
 type MinigameTBGSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId           int64      `json:"event_content_id"`
-	ItemSlot                 int32      `json:"item_slot"`
-	DefaultEchelonHp         int32      `json:"default_echelon_hp"`
-	DefaultItemDiceId        int64      `json:"default_item_dice_id"`
-	EchelonSlot1CharacterId  int64      `json:"echelon_slot1_character_id"`
-	EchelonSlot2CharacterId  int64      `json:"echelon_slot2_character_id"`
-	EchelonSlot3CharacterId  int64      `json:"echelon_slot3_character_id"`
-	EchelonSlot4CharacterId  int64      `json:"echelon_slot4_character_id"`
-	EchelonSlot1Portrait     string     `json:"echelon_slot1_portrait"`
-	EchelonSlot2Portrait     string     `json:"echelon_slot2_portrait"`
-	EchelonSlot3Portrait     string     `json:"echelon_slot3_portrait"`
-	EchelonSlot4Portrait     string     `json:"echelon_slot4_portrait"`
-	EventUseCostType         ParcelType `json:"event_use_cost_type"`
-	EventUseCostId           int64      `json:"event_use_cost_id"`
-	EchelonRevivalCostType   ParcelType `json:"echelon_revival_cost_type"`
-	EchelonRevivalCostId     int64      `json:"echelon_revival_cost_id"`
-	EchelonRevivalCostAmount int32      `json:"echelon_revival_cost_amount"`
-	EnemyBossHp              int32      `json:"enemy_boss_hp"`
-	EnemyMinionHp            int32      `json:"enemy_minion_hp"`
-	AttackDamage             int32      `json:"attack_damage"`
-	CriticalAttackDamage     int32      `json:"critical_attack_damage"`
-	RoundItemSelectLimit     int32      `json:"round_item_select_limit"`
-	InstantClearRound        int32      `json:"instant_clear_round"`
-	MaxHp                    int32      `json:"max_hp"`
-	MapImagePath             string     `json:"map_image_path"`
-	MapNameLocalize          string     `json:"map_name_localize"`
-	StartThemaIndex          int32      `json:"start_thema_index"`
-	LoopThemaIndex           int32      `json:"loop_thema_index"`
 	MaxDicePlus              int32      `json:"max_dice_plus"`
+	LoopThemaIndex           int32      `json:"loop_thema_index"`
+	StartThemaIndex          int32      `json:"start_thema_index"`
+	MapNameLocalize          string     `json:"map_name_localize"`
+	MapImagePath             string     `json:"map_image_path"`
+	MaxHp                    int32      `json:"max_hp"`
+	InstantClearRound        int32      `json:"instant_clear_round"`
+	RoundItemSelectLimit     int32      `json:"round_item_select_limit"`
+	CriticalAttackDamage     int32      `json:"critical_attack_damage"`
+	AttackDamage             int32      `json:"attack_damage"`
+	EnemyMinionHp            int32      `json:"enemy_minion_hp"`
+	EnemyBossHp              int32      `json:"enemy_boss_hp"`
+	EchelonRevivalCostAmount int32      `json:"echelon_revival_cost_amount"`
+	EchelonRevivalCostId     int64      `json:"echelon_revival_cost_id"`
+	EchelonRevivalCostType   ParcelType `json:"echelon_revival_cost_type"`
+	EventUseCostId           int64      `json:"event_use_cost_id"`
+	EventUseCostType         ParcelType `json:"event_use_cost_type"`
+	EchelonSlot4Portrait     string     `json:"echelon_slot4_portrait"`
+	EchelonSlot3Portrait     string     `json:"echelon_slot3_portrait"`
+	EchelonSlot2Portrait     string     `json:"echelon_slot2_portrait"`
+	EchelonSlot1Portrait     string     `json:"echelon_slot1_portrait"`
+	EchelonSlot4CharacterId  int64      `json:"echelon_slot4_character_id"`
+	EchelonSlot3CharacterId  int64      `json:"echelon_slot3_character_id"`
+	EchelonSlot2CharacterId  int64      `json:"echelon_slot2_character_id"`
+	EchelonSlot1CharacterId  int64      `json:"echelon_slot1_character_id"`
+	DefaultItemDiceId        int64      `json:"default_item_dice_id"`
+	DefaultEchelonHp         int32      `json:"default_echelon_hp"`
+	ItemSlot                 int32      `json:"item_slot"`
+	EventContentId           int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGSeasonExcelStart(b)
-	MinigameTBGSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddItemSlot(b, fbsutils.Convert(t.ItemSlot, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddDefaultEchelonHp(b, fbsutils.Convert(t.DefaultEchelonHp, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddDefaultItemDiceId(b, fbsutils.Convert(t.DefaultItemDiceId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(b, fbsutils.Convert(t.EchelonSlot1CharacterId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(b, fbsutils.Convert(t.EchelonSlot2CharacterId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(b, fbsutils.Convert(t.EchelonSlot3CharacterId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(b, fbsutils.Convert(t.EchelonSlot4CharacterId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonSlot1Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot1Portrait, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddEchelonSlot2Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot2Portrait, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddEchelonSlot3Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot3Portrait, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddEchelonSlot4Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot4Portrait, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddEventUseCostType(b, fbsutils.Convert(t.EventUseCostType, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEventUseCostId(b, fbsutils.Convert(t.EventUseCostId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonRevivalCostType(b, fbsutils.Convert(t.EchelonRevivalCostType, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonRevivalCostId(b, fbsutils.Convert(t.EchelonRevivalCostId, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(b, fbsutils.Convert(t.EchelonRevivalCostAmount, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEnemyBossHp(b, fbsutils.Convert(t.EnemyBossHp, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddEnemyMinionHp(b, fbsutils.Convert(t.EnemyMinionHp, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddAttackDamage(b, fbsutils.Convert(t.AttackDamage, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddCriticalAttackDamage(b, fbsutils.Convert(t.CriticalAttackDamage, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddRoundItemSelectLimit(b, fbsutils.Convert(t.RoundItemSelectLimit, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddInstantClearRound(b, fbsutils.Convert(t.InstantClearRound, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddMapImagePath(b, b.CreateString(fbsutils.Convert(t.MapImagePath, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddMapNameLocalize(b, b.CreateString(fbsutils.Convert(t.MapNameLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGSeasonExcelAddStartThemaIndex(b, fbsutils.Convert(t.StartThemaIndex, t.FlatBuffer.TableKey))
-	MinigameTBGSeasonExcelAddLoopThemaIndex(b, fbsutils.Convert(t.LoopThemaIndex, t.FlatBuffer.TableKey))
 	MinigameTBGSeasonExcelAddMaxDicePlus(b, fbsutils.Convert(t.MaxDicePlus, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddLoopThemaIndex(b, fbsutils.Convert(t.LoopThemaIndex, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddStartThemaIndex(b, fbsutils.Convert(t.StartThemaIndex, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddMapNameLocalize(b, b.CreateString(fbsutils.Convert(t.MapNameLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddMapImagePath(b, b.CreateString(fbsutils.Convert(t.MapImagePath, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddInstantClearRound(b, fbsutils.Convert(t.InstantClearRound, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddRoundItemSelectLimit(b, fbsutils.Convert(t.RoundItemSelectLimit, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddCriticalAttackDamage(b, fbsutils.Convert(t.CriticalAttackDamage, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddAttackDamage(b, fbsutils.Convert(t.AttackDamage, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEnemyMinionHp(b, fbsutils.Convert(t.EnemyMinionHp, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEnemyBossHp(b, fbsutils.Convert(t.EnemyBossHp, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(b, fbsutils.Convert(t.EchelonRevivalCostAmount, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonRevivalCostId(b, fbsutils.Convert(t.EchelonRevivalCostId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonRevivalCostType(b, fbsutils.Convert(t.EchelonRevivalCostType, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEventUseCostId(b, fbsutils.Convert(t.EventUseCostId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEventUseCostType(b, fbsutils.Convert(t.EventUseCostType, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonSlot4Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot4Portrait, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddEchelonSlot3Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot3Portrait, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddEchelonSlot2Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot2Portrait, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddEchelonSlot1Portrait(b, b.CreateString(fbsutils.Convert(t.EchelonSlot1Portrait, t.FlatBuffer.TableKey)))
+	MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(b, fbsutils.Convert(t.EchelonSlot4CharacterId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(b, fbsutils.Convert(t.EchelonSlot3CharacterId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(b, fbsutils.Convert(t.EchelonSlot2CharacterId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(b, fbsutils.Convert(t.EchelonSlot1CharacterId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddDefaultItemDiceId(b, fbsutils.Convert(t.DefaultItemDiceId, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddDefaultEchelonHp(b, fbsutils.Convert(t.DefaultEchelonHp, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddItemSlot(b, fbsutils.Convert(t.ItemSlot, t.FlatBuffer.TableKey))
+	MinigameTBGSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameTBGSeasonExcelEnd(b)
 }
 
@@ -85,35 +85,35 @@ func (t *MinigameTBGSeasonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGSeasonExcelDto) UnmarshalMessage(e *MinigameTBGSeasonExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ItemSlot = fbsutils.Convert(e.ItemSlot(), t.FlatBuffer.TableKey)
-	t.DefaultEchelonHp = fbsutils.Convert(e.DefaultEchelonHp(), t.FlatBuffer.TableKey)
-	t.DefaultItemDiceId = fbsutils.Convert(e.DefaultItemDiceId(), t.FlatBuffer.TableKey)
-	t.EchelonSlot1CharacterId = fbsutils.Convert(e.EchelonSlot1CharacterId(), t.FlatBuffer.TableKey)
-	t.EchelonSlot2CharacterId = fbsutils.Convert(e.EchelonSlot2CharacterId(), t.FlatBuffer.TableKey)
-	t.EchelonSlot3CharacterId = fbsutils.Convert(e.EchelonSlot3CharacterId(), t.FlatBuffer.TableKey)
-	t.EchelonSlot4CharacterId = fbsutils.Convert(e.EchelonSlot4CharacterId(), t.FlatBuffer.TableKey)
-	t.EchelonSlot1Portrait = fbsutils.Convert(string(e.EchelonSlot1Portrait()), t.FlatBuffer.TableKey)
-	t.EchelonSlot2Portrait = fbsutils.Convert(string(e.EchelonSlot2Portrait()), t.FlatBuffer.TableKey)
-	t.EchelonSlot3Portrait = fbsutils.Convert(string(e.EchelonSlot3Portrait()), t.FlatBuffer.TableKey)
-	t.EchelonSlot4Portrait = fbsutils.Convert(string(e.EchelonSlot4Portrait()), t.FlatBuffer.TableKey)
-	t.EventUseCostType = ParcelType(fbsutils.Convert(int32(e.EventUseCostType()), t.FlatBuffer.TableKey))
-	t.EventUseCostId = fbsutils.Convert(e.EventUseCostId(), t.FlatBuffer.TableKey)
-	t.EchelonRevivalCostType = ParcelType(fbsutils.Convert(int32(e.EchelonRevivalCostType()), t.FlatBuffer.TableKey))
-	t.EchelonRevivalCostId = fbsutils.Convert(e.EchelonRevivalCostId(), t.FlatBuffer.TableKey)
-	t.EchelonRevivalCostAmount = fbsutils.Convert(e.EchelonRevivalCostAmount(), t.FlatBuffer.TableKey)
-	t.EnemyBossHp = fbsutils.Convert(e.EnemyBossHp(), t.FlatBuffer.TableKey)
-	t.EnemyMinionHp = fbsutils.Convert(e.EnemyMinionHp(), t.FlatBuffer.TableKey)
-	t.AttackDamage = fbsutils.Convert(e.AttackDamage(), t.FlatBuffer.TableKey)
-	t.CriticalAttackDamage = fbsutils.Convert(e.CriticalAttackDamage(), t.FlatBuffer.TableKey)
-	t.RoundItemSelectLimit = fbsutils.Convert(e.RoundItemSelectLimit(), t.FlatBuffer.TableKey)
-	t.InstantClearRound = fbsutils.Convert(e.InstantClearRound(), t.FlatBuffer.TableKey)
-	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
-	t.MapImagePath = fbsutils.Convert(string(e.MapImagePath()), t.FlatBuffer.TableKey)
-	t.MapNameLocalize = fbsutils.Convert(string(e.MapNameLocalize()), t.FlatBuffer.TableKey)
-	t.StartThemaIndex = fbsutils.Convert(e.StartThemaIndex(), t.FlatBuffer.TableKey)
-	t.LoopThemaIndex = fbsutils.Convert(e.LoopThemaIndex(), t.FlatBuffer.TableKey)
 	t.MaxDicePlus = fbsutils.Convert(e.MaxDicePlus(), t.FlatBuffer.TableKey)
+	t.LoopThemaIndex = fbsutils.Convert(e.LoopThemaIndex(), t.FlatBuffer.TableKey)
+	t.StartThemaIndex = fbsutils.Convert(e.StartThemaIndex(), t.FlatBuffer.TableKey)
+	t.MapNameLocalize = fbsutils.Convert(string(e.MapNameLocalize()), t.FlatBuffer.TableKey)
+	t.MapImagePath = fbsutils.Convert(string(e.MapImagePath()), t.FlatBuffer.TableKey)
+	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
+	t.InstantClearRound = fbsutils.Convert(e.InstantClearRound(), t.FlatBuffer.TableKey)
+	t.RoundItemSelectLimit = fbsutils.Convert(e.RoundItemSelectLimit(), t.FlatBuffer.TableKey)
+	t.CriticalAttackDamage = fbsutils.Convert(e.CriticalAttackDamage(), t.FlatBuffer.TableKey)
+	t.AttackDamage = fbsutils.Convert(e.AttackDamage(), t.FlatBuffer.TableKey)
+	t.EnemyMinionHp = fbsutils.Convert(e.EnemyMinionHp(), t.FlatBuffer.TableKey)
+	t.EnemyBossHp = fbsutils.Convert(e.EnemyBossHp(), t.FlatBuffer.TableKey)
+	t.EchelonRevivalCostAmount = fbsutils.Convert(e.EchelonRevivalCostAmount(), t.FlatBuffer.TableKey)
+	t.EchelonRevivalCostId = fbsutils.Convert(e.EchelonRevivalCostId(), t.FlatBuffer.TableKey)
+	t.EchelonRevivalCostType = ParcelType(fbsutils.Convert(int32(e.EchelonRevivalCostType()), t.FlatBuffer.TableKey))
+	t.EventUseCostId = fbsutils.Convert(e.EventUseCostId(), t.FlatBuffer.TableKey)
+	t.EventUseCostType = ParcelType(fbsutils.Convert(int32(e.EventUseCostType()), t.FlatBuffer.TableKey))
+	t.EchelonSlot4Portrait = fbsutils.Convert(string(e.EchelonSlot4Portrait()), t.FlatBuffer.TableKey)
+	t.EchelonSlot3Portrait = fbsutils.Convert(string(e.EchelonSlot3Portrait()), t.FlatBuffer.TableKey)
+	t.EchelonSlot2Portrait = fbsutils.Convert(string(e.EchelonSlot2Portrait()), t.FlatBuffer.TableKey)
+	t.EchelonSlot1Portrait = fbsutils.Convert(string(e.EchelonSlot1Portrait()), t.FlatBuffer.TableKey)
+	t.EchelonSlot4CharacterId = fbsutils.Convert(e.EchelonSlot4CharacterId(), t.FlatBuffer.TableKey)
+	t.EchelonSlot3CharacterId = fbsutils.Convert(e.EchelonSlot3CharacterId(), t.FlatBuffer.TableKey)
+	t.EchelonSlot2CharacterId = fbsutils.Convert(e.EchelonSlot2CharacterId(), t.FlatBuffer.TableKey)
+	t.EchelonSlot1CharacterId = fbsutils.Convert(e.EchelonSlot1CharacterId(), t.FlatBuffer.TableKey)
+	t.DefaultItemDiceId = fbsutils.Convert(e.DefaultItemDiceId(), t.FlatBuffer.TableKey)
+	t.DefaultEchelonHp = fbsutils.Convert(e.DefaultEchelonHp(), t.FlatBuffer.TableKey)
+	t.ItemSlot = fbsutils.Convert(e.ItemSlot(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

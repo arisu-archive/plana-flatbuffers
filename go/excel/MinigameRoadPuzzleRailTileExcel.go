@@ -33,64 +33,8 @@ func (rcv *MinigameRoadPuzzleRailTileExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameRoadPuzzleRailTileExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) OriginalTile() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) MutateOriginalTile(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *MinigameRoadPuzzleRailTileExcel) PrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MinigameRoadPuzzleRailTileExcel) RailTileType() RoadPuzzleRailTileType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return RoadPuzzleRailTileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -98,29 +42,85 @@ func (rcv *MinigameRoadPuzzleRailTileExcel) RailTileType() RoadPuzzleRailTileTyp
 }
 
 func (rcv *MinigameRoadPuzzleRailTileExcel) MutateRailTileType(n RoadPuzzleRailTileType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) PrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) OriginalTile() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) MutateOriginalTile(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameRoadPuzzleRailTileExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func MinigameRoadPuzzleRailTileExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MinigameRoadPuzzleRailTileExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MinigameRoadPuzzleRailTileExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameRoadPuzzleRailTileExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(2, groupId, 0)
-}
-func MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder *flatbuffers.Builder, originalTile bool) {
-	builder.PrependBoolSlot(3, originalTile, false)
+func MinigameRoadPuzzleRailTileExcelAddRailTileType(builder *flatbuffers.Builder, railTileType RoadPuzzleRailTileType) {
+	builder.PrependInt32Slot(0, int32(railTileType), 0)
 }
 func MinigameRoadPuzzleRailTileExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(prefabName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(prefabName), 0)
 }
-func MinigameRoadPuzzleRailTileExcelAddRailTileType(builder *flatbuffers.Builder, railTileType RoadPuzzleRailTileType) {
-	builder.PrependInt32Slot(5, int32(railTileType), 0)
+func MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder *flatbuffers.Builder, originalTile bool) {
+	builder.PrependBoolSlot(2, originalTile, false)
+}
+func MinigameRoadPuzzleRailTileExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(3, groupId, 0)
+}
+func MinigameRoadPuzzleRailTileExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(4, uniqueId, 0)
+}
+func MinigameRoadPuzzleRailTileExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(5, eventContentId, 0)
 }
 func MinigameRoadPuzzleRailTileExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

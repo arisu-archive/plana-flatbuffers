@@ -1,0 +1,12 @@
+include "EventContentItemType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentDebuffRewardExcel {
+    reward_percentage: long;
+    event_content_item_type: EventContentItemType;
+    event_stage_id: long;
+    event_content_id: long;
+}
+
+root_type EventContentDebuffRewardExcel;

@@ -3,32 +3,35 @@ include "CurrencyOverChargeType.fbs";
 include "CurrencyTypes.fbs";
 include "DailyRefillType.fbs";
 include "ParcelType.fbs";
+include "PeriodType.fbs";
 include "Rarity.fbs";
 
 namespace MX.Data.Excel;
 
 table CurrencyExcel {
-    id: long;
-    localize_etc_id: uint;
-    currency_type: CurrencyTypes;
-    currency_name: string;
-    icon: string;
-    rarity: Rarity;
-    auto_charge_msc: int;
-    auto_charge_amount: int;
-    currency_over_charge_type: CurrencyOverChargeType;
-    currency_additional_charge_type: CurrencyAdditionalChargeType;
-    charge_limit: long;
-    over_charge_limit: long;
-    sprite_name: string;
-    daily_refill_type: DailyRefillType;
-    daily_refill_amount: long;
-    daily_refill_time: [long];
-    expiration_date_time: string;
-    expiration_notify_date_in: int;
-    expiry_change_parcel_type: ParcelType;
-    expiry_change_id: long;
+    reset_amount: long;
+    reset_type: PeriodType;
     expiry_change_amount: long;
+    expiry_change_id: long;
+    expiry_change_parcel_type: ParcelType;
+    expiration_notify_date_in: int;
+    expiration_date_time: string;
+    daily_refill_time: [long];
+    daily_refill_amount: long;
+    daily_refill_type: DailyRefillType;
+    sprite_name: string;
+    over_charge_limit: long;
+    charge_limit: long;
+    currency_additional_charge_type: CurrencyAdditionalChargeType;
+    currency_over_charge_type: CurrencyOverChargeType;
+    auto_charge_amount: int;
+    auto_charge_msc: int;
+    rarity: Rarity;
+    icon: string;
+    currency_name: string;
+    currency_type: CurrencyTypes;
+    localize_etc_id: uint;
+    id: long;
 }
 
 root_type CurrencyExcel;

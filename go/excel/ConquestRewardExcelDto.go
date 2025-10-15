@@ -10,25 +10,25 @@ import (
 // ConquestRewardExcelDto represents a FlatBuffers table
 type ConquestRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId          int64      `json:"group_id"`
-	RewardTag        RewardTag  `json:"reward_tag"`
-	RewardProb       int32      `json:"reward_prob"`
-	RewardParcelType ParcelType `json:"reward_parcel_type"`
-	RewardId         int64      `json:"reward_id"`
-	RewardAmount     int32      `json:"reward_amount"`
 	IsDisplayed      bool       `json:"is_displayed"`
+	RewardAmount     int32      `json:"reward_amount"`
+	RewardId         int64      `json:"reward_id"`
+	RewardParcelType ParcelType `json:"reward_parcel_type"`
+	RewardProb       int32      `json:"reward_prob"`
+	RewardTag        RewardTag  `json:"reward_tag"`
+	GroupId          int64      `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ConquestRewardExcelStart(b)
-	ConquestRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
 	ConquestRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	ConquestRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return ConquestRewardExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *ConquestRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestRewardExcelDto) UnmarshalMessage(e *ConquestRewardExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = e.IsDisplayed()
+	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

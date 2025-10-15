@@ -33,103 +33,163 @@ func (rcv *WorldRaidSeasonManageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WorldRaidSeasonManageExcel) SeasonId() int64 {
+func (rcv *WorldRaidSeasonManageExcel) UseFavorRankBuff() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *WorldRaidSeasonManageExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *WorldRaidSeasonManageExcel) EnterTicket() CurrencyTypes {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateEnterTicket(n CurrencyTypes) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyScene() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBanner() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBg() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBannerShow() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidLobbyBannerShow(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *WorldRaidSeasonManageExcel) MutateUseFavorRankBuff(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) SeasonOpenCondition() int64 {
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidMapEnterOperator() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidSeasonManageExcel) ConditionScenarioGroupid(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) ConditionScenarioGroupidLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateConditionScenarioGroupid(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *WorldRaidSeasonManageExcel) ScenarioOutputConditionId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) ScenarioOutputConditionIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateScenarioOutputConditionId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *WorldRaidSeasonManageExcel) EliminateTime(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *WorldRaidSeasonManageExcel) EliminateTimeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) BossSpawnTime(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *WorldRaidSeasonManageExcel) BossSpawnTimeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) OpenRaidBossGroupId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) OpenRaidBossGroupIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateOpenRaidBossGroupId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *WorldRaidSeasonManageExcel) UseWorldRaidCommonToast() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateSeasonOpenCondition(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *WorldRaidSeasonManageExcel) MutateUseWorldRaidCommonToast(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyEnterScenario() int64 {
+func (rcv *WorldRaidSeasonManageExcel) HideWorldRaidBossCompleteRewardUi() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidLobbyEnterScenario(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+func (rcv *WorldRaidSeasonManageExcel) MutateHideWorldRaidBossCompleteRewardUi(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) CanPlayNotSeasonTime() bool {
+func (rcv *WorldRaidSeasonManageExcel) HideWorldRaidTicketUi() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -137,11 +197,11 @@ func (rcv *WorldRaidSeasonManageExcel) CanPlayNotSeasonTime() bool {
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateCanPlayNotSeasonTime(n bool) bool {
+func (rcv *WorldRaidSeasonManageExcel) MutateHideWorldRaidTicketUi(n bool) bool {
 	return rcv._tab.MutateBoolSlot(22, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidUniqueThemeLobbyUi() bool {
+func (rcv *WorldRaidSeasonManageExcel) CanWorldRaidGemEnter() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -149,7 +209,7 @@ func (rcv *WorldRaidSeasonManageExcel) WorldRaidUniqueThemeLobbyUi() bool {
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidUniqueThemeLobbyUi(n bool) bool {
+func (rcv *WorldRaidSeasonManageExcel) MutateCanWorldRaidGemEnter(n bool) bool {
 	return rcv._tab.MutateBoolSlot(24, n)
 }
 
@@ -161,7 +221,7 @@ func (rcv *WorldRaidSeasonManageExcel) WorldRaidUniqueThemeName() []byte {
 	return nil
 }
 
-func (rcv *WorldRaidSeasonManageExcel) CanWorldRaidGemEnter() bool {
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidUniqueThemeLobbyUi() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -169,11 +229,11 @@ func (rcv *WorldRaidSeasonManageExcel) CanWorldRaidGemEnter() bool {
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateCanWorldRaidGemEnter(n bool) bool {
+func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidUniqueThemeLobbyUi(n bool) bool {
 	return rcv._tab.MutateBoolSlot(28, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) HideWorldRaidTicketUi() bool {
+func (rcv *WorldRaidSeasonManageExcel) CanPlayNotSeasonTime() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -181,252 +241,192 @@ func (rcv *WorldRaidSeasonManageExcel) HideWorldRaidTicketUi() bool {
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateHideWorldRaidTicketUi(n bool) bool {
+func (rcv *WorldRaidSeasonManageExcel) MutateCanPlayNotSeasonTime(n bool) bool {
 	return rcv._tab.MutateBoolSlot(30, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) HideWorldRaidBossCompleteRewardUi() bool {
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyEnterScenario() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateHideWorldRaidBossCompleteRewardUi(n bool) bool {
-	return rcv._tab.MutateBoolSlot(32, n)
+func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidLobbyEnterScenario(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) UseWorldRaidCommonToast() bool {
+func (rcv *WorldRaidSeasonManageExcel) SeasonOpenCondition() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateSeasonOpenCondition(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBannerShow() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateUseWorldRaidCommonToast(n bool) bool {
-	return rcv._tab.MutateBoolSlot(34, n)
+func (rcv *WorldRaidSeasonManageExcel) MutateWorldRaidLobbyBannerShow(n bool) bool {
+	return rcv._tab.MutateBoolSlot(36, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) OpenRaidBossGroupId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) OpenRaidBossGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateOpenRaidBossGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *WorldRaidSeasonManageExcel) BossSpawnTime(j int) []byte {
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBg() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *WorldRaidSeasonManageExcel) BossSpawnTimeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) EliminateTime(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *WorldRaidSeasonManageExcel) EliminateTimeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) ScenarioOutputConditionId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) ScenarioOutputConditionIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateScenarioOutputConditionId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *WorldRaidSeasonManageExcel) ConditionScenarioGroupid(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) ConditionScenarioGroupidLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidSeasonManageExcel) MutateConditionScenarioGroupid(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *WorldRaidSeasonManageExcel) WorldRaidMapEnterOperator() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *WorldRaidSeasonManageExcel) UseFavorRankBuff() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyBanner() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateUseFavorRankBuff(n bool) bool {
-	return rcv._tab.MutateBoolSlot(48, n)
+func (rcv *WorldRaidSeasonManageExcel) WorldRaidLobbyScene() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidSeasonManageExcel) EnterTicket() CurrencyTypes {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateEnterTicket(n CurrencyTypes) bool {
+	return rcv._tab.MutateInt32Slot(44, int32(n))
+}
+
+func (rcv *WorldRaidSeasonManageExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(46, n)
+}
+
+func (rcv *WorldRaidSeasonManageExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidSeasonManageExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
 }
 
 func WorldRaidSeasonManageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(23)
 }
-func WorldRaidSeasonManageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(0, seasonId, 0)
+func WorldRaidSeasonManageExcelAddUseFavorRankBuff(builder *flatbuffers.Builder, useFavorRankBuff bool) {
+	builder.PrependBoolSlot(0, useFavorRankBuff, false)
 }
-func WorldRaidSeasonManageExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
-}
-func WorldRaidSeasonManageExcelAddEnterTicket(builder *flatbuffers.Builder, enterTicket CurrencyTypes) {
-	builder.PrependInt32Slot(2, int32(enterTicket), 0)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(builder *flatbuffers.Builder, worldRaidLobbyScene flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(worldRaidLobbyScene), 0)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(builder *flatbuffers.Builder, worldRaidLobbyBanner flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(worldRaidLobbyBanner), 0)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidLobbyBg(builder *flatbuffers.Builder, worldRaidLobbyBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(worldRaidLobbyBg), 0)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidLobbyBannerShow(builder *flatbuffers.Builder, worldRaidLobbyBannerShow bool) {
-	builder.PrependBoolSlot(6, worldRaidLobbyBannerShow, false)
-}
-func WorldRaidSeasonManageExcelAddSeasonOpenCondition(builder *flatbuffers.Builder, seasonOpenCondition int64) {
-	builder.PrependInt64Slot(7, seasonOpenCondition, 0)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidLobbyEnterScenario(builder *flatbuffers.Builder, worldRaidLobbyEnterScenario int64) {
-	builder.PrependInt64Slot(8, worldRaidLobbyEnterScenario, 0)
-}
-func WorldRaidSeasonManageExcelAddCanPlayNotSeasonTime(builder *flatbuffers.Builder, canPlayNotSeasonTime bool) {
-	builder.PrependBoolSlot(9, canPlayNotSeasonTime, false)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeLobbyUi(builder *flatbuffers.Builder, worldRaidUniqueThemeLobbyUi bool) {
-	builder.PrependBoolSlot(10, worldRaidUniqueThemeLobbyUi, false)
-}
-func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(builder *flatbuffers.Builder, worldRaidUniqueThemeName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(worldRaidUniqueThemeName), 0)
-}
-func WorldRaidSeasonManageExcelAddCanWorldRaidGemEnter(builder *flatbuffers.Builder, canWorldRaidGemEnter bool) {
-	builder.PrependBoolSlot(12, canWorldRaidGemEnter, false)
-}
-func WorldRaidSeasonManageExcelAddHideWorldRaidTicketUi(builder *flatbuffers.Builder, hideWorldRaidTicketUi bool) {
-	builder.PrependBoolSlot(13, hideWorldRaidTicketUi, false)
-}
-func WorldRaidSeasonManageExcelAddHideWorldRaidBossCompleteRewardUi(builder *flatbuffers.Builder, hideWorldRaidBossCompleteRewardUi bool) {
-	builder.PrependBoolSlot(14, hideWorldRaidBossCompleteRewardUi, false)
-}
-func WorldRaidSeasonManageExcelAddUseWorldRaidCommonToast(builder *flatbuffers.Builder, useWorldRaidCommonToast bool) {
-	builder.PrependBoolSlot(15, useWorldRaidCommonToast, false)
-}
-func WorldRaidSeasonManageExcelAddOpenRaidBossGroupId(builder *flatbuffers.Builder, openRaidBossGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(openRaidBossGroupId), 0)
-}
-func WorldRaidSeasonManageExcelStartOpenRaidBossGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func WorldRaidSeasonManageExcelAddBossSpawnTime(builder *flatbuffers.Builder, bossSpawnTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(bossSpawnTime), 0)
-}
-func WorldRaidSeasonManageExcelStartBossSpawnTimeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WorldRaidSeasonManageExcelAddEliminateTime(builder *flatbuffers.Builder, eliminateTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(eliminateTime), 0)
-}
-func WorldRaidSeasonManageExcelStartEliminateTimeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WorldRaidSeasonManageExcelAddScenarioOutputConditionId(builder *flatbuffers.Builder, scenarioOutputConditionId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(scenarioOutputConditionId), 0)
-}
-func WorldRaidSeasonManageExcelStartScenarioOutputConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func WorldRaidSeasonManageExcelAddWorldRaidMapEnterOperator(builder *flatbuffers.Builder, worldRaidMapEnterOperator flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(worldRaidMapEnterOperator), 0)
 }
 func WorldRaidSeasonManageExcelAddConditionScenarioGroupid(builder *flatbuffers.Builder, conditionScenarioGroupid flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(conditionScenarioGroupid), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(conditionScenarioGroupid), 0)
 }
 func WorldRaidSeasonManageExcelStartConditionScenarioGroupidVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func WorldRaidSeasonManageExcelAddWorldRaidMapEnterOperator(builder *flatbuffers.Builder, worldRaidMapEnterOperator flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(worldRaidMapEnterOperator), 0)
+func WorldRaidSeasonManageExcelAddScenarioOutputConditionId(builder *flatbuffers.Builder, scenarioOutputConditionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(scenarioOutputConditionId), 0)
 }
-func WorldRaidSeasonManageExcelAddUseFavorRankBuff(builder *flatbuffers.Builder, useFavorRankBuff bool) {
-	builder.PrependBoolSlot(22, useFavorRankBuff, false)
+func WorldRaidSeasonManageExcelStartScenarioOutputConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func WorldRaidSeasonManageExcelAddEliminateTime(builder *flatbuffers.Builder, eliminateTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(eliminateTime), 0)
+}
+func WorldRaidSeasonManageExcelStartEliminateTimeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WorldRaidSeasonManageExcelAddBossSpawnTime(builder *flatbuffers.Builder, bossSpawnTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bossSpawnTime), 0)
+}
+func WorldRaidSeasonManageExcelStartBossSpawnTimeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WorldRaidSeasonManageExcelAddOpenRaidBossGroupId(builder *flatbuffers.Builder, openRaidBossGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(openRaidBossGroupId), 0)
+}
+func WorldRaidSeasonManageExcelStartOpenRaidBossGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func WorldRaidSeasonManageExcelAddUseWorldRaidCommonToast(builder *flatbuffers.Builder, useWorldRaidCommonToast bool) {
+	builder.PrependBoolSlot(7, useWorldRaidCommonToast, false)
+}
+func WorldRaidSeasonManageExcelAddHideWorldRaidBossCompleteRewardUi(builder *flatbuffers.Builder, hideWorldRaidBossCompleteRewardUi bool) {
+	builder.PrependBoolSlot(8, hideWorldRaidBossCompleteRewardUi, false)
+}
+func WorldRaidSeasonManageExcelAddHideWorldRaidTicketUi(builder *flatbuffers.Builder, hideWorldRaidTicketUi bool) {
+	builder.PrependBoolSlot(9, hideWorldRaidTicketUi, false)
+}
+func WorldRaidSeasonManageExcelAddCanWorldRaidGemEnter(builder *flatbuffers.Builder, canWorldRaidGemEnter bool) {
+	builder.PrependBoolSlot(10, canWorldRaidGemEnter, false)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(builder *flatbuffers.Builder, worldRaidUniqueThemeName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(worldRaidUniqueThemeName), 0)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeLobbyUi(builder *flatbuffers.Builder, worldRaidUniqueThemeLobbyUi bool) {
+	builder.PrependBoolSlot(12, worldRaidUniqueThemeLobbyUi, false)
+}
+func WorldRaidSeasonManageExcelAddCanPlayNotSeasonTime(builder *flatbuffers.Builder, canPlayNotSeasonTime bool) {
+	builder.PrependBoolSlot(13, canPlayNotSeasonTime, false)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidLobbyEnterScenario(builder *flatbuffers.Builder, worldRaidLobbyEnterScenario int64) {
+	builder.PrependInt64Slot(14, worldRaidLobbyEnterScenario, 0)
+}
+func WorldRaidSeasonManageExcelAddSeasonOpenCondition(builder *flatbuffers.Builder, seasonOpenCondition int64) {
+	builder.PrependInt64Slot(15, seasonOpenCondition, 0)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidLobbyBannerShow(builder *flatbuffers.Builder, worldRaidLobbyBannerShow bool) {
+	builder.PrependBoolSlot(16, worldRaidLobbyBannerShow, false)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidLobbyBg(builder *flatbuffers.Builder, worldRaidLobbyBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(worldRaidLobbyBg), 0)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(builder *flatbuffers.Builder, worldRaidLobbyBanner flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(worldRaidLobbyBanner), 0)
+}
+func WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(builder *flatbuffers.Builder, worldRaidLobbyScene flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(worldRaidLobbyScene), 0)
+}
+func WorldRaidSeasonManageExcelAddEnterTicket(builder *flatbuffers.Builder, enterTicket CurrencyTypes) {
+	builder.PrependInt32Slot(20, int32(enterTicket), 0)
+}
+func WorldRaidSeasonManageExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(21, eventContentId, 0)
+}
+func WorldRaidSeasonManageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(22, seasonId, 0)
 }
 func WorldRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

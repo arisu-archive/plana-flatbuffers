@@ -33,40 +33,8 @@ func (rcv *FieldEvidenceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldEvidenceExcel) UniqueId() int64 {
+func (rcv *FieldEvidenceExcel) ImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldEvidenceExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldEvidenceExcel) SeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldEvidenceExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *FieldEvidenceExcel) NameLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *FieldEvidenceExcel) DescriptionLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,41 +42,73 @@ func (rcv *FieldEvidenceExcel) DescriptionLocalizeKey() []byte {
 }
 
 func (rcv *FieldEvidenceExcel) DetailLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *FieldEvidenceExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *FieldEvidenceExcel) DescriptionLocalizeKey() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
+}
+
+func (rcv *FieldEvidenceExcel) NameLocalizeKey() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *FieldEvidenceExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldEvidenceExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *FieldEvidenceExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldEvidenceExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func FieldEvidenceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func FieldEvidenceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func FieldEvidenceExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
-}
-func FieldEvidenceExcelAddNameLocalizeKey(builder *flatbuffers.Builder, nameLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameLocalizeKey), 0)
-}
-func FieldEvidenceExcelAddDescriptionLocalizeKey(builder *flatbuffers.Builder, descriptionLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(descriptionLocalizeKey), 0)
+func FieldEvidenceExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(imagePath), 0)
 }
 func FieldEvidenceExcelAddDetailLocalizeKey(builder *flatbuffers.Builder, detailLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(detailLocalizeKey), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(detailLocalizeKey), 0)
 }
-func FieldEvidenceExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(imagePath), 0)
+func FieldEvidenceExcelAddDescriptionLocalizeKey(builder *flatbuffers.Builder, descriptionLocalizeKey flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(descriptionLocalizeKey), 0)
+}
+func FieldEvidenceExcelAddNameLocalizeKey(builder *flatbuffers.Builder, nameLocalizeKey flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nameLocalizeKey), 0)
+}
+func FieldEvidenceExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(4, seasonId, 0)
+}
+func FieldEvidenceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(5, uniqueId, 0)
 }
 func FieldEvidenceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

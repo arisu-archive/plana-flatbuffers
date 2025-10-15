@@ -33,44 +33,8 @@ func (rcv *ConquestProgressResourceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestProgressResourceExcel) Id() int64 {
+func (rcv *ConquestProgressResourceExcel) ProgressLocalizeCode() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestProgressResourceExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ConquestProgressResourceExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestProgressResourceExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *ConquestProgressResourceExcel) Group() ConquestProgressType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return ConquestProgressType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ConquestProgressResourceExcel) MutateGroup(n ConquestProgressType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *ConquestProgressResourceExcel) ProgressResource() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -78,7 +42,7 @@ func (rcv *ConquestProgressResourceExcel) ProgressResource() []byte {
 }
 
 func (rcv *ConquestProgressResourceExcel) VoiceId(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -87,7 +51,7 @@ func (rcv *ConquestProgressResourceExcel) VoiceId(j int) uint32 {
 }
 
 func (rcv *ConquestProgressResourceExcel) VoiceIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -95,7 +59,7 @@ func (rcv *ConquestProgressResourceExcel) VoiceIdLength() int {
 }
 
 func (rcv *ConquestProgressResourceExcel) MutateVoiceId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -103,37 +67,73 @@ func (rcv *ConquestProgressResourceExcel) MutateVoiceId(j int, n uint32) bool {
 	return false
 }
 
-func (rcv *ConquestProgressResourceExcel) ProgressLocalizeCode() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *ConquestProgressResourceExcel) ProgressResource() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *ConquestProgressResourceExcel) Group() ConquestProgressType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ConquestProgressType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ConquestProgressResourceExcel) MutateGroup(n ConquestProgressType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *ConquestProgressResourceExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestProgressResourceExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *ConquestProgressResourceExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestProgressResourceExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func ConquestProgressResourceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ConquestProgressResourceExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ConquestProgressResourceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
-}
-func ConquestProgressResourceExcelAddGroup(builder *flatbuffers.Builder, group ConquestProgressType) {
-	builder.PrependInt32Slot(2, int32(group), 0)
-}
-func ConquestProgressResourceExcelAddProgressResource(builder *flatbuffers.Builder, progressResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(progressResource), 0)
+func ConquestProgressResourceExcelAddProgressLocalizeCode(builder *flatbuffers.Builder, progressLocalizeCode flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(progressLocalizeCode), 0)
 }
 func ConquestProgressResourceExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(voiceId), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(voiceId), 0)
 }
 func ConquestProgressResourceExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func ConquestProgressResourceExcelAddProgressLocalizeCode(builder *flatbuffers.Builder, progressLocalizeCode flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(progressLocalizeCode), 0)
+func ConquestProgressResourceExcelAddProgressResource(builder *flatbuffers.Builder, progressResource flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(progressResource), 0)
+}
+func ConquestProgressResourceExcelAddGroup(builder *flatbuffers.Builder, group ConquestProgressType) {
+	builder.PrependInt32Slot(3, int32(group), 0)
+}
+func ConquestProgressResourceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
+}
+func ConquestProgressResourceExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func ConquestProgressResourceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

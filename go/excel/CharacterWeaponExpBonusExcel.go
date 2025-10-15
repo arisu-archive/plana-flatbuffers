@@ -33,19 +33,19 @@ func (rcv *CharacterWeaponExpBonusExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) WeaponType() WeaponType {
+func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthZ() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return WeaponType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponType(n WeaponType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
+func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthZ(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthA() int32 {
+func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthC() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthA() int32 {
 	return 0
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthA(n int32) bool {
+func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthC(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
@@ -69,7 +69,7 @@ func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthB(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthC() int32 {
+func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthA() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -77,39 +77,39 @@ func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthC() int32 {
 	return 0
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthC(n int32) bool {
+func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthA(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) WeaponExpGrowthZ() int32 {
+func (rcv *CharacterWeaponExpBonusExcel) WeaponType() WeaponType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return WeaponType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponExpGrowthZ(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+func (rcv *CharacterWeaponExpBonusExcel) MutateWeaponType(n WeaponType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func CharacterWeaponExpBonusExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func CharacterWeaponExpBonusExcelAddWeaponType(builder *flatbuffers.Builder, weaponType WeaponType) {
-	builder.PrependInt32Slot(0, int32(weaponType), 0)
+func CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder *flatbuffers.Builder, weaponExpGrowthZ int32) {
+	builder.PrependInt32Slot(0, weaponExpGrowthZ, 0)
 }
-func CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder *flatbuffers.Builder, weaponExpGrowthA int32) {
-	builder.PrependInt32Slot(1, weaponExpGrowthA, 0)
+func CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder *flatbuffers.Builder, weaponExpGrowthC int32) {
+	builder.PrependInt32Slot(1, weaponExpGrowthC, 0)
 }
 func CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(builder *flatbuffers.Builder, weaponExpGrowthB int32) {
 	builder.PrependInt32Slot(2, weaponExpGrowthB, 0)
 }
-func CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder *flatbuffers.Builder, weaponExpGrowthC int32) {
-	builder.PrependInt32Slot(3, weaponExpGrowthC, 0)
+func CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder *flatbuffers.Builder, weaponExpGrowthA int32) {
+	builder.PrependInt32Slot(3, weaponExpGrowthA, 0)
 }
-func CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder *flatbuffers.Builder, weaponExpGrowthZ int32) {
-	builder.PrependInt32Slot(4, weaponExpGrowthZ, 0)
+func CharacterWeaponExpBonusExcelAddWeaponType(builder *flatbuffers.Builder, weaponType WeaponType) {
+	builder.PrependInt32Slot(4, int32(weaponType), 0)
 }
 func CharacterWeaponExpBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

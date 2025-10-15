@@ -25,14 +25,14 @@ class TacticSimulatorSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TacticSimulatorSettingExcel
-    def GroundId(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticSimulatorSettingExcel
-    def FixedEchelonId(self):
+    def GroundId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class TacticSimulatorSettingExcel(object):
 def TacticSimulatorSettingExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return TacticSimulatorSettingExcelStart(builder)
-def TacticSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(0, groundId, 0)
-def AddGroundId(builder, groundId):
-    return TacticSimulatorSettingExcelAddGroundId(builder, groundId)
-def TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(1, fixedEchelonId, 0)
+def TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(0, fixedEchelonId, 0)
 def AddFixedEchelonId(builder, fixedEchelonId):
     return TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId)
+def TacticSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(1, groundId, 0)
+def AddGroundId(builder, groundId):
+    return TacticSimulatorSettingExcelAddGroundId(builder, groundId)
 def TacticSimulatorSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticSimulatorSettingExcelEnd(builder)

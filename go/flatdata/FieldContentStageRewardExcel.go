@@ -33,40 +33,40 @@ func (rcv *FieldContentStageRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldContentStageRewardExcel) GroupId() int64 {
+func (rcv *FieldContentStageRewardExcel) IsDisplayed() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *FieldContentStageRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *FieldContentStageRewardExcel) MutateIsDisplayed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *FieldContentStageRewardExcel) RewardTag() RewardTag {
+func (rcv *FieldContentStageRewardExcel) RewardAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *FieldContentStageRewardExcel) MutateRewardTag(n RewardTag) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *FieldContentStageRewardExcel) RewardProb() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldContentStageRewardExcel) MutateRewardProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *FieldContentStageRewardExcel) MutateRewardAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *FieldContentStageRewardExcel) RewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageRewardExcel) MutateRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *FieldContentStageRewardExcel) RewardParcelType() ParcelType {
@@ -81,65 +81,65 @@ func (rcv *FieldContentStageRewardExcel) MutateRewardParcelType(n ParcelType) bo
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *FieldContentStageRewardExcel) RewardId() int64 {
+func (rcv *FieldContentStageRewardExcel) RewardProb() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldContentStageRewardExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *FieldContentStageRewardExcel) RewardAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldContentStageRewardExcel) MutateRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+func (rcv *FieldContentStageRewardExcel) MutateRewardProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
-func (rcv *FieldContentStageRewardExcel) IsDisplayed() bool {
+func (rcv *FieldContentStageRewardExcel) RewardTag() RewardTag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageRewardExcel) MutateRewardTag(n RewardTag) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *FieldContentStageRewardExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *FieldContentStageRewardExcel) MutateIsDisplayed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *FieldContentStageRewardExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func FieldContentStageRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func FieldContentStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func FieldContentStageRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
+	builder.PrependBoolSlot(0, isDisplayed, false)
 }
-func FieldContentStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
-	builder.PrependInt32Slot(1, int32(rewardTag), 0)
+func FieldContentStageRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
+	builder.PrependInt32Slot(1, rewardAmount, 0)
 }
-func FieldContentStageRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
-	builder.PrependInt32Slot(2, rewardProb, 0)
+func FieldContentStageRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
+	builder.PrependInt64Slot(2, rewardId, 0)
 }
 func FieldContentStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
 	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
 }
-func FieldContentStageRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(4, rewardId, 0)
+func FieldContentStageRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
+	builder.PrependInt32Slot(4, rewardProb, 0)
 }
-func FieldContentStageRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
-	builder.PrependInt32Slot(5, rewardAmount, 0)
+func FieldContentStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
+	builder.PrependInt32Slot(5, int32(rewardTag), 0)
 }
-func FieldContentStageRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
-	builder.PrependBoolSlot(6, isDisplayed, false)
+func FieldContentStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(6, groupId, 0)
 }
 func FieldContentStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

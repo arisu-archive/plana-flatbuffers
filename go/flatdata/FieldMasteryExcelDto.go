@@ -10,15 +10,15 @@ import (
 // FieldMasteryExcelDto represents a FlatBuffers table
 type FieldMasteryExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                    int64              `json:"unique_id"`
-	SeasonId                    int64              `json:"season_id"`
-	Order                       int32              `json:"order"`
-	ExpAmount                   int64              `json:"exp_amount"`
-	TokenType                   ParcelType         `json:"token_type"`
-	TokenId                     int64              `json:"token_id"`
-	TokenRequirement            int64              `json:"token_requirement"`
-	AccomplishmentConditionType FieldConditionType `json:"accomplishment_condition_type"`
 	AccomplishmentConditionId   int64              `json:"accomplishment_condition_id"`
+	AccomplishmentConditionType FieldConditionType `json:"accomplishment_condition_type"`
+	TokenRequirement            int64              `json:"token_requirement"`
+	TokenId                     int64              `json:"token_id"`
+	TokenType                   ParcelType         `json:"token_type"`
+	ExpAmount                   int64              `json:"exp_amount"`
+	Order                       int32              `json:"order"`
+	SeasonId                    int64              `json:"season_id"`
+	UniqueId                    int64              `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *FieldMasteryExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMastery"))
 	}
 	FieldMasteryExcelStart(b)
-	FieldMasteryExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddExpAmount(b, fbsutils.Convert(t.ExpAmount, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddTokenType(b, fbsutils.Convert(t.TokenType, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddTokenId(b, fbsutils.Convert(t.TokenId, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddTokenRequirement(b, fbsutils.Convert(t.TokenRequirement, t.FlatBuffer.TableKey))
-	FieldMasteryExcelAddAccomplishmentConditionType(b, fbsutils.Convert(t.AccomplishmentConditionType, t.FlatBuffer.TableKey))
 	FieldMasteryExcelAddAccomplishmentConditionId(b, fbsutils.Convert(t.AccomplishmentConditionId, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddAccomplishmentConditionType(b, fbsutils.Convert(t.AccomplishmentConditionType, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddTokenRequirement(b, fbsutils.Convert(t.TokenRequirement, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddTokenId(b, fbsutils.Convert(t.TokenId, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddTokenType(b, fbsutils.Convert(t.TokenType, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddExpAmount(b, fbsutils.Convert(t.ExpAmount, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	FieldMasteryExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return FieldMasteryExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *FieldMasteryExcelDto) UnmarshalMessage(e *FieldMasteryExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMastery"))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.ExpAmount = fbsutils.Convert(e.ExpAmount(), t.FlatBuffer.TableKey)
-	t.TokenType = ParcelType(fbsutils.Convert(int32(e.TokenType()), t.FlatBuffer.TableKey))
-	t.TokenId = fbsutils.Convert(e.TokenId(), t.FlatBuffer.TableKey)
-	t.TokenRequirement = fbsutils.Convert(e.TokenRequirement(), t.FlatBuffer.TableKey)
-	t.AccomplishmentConditionType = FieldConditionType(fbsutils.Convert(int32(e.AccomplishmentConditionType()), t.FlatBuffer.TableKey))
 	t.AccomplishmentConditionId = fbsutils.Convert(e.AccomplishmentConditionId(), t.FlatBuffer.TableKey)
+	t.AccomplishmentConditionType = FieldConditionType(fbsutils.Convert(int32(e.AccomplishmentConditionType()), t.FlatBuffer.TableKey))
+	t.TokenRequirement = fbsutils.Convert(e.TokenRequirement(), t.FlatBuffer.TableKey)
+	t.TokenId = fbsutils.Convert(e.TokenId(), t.FlatBuffer.TableKey)
+	t.TokenType = ParcelType(fbsutils.Convert(int32(e.TokenType()), t.FlatBuffer.TableKey))
+	t.ExpAmount = fbsutils.Convert(e.ExpAmount(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

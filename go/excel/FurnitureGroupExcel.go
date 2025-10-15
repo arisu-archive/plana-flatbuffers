@@ -33,28 +33,56 @@ func (rcv *FurnitureGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FurnitureGroupExcel) Id() int64 {
+func (rcv *FurnitureGroupExcel) ComfortBonus(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *FurnitureGroupExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *FurnitureGroupExcel) ComfortBonusLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *FurnitureGroupExcel) GroupNameLocalize() uint32 {
+func (rcv *FurnitureGroupExcel) MutateComfortBonus(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FurnitureGroupExcel) RequiredFurnitureCount(j int) int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
 	}
 	return 0
 }
 
-func (rcv *FurnitureGroupExcel) MutateGroupNameLocalize(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+func (rcv *FurnitureGroupExcel) RequiredFurnitureCountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FurnitureGroupExcel) MutateRequiredFurnitureCount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func (rcv *FurnitureGroupExcel) LocalizeEtcId() uint32 {
@@ -69,81 +97,53 @@ func (rcv *FurnitureGroupExcel) MutateLocalizeEtcId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *FurnitureGroupExcel) RequiredFurnitureCount(j int) int32 {
+func (rcv *FurnitureGroupExcel) GroupNameLocalize() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FurnitureGroupExcel) RequiredFurnitureCountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *FurnitureGroupExcel) MutateGroupNameLocalize(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(10, n)
 }
 
-func (rcv *FurnitureGroupExcel) MutateRequiredFurnitureCount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *FurnitureGroupExcel) ComfortBonus(j int) int64 {
+func (rcv *FurnitureGroupExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FurnitureGroupExcel) ComfortBonusLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FurnitureGroupExcel) MutateComfortBonus(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *FurnitureGroupExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func FurnitureGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func FurnitureGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func FurnitureGroupExcelAddComfortBonus(builder *flatbuffers.Builder, comfortBonus flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(comfortBonus), 0)
 }
-func FurnitureGroupExcelAddGroupNameLocalize(builder *flatbuffers.Builder, groupNameLocalize uint32) {
-	builder.PrependUint32Slot(1, groupNameLocalize, 0)
-}
-func FurnitureGroupExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(2, localizeEtcId, 0)
+func FurnitureGroupExcelStartComfortBonusVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func FurnitureGroupExcelAddRequiredFurnitureCount(builder *flatbuffers.Builder, requiredFurnitureCount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(requiredFurnitureCount), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(requiredFurnitureCount), 0)
 }
 func FurnitureGroupExcelStartRequiredFurnitureCountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func FurnitureGroupExcelAddComfortBonus(builder *flatbuffers.Builder, comfortBonus flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(comfortBonus), 0)
+func FurnitureGroupExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
-func FurnitureGroupExcelStartComfortBonusVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func FurnitureGroupExcelAddGroupNameLocalize(builder *flatbuffers.Builder, groupNameLocalize uint32) {
+	builder.PrependUint32Slot(3, groupNameLocalize, 0)
+}
+func FurnitureGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
 func FurnitureGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

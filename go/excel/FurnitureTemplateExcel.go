@@ -33,20 +33,24 @@ func (rcv *FurnitureTemplateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FurnitureTemplateExcel) FurnitureTemplateId() int64 {
+func (rcv *FurnitureTemplateExcel) ImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *FurnitureTemplateExcel) MutateFurnitureTemplateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *FurnitureTemplateExcel) ThumbnailImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *FurnitureTemplateExcel) FunitureTemplateTitle() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -54,39 +58,35 @@ func (rcv *FurnitureTemplateExcel) FunitureTemplateTitle() uint32 {
 }
 
 func (rcv *FurnitureTemplateExcel) MutateFunitureTemplateTitle(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *FurnitureTemplateExcel) ThumbnailImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *FurnitureTemplateExcel) ImagePath() []byte {
+func (rcv *FurnitureTemplateExcel) FurnitureTemplateId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *FurnitureTemplateExcel) MutateFurnitureTemplateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func FurnitureTemplateExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func FurnitureTemplateExcelAddFurnitureTemplateId(builder *flatbuffers.Builder, furnitureTemplateId int64) {
-	builder.PrependInt64Slot(0, furnitureTemplateId, 0)
-}
-func FurnitureTemplateExcelAddFunitureTemplateTitle(builder *flatbuffers.Builder, funitureTemplateTitle uint32) {
-	builder.PrependUint32Slot(1, funitureTemplateTitle, 0)
+func FurnitureTemplateExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(imagePath), 0)
 }
 func FurnitureTemplateExcelAddThumbnailImagePath(builder *flatbuffers.Builder, thumbnailImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(thumbnailImagePath), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(thumbnailImagePath), 0)
 }
-func FurnitureTemplateExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(imagePath), 0)
+func FurnitureTemplateExcelAddFunitureTemplateTitle(builder *flatbuffers.Builder, funitureTemplateTitle uint32) {
+	builder.PrependUint32Slot(2, funitureTemplateTitle, 0)
+}
+func FurnitureTemplateExcelAddFurnitureTemplateId(builder *flatbuffers.Builder, furnitureTemplateId int64) {
+	builder.PrependInt64Slot(3, furnitureTemplateId, 0)
 }
 func FurnitureTemplateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

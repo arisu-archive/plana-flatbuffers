@@ -25,7 +25,7 @@ class GachaCraftNodeGroupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GachaCraftNodeGroupExcel
-    def NodeId(self):
+    def ProbWeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class GachaCraftNodeGroupExcel(object):
         return 0
 
     # GachaCraftNodeGroupExcel
-    def ProbWeight(self):
+    def NodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class GachaCraftNodeGroupExcel(object):
 def GachaCraftNodeGroupExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return GachaCraftNodeGroupExcelStart(builder)
-def GachaCraftNodeGroupExcelAddNodeId(builder, nodeId): builder.PrependInt64Slot(0, nodeId, 0)
-def AddNodeId(builder, nodeId):
-    return GachaCraftNodeGroupExcelAddNodeId(builder, nodeId)
+def GachaCraftNodeGroupExcelAddProbWeight(builder, probWeight): builder.PrependInt64Slot(0, probWeight, 0)
+def AddProbWeight(builder, probWeight):
+    return GachaCraftNodeGroupExcelAddProbWeight(builder, probWeight)
 def GachaCraftNodeGroupExcelAddGachaGroupId(builder, gachaGroupId): builder.PrependInt64Slot(1, gachaGroupId, 0)
 def AddGachaGroupId(builder, gachaGroupId):
     return GachaCraftNodeGroupExcelAddGachaGroupId(builder, gachaGroupId)
-def GachaCraftNodeGroupExcelAddProbWeight(builder, probWeight): builder.PrependInt64Slot(2, probWeight, 0)
-def AddProbWeight(builder, probWeight):
-    return GachaCraftNodeGroupExcelAddProbWeight(builder, probWeight)
+def GachaCraftNodeGroupExcelAddNodeId(builder, nodeId): builder.PrependInt64Slot(2, nodeId, 0)
+def AddNodeId(builder, nodeId):
+    return GachaCraftNodeGroupExcelAddNodeId(builder, nodeId)
 def GachaCraftNodeGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GachaCraftNodeGroupExcelEnd(builder)

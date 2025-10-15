@@ -10,21 +10,21 @@ import (
 // WeekDungeonGroupBuffExcelDto represents a FlatBuffers table
 type WeekDungeonGroupBuffExcelDto struct {
 	fbsutils.FlatBuffer
-	WeekDungeonBuffId      int64  `json:"week_dungeon_buff_id"`
-	School                 School `json:"school"`
-	RecommandLocalizeEtcId uint32 `json:"recommand_localize_etc_id"`
-	FormationLocalizeEtcId uint32 `json:"formation_localize_etc_id"`
 	SkillGroupId           string `json:"skill_group_id"`
+	FormationLocalizeEtcId uint32 `json:"formation_localize_etc_id"`
+	RecommandLocalizeEtcId uint32 `json:"recommand_localize_etc_id"`
+	School                 School `json:"school"`
+	WeekDungeonBuffId      int64  `json:"week_dungeon_buff_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	WeekDungeonGroupBuffExcelStart(b)
-	WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(b, fbsutils.Convert(t.WeekDungeonBuffId, t.FlatBuffer.TableKey))
-	WeekDungeonGroupBuffExcelAddSchool(b, fbsutils.Convert(t.School, t.FlatBuffer.TableKey))
-	WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
-	WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(b, fbsutils.Convert(t.FormationLocalizeEtcId, t.FlatBuffer.TableKey))
 	WeekDungeonGroupBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
+	WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(b, fbsutils.Convert(t.FormationLocalizeEtcId, t.FlatBuffer.TableKey))
+	WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
+	WeekDungeonGroupBuffExcelAddSchool(b, fbsutils.Convert(t.School, t.FlatBuffer.TableKey))
+	WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(b, fbsutils.Convert(t.WeekDungeonBuffId, t.FlatBuffer.TableKey))
 	return WeekDungeonGroupBuffExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *WeekDungeonGroupBuffExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonGroupBuffExcelDto) UnmarshalMessage(e *WeekDungeonGroupBuffExcel) error {
-	t.WeekDungeonBuffId = fbsutils.Convert(e.WeekDungeonBuffId(), t.FlatBuffer.TableKey)
-	t.School = School(fbsutils.Convert(int32(e.School()), t.FlatBuffer.TableKey))
-	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.FormationLocalizeEtcId = fbsutils.Convert(e.FormationLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)
+	t.FormationLocalizeEtcId = fbsutils.Convert(e.FormationLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.School = School(fbsutils.Convert(int32(e.School()), t.FlatBuffer.TableKey))
+	t.WeekDungeonBuffId = fbsutils.Convert(e.WeekDungeonBuffId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -33,31 +33,31 @@ func (rcv *CameraExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CameraExcel) UniqueId() int64 {
+func (rcv *CameraExcel) UseRailPointCompensation() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CameraExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CameraExcel) MutateUseRailPointCompensation(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *CameraExcel) MinDistance() float32 {
+func (rcv *CameraExcel) IgnoreEnemies() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return false
 }
 
-func (rcv *CameraExcel) MutateMinDistance(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(6, n)
+func (rcv *CameraExcel) MutateIgnoreEnemies(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *CameraExcel) MaxDistance() float32 {
+func (rcv *CameraExcel) BottomMargin() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *CameraExcel) MaxDistance() float32 {
 	return 0.0
 }
 
-func (rcv *CameraExcel) MutateMaxDistance(n float32) bool {
+func (rcv *CameraExcel) MutateBottomMargin(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *CameraExcel) RotationX() float32 {
+func (rcv *CameraExcel) LeftMargin() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -77,20 +77,20 @@ func (rcv *CameraExcel) RotationX() float32 {
 	return 0.0
 }
 
-func (rcv *CameraExcel) MutateRotationX(n float32) bool {
+func (rcv *CameraExcel) MutateLeftMargin(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *CameraExcel) RotationY() float32 {
+func (rcv *CameraExcel) MoveInstantlyRotationSave() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return false
 }
 
-func (rcv *CameraExcel) MutateRotationY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
+func (rcv *CameraExcel) MutateMoveInstantlyRotationSave(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
 }
 
 func (rcv *CameraExcel) MoveInstantly() bool {
@@ -105,19 +105,19 @@ func (rcv *CameraExcel) MutateMoveInstantly(n bool) bool {
 	return rcv._tab.MutateBoolSlot(14, n)
 }
 
-func (rcv *CameraExcel) MoveInstantlyRotationSave() bool {
+func (rcv *CameraExcel) RotationY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0.0
 }
 
-func (rcv *CameraExcel) MutateMoveInstantlyRotationSave(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *CameraExcel) MutateRotationY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(16, n)
 }
 
-func (rcv *CameraExcel) LeftMargin() float32 {
+func (rcv *CameraExcel) RotationX() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -125,11 +125,11 @@ func (rcv *CameraExcel) LeftMargin() float32 {
 	return 0.0
 }
 
-func (rcv *CameraExcel) MutateLeftMargin(n float32) bool {
+func (rcv *CameraExcel) MutateRotationX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(18, n)
 }
 
-func (rcv *CameraExcel) BottomMargin() float32 {
+func (rcv *CameraExcel) MaxDistance() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -137,69 +137,69 @@ func (rcv *CameraExcel) BottomMargin() float32 {
 	return 0.0
 }
 
-func (rcv *CameraExcel) MutateBottomMargin(n float32) bool {
+func (rcv *CameraExcel) MutateMaxDistance(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(20, n)
 }
 
-func (rcv *CameraExcel) IgnoreEnemies() bool {
+func (rcv *CameraExcel) MinDistance() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0.0
 }
 
-func (rcv *CameraExcel) MutateIgnoreEnemies(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+func (rcv *CameraExcel) MutateMinDistance(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(22, n)
 }
 
-func (rcv *CameraExcel) UseRailPointCompensation() bool {
+func (rcv *CameraExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *CameraExcel) MutateUseRailPointCompensation(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
+func (rcv *CameraExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
 func CameraExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
-func CameraExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func CameraExcelAddUseRailPointCompensation(builder *flatbuffers.Builder, useRailPointCompensation bool) {
+	builder.PrependBoolSlot(0, useRailPointCompensation, false)
 }
-func CameraExcelAddMinDistance(builder *flatbuffers.Builder, minDistance float32) {
-	builder.PrependFloat32Slot(1, minDistance, 0.0)
+func CameraExcelAddIgnoreEnemies(builder *flatbuffers.Builder, ignoreEnemies bool) {
+	builder.PrependBoolSlot(1, ignoreEnemies, false)
 }
-func CameraExcelAddMaxDistance(builder *flatbuffers.Builder, maxDistance float32) {
-	builder.PrependFloat32Slot(2, maxDistance, 0.0)
+func CameraExcelAddBottomMargin(builder *flatbuffers.Builder, bottomMargin float32) {
+	builder.PrependFloat32Slot(2, bottomMargin, 0.0)
 }
-func CameraExcelAddRotationX(builder *flatbuffers.Builder, rotationX float32) {
-	builder.PrependFloat32Slot(3, rotationX, 0.0)
+func CameraExcelAddLeftMargin(builder *flatbuffers.Builder, leftMargin float32) {
+	builder.PrependFloat32Slot(3, leftMargin, 0.0)
 }
-func CameraExcelAddRotationY(builder *flatbuffers.Builder, rotationY float32) {
-	builder.PrependFloat32Slot(4, rotationY, 0.0)
+func CameraExcelAddMoveInstantlyRotationSave(builder *flatbuffers.Builder, moveInstantlyRotationSave bool) {
+	builder.PrependBoolSlot(4, moveInstantlyRotationSave, false)
 }
 func CameraExcelAddMoveInstantly(builder *flatbuffers.Builder, moveInstantly bool) {
 	builder.PrependBoolSlot(5, moveInstantly, false)
 }
-func CameraExcelAddMoveInstantlyRotationSave(builder *flatbuffers.Builder, moveInstantlyRotationSave bool) {
-	builder.PrependBoolSlot(6, moveInstantlyRotationSave, false)
+func CameraExcelAddRotationY(builder *flatbuffers.Builder, rotationY float32) {
+	builder.PrependFloat32Slot(6, rotationY, 0.0)
 }
-func CameraExcelAddLeftMargin(builder *flatbuffers.Builder, leftMargin float32) {
-	builder.PrependFloat32Slot(7, leftMargin, 0.0)
+func CameraExcelAddRotationX(builder *flatbuffers.Builder, rotationX float32) {
+	builder.PrependFloat32Slot(7, rotationX, 0.0)
 }
-func CameraExcelAddBottomMargin(builder *flatbuffers.Builder, bottomMargin float32) {
-	builder.PrependFloat32Slot(8, bottomMargin, 0.0)
+func CameraExcelAddMaxDistance(builder *flatbuffers.Builder, maxDistance float32) {
+	builder.PrependFloat32Slot(8, maxDistance, 0.0)
 }
-func CameraExcelAddIgnoreEnemies(builder *flatbuffers.Builder, ignoreEnemies bool) {
-	builder.PrependBoolSlot(9, ignoreEnemies, false)
+func CameraExcelAddMinDistance(builder *flatbuffers.Builder, minDistance float32) {
+	builder.PrependFloat32Slot(9, minDistance, 0.0)
 }
-func CameraExcelAddUseRailPointCompensation(builder *flatbuffers.Builder, useRailPointCompensation bool) {
-	builder.PrependBoolSlot(10, useRailPointCompensation, false)
+func CameraExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(10, uniqueId, 0)
 }
 func CameraExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

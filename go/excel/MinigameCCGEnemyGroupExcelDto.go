@@ -10,21 +10,21 @@ import (
 // MinigameCCGEnemyGroupExcelDto represents a FlatBuffers table
 type MinigameCCGEnemyGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId                int64  `json:"group_id"`
-	EnemyAi                string `json:"enemy_ai"`
-	EnemyBgm               int64  `json:"enemy_bgm"`
-	LocalizeEnemyGroupName uint32 `json:"localize_enemy_group_name"`
 	LocalizeEnemyGroupDesc uint32 `json:"localize_enemy_group_desc"`
+	LocalizeEnemyGroupName uint32 `json:"localize_enemy_group_name"`
+	EnemyBgm               int64  `json:"enemy_bgm"`
+	EnemyAi                string `json:"enemy_ai"`
+	GroupId                int64  `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGEnemyGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGEnemyGroupExcelStart(b)
-	MinigameCCGEnemyGroupExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyGroupExcelAddEnemyAi(b, b.CreateString(fbsutils.Convert(t.EnemyAi, t.FlatBuffer.TableKey)))
-	MinigameCCGEnemyGroupExcelAddEnemyBgm(b, fbsutils.Convert(t.EnemyBgm, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(b, fbsutils.Convert(t.LocalizeEnemyGroupName, t.FlatBuffer.TableKey))
 	MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupDesc(b, fbsutils.Convert(t.LocalizeEnemyGroupDesc, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(b, fbsutils.Convert(t.LocalizeEnemyGroupName, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyGroupExcelAddEnemyBgm(b, fbsutils.Convert(t.EnemyBgm, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyGroupExcelAddEnemyAi(b, b.CreateString(fbsutils.Convert(t.EnemyAi, t.FlatBuffer.TableKey)))
+	MinigameCCGEnemyGroupExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return MinigameCCGEnemyGroupExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MinigameCCGEnemyGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGEnemyGroupExcelDto) UnmarshalMessage(e *MinigameCCGEnemyGroupExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.EnemyAi = fbsutils.Convert(string(e.EnemyAi()), t.FlatBuffer.TableKey)
-	t.EnemyBgm = fbsutils.Convert(e.EnemyBgm(), t.FlatBuffer.TableKey)
-	t.LocalizeEnemyGroupName = fbsutils.Convert(e.LocalizeEnemyGroupName(), t.FlatBuffer.TableKey)
 	t.LocalizeEnemyGroupDesc = fbsutils.Convert(e.LocalizeEnemyGroupDesc(), t.FlatBuffer.TableKey)
+	t.LocalizeEnemyGroupName = fbsutils.Convert(e.LocalizeEnemyGroupName(), t.FlatBuffer.TableKey)
+	t.EnemyBgm = fbsutils.Convert(e.EnemyBgm(), t.FlatBuffer.TableKey)
+	t.EnemyAi = fbsutils.Convert(string(e.EnemyAi()), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

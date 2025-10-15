@@ -25,17 +25,17 @@ class MinigameCCGEnemyExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGEnemyExcel
-    def Id(self):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGEnemyExcel
-    def GroupId(self):
+    def Order(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGEnemyExcel
@@ -46,14 +46,14 @@ class MinigameCCGEnemyExcel(object):
         return 0
 
     # MinigameCCGEnemyExcel
-    def Order(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGEnemyExcel
-    def CharacterId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class MinigameCCGEnemyExcel(object):
 def MinigameCCGEnemyExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return MinigameCCGEnemyExcelStart(builder)
-def MinigameCCGEnemyExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MinigameCCGEnemyExcelAddId(builder, id)
-def MinigameCCGEnemyExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
-def AddGroupId(builder, groupId):
-    return MinigameCCGEnemyExcelAddGroupId(builder, groupId)
+def MinigameCCGEnemyExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
+def AddCharacterId(builder, characterId):
+    return MinigameCCGEnemyExcelAddCharacterId(builder, characterId)
+def MinigameCCGEnemyExcelAddOrder(builder, order): builder.PrependInt32Slot(1, order, 0)
+def AddOrder(builder, order):
+    return MinigameCCGEnemyExcelAddOrder(builder, order)
 def MinigameCCGEnemyExcelAddCharacterType(builder, characterType): builder.PrependInt32Slot(2, characterType, 0)
 def AddCharacterType(builder, characterType):
     return MinigameCCGEnemyExcelAddCharacterType(builder, characterType)
-def MinigameCCGEnemyExcelAddOrder(builder, order): builder.PrependInt32Slot(3, order, 0)
-def AddOrder(builder, order):
-    return MinigameCCGEnemyExcelAddOrder(builder, order)
-def MinigameCCGEnemyExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(4, characterId, 0)
-def AddCharacterId(builder, characterId):
-    return MinigameCCGEnemyExcelAddCharacterId(builder, characterId)
+def MinigameCCGEnemyExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(3, groupId, 0)
+def AddGroupId(builder, groupId):
+    return MinigameCCGEnemyExcelAddGroupId(builder, groupId)
+def MinigameCCGEnemyExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+def AddId(builder, id):
+    return MinigameCCGEnemyExcelAddId(builder, id)
 def MinigameCCGEnemyExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGEnemyExcelEnd(builder)

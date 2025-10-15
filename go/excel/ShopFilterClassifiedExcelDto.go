@@ -10,23 +10,23 @@ import (
 // ShopFilterClassifiedExcelDto represents a FlatBuffers table
 type ShopFilterClassifiedExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64            `json:"id"`
-	CategoryType      ShopCategoryType `json:"category_type"`
-	ConsumeParcelType ParcelType       `json:"consume_parcel_type"`
-	ConsumeParcelId   int64            `json:"consume_parcel_id"`
-	ShopFilterType    ShopFilterType   `json:"shop_filter_type"`
 	GoodsId           int64            `json:"goods_id"`
+	ShopFilterType    ShopFilterType   `json:"shop_filter_type"`
+	ConsumeParcelId   int64            `json:"consume_parcel_id"`
+	ConsumeParcelType ParcelType       `json:"consume_parcel_type"`
+	CategoryType      ShopCategoryType `json:"category_type"`
+	Id                int64            `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopFilterClassifiedExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopFilterClassifiedExcelStart(b)
-	ShopFilterClassifiedExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopFilterClassifiedExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopFilterClassifiedExcelAddConsumeParcelType(b, fbsutils.Convert(t.ConsumeParcelType, t.FlatBuffer.TableKey))
-	ShopFilterClassifiedExcelAddConsumeParcelId(b, fbsutils.Convert(t.ConsumeParcelId, t.FlatBuffer.TableKey))
-	ShopFilterClassifiedExcelAddShopFilterType(b, fbsutils.Convert(t.ShopFilterType, t.FlatBuffer.TableKey))
 	ShopFilterClassifiedExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
+	ShopFilterClassifiedExcelAddShopFilterType(b, fbsutils.Convert(t.ShopFilterType, t.FlatBuffer.TableKey))
+	ShopFilterClassifiedExcelAddConsumeParcelId(b, fbsutils.Convert(t.ConsumeParcelId, t.FlatBuffer.TableKey))
+	ShopFilterClassifiedExcelAddConsumeParcelType(b, fbsutils.Convert(t.ConsumeParcelType, t.FlatBuffer.TableKey))
+	ShopFilterClassifiedExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	ShopFilterClassifiedExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ShopFilterClassifiedExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *ShopFilterClassifiedExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopFilterClassifiedExcelDto) UnmarshalMessage(e *ShopFilterClassifiedExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.ConsumeParcelType = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType()), t.FlatBuffer.TableKey))
-	t.ConsumeParcelId = fbsutils.Convert(e.ConsumeParcelId(), t.FlatBuffer.TableKey)
-	t.ShopFilterType = ShopFilterType(fbsutils.Convert(int32(e.ShopFilterType()), t.FlatBuffer.TableKey))
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
+	t.ShopFilterType = ShopFilterType(fbsutils.Convert(int32(e.ShopFilterType()), t.FlatBuffer.TableKey))
+	t.ConsumeParcelId = fbsutils.Convert(e.ConsumeParcelId(), t.FlatBuffer.TableKey)
+	t.ConsumeParcelType = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType()), t.FlatBuffer.TableKey))
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

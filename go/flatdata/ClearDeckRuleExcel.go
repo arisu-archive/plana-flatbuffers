@@ -33,20 +33,8 @@ func (rcv *ClearDeckRuleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ClearDeckRuleExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ClearDeckRuleExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *ClearDeckRuleExcel) SizeLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -54,17 +42,29 @@ func (rcv *ClearDeckRuleExcel) SizeLimit() int64 {
 }
 
 func (rcv *ClearDeckRuleExcel) MutateSizeLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *ClearDeckRuleExcel) ContentType() ContentType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ClearDeckRuleExcel) MutateContentType(n ContentType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func ClearDeckRuleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func ClearDeckRuleExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(0, int32(contentType), 0)
-}
 func ClearDeckRuleExcelAddSizeLimit(builder *flatbuffers.Builder, sizeLimit int64) {
-	builder.PrependInt64Slot(1, sizeLimit, 0)
+	builder.PrependInt64Slot(0, sizeLimit, 0)
+}
+func ClearDeckRuleExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
+	builder.PrependInt32Slot(1, int32(contentType), 0)
 }
 func ClearDeckRuleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

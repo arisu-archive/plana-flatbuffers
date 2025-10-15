@@ -33,19 +33,19 @@ func (rcv *MiniGameDefenseFixedStatExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MinigameDefenseFixedStatId() int64 {
+func (rcv *MiniGameDefenseFixedStatExcel) CharacterGearLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateMinigameDefenseFixedStatId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterGearLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Level() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) CharacterGearTier() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Level() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateLevel(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterGearTier(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Grade() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Grade() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateGrade(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterWeaponLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) ExSkillLevel() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponGrade() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) ExSkillLevel() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateExSkillLevel(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterWeaponGrade(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) NoneExSkillLevel() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) NoneExSkillLevel() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateNoneExSkillLevel(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment3Level(n int32) bool {
 	return rcv._tab.MutateInt32Slot(12, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Tier() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Tier() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -101,11 +101,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Tier() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment1Tier(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment3Tier(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Level() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Equipment2Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -113,7 +113,7 @@ func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Level() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment1Level(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment2Level(n int32) bool {
 	return rcv._tab.MutateInt32Slot(16, n)
 }
 
@@ -129,7 +129,7 @@ func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment2Tier(n int32) bool {
 	return rcv._tab.MutateInt32Slot(18, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Equipment2Level() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -137,11 +137,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Equipment2Level() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment2Level(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment1Level(n int32) bool {
 	return rcv._tab.MutateInt32Slot(20, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Tier() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Equipment1Tier() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -149,11 +149,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Tier() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment3Tier(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment1Tier(n int32) bool {
 	return rcv._tab.MutateInt32Slot(22, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Level() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) NoneExSkillLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -161,11 +161,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) Equipment3Level() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateEquipment3Level(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateNoneExSkillLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(24, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponGrade() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) ExSkillLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -173,11 +173,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponGrade() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterWeaponGrade(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateExSkillLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(26, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponLevel() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Grade() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -185,11 +185,11 @@ func (rcv *MiniGameDefenseFixedStatExcel) CharacterWeaponLevel() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterWeaponLevel(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateGrade(n int32) bool {
 	return rcv._tab.MutateInt32Slot(28, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) CharacterGearTier() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -197,69 +197,69 @@ func (rcv *MiniGameDefenseFixedStatExcel) CharacterGearTier() int32 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterGearTier(n int32) bool {
+func (rcv *MiniGameDefenseFixedStatExcel) MutateLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(30, n)
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) CharacterGearLevel() int32 {
+func (rcv *MiniGameDefenseFixedStatExcel) MinigameDefenseFixedStatId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameDefenseFixedStatExcel) MutateCharacterGearLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(32, n)
+func (rcv *MiniGameDefenseFixedStatExcel) MutateMinigameDefenseFixedStatId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
 }
 
 func MiniGameDefenseFixedStatExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(15)
 }
-func MiniGameDefenseFixedStatExcelAddMinigameDefenseFixedStatId(builder *flatbuffers.Builder, minigameDefenseFixedStatId int64) {
-	builder.PrependInt64Slot(0, minigameDefenseFixedStatId, 0)
+func MiniGameDefenseFixedStatExcelAddCharacterGearLevel(builder *flatbuffers.Builder, characterGearLevel int32) {
+	builder.PrependInt32Slot(0, characterGearLevel, 0)
 }
-func MiniGameDefenseFixedStatExcelAddLevel(builder *flatbuffers.Builder, level int32) {
-	builder.PrependInt32Slot(1, level, 0)
+func MiniGameDefenseFixedStatExcelAddCharacterGearTier(builder *flatbuffers.Builder, characterGearTier int32) {
+	builder.PrependInt32Slot(1, characterGearTier, 0)
 }
-func MiniGameDefenseFixedStatExcelAddGrade(builder *flatbuffers.Builder, grade int32) {
-	builder.PrependInt32Slot(2, grade, 0)
+func MiniGameDefenseFixedStatExcelAddCharacterWeaponLevel(builder *flatbuffers.Builder, characterWeaponLevel int32) {
+	builder.PrependInt32Slot(2, characterWeaponLevel, 0)
 }
-func MiniGameDefenseFixedStatExcelAddExSkillLevel(builder *flatbuffers.Builder, exSkillLevel int32) {
-	builder.PrependInt32Slot(3, exSkillLevel, 0)
+func MiniGameDefenseFixedStatExcelAddCharacterWeaponGrade(builder *flatbuffers.Builder, characterWeaponGrade int32) {
+	builder.PrependInt32Slot(3, characterWeaponGrade, 0)
 }
-func MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(builder *flatbuffers.Builder, noneExSkillLevel int32) {
-	builder.PrependInt32Slot(4, noneExSkillLevel, 0)
+func MiniGameDefenseFixedStatExcelAddEquipment3Level(builder *flatbuffers.Builder, equipment3Level int32) {
+	builder.PrependInt32Slot(4, equipment3Level, 0)
 }
-func MiniGameDefenseFixedStatExcelAddEquipment1Tier(builder *flatbuffers.Builder, equipment1Tier int32) {
-	builder.PrependInt32Slot(5, equipment1Tier, 0)
+func MiniGameDefenseFixedStatExcelAddEquipment3Tier(builder *flatbuffers.Builder, equipment3Tier int32) {
+	builder.PrependInt32Slot(5, equipment3Tier, 0)
 }
-func MiniGameDefenseFixedStatExcelAddEquipment1Level(builder *flatbuffers.Builder, equipment1Level int32) {
-	builder.PrependInt32Slot(6, equipment1Level, 0)
+func MiniGameDefenseFixedStatExcelAddEquipment2Level(builder *flatbuffers.Builder, equipment2Level int32) {
+	builder.PrependInt32Slot(6, equipment2Level, 0)
 }
 func MiniGameDefenseFixedStatExcelAddEquipment2Tier(builder *flatbuffers.Builder, equipment2Tier int32) {
 	builder.PrependInt32Slot(7, equipment2Tier, 0)
 }
-func MiniGameDefenseFixedStatExcelAddEquipment2Level(builder *flatbuffers.Builder, equipment2Level int32) {
-	builder.PrependInt32Slot(8, equipment2Level, 0)
+func MiniGameDefenseFixedStatExcelAddEquipment1Level(builder *flatbuffers.Builder, equipment1Level int32) {
+	builder.PrependInt32Slot(8, equipment1Level, 0)
 }
-func MiniGameDefenseFixedStatExcelAddEquipment3Tier(builder *flatbuffers.Builder, equipment3Tier int32) {
-	builder.PrependInt32Slot(9, equipment3Tier, 0)
+func MiniGameDefenseFixedStatExcelAddEquipment1Tier(builder *flatbuffers.Builder, equipment1Tier int32) {
+	builder.PrependInt32Slot(9, equipment1Tier, 0)
 }
-func MiniGameDefenseFixedStatExcelAddEquipment3Level(builder *flatbuffers.Builder, equipment3Level int32) {
-	builder.PrependInt32Slot(10, equipment3Level, 0)
+func MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(builder *flatbuffers.Builder, noneExSkillLevel int32) {
+	builder.PrependInt32Slot(10, noneExSkillLevel, 0)
 }
-func MiniGameDefenseFixedStatExcelAddCharacterWeaponGrade(builder *flatbuffers.Builder, characterWeaponGrade int32) {
-	builder.PrependInt32Slot(11, characterWeaponGrade, 0)
+func MiniGameDefenseFixedStatExcelAddExSkillLevel(builder *flatbuffers.Builder, exSkillLevel int32) {
+	builder.PrependInt32Slot(11, exSkillLevel, 0)
 }
-func MiniGameDefenseFixedStatExcelAddCharacterWeaponLevel(builder *flatbuffers.Builder, characterWeaponLevel int32) {
-	builder.PrependInt32Slot(12, characterWeaponLevel, 0)
+func MiniGameDefenseFixedStatExcelAddGrade(builder *flatbuffers.Builder, grade int32) {
+	builder.PrependInt32Slot(12, grade, 0)
 }
-func MiniGameDefenseFixedStatExcelAddCharacterGearTier(builder *flatbuffers.Builder, characterGearTier int32) {
-	builder.PrependInt32Slot(13, characterGearTier, 0)
+func MiniGameDefenseFixedStatExcelAddLevel(builder *flatbuffers.Builder, level int32) {
+	builder.PrependInt32Slot(13, level, 0)
 }
-func MiniGameDefenseFixedStatExcelAddCharacterGearLevel(builder *flatbuffers.Builder, characterGearLevel int32) {
-	builder.PrependInt32Slot(14, characterGearLevel, 0)
+func MiniGameDefenseFixedStatExcelAddMinigameDefenseFixedStatId(builder *flatbuffers.Builder, minigameDefenseFixedStatId int64) {
+	builder.PrependInt64Slot(14, minigameDefenseFixedStatId, 0)
 }
 func MiniGameDefenseFixedStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

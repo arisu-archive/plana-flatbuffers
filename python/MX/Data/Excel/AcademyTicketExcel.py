@@ -25,14 +25,14 @@ class AcademyTicketExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AcademyTicketExcel
-    def LocationRankSum(self):
+    def ScheduleTicktetMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AcademyTicketExcel
-    def ScheduleTicktetMax(self):
+    def LocationRankSum(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class AcademyTicketExcel(object):
 def AcademyTicketExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return AcademyTicketExcelStart(builder)
-def AcademyTicketExcelAddLocationRankSum(builder, locationRankSum): builder.PrependInt64Slot(0, locationRankSum, 0)
-def AddLocationRankSum(builder, locationRankSum):
-    return AcademyTicketExcelAddLocationRankSum(builder, locationRankSum)
-def AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax): builder.PrependInt64Slot(1, scheduleTicktetMax, 0)
+def AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax): builder.PrependInt64Slot(0, scheduleTicktetMax, 0)
 def AddScheduleTicktetMax(builder, scheduleTicktetMax):
     return AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax)
+def AcademyTicketExcelAddLocationRankSum(builder, locationRankSum): builder.PrependInt64Slot(1, locationRankSum, 0)
+def AddLocationRankSum(builder, locationRankSum):
+    return AcademyTicketExcelAddLocationRankSum(builder, locationRankSum)
 def AcademyTicketExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AcademyTicketExcelEnd(builder)

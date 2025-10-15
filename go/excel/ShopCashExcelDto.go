@@ -10,45 +10,45 @@ import (
 // ShopCashExcelDto represents a FlatBuffers table
 type ShopCashExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                      int64              `json:"id"`
-	CashProductId           int64              `json:"cash_product_id"`
-	PackageType             PurchaseSourceType `json:"package_type"`
-	LocalizeEtcId           uint32             `json:"localize_etc_id"`
-	IconPath                string             `json:"icon_path"`
-	DisplayOrder            int64              `json:"display_order"`
-	RenewalDisplayOrder     int64              `json:"renewal_display_order"`
-	CategoryType            ProductCategory    `json:"category_type"`
-	DisplayTag              ProductDisplayTag  `json:"display_tag"`
-	SalePeriodFrom          string             `json:"sale_period_from"`
-	SalePeriodTo            string             `json:"sale_period_to"`
-	PeriodTag               bool               `json:"period_tag"`
-	AccountLevelLimit       int64              `json:"account_level_limit"`
-	AccountLevelHide        bool               `json:"account_level_hide"`
-	ClearMissionLimit       int64              `json:"clear_mission_limit"`
-	ClearMissionHide        bool               `json:"clear_mission_hide"`
 	PurchaseReportEventName string             `json:"purchase_report_event_name"`
+	ClearMissionHide        bool               `json:"clear_mission_hide"`
+	ClearMissionLimit       int64              `json:"clear_mission_limit"`
+	AccountLevelHide        bool               `json:"account_level_hide"`
+	AccountLevelLimit       int64              `json:"account_level_limit"`
+	PeriodTag               bool               `json:"period_tag"`
+	SalePeriodTo            string             `json:"sale_period_to"`
+	SalePeriodFrom          string             `json:"sale_period_from"`
+	DisplayTag              ProductDisplayTag  `json:"display_tag"`
+	CategoryType            ProductCategory    `json:"category_type"`
+	RenewalDisplayOrder     int64              `json:"renewal_display_order"`
+	DisplayOrder            int64              `json:"display_order"`
+	IconPath                string             `json:"icon_path"`
+	LocalizeEtcId           uint32             `json:"localize_etc_id"`
+	PackageType             PurchaseSourceType `json:"package_type"`
+	CashProductId           int64              `json:"cash_product_id"`
+	Id                      int64              `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopCashExcelStart(b)
-	ShopCashExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopCashExcelAddCashProductId(b, fbsutils.Convert(t.CashProductId, t.FlatBuffer.TableKey))
-	ShopCashExcelAddPackageType(b, fbsutils.Convert(t.PackageType, t.FlatBuffer.TableKey))
-	ShopCashExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	ShopCashExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	ShopCashExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShopCashExcelAddRenewalDisplayOrder(b, fbsutils.Convert(t.RenewalDisplayOrder, t.FlatBuffer.TableKey))
-	ShopCashExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopCashExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
-	ShopCashExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopCashExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
-	ShopCashExcelAddPeriodTag(b, t.PeriodTag)
-	ShopCashExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
-	ShopCashExcelAddAccountLevelHide(b, t.AccountLevelHide)
-	ShopCashExcelAddClearMissionLimit(b, fbsutils.Convert(t.ClearMissionLimit, t.FlatBuffer.TableKey))
-	ShopCashExcelAddClearMissionHide(b, t.ClearMissionHide)
 	ShopCashExcelAddPurchaseReportEventName(b, b.CreateString(fbsutils.Convert(t.PurchaseReportEventName, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddClearMissionHide(b, t.ClearMissionHide)
+	ShopCashExcelAddClearMissionLimit(b, fbsutils.Convert(t.ClearMissionLimit, t.FlatBuffer.TableKey))
+	ShopCashExcelAddAccountLevelHide(b, t.AccountLevelHide)
+	ShopCashExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
+	ShopCashExcelAddPeriodTag(b, t.PeriodTag)
+	ShopCashExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
+	ShopCashExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	ShopCashExcelAddRenewalDisplayOrder(b, fbsutils.Convert(t.RenewalDisplayOrder, t.FlatBuffer.TableKey))
+	ShopCashExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShopCashExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	ShopCashExcelAddPackageType(b, fbsutils.Convert(t.PackageType, t.FlatBuffer.TableKey))
+	ShopCashExcelAddCashProductId(b, fbsutils.Convert(t.CashProductId, t.FlatBuffer.TableKey))
+	ShopCashExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ShopCashExcelEnd(b)
 }
 
@@ -61,23 +61,23 @@ func (t *ShopCashExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.CashProductId = fbsutils.Convert(e.CashProductId(), t.FlatBuffer.TableKey)
-	t.PackageType = PurchaseSourceType(fbsutils.Convert(int32(e.PackageType()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.RenewalDisplayOrder = fbsutils.Convert(e.RenewalDisplayOrder(), t.FlatBuffer.TableKey)
-	t.CategoryType = ProductCategory(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
-	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
-	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
-	t.PeriodTag = e.PeriodTag()
-	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
-	t.AccountLevelHide = e.AccountLevelHide()
-	t.ClearMissionLimit = fbsutils.Convert(e.ClearMissionLimit(), t.FlatBuffer.TableKey)
-	t.ClearMissionHide = e.ClearMissionHide()
 	t.PurchaseReportEventName = fbsutils.Convert(string(e.PurchaseReportEventName()), t.FlatBuffer.TableKey)
+	t.ClearMissionHide = e.ClearMissionHide()
+	t.ClearMissionLimit = fbsutils.Convert(e.ClearMissionLimit(), t.FlatBuffer.TableKey)
+	t.AccountLevelHide = e.AccountLevelHide()
+	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
+	t.PeriodTag = e.PeriodTag()
+	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
+	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
+	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
+	t.CategoryType = ProductCategory(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.RenewalDisplayOrder = fbsutils.Convert(e.RenewalDisplayOrder(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.PackageType = PurchaseSourceType(fbsutils.Convert(int32(e.PackageType()), t.FlatBuffer.TableKey))
+	t.CashProductId = fbsutils.Convert(e.CashProductId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

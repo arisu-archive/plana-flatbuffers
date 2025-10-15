@@ -4,13 +4,13 @@ include "ShopCategoryType.fbs";
 namespace MX.Data.Excel;
 
 table PickupDuplicateBonusExcel {
-    id: long;
-    shop_category_type: ShopCategoryType;
-    shop_id: long;
-    pickup_character_id: long;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
     reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    pickup_character_id: long;
+    shop_id: long;
+    shop_category_type: ShopCategoryType;
+    id: long;
 }
 
 root_type PickupDuplicateBonusExcel;

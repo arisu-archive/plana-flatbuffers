@@ -33,79 +33,55 @@ func (rcv *MinigameTBGEncounterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGEncounterExcel) EventContentId() int64 {
+func (rcv *MinigameTBGEncounterExcel) RunawayStoryLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameTBGEncounterExcel) UniqueId() int64 {
+func (rcv *MinigameTBGEncounterExcel) DefeatStoryLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameTBGEncounterExcel) AllThema() bool {
+func (rcv *MinigameTBGEncounterExcel) ClearStoryLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateAllThema(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *MinigameTBGEncounterExcel) ThemaIndex() int32 {
+func (rcv *MinigameTBGEncounterExcel) AttackDefenceLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateThemaIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *MinigameTBGEncounterExcel) ThemaType() TBGThemaType {
+func (rcv *MinigameTBGEncounterExcel) EnemyAttackLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return TBGThemaType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateThemaType(n TBGThemaType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *MinigameTBGEncounterExcel) ObjectType() TBGObjectType {
+func (rcv *MinigameTBGEncounterExcel) AllyAttackLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return TBGObjectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateObjectType(n TBGObjectType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
-func (rcv *MinigameTBGEncounterExcel) EnemyImagePath() []byte {
+func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption3Localize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -113,7 +89,7 @@ func (rcv *MinigameTBGEncounterExcel) EnemyImagePath() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) EnemyPrefabName() []byte {
+func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption2Localize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -121,7 +97,7 @@ func (rcv *MinigameTBGEncounterExcel) EnemyPrefabName() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) EnemyNameLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption1Localize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -129,28 +105,20 @@ func (rcv *MinigameTBGEncounterExcel) EnemyNameLocalize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) OptionGroupId() int64 {
+func (rcv *MinigameTBGEncounterExcel) BeforeStoryLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) MutateOptionGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *MinigameTBGEncounterExcel) RewardHide() bool {
+func (rcv *MinigameTBGEncounterExcel) StoryImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *MinigameTBGEncounterExcel) MutateRewardHide(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
+	return nil
 }
 
 func (rcv *MinigameTBGEncounterExcel) EncounterTitleLocalize() []byte {
@@ -161,23 +129,31 @@ func (rcv *MinigameTBGEncounterExcel) EncounterTitleLocalize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) StoryImagePath() []byte {
+func (rcv *MinigameTBGEncounterExcel) RewardHide() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *MinigameTBGEncounterExcel) BeforeStoryLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateRewardHide(n bool) bool {
+	return rcv._tab.MutateBoolSlot(28, n)
+}
+
+func (rcv *MinigameTBGEncounterExcel) OptionGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption1Localize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateOptionGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *MinigameTBGEncounterExcel) EnemyNameLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -185,7 +161,7 @@ func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption1Localize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption2Localize() []byte {
+func (rcv *MinigameTBGEncounterExcel) EnemyPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -193,7 +169,7 @@ func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption2Localize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption3Localize() []byte {
+func (rcv *MinigameTBGEncounterExcel) EnemyImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -201,125 +177,149 @@ func (rcv *MinigameTBGEncounterExcel) BeforeStoryOption3Localize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterExcel) AllyAttackLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) ObjectType() TBGObjectType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return TBGObjectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGEncounterExcel) EnemyAttackLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateObjectType(n TBGObjectType) bool {
+	return rcv._tab.MutateInt32Slot(38, int32(n))
+}
+
+func (rcv *MinigameTBGEncounterExcel) ThemaType() TBGThemaType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return TBGThemaType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGEncounterExcel) AttackDefenceLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateThemaType(n TBGThemaType) bool {
+	return rcv._tab.MutateInt32Slot(40, int32(n))
+}
+
+func (rcv *MinigameTBGEncounterExcel) ThemaIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGEncounterExcel) ClearStoryLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateThemaIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
+}
+
+func (rcv *MinigameTBGEncounterExcel) AllThema() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *MinigameTBGEncounterExcel) DefeatStoryLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateAllThema(n bool) bool {
+	return rcv._tab.MutateBoolSlot(44, n)
+}
+
+func (rcv *MinigameTBGEncounterExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGEncounterExcel) RunawayStoryLocalize() []byte {
+func (rcv *MinigameTBGEncounterExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(46, n)
+}
+
+func (rcv *MinigameTBGEncounterExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
 }
 
 func MinigameTBGEncounterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(23)
 }
-func MinigameTBGEncounterExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder *flatbuffers.Builder, runawayStoryLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(runawayStoryLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
+func MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder *flatbuffers.Builder, defeatStoryLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(defeatStoryLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddAllThema(builder *flatbuffers.Builder, allThema bool) {
-	builder.PrependBoolSlot(2, allThema, false)
+func MinigameTBGEncounterExcelAddClearStoryLocalize(builder *flatbuffers.Builder, clearStoryLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(clearStoryLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddThemaIndex(builder *flatbuffers.Builder, themaIndex int32) {
-	builder.PrependInt32Slot(3, themaIndex, 0)
+func MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder *flatbuffers.Builder, attackDefenceLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(attackDefenceLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddThemaType(builder *flatbuffers.Builder, themaType TBGThemaType) {
-	builder.PrependInt32Slot(4, int32(themaType), 0)
+func MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder *flatbuffers.Builder, enemyAttackLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(enemyAttackLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddObjectType(builder *flatbuffers.Builder, objectType TBGObjectType) {
-	builder.PrependInt32Slot(5, int32(objectType), 0)
+func MinigameTBGEncounterExcelAddAllyAttackLocalize(builder *flatbuffers.Builder, allyAttackLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(allyAttackLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddEnemyImagePath(builder *flatbuffers.Builder, enemyImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(enemyImagePath), 0)
+func MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder *flatbuffers.Builder, beforeStoryOption3Localize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(beforeStoryOption3Localize), 0)
 }
-func MinigameTBGEncounterExcelAddEnemyPrefabName(builder *flatbuffers.Builder, enemyPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(enemyPrefabName), 0)
+func MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder *flatbuffers.Builder, beforeStoryOption2Localize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(beforeStoryOption2Localize), 0)
 }
-func MinigameTBGEncounterExcelAddEnemyNameLocalize(builder *flatbuffers.Builder, enemyNameLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(enemyNameLocalize), 0)
+func MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder *flatbuffers.Builder, beforeStoryOption1Localize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(beforeStoryOption1Localize), 0)
 }
-func MinigameTBGEncounterExcelAddOptionGroupId(builder *flatbuffers.Builder, optionGroupId int64) {
-	builder.PrependInt64Slot(9, optionGroupId, 0)
+func MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder *flatbuffers.Builder, beforeStoryLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(beforeStoryLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddRewardHide(builder *flatbuffers.Builder, rewardHide bool) {
-	builder.PrependBoolSlot(10, rewardHide, false)
+func MinigameTBGEncounterExcelAddStoryImagePath(builder *flatbuffers.Builder, storyImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(storyImagePath), 0)
 }
 func MinigameTBGEncounterExcelAddEncounterTitleLocalize(builder *flatbuffers.Builder, encounterTitleLocalize flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(encounterTitleLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddStoryImagePath(builder *flatbuffers.Builder, storyImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(storyImagePath), 0)
+func MinigameTBGEncounterExcelAddRewardHide(builder *flatbuffers.Builder, rewardHide bool) {
+	builder.PrependBoolSlot(12, rewardHide, false)
 }
-func MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder *flatbuffers.Builder, beforeStoryLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(beforeStoryLocalize), 0)
+func MinigameTBGEncounterExcelAddOptionGroupId(builder *flatbuffers.Builder, optionGroupId int64) {
+	builder.PrependInt64Slot(13, optionGroupId, 0)
 }
-func MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder *flatbuffers.Builder, beforeStoryOption1Localize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(beforeStoryOption1Localize), 0)
+func MinigameTBGEncounterExcelAddEnemyNameLocalize(builder *flatbuffers.Builder, enemyNameLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(enemyNameLocalize), 0)
 }
-func MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder *flatbuffers.Builder, beforeStoryOption2Localize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(beforeStoryOption2Localize), 0)
+func MinigameTBGEncounterExcelAddEnemyPrefabName(builder *flatbuffers.Builder, enemyPrefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(enemyPrefabName), 0)
 }
-func MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder *flatbuffers.Builder, beforeStoryOption3Localize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(beforeStoryOption3Localize), 0)
+func MinigameTBGEncounterExcelAddEnemyImagePath(builder *flatbuffers.Builder, enemyImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(enemyImagePath), 0)
 }
-func MinigameTBGEncounterExcelAddAllyAttackLocalize(builder *flatbuffers.Builder, allyAttackLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(allyAttackLocalize), 0)
+func MinigameTBGEncounterExcelAddObjectType(builder *flatbuffers.Builder, objectType TBGObjectType) {
+	builder.PrependInt32Slot(17, int32(objectType), 0)
 }
-func MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder *flatbuffers.Builder, enemyAttackLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(enemyAttackLocalize), 0)
+func MinigameTBGEncounterExcelAddThemaType(builder *flatbuffers.Builder, themaType TBGThemaType) {
+	builder.PrependInt32Slot(18, int32(themaType), 0)
 }
-func MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder *flatbuffers.Builder, attackDefenceLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(attackDefenceLocalize), 0)
+func MinigameTBGEncounterExcelAddThemaIndex(builder *flatbuffers.Builder, themaIndex int32) {
+	builder.PrependInt32Slot(19, themaIndex, 0)
 }
-func MinigameTBGEncounterExcelAddClearStoryLocalize(builder *flatbuffers.Builder, clearStoryLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(clearStoryLocalize), 0)
+func MinigameTBGEncounterExcelAddAllThema(builder *flatbuffers.Builder, allThema bool) {
+	builder.PrependBoolSlot(20, allThema, false)
 }
-func MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder *flatbuffers.Builder, defeatStoryLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(defeatStoryLocalize), 0)
+func MinigameTBGEncounterExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(21, uniqueId, 0)
 }
-func MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder *flatbuffers.Builder, runawayStoryLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(runawayStoryLocalize), 0)
+func MinigameTBGEncounterExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(22, eventContentId, 0)
 }
 func MinigameTBGEncounterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

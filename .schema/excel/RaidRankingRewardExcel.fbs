@@ -3,17 +3,16 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table RaidRankingRewardExcel {
-    ranking_reward_group_id: long;
-    id: long;
-    rank_start: long;
-    rank_end: long;
-    percent_rank_start: long;
-    percent_rank_end: long;
-    tier: int;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_unique_id: [long];
-    reward_parcel_unique_name: [string];
     reward_parcel_amount: [long];
+    reward_parcel_unique_id: [long];
+    reward_parcel_type: [ParcelType];
+    tier: int;
+    percent_rank_end: long;
+    percent_rank_start: long;
+    rank_end: long;
+    rank_start: long;
+    id: long;
+    ranking_reward_group_id: long;
 }
 
 root_type RaidRankingRewardExcel;

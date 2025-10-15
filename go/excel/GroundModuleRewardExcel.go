@@ -33,31 +33,27 @@ func (rcv *GroundModuleRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GroundModuleRewardExcel) GroupId() uint32 {
+func (rcv *GroundModuleRewardExcel) DropItemModelPrefabPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *GroundModuleRewardExcel) MutateGroupId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
-func (rcv *GroundModuleRewardExcel) RewardParcelType() ParcelType {
+func (rcv *GroundModuleRewardExcel) IsDisplayed() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *GroundModuleRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *GroundModuleRewardExcel) MutateIsDisplayed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *GroundModuleRewardExcel) RewardParcelId() int64 {
+func (rcv *GroundModuleRewardExcel) RewardParcelProbability() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,7 +61,7 @@ func (rcv *GroundModuleRewardExcel) RewardParcelId() int64 {
 	return 0
 }
 
-func (rcv *GroundModuleRewardExcel) MutateRewardParcelId(n int64) bool {
+func (rcv *GroundModuleRewardExcel) MutateRewardParcelProbability(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
@@ -81,7 +77,7 @@ func (rcv *GroundModuleRewardExcel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *GroundModuleRewardExcel) RewardParcelProbability() int64 {
+func (rcv *GroundModuleRewardExcel) RewardParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,53 +85,57 @@ func (rcv *GroundModuleRewardExcel) RewardParcelProbability() int64 {
 	return 0
 }
 
-func (rcv *GroundModuleRewardExcel) MutateRewardParcelProbability(n int64) bool {
+func (rcv *GroundModuleRewardExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *GroundModuleRewardExcel) IsDisplayed() bool {
+func (rcv *GroundModuleRewardExcel) RewardParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return false
+	return 0
 }
 
-func (rcv *GroundModuleRewardExcel) MutateIsDisplayed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+func (rcv *GroundModuleRewardExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *GroundModuleRewardExcel) DropItemModelPrefabPath() []byte {
+func (rcv *GroundModuleRewardExcel) GroupId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *GroundModuleRewardExcel) MutateGroupId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func GroundModuleRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func GroundModuleRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId uint32) {
-	builder.PrependUint32Slot(0, groupId, 0)
+func GroundModuleRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
 }
-func GroundModuleRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(1, int32(rewardParcelType), 0)
+func GroundModuleRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
+	builder.PrependBoolSlot(1, isDisplayed, false)
 }
-func GroundModuleRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(2, rewardParcelId, 0)
+func GroundModuleRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability int64) {
+	builder.PrependInt64Slot(2, rewardParcelProbability, 0)
 }
 func GroundModuleRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
 	builder.PrependInt64Slot(3, rewardParcelAmount, 0)
 }
-func GroundModuleRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability int64) {
-	builder.PrependInt64Slot(4, rewardParcelProbability, 0)
+func GroundModuleRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(4, rewardParcelId, 0)
 }
-func GroundModuleRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
-	builder.PrependBoolSlot(5, isDisplayed, false)
+func GroundModuleRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(5, int32(rewardParcelType), 0)
 }
-func GroundModuleRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
+func GroundModuleRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId uint32) {
+	builder.PrependUint32Slot(6, groupId, 0)
 }
 func GroundModuleRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

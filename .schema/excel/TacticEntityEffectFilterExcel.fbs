@@ -1,9 +1,9 @@
 namespace MX.Data.Excel;
 
 table TacticEntityEffectFilterExcel {
-    target_effect_name: string;
-    show_effect_to_vehicle: bool;
     show_effect_to_boss: bool;
+    show_effect_to_vehicle: bool;
+    target_effect_name: string;
 }
 
 root_type TacticEntityEffectFilterExcel;

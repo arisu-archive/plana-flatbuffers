@@ -4,21 +4,21 @@ include "StrategyObjectType.fbs";
 namespace MX.Data.Excel;
 
 table CampaignStrategyObjectExcel {
-    id: long;
-    key: uint;
-    name: string;
-    prefab_name: string;
-    strategy_object_type: StrategyObjectType;
-    strategy_reward_parcel_type: ParcelType;
-    strategy_reward_id: long;
-    strategy_reward_name: string;
-    strategy_reward_amount: int;
-    strategy_sight_range: long;
-    portal_id: int;
-    heal_value: int;
-    swith_id: int;
-    buff_id: int;
     disposable: bool;
+    buff_id: int;
+    swith_id: int;
+    heal_value: int;
+    portal_id: int;
+    strategy_sight_range: long;
+    strategy_reward_amount: int;
+    strategy_reward_name: string;
+    strategy_reward_id: long;
+    strategy_reward_parcel_type: ParcelType;
+    strategy_object_type: StrategyObjectType;
+    prefab_name: string;
+    name: string;
+    key: uint;
+    id: long;
 }
 
 root_type CampaignStrategyObjectExcel;

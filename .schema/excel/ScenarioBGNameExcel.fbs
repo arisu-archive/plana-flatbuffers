@@ -4,15 +4,15 @@ include "ScenarioBGType.fbs";
 namespace MX.Data.Excel;
 
 table ScenarioBGNameExcel {
-    name: uint;
-    production_step: ProductionStep;
-    bg_file_name: string;
-    bg_type: ScenarioBGType;
-    animation_root: string;
-    animation_name: string;
-    spine_scale: float;
-    spine_local_pos_x: int;
     spine_local_pos_y: int;
+    spine_local_pos_x: int;
+    spine_scale: float;
+    animation_name: string;
+    animation_root: string;
+    bg_type: ScenarioBGType;
+    bg_file_name: string;
+    production_step: ProductionStep;
+    name: uint;
 }
 
 root_type ScenarioBGNameExcel;

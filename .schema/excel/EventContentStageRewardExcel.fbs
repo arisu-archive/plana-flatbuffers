@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+include "RewardTag.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentStageRewardExcel {
+    is_displayed: bool;
+    reward_amount: int;
+    reward_id: long;
+    reward_parcel_type: ParcelType;
+    reward_prob: int;
+    reward_tag: RewardTag;
+    group_id: long;
+}
+
+root_type EventContentStageRewardExcel;

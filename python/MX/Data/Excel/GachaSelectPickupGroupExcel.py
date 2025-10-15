@@ -25,7 +25,7 @@ class GachaSelectPickupGroupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GachaSelectPickupGroupExcel
-    def Id(self):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class GachaSelectPickupGroupExcel(object):
         return 0
 
     # GachaSelectPickupGroupExcel
-    def CharacterId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class GachaSelectPickupGroupExcel(object):
 def GachaSelectPickupGroupExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return GachaSelectPickupGroupExcelStart(builder)
-def GachaSelectPickupGroupExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return GachaSelectPickupGroupExcelAddId(builder, id)
+def GachaSelectPickupGroupExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
+def AddCharacterId(builder, characterId):
+    return GachaSelectPickupGroupExcelAddCharacterId(builder, characterId)
 def GachaSelectPickupGroupExcelAddGachaGroupId(builder, gachaGroupId): builder.PrependInt64Slot(1, gachaGroupId, 0)
 def AddGachaGroupId(builder, gachaGroupId):
     return GachaSelectPickupGroupExcelAddGachaGroupId(builder, gachaGroupId)
-def GachaSelectPickupGroupExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(2, characterId, 0)
-def AddCharacterId(builder, characterId):
-    return GachaSelectPickupGroupExcelAddCharacterId(builder, characterId)
+def GachaSelectPickupGroupExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+def AddId(builder, id):
+    return GachaSelectPickupGroupExcelAddId(builder, id)
 def GachaSelectPickupGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GachaSelectPickupGroupExcelEnd(builder)

@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table MiniGameDreamTimelineExcel {
-    id: long;
-    event_content_id: long;
-    group_id: long;
-    dream_maker_days: long;
-    dream_maker_action_point: long;
-    enter_scenario_group_id: long;
-    bgm: long;
-    art_level_path: string;
     design_level_path: string;
+    art_level_path: string;
+    bgm: long;
+    enter_scenario_group_id: long;
+    dream_maker_action_point: long;
+    dream_maker_days: long;
+    group_id: long;
+    event_content_id: long;
+    id: long;
 }
 
 root_type MiniGameDreamTimelineExcel;

@@ -1,13 +1,13 @@
 namespace FlatData;
 
 table CharacterDialogEmojiExcel {
-    group_id: long;
-    target_index: int;
-    dialog_type: string;
-    duration: long;
-    hide_ui: bool;
-    localize_kr: string;
     localize_jp: string;
+    localize_kr: string;
+    hide_ui: bool;
+    duration: long;
+    dialog_type: string;
+    target_index: int;
+    group_id: long;
 }
 
 root_type CharacterDialogEmojiExcel;

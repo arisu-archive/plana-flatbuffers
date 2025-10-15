@@ -10,15 +10,15 @@ import (
 // MinigameCCGStartDeckCardExcelDto represents a FlatBuffers table
 type MinigameCCGStartDeckCardExcelDto struct {
 	fbsutils.FlatBuffer
-	CcgId  int64 `json:"ccg_id"`
 	CardId int64 `json:"card_id"`
+	CcgId  int64 `json:"ccg_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGStartDeckCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGStartDeckCardExcelStart(b)
-	MinigameCCGStartDeckCardExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
 	MinigameCCGStartDeckCardExcelAddCardId(b, fbsutils.Convert(t.CardId, t.FlatBuffer.TableKey))
+	MinigameCCGStartDeckCardExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
 	return MinigameCCGStartDeckCardExcelEnd(b)
 }
 
@@ -31,8 +31,8 @@ func (t *MinigameCCGStartDeckCardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGStartDeckCardExcelDto) UnmarshalMessage(e *MinigameCCGStartDeckCardExcel) error {
-	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
 	t.CardId = fbsutils.Convert(e.CardId(), t.FlatBuffer.TableKey)
+	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

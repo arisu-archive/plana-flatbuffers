@@ -10,10 +10,10 @@ import (
 // FieldMasteryManageExcelDto represents a FlatBuffers table
 type FieldMasteryManageExcelDto struct {
 	fbsutils.FlatBuffer
-	FieldSeason int64  `json:"field_season"`
-	LocalizeEtc uint32 `json:"localize_etc"`
-	ImagePath   string `json:"image_path"`
 	LevelId     int64  `json:"level_id"`
+	ImagePath   string `json:"image_path"`
+	LocalizeEtc uint32 `json:"localize_etc"`
+	FieldSeason int64  `json:"field_season"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *FieldMasteryManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManage"))
 	}
 	FieldMasteryManageExcelStart(b)
-	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
-	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
-	FieldMasteryManageExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	FieldMasteryManageExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
 	return FieldMasteryManageExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *FieldMasteryManageExcelDto) UnmarshalMessage(e *FieldMasteryManageExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManage"))
 	}
-	t.FieldSeason = fbsutils.Convert(e.FieldSeason(), t.FlatBuffer.TableKey)
-	t.LocalizeEtc = fbsutils.Convert(e.LocalizeEtc(), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.LocalizeEtc = fbsutils.Convert(e.LocalizeEtc(), t.FlatBuffer.TableKey)
+	t.FieldSeason = fbsutils.Convert(e.FieldSeason(), t.FlatBuffer.TableKey)
 	return nil
 }
 

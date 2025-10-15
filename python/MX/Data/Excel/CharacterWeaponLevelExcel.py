@@ -25,10 +25,10 @@ class CharacterWeaponLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterWeaponLevelExcel
-    def Level(self):
+    def TotalExp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterWeaponLevelExcel
@@ -39,24 +39,24 @@ class CharacterWeaponLevelExcel(object):
         return 0
 
     # CharacterWeaponLevelExcel
-    def TotalExp(self):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def CharacterWeaponLevelExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return CharacterWeaponLevelExcelStart(builder)
-def CharacterWeaponLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(0, level, 0)
-def AddLevel(builder, level):
-    return CharacterWeaponLevelExcelAddLevel(builder, level)
+def CharacterWeaponLevelExcelAddTotalExp(builder, totalExp): builder.PrependInt64Slot(0, totalExp, 0)
+def AddTotalExp(builder, totalExp):
+    return CharacterWeaponLevelExcelAddTotalExp(builder, totalExp)
 def CharacterWeaponLevelExcelAddExp(builder, exp): builder.PrependInt64Slot(1, exp, 0)
 def AddExp(builder, exp):
     return CharacterWeaponLevelExcelAddExp(builder, exp)
-def CharacterWeaponLevelExcelAddTotalExp(builder, totalExp): builder.PrependInt64Slot(2, totalExp, 0)
-def AddTotalExp(builder, totalExp):
-    return CharacterWeaponLevelExcelAddTotalExp(builder, totalExp)
+def CharacterWeaponLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+def AddLevel(builder, level):
+    return CharacterWeaponLevelExcelAddLevel(builder, level)
 def CharacterWeaponLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterWeaponLevelExcelEnd(builder)

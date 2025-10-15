@@ -1,0 +1,15 @@
+include "EventContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentSpineDialogOffsetExcel {
+    dialog_offset_y: float;
+    dialog_offset_x: float;
+    spine_offset_y: float;
+    spine_offset_x: float;
+    costume_unique_id: long;
+    event_content_type: EventContentType;
+    event_content_id: long;
+}
+
+root_type EventContentSpineDialogOffsetExcel;

@@ -33,84 +33,112 @@ func (rcv *EquipmentStatExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EquipmentStatExcel) EquipmentId() int64 {
+func (rcv *EquipmentStatExcel) DamageFactorGroupId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EquipmentStatExcel) TranscendenceMax() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MutateTranscendenceMax(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *EquipmentStatExcel) DefaultMaxLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MutateDefaultMaxLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *EquipmentStatExcel) LevelUpFeedAddExp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MutateEquipmentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *EquipmentStatExcel) MutateLevelUpFeedAddExp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *EquipmentStatExcel) StatLevelUpType() StatLevelUpType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+func (rcv *EquipmentStatExcel) EquipmentCategory() EquipmentCategory {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return EquipmentCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *EquipmentStatExcel) MutateEquipmentCategory(n EquipmentCategory) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *EquipmentStatExcel) StatType(j int) EquipmentOptionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *EquipmentStatExcel) LevelUpFeedCostAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) StatTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *EquipmentStatExcel) MutateLevelUpFeedCostAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *EquipmentStatExcel) LevelUpFeedCostCurrency() CurrencyTypes {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MutateStatType(j int, n EquipmentOptionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+func (rcv *EquipmentStatExcel) MutateLevelUpFeedCostCurrency(n CurrencyTypes) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *EquipmentStatExcel) MinStat(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *EquipmentStatExcel) LevelUpFeedExp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MinStatLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *EquipmentStatExcel) MutateLevelUpFeedExp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *EquipmentStatExcel) LevelUpInsertLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MutateMinStat(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *EquipmentStatExcel) MutateLevelUpInsertLimit(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
 func (rcv *EquipmentStatExcel) MaxStat(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -119,7 +147,7 @@ func (rcv *EquipmentStatExcel) MaxStat(j int) int64 {
 }
 
 func (rcv *EquipmentStatExcel) MaxStatLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -127,7 +155,7 @@ func (rcv *EquipmentStatExcel) MaxStatLength() int {
 }
 
 func (rcv *EquipmentStatExcel) MutateMaxStat(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -135,163 +163,135 @@ func (rcv *EquipmentStatExcel) MutateMaxStat(j int, n int64) bool {
 	return false
 }
 
-func (rcv *EquipmentStatExcel) LevelUpInsertLimit() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateLevelUpInsertLimit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
-func (rcv *EquipmentStatExcel) LevelUpFeedExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateLevelUpFeedExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *EquipmentStatExcel) LevelUpFeedCostCurrency() CurrencyTypes {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateLevelUpFeedCostCurrency(n CurrencyTypes) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *EquipmentStatExcel) LevelUpFeedCostAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateLevelUpFeedCostAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *EquipmentStatExcel) EquipmentCategory() EquipmentCategory {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return EquipmentCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateEquipmentCategory(n EquipmentCategory) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
-}
-
-func (rcv *EquipmentStatExcel) LevelUpFeedAddExp() int64 {
+func (rcv *EquipmentStatExcel) MinStat(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MinStatLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MutateMinStat(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EquipmentStatExcel) StatType(j int) EquipmentOptionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) StatTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MutateStatType(j int, n EquipmentOptionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *EquipmentStatExcel) StatLevelUpType() StatLevelUpType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EquipmentStatExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
+}
+
+func (rcv *EquipmentStatExcel) EquipmentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EquipmentStatExcel) MutateLevelUpFeedAddExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *EquipmentStatExcel) DefaultMaxLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateDefaultMaxLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
-}
-
-func (rcv *EquipmentStatExcel) TranscendenceMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentStatExcel) MutateTranscendenceMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(28, n)
-}
-
-func (rcv *EquipmentStatExcel) DamageFactorGroupId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *EquipmentStatExcel) MutateEquipmentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
 }
 
 func EquipmentStatExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
-func EquipmentStatExcelAddEquipmentId(builder *flatbuffers.Builder, equipmentId int64) {
-	builder.PrependInt64Slot(0, equipmentId, 0)
+func EquipmentStatExcelAddDamageFactorGroupId(builder *flatbuffers.Builder, damageFactorGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(damageFactorGroupId), 0)
 }
-func EquipmentStatExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
-	builder.PrependInt32Slot(1, int32(statLevelUpType), 0)
+func EquipmentStatExcelAddTranscendenceMax(builder *flatbuffers.Builder, transcendenceMax int32) {
+	builder.PrependInt32Slot(1, transcendenceMax, 0)
 }
-func EquipmentStatExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(statType), 0)
+func EquipmentStatExcelAddDefaultMaxLevel(builder *flatbuffers.Builder, defaultMaxLevel int32) {
+	builder.PrependInt32Slot(2, defaultMaxLevel, 0)
 }
-func EquipmentStatExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func EquipmentStatExcelAddLevelUpFeedAddExp(builder *flatbuffers.Builder, levelUpFeedAddExp int64) {
+	builder.PrependInt64Slot(3, levelUpFeedAddExp, 0)
 }
-func EquipmentStatExcelAddMinStat(builder *flatbuffers.Builder, minStat flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(minStat), 0)
+func EquipmentStatExcelAddEquipmentCategory(builder *flatbuffers.Builder, equipmentCategory EquipmentCategory) {
+	builder.PrependInt32Slot(4, int32(equipmentCategory), 0)
 }
-func EquipmentStatExcelStartMinStatVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EquipmentStatExcelAddLevelUpFeedCostAmount(builder *flatbuffers.Builder, levelUpFeedCostAmount int64) {
+	builder.PrependInt64Slot(5, levelUpFeedCostAmount, 0)
+}
+func EquipmentStatExcelAddLevelUpFeedCostCurrency(builder *flatbuffers.Builder, levelUpFeedCostCurrency CurrencyTypes) {
+	builder.PrependInt32Slot(6, int32(levelUpFeedCostCurrency), 0)
+}
+func EquipmentStatExcelAddLevelUpFeedExp(builder *flatbuffers.Builder, levelUpFeedExp int64) {
+	builder.PrependInt64Slot(7, levelUpFeedExp, 0)
+}
+func EquipmentStatExcelAddLevelUpInsertLimit(builder *flatbuffers.Builder, levelUpInsertLimit int32) {
+	builder.PrependInt32Slot(8, levelUpInsertLimit, 0)
 }
 func EquipmentStatExcelAddMaxStat(builder *flatbuffers.Builder, maxStat flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(maxStat), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(maxStat), 0)
 }
 func EquipmentStatExcelStartMaxStatVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EquipmentStatExcelAddLevelUpInsertLimit(builder *flatbuffers.Builder, levelUpInsertLimit int32) {
-	builder.PrependInt32Slot(5, levelUpInsertLimit, 0)
+func EquipmentStatExcelAddMinStat(builder *flatbuffers.Builder, minStat flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(minStat), 0)
 }
-func EquipmentStatExcelAddLevelUpFeedExp(builder *flatbuffers.Builder, levelUpFeedExp int64) {
-	builder.PrependInt64Slot(6, levelUpFeedExp, 0)
+func EquipmentStatExcelStartMinStatVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func EquipmentStatExcelAddLevelUpFeedCostCurrency(builder *flatbuffers.Builder, levelUpFeedCostCurrency CurrencyTypes) {
-	builder.PrependInt32Slot(7, int32(levelUpFeedCostCurrency), 0)
+func EquipmentStatExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(statType), 0)
 }
-func EquipmentStatExcelAddLevelUpFeedCostAmount(builder *flatbuffers.Builder, levelUpFeedCostAmount int64) {
-	builder.PrependInt64Slot(8, levelUpFeedCostAmount, 0)
+func EquipmentStatExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func EquipmentStatExcelAddEquipmentCategory(builder *flatbuffers.Builder, equipmentCategory EquipmentCategory) {
-	builder.PrependInt32Slot(9, int32(equipmentCategory), 0)
+func EquipmentStatExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
+	builder.PrependInt32Slot(12, int32(statLevelUpType), 0)
 }
-func EquipmentStatExcelAddLevelUpFeedAddExp(builder *flatbuffers.Builder, levelUpFeedAddExp int64) {
-	builder.PrependInt64Slot(10, levelUpFeedAddExp, 0)
-}
-func EquipmentStatExcelAddDefaultMaxLevel(builder *flatbuffers.Builder, defaultMaxLevel int32) {
-	builder.PrependInt32Slot(11, defaultMaxLevel, 0)
-}
-func EquipmentStatExcelAddTranscendenceMax(builder *flatbuffers.Builder, transcendenceMax int32) {
-	builder.PrependInt32Slot(12, transcendenceMax, 0)
-}
-func EquipmentStatExcelAddDamageFactorGroupId(builder *flatbuffers.Builder, damageFactorGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(damageFactorGroupId), 0)
+func EquipmentStatExcelAddEquipmentId(builder *flatbuffers.Builder, equipmentId int64) {
+	builder.PrependInt64Slot(13, equipmentId, 0)
 }
 func EquipmentStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

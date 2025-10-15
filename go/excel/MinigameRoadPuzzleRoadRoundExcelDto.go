@@ -10,39 +10,39 @@ import (
 // MinigameRoadPuzzleRoadRoundExcelDto represents a FlatBuffers table
 type MinigameRoadPuzzleRoadRoundExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId         int64   `json:"event_content_id"`
-	UniqueId               int64   `json:"unique_id"`
-	Round                  int32   `json:"round"`
-	IsLoop                 bool    `json:"is_loop"`
-	EnterScenarioGroupId   int64   `json:"enter_scenario_group_id"`
-	EndScenarioGroupId     int64   `json:"end_scenario_group_id"`
-	MapGroupId             int64   `json:"map_group_id"`
-	RoundReward            int64   `json:"round_reward"`
-	AdditionalRewardId     []int64 `json:"additional_reward_id"`
 	AdditionalRewardAmount []int32 `json:"additional_reward_amount"`
+	AdditionalRewardId     []int64 `json:"additional_reward_id"`
+	RoundReward            int64   `json:"round_reward"`
+	MapGroupId             int64   `json:"map_group_id"`
+	EndScenarioGroupId     int64   `json:"end_scenario_group_id"`
+	EnterScenarioGroupId   int64   `json:"enter_scenario_group_id"`
+	IsLoop                 bool    `json:"is_loop"`
+	Round                  int32   `json:"round"`
+	UniqueId               int64   `json:"unique_id"`
+	EventContentId         int64   `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameRoadPuzzleRoadRoundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameRoadPuzzleRoadRoundExcelStart(b)
-	MinigameRoadPuzzleRoadRoundExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddIsLoop(b, t.IsLoop)
-	MinigameRoadPuzzleRoadRoundExcelAddEnterScenarioGroupId(b, fbsutils.Convert(t.EnterScenarioGroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddEndScenarioGroupId(b, fbsutils.Convert(t.EndScenarioGroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddMapGroupId(b, fbsutils.Convert(t.MapGroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelAddRoundReward(b, fbsutils.Convert(t.RoundReward, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRoadRoundExcelStartAdditionalRewardIdVector(b, len(t.AdditionalRewardId))
-	for i := range len(t.AdditionalRewardId) {
-		b.PrependInt64(fbsutils.Convert(t.AdditionalRewardId[len(t.AdditionalRewardId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MinigameRoadPuzzleRoadRoundExcelAddAdditionalRewardId(b, b.EndVector(len(t.AdditionalRewardId)))
 	MinigameRoadPuzzleRoadRoundExcelStartAdditionalRewardAmountVector(b, len(t.AdditionalRewardAmount))
 	for i := range len(t.AdditionalRewardAmount) {
 		b.PrependInt32(fbsutils.Convert(t.AdditionalRewardAmount[len(t.AdditionalRewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameRoadPuzzleRoadRoundExcelAddAdditionalRewardAmount(b, b.EndVector(len(t.AdditionalRewardAmount)))
+	MinigameRoadPuzzleRoadRoundExcelStartAdditionalRewardIdVector(b, len(t.AdditionalRewardId))
+	for i := range len(t.AdditionalRewardId) {
+		b.PrependInt64(fbsutils.Convert(t.AdditionalRewardId[len(t.AdditionalRewardId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MinigameRoadPuzzleRoadRoundExcelAddAdditionalRewardId(b, b.EndVector(len(t.AdditionalRewardId)))
+	MinigameRoadPuzzleRoadRoundExcelAddRoundReward(b, fbsutils.Convert(t.RoundReward, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddMapGroupId(b, fbsutils.Convert(t.MapGroupId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddEndScenarioGroupId(b, fbsutils.Convert(t.EndScenarioGroupId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddEnterScenarioGroupId(b, fbsutils.Convert(t.EnterScenarioGroupId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddIsLoop(b, t.IsLoop)
+	MinigameRoadPuzzleRoadRoundExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRoadRoundExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameRoadPuzzleRoadRoundExcelEnd(b)
 }
 
@@ -55,22 +55,22 @@ func (t *MinigameRoadPuzzleRoadRoundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameRoadPuzzleRoadRoundExcelDto) UnmarshalMessage(e *MinigameRoadPuzzleRoadRoundExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
-	t.IsLoop = e.IsLoop()
-	t.EnterScenarioGroupId = fbsutils.Convert(e.EnterScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.EndScenarioGroupId = fbsutils.Convert(e.EndScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.MapGroupId = fbsutils.Convert(e.MapGroupId(), t.FlatBuffer.TableKey)
-	t.RoundReward = fbsutils.Convert(e.RoundReward(), t.FlatBuffer.TableKey)
-	t.AdditionalRewardId = make([]int64, e.AdditionalRewardIdLength())
-	for i := range e.AdditionalRewardIdLength() {
-		t.AdditionalRewardId[i] = fbsutils.Convert(e.AdditionalRewardId(i), t.FlatBuffer.TableKey)
-	}
 	t.AdditionalRewardAmount = make([]int32, e.AdditionalRewardAmountLength())
 	for i := range e.AdditionalRewardAmountLength() {
 		t.AdditionalRewardAmount[i] = fbsutils.Convert(e.AdditionalRewardAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.AdditionalRewardId = make([]int64, e.AdditionalRewardIdLength())
+	for i := range e.AdditionalRewardIdLength() {
+		t.AdditionalRewardId[i] = fbsutils.Convert(e.AdditionalRewardId(i), t.FlatBuffer.TableKey)
+	}
+	t.RoundReward = fbsutils.Convert(e.RoundReward(), t.FlatBuffer.TableKey)
+	t.MapGroupId = fbsutils.Convert(e.MapGroupId(), t.FlatBuffer.TableKey)
+	t.EndScenarioGroupId = fbsutils.Convert(e.EndScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.EnterScenarioGroupId = fbsutils.Convert(e.EnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.IsLoop = e.IsLoop()
+	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

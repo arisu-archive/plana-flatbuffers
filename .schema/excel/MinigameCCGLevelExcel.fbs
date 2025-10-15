@@ -1,11 +1,11 @@
 namespace MX.Data.Excel;
 
 table MinigameCCGLevelExcel {
-    level_id: long;
-    ccg_id: long;
-    floor_index: int;
-    background_path: string;
     bgm_id: long;
+    background_path: string;
+    floor_index: int;
+    ccg_id: long;
+    level_id: long;
 }
 
 root_type MinigameCCGLevelExcel;

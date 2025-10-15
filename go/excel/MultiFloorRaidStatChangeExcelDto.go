@@ -10,37 +10,37 @@ import (
 // MultiFloorRaidStatChangeExcelDto represents a FlatBuffers table
 type MultiFloorRaidStatChangeExcelDto struct {
 	fbsutils.FlatBuffer
-	StatChangeId     int64      `json:"stat_change_id"`
-	StatType         []StatType `json:"stat_type"`
-	StatAdd          []int64    `json:"stat_add"`
-	StatMultiply     []int64    `json:"stat_multiply"`
 	ApplyCharacterId []int64    `json:"apply_character_id"`
+	StatMultiply     []int64    `json:"stat_multiply"`
+	StatAdd          []int64    `json:"stat_add"`
+	StatType         []StatType `json:"stat_type"`
+	StatChangeId     int64      `json:"stat_change_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MultiFloorRaidStatChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MultiFloorRaidStatChangeExcelStart(b)
-	MultiFloorRaidStatChangeExcelAddStatChangeId(b, fbsutils.Convert(t.StatChangeId, t.FlatBuffer.TableKey))
-	MultiFloorRaidStatChangeExcelStartStatTypeVector(b, len(t.StatType))
-	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStatChangeExcelAddStatType(b, b.EndVector(len(t.StatType)))
-	MultiFloorRaidStatChangeExcelStartStatAddVector(b, len(t.StatAdd))
-	for i := range len(t.StatAdd) {
-		b.PrependInt64(fbsutils.Convert(t.StatAdd[len(t.StatAdd)-i-1], t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStatChangeExcelAddStatAdd(b, b.EndVector(len(t.StatAdd)))
-	MultiFloorRaidStatChangeExcelStartStatMultiplyVector(b, len(t.StatMultiply))
-	for i := range len(t.StatMultiply) {
-		b.PrependInt64(fbsutils.Convert(t.StatMultiply[len(t.StatMultiply)-i-1], t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStatChangeExcelAddStatMultiply(b, b.EndVector(len(t.StatMultiply)))
 	MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(b, len(t.ApplyCharacterId))
 	for i := range len(t.ApplyCharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.ApplyCharacterId[len(t.ApplyCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MultiFloorRaidStatChangeExcelAddApplyCharacterId(b, b.EndVector(len(t.ApplyCharacterId)))
+	MultiFloorRaidStatChangeExcelStartStatMultiplyVector(b, len(t.StatMultiply))
+	for i := range len(t.StatMultiply) {
+		b.PrependInt64(fbsutils.Convert(t.StatMultiply[len(t.StatMultiply)-i-1], t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStatChangeExcelAddStatMultiply(b, b.EndVector(len(t.StatMultiply)))
+	MultiFloorRaidStatChangeExcelStartStatAddVector(b, len(t.StatAdd))
+	for i := range len(t.StatAdd) {
+		b.PrependInt64(fbsutils.Convert(t.StatAdd[len(t.StatAdd)-i-1], t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStatChangeExcelAddStatAdd(b, b.EndVector(len(t.StatAdd)))
+	MultiFloorRaidStatChangeExcelStartStatTypeVector(b, len(t.StatType))
+	for i := range len(t.StatType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStatChangeExcelAddStatType(b, b.EndVector(len(t.StatType)))
+	MultiFloorRaidStatChangeExcelAddStatChangeId(b, fbsutils.Convert(t.StatChangeId, t.FlatBuffer.TableKey))
 	return MultiFloorRaidStatChangeExcelEnd(b)
 }
 
@@ -53,23 +53,23 @@ func (t *MultiFloorRaidStatChangeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MultiFloorRaidStatChangeExcelDto) UnmarshalMessage(e *MultiFloorRaidStatChangeExcel) error {
-	t.StatChangeId = fbsutils.Convert(e.StatChangeId(), t.FlatBuffer.TableKey)
-	t.StatType = make([]StatType, e.StatTypeLength())
-	for i := range e.StatTypeLength() {
-		t.StatType[i] = StatType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
-	}
-	t.StatAdd = make([]int64, e.StatAddLength())
-	for i := range e.StatAddLength() {
-		t.StatAdd[i] = fbsutils.Convert(e.StatAdd(i), t.FlatBuffer.TableKey)
+	t.ApplyCharacterId = make([]int64, e.ApplyCharacterIdLength())
+	for i := range e.ApplyCharacterIdLength() {
+		t.ApplyCharacterId[i] = fbsutils.Convert(e.ApplyCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.StatMultiply = make([]int64, e.StatMultiplyLength())
 	for i := range e.StatMultiplyLength() {
 		t.StatMultiply[i] = fbsutils.Convert(e.StatMultiply(i), t.FlatBuffer.TableKey)
 	}
-	t.ApplyCharacterId = make([]int64, e.ApplyCharacterIdLength())
-	for i := range e.ApplyCharacterIdLength() {
-		t.ApplyCharacterId[i] = fbsutils.Convert(e.ApplyCharacterId(i), t.FlatBuffer.TableKey)
+	t.StatAdd = make([]int64, e.StatAddLength())
+	for i := range e.StatAddLength() {
+		t.StatAdd[i] = fbsutils.Convert(e.StatAdd(i), t.FlatBuffer.TableKey)
 	}
+	t.StatType = make([]StatType, e.StatTypeLength())
+	for i := range e.StatTypeLength() {
+		t.StatType[i] = StatType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
+	}
+	t.StatChangeId = fbsutils.Convert(e.StatChangeId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

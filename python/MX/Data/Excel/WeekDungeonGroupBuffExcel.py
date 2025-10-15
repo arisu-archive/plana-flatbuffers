@@ -25,17 +25,17 @@ class WeekDungeonGroupBuffExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WeekDungeonGroupBuffExcel
-    def WeekDungeonBuffId(self):
+    def SkillGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # WeekDungeonGroupBuffExcel
-    def School(self):
+    def FormationLocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # WeekDungeonGroupBuffExcel
@@ -46,37 +46,37 @@ class WeekDungeonGroupBuffExcel(object):
         return 0
 
     # WeekDungeonGroupBuffExcel
-    def FormationLocalizeEtcId(self):
+    def School(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # WeekDungeonGroupBuffExcel
-    def SkillGroupId(self):
+    def WeekDungeonBuffId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def WeekDungeonGroupBuffExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return WeekDungeonGroupBuffExcelStart(builder)
-def WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId): builder.PrependInt64Slot(0, weekDungeonBuffId, 0)
-def AddWeekDungeonBuffId(builder, weekDungeonBuffId):
-    return WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId)
-def WeekDungeonGroupBuffExcelAddSchool(builder, school): builder.PrependInt32Slot(1, school, 0)
-def AddSchool(builder, school):
-    return WeekDungeonGroupBuffExcelAddSchool(builder, school)
+def WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
+def AddSkillGroupId(builder, skillGroupId):
+    return WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
+def WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId): builder.PrependUint32Slot(1, formationLocalizeEtcId, 0)
+def AddFormationLocalizeEtcId(builder, formationLocalizeEtcId):
+    return WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId)
 def WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId): builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
 def AddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId):
     return WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId)
-def WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId): builder.PrependUint32Slot(3, formationLocalizeEtcId, 0)
-def AddFormationLocalizeEtcId(builder, formationLocalizeEtcId):
-    return WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId)
-def WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
-def AddSkillGroupId(builder, skillGroupId):
-    return WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
+def WeekDungeonGroupBuffExcelAddSchool(builder, school): builder.PrependInt32Slot(3, school, 0)
+def AddSchool(builder, school):
+    return WeekDungeonGroupBuffExcelAddSchool(builder, school)
+def WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId): builder.PrependInt64Slot(4, weekDungeonBuffId, 0)
+def AddWeekDungeonBuffId(builder, weekDungeonBuffId):
+    return WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId)
 def WeekDungeonGroupBuffExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return WeekDungeonGroupBuffExcelEnd(builder)

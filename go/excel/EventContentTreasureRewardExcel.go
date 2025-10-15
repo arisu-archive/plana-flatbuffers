@@ -33,19 +33,15 @@ func (rcv *EventContentTreasureRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentTreasureRewardExcel) Id() int64 {
+func (rcv *EventContentTreasureRewardExcel) TreasureSizeIconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentTreasureRewardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *EventContentTreasureRewardExcel) LocalizeCodeId() []byte {
+func (rcv *EventContentTreasureRewardExcel) TreasureSmallImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -53,40 +49,64 @@ func (rcv *EventContentTreasureRewardExcel) LocalizeCodeId() []byte {
 	return nil
 }
 
-func (rcv *EventContentTreasureRewardExcel) CellUnderImageWidth() int32 {
+func (rcv *EventContentTreasureRewardExcel) CellUnderImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentTreasureRewardExcel) MutateCellUnderImageWidth(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *EventContentTreasureRewardExcel) CellUnderImageHeight() int32 {
+func (rcv *EventContentTreasureRewardExcel) RewardParcelAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentTreasureRewardExcel) MutateCellUnderImageHeight(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+func (rcv *EventContentTreasureRewardExcel) RewardParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *EventContentTreasureRewardExcel) HiddenImage() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+func (rcv *EventContentTreasureRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
 
-func (rcv *EventContentTreasureRewardExcel) MutateHiddenImage(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
+func (rcv *EventContentTreasureRewardExcel) RewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRewardExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRewardExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *EventContentTreasureRewardExcel) RewardParcelType(j int) ParcelType {
@@ -115,67 +135,43 @@ func (rcv *EventContentTreasureRewardExcel) MutateRewardParcelType(j int, n Parc
 	return false
 }
 
-func (rcv *EventContentTreasureRewardExcel) RewardParcelId(j int) int64 {
+func (rcv *EventContentTreasureRewardExcel) HiddenImage() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRewardExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *EventContentTreasureRewardExcel) RewardParcelAmount(j int) int64 {
+func (rcv *EventContentTreasureRewardExcel) MutateHiddenImage(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
+}
+
+func (rcv *EventContentTreasureRewardExcel) CellUnderImageHeight() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentTreasureRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *EventContentTreasureRewardExcel) MutateCellUnderImageHeight(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
 }
 
-func (rcv *EventContentTreasureRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *EventContentTreasureRewardExcel) CellUnderImagePath() []byte {
+func (rcv *EventContentTreasureRewardExcel) CellUnderImageWidth() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *EventContentTreasureRewardExcel) TreasureSmallImagePath() []byte {
+func (rcv *EventContentTreasureRewardExcel) MutateCellUnderImageWidth(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *EventContentTreasureRewardExcel) LocalizeCodeId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -183,31 +179,41 @@ func (rcv *EventContentTreasureRewardExcel) TreasureSmallImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentTreasureRewardExcel) TreasureSizeIconPath() []byte {
+func (rcv *EventContentTreasureRewardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EventContentTreasureRewardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
 func EventContentTreasureRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
-func EventContentTreasureRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder *flatbuffers.Builder, treasureSizeIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(treasureSizeIconPath), 0)
 }
-func EventContentTreasureRewardExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(localizeCodeId), 0)
+func EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder *flatbuffers.Builder, treasureSmallImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(treasureSmallImagePath), 0)
 }
-func EventContentTreasureRewardExcelAddCellUnderImageWidth(builder *flatbuffers.Builder, cellUnderImageWidth int32) {
-	builder.PrependInt32Slot(2, cellUnderImageWidth, 0)
+func EventContentTreasureRewardExcelAddCellUnderImagePath(builder *flatbuffers.Builder, cellUnderImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(cellUnderImagePath), 0)
 }
-func EventContentTreasureRewardExcelAddCellUnderImageHeight(builder *flatbuffers.Builder, cellUnderImageHeight int32) {
-	builder.PrependInt32Slot(3, cellUnderImageHeight, 0)
+func EventContentTreasureRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
-func EventContentTreasureRewardExcelAddHiddenImage(builder *flatbuffers.Builder, hiddenImage bool) {
-	builder.PrependBoolSlot(4, hiddenImage, false)
+func EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentTreasureRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelId), 0)
+}
+func EventContentTreasureRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentTreasureRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelType), 0)
@@ -215,26 +221,20 @@ func EventContentTreasureRewardExcelAddRewardParcelType(builder *flatbuffers.Bui
 func EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func EventContentTreasureRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelId), 0)
+func EventContentTreasureRewardExcelAddHiddenImage(builder *flatbuffers.Builder, hiddenImage bool) {
+	builder.PrependBoolSlot(6, hiddenImage, false)
 }
-func EventContentTreasureRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentTreasureRewardExcelAddCellUnderImageHeight(builder *flatbuffers.Builder, cellUnderImageHeight int32) {
+	builder.PrependInt32Slot(7, cellUnderImageHeight, 0)
 }
-func EventContentTreasureRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func EventContentTreasureRewardExcelAddCellUnderImageWidth(builder *flatbuffers.Builder, cellUnderImageWidth int32) {
+	builder.PrependInt32Slot(8, cellUnderImageWidth, 0)
 }
-func EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentTreasureRewardExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(localizeCodeId), 0)
 }
-func EventContentTreasureRewardExcelAddCellUnderImagePath(builder *flatbuffers.Builder, cellUnderImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(cellUnderImagePath), 0)
-}
-func EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder *flatbuffers.Builder, treasureSmallImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(treasureSmallImagePath), 0)
-}
-func EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder *flatbuffers.Builder, treasureSizeIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(treasureSizeIconPath), 0)
+func EventContentTreasureRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(10, id, 0)
 }
 func EventContentTreasureRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

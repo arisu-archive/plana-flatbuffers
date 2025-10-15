@@ -10,21 +10,21 @@ import (
 // MinigameCCGRewardCardExcelDto represents a FlatBuffers table
 type MinigameCCGRewardCardExcelDto struct {
 	fbsutils.FlatBuffer
-	Id         int64         `json:"id"`
-	GroupId    int64         `json:"group_id"`
-	EntityType CCGEntityType `json:"entity_type"`
-	CardId     int64         `json:"card_id"`
 	CardRarity int32         `json:"card_rarity"`
+	CardId     int64         `json:"card_id"`
+	EntityType CCGEntityType `json:"entity_type"`
+	GroupId    int64         `json:"group_id"`
+	Id         int64         `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGRewardCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGRewardCardExcelStart(b)
-	MinigameCCGRewardCardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGRewardCardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameCCGRewardCardExcelAddEntityType(b, fbsutils.Convert(t.EntityType, t.FlatBuffer.TableKey))
-	MinigameCCGRewardCardExcelAddCardId(b, fbsutils.Convert(t.CardId, t.FlatBuffer.TableKey))
 	MinigameCCGRewardCardExcelAddCardRarity(b, fbsutils.Convert(t.CardRarity, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardExcelAddCardId(b, fbsutils.Convert(t.CardId, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardExcelAddEntityType(b, fbsutils.Convert(t.EntityType, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return MinigameCCGRewardCardExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MinigameCCGRewardCardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGRewardCardExcelDto) UnmarshalMessage(e *MinigameCCGRewardCardExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.EntityType = CCGEntityType(fbsutils.Convert(int32(e.EntityType()), t.FlatBuffer.TableKey))
-	t.CardId = fbsutils.Convert(e.CardId(), t.FlatBuffer.TableKey)
 	t.CardRarity = fbsutils.Convert(e.CardRarity(), t.FlatBuffer.TableKey)
+	t.CardId = fbsutils.Convert(e.CardId(), t.FlatBuffer.TableKey)
+	t.EntityType = CCGEntityType(fbsutils.Convert(int32(e.EntityType()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

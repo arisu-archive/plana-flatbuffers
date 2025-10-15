@@ -10,23 +10,23 @@ import (
 // MiniGameRoadPuzzleInfoExcelDto represents a FlatBuffers table
 type MiniGameRoadPuzzleInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId    int64      `json:"event_content_id"`
-	EventUseCostType  ParcelType `json:"event_use_cost_type"`
-	EventUseCostId    int64      `json:"event_use_cost_id"`
-	CostGoodsId       int64      `json:"cost_goods_id"`
-	RailSetRewardId   int64      `json:"rail_set_reward_id"`
 	InstantClearRound int32      `json:"instant_clear_round"`
+	RailSetRewardId   int64      `json:"rail_set_reward_id"`
+	CostGoodsId       int64      `json:"cost_goods_id"`
+	EventUseCostId    int64      `json:"event_use_cost_id"`
+	EventUseCostType  ParcelType `json:"event_use_cost_type"`
+	EventContentId    int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRoadPuzzleInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRoadPuzzleInfoExcelStart(b)
-	MiniGameRoadPuzzleInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleInfoExcelAddEventUseCostType(b, fbsutils.Convert(t.EventUseCostType, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleInfoExcelAddEventUseCostId(b, fbsutils.Convert(t.EventUseCostId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleInfoExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(b, fbsutils.Convert(t.RailSetRewardId, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleInfoExcelAddInstantClearRound(b, fbsutils.Convert(t.InstantClearRound, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(b, fbsutils.Convert(t.RailSetRewardId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleInfoExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleInfoExcelAddEventUseCostId(b, fbsutils.Convert(t.EventUseCostId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleInfoExcelAddEventUseCostType(b, fbsutils.Convert(t.EventUseCostType, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MiniGameRoadPuzzleInfoExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *MiniGameRoadPuzzleInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRoadPuzzleInfoExcelDto) UnmarshalMessage(e *MiniGameRoadPuzzleInfoExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventUseCostType = ParcelType(fbsutils.Convert(int32(e.EventUseCostType()), t.FlatBuffer.TableKey))
-	t.EventUseCostId = fbsutils.Convert(e.EventUseCostId(), t.FlatBuffer.TableKey)
-	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
-	t.RailSetRewardId = fbsutils.Convert(e.RailSetRewardId(), t.FlatBuffer.TableKey)
 	t.InstantClearRound = fbsutils.Convert(e.InstantClearRound(), t.FlatBuffer.TableKey)
+	t.RailSetRewardId = fbsutils.Convert(e.RailSetRewardId(), t.FlatBuffer.TableKey)
+	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
+	t.EventUseCostId = fbsutils.Convert(e.EventUseCostId(), t.FlatBuffer.TableKey)
+	t.EventUseCostType = ParcelType(fbsutils.Convert(int32(e.EventUseCostType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

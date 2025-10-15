@@ -3,11 +3,11 @@ include "TutorialFailureContentType.fbs";
 namespace MX.Data.Excel;
 
 table TutorialFailureImageExcel {
-    id: long;
-    contents: TutorialFailureContentType;
-    type: string;
-    image_path_kr: string;
     image_path_jp: string;
+    image_path_kr: string;
+    type: string;
+    contents: TutorialFailureContentType;
+    id: long;
 }
 
 root_type TutorialFailureImageExcel;

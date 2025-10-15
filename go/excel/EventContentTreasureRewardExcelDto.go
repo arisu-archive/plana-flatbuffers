@@ -10,45 +10,45 @@ import (
 // EventContentTreasureRewardExcelDto represents a FlatBuffers table
 type EventContentTreasureRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                     int64        `json:"id"`
-	LocalizeCodeId         string       `json:"localize_code_id"`
-	CellUnderImageWidth    int32        `json:"cell_under_image_width"`
-	CellUnderImageHeight   int32        `json:"cell_under_image_height"`
-	HiddenImage            bool         `json:"hidden_image"`
-	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
-	RewardParcelId         []int64      `json:"reward_parcel_id"`
-	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
-	CellUnderImagePath     string       `json:"cell_under_image_path"`
-	TreasureSmallImagePath string       `json:"treasure_small_image_path"`
 	TreasureSizeIconPath   string       `json:"treasure_size_icon_path"`
+	TreasureSmallImagePath string       `json:"treasure_small_image_path"`
+	CellUnderImagePath     string       `json:"cell_under_image_path"`
+	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RewardParcelId         []int64      `json:"reward_parcel_id"`
+	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
+	HiddenImage            bool         `json:"hidden_image"`
+	CellUnderImageHeight   int32        `json:"cell_under_image_height"`
+	CellUnderImageWidth    int32        `json:"cell_under_image_width"`
+	LocalizeCodeId         string       `json:"localize_code_id"`
+	Id                     int64        `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EventContentTreasureRewardExcelStart(b)
-	EventContentTreasureRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentTreasureRewardExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
-	EventContentTreasureRewardExcelAddCellUnderImageWidth(b, fbsutils.Convert(t.CellUnderImageWidth, t.FlatBuffer.TableKey))
-	EventContentTreasureRewardExcelAddCellUnderImageHeight(b, fbsutils.Convert(t.CellUnderImageHeight, t.FlatBuffer.TableKey))
-	EventContentTreasureRewardExcelAddHiddenImage(b, t.HiddenImage)
-	EventContentTreasureRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EventContentTreasureRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentTreasureRewardExcelAddTreasureSizeIconPath(b, b.CreateString(fbsutils.Convert(t.TreasureSizeIconPath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddTreasureSmallImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureSmallImagePath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddCellUnderImagePath(b, b.CreateString(fbsutils.Convert(t.CellUnderImagePath, t.FlatBuffer.TableKey)))
 	EventContentTreasureRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentTreasureRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
-	EventContentTreasureRewardExcelAddCellUnderImagePath(b, b.CreateString(fbsutils.Convert(t.CellUnderImagePath, t.FlatBuffer.TableKey)))
-	EventContentTreasureRewardExcelAddTreasureSmallImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureSmallImagePath, t.FlatBuffer.TableKey)))
-	EventContentTreasureRewardExcelAddTreasureSizeIconPath(b, b.CreateString(fbsutils.Convert(t.TreasureSizeIconPath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentTreasureRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	EventContentTreasureRewardExcelAddHiddenImage(b, t.HiddenImage)
+	EventContentTreasureRewardExcelAddCellUnderImageHeight(b, fbsutils.Convert(t.CellUnderImageHeight, t.FlatBuffer.TableKey))
+	EventContentTreasureRewardExcelAddCellUnderImageWidth(b, fbsutils.Convert(t.CellUnderImageWidth, t.FlatBuffer.TableKey))
+	EventContentTreasureRewardExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return EventContentTreasureRewardExcelEnd(b)
 }
 
@@ -61,26 +61,26 @@ func (t *EventContentTreasureRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentTreasureRewardExcelDto) UnmarshalMessage(e *EventContentTreasureRewardExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
-	t.CellUnderImageWidth = fbsutils.Convert(e.CellUnderImageWidth(), t.FlatBuffer.TableKey)
-	t.CellUnderImageHeight = fbsutils.Convert(e.CellUnderImageHeight(), t.FlatBuffer.TableKey)
-	t.HiddenImage = e.HiddenImage()
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.TreasureSizeIconPath = fbsutils.Convert(string(e.TreasureSizeIconPath()), t.FlatBuffer.TableKey)
+	t.TreasureSmallImagePath = fbsutils.Convert(string(e.TreasureSmallImagePath()), t.FlatBuffer.TableKey)
+	t.CellUnderImagePath = fbsutils.Convert(string(e.CellUnderImagePath()), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.CellUnderImagePath = fbsutils.Convert(string(e.CellUnderImagePath()), t.FlatBuffer.TableKey)
-	t.TreasureSmallImagePath = fbsutils.Convert(string(e.TreasureSmallImagePath()), t.FlatBuffer.TableKey)
-	t.TreasureSizeIconPath = fbsutils.Convert(string(e.TreasureSizeIconPath()), t.FlatBuffer.TableKey)
+	t.HiddenImage = e.HiddenImage()
+	t.CellUnderImageHeight = fbsutils.Convert(e.CellUnderImageHeight(), t.FlatBuffer.TableKey)
+	t.CellUnderImageWidth = fbsutils.Convert(e.CellUnderImageWidth(), t.FlatBuffer.TableKey)
+	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

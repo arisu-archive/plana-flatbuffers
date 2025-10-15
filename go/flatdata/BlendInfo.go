@@ -33,16 +33,16 @@ func (rcv *BlendInfo) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BlendInfo) From() int32 {
+func (rcv *BlendInfo) Blend() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *BlendInfo) MutateFrom(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *BlendInfo) MutateBlend(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
 func (rcv *BlendInfo) To() int32 {
@@ -57,29 +57,29 @@ func (rcv *BlendInfo) MutateTo(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *BlendInfo) Blend() float32 {
+func (rcv *BlendInfo) From() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *BlendInfo) MutateBlend(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
+func (rcv *BlendInfo) MutateFrom(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func BlendInfoStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func BlendInfoAddFrom(builder *flatbuffers.Builder, from int32) {
-	builder.PrependInt32Slot(0, from, 0)
+func BlendInfoAddBlend(builder *flatbuffers.Builder, blend float32) {
+	builder.PrependFloat32Slot(0, blend, 0.0)
 }
 func BlendInfoAddTo(builder *flatbuffers.Builder, to int32) {
 	builder.PrependInt32Slot(1, to, 0)
 }
-func BlendInfoAddBlend(builder *flatbuffers.Builder, blend float32) {
-	builder.PrependFloat32Slot(2, blend, 0.0)
+func BlendInfoAddFrom(builder *flatbuffers.Builder, from int32) {
+	builder.PrependInt32Slot(2, from, 0)
 }
 func BlendInfoEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

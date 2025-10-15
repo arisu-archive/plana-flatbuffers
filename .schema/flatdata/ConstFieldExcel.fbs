@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table ConstFieldExcel {
-    dialog_smooth_time: int;
-    talk_dialog_duration_default: int;
-    think_dialog_duration_default: int;
-    idle_think_delay_min: int;
     idle_think_delay_max: int;
+    idle_think_delay_min: int;
+    think_dialog_duration_default: int;
+    talk_dialog_duration_default: int;
+    dialog_smooth_time: int;
 }

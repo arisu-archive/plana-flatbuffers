@@ -5,11 +5,11 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table ClanRewardExcel {
-    clan_reward_type: ClanRewardType;
-    echelon_type: EchelonType;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
     reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    echelon_type: EchelonType;
+    clan_reward_type: ClanRewardType;
 }
 
 root_type ClanRewardExcel;

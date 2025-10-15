@@ -10,12 +10,12 @@ import (
 // ConstConquestExcelDto represents a FlatBuffers table
 type ConstConquestExcelDto struct {
 	fbsutils.FlatBuffer
-	ManageUnitChange       int32   `json:"manage_unit_change"`
-	AssistCount            int32   `json:"assist_count"`
-	PlayTimeLimitInSeconds int32   `json:"play_time_limit_in_seconds"`
-	AnimationUnitAmountMin int32   `json:"animation_unit_amount_min"`
-	AnimationUnitAmountMax int32   `json:"animation_unit_amount_max"`
 	AnimationUnitDelay     float32 `json:"animation_unit_delay"`
+	AnimationUnitAmountMax int32   `json:"animation_unit_amount_max"`
+	AnimationUnitAmountMin int32   `json:"animation_unit_amount_min"`
+	PlayTimeLimitInSeconds int32   `json:"play_time_limit_in_seconds"`
+	AssistCount            int32   `json:"assist_count"`
+	ManageUnitChange       int32   `json:"manage_unit_change"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *ConstConquestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquest"))
 	}
 	ConstConquestExcelStart(b)
-	ConstConquestExcelAddManageUnitChange(b, fbsutils.Convert(t.ManageUnitChange, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAssistCount(b, fbsutils.Convert(t.AssistCount, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
 	ConstConquestExcelAddAnimationUnitDelay(b, fbsutils.Convert(t.AnimationUnitDelay, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAssistCount(b, fbsutils.Convert(t.AssistCount, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddManageUnitChange(b, fbsutils.Convert(t.ManageUnitChange, t.FlatBuffer.TableKey))
 	return ConstConquestExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *ConstConquestExcelDto) UnmarshalMessage(e *ConstConquestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquest"))
 	}
-	t.ManageUnitChange = fbsutils.Convert(e.ManageUnitChange(), t.FlatBuffer.TableKey)
-	t.AssistCount = fbsutils.Convert(e.AssistCount(), t.FlatBuffer.TableKey)
-	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
-	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
 	t.AnimationUnitDelay = fbsutils.Convert(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
+	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.AssistCount = fbsutils.Convert(e.AssistCount(), t.FlatBuffer.TableKey)
+	t.ManageUnitChange = fbsutils.Convert(e.ManageUnitChange(), t.FlatBuffer.TableKey)
 	return nil
 }
 

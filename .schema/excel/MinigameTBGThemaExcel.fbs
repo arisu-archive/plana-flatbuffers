@@ -4,21 +4,21 @@ include "TBGThemaType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameTBGThemaExcel {
-    event_content_id: long;
-    unique_id: long;
-    thema_index: int;
-    thema_type: TBGThemaType;
-    thema_map: string;
-    thema_map_bg: string;
-    portal_condition: [TBGPortalCondition];
-    portal_condition_parameter: [string];
-    thema_name_localize: string;
-    thema_loading_image: string;
-    thema_player_prefab: string;
-    thema_leader_id: long;
-    thema_goal_localize: string;
-    instant_clear_cost_amount: long;
     is_tutorial: bool;
+    instant_clear_cost_amount: long;
+    thema_goal_localize: string;
+    thema_leader_id: long;
+    thema_player_prefab: string;
+    thema_loading_image: string;
+    thema_name_localize: string;
+    portal_condition_parameter: [string];
+    portal_condition: [TBGPortalCondition];
+    thema_map_bg: string;
+    thema_map: string;
+    thema_type: TBGThemaType;
+    thema_index: int;
+    unique_id: long;
+    event_content_id: long;
 }
 
 root_type MinigameTBGThemaExcel;

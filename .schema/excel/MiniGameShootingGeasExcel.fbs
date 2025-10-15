@@ -3,14 +3,14 @@ include "Geas.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameShootingGeasExcel {
-    unique_id: long;
-    geas_type: Geas;
-    icon: string;
-    probability: long;
-    max_overlap_count: int;
-    geas_data: string;
-    need_geas_id: long;
     hide_in_pause_popup: bool;
+    need_geas_id: long;
+    geas_data: string;
+    max_overlap_count: int;
+    probability: long;
+    icon: string;
+    geas_type: Geas;
+    unique_id: long;
 }
 
 root_type MiniGameShootingGeasExcel;

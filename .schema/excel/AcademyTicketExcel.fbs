@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table AcademyTicketExcel {
-    location_rank_sum: long;
     schedule_ticktet_max: long;
+    location_rank_sum: long;
 }
 
 root_type AcademyTicketExcel;

@@ -4,13 +4,13 @@ include "RewardTag.fbs";
 namespace MX.Data.Excel;
 
 table ConquestRewardExcel {
-    group_id: long;
-    reward_tag: RewardTag;
-    reward_prob: int;
-    reward_parcel_type: ParcelType;
-    reward_id: long;
-    reward_amount: int;
     is_displayed: bool;
+    reward_amount: int;
+    reward_id: long;
+    reward_parcel_type: ParcelType;
+    reward_prob: int;
+    reward_tag: RewardTag;
+    group_id: long;
 }
 
 root_type ConquestRewardExcel;

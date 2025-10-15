@@ -10,15 +10,15 @@ import (
 // SpineLipsyncExcelDto represents a FlatBuffers table
 type SpineLipsyncExcelDto struct {
 	fbsutils.FlatBuffer
-	VoiceId  uint32 `json:"voice_id"`
 	AnimJson string `json:"anim_json"`
+	VoiceId  uint32 `json:"voice_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SpineLipsyncExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	SpineLipsyncExcelStart(b)
-	SpineLipsyncExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	SpineLipsyncExcelAddAnimJson(b, b.CreateString(fbsutils.Convert(t.AnimJson, t.FlatBuffer.TableKey)))
+	SpineLipsyncExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	return SpineLipsyncExcelEnd(b)
 }
 
@@ -31,8 +31,8 @@ func (t *SpineLipsyncExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SpineLipsyncExcelDto) UnmarshalMessage(e *SpineLipsyncExcel) error {
-	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	t.AnimJson = fbsutils.Convert(string(e.AnimJson()), t.FlatBuffer.TableKey)
+	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,27 +10,27 @@ import (
 // MinigameTBGEncounterRewardExcelDto represents a FlatBuffers table
 type MinigameTBGEncounterRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId              int64                `json:"group_id"`
-	UniqueId             int64                `json:"unique_id"`
-	TbgOptionSuccessType TBGOptionSuccessType `json:"tbg_option_success_type"`
-	Paremeter            int64                `json:"paremeter"`
-	ParcelType           ParcelType           `json:"parcel_type"`
-	ParcelId             int64                `json:"parcel_id"`
-	Amount               int64                `json:"amount"`
 	Prob                 int32                `json:"prob"`
+	Amount               int64                `json:"amount"`
+	ParcelId             int64                `json:"parcel_id"`
+	ParcelType           ParcelType           `json:"parcel_type"`
+	Paremeter            int64                `json:"paremeter"`
+	TbgOptionSuccessType TBGOptionSuccessType `json:"tbg_option_success_type"`
+	UniqueId             int64                `json:"unique_id"`
+	GroupId              int64                `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGEncounterRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGEncounterRewardExcelStart(b)
-	MinigameTBGEncounterRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(b, fbsutils.Convert(t.TbgOptionSuccessType, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddParemeter(b, fbsutils.Convert(t.Paremeter, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterRewardExcelAddAmount(b, fbsutils.Convert(t.Amount, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterRewardExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddAmount(b, fbsutils.Convert(t.Amount, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddParemeter(b, fbsutils.Convert(t.Paremeter, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(b, fbsutils.Convert(t.TbgOptionSuccessType, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return MinigameTBGEncounterRewardExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *MinigameTBGEncounterRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGEncounterRewardExcelDto) UnmarshalMessage(e *MinigameTBGEncounterRewardExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.TbgOptionSuccessType = TBGOptionSuccessType(fbsutils.Convert(int32(e.TbgOptionSuccessType()), t.FlatBuffer.TableKey))
-	t.Paremeter = fbsutils.Convert(e.Paremeter(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.Amount = fbsutils.Convert(e.Amount(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.Amount = fbsutils.Convert(e.Amount(), t.FlatBuffer.TableKey)
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.Paremeter = fbsutils.Convert(e.Paremeter(), t.FlatBuffer.TableKey)
+	t.TbgOptionSuccessType = TBGOptionSuccessType(fbsutils.Convert(int32(e.TbgOptionSuccessType()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

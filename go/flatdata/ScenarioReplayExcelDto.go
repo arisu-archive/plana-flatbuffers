@@ -10,15 +10,15 @@ import (
 // ScenarioReplayExcelDto represents a FlatBuffers table
 type ScenarioReplayExcelDto struct {
 	fbsutils.FlatBuffer
-	ModeId               int64                   `json:"mode_id"`
-	VolumeId             int64                   `json:"volume_id"`
-	ReplayType           ScenarioModeReplayTypes `json:"replay_type"`
-	ChapterId            int64                   `json:"chapter_id"`
-	EpisodeId            int64                   `json:"episode_id"`
-	FrontScenarioGroupId []int64                 `json:"front_scenario_group_id"`
-	GroundId             int64                   `json:"ground_id"`
-	BattleDuration       int64                   `json:"battle_duration"`
 	BackScenarioGroupId  []int64                 `json:"back_scenario_group_id"`
+	BattleDuration       int64                   `json:"battle_duration"`
+	GroundId             int64                   `json:"ground_id"`
+	FrontScenarioGroupId []int64                 `json:"front_scenario_group_id"`
+	EpisodeId            int64                   `json:"episode_id"`
+	ChapterId            int64                   `json:"chapter_id"`
+	ReplayType           ScenarioModeReplayTypes `json:"replay_type"`
+	VolumeId             int64                   `json:"volume_id"`
+	ModeId               int64                   `json:"mode_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,23 +27,23 @@ func (t *ScenarioReplayExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplay"))
 	}
 	ScenarioReplayExcelStart(b)
-	ScenarioReplayExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelAddReplayType(b, fbsutils.Convert(t.ReplayType, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelAddEpisodeId(b, fbsutils.Convert(t.EpisodeId, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelStartFrontScenarioGroupIdVector(b, len(t.FrontScenarioGroupId))
-	for i := range len(t.FrontScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.FrontScenarioGroupId[len(t.FrontScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ScenarioReplayExcelAddFrontScenarioGroupId(b, b.EndVector(len(t.FrontScenarioGroupId)))
-	ScenarioReplayExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	ScenarioReplayExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	ScenarioReplayExcelStartBackScenarioGroupIdVector(b, len(t.BackScenarioGroupId))
 	for i := range len(t.BackScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.BackScenarioGroupId[len(t.BackScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ScenarioReplayExcelAddBackScenarioGroupId(b, b.EndVector(len(t.BackScenarioGroupId)))
+	ScenarioReplayExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelStartFrontScenarioGroupIdVector(b, len(t.FrontScenarioGroupId))
+	for i := range len(t.FrontScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.FrontScenarioGroupId[len(t.FrontScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ScenarioReplayExcelAddFrontScenarioGroupId(b, b.EndVector(len(t.FrontScenarioGroupId)))
+	ScenarioReplayExcelAddEpisodeId(b, fbsutils.Convert(t.EpisodeId, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelAddReplayType(b, fbsutils.Convert(t.ReplayType, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
+	ScenarioReplayExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
 	return ScenarioReplayExcelEnd(b)
 }
 
@@ -59,21 +59,21 @@ func (t *ScenarioReplayExcelDto) UnmarshalMessage(e *ScenarioReplayExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplay"))
 	}
-	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
-	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
-	t.ReplayType = ScenarioModeReplayTypes(fbsutils.Convert(int32(e.ReplayType()), t.FlatBuffer.TableKey))
-	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
-	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
-	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())
-	for i := range e.FrontScenarioGroupIdLength() {
-		t.FrontScenarioGroupId[i] = fbsutils.Convert(e.FrontScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
 	for i := range e.BackScenarioGroupIdLength() {
 		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())
+	for i := range e.FrontScenarioGroupIdLength() {
+		t.FrontScenarioGroupId[i] = fbsutils.Convert(e.FrontScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
+	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
+	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
+	t.ReplayType = ScenarioModeReplayTypes(fbsutils.Convert(int32(e.ReplayType()), t.FlatBuffer.TableKey))
+	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
+	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

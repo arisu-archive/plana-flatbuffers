@@ -10,9 +10,9 @@ import (
 // KnockBackExcelDto represents a FlatBuffers table
 type KnockBackExcelDto struct {
 	fbsutils.FlatBuffer
-	Index int64   `json:"index"`
-	Dist  float32 `json:"dist"`
 	Speed float32 `json:"speed"`
+	Dist  float32 `json:"dist"`
+	Index int64   `json:"index"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *KnockBackExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBack"))
 	}
 	KnockBackExcelStart(b)
-	KnockBackExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
-	KnockBackExcelAddDist(b, fbsutils.Convert(t.Dist, t.FlatBuffer.TableKey))
 	KnockBackExcelAddSpeed(b, fbsutils.Convert(t.Speed, t.FlatBuffer.TableKey))
+	KnockBackExcelAddDist(b, fbsutils.Convert(t.Dist, t.FlatBuffer.TableKey))
+	KnockBackExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
 	return KnockBackExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *KnockBackExcelDto) UnmarshalMessage(e *KnockBackExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBack"))
 	}
-	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)
-	t.Dist = fbsutils.Convert(e.Dist(), t.FlatBuffer.TableKey)
 	t.Speed = fbsutils.Convert(e.Speed(), t.FlatBuffer.TableKey)
+	t.Dist = fbsutils.Convert(e.Dist(), t.FlatBuffer.TableKey)
+	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)
 	return nil
 }
 

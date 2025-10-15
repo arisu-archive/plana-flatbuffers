@@ -33,36 +33,59 @@ func (rcv *WeekDungeonFindGiftRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) StageRewardId() int64 {
+func (rcv *WeekDungeonFindGiftRewardExcel) DropItemModelPrefabPath(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonFindGiftRewardExcel) MutateStageRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *WeekDungeonFindGiftRewardExcel) DevName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *WeekDungeonFindGiftRewardExcel) DropItemModelPrefabPathLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelTypeLength() int {
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelProbability(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelProbabilityLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelProbability(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelAmountLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -70,11 +93,11 @@ func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelTypeLength() int {
 	return 0
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
@@ -105,16 +128,16 @@ func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelId(j int, n int64) 
 	return false
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelAmount(j int) int64 {
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelAmountLength() int {
+func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -122,72 +145,55 @@ func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelAmountLength() int {
 	return 0
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
+func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelProbability(j int) int64 {
+func (rcv *WeekDungeonFindGiftRewardExcel) DevName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonFindGiftRewardExcel) RewardParcelProbabilityLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonFindGiftRewardExcel) MutateRewardParcelProbability(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *WeekDungeonFindGiftRewardExcel) DropItemModelPrefabPath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *WeekDungeonFindGiftRewardExcel) DropItemModelPrefabPathLength() int {
+func (rcv *WeekDungeonFindGiftRewardExcel) StageRewardId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
+}
+
+func (rcv *WeekDungeonFindGiftRewardExcel) MutateStageRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func WeekDungeonFindGiftRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func WeekDungeonFindGiftRewardExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
-	builder.PrependInt64Slot(0, stageRewardId, 0)
+func WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
 }
-func WeekDungeonFindGiftRewardExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(devName), 0)
-}
-func WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(rewardParcelProbability), 0)
+}
+func WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+}
+func WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func WeekDungeonFindGiftRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelId), 0)
@@ -195,23 +201,17 @@ func WeekDungeonFindGiftRewardExcelAddRewardParcelId(builder *flatbuffers.Builde
 func WeekDungeonFindGiftRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelProbability), 0)
-}
-func WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
-}
-func WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonFindGiftRewardExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(devName), 0)
+}
+func WeekDungeonFindGiftRewardExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
+	builder.PrependInt64Slot(6, stageRewardId, 0)
 }
 func WeekDungeonFindGiftRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

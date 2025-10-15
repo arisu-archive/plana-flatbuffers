@@ -33,24 +33,28 @@ func (rcv *MinigameCCGEnemyGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) GroupId() int64 {
+func (rcv *MinigameCCGEnemyGroupExcel) LocalizeEnemyGroupDesc() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MinigameCCGEnemyGroupExcel) MutateLocalizeEnemyGroupDesc(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) EnemyAi() []byte {
+func (rcv *MinigameCCGEnemyGroupExcel) LocalizeEnemyGroupName() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MinigameCCGEnemyGroupExcel) MutateLocalizeEnemyGroupName(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *MinigameCCGEnemyGroupExcel) EnemyBgm() int64 {
@@ -65,47 +69,43 @@ func (rcv *MinigameCCGEnemyGroupExcel) MutateEnemyBgm(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) LocalizeEnemyGroupName() uint32 {
+func (rcv *MinigameCCGEnemyGroupExcel) EnemyAi() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) MutateLocalizeEnemyGroupName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
-}
-
-func (rcv *MinigameCCGEnemyGroupExcel) LocalizeEnemyGroupDesc() uint32 {
+func (rcv *MinigameCCGEnemyGroupExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGEnemyGroupExcel) MutateLocalizeEnemyGroupDesc(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(12, n)
+func (rcv *MinigameCCGEnemyGroupExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MinigameCCGEnemyGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MinigameCCGEnemyGroupExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupDesc(builder *flatbuffers.Builder, localizeEnemyGroupDesc uint32) {
+	builder.PrependUint32Slot(0, localizeEnemyGroupDesc, 0)
 }
-func MinigameCCGEnemyGroupExcelAddEnemyAi(builder *flatbuffers.Builder, enemyAi flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(enemyAi), 0)
+func MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(builder *flatbuffers.Builder, localizeEnemyGroupName uint32) {
+	builder.PrependUint32Slot(1, localizeEnemyGroupName, 0)
 }
 func MinigameCCGEnemyGroupExcelAddEnemyBgm(builder *flatbuffers.Builder, enemyBgm int64) {
 	builder.PrependInt64Slot(2, enemyBgm, 0)
 }
-func MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(builder *flatbuffers.Builder, localizeEnemyGroupName uint32) {
-	builder.PrependUint32Slot(3, localizeEnemyGroupName, 0)
+func MinigameCCGEnemyGroupExcelAddEnemyAi(builder *flatbuffers.Builder, enemyAi flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(enemyAi), 0)
 }
-func MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupDesc(builder *flatbuffers.Builder, localizeEnemyGroupDesc uint32) {
-	builder.PrependUint32Slot(4, localizeEnemyGroupDesc, 0)
+func MinigameCCGEnemyGroupExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(4, groupId, 0)
 }
 func MinigameCCGEnemyGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

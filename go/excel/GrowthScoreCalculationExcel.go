@@ -33,7 +33,7 @@ func (rcv *GrowthScoreCalculationExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GrowthScoreCalculationExcel) Id() int64 {
+func (rcv *GrowthScoreCalculationExcel) ConversionCoefficient() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *GrowthScoreCalculationExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *GrowthScoreCalculationExcel) MutateId(n int64) bool {
+func (rcv *GrowthScoreCalculationExcel) MutateConversionCoefficient(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,7 +57,7 @@ func (rcv *GrowthScoreCalculationExcel) MutateIncludeGrowthFactor(n GrowthFactor
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *GrowthScoreCalculationExcel) ConversionCoefficient() int64 {
+func (rcv *GrowthScoreCalculationExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,21 +65,21 @@ func (rcv *GrowthScoreCalculationExcel) ConversionCoefficient() int64 {
 	return 0
 }
 
-func (rcv *GrowthScoreCalculationExcel) MutateConversionCoefficient(n int64) bool {
+func (rcv *GrowthScoreCalculationExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func GrowthScoreCalculationExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func GrowthScoreCalculationExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func GrowthScoreCalculationExcelAddConversionCoefficient(builder *flatbuffers.Builder, conversionCoefficient int64) {
+	builder.PrependInt64Slot(0, conversionCoefficient, 0)
 }
 func GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder *flatbuffers.Builder, includeGrowthFactor GrowthFactor) {
 	builder.PrependInt32Slot(1, int32(includeGrowthFactor), 0)
 }
-func GrowthScoreCalculationExcelAddConversionCoefficient(builder *flatbuffers.Builder, conversionCoefficient int64) {
-	builder.PrependInt64Slot(2, conversionCoefficient, 0)
+func GrowthScoreCalculationExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
 }
 func GrowthScoreCalculationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

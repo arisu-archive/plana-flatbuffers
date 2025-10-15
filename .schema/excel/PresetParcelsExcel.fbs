@@ -3,10 +3,10 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table PresetParcelsExcel {
-    parcel_type: ParcelType;
-    parcel_id: long;
-    preset_group_id: long;
     parcel_amount: long;
+    preset_group_id: long;
+    parcel_id: long;
+    parcel_type: ParcelType;
 }
 
 root_type PresetParcelsExcel;

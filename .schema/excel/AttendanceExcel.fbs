@@ -8,26 +8,26 @@ include "MailType.fbs";
 namespace MX.Data.Excel;
 
 table AttendanceExcel {
-    id: long;
-    type: AttendanceType;
-    countdown_prefab: string;
-    display_order: long;
-    account_type: AccountState;
-    account_level_limit: long;
-    title: string;
-    infomation_localize_code: string;
-    count_rule: AttendanceCountRule;
-    count_reset: AttendanceResetType;
-    book_size: long;
-    start_date: string;
-    startable_end_date: string;
-    end_date: string;
-    expiry_date: long;
-    mail_type: MailType;
-    dialog_category: DialogCategory;
-    title_image_path: string;
-    decoration_image_path: string;
     decoration_garland_image_path: string;
+    decoration_image_path: string;
+    title_image_path: string;
+    dialog_category: DialogCategory;
+    mail_type: MailType;
+    expiry_date: long;
+    end_date: string;
+    startable_end_date: string;
+    start_date: string;
+    book_size: long;
+    count_reset: AttendanceResetType;
+    count_rule: AttendanceCountRule;
+    infomation_localize_code: string;
+    title: string;
+    account_level_limit: long;
+    account_type: AccountState;
+    display_order: long;
+    countdown_prefab: string;
+    type: AttendanceType;
+    id: long;
 }
 
 root_type AttendanceExcel;

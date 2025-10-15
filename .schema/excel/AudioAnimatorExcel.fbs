@@ -1,20 +1,20 @@
 namespace MX.Data.Excel;
 
 table AudioAnimatorExcel {
-    controller_name_hash: uint;
-    voice_name_prefix: string;
-    state_name_hash: uint;
-    state_name: string;
-    ignore_interrupt_delay: bool;
-    ignore_interrupt_play: bool;
-    ignore_velocity: bool;
-    volume: float;
-    delay: float;
-    random_pitch_min: int;
-    random_pitch_max: int;
-    audio_priority: int;
-    audio_clip_path: [string];
     voice_hash: [uint];
+    audio_clip_path: [string];
+    audio_priority: int;
+    random_pitch_max: int;
+    random_pitch_min: int;
+    delay: float;
+    volume: float;
+    ignore_velocity: bool;
+    ignore_interrupt_play: bool;
+    ignore_interrupt_delay: bool;
+    state_name: string;
+    state_name_hash: uint;
+    voice_name_prefix: string;
+    controller_name_hash: uint;
 }
 
 root_type AudioAnimatorExcel;

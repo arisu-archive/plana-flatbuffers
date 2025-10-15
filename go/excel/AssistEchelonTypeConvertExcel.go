@@ -33,7 +33,7 @@ func (rcv *AssistEchelonTypeConvertExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AssistEchelonTypeConvertExcel) Contents() EchelonType {
+func (rcv *AssistEchelonTypeConvertExcel) ConvertTo() EchelonType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return EchelonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
@@ -41,11 +41,11 @@ func (rcv *AssistEchelonTypeConvertExcel) Contents() EchelonType {
 	return 0
 }
 
-func (rcv *AssistEchelonTypeConvertExcel) MutateContents(n EchelonType) bool {
+func (rcv *AssistEchelonTypeConvertExcel) MutateConvertTo(n EchelonType) bool {
 	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *AssistEchelonTypeConvertExcel) ConvertTo() EchelonType {
+func (rcv *AssistEchelonTypeConvertExcel) Contents() EchelonType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return EchelonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
@@ -53,18 +53,18 @@ func (rcv *AssistEchelonTypeConvertExcel) ConvertTo() EchelonType {
 	return 0
 }
 
-func (rcv *AssistEchelonTypeConvertExcel) MutateConvertTo(n EchelonType) bool {
+func (rcv *AssistEchelonTypeConvertExcel) MutateContents(n EchelonType) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func AssistEchelonTypeConvertExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func AssistEchelonTypeConvertExcelAddContents(builder *flatbuffers.Builder, contents EchelonType) {
-	builder.PrependInt32Slot(0, int32(contents), 0)
-}
 func AssistEchelonTypeConvertExcelAddConvertTo(builder *flatbuffers.Builder, convertTo EchelonType) {
-	builder.PrependInt32Slot(1, int32(convertTo), 0)
+	builder.PrependInt32Slot(0, int32(convertTo), 0)
+}
+func AssistEchelonTypeConvertExcelAddContents(builder *flatbuffers.Builder, contents EchelonType) {
+	builder.PrependInt32Slot(1, int32(contents), 0)
 }
 func AssistEchelonTypeConvertExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

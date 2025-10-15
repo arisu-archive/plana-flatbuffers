@@ -25,88 +25,181 @@ class MultiFloorRaidStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MultiFloorRaidStageExcel
-    def Id(self):
+    def ShowSkillCard(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def EchelonExtensionType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BossGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MultiFloorRaidStageExcel
-    def AssistSlot(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def StageOpenCondition(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def FloorListSection(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # MultiFloorRaidStageExcel
-    def FloorListSectionOpenCondition(self):
+    def VictoryTimelinePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseEnd(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseEndAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseEndLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseEndIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseStart(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseStartAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseStartLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePhaseStartIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePath(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BattleReadyTimelinePathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # MultiFloorRaidStageExcel
+    def RewardGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def RecommendLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def FloorListSectionLabel(self):
+    def GroundId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def Difficulty(self):
+    def BattleDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def UseBossIndex(self):
+    def StatChangeId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
 
     # MultiFloorRaidStageExcel
-    def UseBossAiPhaseSync(self):
+    def StatChangeIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def StatChangeIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def StatChangeIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
+
+    # MultiFloorRaidStageExcel
+    def BossCharacterId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
 
     # MultiFloorRaidStageExcel
-    def FloorListImgPath(self):
+    def BossCharacterIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BossCharacterIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def BossCharacterIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # MultiFloorRaidStageExcel
+    def RaidCharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # MultiFloorRaidStageExcel
     def FloorImgPath(self):
@@ -116,275 +209,182 @@ class MultiFloorRaidStageExcel(object):
         return None
 
     # MultiFloorRaidStageExcel
-    def RaidCharacterId(self):
+    def FloorListImgPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MultiFloorRaidStageExcel
-    def BossCharacterId(self, j):
+    def UseBossAiPhaseSync(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MultiFloorRaidStageExcel
-    def BossCharacterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BossCharacterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BossCharacterIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        return o == 0
-
-    # MultiFloorRaidStageExcel
-    def StatChangeId(self, j):
+    def UseBossIndex(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MultiFloorRaidStageExcel
-    def StatChangeIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def StatChangeIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def StatChangeIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        return o == 0
-
-    # MultiFloorRaidStageExcel
-    def BattleDuration(self):
+    def Difficulty(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def GroundId(self):
+    def FloorListSectionLabel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def RecommendLevel(self):
+    def FloorListSectionOpenCondition(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def RewardGroupId(self):
+    def FloorListSection(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # MultiFloorRaidStageExcel
+    def StageOpenCondition(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePath(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        return o == 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseStart(self, j):
+    def AssistSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseStartAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseStartLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseStartIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        return o == 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseEnd(self, j):
+    def BossGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseEndAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseEndLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MultiFloorRaidStageExcel
-    def BattleReadyTimelinePhaseEndIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        return o == 0
-
-    # MultiFloorRaidStageExcel
-    def VictoryTimelinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MultiFloorRaidStageExcel
-    def ShowSkillCard(self):
+    def EchelonExtensionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MultiFloorRaidStageExcel
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def MultiFloorRaidStageExcelStart(builder): builder.StartObject(25)
 def Start(builder):
     return MultiFloorRaidStageExcelStart(builder)
-def MultiFloorRaidStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MultiFloorRaidStageExcelAddId(builder, id)
-def MultiFloorRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(1, echelonExtensionType, 0)
-def AddEchelonExtensionType(builder, echelonExtensionType):
-    return MultiFloorRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
-def MultiFloorRaidStageExcelAddBossGroupId(builder, bossGroupId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bossGroupId), 0)
-def AddBossGroupId(builder, bossGroupId):
-    return MultiFloorRaidStageExcelAddBossGroupId(builder, bossGroupId)
-def MultiFloorRaidStageExcelAddAssistSlot(builder, assistSlot): builder.PrependInt32Slot(3, assistSlot, 0)
-def AddAssistSlot(builder, assistSlot):
-    return MultiFloorRaidStageExcelAddAssistSlot(builder, assistSlot)
-def MultiFloorRaidStageExcelAddStageOpenCondition(builder, stageOpenCondition): builder.PrependInt64Slot(4, stageOpenCondition, 0)
-def AddStageOpenCondition(builder, stageOpenCondition):
-    return MultiFloorRaidStageExcelAddStageOpenCondition(builder, stageOpenCondition)
-def MultiFloorRaidStageExcelAddFloorListSection(builder, floorListSection): builder.PrependBoolSlot(5, floorListSection, 0)
-def AddFloorListSection(builder, floorListSection):
-    return MultiFloorRaidStageExcelAddFloorListSection(builder, floorListSection)
-def MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition): builder.PrependInt64Slot(6, floorListSectionOpenCondition, 0)
-def AddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition):
-    return MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition)
-def MultiFloorRaidStageExcelAddFloorListSectionLabel(builder, floorListSectionLabel): builder.PrependUint32Slot(7, floorListSectionLabel, 0)
-def AddFloorListSectionLabel(builder, floorListSectionLabel):
-    return MultiFloorRaidStageExcelAddFloorListSectionLabel(builder, floorListSectionLabel)
-def MultiFloorRaidStageExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(8, difficulty, 0)
-def AddDifficulty(builder, difficulty):
-    return MultiFloorRaidStageExcelAddDifficulty(builder, difficulty)
-def MultiFloorRaidStageExcelAddUseBossIndex(builder, useBossIndex): builder.PrependBoolSlot(9, useBossIndex, 0)
-def AddUseBossIndex(builder, useBossIndex):
-    return MultiFloorRaidStageExcelAddUseBossIndex(builder, useBossIndex)
-def MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync): builder.PrependBoolSlot(10, useBossAiPhaseSync, 0)
-def AddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
-    return MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
-def MultiFloorRaidStageExcelAddFloorListImgPath(builder, floorListImgPath): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(floorListImgPath), 0)
-def AddFloorListImgPath(builder, floorListImgPath):
-    return MultiFloorRaidStageExcelAddFloorListImgPath(builder, floorListImgPath)
-def MultiFloorRaidStageExcelAddFloorImgPath(builder, floorImgPath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(floorImgPath), 0)
-def AddFloorImgPath(builder, floorImgPath):
-    return MultiFloorRaidStageExcelAddFloorImgPath(builder, floorImgPath)
-def MultiFloorRaidStageExcelAddRaidCharacterId(builder, raidCharacterId): builder.PrependInt64Slot(13, raidCharacterId, 0)
-def AddRaidCharacterId(builder, raidCharacterId):
-    return MultiFloorRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
-def MultiFloorRaidStageExcelAddBossCharacterId(builder, bossCharacterId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
-def AddBossCharacterId(builder, bossCharacterId):
-    return MultiFloorRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
-def MultiFloorRaidStageExcelStartBossCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartBossCharacterIdVector(builder, numElems):
-    return MultiFloorRaidStageExcelStartBossCharacterIdVector(builder, numElems)
-def MultiFloorRaidStageExcelAddStatChangeId(builder, statChangeId): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(statChangeId), 0)
-def AddStatChangeId(builder, statChangeId):
-    return MultiFloorRaidStageExcelAddStatChangeId(builder, statChangeId)
-def MultiFloorRaidStageExcelStartStatChangeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartStatChangeIdVector(builder, numElems):
-    return MultiFloorRaidStageExcelStartStatChangeIdVector(builder, numElems)
-def MultiFloorRaidStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(16, battleDuration, 0)
-def AddBattleDuration(builder, battleDuration):
-    return MultiFloorRaidStageExcelAddBattleDuration(builder, battleDuration)
-def MultiFloorRaidStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(17, groundId, 0)
-def AddGroundId(builder, groundId):
-    return MultiFloorRaidStageExcelAddGroundId(builder, groundId)
-def MultiFloorRaidStageExcelAddRecommendLevel(builder, recommendLevel): builder.PrependInt64Slot(18, recommendLevel, 0)
-def AddRecommendLevel(builder, recommendLevel):
-    return MultiFloorRaidStageExcelAddRecommendLevel(builder, recommendLevel)
-def MultiFloorRaidStageExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(19, rewardGroupId, 0)
-def AddRewardGroupId(builder, rewardGroupId):
-    return MultiFloorRaidStageExcelAddRewardGroupId(builder, rewardGroupId)
-def MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
-def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
-    return MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
-def MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartBattleReadyTimelinePathVector(builder, numElems):
-    return MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems)
-def MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
-def AddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
-    return MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
-def MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartBattleReadyTimelinePhaseStartVector(builder, numElems):
-    return MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems)
-def MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
+def MultiFloorRaidStageExcelAddShowSkillCard(builder, showSkillCard): builder.PrependBoolSlot(0, showSkillCard, 0)
+def AddShowSkillCard(builder, showSkillCard):
+    return MultiFloorRaidStageExcelAddShowSkillCard(builder, showSkillCard)
+def MultiFloorRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
+def AddVictoryTimelinePath(builder, victoryTimelinePath):
+    return MultiFloorRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
+def MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
 def AddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd):
     return MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
 def MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartBattleReadyTimelinePhaseEndVector(builder, numElems):
     return MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems)
-def MultiFloorRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
-def AddVictoryTimelinePath(builder, victoryTimelinePath):
-    return MultiFloorRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
-def MultiFloorRaidStageExcelAddShowSkillCard(builder, showSkillCard): builder.PrependBoolSlot(24, showSkillCard, 0)
-def AddShowSkillCard(builder, showSkillCard):
-    return MultiFloorRaidStageExcelAddShowSkillCard(builder, showSkillCard)
+def MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
+def AddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
+    return MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+def MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartBattleReadyTimelinePhaseStartVector(builder, numElems):
+    return MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems)
+def MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
+def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
+    return MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+def MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartBattleReadyTimelinePathVector(builder, numElems):
+    return MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems)
+def MultiFloorRaidStageExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(5, rewardGroupId, 0)
+def AddRewardGroupId(builder, rewardGroupId):
+    return MultiFloorRaidStageExcelAddRewardGroupId(builder, rewardGroupId)
+def MultiFloorRaidStageExcelAddRecommendLevel(builder, recommendLevel): builder.PrependInt64Slot(6, recommendLevel, 0)
+def AddRecommendLevel(builder, recommendLevel):
+    return MultiFloorRaidStageExcelAddRecommendLevel(builder, recommendLevel)
+def MultiFloorRaidStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(7, groundId, 0)
+def AddGroundId(builder, groundId):
+    return MultiFloorRaidStageExcelAddGroundId(builder, groundId)
+def MultiFloorRaidStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(8, battleDuration, 0)
+def AddBattleDuration(builder, battleDuration):
+    return MultiFloorRaidStageExcelAddBattleDuration(builder, battleDuration)
+def MultiFloorRaidStageExcelAddStatChangeId(builder, statChangeId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(statChangeId), 0)
+def AddStatChangeId(builder, statChangeId):
+    return MultiFloorRaidStageExcelAddStatChangeId(builder, statChangeId)
+def MultiFloorRaidStageExcelStartStatChangeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartStatChangeIdVector(builder, numElems):
+    return MultiFloorRaidStageExcelStartStatChangeIdVector(builder, numElems)
+def MultiFloorRaidStageExcelAddBossCharacterId(builder, bossCharacterId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
+def AddBossCharacterId(builder, bossCharacterId):
+    return MultiFloorRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+def MultiFloorRaidStageExcelStartBossCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartBossCharacterIdVector(builder, numElems):
+    return MultiFloorRaidStageExcelStartBossCharacterIdVector(builder, numElems)
+def MultiFloorRaidStageExcelAddRaidCharacterId(builder, raidCharacterId): builder.PrependInt64Slot(11, raidCharacterId, 0)
+def AddRaidCharacterId(builder, raidCharacterId):
+    return MultiFloorRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
+def MultiFloorRaidStageExcelAddFloorImgPath(builder, floorImgPath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(floorImgPath), 0)
+def AddFloorImgPath(builder, floorImgPath):
+    return MultiFloorRaidStageExcelAddFloorImgPath(builder, floorImgPath)
+def MultiFloorRaidStageExcelAddFloorListImgPath(builder, floorListImgPath): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(floorListImgPath), 0)
+def AddFloorListImgPath(builder, floorListImgPath):
+    return MultiFloorRaidStageExcelAddFloorListImgPath(builder, floorListImgPath)
+def MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync): builder.PrependBoolSlot(14, useBossAiPhaseSync, 0)
+def AddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
+    return MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
+def MultiFloorRaidStageExcelAddUseBossIndex(builder, useBossIndex): builder.PrependBoolSlot(15, useBossIndex, 0)
+def AddUseBossIndex(builder, useBossIndex):
+    return MultiFloorRaidStageExcelAddUseBossIndex(builder, useBossIndex)
+def MultiFloorRaidStageExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(16, difficulty, 0)
+def AddDifficulty(builder, difficulty):
+    return MultiFloorRaidStageExcelAddDifficulty(builder, difficulty)
+def MultiFloorRaidStageExcelAddFloorListSectionLabel(builder, floorListSectionLabel): builder.PrependUint32Slot(17, floorListSectionLabel, 0)
+def AddFloorListSectionLabel(builder, floorListSectionLabel):
+    return MultiFloorRaidStageExcelAddFloorListSectionLabel(builder, floorListSectionLabel)
+def MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition): builder.PrependInt64Slot(18, floorListSectionOpenCondition, 0)
+def AddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition):
+    return MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder, floorListSectionOpenCondition)
+def MultiFloorRaidStageExcelAddFloorListSection(builder, floorListSection): builder.PrependBoolSlot(19, floorListSection, 0)
+def AddFloorListSection(builder, floorListSection):
+    return MultiFloorRaidStageExcelAddFloorListSection(builder, floorListSection)
+def MultiFloorRaidStageExcelAddStageOpenCondition(builder, stageOpenCondition): builder.PrependInt64Slot(20, stageOpenCondition, 0)
+def AddStageOpenCondition(builder, stageOpenCondition):
+    return MultiFloorRaidStageExcelAddStageOpenCondition(builder, stageOpenCondition)
+def MultiFloorRaidStageExcelAddAssistSlot(builder, assistSlot): builder.PrependInt32Slot(21, assistSlot, 0)
+def AddAssistSlot(builder, assistSlot):
+    return MultiFloorRaidStageExcelAddAssistSlot(builder, assistSlot)
+def MultiFloorRaidStageExcelAddBossGroupId(builder, bossGroupId): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(bossGroupId), 0)
+def AddBossGroupId(builder, bossGroupId):
+    return MultiFloorRaidStageExcelAddBossGroupId(builder, bossGroupId)
+def MultiFloorRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(23, echelonExtensionType, 0)
+def AddEchelonExtensionType(builder, echelonExtensionType):
+    return MultiFloorRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def MultiFloorRaidStageExcelAddId(builder, id): builder.PrependInt64Slot(24, id, 0)
+def AddId(builder, id):
+    return MultiFloorRaidStageExcelAddId(builder, id)
 def MultiFloorRaidStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MultiFloorRaidStageExcelEnd(builder)

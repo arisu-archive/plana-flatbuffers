@@ -33,44 +33,8 @@ func (rcv *MiniGameRoadPuzzleVoiceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameRoadPuzzleVoiceExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MiniGameRoadPuzzleVoiceExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MiniGameRoadPuzzleVoiceExcel) VoiceCondition() RoadPuzzleVoiceCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return RoadPuzzleVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateVoiceCondition(n RoadPuzzleVoiceCondition) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *MiniGameRoadPuzzleVoiceExcel) VoiceClip() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -78,23 +42,59 @@ func (rcv *MiniGameRoadPuzzleVoiceExcel) VoiceClip() uint32 {
 }
 
 func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateVoiceClip(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) VoiceCondition() RoadPuzzleVoiceCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return RoadPuzzleVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateVoiceCondition(n RoadPuzzleVoiceCondition) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleVoiceExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func MiniGameRoadPuzzleVoiceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MiniGameRoadPuzzleVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
+func MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder *flatbuffers.Builder, voiceClip uint32) {
+	builder.PrependUint32Slot(0, voiceClip, 0)
 }
 func MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(builder *flatbuffers.Builder, voiceCondition RoadPuzzleVoiceCondition) {
-	builder.PrependInt32Slot(2, int32(voiceCondition), 0)
+	builder.PrependInt32Slot(1, int32(voiceCondition), 0)
 }
-func MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder *flatbuffers.Builder, voiceClip uint32) {
-	builder.PrependUint32Slot(3, voiceClip, 0)
+func MiniGameRoadPuzzleVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(2, uniqueId, 0)
+}
+func MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
 }
 func MiniGameRoadPuzzleVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

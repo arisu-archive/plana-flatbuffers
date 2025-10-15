@@ -3,20 +3,20 @@ include "ObstacleDestroyType.fbs";
 namespace FlatData;
 
 table ObstacleExcel {
-    index: long;
-    prefab_name: string;
-    jump_able: bool;
-    sub_offset: [float];
-    x: float;
-    z: float;
-    hp: long;
-    max_hp: long;
-    block_rate: int;
-    evasion_rate: int;
-    destroy_type: ObstacleDestroyType;
-    point1_offeset: [float];
-    enemy_point1_osset: [float];
-    point2_offeset: [float];
-    enemy_point2_osset: [float];
     sub_obstacle_id: [long];
+    enemy_point2_osset: [float];
+    point2_offeset: [float];
+    enemy_point1_osset: [float];
+    point1_offeset: [float];
+    destroy_type: ObstacleDestroyType;
+    evasion_rate: int;
+    block_rate: int;
+    max_hp: long;
+    hp: long;
+    z: float;
+    x: float;
+    sub_offset: [float];
+    jump_able: bool;
+    prefab_name: string;
+    index: long;
 }

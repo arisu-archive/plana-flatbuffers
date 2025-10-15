@@ -5,23 +5,23 @@ include "PurchaseSourceType.fbs";
 namespace MX.Data.Excel;
 
 table ShopCashExcel {
-    id: long;
-    cash_product_id: long;
-    package_type: PurchaseSourceType;
-    localize_etc_id: uint;
-    icon_path: string;
-    display_order: long;
-    renewal_display_order: long;
-    category_type: ProductCategory;
-    display_tag: ProductDisplayTag;
-    sale_period_from: string;
-    sale_period_to: string;
-    period_tag: bool;
-    account_level_limit: long;
-    account_level_hide: bool;
-    clear_mission_limit: long;
-    clear_mission_hide: bool;
     purchase_report_event_name: string;
+    clear_mission_hide: bool;
+    clear_mission_limit: long;
+    account_level_hide: bool;
+    account_level_limit: long;
+    period_tag: bool;
+    sale_period_to: string;
+    sale_period_from: string;
+    display_tag: ProductDisplayTag;
+    category_type: ProductCategory;
+    renewal_display_order: long;
+    display_order: long;
+    icon_path: string;
+    localize_etc_id: uint;
+    package_type: PurchaseSourceType;
+    cash_product_id: long;
+    id: long;
 }
 
 root_type ShopCashExcel;

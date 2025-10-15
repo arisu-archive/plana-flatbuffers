@@ -4,10 +4,10 @@ include "Motion.fbs";
 namespace FlatData;
 
 table RootMotionFlat {
-    forms: [Form];
-    ex_skills: [Motion];
-    move_left: Motion;
     move_right: Motion;
+    move_left: Motion;
+    ex_skills: [Motion];
+    forms: [Form];
 }
 
 root_type RootMotionFlat;

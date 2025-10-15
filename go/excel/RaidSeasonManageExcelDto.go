@@ -10,45 +10,45 @@ import (
 // RaidSeasonManageExcelDto represents a FlatBuffers table
 type RaidSeasonManageExcelDto struct {
 	fbsutils.FlatBuffer
-	SeasonId                 int64    `json:"season_id"`
-	SeasonDisplay            int64    `json:"season_display"`
-	SeasonStartData          string   `json:"season_start_data"`
-	EndNoteLabelStartDate    string   `json:"end_note_label_start_date"`
-	SeasonEndData            string   `json:"season_end_data"`
-	SettlementEndDate        string   `json:"settlement_end_date"`
-	OpenRaidBossGroup        []string `json:"open_raid_boss_group"`
-	RankingRewardGroupId     int64    `json:"ranking_reward_group_id"`
-	MaxSeasonRewardGauage    int32    `json:"max_season_reward_gauage"`
-	StackedSeasonRewardGauge []int64  `json:"stacked_season_reward_gauge"`
 	SeasonRewardId           []int64  `json:"season_reward_id"`
+	StackedSeasonRewardGauge []int64  `json:"stacked_season_reward_gauge"`
+	MaxSeasonRewardGauage    int32    `json:"max_season_reward_gauage"`
+	RankingRewardGroupId     int64    `json:"ranking_reward_group_id"`
+	OpenRaidBossGroup        []string `json:"open_raid_boss_group"`
+	SettlementEndDate        string   `json:"settlement_end_date"`
+	SeasonEndData            string   `json:"season_end_data"`
+	EndNoteLabelStartDate    string   `json:"end_note_label_start_date"`
+	SeasonStartData          string   `json:"season_start_data"`
+	SeasonDisplay            int64    `json:"season_display"`
+	SeasonId                 int64    `json:"season_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	RaidSeasonManageExcelStart(b)
-	RaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddSeasonDisplay(b, fbsutils.Convert(t.SeasonDisplay, t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddSeasonStartData(b, b.CreateString(fbsutils.Convert(t.SeasonStartData, t.FlatBuffer.TableKey)))
-	RaidSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
-	RaidSeasonManageExcelAddSeasonEndData(b, b.CreateString(fbsutils.Convert(t.SeasonEndData, t.FlatBuffer.TableKey)))
-	RaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
-	RaidSeasonManageExcelStartOpenRaidBossGroupVector(b, len(t.OpenRaidBossGroup))
-	for i := range len(t.OpenRaidBossGroup) {
-		b.PrependUOffsetT(b.CreateString(t.OpenRaidBossGroup[len(t.OpenRaidBossGroup)-i-1]))
-	}
-	RaidSeasonManageExcelAddOpenRaidBossGroup(b, b.EndVector(len(t.OpenRaidBossGroup)))
-	RaidSeasonManageExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddMaxSeasonRewardGauage(b, fbsutils.Convert(t.MaxSeasonRewardGauage, t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(b, len(t.StackedSeasonRewardGauge))
-	for i := range len(t.StackedSeasonRewardGauge) {
-		b.PrependInt64(fbsutils.Convert(t.StackedSeasonRewardGauge[len(t.StackedSeasonRewardGauge)-i-1], t.FlatBuffer.TableKey))
-	}
-	RaidSeasonManageExcelAddStackedSeasonRewardGauge(b, b.EndVector(len(t.StackedSeasonRewardGauge)))
 	RaidSeasonManageExcelStartSeasonRewardIdVector(b, len(t.SeasonRewardId))
 	for i := range len(t.SeasonRewardId) {
 		b.PrependInt64(fbsutils.Convert(t.SeasonRewardId[len(t.SeasonRewardId)-i-1], t.FlatBuffer.TableKey))
 	}
 	RaidSeasonManageExcelAddSeasonRewardId(b, b.EndVector(len(t.SeasonRewardId)))
+	RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(b, len(t.StackedSeasonRewardGauge))
+	for i := range len(t.StackedSeasonRewardGauge) {
+		b.PrependInt64(fbsutils.Convert(t.StackedSeasonRewardGauge[len(t.StackedSeasonRewardGauge)-i-1], t.FlatBuffer.TableKey))
+	}
+	RaidSeasonManageExcelAddStackedSeasonRewardGauge(b, b.EndVector(len(t.StackedSeasonRewardGauge)))
+	RaidSeasonManageExcelAddMaxSeasonRewardGauage(b, fbsutils.Convert(t.MaxSeasonRewardGauage, t.FlatBuffer.TableKey))
+	RaidSeasonManageExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))
+	RaidSeasonManageExcelStartOpenRaidBossGroupVector(b, len(t.OpenRaidBossGroup))
+	for i := range len(t.OpenRaidBossGroup) {
+		b.PrependUOffsetT(b.CreateString(t.OpenRaidBossGroup[len(t.OpenRaidBossGroup)-i-1]))
+	}
+	RaidSeasonManageExcelAddOpenRaidBossGroup(b, b.EndVector(len(t.OpenRaidBossGroup)))
+	RaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddSeasonEndData(b, b.CreateString(fbsutils.Convert(t.SeasonEndData, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddSeasonStartData(b, b.CreateString(fbsutils.Convert(t.SeasonStartData, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddSeasonDisplay(b, fbsutils.Convert(t.SeasonDisplay, t.FlatBuffer.TableKey))
+	RaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	return RaidSeasonManageExcelEnd(b)
 }
 
@@ -61,26 +61,26 @@ func (t *RaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidSeasonManageExcelDto) UnmarshalMessage(e *RaidSeasonManageExcel) error {
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.SeasonDisplay = fbsutils.Convert(e.SeasonDisplay(), t.FlatBuffer.TableKey)
-	t.SeasonStartData = fbsutils.Convert(string(e.SeasonStartData()), t.FlatBuffer.TableKey)
-	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
-	t.SeasonEndData = fbsutils.Convert(string(e.SeasonEndData()), t.FlatBuffer.TableKey)
-	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
-	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())
-	for i := range e.OpenRaidBossGroupLength() {
-		t.OpenRaidBossGroup[i] = fbsutils.Convert(string(e.OpenRaidBossGroup(i)), t.FlatBuffer.TableKey)
-	}
-	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
-	t.MaxSeasonRewardGauage = fbsutils.Convert(e.MaxSeasonRewardGauage(), t.FlatBuffer.TableKey)
-	t.StackedSeasonRewardGauge = make([]int64, e.StackedSeasonRewardGaugeLength())
-	for i := range e.StackedSeasonRewardGaugeLength() {
-		t.StackedSeasonRewardGauge[i] = fbsutils.Convert(e.StackedSeasonRewardGauge(i), t.FlatBuffer.TableKey)
-	}
 	t.SeasonRewardId = make([]int64, e.SeasonRewardIdLength())
 	for i := range e.SeasonRewardIdLength() {
 		t.SeasonRewardId[i] = fbsutils.Convert(e.SeasonRewardId(i), t.FlatBuffer.TableKey)
 	}
+	t.StackedSeasonRewardGauge = make([]int64, e.StackedSeasonRewardGaugeLength())
+	for i := range e.StackedSeasonRewardGaugeLength() {
+		t.StackedSeasonRewardGauge[i] = fbsutils.Convert(e.StackedSeasonRewardGauge(i), t.FlatBuffer.TableKey)
+	}
+	t.MaxSeasonRewardGauage = fbsutils.Convert(e.MaxSeasonRewardGauage(), t.FlatBuffer.TableKey)
+	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
+	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())
+	for i := range e.OpenRaidBossGroupLength() {
+		t.OpenRaidBossGroup[i] = fbsutils.Convert(string(e.OpenRaidBossGroup(i)), t.FlatBuffer.TableKey)
+	}
+	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
+	t.SeasonEndData = fbsutils.Convert(string(e.SeasonEndData()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
+	t.SeasonStartData = fbsutils.Convert(string(e.SeasonStartData()), t.FlatBuffer.TableKey)
+	t.SeasonDisplay = fbsutils.Convert(e.SeasonDisplay(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

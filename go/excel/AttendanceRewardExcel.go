@@ -33,92 +33,8 @@ func (rcv *AttendanceRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AttendanceRewardExcel) AttendanceId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) MutateAttendanceId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *AttendanceRewardExcel) Day() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) MutateDay(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *AttendanceRewardExcel) RewardIcon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AttendanceRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *AttendanceRewardExcel) RewardId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) RewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *AttendanceRewardExcel) MutateRewardId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *AttendanceRewardExcel) RewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -127,7 +43,7 @@ func (rcv *AttendanceRewardExcel) RewardAmount(j int) int64 {
 }
 
 func (rcv *AttendanceRewardExcel) RewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -135,7 +51,7 @@ func (rcv *AttendanceRewardExcel) RewardAmountLength() int {
 }
 
 func (rcv *AttendanceRewardExcel) MutateRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -143,35 +59,119 @@ func (rcv *AttendanceRewardExcel) MutateRewardAmount(j int, n int64) bool {
 	return false
 }
 
+func (rcv *AttendanceRewardExcel) RewardId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) RewardIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) MutateRewardId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *AttendanceRewardExcel) RewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) RewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *AttendanceRewardExcel) RewardIcon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AttendanceRewardExcel) Day() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) MutateDay(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *AttendanceRewardExcel) AttendanceId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AttendanceRewardExcel) MutateAttendanceId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func AttendanceRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func AttendanceRewardExcelAddAttendanceId(builder *flatbuffers.Builder, attendanceId int64) {
-	builder.PrependInt64Slot(0, attendanceId, 0)
+func AttendanceRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(rewardAmount), 0)
 }
-func AttendanceRewardExcelAddDay(builder *flatbuffers.Builder, day int64) {
-	builder.PrependInt64Slot(1, day, 0)
-}
-func AttendanceRewardExcelAddRewardIcon(builder *flatbuffers.Builder, rewardIcon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardIcon), 0)
-}
-func AttendanceRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func AttendanceRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func AttendanceRewardExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func AttendanceRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardId), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(rewardId), 0)
 }
 func AttendanceRewardExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func AttendanceRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardAmount), 0)
+func AttendanceRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func AttendanceRewardExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func AttendanceRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func AttendanceRewardExcelAddRewardIcon(builder *flatbuffers.Builder, rewardIcon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardIcon), 0)
+}
+func AttendanceRewardExcelAddDay(builder *flatbuffers.Builder, day int64) {
+	builder.PrependInt64Slot(4, day, 0)
+}
+func AttendanceRewardExcelAddAttendanceId(builder *flatbuffers.Builder, attendanceId int64) {
+	builder.PrependInt64Slot(5, attendanceId, 0)
 }
 func AttendanceRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

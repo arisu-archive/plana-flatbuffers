@@ -4,12 +4,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table ContentEnterCostReduceExcel {
-    enter_cost_reduce_group_id: long;
-    content_type: ContentType;
-    stage_id: long;
-    reduce_enter_cost_type: ParcelType;
-    reduce_enter_cost_id: long;
     reduce_amount: long;
+    reduce_enter_cost_id: long;
+    reduce_enter_cost_type: ParcelType;
+    stage_id: long;
+    content_type: ContentType;
+    enter_cost_reduce_group_id: long;
 }
 
 root_type ContentEnterCostReduceExcel;

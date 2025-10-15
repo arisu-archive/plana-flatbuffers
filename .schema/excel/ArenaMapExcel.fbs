@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table ArenaMapExcel {
-    unique_id: long;
-    terrain_type: long;
-    terrain_type_localize_key: string;
-    image_path: string;
-    ground_group_id: long;
-    ground_group_name_localize_key: string;
-    start_rank: long;
-    end_rank: long;
     ground_id: long;
+    end_rank: long;
+    start_rank: long;
+    ground_group_name_localize_key: string;
+    ground_group_id: long;
+    image_path: string;
+    terrain_type_localize_key: string;
+    terrain_type: long;
+    unique_id: long;
 }
 
 root_type ArenaMapExcel;

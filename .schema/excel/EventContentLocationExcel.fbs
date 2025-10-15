@@ -1,0 +1,19 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentLocationExcel {
+    information_group_id: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    schedule_event_point_cost_parcel_amount: long;
+    schedule_event_point_cost_parcel_id: long;
+    schedule_event_point_cost_parcel_type: ParcelType;
+    location_reset_schedule_count: int;
+    prefab_path: string;
+    localize_etc_id: uint;
+    id: long;
+    event_content_id: long;
+}
+
+root_type EventContentLocationExcel;

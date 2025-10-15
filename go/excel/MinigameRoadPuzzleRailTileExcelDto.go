@@ -10,23 +10,23 @@ import (
 // MinigameRoadPuzzleRailTileExcelDto represents a FlatBuffers table
 type MinigameRoadPuzzleRailTileExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64                  `json:"event_content_id"`
-	UniqueId       int64                  `json:"unique_id"`
-	GroupId        int64                  `json:"group_id"`
-	OriginalTile   bool                   `json:"original_tile"`
-	PrefabName     string                 `json:"prefab_name"`
 	RailTileType   RoadPuzzleRailTileType `json:"rail_tile_type"`
+	PrefabName     string                 `json:"prefab_name"`
+	OriginalTile   bool                   `json:"original_tile"`
+	GroupId        int64                  `json:"group_id"`
+	UniqueId       int64                  `json:"unique_id"`
+	EventContentId int64                  `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameRoadPuzzleRailTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameRoadPuzzleRailTileExcelStart(b)
-	MinigameRoadPuzzleRailTileExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRailTileExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRailTileExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleRailTileExcelAddOriginalTile(b, t.OriginalTile)
-	MinigameRoadPuzzleRailTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
 	MinigameRoadPuzzleRailTileExcelAddRailTileType(b, fbsutils.Convert(t.RailTileType, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRailTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	MinigameRoadPuzzleRailTileExcelAddOriginalTile(b, t.OriginalTile)
+	MinigameRoadPuzzleRailTileExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRailTileExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleRailTileExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameRoadPuzzleRailTileExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *MinigameRoadPuzzleRailTileExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameRoadPuzzleRailTileExcelDto) UnmarshalMessage(e *MinigameRoadPuzzleRailTileExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.OriginalTile = e.OriginalTile()
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
 	t.RailTileType = RoadPuzzleRailTileType(fbsutils.Convert(int32(e.RailTileType()), t.FlatBuffer.TableKey))
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.OriginalTile = e.OriginalTile()
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

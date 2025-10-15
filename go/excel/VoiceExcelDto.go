@@ -10,33 +10,33 @@ import (
 // VoiceExcelDto represents a FlatBuffers table
 type VoiceExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId int64     `json:"unique_id"`
-	Id       uint32    `json:"id"`
-	Nation   []Nation  `json:"nation"`
-	Path     []string  `json:"path"`
 	Volume   []float32 `json:"volume"`
+	Path     []string  `json:"path"`
+	Nation   []Nation  `json:"nation"`
+	Id       uint32    `json:"id"`
+	UniqueId int64     `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	VoiceExcelStart(b)
-	VoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	VoiceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	VoiceExcelStartNationVector(b, len(t.Nation))
-	for i := range len(t.Nation) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
-	}
-	VoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
-	VoiceExcelStartPathVector(b, len(t.Path))
-	for i := range len(t.Path) {
-		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
-	}
-	VoiceExcelAddPath(b, b.EndVector(len(t.Path)))
 	VoiceExcelStartVolumeVector(b, len(t.Volume))
 	for i := range len(t.Volume) {
 		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))
 	}
 	VoiceExcelAddVolume(b, b.EndVector(len(t.Volume)))
+	VoiceExcelStartPathVector(b, len(t.Path))
+	for i := range len(t.Path) {
+		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
+	}
+	VoiceExcelAddPath(b, b.EndVector(len(t.Path)))
+	VoiceExcelStartNationVector(b, len(t.Nation))
+	for i := range len(t.Nation) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
+	}
+	VoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
+	VoiceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	VoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return VoiceExcelEnd(b)
 }
 
@@ -49,20 +49,20 @@ func (t *VoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceExcelDto) UnmarshalMessage(e *VoiceExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Nation = make([]Nation, e.NationLength())
-	for i := range e.NationLength() {
-		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
+	t.Volume = make([]float32, e.VolumeLength())
+	for i := range e.VolumeLength() {
+		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
 	}
 	t.Path = make([]string, e.PathLength())
 	for i := range e.PathLength() {
 		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)
 	}
-	t.Volume = make([]float32, e.VolumeLength())
-	for i := range e.VolumeLength() {
-		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
+	t.Nation = make([]Nation, e.NationLength())
+	for i := range e.NationLength() {
+		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

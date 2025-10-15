@@ -33,20 +33,8 @@ func (rcv *WeekDungeonOpenScheduleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WeekDungeonOpenScheduleExcel) WeekDay() WeekDay {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonOpenScheduleExcel) MutateWeekDay(n WeekDay) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *WeekDungeonOpenScheduleExcel) Open(j int) WeekDungeonType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return WeekDungeonType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -55,7 +43,7 @@ func (rcv *WeekDungeonOpenScheduleExcel) Open(j int) WeekDungeonType {
 }
 
 func (rcv *WeekDungeonOpenScheduleExcel) OpenLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,7 +51,7 @@ func (rcv *WeekDungeonOpenScheduleExcel) OpenLength() int {
 }
 
 func (rcv *WeekDungeonOpenScheduleExcel) MutateOpen(j int, n WeekDungeonType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -71,17 +59,29 @@ func (rcv *WeekDungeonOpenScheduleExcel) MutateOpen(j int, n WeekDungeonType) bo
 	return false
 }
 
+func (rcv *WeekDungeonOpenScheduleExcel) WeekDay() WeekDay {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return WeekDay(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonOpenScheduleExcel) MutateWeekDay(n WeekDay) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
 func WeekDungeonOpenScheduleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func WeekDungeonOpenScheduleExcelAddWeekDay(builder *flatbuffers.Builder, weekDay WeekDay) {
-	builder.PrependInt32Slot(0, int32(weekDay), 0)
-}
 func WeekDungeonOpenScheduleExcelAddOpen(builder *flatbuffers.Builder, open flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(open), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(open), 0)
 }
 func WeekDungeonOpenScheduleExcelStartOpenVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonOpenScheduleExcelAddWeekDay(builder *flatbuffers.Builder, weekDay WeekDay) {
+	builder.PrependInt32Slot(1, int32(weekDay), 0)
 }
 func WeekDungeonOpenScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -25,11 +25,11 @@ class LocalizeCCGExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeCCGExcel
-    def Key(self):
+    def Jp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # LocalizeCCGExcel
     def Kr(self):
@@ -39,24 +39,24 @@ class LocalizeCCGExcel(object):
         return None
 
     # LocalizeCCGExcel
-    def Jp(self):
+    def Key(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
 def LocalizeCCGExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return LocalizeCCGExcelStart(builder)
-def LocalizeCCGExcelAddKey(builder, key): builder.PrependUint32Slot(0, key, 0)
-def AddKey(builder, key):
-    return LocalizeCCGExcelAddKey(builder, key)
+def LocalizeCCGExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+def AddJp(builder, jp):
+    return LocalizeCCGExcelAddJp(builder, jp)
 def LocalizeCCGExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
 def AddKr(builder, kr):
     return LocalizeCCGExcelAddKr(builder, kr)
-def LocalizeCCGExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
-def AddJp(builder, jp):
-    return LocalizeCCGExcelAddJp(builder, jp)
+def LocalizeCCGExcelAddKey(builder, key): builder.PrependUint32Slot(2, key, 0)
+def AddKey(builder, key):
+    return LocalizeCCGExcelAddKey(builder, key)
 def LocalizeCCGExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeCCGExcelEnd(builder)

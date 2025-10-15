@@ -33,36 +33,40 @@ func (rcv *EventContentNotifyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentNotifyExcel) Id() int32 {
+func (rcv *EventContentNotifyExcel) IsShortcutEnable() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *EventContentNotifyExcel) MutateId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *EventContentNotifyExcel) MutateIsShortcutEnable(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *EventContentNotifyExcel) LocalizeEtcId() uint32 {
+func (rcv *EventContentNotifyExcel) ShortcutEventTargetType() EventTargetType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return EventTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EventContentNotifyExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+func (rcv *EventContentNotifyExcel) MutateShortcutEventTargetType(n EventTargetType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *EventContentNotifyExcel) IconPath() []byte {
+func (rcv *EventContentNotifyExcel) EventTargetType() EventTargetType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return EventTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EventContentNotifyExcel) MutateEventTargetType(n EventTargetType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *EventContentNotifyExcel) EventNotifyType() EventNotifyType {
@@ -77,65 +81,61 @@ func (rcv *EventContentNotifyExcel) MutateEventNotifyType(n EventNotifyType) boo
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *EventContentNotifyExcel) EventTargetType() EventTargetType {
+func (rcv *EventContentNotifyExcel) IconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return EventTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentNotifyExcel) MutateEventTargetType(n EventTargetType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *EventContentNotifyExcel) ShortcutEventTargetType() EventTargetType {
+func (rcv *EventContentNotifyExcel) LocalizeEtcId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return EventTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentNotifyExcel) MutateShortcutEventTargetType(n EventTargetType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+func (rcv *EventContentNotifyExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(14, n)
 }
 
-func (rcv *EventContentNotifyExcel) IsShortcutEnable() bool {
+func (rcv *EventContentNotifyExcel) Id() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *EventContentNotifyExcel) MutateIsShortcutEnable(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *EventContentNotifyExcel) MutateId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
 }
 
 func EventContentNotifyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func EventContentNotifyExcelAddId(builder *flatbuffers.Builder, id int32) {
-	builder.PrependInt32Slot(0, id, 0)
+func EventContentNotifyExcelAddIsShortcutEnable(builder *flatbuffers.Builder, isShortcutEnable bool) {
+	builder.PrependBoolSlot(0, isShortcutEnable, false)
 }
-func EventContentNotifyExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(1, localizeEtcId, 0)
+func EventContentNotifyExcelAddShortcutEventTargetType(builder *flatbuffers.Builder, shortcutEventTargetType EventTargetType) {
+	builder.PrependInt32Slot(1, int32(shortcutEventTargetType), 0)
 }
-func EventContentNotifyExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(iconPath), 0)
+func EventContentNotifyExcelAddEventTargetType(builder *flatbuffers.Builder, eventTargetType EventTargetType) {
+	builder.PrependInt32Slot(2, int32(eventTargetType), 0)
 }
 func EventContentNotifyExcelAddEventNotifyType(builder *flatbuffers.Builder, eventNotifyType EventNotifyType) {
 	builder.PrependInt32Slot(3, int32(eventNotifyType), 0)
 }
-func EventContentNotifyExcelAddEventTargetType(builder *flatbuffers.Builder, eventTargetType EventTargetType) {
-	builder.PrependInt32Slot(4, int32(eventTargetType), 0)
+func EventContentNotifyExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(iconPath), 0)
 }
-func EventContentNotifyExcelAddShortcutEventTargetType(builder *flatbuffers.Builder, shortcutEventTargetType EventTargetType) {
-	builder.PrependInt32Slot(5, int32(shortcutEventTargetType), 0)
+func EventContentNotifyExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(5, localizeEtcId, 0)
 }
-func EventContentNotifyExcelAddIsShortcutEnable(builder *flatbuffers.Builder, isShortcutEnable bool) {
-	builder.PrependBoolSlot(6, isShortcutEnable, false)
+func EventContentNotifyExcelAddId(builder *flatbuffers.Builder, id int32) {
+	builder.PrependInt32Slot(6, id, 0)
 }
 func EventContentNotifyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

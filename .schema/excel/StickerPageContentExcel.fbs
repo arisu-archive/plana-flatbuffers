@@ -6,20 +6,20 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table StickerPageContentExcel {
-    id: long;
-    sticker_group_id: long;
-    sticker_page_id: long;
-    sticker_slot: long;
-    sticker_get_condition_type: StickerGetConditionType;
-    sticker_check_pass_type: StickerCheckPassType;
-    get_sticker_condition_type: GetStickerConditionType;
-    sticker_get_condition_count: long;
-    sticker_get_condition_parameter: [long];
-    sticker_get_condition_parameter_tag: [Tag];
-    packed_sticker_icon_localize_etc_id: uint;
-    packed_sticker_icon_path: string;
-    icon_path: string;
     sticker_detail_path: string;
+    icon_path: string;
+    packed_sticker_icon_path: string;
+    packed_sticker_icon_localize_etc_id: uint;
+    sticker_get_condition_parameter_tag: [Tag];
+    sticker_get_condition_parameter: [long];
+    sticker_get_condition_count: long;
+    get_sticker_condition_type: GetStickerConditionType;
+    sticker_check_pass_type: StickerCheckPassType;
+    sticker_get_condition_type: StickerGetConditionType;
+    sticker_slot: long;
+    sticker_page_id: long;
+    sticker_group_id: long;
+    id: long;
 }
 
 root_type StickerPageContentExcel;

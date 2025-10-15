@@ -10,17 +10,17 @@ import (
 // MinigameCCGLogicEffectExcelDto represents a FlatBuffers table
 type MinigameCCGLogicEffectExcelDto struct {
 	fbsutils.FlatBuffer
-	Id           int64  `json:"id"`
-	DataLoadPath string `json:"data_load_path"`
 	Icon         string `json:"icon"`
+	DataLoadPath string `json:"data_load_path"`
+	Id           int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLogicEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGLogicEffectExcelStart(b)
-	MinigameCCGLogicEffectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGLogicEffectExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
 	MinigameCCGLogicEffectExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	MinigameCCGLogicEffectExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
+	MinigameCCGLogicEffectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return MinigameCCGLogicEffectExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *MinigameCCGLogicEffectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGLogicEffectExcelDto) UnmarshalMessage(e *MinigameCCGLogicEffectExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.DataLoadPath = fbsutils.Convert(string(e.DataLoadPath()), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.DataLoadPath = fbsutils.Convert(string(e.DataLoadPath()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

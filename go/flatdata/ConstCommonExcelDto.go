@@ -10,178 +10,179 @@ import (
 // ConstCommonExcelDto represents a FlatBuffers table
 type ConstCommonExcelDto struct {
 	fbsutils.FlatBuffer
-	CampaignMainStageMaxRank                   int32            `json:"campaign_main_stage_max_rank"`
-	CampaignMainStageBestRecord                int32            `json:"campaign_main_stage_best_record"`
-	HardAdventurePlayCountRecoverDailyNumber   int32            `json:"hard_adventure_play_count_recover_daily_number"`
-	HardStageCount                             int32            `json:"hard_stage_count"`
-	TacticRankClearTime                        int32            `json:"tactic_rank_clear_time"`
-	BaseTimeScale                              int64            `json:"base_time_scale"`
-	GachaPercentage                            int32            `json:"gacha_percentage"`
-	AcademyFavorZoneId                         int64            `json:"academy_favor_zone_id"`
-	CafePresetSlotCount                        int32            `json:"cafe_preset_slot_count"`
-	CafeMonologueIntervalMillisec              int64            `json:"cafe_monologue_interval_millisec"`
-	CafeMonologueDefaultDuration               int64            `json:"cafe_monologue_default_duration"`
-	CafeBubbleIdleDurationMilliSec             int64            `json:"cafe_bubble_idle_duration_milli_sec"`
-	FindGiftTimeLimit                          int32            `json:"find_gift_time_limit"`
-	CafeAutoChargePeriodInMsc                  int32            `json:"cafe_auto_charge_period_in_msc"`
-	CafeProductionDecimalPosition              int32            `json:"cafe_production_decimal_position"`
-	CafeSetGroupApplyCount                     int32            `json:"cafe_set_group_apply_count"`
-	WeekDungeonFindGiftRewardLimitCount        int32            `json:"week_dungeon_find_gift_reward_limit_count"`
-	StageFailedCurrencyRefundRate              int32            `json:"stage_failed_currency_refund_rate"`
-	EnterDeposit                               int32            `json:"enter_deposit"`
-	AccountMaxLevel                            int32            `json:"account_max_level"`
-	MainSquadExpBonus                          int32            `json:"main_squad_exp_bonus"`
-	SupportSquadExpBonus                       int32            `json:"support_squad_exp_bonus"`
-	AccountExpRatio                            int32            `json:"account_exp_ratio"`
-	MissionToastLifeTime                       int32            `json:"mission_toast_life_time"`
-	ExpItemInsertLimit                         int32            `json:"exp_item_insert_limit"`
-	ExpItemInsertAccelTime                     int32            `json:"exp_item_insert_accel_time"`
-	CharacterLvUpCoefficient                   int32            `json:"character_lv_up_coefficient"`
-	EquipmentLvUpCoefficient                   int32            `json:"equipment_lv_up_coefficient"`
-	ExpEquipInsertLimit                        int32            `json:"exp_equip_insert_limit"`
-	EquipLvUpCoefficient                       int32            `json:"equip_lv_up_coefficient"`
-	NicknameLength                             int32            `json:"nickname_length"`
-	CraftDuration                              []int32          `json:"craft_duration"`
-	CraftLimitTime                             int32            `json:"craft_limit_time"`
-	ShiftingCraftDuration                      []int32          `json:"shifting_craft_duration"`
-	ShiftingCraftTicketConsumeAmount           int32            `json:"shifting_craft_ticket_consume_amount"`
-	ShiftingCraftSlotMaxCapacity               int32            `json:"shifting_craft_slot_max_capacity"`
-	CraftTicketItemUniqueId                    int32            `json:"craft_ticket_item_unique_id"`
-	CraftTicketConsumeAmount                   int32            `json:"craft_ticket_consume_amount"`
-	AcademyEnterCostType                       ParcelType       `json:"academy_enter_cost_type"`
-	AcademyEnterCostId                         int64            `json:"academy_enter_cost_id"`
-	AcademyTicketCost                          int32            `json:"academy_ticket_cost"`
-	MassangerMessageExpireDay                  int32            `json:"massanger_message_expire_day"`
-	CraftLeafNodeGenerateLv1Count              int32            `json:"craft_leaf_node_generate_lv1_count"`
-	CraftLeafNodeGenerateLv2Count              int32            `json:"craft_leaf_node_generate_lv2_count"`
-	TutorialGachaShopId                        int32            `json:"tutorial_gacha_shop_id"`
-	BeforehandGachaShopId                      int32            `json:"beforehand_gacha_shop_id"`
-	TutorialGachaGoodsId                       int32            `json:"tutorial_gacha_goods_id"`
-	EquipmentSlotOpenLevel                     []int32          `json:"equipment_slot_open_level"`
-	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
-	JoinOrCreateClanCoolTimeFromHour           int64            `json:"join_or_create_clan_cool_time_from_hour"`
-	ClanMaxMember                              int64            `json:"clan_max_member"`
-	ClanSearchResultCount                      int64            `json:"clan_search_result_count"`
-	ClanMaxApplicant                           int64            `json:"clan_max_applicant"`
-	ClanRejoinCoolTimeFromSecond               int64            `json:"clan_rejoin_cool_time_from_second"`
-	ClanWordBalloonMaxCharacter                int32            `json:"clan_word_balloon_max_character"`
-	CallNameRenameCoolTimeFromHour             int64            `json:"call_name_rename_cool_time_from_hour"`
-	CallNameMinimumLength                      int64            `json:"call_name_minimum_length"`
-	CallNameMaximumLength                      int64            `json:"call_name_maximum_length"`
-	LobbyToScreenModeWaitTime                  int64            `json:"lobby_to_screen_mode_wait_time"`
-	ScreenshotToLobbyButtonHideDelay           int64            `json:"screenshot_to_lobby_button_hide_delay"`
-	PrologueScenarioId01                       int64            `json:"prologue_scenario_id01"`
-	PrologueScenarioId02                       int64            `json:"prologue_scenario_id02"`
-	TutorialHardStage11                        int64            `json:"tutorial_hard_stage11"`
-	TutorialSpeedButtonStage                   int64            `json:"tutorial_speed_button_stage"`
-	TutorialCharacterDefaultCount              int64            `json:"tutorial_character_default_count"`
-	TutorialShopCategoryType                   ShopCategoryType `json:"tutorial_shop_category_type"`
-	AdventureStrategyPlayTimeLimitInSeconds    int64            `json:"adventure_strategy_play_time_limit_in_seconds"`
-	WeekDungoenTacticPlayTimeLimitInSeconds    int64            `json:"week_dungoen_tactic_play_time_limit_in_seconds"`
-	RaidTacticPlayTimeLimitInSeconds           int64            `json:"raid_tactic_play_time_limit_in_seconds"`
-	RaidOpponentListAmount                     int64            `json:"raid_opponent_list_amount"`
-	CraftBaseGoldRequired                      []int64          `json:"craft_base_gold_required"`
-	PostExpiredDayAttendance                   int32            `json:"post_expired_day_attendance"`
-	PostExpiredDayInventoryOverflow            int32            `json:"post_expired_day_inventory_overflow"`
-	PostExpiredDayGameManager                  int32            `json:"post_expired_day_game_manager"`
-	UiLabelCharacterWrap                       string           `json:"ui_label_character_wrap"`
-	RequestTimeOut                             float32          `json:"request_time_out"`
-	MailStorageSoftCap                         int32            `json:"mail_storage_soft_cap"`
-	MailStorageHardCap                         int32            `json:"mail_storage_hard_cap"`
-	ClearDeckStorageSize                       int32            `json:"clear_deck_storage_size"`
-	ClearDeckNoStarViewCount                   int32            `json:"clear_deck_no_star_view_count"`
-	ClearDeck1StarViewCount                    int32            `json:"clear_deck1_star_view_count"`
-	ClearDeck2StarViewCount                    int32            `json:"clear_deck2_star_view_count"`
-	ClearDeck3StarViewCount                    int32            `json:"clear_deck3_star_view_count"`
-	ExSkillLevelMax                            int32            `json:"ex_skill_level_max"`
-	PublicSkillLevelMax                        int32            `json:"public_skill_level_max"`
-	PassiveSkillLevelMax                       int32            `json:"passive_skill_level_max"`
-	ExtraPassiveSkillLevelMax                  int32            `json:"extra_passive_skill_level_max"`
-	AccountCommentMaxLength                    int32            `json:"account_comment_max_length"`
-	CafeSummonCoolTimeFromHour                 int32            `json:"cafe_summon_cool_time_from_hour"`
-	LimitedStageDailyClearCount                int64            `json:"limited_stage_daily_clear_count"`
-	LimitedStageEntryTimeLimit                 int64            `json:"limited_stage_entry_time_limit"`
-	LimitedStageEntryTimeBuffer                int64            `json:"limited_stage_entry_time_buffer"`
-	LimitedStagePointAmount                    int64            `json:"limited_stage_point_amount"`
-	LimitedStagePointPerApMin                  int64            `json:"limited_stage_point_per_ap_min"`
-	LimitedStagePointPerApMax                  int64            `json:"limited_stage_point_per_ap_max"`
-	AccountLinkReward                          int32            `json:"account_link_reward"`
-	MonthlyProductCheckDays                    int32            `json:"monthly_product_check_days"`
-	WeaponLvUpCoefficient                      int32            `json:"weapon_lv_up_coefficient"`
-	ShowRaidMyListCount                        int32            `json:"show_raid_my_list_count"`
-	RaidEnterCostType                          ParcelType       `json:"raid_enter_cost_type"`
-	RaidEnterCostId                            int64            `json:"raid_enter_cost_id"`
-	RaidTicketCost                             int64            `json:"raid_ticket_cost"`
-	TimeAttackDungeonScenarioId                string           `json:"time_attack_dungeon_scenario_id"`
-	TimeAttackDungoenPlayCountPerTicket        int32            `json:"time_attack_dungoen_play_count_per_ticket"`
-	TimeAttackDungeonEnterCostType             ParcelType       `json:"time_attack_dungeon_enter_cost_type"`
-	TimeAttackDungeonEnterCostId               int64            `json:"time_attack_dungeon_enter_cost_id"`
-	TimeAttackDungeonEnterCost                 int64            `json:"time_attack_dungeon_enter_cost"`
-	ClanLeaderTransferLastLoginLimit           int64            `json:"clan_leader_transfer_last_login_limit"`
-	MonthlyProductRepurchasePopupLimit         int32            `json:"monthly_product_repurchase_popup_limit"`
-	CommonFavorItemTags                        []Tag            `json:"common_favor_item_tags"`
-	MaxApMasterCoinPerWeek                     int64            `json:"max_ap_master_coin_per_week"`
-	CraftOpenExpTier1                          int64            `json:"craft_open_exp_tier1"`
-	CraftOpenExpTier2                          int64            `json:"craft_open_exp_tier2"`
-	CraftOpenExpTier3                          int64            `json:"craft_open_exp_tier3"`
-	CharacterEquipmentGearSlot                 int64            `json:"character_equipment_gear_slot"`
-	BirthDayDDay                               int32            `json:"birth_day_d_day"`
-	RecommendedFriendsLvDifferenceLimit        int32            `json:"recommended_friends_lv_difference_limit"`
-	DDosDetectCount                            int32            `json:"d_dos_detect_count"`
-	DDosCheckIntervalInSeconds                 int32            `json:"d_dos_check_interval_in_seconds"`
-	MaxFriendsCount                            int32            `json:"max_friends_count"`
-	MaxFriendsRequest                          int32            `json:"max_friends_request"`
-	FriendsSearchRequestCount                  int32            `json:"friends_search_request_count"`
-	FriendsMaxApplicant                        int32            `json:"friends_max_applicant"`
-	IdCardDefaultCharacterId                   int64            `json:"id_card_default_character_id"`
-	IdCardDefaultBgId                          int64            `json:"id_card_default_bg_id"`
-	WorldRaidGemEnterCost                      int64            `json:"world_raid_gem_enter_cost"`
-	WorldRaidGemEnterAmout                     int64            `json:"world_raid_gem_enter_amout"`
-	FriendIdCardCommentMaxLength               int64            `json:"friend_id_card_comment_max_length"`
-	FormationPresetNumberOfEchelonTab          int32            `json:"formation_preset_number_of_echelon_tab"`
-	FormationPresetNumberOfEchelon             int32            `json:"formation_preset_number_of_echelon"`
-	FormationPresetRecentNumberOfEchelon       int32            `json:"formation_preset_recent_number_of_echelon"`
-	FormationPresetEchelonTabTextLength        int32            `json:"formation_preset_echelon_tab_text_length"`
-	FormationPresetEchelonSlotTextLength       int32            `json:"formation_preset_echelon_slot_text_length"`
-	CharProfileRowIntervalKr                   int32            `json:"char_profile_row_interval_kr"`
-	CharProfileRowIntervalJp                   int32            `json:"char_profile_row_interval_jp"`
-	CharProfilePopupRowIntervalKr              int32            `json:"char_profile_popup_row_interval_kr"`
-	CharProfilePopupRowIntervalJp              int32            `json:"char_profile_popup_row_interval_jp"`
-	BeforehandGachaCount                       int32            `json:"beforehand_gacha_count"`
-	BeforehandGachaGroupId                     int32            `json:"beforehand_gacha_group_id"`
-	RenewalDisplayOrderDay                     int32            `json:"renewal_display_order_day"`
-	EmblemDefaultId                            int64            `json:"emblem_default_id"`
-	BirthdayMailStartDate                      string           `json:"birthday_mail_start_date"`
-	BirthdayMailRemainDate                     int32            `json:"birthday_mail_remain_date"`
-	BirthdayMailParcelType                     ParcelType       `json:"birthday_mail_parcel_type"`
-	BirthdayMailParcelId                       int64            `json:"birthday_mail_parcel_id"`
-	BirthdayMailParcelAmount                   int32            `json:"birthday_mail_parcel_amount"`
-	ClearDeckAverageDeckCount                  int32            `json:"clear_deck_average_deck_count"`
-	ClearDeckWorldRaidSaveConditionCoefficient int32            `json:"clear_deck_world_raid_save_condition_coefficient"`
-	ClearDeckShowCount                         int32            `json:"clear_deck_show_count"`
-	CharacterMaxLevel                          int32            `json:"character_max_level"`
-	PotentialBonusStatMaxLevelMaxHp            int32            `json:"potential_bonus_stat_max_level_max_hp"`
-	PotentialBonusStatMaxLevelAttackPower      int32            `json:"potential_bonus_stat_max_level_attack_power"`
-	PotentialBonusStatMaxLevelHealPower        int32            `json:"potential_bonus_stat_max_level_heal_power"`
-	PotentialOpenConditionCharacterLevel       int32            `json:"potential_open_condition_character_level"`
-	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
-	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
-	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
-	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
-	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
-	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
-	RankBracketPercentage1                     int32            `json:"rank_bracket_percentage1"`
-	RankBracketPercentage2                     int32            `json:"rank_bracket_percentage2"`
-	RankBracketPercentage3                     int32            `json:"rank_bracket_percentage3"`
-	RankBracketPercentage4                     int32            `json:"rank_bracket_percentage4"`
-	RankBracketPercentage5                     int32            `json:"rank_bracket_percentage5"`
-	RankBracketPercentage6                     int32            `json:"rank_bracket_percentage6"`
-	RankBracketPercentage7                     int32            `json:"rank_bracket_percentage7"`
-	ExpiryBattlePassItemReceiveDay             int32            `json:"expiry_battle_pass_item_receive_day"`
-	BattlePassFlavorTextIdleDurationMilliSec   int64            `json:"battle_pass_flavor_text_idle_duration_milli_sec"`
-	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
-	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
+	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
 	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
+	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
+	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
+	BattlePassFlavorTextIdleDurationMilliSec   int64            `json:"battle_pass_flavor_text_idle_duration_milli_sec"`
+	ExpiryBattlePassItemReceiveDay             int32            `json:"expiry_battle_pass_item_receive_day"`
+	RankBracketPercentage7                     int32            `json:"rank_bracket_percentage7"`
+	RankBracketPercentage6                     int32            `json:"rank_bracket_percentage6"`
+	RankBracketPercentage5                     int32            `json:"rank_bracket_percentage5"`
+	RankBracketPercentage4                     int32            `json:"rank_bracket_percentage4"`
+	RankBracketPercentage3                     int32            `json:"rank_bracket_percentage3"`
+	RankBracketPercentage2                     int32            `json:"rank_bracket_percentage2"`
+	RankBracketPercentage1                     int32            `json:"rank_bracket_percentage1"`
+	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
+	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
+	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
+	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
+	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
+	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
+	PotentialOpenConditionCharacterLevel       int32            `json:"potential_open_condition_character_level"`
+	PotentialBonusStatMaxLevelHealPower        int32            `json:"potential_bonus_stat_max_level_heal_power"`
+	PotentialBonusStatMaxLevelAttackPower      int32            `json:"potential_bonus_stat_max_level_attack_power"`
+	PotentialBonusStatMaxLevelMaxHp            int32            `json:"potential_bonus_stat_max_level_max_hp"`
+	CharacterMaxLevel                          int32            `json:"character_max_level"`
+	ClearDeckShowCount                         int32            `json:"clear_deck_show_count"`
+	ClearDeckWorldRaidSaveConditionCoefficient int32            `json:"clear_deck_world_raid_save_condition_coefficient"`
+	ClearDeckAverageDeckCount                  int32            `json:"clear_deck_average_deck_count"`
+	BirthdayMailParcelAmount                   int32            `json:"birthday_mail_parcel_amount"`
+	BirthdayMailParcelId                       int64            `json:"birthday_mail_parcel_id"`
+	BirthdayMailParcelType                     ParcelType       `json:"birthday_mail_parcel_type"`
+	BirthdayMailRemainDate                     int32            `json:"birthday_mail_remain_date"`
+	BirthdayMailStartDate                      string           `json:"birthday_mail_start_date"`
+	EmblemDefaultId                            int64            `json:"emblem_default_id"`
+	RenewalDisplayOrderDay                     int32            `json:"renewal_display_order_day"`
+	BeforehandGachaGroupId                     int32            `json:"beforehand_gacha_group_id"`
+	BeforehandGachaCount                       int32            `json:"beforehand_gacha_count"`
+	CharProfilePopupRowIntervalJp              int32            `json:"char_profile_popup_row_interval_jp"`
+	CharProfilePopupRowIntervalKr              int32            `json:"char_profile_popup_row_interval_kr"`
+	CharProfileRowIntervalJp                   int32            `json:"char_profile_row_interval_jp"`
+	CharProfileRowIntervalKr                   int32            `json:"char_profile_row_interval_kr"`
+	FormationPresetEchelonSlotTextLength       int32            `json:"formation_preset_echelon_slot_text_length"`
+	FormationPresetEchelonTabTextLength        int32            `json:"formation_preset_echelon_tab_text_length"`
+	FormationPresetRecentNumberOfEchelon       int32            `json:"formation_preset_recent_number_of_echelon"`
+	FormationPresetNumberOfEchelon             int32            `json:"formation_preset_number_of_echelon"`
+	FormationPresetNumberOfEchelonTab          int32            `json:"formation_preset_number_of_echelon_tab"`
+	FriendIdCardCommentMaxLength               int64            `json:"friend_id_card_comment_max_length"`
+	WorldRaidGemEnterAmout                     int64            `json:"world_raid_gem_enter_amout"`
+	WorldRaidGemEnterCost                      int64            `json:"world_raid_gem_enter_cost"`
+	IdCardDefaultBgId                          int64            `json:"id_card_default_bg_id"`
+	IdCardDefaultCharacterId                   int64            `json:"id_card_default_character_id"`
+	FriendsMaxApplicant                        int32            `json:"friends_max_applicant"`
+	FriendsSearchRequestCount                  int32            `json:"friends_search_request_count"`
+	MaxFriendsRequest                          int32            `json:"max_friends_request"`
+	MaxFriendsCount                            int32            `json:"max_friends_count"`
+	DDosCheckIntervalInSeconds                 int32            `json:"d_dos_check_interval_in_seconds"`
+	DDosDetectCount                            int32            `json:"d_dos_detect_count"`
+	RecommendedFriendsLvDifferenceLimit        int32            `json:"recommended_friends_lv_difference_limit"`
+	BirthDayDDay                               int32            `json:"birth_day_d_day"`
+	CharacterEquipmentGearSlot                 int64            `json:"character_equipment_gear_slot"`
+	CraftOpenExpTier3                          int64            `json:"craft_open_exp_tier3"`
+	CraftOpenExpTier2                          int64            `json:"craft_open_exp_tier2"`
+	CraftOpenExpTier1                          int64            `json:"craft_open_exp_tier1"`
+	MaxApMasterCoinPerWeek                     int64            `json:"max_ap_master_coin_per_week"`
+	CommonFavorItemTags                        []Tag            `json:"common_favor_item_tags"`
+	MonthlyProductRepurchasePopupLimit         int32            `json:"monthly_product_repurchase_popup_limit"`
+	ClanLeaderTransferLastLoginLimit           int64            `json:"clan_leader_transfer_last_login_limit"`
+	TimeAttackDungeonEnterCost                 int64            `json:"time_attack_dungeon_enter_cost"`
+	TimeAttackDungeonEnterCostId               int64            `json:"time_attack_dungeon_enter_cost_id"`
+	TimeAttackDungeonEnterCostType             ParcelType       `json:"time_attack_dungeon_enter_cost_type"`
+	TimeAttackDungoenPlayCountPerTicket        int32            `json:"time_attack_dungoen_play_count_per_ticket"`
+	TimeAttackDungeonScenarioId                string           `json:"time_attack_dungeon_scenario_id"`
+	RaidTicketCost                             int64            `json:"raid_ticket_cost"`
+	RaidEnterCostId                            int64            `json:"raid_enter_cost_id"`
+	RaidEnterCostType                          ParcelType       `json:"raid_enter_cost_type"`
+	ShowRaidMyListCount                        int32            `json:"show_raid_my_list_count"`
+	WeaponLvUpCoefficient                      int32            `json:"weapon_lv_up_coefficient"`
+	MonthlyProductCheckDays                    int32            `json:"monthly_product_check_days"`
+	AccountLinkReward                          int32            `json:"account_link_reward"`
+	LimitedStagePointPerApMax                  int64            `json:"limited_stage_point_per_ap_max"`
+	LimitedStagePointPerApMin                  int64            `json:"limited_stage_point_per_ap_min"`
+	LimitedStagePointAmount                    int64            `json:"limited_stage_point_amount"`
+	LimitedStageEntryTimeBuffer                int64            `json:"limited_stage_entry_time_buffer"`
+	LimitedStageEntryTimeLimit                 int64            `json:"limited_stage_entry_time_limit"`
+	LimitedStageDailyClearCount                int64            `json:"limited_stage_daily_clear_count"`
+	CafeSummonCoolTimeFromHour                 int32            `json:"cafe_summon_cool_time_from_hour"`
+	AccountCommentMaxLength                    int32            `json:"account_comment_max_length"`
+	ExtraPassiveSkillLevelMax                  int32            `json:"extra_passive_skill_level_max"`
+	PassiveSkillLevelMax                       int32            `json:"passive_skill_level_max"`
+	PublicSkillLevelMax                        int32            `json:"public_skill_level_max"`
+	ExSkillLevelMax                            int32            `json:"ex_skill_level_max"`
+	ClearDeck3StarViewCount                    int32            `json:"clear_deck3_star_view_count"`
+	ClearDeck2StarViewCount                    int32            `json:"clear_deck2_star_view_count"`
+	ClearDeck1StarViewCount                    int32            `json:"clear_deck1_star_view_count"`
+	ClearDeckNoStarViewCount                   int32            `json:"clear_deck_no_star_view_count"`
+	ClearDeckStorageSize                       int32            `json:"clear_deck_storage_size"`
+	MailStorageHardCap                         int32            `json:"mail_storage_hard_cap"`
+	MailStorageSoftCap                         int32            `json:"mail_storage_soft_cap"`
+	RequestTimeOut                             float32          `json:"request_time_out"`
+	UiLabelCharacterWrap                       string           `json:"ui_label_character_wrap"`
+	PostExpiredDayGameManager                  int32            `json:"post_expired_day_game_manager"`
+	PostExpiredDayInventoryOverflow            int32            `json:"post_expired_day_inventory_overflow"`
+	PostExpiredDayAttendance                   int32            `json:"post_expired_day_attendance"`
+	CraftBaseGoldRequired                      []int64          `json:"craft_base_gold_required"`
+	RaidOpponentListAmount                     int64            `json:"raid_opponent_list_amount"`
+	RaidTacticPlayTimeLimitInSeconds           int64            `json:"raid_tactic_play_time_limit_in_seconds"`
+	WeekDungoenTacticPlayTimeLimitInSeconds    int64            `json:"week_dungoen_tactic_play_time_limit_in_seconds"`
+	AdventureStrategyPlayTimeLimitInSeconds    int64            `json:"adventure_strategy_play_time_limit_in_seconds"`
+	TutorialShopCategoryType                   ShopCategoryType `json:"tutorial_shop_category_type"`
+	TutorialCharacterDefaultCount              int64            `json:"tutorial_character_default_count"`
+	TutorialSpeedButtonStage                   int64            `json:"tutorial_speed_button_stage"`
+	TutorialHardStage11                        int64            `json:"tutorial_hard_stage11"`
+	PrologueScenarioId02                       int64            `json:"prologue_scenario_id02"`
+	PrologueScenarioId01                       int64            `json:"prologue_scenario_id01"`
+	ScreenshotToLobbyButtonHideDelay           int64            `json:"screenshot_to_lobby_button_hide_delay"`
+	LobbyToScreenModeWaitTime                  int64            `json:"lobby_to_screen_mode_wait_time"`
+	CallNameMaximumLength                      int64            `json:"call_name_maximum_length"`
+	CallNameMinimumLength                      int64            `json:"call_name_minimum_length"`
+	CallNameRenameCoolTimeFromHour             int64            `json:"call_name_rename_cool_time_from_hour"`
+	ClanWordBalloonMaxCharacter                int32            `json:"clan_word_balloon_max_character"`
+	ClanRejoinCoolTimeFromSecond               int64            `json:"clan_rejoin_cool_time_from_second"`
+	ClanMaxApplicant                           int64            `json:"clan_max_applicant"`
+	ClanSearchResultCount                      int64            `json:"clan_search_result_count"`
+	ClanMaxMember                              int64            `json:"clan_max_member"`
+	JoinOrCreateClanCoolTimeFromHour           int64            `json:"join_or_create_clan_cool_time_from_hour"`
+	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
+	EquipmentSlotOpenLevel                     []int32          `json:"equipment_slot_open_level"`
+	TutorialGachaGoodsId                       int32            `json:"tutorial_gacha_goods_id"`
+	BeforehandGachaShopId                      int32            `json:"beforehand_gacha_shop_id"`
+	TutorialGachaShopId                        int32            `json:"tutorial_gacha_shop_id"`
+	CraftLeafNodeGenerateLv2Count              int32            `json:"craft_leaf_node_generate_lv2_count"`
+	CraftLeafNodeGenerateLv1Count              int32            `json:"craft_leaf_node_generate_lv1_count"`
+	MassangerMessageExpireDay                  int32            `json:"massanger_message_expire_day"`
+	AcademyTicketCost                          int32            `json:"academy_ticket_cost"`
+	AcademyEnterCostId                         int64            `json:"academy_enter_cost_id"`
+	AcademyEnterCostType                       ParcelType       `json:"academy_enter_cost_type"`
+	CraftTicketConsumeAmount                   int32            `json:"craft_ticket_consume_amount"`
+	CraftTicketItemUniqueId                    int32            `json:"craft_ticket_item_unique_id"`
+	ShiftingCraftSlotMaxCapacity               int32            `json:"shifting_craft_slot_max_capacity"`
+	ShiftingCraftTicketConsumeAmount           int32            `json:"shifting_craft_ticket_consume_amount"`
+	ShiftingCraftDuration                      []int32          `json:"shifting_craft_duration"`
+	CraftLimitTime                             int32            `json:"craft_limit_time"`
+	CraftDuration                              []int32          `json:"craft_duration"`
+	NicknameLength                             int32            `json:"nickname_length"`
+	EquipLvUpCoefficient                       int32            `json:"equip_lv_up_coefficient"`
+	ExpEquipInsertLimit                        int32            `json:"exp_equip_insert_limit"`
+	EquipmentLvUpCoefficient                   int32            `json:"equipment_lv_up_coefficient"`
+	CharacterLvUpCoefficient                   int32            `json:"character_lv_up_coefficient"`
+	ExpItemInsertAccelTime                     int32            `json:"exp_item_insert_accel_time"`
+	ExpItemInsertLimit                         int32            `json:"exp_item_insert_limit"`
+	MissionToastLifeTime                       int32            `json:"mission_toast_life_time"`
+	AccountExpRatio                            int32            `json:"account_exp_ratio"`
+	SupportSquadExpBonus                       int32            `json:"support_squad_exp_bonus"`
+	MainSquadExpBonus                          int32            `json:"main_squad_exp_bonus"`
+	AccountMaxLevel                            int32            `json:"account_max_level"`
+	EnterDeposit                               int32            `json:"enter_deposit"`
+	StageFailedCurrencyRefundRate              int32            `json:"stage_failed_currency_refund_rate"`
+	WeekDungeonFindGiftRewardLimitCount        int32            `json:"week_dungeon_find_gift_reward_limit_count"`
+	CafeSetGroupApplyCount                     int32            `json:"cafe_set_group_apply_count"`
+	CafeProductionDecimalPosition              int32            `json:"cafe_production_decimal_position"`
+	CafeAutoChargePeriodInMsc                  int32            `json:"cafe_auto_charge_period_in_msc"`
+	FindGiftTimeLimit                          int32            `json:"find_gift_time_limit"`
+	CafeBubbleIdleDurationMilliSec             int64            `json:"cafe_bubble_idle_duration_milli_sec"`
+	CafeMonologueDefaultDuration               int64            `json:"cafe_monologue_default_duration"`
+	CafeMonologueIntervalMillisec              int64            `json:"cafe_monologue_interval_millisec"`
+	CafePresetSlotCount                        int32            `json:"cafe_preset_slot_count"`
+	AcademyFavorZoneId                         int64            `json:"academy_favor_zone_id"`
+	GachaPercentage                            int32            `json:"gacha_percentage"`
+	BaseTimeScale                              int64            `json:"base_time_scale"`
+	TacticRankClearTime                        int32            `json:"tactic_rank_clear_time"`
+	HardStageCount                             int32            `json:"hard_stage_count"`
+	HardAdventurePlayCountRecoverDailyNumber   int32            `json:"hard_adventure_play_count_recover_daily_number"`
+	CampaignMainStageBestRecord                int32            `json:"campaign_main_stage_best_record"`
+	CampaignMainStageMaxRank                   int32            `json:"campaign_main_stage_max_rank"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -190,198 +191,199 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCommon"))
 	}
 	ConstCommonExcelStart(b)
-	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddHardAdventurePlayCountRecoverDailyNumber(b, fbsutils.Convert(t.HardAdventurePlayCountRecoverDailyNumber, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddHardStageCount(b, fbsutils.Convert(t.HardStageCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTacticRankClearTime(b, fbsutils.Convert(t.TacticRankClearTime, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBaseTimeScale(b, fbsutils.Convert(t.BaseTimeScale, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddGachaPercentage(b, fbsutils.Convert(t.GachaPercentage, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAcademyFavorZoneId(b, fbsutils.Convert(t.AcademyFavorZoneId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafePresetSlotCount(b, fbsutils.Convert(t.CafePresetSlotCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeMonologueIntervalMillisec(b, fbsutils.Convert(t.CafeMonologueIntervalMillisec, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeMonologueDefaultDuration(b, fbsutils.Convert(t.CafeMonologueDefaultDuration, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeBubbleIdleDurationMilliSec(b, fbsutils.Convert(t.CafeBubbleIdleDurationMilliSec, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFindGiftTimeLimit(b, fbsutils.Convert(t.FindGiftTimeLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeAutoChargePeriodInMsc(b, fbsutils.Convert(t.CafeAutoChargePeriodInMsc, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeProductionDecimalPosition(b, fbsutils.Convert(t.CafeProductionDecimalPosition, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeSetGroupApplyCount(b, fbsutils.Convert(t.CafeSetGroupApplyCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddWeekDungeonFindGiftRewardLimitCount(b, fbsutils.Convert(t.WeekDungeonFindGiftRewardLimitCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddStageFailedCurrencyRefundRate(b, fbsutils.Convert(t.StageFailedCurrencyRefundRate, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddEnterDeposit(b, fbsutils.Convert(t.EnterDeposit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAccountMaxLevel(b, fbsutils.Convert(t.AccountMaxLevel, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMainSquadExpBonus(b, fbsutils.Convert(t.MainSquadExpBonus, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddSupportSquadExpBonus(b, fbsutils.Convert(t.SupportSquadExpBonus, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAccountExpRatio(b, fbsutils.Convert(t.AccountExpRatio, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMissionToastLifeTime(b, fbsutils.Convert(t.MissionToastLifeTime, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExpItemInsertLimit(b, fbsutils.Convert(t.ExpItemInsertLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExpItemInsertAccelTime(b, fbsutils.Convert(t.ExpItemInsertAccelTime, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharacterLvUpCoefficient(b, fbsutils.Convert(t.CharacterLvUpCoefficient, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddEquipmentLvUpCoefficient(b, fbsutils.Convert(t.EquipmentLvUpCoefficient, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExpEquipInsertLimit(b, fbsutils.Convert(t.ExpEquipInsertLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddEquipLvUpCoefficient(b, fbsutils.Convert(t.EquipLvUpCoefficient, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddNicknameLength(b, fbsutils.Convert(t.NicknameLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelStartCraftDurationVector(b, len(t.CraftDuration))
-	for i := range len(t.CraftDuration) {
-		b.PrependInt32(fbsutils.Convert(t.CraftDuration[len(t.CraftDuration)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConstCommonExcelAddCraftDuration(b, b.EndVector(len(t.CraftDuration)))
-	ConstCommonExcelAddCraftLimitTime(b, fbsutils.Convert(t.CraftLimitTime, t.FlatBuffer.TableKey))
-	ConstCommonExcelStartShiftingCraftDurationVector(b, len(t.ShiftingCraftDuration))
-	for i := range len(t.ShiftingCraftDuration) {
-		b.PrependInt32(fbsutils.Convert(t.ShiftingCraftDuration[len(t.ShiftingCraftDuration)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConstCommonExcelAddShiftingCraftDuration(b, b.EndVector(len(t.ShiftingCraftDuration)))
-	ConstCommonExcelAddShiftingCraftTicketConsumeAmount(b, fbsutils.Convert(t.ShiftingCraftTicketConsumeAmount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddShiftingCraftSlotMaxCapacity(b, fbsutils.Convert(t.ShiftingCraftSlotMaxCapacity, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftTicketItemUniqueId(b, fbsutils.Convert(t.CraftTicketItemUniqueId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftTicketConsumeAmount(b, fbsutils.Convert(t.CraftTicketConsumeAmount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAcademyEnterCostType(b, fbsutils.Convert(t.AcademyEnterCostType, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAcademyEnterCostId(b, fbsutils.Convert(t.AcademyEnterCostId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAcademyTicketCost(b, fbsutils.Convert(t.AcademyTicketCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMassangerMessageExpireDay(b, fbsutils.Convert(t.MassangerMessageExpireDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftLeafNodeGenerateLv1Count(b, fbsutils.Convert(t.CraftLeafNodeGenerateLv1Count, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftLeafNodeGenerateLv2Count(b, fbsutils.Convert(t.CraftLeafNodeGenerateLv2Count, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialGachaShopId(b, fbsutils.Convert(t.TutorialGachaShopId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBeforehandGachaShopId(b, fbsutils.Convert(t.BeforehandGachaShopId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialGachaGoodsId(b, fbsutils.Convert(t.TutorialGachaGoodsId, t.FlatBuffer.TableKey))
-	ConstCommonExcelStartEquipmentSlotOpenLevelVector(b, len(t.EquipmentSlotOpenLevel))
-	for i := range len(t.EquipmentSlotOpenLevel) {
-		b.PrependInt32(fbsutils.Convert(t.EquipmentSlotOpenLevel[len(t.EquipmentSlotOpenLevel)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConstCommonExcelAddEquipmentSlotOpenLevel(b, b.EndVector(len(t.EquipmentSlotOpenLevel)))
-	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddJoinOrCreateClanCoolTimeFromHour(b, fbsutils.Convert(t.JoinOrCreateClanCoolTimeFromHour, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanMaxMember(b, fbsutils.Convert(t.ClanMaxMember, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Convert(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanMaxApplicant(b, fbsutils.Convert(t.ClanMaxApplicant, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanRejoinCoolTimeFromSecond(b, fbsutils.Convert(t.ClanRejoinCoolTimeFromSecond, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanWordBalloonMaxCharacter(b, fbsutils.Convert(t.ClanWordBalloonMaxCharacter, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCallNameRenameCoolTimeFromHour(b, fbsutils.Convert(t.CallNameRenameCoolTimeFromHour, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCallNameMinimumLength(b, fbsutils.Convert(t.CallNameMinimumLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCallNameMaximumLength(b, fbsutils.Convert(t.CallNameMaximumLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLobbyToScreenModeWaitTime(b, fbsutils.Convert(t.LobbyToScreenModeWaitTime, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddScreenshotToLobbyButtonHideDelay(b, fbsutils.Convert(t.ScreenshotToLobbyButtonHideDelay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPrologueScenarioId01(b, fbsutils.Convert(t.PrologueScenarioId01, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPrologueScenarioId02(b, fbsutils.Convert(t.PrologueScenarioId02, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialHardStage11(b, fbsutils.Convert(t.TutorialHardStage11, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialSpeedButtonStage(b, fbsutils.Convert(t.TutorialSpeedButtonStage, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialCharacterDefaultCount(b, fbsutils.Convert(t.TutorialCharacterDefaultCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTutorialShopCategoryType(b, fbsutils.Convert(t.TutorialShopCategoryType, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAdventureStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.AdventureStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddWeekDungoenTacticPlayTimeLimitInSeconds(b, fbsutils.Convert(t.WeekDungoenTacticPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRaidTacticPlayTimeLimitInSeconds(b, fbsutils.Convert(t.RaidTacticPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRaidOpponentListAmount(b, fbsutils.Convert(t.RaidOpponentListAmount, t.FlatBuffer.TableKey))
-	ConstCommonExcelStartCraftBaseGoldRequiredVector(b, len(t.CraftBaseGoldRequired))
-	for i := range len(t.CraftBaseGoldRequired) {
-		b.PrependInt64(fbsutils.Convert(t.CraftBaseGoldRequired[len(t.CraftBaseGoldRequired)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConstCommonExcelAddCraftBaseGoldRequired(b, b.EndVector(len(t.CraftBaseGoldRequired)))
-	ConstCommonExcelAddPostExpiredDayAttendance(b, fbsutils.Convert(t.PostExpiredDayAttendance, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPostExpiredDayInventoryOverflow(b, fbsutils.Convert(t.PostExpiredDayInventoryOverflow, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPostExpiredDayGameManager(b, fbsutils.Convert(t.PostExpiredDayGameManager, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddUiLabelCharacterWrap(b, b.CreateString(fbsutils.Convert(t.UiLabelCharacterWrap, t.FlatBuffer.TableKey)))
-	ConstCommonExcelAddRequestTimeOut(b, fbsutils.Convert(t.RequestTimeOut, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMailStorageSoftCap(b, fbsutils.Convert(t.MailStorageSoftCap, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMailStorageHardCap(b, fbsutils.Convert(t.MailStorageHardCap, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeckStorageSize(b, fbsutils.Convert(t.ClearDeckStorageSize, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeckNoStarViewCount(b, fbsutils.Convert(t.ClearDeckNoStarViewCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeck1StarViewCount(b, fbsutils.Convert(t.ClearDeck1StarViewCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeck2StarViewCount(b, fbsutils.Convert(t.ClearDeck2StarViewCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeck3StarViewCount(b, fbsutils.Convert(t.ClearDeck3StarViewCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExSkillLevelMax(b, fbsutils.Convert(t.ExSkillLevelMax, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPublicSkillLevelMax(b, fbsutils.Convert(t.PublicSkillLevelMax, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPassiveSkillLevelMax(b, fbsutils.Convert(t.PassiveSkillLevelMax, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExtraPassiveSkillLevelMax(b, fbsutils.Convert(t.ExtraPassiveSkillLevelMax, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAccountCommentMaxLength(b, fbsutils.Convert(t.AccountCommentMaxLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeSummonCoolTimeFromHour(b, fbsutils.Convert(t.CafeSummonCoolTimeFromHour, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStageDailyClearCount(b, fbsutils.Convert(t.LimitedStageDailyClearCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStageEntryTimeLimit(b, fbsutils.Convert(t.LimitedStageEntryTimeLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStageEntryTimeBuffer(b, fbsutils.Convert(t.LimitedStageEntryTimeBuffer, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStagePointAmount(b, fbsutils.Convert(t.LimitedStagePointAmount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStagePointPerApMin(b, fbsutils.Convert(t.LimitedStagePointPerApMin, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLimitedStagePointPerApMax(b, fbsutils.Convert(t.LimitedStagePointPerApMax, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAccountLinkReward(b, fbsutils.Convert(t.AccountLinkReward, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMonthlyProductCheckDays(b, fbsutils.Convert(t.MonthlyProductCheckDays, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddWeaponLvUpCoefficient(b, fbsutils.Convert(t.WeaponLvUpCoefficient, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddShowRaidMyListCount(b, fbsutils.Convert(t.ShowRaidMyListCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRaidEnterCostType(b, fbsutils.Convert(t.RaidEnterCostType, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRaidEnterCostId(b, fbsutils.Convert(t.RaidEnterCostId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRaidTicketCost(b, fbsutils.Convert(t.RaidTicketCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey)))
-	ConstCommonExcelAddTimeAttackDungoenPlayCountPerTicket(b, fbsutils.Convert(t.TimeAttackDungoenPlayCountPerTicket, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonEnterCostType(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostType, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonEnterCostId(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonEnterCost(b, fbsutils.Convert(t.TimeAttackDungeonEnterCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClanLeaderTransferLastLoginLimit(b, fbsutils.Convert(t.ClanLeaderTransferLastLoginLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMonthlyProductRepurchasePopupLimit(b, fbsutils.Convert(t.MonthlyProductRepurchasePopupLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(b, fbsutils.Convert(t.CafeSummonTicketBuyLimitForValidate, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBattlePassExpIconPath(b, b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddBattlePassEndImminentDay(b, fbsutils.Convert(t.BattlePassEndImminentDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBattlePassFlavorTextIdleDurationMilliSec(b, fbsutils.Convert(t.BattlePassFlavorTextIdleDurationMilliSec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpiryBattlePassItemReceiveDay(b, fbsutils.Convert(t.ExpiryBattlePassItemReceiveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage7(b, fbsutils.Convert(t.RankBracketPercentage7, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage6(b, fbsutils.Convert(t.RankBracketPercentage6, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage5(b, fbsutils.Convert(t.RankBracketPercentage5, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage4(b, fbsutils.Convert(t.RankBracketPercentage4, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage3(b, fbsutils.Convert(t.RankBracketPercentage3, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage2(b, fbsutils.Convert(t.RankBracketPercentage2, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRankBracketPercentage1(b, fbsutils.Convert(t.RankBracketPercentage1, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(b, fbsutils.Convert(t.CafeTravelSyncIntervalByMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinLastLogin(b, fbsutils.Convert(t.CafeRandomVisitMinLastLogin, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMaxBlockedUserCount(b, fbsutils.Convert(t.MaxBlockedUserCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAssistStrangerMaxLevel(b, fbsutils.Convert(t.AssistStrangerMaxLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPotentialOpenConditionCharacterLevel(b, fbsutils.Convert(t.PotentialOpenConditionCharacterLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPotentialBonusStatMaxLevelHealPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelHealPower, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPotentialBonusStatMaxLevelAttackPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelAttackPower, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPotentialBonusStatMaxLevelMaxHp(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelMaxHp, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharacterMaxLevel(b, fbsutils.Convert(t.CharacterMaxLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckShowCount(b, fbsutils.Convert(t.ClearDeckShowCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckWorldRaidSaveConditionCoefficient(b, fbsutils.Convert(t.ClearDeckWorldRaidSaveConditionCoefficient, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckAverageDeckCount(b, fbsutils.Convert(t.ClearDeckAverageDeckCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailParcelAmount(b, fbsutils.Convert(t.BirthdayMailParcelAmount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailParcelId(b, fbsutils.Convert(t.BirthdayMailParcelId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailParcelType(b, fbsutils.Convert(t.BirthdayMailParcelType, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailRemainDate(b, fbsutils.Convert(t.BirthdayMailRemainDate, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailStartDate(b, b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Convert(t.EmblemDefaultId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Convert(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Convert(t.BeforehandGachaGroupId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBeforehandGachaCount(b, fbsutils.Convert(t.BeforehandGachaCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharProfilePopupRowIntervalJp(b, fbsutils.Convert(t.CharProfilePopupRowIntervalJp, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharProfilePopupRowIntervalKr(b, fbsutils.Convert(t.CharProfilePopupRowIntervalKr, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharProfileRowIntervalJp(b, fbsutils.Convert(t.CharProfileRowIntervalJp, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharProfileRowIntervalKr(b, fbsutils.Convert(t.CharProfileRowIntervalKr, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFormationPresetEchelonSlotTextLength(b, fbsutils.Convert(t.FormationPresetEchelonSlotTextLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFormationPresetEchelonTabTextLength(b, fbsutils.Convert(t.FormationPresetEchelonTabTextLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFormationPresetRecentNumberOfEchelon(b, fbsutils.Convert(t.FormationPresetRecentNumberOfEchelon, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFormationPresetNumberOfEchelon(b, fbsutils.Convert(t.FormationPresetNumberOfEchelon, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFormationPresetNumberOfEchelonTab(b, fbsutils.Convert(t.FormationPresetNumberOfEchelonTab, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFriendIdCardCommentMaxLength(b, fbsutils.Convert(t.FriendIdCardCommentMaxLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddWorldRaidGemEnterAmout(b, fbsutils.Convert(t.WorldRaidGemEnterAmout, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddWorldRaidGemEnterCost(b, fbsutils.Convert(t.WorldRaidGemEnterCost, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddIdCardDefaultBgId(b, fbsutils.Convert(t.IdCardDefaultBgId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddIdCardDefaultCharacterId(b, fbsutils.Convert(t.IdCardDefaultCharacterId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFriendsMaxApplicant(b, fbsutils.Convert(t.FriendsMaxApplicant, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFriendsSearchRequestCount(b, fbsutils.Convert(t.FriendsSearchRequestCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMaxFriendsRequest(b, fbsutils.Convert(t.MaxFriendsRequest, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMaxFriendsCount(b, fbsutils.Convert(t.MaxFriendsCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddDDosCheckIntervalInSeconds(b, fbsutils.Convert(t.DDosCheckIntervalInSeconds, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddDDosDetectCount(b, fbsutils.Convert(t.DDosDetectCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRecommendedFriendsLvDifferenceLimit(b, fbsutils.Convert(t.RecommendedFriendsLvDifferenceLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthDayDDay(b, fbsutils.Convert(t.BirthDayDDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharacterEquipmentGearSlot(b, fbsutils.Convert(t.CharacterEquipmentGearSlot, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftOpenExpTier3(b, fbsutils.Convert(t.CraftOpenExpTier3, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftOpenExpTier2(b, fbsutils.Convert(t.CraftOpenExpTier2, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftOpenExpTier1(b, fbsutils.Convert(t.CraftOpenExpTier1, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMaxApMasterCoinPerWeek(b, fbsutils.Convert(t.MaxApMasterCoinPerWeek, t.FlatBuffer.TableKey))
 	ConstCommonExcelStartCommonFavorItemTagsVector(b, len(t.CommonFavorItemTags))
 	for i := range len(t.CommonFavorItemTags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.CommonFavorItemTags[len(t.CommonFavorItemTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConstCommonExcelAddCommonFavorItemTags(b, b.EndVector(len(t.CommonFavorItemTags)))
-	ConstCommonExcelAddMaxApMasterCoinPerWeek(b, fbsutils.Convert(t.MaxApMasterCoinPerWeek, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftOpenExpTier1(b, fbsutils.Convert(t.CraftOpenExpTier1, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftOpenExpTier2(b, fbsutils.Convert(t.CraftOpenExpTier2, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCraftOpenExpTier3(b, fbsutils.Convert(t.CraftOpenExpTier3, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharacterEquipmentGearSlot(b, fbsutils.Convert(t.CharacterEquipmentGearSlot, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthDayDDay(b, fbsutils.Convert(t.BirthDayDDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRecommendedFriendsLvDifferenceLimit(b, fbsutils.Convert(t.RecommendedFriendsLvDifferenceLimit, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddDDosDetectCount(b, fbsutils.Convert(t.DDosDetectCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddDDosCheckIntervalInSeconds(b, fbsutils.Convert(t.DDosCheckIntervalInSeconds, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMaxFriendsCount(b, fbsutils.Convert(t.MaxFriendsCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMaxFriendsRequest(b, fbsutils.Convert(t.MaxFriendsRequest, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFriendsSearchRequestCount(b, fbsutils.Convert(t.FriendsSearchRequestCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFriendsMaxApplicant(b, fbsutils.Convert(t.FriendsMaxApplicant, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddIdCardDefaultCharacterId(b, fbsutils.Convert(t.IdCardDefaultCharacterId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddIdCardDefaultBgId(b, fbsutils.Convert(t.IdCardDefaultBgId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddWorldRaidGemEnterCost(b, fbsutils.Convert(t.WorldRaidGemEnterCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddWorldRaidGemEnterAmout(b, fbsutils.Convert(t.WorldRaidGemEnterAmout, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFriendIdCardCommentMaxLength(b, fbsutils.Convert(t.FriendIdCardCommentMaxLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFormationPresetNumberOfEchelonTab(b, fbsutils.Convert(t.FormationPresetNumberOfEchelonTab, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFormationPresetNumberOfEchelon(b, fbsutils.Convert(t.FormationPresetNumberOfEchelon, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFormationPresetRecentNumberOfEchelon(b, fbsutils.Convert(t.FormationPresetRecentNumberOfEchelon, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFormationPresetEchelonTabTextLength(b, fbsutils.Convert(t.FormationPresetEchelonTabTextLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddFormationPresetEchelonSlotTextLength(b, fbsutils.Convert(t.FormationPresetEchelonSlotTextLength, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharProfileRowIntervalKr(b, fbsutils.Convert(t.CharProfileRowIntervalKr, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharProfileRowIntervalJp(b, fbsutils.Convert(t.CharProfileRowIntervalJp, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharProfilePopupRowIntervalKr(b, fbsutils.Convert(t.CharProfilePopupRowIntervalKr, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharProfilePopupRowIntervalJp(b, fbsutils.Convert(t.CharProfilePopupRowIntervalJp, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBeforehandGachaCount(b, fbsutils.Convert(t.BeforehandGachaCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Convert(t.BeforehandGachaGroupId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Convert(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Convert(t.EmblemDefaultId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailStartDate(b, b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey)))
-	ConstCommonExcelAddBirthdayMailRemainDate(b, fbsutils.Convert(t.BirthdayMailRemainDate, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailParcelType(b, fbsutils.Convert(t.BirthdayMailParcelType, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailParcelId(b, fbsutils.Convert(t.BirthdayMailParcelId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailParcelAmount(b, fbsutils.Convert(t.BirthdayMailParcelAmount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeckAverageDeckCount(b, fbsutils.Convert(t.ClearDeckAverageDeckCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeckWorldRaidSaveConditionCoefficient(b, fbsutils.Convert(t.ClearDeckWorldRaidSaveConditionCoefficient, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddClearDeckShowCount(b, fbsutils.Convert(t.ClearDeckShowCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharacterMaxLevel(b, fbsutils.Convert(t.CharacterMaxLevel, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPotentialBonusStatMaxLevelMaxHp(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelMaxHp, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPotentialBonusStatMaxLevelAttackPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelAttackPower, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPotentialBonusStatMaxLevelHealPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelHealPower, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddPotentialOpenConditionCharacterLevel(b, fbsutils.Convert(t.PotentialOpenConditionCharacterLevel, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAssistStrangerMaxLevel(b, fbsutils.Convert(t.AssistStrangerMaxLevel, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddMaxBlockedUserCount(b, fbsutils.Convert(t.MaxBlockedUserCount, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeRandomVisitMinLastLogin(b, fbsutils.Convert(t.CafeRandomVisitMinLastLogin, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(b, fbsutils.Convert(t.CafeTravelSyncIntervalByMillisec, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage1(b, fbsutils.Convert(t.RankBracketPercentage1, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage2(b, fbsutils.Convert(t.RankBracketPercentage2, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage3(b, fbsutils.Convert(t.RankBracketPercentage3, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage4(b, fbsutils.Convert(t.RankBracketPercentage4, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage5(b, fbsutils.Convert(t.RankBracketPercentage5, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage6(b, fbsutils.Convert(t.RankBracketPercentage6, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddRankBracketPercentage7(b, fbsutils.Convert(t.RankBracketPercentage7, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddExpiryBattlePassItemReceiveDay(b, fbsutils.Convert(t.ExpiryBattlePassItemReceiveDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBattlePassFlavorTextIdleDurationMilliSec(b, fbsutils.Convert(t.BattlePassFlavorTextIdleDurationMilliSec, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBattlePassEndImminentDay(b, fbsutils.Convert(t.BattlePassEndImminentDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBattlePassExpIconPath(b, b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey)))
-	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMonthlyProductRepurchasePopupLimit(b, fbsutils.Convert(t.MonthlyProductRepurchasePopupLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanLeaderTransferLastLoginLimit(b, fbsutils.Convert(t.ClanLeaderTransferLastLoginLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungeonEnterCost(b, fbsutils.Convert(t.TimeAttackDungeonEnterCost, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungeonEnterCostId(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungeonEnterCostType(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostType, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungoenPlayCountPerTicket(b, fbsutils.Convert(t.TimeAttackDungoenPlayCountPerTicket, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddRaidTicketCost(b, fbsutils.Convert(t.RaidTicketCost, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRaidEnterCostId(b, fbsutils.Convert(t.RaidEnterCostId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRaidEnterCostType(b, fbsutils.Convert(t.RaidEnterCostType, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddShowRaidMyListCount(b, fbsutils.Convert(t.ShowRaidMyListCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddWeaponLvUpCoefficient(b, fbsutils.Convert(t.WeaponLvUpCoefficient, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMonthlyProductCheckDays(b, fbsutils.Convert(t.MonthlyProductCheckDays, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAccountLinkReward(b, fbsutils.Convert(t.AccountLinkReward, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStagePointPerApMax(b, fbsutils.Convert(t.LimitedStagePointPerApMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStagePointPerApMin(b, fbsutils.Convert(t.LimitedStagePointPerApMin, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStagePointAmount(b, fbsutils.Convert(t.LimitedStagePointAmount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStageEntryTimeBuffer(b, fbsutils.Convert(t.LimitedStageEntryTimeBuffer, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStageEntryTimeLimit(b, fbsutils.Convert(t.LimitedStageEntryTimeLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLimitedStageDailyClearCount(b, fbsutils.Convert(t.LimitedStageDailyClearCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeSummonCoolTimeFromHour(b, fbsutils.Convert(t.CafeSummonCoolTimeFromHour, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAccountCommentMaxLength(b, fbsutils.Convert(t.AccountCommentMaxLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExtraPassiveSkillLevelMax(b, fbsutils.Convert(t.ExtraPassiveSkillLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPassiveSkillLevelMax(b, fbsutils.Convert(t.PassiveSkillLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPublicSkillLevelMax(b, fbsutils.Convert(t.PublicSkillLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExSkillLevelMax(b, fbsutils.Convert(t.ExSkillLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeck3StarViewCount(b, fbsutils.Convert(t.ClearDeck3StarViewCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeck2StarViewCount(b, fbsutils.Convert(t.ClearDeck2StarViewCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeck1StarViewCount(b, fbsutils.Convert(t.ClearDeck1StarViewCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckNoStarViewCount(b, fbsutils.Convert(t.ClearDeckNoStarViewCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckStorageSize(b, fbsutils.Convert(t.ClearDeckStorageSize, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMailStorageHardCap(b, fbsutils.Convert(t.MailStorageHardCap, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMailStorageSoftCap(b, fbsutils.Convert(t.MailStorageSoftCap, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRequestTimeOut(b, fbsutils.Convert(t.RequestTimeOut, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddUiLabelCharacterWrap(b, b.CreateString(fbsutils.Convert(t.UiLabelCharacterWrap, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddPostExpiredDayGameManager(b, fbsutils.Convert(t.PostExpiredDayGameManager, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPostExpiredDayInventoryOverflow(b, fbsutils.Convert(t.PostExpiredDayInventoryOverflow, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPostExpiredDayAttendance(b, fbsutils.Convert(t.PostExpiredDayAttendance, t.FlatBuffer.TableKey))
+	ConstCommonExcelStartCraftBaseGoldRequiredVector(b, len(t.CraftBaseGoldRequired))
+	for i := range len(t.CraftBaseGoldRequired) {
+		b.PrependInt64(fbsutils.Convert(t.CraftBaseGoldRequired[len(t.CraftBaseGoldRequired)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConstCommonExcelAddCraftBaseGoldRequired(b, b.EndVector(len(t.CraftBaseGoldRequired)))
+	ConstCommonExcelAddRaidOpponentListAmount(b, fbsutils.Convert(t.RaidOpponentListAmount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRaidTacticPlayTimeLimitInSeconds(b, fbsutils.Convert(t.RaidTacticPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddWeekDungoenTacticPlayTimeLimitInSeconds(b, fbsutils.Convert(t.WeekDungoenTacticPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAdventureStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.AdventureStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTutorialShopCategoryType(b, fbsutils.Convert(t.TutorialShopCategoryType, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTutorialCharacterDefaultCount(b, fbsutils.Convert(t.TutorialCharacterDefaultCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTutorialSpeedButtonStage(b, fbsutils.Convert(t.TutorialSpeedButtonStage, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTutorialHardStage11(b, fbsutils.Convert(t.TutorialHardStage11, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPrologueScenarioId02(b, fbsutils.Convert(t.PrologueScenarioId02, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPrologueScenarioId01(b, fbsutils.Convert(t.PrologueScenarioId01, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScreenshotToLobbyButtonHideDelay(b, fbsutils.Convert(t.ScreenshotToLobbyButtonHideDelay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLobbyToScreenModeWaitTime(b, fbsutils.Convert(t.LobbyToScreenModeWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCallNameMaximumLength(b, fbsutils.Convert(t.CallNameMaximumLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCallNameMinimumLength(b, fbsutils.Convert(t.CallNameMinimumLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCallNameRenameCoolTimeFromHour(b, fbsutils.Convert(t.CallNameRenameCoolTimeFromHour, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanWordBalloonMaxCharacter(b, fbsutils.Convert(t.ClanWordBalloonMaxCharacter, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanRejoinCoolTimeFromSecond(b, fbsutils.Convert(t.ClanRejoinCoolTimeFromSecond, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanMaxApplicant(b, fbsutils.Convert(t.ClanMaxApplicant, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Convert(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanMaxMember(b, fbsutils.Convert(t.ClanMaxMember, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddJoinOrCreateClanCoolTimeFromHour(b, fbsutils.Convert(t.JoinOrCreateClanCoolTimeFromHour, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelStartEquipmentSlotOpenLevelVector(b, len(t.EquipmentSlotOpenLevel))
+	for i := range len(t.EquipmentSlotOpenLevel) {
+		b.PrependInt32(fbsutils.Convert(t.EquipmentSlotOpenLevel[len(t.EquipmentSlotOpenLevel)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConstCommonExcelAddEquipmentSlotOpenLevel(b, b.EndVector(len(t.EquipmentSlotOpenLevel)))
+	ConstCommonExcelAddTutorialGachaGoodsId(b, fbsutils.Convert(t.TutorialGachaGoodsId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBeforehandGachaShopId(b, fbsutils.Convert(t.BeforehandGachaShopId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTutorialGachaShopId(b, fbsutils.Convert(t.TutorialGachaShopId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftLeafNodeGenerateLv2Count(b, fbsutils.Convert(t.CraftLeafNodeGenerateLv2Count, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftLeafNodeGenerateLv1Count(b, fbsutils.Convert(t.CraftLeafNodeGenerateLv1Count, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMassangerMessageExpireDay(b, fbsutils.Convert(t.MassangerMessageExpireDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAcademyTicketCost(b, fbsutils.Convert(t.AcademyTicketCost, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAcademyEnterCostId(b, fbsutils.Convert(t.AcademyEnterCostId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAcademyEnterCostType(b, fbsutils.Convert(t.AcademyEnterCostType, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftTicketConsumeAmount(b, fbsutils.Convert(t.CraftTicketConsumeAmount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftTicketItemUniqueId(b, fbsutils.Convert(t.CraftTicketItemUniqueId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddShiftingCraftSlotMaxCapacity(b, fbsutils.Convert(t.ShiftingCraftSlotMaxCapacity, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddShiftingCraftTicketConsumeAmount(b, fbsutils.Convert(t.ShiftingCraftTicketConsumeAmount, t.FlatBuffer.TableKey))
+	ConstCommonExcelStartShiftingCraftDurationVector(b, len(t.ShiftingCraftDuration))
+	for i := range len(t.ShiftingCraftDuration) {
+		b.PrependInt32(fbsutils.Convert(t.ShiftingCraftDuration[len(t.ShiftingCraftDuration)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConstCommonExcelAddShiftingCraftDuration(b, b.EndVector(len(t.ShiftingCraftDuration)))
+	ConstCommonExcelAddCraftLimitTime(b, fbsutils.Convert(t.CraftLimitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelStartCraftDurationVector(b, len(t.CraftDuration))
+	for i := range len(t.CraftDuration) {
+		b.PrependInt32(fbsutils.Convert(t.CraftDuration[len(t.CraftDuration)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConstCommonExcelAddCraftDuration(b, b.EndVector(len(t.CraftDuration)))
+	ConstCommonExcelAddNicknameLength(b, fbsutils.Convert(t.NicknameLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEquipLvUpCoefficient(b, fbsutils.Convert(t.EquipLvUpCoefficient, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpEquipInsertLimit(b, fbsutils.Convert(t.ExpEquipInsertLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEquipmentLvUpCoefficient(b, fbsutils.Convert(t.EquipmentLvUpCoefficient, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharacterLvUpCoefficient(b, fbsutils.Convert(t.CharacterLvUpCoefficient, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpItemInsertAccelTime(b, fbsutils.Convert(t.ExpItemInsertAccelTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpItemInsertLimit(b, fbsutils.Convert(t.ExpItemInsertLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMissionToastLifeTime(b, fbsutils.Convert(t.MissionToastLifeTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAccountExpRatio(b, fbsutils.Convert(t.AccountExpRatio, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddSupportSquadExpBonus(b, fbsutils.Convert(t.SupportSquadExpBonus, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddMainSquadExpBonus(b, fbsutils.Convert(t.MainSquadExpBonus, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAccountMaxLevel(b, fbsutils.Convert(t.AccountMaxLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEnterDeposit(b, fbsutils.Convert(t.EnterDeposit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddStageFailedCurrencyRefundRate(b, fbsutils.Convert(t.StageFailedCurrencyRefundRate, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddWeekDungeonFindGiftRewardLimitCount(b, fbsutils.Convert(t.WeekDungeonFindGiftRewardLimitCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeSetGroupApplyCount(b, fbsutils.Convert(t.CafeSetGroupApplyCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeProductionDecimalPosition(b, fbsutils.Convert(t.CafeProductionDecimalPosition, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeAutoChargePeriodInMsc(b, fbsutils.Convert(t.CafeAutoChargePeriodInMsc, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddFindGiftTimeLimit(b, fbsutils.Convert(t.FindGiftTimeLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeBubbleIdleDurationMilliSec(b, fbsutils.Convert(t.CafeBubbleIdleDurationMilliSec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeMonologueDefaultDuration(b, fbsutils.Convert(t.CafeMonologueDefaultDuration, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeMonologueIntervalMillisec(b, fbsutils.Convert(t.CafeMonologueIntervalMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafePresetSlotCount(b, fbsutils.Convert(t.CafePresetSlotCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAcademyFavorZoneId(b, fbsutils.Convert(t.AcademyFavorZoneId, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddGachaPercentage(b, fbsutils.Convert(t.GachaPercentage, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBaseTimeScale(b, fbsutils.Convert(t.BaseTimeScale, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTacticRankClearTime(b, fbsutils.Convert(t.TacticRankClearTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddHardStageCount(b, fbsutils.Convert(t.HardStageCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddHardAdventurePlayCountRecoverDailyNumber(b, fbsutils.Convert(t.HardAdventurePlayCountRecoverDailyNumber, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -397,193 +399,194 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCommon"))
 	}
-	t.CampaignMainStageMaxRank = fbsutils.Convert(e.CampaignMainStageMaxRank(), t.FlatBuffer.TableKey)
-	t.CampaignMainStageBestRecord = fbsutils.Convert(e.CampaignMainStageBestRecord(), t.FlatBuffer.TableKey)
-	t.HardAdventurePlayCountRecoverDailyNumber = fbsutils.Convert(e.HardAdventurePlayCountRecoverDailyNumber(), t.FlatBuffer.TableKey)
-	t.HardStageCount = fbsutils.Convert(e.HardStageCount(), t.FlatBuffer.TableKey)
-	t.TacticRankClearTime = fbsutils.Convert(e.TacticRankClearTime(), t.FlatBuffer.TableKey)
-	t.BaseTimeScale = fbsutils.Convert(e.BaseTimeScale(), t.FlatBuffer.TableKey)
-	t.GachaPercentage = fbsutils.Convert(e.GachaPercentage(), t.FlatBuffer.TableKey)
-	t.AcademyFavorZoneId = fbsutils.Convert(e.AcademyFavorZoneId(), t.FlatBuffer.TableKey)
-	t.CafePresetSlotCount = fbsutils.Convert(e.CafePresetSlotCount(), t.FlatBuffer.TableKey)
-	t.CafeMonologueIntervalMillisec = fbsutils.Convert(e.CafeMonologueIntervalMillisec(), t.FlatBuffer.TableKey)
-	t.CafeMonologueDefaultDuration = fbsutils.Convert(e.CafeMonologueDefaultDuration(), t.FlatBuffer.TableKey)
-	t.CafeBubbleIdleDurationMilliSec = fbsutils.Convert(e.CafeBubbleIdleDurationMilliSec(), t.FlatBuffer.TableKey)
-	t.FindGiftTimeLimit = fbsutils.Convert(e.FindGiftTimeLimit(), t.FlatBuffer.TableKey)
-	t.CafeAutoChargePeriodInMsc = fbsutils.Convert(e.CafeAutoChargePeriodInMsc(), t.FlatBuffer.TableKey)
-	t.CafeProductionDecimalPosition = fbsutils.Convert(e.CafeProductionDecimalPosition(), t.FlatBuffer.TableKey)
-	t.CafeSetGroupApplyCount = fbsutils.Convert(e.CafeSetGroupApplyCount(), t.FlatBuffer.TableKey)
-	t.WeekDungeonFindGiftRewardLimitCount = fbsutils.Convert(e.WeekDungeonFindGiftRewardLimitCount(), t.FlatBuffer.TableKey)
-	t.StageFailedCurrencyRefundRate = fbsutils.Convert(e.StageFailedCurrencyRefundRate(), t.FlatBuffer.TableKey)
-	t.EnterDeposit = fbsutils.Convert(e.EnterDeposit(), t.FlatBuffer.TableKey)
-	t.AccountMaxLevel = fbsutils.Convert(e.AccountMaxLevel(), t.FlatBuffer.TableKey)
-	t.MainSquadExpBonus = fbsutils.Convert(e.MainSquadExpBonus(), t.FlatBuffer.TableKey)
-	t.SupportSquadExpBonus = fbsutils.Convert(e.SupportSquadExpBonus(), t.FlatBuffer.TableKey)
-	t.AccountExpRatio = fbsutils.Convert(e.AccountExpRatio(), t.FlatBuffer.TableKey)
-	t.MissionToastLifeTime = fbsutils.Convert(e.MissionToastLifeTime(), t.FlatBuffer.TableKey)
-	t.ExpItemInsertLimit = fbsutils.Convert(e.ExpItemInsertLimit(), t.FlatBuffer.TableKey)
-	t.ExpItemInsertAccelTime = fbsutils.Convert(e.ExpItemInsertAccelTime(), t.FlatBuffer.TableKey)
-	t.CharacterLvUpCoefficient = fbsutils.Convert(e.CharacterLvUpCoefficient(), t.FlatBuffer.TableKey)
-	t.EquipmentLvUpCoefficient = fbsutils.Convert(e.EquipmentLvUpCoefficient(), t.FlatBuffer.TableKey)
-	t.ExpEquipInsertLimit = fbsutils.Convert(e.ExpEquipInsertLimit(), t.FlatBuffer.TableKey)
-	t.EquipLvUpCoefficient = fbsutils.Convert(e.EquipLvUpCoefficient(), t.FlatBuffer.TableKey)
-	t.NicknameLength = fbsutils.Convert(e.NicknameLength(), t.FlatBuffer.TableKey)
-	t.CraftDuration = make([]int32, e.CraftDurationLength())
-	for i := range e.CraftDurationLength() {
-		t.CraftDuration[i] = fbsutils.Convert(e.CraftDuration(i), t.FlatBuffer.TableKey)
-	}
-	t.CraftLimitTime = fbsutils.Convert(e.CraftLimitTime(), t.FlatBuffer.TableKey)
-	t.ShiftingCraftDuration = make([]int32, e.ShiftingCraftDurationLength())
-	for i := range e.ShiftingCraftDurationLength() {
-		t.ShiftingCraftDuration[i] = fbsutils.Convert(e.ShiftingCraftDuration(i), t.FlatBuffer.TableKey)
-	}
-	t.ShiftingCraftTicketConsumeAmount = fbsutils.Convert(e.ShiftingCraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
-	t.ShiftingCraftSlotMaxCapacity = fbsutils.Convert(e.ShiftingCraftSlotMaxCapacity(), t.FlatBuffer.TableKey)
-	t.CraftTicketItemUniqueId = fbsutils.Convert(e.CraftTicketItemUniqueId(), t.FlatBuffer.TableKey)
-	t.CraftTicketConsumeAmount = fbsutils.Convert(e.CraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
-	t.AcademyEnterCostType = ParcelType(fbsutils.Convert(int32(e.AcademyEnterCostType()), t.FlatBuffer.TableKey))
-	t.AcademyEnterCostId = fbsutils.Convert(e.AcademyEnterCostId(), t.FlatBuffer.TableKey)
-	t.AcademyTicketCost = fbsutils.Convert(e.AcademyTicketCost(), t.FlatBuffer.TableKey)
-	t.MassangerMessageExpireDay = fbsutils.Convert(e.MassangerMessageExpireDay(), t.FlatBuffer.TableKey)
-	t.CraftLeafNodeGenerateLv1Count = fbsutils.Convert(e.CraftLeafNodeGenerateLv1Count(), t.FlatBuffer.TableKey)
-	t.CraftLeafNodeGenerateLv2Count = fbsutils.Convert(e.CraftLeafNodeGenerateLv2Count(), t.FlatBuffer.TableKey)
-	t.TutorialGachaShopId = fbsutils.Convert(e.TutorialGachaShopId(), t.FlatBuffer.TableKey)
-	t.BeforehandGachaShopId = fbsutils.Convert(e.BeforehandGachaShopId(), t.FlatBuffer.TableKey)
-	t.TutorialGachaGoodsId = fbsutils.Convert(e.TutorialGachaGoodsId(), t.FlatBuffer.TableKey)
-	t.EquipmentSlotOpenLevel = make([]int32, e.EquipmentSlotOpenLevelLength())
-	for i := range e.EquipmentSlotOpenLevelLength() {
-		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
-	}
-	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
-	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
-	t.ClanMaxMember = fbsutils.Convert(e.ClanMaxMember(), t.FlatBuffer.TableKey)
-	t.ClanSearchResultCount = fbsutils.Convert(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
-	t.ClanMaxApplicant = fbsutils.Convert(e.ClanMaxApplicant(), t.FlatBuffer.TableKey)
-	t.ClanRejoinCoolTimeFromSecond = fbsutils.Convert(e.ClanRejoinCoolTimeFromSecond(), t.FlatBuffer.TableKey)
-	t.ClanWordBalloonMaxCharacter = fbsutils.Convert(e.ClanWordBalloonMaxCharacter(), t.FlatBuffer.TableKey)
-	t.CallNameRenameCoolTimeFromHour = fbsutils.Convert(e.CallNameRenameCoolTimeFromHour(), t.FlatBuffer.TableKey)
-	t.CallNameMinimumLength = fbsutils.Convert(e.CallNameMinimumLength(), t.FlatBuffer.TableKey)
-	t.CallNameMaximumLength = fbsutils.Convert(e.CallNameMaximumLength(), t.FlatBuffer.TableKey)
-	t.LobbyToScreenModeWaitTime = fbsutils.Convert(e.LobbyToScreenModeWaitTime(), t.FlatBuffer.TableKey)
-	t.ScreenshotToLobbyButtonHideDelay = fbsutils.Convert(e.ScreenshotToLobbyButtonHideDelay(), t.FlatBuffer.TableKey)
-	t.PrologueScenarioId01 = fbsutils.Convert(e.PrologueScenarioId01(), t.FlatBuffer.TableKey)
-	t.PrologueScenarioId02 = fbsutils.Convert(e.PrologueScenarioId02(), t.FlatBuffer.TableKey)
-	t.TutorialHardStage11 = fbsutils.Convert(e.TutorialHardStage11(), t.FlatBuffer.TableKey)
-	t.TutorialSpeedButtonStage = fbsutils.Convert(e.TutorialSpeedButtonStage(), t.FlatBuffer.TableKey)
-	t.TutorialCharacterDefaultCount = fbsutils.Convert(e.TutorialCharacterDefaultCount(), t.FlatBuffer.TableKey)
-	t.TutorialShopCategoryType = ShopCategoryType(fbsutils.Convert(int32(e.TutorialShopCategoryType()), t.FlatBuffer.TableKey))
-	t.AdventureStrategyPlayTimeLimitInSeconds = fbsutils.Convert(e.AdventureStrategyPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.WeekDungoenTacticPlayTimeLimitInSeconds = fbsutils.Convert(e.WeekDungoenTacticPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.RaidTacticPlayTimeLimitInSeconds = fbsutils.Convert(e.RaidTacticPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.RaidOpponentListAmount = fbsutils.Convert(e.RaidOpponentListAmount(), t.FlatBuffer.TableKey)
-	t.CraftBaseGoldRequired = make([]int64, e.CraftBaseGoldRequiredLength())
-	for i := range e.CraftBaseGoldRequiredLength() {
-		t.CraftBaseGoldRequired[i] = fbsutils.Convert(e.CraftBaseGoldRequired(i), t.FlatBuffer.TableKey)
-	}
-	t.PostExpiredDayAttendance = fbsutils.Convert(e.PostExpiredDayAttendance(), t.FlatBuffer.TableKey)
-	t.PostExpiredDayInventoryOverflow = fbsutils.Convert(e.PostExpiredDayInventoryOverflow(), t.FlatBuffer.TableKey)
-	t.PostExpiredDayGameManager = fbsutils.Convert(e.PostExpiredDayGameManager(), t.FlatBuffer.TableKey)
-	t.UiLabelCharacterWrap = fbsutils.Convert(string(e.UiLabelCharacterWrap()), t.FlatBuffer.TableKey)
-	t.RequestTimeOut = fbsutils.Convert(e.RequestTimeOut(), t.FlatBuffer.TableKey)
-	t.MailStorageSoftCap = fbsutils.Convert(e.MailStorageSoftCap(), t.FlatBuffer.TableKey)
-	t.MailStorageHardCap = fbsutils.Convert(e.MailStorageHardCap(), t.FlatBuffer.TableKey)
-	t.ClearDeckStorageSize = fbsutils.Convert(e.ClearDeckStorageSize(), t.FlatBuffer.TableKey)
-	t.ClearDeckNoStarViewCount = fbsutils.Convert(e.ClearDeckNoStarViewCount(), t.FlatBuffer.TableKey)
-	t.ClearDeck1StarViewCount = fbsutils.Convert(e.ClearDeck1StarViewCount(), t.FlatBuffer.TableKey)
-	t.ClearDeck2StarViewCount = fbsutils.Convert(e.ClearDeck2StarViewCount(), t.FlatBuffer.TableKey)
-	t.ClearDeck3StarViewCount = fbsutils.Convert(e.ClearDeck3StarViewCount(), t.FlatBuffer.TableKey)
-	t.ExSkillLevelMax = fbsutils.Convert(e.ExSkillLevelMax(), t.FlatBuffer.TableKey)
-	t.PublicSkillLevelMax = fbsutils.Convert(e.PublicSkillLevelMax(), t.FlatBuffer.TableKey)
-	t.PassiveSkillLevelMax = fbsutils.Convert(e.PassiveSkillLevelMax(), t.FlatBuffer.TableKey)
-	t.ExtraPassiveSkillLevelMax = fbsutils.Convert(e.ExtraPassiveSkillLevelMax(), t.FlatBuffer.TableKey)
-	t.AccountCommentMaxLength = fbsutils.Convert(e.AccountCommentMaxLength(), t.FlatBuffer.TableKey)
-	t.CafeSummonCoolTimeFromHour = fbsutils.Convert(e.CafeSummonCoolTimeFromHour(), t.FlatBuffer.TableKey)
-	t.LimitedStageDailyClearCount = fbsutils.Convert(e.LimitedStageDailyClearCount(), t.FlatBuffer.TableKey)
-	t.LimitedStageEntryTimeLimit = fbsutils.Convert(e.LimitedStageEntryTimeLimit(), t.FlatBuffer.TableKey)
-	t.LimitedStageEntryTimeBuffer = fbsutils.Convert(e.LimitedStageEntryTimeBuffer(), t.FlatBuffer.TableKey)
-	t.LimitedStagePointAmount = fbsutils.Convert(e.LimitedStagePointAmount(), t.FlatBuffer.TableKey)
-	t.LimitedStagePointPerApMin = fbsutils.Convert(e.LimitedStagePointPerApMin(), t.FlatBuffer.TableKey)
-	t.LimitedStagePointPerApMax = fbsutils.Convert(e.LimitedStagePointPerApMax(), t.FlatBuffer.TableKey)
-	t.AccountLinkReward = fbsutils.Convert(e.AccountLinkReward(), t.FlatBuffer.TableKey)
-	t.MonthlyProductCheckDays = fbsutils.Convert(e.MonthlyProductCheckDays(), t.FlatBuffer.TableKey)
-	t.WeaponLvUpCoefficient = fbsutils.Convert(e.WeaponLvUpCoefficient(), t.FlatBuffer.TableKey)
-	t.ShowRaidMyListCount = fbsutils.Convert(e.ShowRaidMyListCount(), t.FlatBuffer.TableKey)
-	t.RaidEnterCostType = ParcelType(fbsutils.Convert(int32(e.RaidEnterCostType()), t.FlatBuffer.TableKey))
-	t.RaidEnterCostId = fbsutils.Convert(e.RaidEnterCostId(), t.FlatBuffer.TableKey)
-	t.RaidTicketCost = fbsutils.Convert(e.RaidTicketCost(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonScenarioId = fbsutils.Convert(string(e.TimeAttackDungeonScenarioId()), t.FlatBuffer.TableKey)
-	t.TimeAttackDungoenPlayCountPerTicket = fbsutils.Convert(e.TimeAttackDungoenPlayCountPerTicket(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonEnterCostType = ParcelType(fbsutils.Convert(int32(e.TimeAttackDungeonEnterCostType()), t.FlatBuffer.TableKey))
-	t.TimeAttackDungeonEnterCostId = fbsutils.Convert(e.TimeAttackDungeonEnterCostId(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonEnterCost = fbsutils.Convert(e.TimeAttackDungeonEnterCost(), t.FlatBuffer.TableKey)
-	t.ClanLeaderTransferLastLoginLimit = fbsutils.Convert(e.ClanLeaderTransferLastLoginLimit(), t.FlatBuffer.TableKey)
-	t.MonthlyProductRepurchasePopupLimit = fbsutils.Convert(e.MonthlyProductRepurchasePopupLimit(), t.FlatBuffer.TableKey)
+	t.CafeSummonTicketBuyLimitForValidate = fbsutils.Convert(e.CafeSummonTicketBuyLimitForValidate(), t.FlatBuffer.TableKey)
+	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
+	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
+	t.BattlePassEndImminentDay = fbsutils.Convert(e.BattlePassEndImminentDay(), t.FlatBuffer.TableKey)
+	t.BattlePassFlavorTextIdleDurationMilliSec = fbsutils.Convert(e.BattlePassFlavorTextIdleDurationMilliSec(), t.FlatBuffer.TableKey)
+	t.ExpiryBattlePassItemReceiveDay = fbsutils.Convert(e.ExpiryBattlePassItemReceiveDay(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage7 = fbsutils.Convert(e.RankBracketPercentage7(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage6 = fbsutils.Convert(e.RankBracketPercentage6(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage5 = fbsutils.Convert(e.RankBracketPercentage5(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage4 = fbsutils.Convert(e.RankBracketPercentage4(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage3 = fbsutils.Convert(e.RankBracketPercentage3(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage2 = fbsutils.Convert(e.RankBracketPercentage2(), t.FlatBuffer.TableKey)
+	t.RankBracketPercentage1 = fbsutils.Convert(e.RankBracketPercentage1(), t.FlatBuffer.TableKey)
+	t.CafeTravelSyncIntervalByMillisec = fbsutils.Convert(e.CafeTravelSyncIntervalByMillisec(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinLastLogin = fbsutils.Convert(e.CafeRandomVisitMinLastLogin(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
+	t.MaxBlockedUserCount = fbsutils.Convert(e.MaxBlockedUserCount(), t.FlatBuffer.TableKey)
+	t.AssistStrangerMaxLevel = fbsutils.Convert(e.AssistStrangerMaxLevel(), t.FlatBuffer.TableKey)
+	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
+	t.PotentialOpenConditionCharacterLevel = fbsutils.Convert(e.PotentialOpenConditionCharacterLevel(), t.FlatBuffer.TableKey)
+	t.PotentialBonusStatMaxLevelHealPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelHealPower(), t.FlatBuffer.TableKey)
+	t.PotentialBonusStatMaxLevelAttackPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelAttackPower(), t.FlatBuffer.TableKey)
+	t.PotentialBonusStatMaxLevelMaxHp = fbsutils.Convert(e.PotentialBonusStatMaxLevelMaxHp(), t.FlatBuffer.TableKey)
+	t.CharacterMaxLevel = fbsutils.Convert(e.CharacterMaxLevel(), t.FlatBuffer.TableKey)
+	t.ClearDeckShowCount = fbsutils.Convert(e.ClearDeckShowCount(), t.FlatBuffer.TableKey)
+	t.ClearDeckWorldRaidSaveConditionCoefficient = fbsutils.Convert(e.ClearDeckWorldRaidSaveConditionCoefficient(), t.FlatBuffer.TableKey)
+	t.ClearDeckAverageDeckCount = fbsutils.Convert(e.ClearDeckAverageDeckCount(), t.FlatBuffer.TableKey)
+	t.BirthdayMailParcelAmount = fbsutils.Convert(e.BirthdayMailParcelAmount(), t.FlatBuffer.TableKey)
+	t.BirthdayMailParcelId = fbsutils.Convert(e.BirthdayMailParcelId(), t.FlatBuffer.TableKey)
+	t.BirthdayMailParcelType = ParcelType(fbsutils.Convert(int32(e.BirthdayMailParcelType()), t.FlatBuffer.TableKey))
+	t.BirthdayMailRemainDate = fbsutils.Convert(e.BirthdayMailRemainDate(), t.FlatBuffer.TableKey)
+	t.BirthdayMailStartDate = fbsutils.Convert(string(e.BirthdayMailStartDate()), t.FlatBuffer.TableKey)
+	t.EmblemDefaultId = fbsutils.Convert(e.EmblemDefaultId(), t.FlatBuffer.TableKey)
+	t.RenewalDisplayOrderDay = fbsutils.Convert(e.RenewalDisplayOrderDay(), t.FlatBuffer.TableKey)
+	t.BeforehandGachaGroupId = fbsutils.Convert(e.BeforehandGachaGroupId(), t.FlatBuffer.TableKey)
+	t.BeforehandGachaCount = fbsutils.Convert(e.BeforehandGachaCount(), t.FlatBuffer.TableKey)
+	t.CharProfilePopupRowIntervalJp = fbsutils.Convert(e.CharProfilePopupRowIntervalJp(), t.FlatBuffer.TableKey)
+	t.CharProfilePopupRowIntervalKr = fbsutils.Convert(e.CharProfilePopupRowIntervalKr(), t.FlatBuffer.TableKey)
+	t.CharProfileRowIntervalJp = fbsutils.Convert(e.CharProfileRowIntervalJp(), t.FlatBuffer.TableKey)
+	t.CharProfileRowIntervalKr = fbsutils.Convert(e.CharProfileRowIntervalKr(), t.FlatBuffer.TableKey)
+	t.FormationPresetEchelonSlotTextLength = fbsutils.Convert(e.FormationPresetEchelonSlotTextLength(), t.FlatBuffer.TableKey)
+	t.FormationPresetEchelonTabTextLength = fbsutils.Convert(e.FormationPresetEchelonTabTextLength(), t.FlatBuffer.TableKey)
+	t.FormationPresetRecentNumberOfEchelon = fbsutils.Convert(e.FormationPresetRecentNumberOfEchelon(), t.FlatBuffer.TableKey)
+	t.FormationPresetNumberOfEchelon = fbsutils.Convert(e.FormationPresetNumberOfEchelon(), t.FlatBuffer.TableKey)
+	t.FormationPresetNumberOfEchelonTab = fbsutils.Convert(e.FormationPresetNumberOfEchelonTab(), t.FlatBuffer.TableKey)
+	t.FriendIdCardCommentMaxLength = fbsutils.Convert(e.FriendIdCardCommentMaxLength(), t.FlatBuffer.TableKey)
+	t.WorldRaidGemEnterAmout = fbsutils.Convert(e.WorldRaidGemEnterAmout(), t.FlatBuffer.TableKey)
+	t.WorldRaidGemEnterCost = fbsutils.Convert(e.WorldRaidGemEnterCost(), t.FlatBuffer.TableKey)
+	t.IdCardDefaultBgId = fbsutils.Convert(e.IdCardDefaultBgId(), t.FlatBuffer.TableKey)
+	t.IdCardDefaultCharacterId = fbsutils.Convert(e.IdCardDefaultCharacterId(), t.FlatBuffer.TableKey)
+	t.FriendsMaxApplicant = fbsutils.Convert(e.FriendsMaxApplicant(), t.FlatBuffer.TableKey)
+	t.FriendsSearchRequestCount = fbsutils.Convert(e.FriendsSearchRequestCount(), t.FlatBuffer.TableKey)
+	t.MaxFriendsRequest = fbsutils.Convert(e.MaxFriendsRequest(), t.FlatBuffer.TableKey)
+	t.MaxFriendsCount = fbsutils.Convert(e.MaxFriendsCount(), t.FlatBuffer.TableKey)
+	t.DDosCheckIntervalInSeconds = fbsutils.Convert(e.DDosCheckIntervalInSeconds(), t.FlatBuffer.TableKey)
+	t.DDosDetectCount = fbsutils.Convert(e.DDosDetectCount(), t.FlatBuffer.TableKey)
+	t.RecommendedFriendsLvDifferenceLimit = fbsutils.Convert(e.RecommendedFriendsLvDifferenceLimit(), t.FlatBuffer.TableKey)
+	t.BirthDayDDay = fbsutils.Convert(e.BirthDayDDay(), t.FlatBuffer.TableKey)
+	t.CharacterEquipmentGearSlot = fbsutils.Convert(e.CharacterEquipmentGearSlot(), t.FlatBuffer.TableKey)
+	t.CraftOpenExpTier3 = fbsutils.Convert(e.CraftOpenExpTier3(), t.FlatBuffer.TableKey)
+	t.CraftOpenExpTier2 = fbsutils.Convert(e.CraftOpenExpTier2(), t.FlatBuffer.TableKey)
+	t.CraftOpenExpTier1 = fbsutils.Convert(e.CraftOpenExpTier1(), t.FlatBuffer.TableKey)
+	t.MaxApMasterCoinPerWeek = fbsutils.Convert(e.MaxApMasterCoinPerWeek(), t.FlatBuffer.TableKey)
 	t.CommonFavorItemTags = make([]Tag, e.CommonFavorItemTagsLength())
 	for i := range e.CommonFavorItemTagsLength() {
 		t.CommonFavorItemTags[i] = Tag(fbsutils.Convert(int32(e.CommonFavorItemTags(i)), t.FlatBuffer.TableKey))
 	}
-	t.MaxApMasterCoinPerWeek = fbsutils.Convert(e.MaxApMasterCoinPerWeek(), t.FlatBuffer.TableKey)
-	t.CraftOpenExpTier1 = fbsutils.Convert(e.CraftOpenExpTier1(), t.FlatBuffer.TableKey)
-	t.CraftOpenExpTier2 = fbsutils.Convert(e.CraftOpenExpTier2(), t.FlatBuffer.TableKey)
-	t.CraftOpenExpTier3 = fbsutils.Convert(e.CraftOpenExpTier3(), t.FlatBuffer.TableKey)
-	t.CharacterEquipmentGearSlot = fbsutils.Convert(e.CharacterEquipmentGearSlot(), t.FlatBuffer.TableKey)
-	t.BirthDayDDay = fbsutils.Convert(e.BirthDayDDay(), t.FlatBuffer.TableKey)
-	t.RecommendedFriendsLvDifferenceLimit = fbsutils.Convert(e.RecommendedFriendsLvDifferenceLimit(), t.FlatBuffer.TableKey)
-	t.DDosDetectCount = fbsutils.Convert(e.DDosDetectCount(), t.FlatBuffer.TableKey)
-	t.DDosCheckIntervalInSeconds = fbsutils.Convert(e.DDosCheckIntervalInSeconds(), t.FlatBuffer.TableKey)
-	t.MaxFriendsCount = fbsutils.Convert(e.MaxFriendsCount(), t.FlatBuffer.TableKey)
-	t.MaxFriendsRequest = fbsutils.Convert(e.MaxFriendsRequest(), t.FlatBuffer.TableKey)
-	t.FriendsSearchRequestCount = fbsutils.Convert(e.FriendsSearchRequestCount(), t.FlatBuffer.TableKey)
-	t.FriendsMaxApplicant = fbsutils.Convert(e.FriendsMaxApplicant(), t.FlatBuffer.TableKey)
-	t.IdCardDefaultCharacterId = fbsutils.Convert(e.IdCardDefaultCharacterId(), t.FlatBuffer.TableKey)
-	t.IdCardDefaultBgId = fbsutils.Convert(e.IdCardDefaultBgId(), t.FlatBuffer.TableKey)
-	t.WorldRaidGemEnterCost = fbsutils.Convert(e.WorldRaidGemEnterCost(), t.FlatBuffer.TableKey)
-	t.WorldRaidGemEnterAmout = fbsutils.Convert(e.WorldRaidGemEnterAmout(), t.FlatBuffer.TableKey)
-	t.FriendIdCardCommentMaxLength = fbsutils.Convert(e.FriendIdCardCommentMaxLength(), t.FlatBuffer.TableKey)
-	t.FormationPresetNumberOfEchelonTab = fbsutils.Convert(e.FormationPresetNumberOfEchelonTab(), t.FlatBuffer.TableKey)
-	t.FormationPresetNumberOfEchelon = fbsutils.Convert(e.FormationPresetNumberOfEchelon(), t.FlatBuffer.TableKey)
-	t.FormationPresetRecentNumberOfEchelon = fbsutils.Convert(e.FormationPresetRecentNumberOfEchelon(), t.FlatBuffer.TableKey)
-	t.FormationPresetEchelonTabTextLength = fbsutils.Convert(e.FormationPresetEchelonTabTextLength(), t.FlatBuffer.TableKey)
-	t.FormationPresetEchelonSlotTextLength = fbsutils.Convert(e.FormationPresetEchelonSlotTextLength(), t.FlatBuffer.TableKey)
-	t.CharProfileRowIntervalKr = fbsutils.Convert(e.CharProfileRowIntervalKr(), t.FlatBuffer.TableKey)
-	t.CharProfileRowIntervalJp = fbsutils.Convert(e.CharProfileRowIntervalJp(), t.FlatBuffer.TableKey)
-	t.CharProfilePopupRowIntervalKr = fbsutils.Convert(e.CharProfilePopupRowIntervalKr(), t.FlatBuffer.TableKey)
-	t.CharProfilePopupRowIntervalJp = fbsutils.Convert(e.CharProfilePopupRowIntervalJp(), t.FlatBuffer.TableKey)
-	t.BeforehandGachaCount = fbsutils.Convert(e.BeforehandGachaCount(), t.FlatBuffer.TableKey)
-	t.BeforehandGachaGroupId = fbsutils.Convert(e.BeforehandGachaGroupId(), t.FlatBuffer.TableKey)
-	t.RenewalDisplayOrderDay = fbsutils.Convert(e.RenewalDisplayOrderDay(), t.FlatBuffer.TableKey)
-	t.EmblemDefaultId = fbsutils.Convert(e.EmblemDefaultId(), t.FlatBuffer.TableKey)
-	t.BirthdayMailStartDate = fbsutils.Convert(string(e.BirthdayMailStartDate()), t.FlatBuffer.TableKey)
-	t.BirthdayMailRemainDate = fbsutils.Convert(e.BirthdayMailRemainDate(), t.FlatBuffer.TableKey)
-	t.BirthdayMailParcelType = ParcelType(fbsutils.Convert(int32(e.BirthdayMailParcelType()), t.FlatBuffer.TableKey))
-	t.BirthdayMailParcelId = fbsutils.Convert(e.BirthdayMailParcelId(), t.FlatBuffer.TableKey)
-	t.BirthdayMailParcelAmount = fbsutils.Convert(e.BirthdayMailParcelAmount(), t.FlatBuffer.TableKey)
-	t.ClearDeckAverageDeckCount = fbsutils.Convert(e.ClearDeckAverageDeckCount(), t.FlatBuffer.TableKey)
-	t.ClearDeckWorldRaidSaveConditionCoefficient = fbsutils.Convert(e.ClearDeckWorldRaidSaveConditionCoefficient(), t.FlatBuffer.TableKey)
-	t.ClearDeckShowCount = fbsutils.Convert(e.ClearDeckShowCount(), t.FlatBuffer.TableKey)
-	t.CharacterMaxLevel = fbsutils.Convert(e.CharacterMaxLevel(), t.FlatBuffer.TableKey)
-	t.PotentialBonusStatMaxLevelMaxHp = fbsutils.Convert(e.PotentialBonusStatMaxLevelMaxHp(), t.FlatBuffer.TableKey)
-	t.PotentialBonusStatMaxLevelAttackPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelAttackPower(), t.FlatBuffer.TableKey)
-	t.PotentialBonusStatMaxLevelHealPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelHealPower(), t.FlatBuffer.TableKey)
-	t.PotentialOpenConditionCharacterLevel = fbsutils.Convert(e.PotentialOpenConditionCharacterLevel(), t.FlatBuffer.TableKey)
-	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
-	t.AssistStrangerMaxLevel = fbsutils.Convert(e.AssistStrangerMaxLevel(), t.FlatBuffer.TableKey)
-	t.MaxBlockedUserCount = fbsutils.Convert(e.MaxBlockedUserCount(), t.FlatBuffer.TableKey)
-	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
-	t.CafeRandomVisitMinLastLogin = fbsutils.Convert(e.CafeRandomVisitMinLastLogin(), t.FlatBuffer.TableKey)
-	t.CafeTravelSyncIntervalByMillisec = fbsutils.Convert(e.CafeTravelSyncIntervalByMillisec(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage1 = fbsutils.Convert(e.RankBracketPercentage1(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage2 = fbsutils.Convert(e.RankBracketPercentage2(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage3 = fbsutils.Convert(e.RankBracketPercentage3(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage4 = fbsutils.Convert(e.RankBracketPercentage4(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage5 = fbsutils.Convert(e.RankBracketPercentage5(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage6 = fbsutils.Convert(e.RankBracketPercentage6(), t.FlatBuffer.TableKey)
-	t.RankBracketPercentage7 = fbsutils.Convert(e.RankBracketPercentage7(), t.FlatBuffer.TableKey)
-	t.ExpiryBattlePassItemReceiveDay = fbsutils.Convert(e.ExpiryBattlePassItemReceiveDay(), t.FlatBuffer.TableKey)
-	t.BattlePassFlavorTextIdleDurationMilliSec = fbsutils.Convert(e.BattlePassFlavorTextIdleDurationMilliSec(), t.FlatBuffer.TableKey)
-	t.BattlePassEndImminentDay = fbsutils.Convert(e.BattlePassEndImminentDay(), t.FlatBuffer.TableKey)
-	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
-	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
+	t.MonthlyProductRepurchasePopupLimit = fbsutils.Convert(e.MonthlyProductRepurchasePopupLimit(), t.FlatBuffer.TableKey)
+	t.ClanLeaderTransferLastLoginLimit = fbsutils.Convert(e.ClanLeaderTransferLastLoginLimit(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonEnterCost = fbsutils.Convert(e.TimeAttackDungeonEnterCost(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonEnterCostId = fbsutils.Convert(e.TimeAttackDungeonEnterCostId(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonEnterCostType = ParcelType(fbsutils.Convert(int32(e.TimeAttackDungeonEnterCostType()), t.FlatBuffer.TableKey))
+	t.TimeAttackDungoenPlayCountPerTicket = fbsutils.Convert(e.TimeAttackDungoenPlayCountPerTicket(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonScenarioId = fbsutils.Convert(string(e.TimeAttackDungeonScenarioId()), t.FlatBuffer.TableKey)
+	t.RaidTicketCost = fbsutils.Convert(e.RaidTicketCost(), t.FlatBuffer.TableKey)
+	t.RaidEnterCostId = fbsutils.Convert(e.RaidEnterCostId(), t.FlatBuffer.TableKey)
+	t.RaidEnterCostType = ParcelType(fbsutils.Convert(int32(e.RaidEnterCostType()), t.FlatBuffer.TableKey))
+	t.ShowRaidMyListCount = fbsutils.Convert(e.ShowRaidMyListCount(), t.FlatBuffer.TableKey)
+	t.WeaponLvUpCoefficient = fbsutils.Convert(e.WeaponLvUpCoefficient(), t.FlatBuffer.TableKey)
+	t.MonthlyProductCheckDays = fbsutils.Convert(e.MonthlyProductCheckDays(), t.FlatBuffer.TableKey)
+	t.AccountLinkReward = fbsutils.Convert(e.AccountLinkReward(), t.FlatBuffer.TableKey)
+	t.LimitedStagePointPerApMax = fbsutils.Convert(e.LimitedStagePointPerApMax(), t.FlatBuffer.TableKey)
+	t.LimitedStagePointPerApMin = fbsutils.Convert(e.LimitedStagePointPerApMin(), t.FlatBuffer.TableKey)
+	t.LimitedStagePointAmount = fbsutils.Convert(e.LimitedStagePointAmount(), t.FlatBuffer.TableKey)
+	t.LimitedStageEntryTimeBuffer = fbsutils.Convert(e.LimitedStageEntryTimeBuffer(), t.FlatBuffer.TableKey)
+	t.LimitedStageEntryTimeLimit = fbsutils.Convert(e.LimitedStageEntryTimeLimit(), t.FlatBuffer.TableKey)
+	t.LimitedStageDailyClearCount = fbsutils.Convert(e.LimitedStageDailyClearCount(), t.FlatBuffer.TableKey)
+	t.CafeSummonCoolTimeFromHour = fbsutils.Convert(e.CafeSummonCoolTimeFromHour(), t.FlatBuffer.TableKey)
+	t.AccountCommentMaxLength = fbsutils.Convert(e.AccountCommentMaxLength(), t.FlatBuffer.TableKey)
+	t.ExtraPassiveSkillLevelMax = fbsutils.Convert(e.ExtraPassiveSkillLevelMax(), t.FlatBuffer.TableKey)
+	t.PassiveSkillLevelMax = fbsutils.Convert(e.PassiveSkillLevelMax(), t.FlatBuffer.TableKey)
+	t.PublicSkillLevelMax = fbsutils.Convert(e.PublicSkillLevelMax(), t.FlatBuffer.TableKey)
+	t.ExSkillLevelMax = fbsutils.Convert(e.ExSkillLevelMax(), t.FlatBuffer.TableKey)
+	t.ClearDeck3StarViewCount = fbsutils.Convert(e.ClearDeck3StarViewCount(), t.FlatBuffer.TableKey)
+	t.ClearDeck2StarViewCount = fbsutils.Convert(e.ClearDeck2StarViewCount(), t.FlatBuffer.TableKey)
+	t.ClearDeck1StarViewCount = fbsutils.Convert(e.ClearDeck1StarViewCount(), t.FlatBuffer.TableKey)
+	t.ClearDeckNoStarViewCount = fbsutils.Convert(e.ClearDeckNoStarViewCount(), t.FlatBuffer.TableKey)
+	t.ClearDeckStorageSize = fbsutils.Convert(e.ClearDeckStorageSize(), t.FlatBuffer.TableKey)
+	t.MailStorageHardCap = fbsutils.Convert(e.MailStorageHardCap(), t.FlatBuffer.TableKey)
+	t.MailStorageSoftCap = fbsutils.Convert(e.MailStorageSoftCap(), t.FlatBuffer.TableKey)
+	t.RequestTimeOut = fbsutils.Convert(e.RequestTimeOut(), t.FlatBuffer.TableKey)
+	t.UiLabelCharacterWrap = fbsutils.Convert(string(e.UiLabelCharacterWrap()), t.FlatBuffer.TableKey)
+	t.PostExpiredDayGameManager = fbsutils.Convert(e.PostExpiredDayGameManager(), t.FlatBuffer.TableKey)
+	t.PostExpiredDayInventoryOverflow = fbsutils.Convert(e.PostExpiredDayInventoryOverflow(), t.FlatBuffer.TableKey)
+	t.PostExpiredDayAttendance = fbsutils.Convert(e.PostExpiredDayAttendance(), t.FlatBuffer.TableKey)
+	t.CraftBaseGoldRequired = make([]int64, e.CraftBaseGoldRequiredLength())
+	for i := range e.CraftBaseGoldRequiredLength() {
+		t.CraftBaseGoldRequired[i] = fbsutils.Convert(e.CraftBaseGoldRequired(i), t.FlatBuffer.TableKey)
+	}
+	t.RaidOpponentListAmount = fbsutils.Convert(e.RaidOpponentListAmount(), t.FlatBuffer.TableKey)
+	t.RaidTacticPlayTimeLimitInSeconds = fbsutils.Convert(e.RaidTacticPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.WeekDungoenTacticPlayTimeLimitInSeconds = fbsutils.Convert(e.WeekDungoenTacticPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.AdventureStrategyPlayTimeLimitInSeconds = fbsutils.Convert(e.AdventureStrategyPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.TutorialShopCategoryType = ShopCategoryType(fbsutils.Convert(int32(e.TutorialShopCategoryType()), t.FlatBuffer.TableKey))
+	t.TutorialCharacterDefaultCount = fbsutils.Convert(e.TutorialCharacterDefaultCount(), t.FlatBuffer.TableKey)
+	t.TutorialSpeedButtonStage = fbsutils.Convert(e.TutorialSpeedButtonStage(), t.FlatBuffer.TableKey)
+	t.TutorialHardStage11 = fbsutils.Convert(e.TutorialHardStage11(), t.FlatBuffer.TableKey)
+	t.PrologueScenarioId02 = fbsutils.Convert(e.PrologueScenarioId02(), t.FlatBuffer.TableKey)
+	t.PrologueScenarioId01 = fbsutils.Convert(e.PrologueScenarioId01(), t.FlatBuffer.TableKey)
+	t.ScreenshotToLobbyButtonHideDelay = fbsutils.Convert(e.ScreenshotToLobbyButtonHideDelay(), t.FlatBuffer.TableKey)
+	t.LobbyToScreenModeWaitTime = fbsutils.Convert(e.LobbyToScreenModeWaitTime(), t.FlatBuffer.TableKey)
+	t.CallNameMaximumLength = fbsutils.Convert(e.CallNameMaximumLength(), t.FlatBuffer.TableKey)
+	t.CallNameMinimumLength = fbsutils.Convert(e.CallNameMinimumLength(), t.FlatBuffer.TableKey)
+	t.CallNameRenameCoolTimeFromHour = fbsutils.Convert(e.CallNameRenameCoolTimeFromHour(), t.FlatBuffer.TableKey)
+	t.ClanWordBalloonMaxCharacter = fbsutils.Convert(e.ClanWordBalloonMaxCharacter(), t.FlatBuffer.TableKey)
+	t.ClanRejoinCoolTimeFromSecond = fbsutils.Convert(e.ClanRejoinCoolTimeFromSecond(), t.FlatBuffer.TableKey)
+	t.ClanMaxApplicant = fbsutils.Convert(e.ClanMaxApplicant(), t.FlatBuffer.TableKey)
+	t.ClanSearchResultCount = fbsutils.Convert(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
+	t.ClanMaxMember = fbsutils.Convert(e.ClanMaxMember(), t.FlatBuffer.TableKey)
+	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
+	t.EquipmentSlotOpenLevel = make([]int32, e.EquipmentSlotOpenLevelLength())
+	for i := range e.EquipmentSlotOpenLevelLength() {
+		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
+	}
+	t.TutorialGachaGoodsId = fbsutils.Convert(e.TutorialGachaGoodsId(), t.FlatBuffer.TableKey)
+	t.BeforehandGachaShopId = fbsutils.Convert(e.BeforehandGachaShopId(), t.FlatBuffer.TableKey)
+	t.TutorialGachaShopId = fbsutils.Convert(e.TutorialGachaShopId(), t.FlatBuffer.TableKey)
+	t.CraftLeafNodeGenerateLv2Count = fbsutils.Convert(e.CraftLeafNodeGenerateLv2Count(), t.FlatBuffer.TableKey)
+	t.CraftLeafNodeGenerateLv1Count = fbsutils.Convert(e.CraftLeafNodeGenerateLv1Count(), t.FlatBuffer.TableKey)
+	t.MassangerMessageExpireDay = fbsutils.Convert(e.MassangerMessageExpireDay(), t.FlatBuffer.TableKey)
+	t.AcademyTicketCost = fbsutils.Convert(e.AcademyTicketCost(), t.FlatBuffer.TableKey)
+	t.AcademyEnterCostId = fbsutils.Convert(e.AcademyEnterCostId(), t.FlatBuffer.TableKey)
+	t.AcademyEnterCostType = ParcelType(fbsutils.Convert(int32(e.AcademyEnterCostType()), t.FlatBuffer.TableKey))
+	t.CraftTicketConsumeAmount = fbsutils.Convert(e.CraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
+	t.CraftTicketItemUniqueId = fbsutils.Convert(e.CraftTicketItemUniqueId(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftSlotMaxCapacity = fbsutils.Convert(e.ShiftingCraftSlotMaxCapacity(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftTicketConsumeAmount = fbsutils.Convert(e.ShiftingCraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftDuration = make([]int32, e.ShiftingCraftDurationLength())
+	for i := range e.ShiftingCraftDurationLength() {
+		t.ShiftingCraftDuration[i] = fbsutils.Convert(e.ShiftingCraftDuration(i), t.FlatBuffer.TableKey)
+	}
+	t.CraftLimitTime = fbsutils.Convert(e.CraftLimitTime(), t.FlatBuffer.TableKey)
+	t.CraftDuration = make([]int32, e.CraftDurationLength())
+	for i := range e.CraftDurationLength() {
+		t.CraftDuration[i] = fbsutils.Convert(e.CraftDuration(i), t.FlatBuffer.TableKey)
+	}
+	t.NicknameLength = fbsutils.Convert(e.NicknameLength(), t.FlatBuffer.TableKey)
+	t.EquipLvUpCoefficient = fbsutils.Convert(e.EquipLvUpCoefficient(), t.FlatBuffer.TableKey)
+	t.ExpEquipInsertLimit = fbsutils.Convert(e.ExpEquipInsertLimit(), t.FlatBuffer.TableKey)
+	t.EquipmentLvUpCoefficient = fbsutils.Convert(e.EquipmentLvUpCoefficient(), t.FlatBuffer.TableKey)
+	t.CharacterLvUpCoefficient = fbsutils.Convert(e.CharacterLvUpCoefficient(), t.FlatBuffer.TableKey)
+	t.ExpItemInsertAccelTime = fbsutils.Convert(e.ExpItemInsertAccelTime(), t.FlatBuffer.TableKey)
+	t.ExpItemInsertLimit = fbsutils.Convert(e.ExpItemInsertLimit(), t.FlatBuffer.TableKey)
+	t.MissionToastLifeTime = fbsutils.Convert(e.MissionToastLifeTime(), t.FlatBuffer.TableKey)
+	t.AccountExpRatio = fbsutils.Convert(e.AccountExpRatio(), t.FlatBuffer.TableKey)
+	t.SupportSquadExpBonus = fbsutils.Convert(e.SupportSquadExpBonus(), t.FlatBuffer.TableKey)
+	t.MainSquadExpBonus = fbsutils.Convert(e.MainSquadExpBonus(), t.FlatBuffer.TableKey)
+	t.AccountMaxLevel = fbsutils.Convert(e.AccountMaxLevel(), t.FlatBuffer.TableKey)
+	t.EnterDeposit = fbsutils.Convert(e.EnterDeposit(), t.FlatBuffer.TableKey)
+	t.StageFailedCurrencyRefundRate = fbsutils.Convert(e.StageFailedCurrencyRefundRate(), t.FlatBuffer.TableKey)
+	t.WeekDungeonFindGiftRewardLimitCount = fbsutils.Convert(e.WeekDungeonFindGiftRewardLimitCount(), t.FlatBuffer.TableKey)
+	t.CafeSetGroupApplyCount = fbsutils.Convert(e.CafeSetGroupApplyCount(), t.FlatBuffer.TableKey)
+	t.CafeProductionDecimalPosition = fbsutils.Convert(e.CafeProductionDecimalPosition(), t.FlatBuffer.TableKey)
+	t.CafeAutoChargePeriodInMsc = fbsutils.Convert(e.CafeAutoChargePeriodInMsc(), t.FlatBuffer.TableKey)
+	t.FindGiftTimeLimit = fbsutils.Convert(e.FindGiftTimeLimit(), t.FlatBuffer.TableKey)
+	t.CafeBubbleIdleDurationMilliSec = fbsutils.Convert(e.CafeBubbleIdleDurationMilliSec(), t.FlatBuffer.TableKey)
+	t.CafeMonologueDefaultDuration = fbsutils.Convert(e.CafeMonologueDefaultDuration(), t.FlatBuffer.TableKey)
+	t.CafeMonologueIntervalMillisec = fbsutils.Convert(e.CafeMonologueIntervalMillisec(), t.FlatBuffer.TableKey)
+	t.CafePresetSlotCount = fbsutils.Convert(e.CafePresetSlotCount(), t.FlatBuffer.TableKey)
+	t.AcademyFavorZoneId = fbsutils.Convert(e.AcademyFavorZoneId(), t.FlatBuffer.TableKey)
+	t.GachaPercentage = fbsutils.Convert(e.GachaPercentage(), t.FlatBuffer.TableKey)
+	t.BaseTimeScale = fbsutils.Convert(e.BaseTimeScale(), t.FlatBuffer.TableKey)
+	t.TacticRankClearTime = fbsutils.Convert(e.TacticRankClearTime(), t.FlatBuffer.TableKey)
+	t.HardStageCount = fbsutils.Convert(e.HardStageCount(), t.FlatBuffer.TableKey)
+	t.HardAdventurePlayCountRecoverDailyNumber = fbsutils.Convert(e.HardAdventurePlayCountRecoverDailyNumber(), t.FlatBuffer.TableKey)
+	t.CampaignMainStageBestRecord = fbsutils.Convert(e.CampaignMainStageBestRecord(), t.FlatBuffer.TableKey)
+	t.CampaignMainStageMaxRank = fbsutils.Convert(e.CampaignMainStageMaxRank(), t.FlatBuffer.TableKey)
 	return nil
 }
 

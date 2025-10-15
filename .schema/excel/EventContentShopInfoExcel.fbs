@@ -1,0 +1,22 @@
+include "ParcelType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentShopInfoExcel {
+    shop_product_update_date: string;
+    open_period_to: string;
+    open_period_from: string;
+    goods_id: [long];
+    refresh_able_count: long;
+    auto_refresh_cool_time: long;
+    is_sold_out_dimmed: bool;
+    is_refresh: bool;
+    cost_parcel_id: [long];
+    cost_parcel_type: [ParcelType];
+    localize_code: uint;
+    category_type: ShopCategoryType;
+    event_content_id: long;
+}
+
+root_type EventContentShopInfoExcel;

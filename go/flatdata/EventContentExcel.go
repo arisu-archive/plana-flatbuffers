@@ -33,20 +33,8 @@ func (rcv *EventContentExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentExcel) Id() int64 {
+func (rcv *EventContentExcel) BgImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *EventContentExcel) DevName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,7 @@ func (rcv *EventContentExcel) DevName() []byte {
 }
 
 func (rcv *EventContentExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,31 +50,43 @@ func (rcv *EventContentExcel) EventContentId() int64 {
 }
 
 func (rcv *EventContentExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentExcel) BgImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *EventContentExcel) DevName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *EventContentExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
 func EventContentExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func EventContentExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(devName), 0)
+func EventContentExcelAddBgImagePath(builder *flatbuffers.Builder, bgImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(bgImagePath), 0)
 }
 func EventContentExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
+	builder.PrependInt64Slot(1, eventContentId, 0)
 }
-func EventContentExcelAddBgImagePath(builder *flatbuffers.Builder, bgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(bgImagePath), 0)
+func EventContentExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(devName), 0)
+}
+func EventContentExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func EventContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

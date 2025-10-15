@@ -10,25 +10,25 @@ import (
 // AccountLevelExcelDto represents a FlatBuffers table
 type AccountLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	Id              int64 `json:"id"`
-	Level           int64 `json:"level"`
-	Exp             int64 `json:"exp"`
-	NewbieExpRatio  int32 `json:"newbie_exp_ratio"`
-	CloseInterval   int32 `json:"close_interval"`
-	ApAutoChargeMax int64 `json:"ap_auto_charge_max"`
 	NeedReportEvent bool  `json:"need_report_event"`
+	ApAutoChargeMax int64 `json:"ap_auto_charge_max"`
+	CloseInterval   int32 `json:"close_interval"`
+	NewbieExpRatio  int32 `json:"newbie_exp_ratio"`
+	Exp             int64 `json:"exp"`
+	Level           int64 `json:"level"`
+	Id              int64 `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AccountLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AccountLevelExcelStart(b)
-	AccountLevelExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddNewbieExpRatio(b, fbsutils.Convert(t.NewbieExpRatio, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddCloseInterval(b, fbsutils.Convert(t.CloseInterval, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddApAutoChargeMax(b, fbsutils.Convert(t.ApAutoChargeMax, t.FlatBuffer.TableKey))
 	AccountLevelExcelAddNeedReportEvent(b, t.NeedReportEvent)
+	AccountLevelExcelAddApAutoChargeMax(b, fbsutils.Convert(t.ApAutoChargeMax, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddCloseInterval(b, fbsutils.Convert(t.CloseInterval, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddNewbieExpRatio(b, fbsutils.Convert(t.NewbieExpRatio, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return AccountLevelExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *AccountLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AccountLevelExcelDto) UnmarshalMessage(e *AccountLevelExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
-	t.NewbieExpRatio = fbsutils.Convert(e.NewbieExpRatio(), t.FlatBuffer.TableKey)
-	t.CloseInterval = fbsutils.Convert(e.CloseInterval(), t.FlatBuffer.TableKey)
-	t.ApAutoChargeMax = fbsutils.Convert(e.ApAutoChargeMax(), t.FlatBuffer.TableKey)
 	t.NeedReportEvent = e.NeedReportEvent()
+	t.ApAutoChargeMax = fbsutils.Convert(e.ApAutoChargeMax(), t.FlatBuffer.TableKey)
+	t.CloseInterval = fbsutils.Convert(e.CloseInterval(), t.FlatBuffer.TableKey)
+	t.NewbieExpRatio = fbsutils.Convert(e.NewbieExpRatio(), t.FlatBuffer.TableKey)
+	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

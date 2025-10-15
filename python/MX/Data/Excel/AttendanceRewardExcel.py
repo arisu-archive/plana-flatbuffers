@@ -25,83 +25,8 @@ class AttendanceRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AttendanceRewardExcel
-    def AttendanceId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # AttendanceRewardExcel
-    def Day(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardIcon(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # AttendanceRewardExcel
-    def RewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # AttendanceRewardExcel
-    def RewardId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # AttendanceRewardExcel
-    def RewardIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # AttendanceRewardExcel
     def RewardAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -109,53 +34,128 @@ class AttendanceRewardExcel(object):
 
     # AttendanceRewardExcel
     def RewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # AttendanceRewardExcel
     def RewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # AttendanceRewardExcel
     def RewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
+
+    # AttendanceRewardExcel
+    def RewardId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # AttendanceRewardExcel
+    def RewardParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AttendanceRewardExcel
+    def RewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # AttendanceRewardExcel
+    def RewardIcon(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AttendanceRewardExcel
+    def Day(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AttendanceRewardExcel
+    def AttendanceId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def AttendanceRewardExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return AttendanceRewardExcelStart(builder)
-def AttendanceRewardExcelAddAttendanceId(builder, attendanceId): builder.PrependInt64Slot(0, attendanceId, 0)
-def AddAttendanceId(builder, attendanceId):
-    return AttendanceRewardExcelAddAttendanceId(builder, attendanceId)
-def AttendanceRewardExcelAddDay(builder, day): builder.PrependInt64Slot(1, day, 0)
-def AddDay(builder, day):
-    return AttendanceRewardExcelAddDay(builder, day)
-def AttendanceRewardExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
-def AddRewardIcon(builder, rewardIcon):
-    return AttendanceRewardExcelAddRewardIcon(builder, rewardIcon)
-def AttendanceRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return AttendanceRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def AttendanceRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardParcelTypeVector(builder, numElems):
-    return AttendanceRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def AttendanceRewardExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
-def AddRewardId(builder, rewardId):
-    return AttendanceRewardExcelAddRewardId(builder, rewardId)
-def AttendanceRewardExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardIdVector(builder, numElems):
-    return AttendanceRewardExcelStartRewardIdVector(builder, numElems)
-def AttendanceRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+def AttendanceRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
 def AddRewardAmount(builder, rewardAmount):
     return AttendanceRewardExcelAddRewardAmount(builder, rewardAmount)
 def AttendanceRewardExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardAmountVector(builder, numElems):
     return AttendanceRewardExcelStartRewardAmountVector(builder, numElems)
+def AttendanceRewardExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+def AddRewardId(builder, rewardId):
+    return AttendanceRewardExcelAddRewardId(builder, rewardId)
+def AttendanceRewardExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardIdVector(builder, numElems):
+    return AttendanceRewardExcelStartRewardIdVector(builder, numElems)
+def AttendanceRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return AttendanceRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def AttendanceRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartRewardParcelTypeVector(builder, numElems):
+    return AttendanceRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def AttendanceRewardExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
+def AddRewardIcon(builder, rewardIcon):
+    return AttendanceRewardExcelAddRewardIcon(builder, rewardIcon)
+def AttendanceRewardExcelAddDay(builder, day): builder.PrependInt64Slot(4, day, 0)
+def AddDay(builder, day):
+    return AttendanceRewardExcelAddDay(builder, day)
+def AttendanceRewardExcelAddAttendanceId(builder, attendanceId): builder.PrependInt64Slot(5, attendanceId, 0)
+def AddAttendanceId(builder, attendanceId):
+    return AttendanceRewardExcelAddAttendanceId(builder, attendanceId)
 def AttendanceRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AttendanceRewardExcelEnd(builder)

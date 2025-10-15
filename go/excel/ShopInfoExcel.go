@@ -33,210 +33,184 @@ func (rcv *ShopInfoExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopInfoExcel) CategoryType() ShopCategoryType {
+func (rcv *ShopInfoExcel) ShopUpdateGroupId12() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopInfoExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId12(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ShopInfoExcel) IsRefresh() bool {
+func (rcv *ShopInfoExcel) ShopUpdateGroupId11() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *ShopInfoExcel) MutateIsRefresh(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId11(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *ShopInfoExcel) IsSoldOutDimmed() bool {
+func (rcv *ShopInfoExcel) ShopUpdateGroupId10() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId10(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId9() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId9(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId8() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId8(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId7() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId7(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId6() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId6(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId5() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId5(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId4() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId4(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId3() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId3(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId2() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId2(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateGroupId1() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateGroupId1(n int32) bool {
+	return rcv._tab.MutateInt32Slot(26, n)
+}
+
+func (rcv *ShopInfoExcel) ShopUpdateDate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopUpdateDate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(28, n)
+}
+
+func (rcv *ShopInfoExcel) DisplayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(30, n)
+}
+
+func (rcv *ShopInfoExcel) IsShopVisible() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *ShopInfoExcel) MutateIsSoldOutDimmed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *ShopInfoExcel) CostParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) CostParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateCostParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *ShopInfoExcel) CostParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) CostParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateCostParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ShopInfoExcel) AutoRefreshCoolTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateAutoRefreshCoolTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *ShopInfoExcel) ShopRefresherType() ShopRefresherType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return ShopRefresherType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopRefresherType(n ShopRefresherType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
-}
-
-func (rcv *ShopInfoExcel) ShopRefreshPeriodType() ShopRefreshPeriodType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return ShopRefreshPeriodType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopRefreshPeriodType(n ShopRefreshPeriodType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *ShopInfoExcel) RefreshAbleCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateRefreshAbleCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *ShopInfoExcel) GoodsId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) GoodsIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateGoodsId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ShopInfoExcel) OpenPeriodFrom() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopInfoExcel) OpenPeriodTo() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopInfoExcel) RefreshPeriodBaseTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopInfoExcel) ShopProductUpdateTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopInfoExcel) DisplayParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateDisplayParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
+func (rcv *ShopInfoExcel) MutateIsShopVisible(n bool) bool {
+	return rcv._tab.MutateBoolSlot(32, n)
 }
 
 func (rcv *ShopInfoExcel) DisplayParcelId() int64 {
@@ -251,290 +225,316 @@ func (rcv *ShopInfoExcel) MutateDisplayParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(34, n)
 }
 
-func (rcv *ShopInfoExcel) IsShopVisible() bool {
+func (rcv *ShopInfoExcel) DisplayParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateDisplayParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(36, int32(n))
+}
+
+func (rcv *ShopInfoExcel) ShopProductUpdateTime() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopInfoExcel) RefreshPeriodBaseTime() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopInfoExcel) OpenPeriodTo() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopInfoExcel) OpenPeriodFrom() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopInfoExcel) GoodsId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) GoodsIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateGoodsId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ShopInfoExcel) RefreshAbleCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateRefreshAbleCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
+}
+
+func (rcv *ShopInfoExcel) ShopRefreshPeriodType() ShopRefreshPeriodType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return ShopRefreshPeriodType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopRefreshPeriodType(n ShopRefreshPeriodType) bool {
+	return rcv._tab.MutateInt32Slot(50, int32(n))
+}
+
+func (rcv *ShopInfoExcel) ShopRefresherType() ShopRefresherType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return ShopRefresherType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateShopRefresherType(n ShopRefresherType) bool {
+	return rcv._tab.MutateInt32Slot(52, int32(n))
+}
+
+func (rcv *ShopInfoExcel) AutoRefreshCoolTime() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateAutoRefreshCoolTime(n int64) bool {
+	return rcv._tab.MutateInt64Slot(54, n)
+}
+
+func (rcv *ShopInfoExcel) CostParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) CostParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateCostParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ShopInfoExcel) CostParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) CostParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ShopInfoExcel) MutateCostParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *ShopInfoExcel) IsSoldOutDimmed() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *ShopInfoExcel) MutateIsShopVisible(n bool) bool {
-	return rcv._tab.MutateBoolSlot(36, n)
+func (rcv *ShopInfoExcel) MutateIsSoldOutDimmed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(60, n)
 }
 
-func (rcv *ShopInfoExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateDate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateDate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(40, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId1() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId1(n int32) bool {
-	return rcv._tab.MutateInt32Slot(42, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId2() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId2(n int32) bool {
-	return rcv._tab.MutateInt32Slot(44, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId3() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId3(n int32) bool {
-	return rcv._tab.MutateInt32Slot(46, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId4() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId4(n int32) bool {
-	return rcv._tab.MutateInt32Slot(48, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId5() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId5(n int32) bool {
-	return rcv._tab.MutateInt32Slot(50, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId6() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId6(n int32) bool {
-	return rcv._tab.MutateInt32Slot(52, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId7() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId7(n int32) bool {
-	return rcv._tab.MutateInt32Slot(54, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId8() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId8(n int32) bool {
-	return rcv._tab.MutateInt32Slot(56, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId9() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId9(n int32) bool {
-	return rcv._tab.MutateInt32Slot(58, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId10() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId10(n int32) bool {
-	return rcv._tab.MutateInt32Slot(60, n)
-}
-
-func (rcv *ShopInfoExcel) ShopUpdateGroupId11() int32 {
+func (rcv *ShopInfoExcel) IsRefresh() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId11(n int32) bool {
-	return rcv._tab.MutateInt32Slot(62, n)
+func (rcv *ShopInfoExcel) MutateIsRefresh(n bool) bool {
+	return rcv._tab.MutateBoolSlot(62, n)
 }
 
-func (rcv *ShopInfoExcel) ShopUpdateGroupId12() int32 {
+func (rcv *ShopInfoExcel) CategoryType() ShopCategoryType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ShopInfoExcel) MutateShopUpdateGroupId12(n int32) bool {
-	return rcv._tab.MutateInt32Slot(64, n)
+func (rcv *ShopInfoExcel) MutateCategoryType(n ShopCategoryType) bool {
+	return rcv._tab.MutateInt32Slot(64, int32(n))
 }
 
 func ShopInfoExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(31)
 }
-func ShopInfoExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(0, int32(categoryType), 0)
+func ShopInfoExcelAddShopUpdateGroupId12(builder *flatbuffers.Builder, shopUpdateGroupId12 int32) {
+	builder.PrependInt32Slot(0, shopUpdateGroupId12, 0)
 }
-func ShopInfoExcelAddIsRefresh(builder *flatbuffers.Builder, isRefresh bool) {
-	builder.PrependBoolSlot(1, isRefresh, false)
+func ShopInfoExcelAddShopUpdateGroupId11(builder *flatbuffers.Builder, shopUpdateGroupId11 int32) {
+	builder.PrependInt32Slot(1, shopUpdateGroupId11, 0)
 }
-func ShopInfoExcelAddIsSoldOutDimmed(builder *flatbuffers.Builder, isSoldOutDimmed bool) {
-	builder.PrependBoolSlot(2, isSoldOutDimmed, false)
+func ShopInfoExcelAddShopUpdateGroupId10(builder *flatbuffers.Builder, shopUpdateGroupId10 int32) {
+	builder.PrependInt32Slot(2, shopUpdateGroupId10, 0)
 }
-func ShopInfoExcelAddCostParcelType(builder *flatbuffers.Builder, costParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(costParcelType), 0)
+func ShopInfoExcelAddShopUpdateGroupId9(builder *flatbuffers.Builder, shopUpdateGroupId9 int32) {
+	builder.PrependInt32Slot(3, shopUpdateGroupId9, 0)
 }
-func ShopInfoExcelStartCostParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func ShopInfoExcelAddShopUpdateGroupId8(builder *flatbuffers.Builder, shopUpdateGroupId8 int32) {
+	builder.PrependInt32Slot(4, shopUpdateGroupId8, 0)
 }
-func ShopInfoExcelAddCostParcelId(builder *flatbuffers.Builder, costParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(costParcelId), 0)
+func ShopInfoExcelAddShopUpdateGroupId7(builder *flatbuffers.Builder, shopUpdateGroupId7 int32) {
+	builder.PrependInt32Slot(5, shopUpdateGroupId7, 0)
 }
-func ShopInfoExcelStartCostParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ShopInfoExcelAddShopUpdateGroupId6(builder *flatbuffers.Builder, shopUpdateGroupId6 int32) {
+	builder.PrependInt32Slot(6, shopUpdateGroupId6, 0)
 }
-func ShopInfoExcelAddAutoRefreshCoolTime(builder *flatbuffers.Builder, autoRefreshCoolTime int64) {
-	builder.PrependInt64Slot(5, autoRefreshCoolTime, 0)
+func ShopInfoExcelAddShopUpdateGroupId5(builder *flatbuffers.Builder, shopUpdateGroupId5 int32) {
+	builder.PrependInt32Slot(7, shopUpdateGroupId5, 0)
 }
-func ShopInfoExcelAddShopRefresherType(builder *flatbuffers.Builder, shopRefresherType ShopRefresherType) {
-	builder.PrependInt32Slot(6, int32(shopRefresherType), 0)
+func ShopInfoExcelAddShopUpdateGroupId4(builder *flatbuffers.Builder, shopUpdateGroupId4 int32) {
+	builder.PrependInt32Slot(8, shopUpdateGroupId4, 0)
 }
-func ShopInfoExcelAddShopRefreshPeriodType(builder *flatbuffers.Builder, shopRefreshPeriodType ShopRefreshPeriodType) {
-	builder.PrependInt32Slot(7, int32(shopRefreshPeriodType), 0)
+func ShopInfoExcelAddShopUpdateGroupId3(builder *flatbuffers.Builder, shopUpdateGroupId3 int32) {
+	builder.PrependInt32Slot(9, shopUpdateGroupId3, 0)
 }
-func ShopInfoExcelAddRefreshAbleCount(builder *flatbuffers.Builder, refreshAbleCount int64) {
-	builder.PrependInt64Slot(8, refreshAbleCount, 0)
+func ShopInfoExcelAddShopUpdateGroupId2(builder *flatbuffers.Builder, shopUpdateGroupId2 int32) {
+	builder.PrependInt32Slot(10, shopUpdateGroupId2, 0)
 }
-func ShopInfoExcelAddGoodsId(builder *flatbuffers.Builder, goodsId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(goodsId), 0)
+func ShopInfoExcelAddShopUpdateGroupId1(builder *flatbuffers.Builder, shopUpdateGroupId1 int32) {
+	builder.PrependInt32Slot(11, shopUpdateGroupId1, 0)
 }
-func ShopInfoExcelStartGoodsIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ShopInfoExcelAddShopUpdateDate(builder *flatbuffers.Builder, shopUpdateDate int32) {
+	builder.PrependInt32Slot(12, shopUpdateDate, 0)
 }
-func ShopInfoExcelAddOpenPeriodFrom(builder *flatbuffers.Builder, openPeriodFrom flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(openPeriodFrom), 0)
+func ShopInfoExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
+	builder.PrependInt32Slot(13, displayOrder, 0)
 }
-func ShopInfoExcelAddOpenPeriodTo(builder *flatbuffers.Builder, openPeriodTo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(openPeriodTo), 0)
-}
-func ShopInfoExcelAddRefreshPeriodBaseTime(builder *flatbuffers.Builder, refreshPeriodBaseTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(refreshPeriodBaseTime), 0)
-}
-func ShopInfoExcelAddShopProductUpdateTime(builder *flatbuffers.Builder, shopProductUpdateTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(shopProductUpdateTime), 0)
-}
-func ShopInfoExcelAddDisplayParcelType(builder *flatbuffers.Builder, displayParcelType ParcelType) {
-	builder.PrependInt32Slot(14, int32(displayParcelType), 0)
+func ShopInfoExcelAddIsShopVisible(builder *flatbuffers.Builder, isShopVisible bool) {
+	builder.PrependBoolSlot(14, isShopVisible, false)
 }
 func ShopInfoExcelAddDisplayParcelId(builder *flatbuffers.Builder, displayParcelId int64) {
 	builder.PrependInt64Slot(15, displayParcelId, 0)
 }
-func ShopInfoExcelAddIsShopVisible(builder *flatbuffers.Builder, isShopVisible bool) {
-	builder.PrependBoolSlot(16, isShopVisible, false)
+func ShopInfoExcelAddDisplayParcelType(builder *flatbuffers.Builder, displayParcelType ParcelType) {
+	builder.PrependInt32Slot(16, int32(displayParcelType), 0)
 }
-func ShopInfoExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(17, displayOrder, 0)
+func ShopInfoExcelAddShopProductUpdateTime(builder *flatbuffers.Builder, shopProductUpdateTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(shopProductUpdateTime), 0)
 }
-func ShopInfoExcelAddShopUpdateDate(builder *flatbuffers.Builder, shopUpdateDate int32) {
-	builder.PrependInt32Slot(18, shopUpdateDate, 0)
+func ShopInfoExcelAddRefreshPeriodBaseTime(builder *flatbuffers.Builder, refreshPeriodBaseTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(refreshPeriodBaseTime), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId1(builder *flatbuffers.Builder, shopUpdateGroupId1 int32) {
-	builder.PrependInt32Slot(19, shopUpdateGroupId1, 0)
+func ShopInfoExcelAddOpenPeriodTo(builder *flatbuffers.Builder, openPeriodTo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(openPeriodTo), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId2(builder *flatbuffers.Builder, shopUpdateGroupId2 int32) {
-	builder.PrependInt32Slot(20, shopUpdateGroupId2, 0)
+func ShopInfoExcelAddOpenPeriodFrom(builder *flatbuffers.Builder, openPeriodFrom flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(openPeriodFrom), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId3(builder *flatbuffers.Builder, shopUpdateGroupId3 int32) {
-	builder.PrependInt32Slot(21, shopUpdateGroupId3, 0)
+func ShopInfoExcelAddGoodsId(builder *flatbuffers.Builder, goodsId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(goodsId), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId4(builder *flatbuffers.Builder, shopUpdateGroupId4 int32) {
-	builder.PrependInt32Slot(22, shopUpdateGroupId4, 0)
+func ShopInfoExcelStartGoodsIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func ShopInfoExcelAddShopUpdateGroupId5(builder *flatbuffers.Builder, shopUpdateGroupId5 int32) {
-	builder.PrependInt32Slot(23, shopUpdateGroupId5, 0)
+func ShopInfoExcelAddRefreshAbleCount(builder *flatbuffers.Builder, refreshAbleCount int64) {
+	builder.PrependInt64Slot(22, refreshAbleCount, 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId6(builder *flatbuffers.Builder, shopUpdateGroupId6 int32) {
-	builder.PrependInt32Slot(24, shopUpdateGroupId6, 0)
+func ShopInfoExcelAddShopRefreshPeriodType(builder *flatbuffers.Builder, shopRefreshPeriodType ShopRefreshPeriodType) {
+	builder.PrependInt32Slot(23, int32(shopRefreshPeriodType), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId7(builder *flatbuffers.Builder, shopUpdateGroupId7 int32) {
-	builder.PrependInt32Slot(25, shopUpdateGroupId7, 0)
+func ShopInfoExcelAddShopRefresherType(builder *flatbuffers.Builder, shopRefresherType ShopRefresherType) {
+	builder.PrependInt32Slot(24, int32(shopRefresherType), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId8(builder *flatbuffers.Builder, shopUpdateGroupId8 int32) {
-	builder.PrependInt32Slot(26, shopUpdateGroupId8, 0)
+func ShopInfoExcelAddAutoRefreshCoolTime(builder *flatbuffers.Builder, autoRefreshCoolTime int64) {
+	builder.PrependInt64Slot(25, autoRefreshCoolTime, 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId9(builder *flatbuffers.Builder, shopUpdateGroupId9 int32) {
-	builder.PrependInt32Slot(27, shopUpdateGroupId9, 0)
+func ShopInfoExcelAddCostParcelId(builder *flatbuffers.Builder, costParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(costParcelId), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId10(builder *flatbuffers.Builder, shopUpdateGroupId10 int32) {
-	builder.PrependInt32Slot(28, shopUpdateGroupId10, 0)
+func ShopInfoExcelStartCostParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func ShopInfoExcelAddShopUpdateGroupId11(builder *flatbuffers.Builder, shopUpdateGroupId11 int32) {
-	builder.PrependInt32Slot(29, shopUpdateGroupId11, 0)
+func ShopInfoExcelAddCostParcelType(builder *flatbuffers.Builder, costParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(costParcelType), 0)
 }
-func ShopInfoExcelAddShopUpdateGroupId12(builder *flatbuffers.Builder, shopUpdateGroupId12 int32) {
-	builder.PrependInt32Slot(30, shopUpdateGroupId12, 0)
+func ShopInfoExcelStartCostParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func ShopInfoExcelAddIsSoldOutDimmed(builder *flatbuffers.Builder, isSoldOutDimmed bool) {
+	builder.PrependBoolSlot(28, isSoldOutDimmed, false)
+}
+func ShopInfoExcelAddIsRefresh(builder *flatbuffers.Builder, isRefresh bool) {
+	builder.PrependBoolSlot(29, isRefresh, false)
+}
+func ShopInfoExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
+	builder.PrependInt32Slot(30, int32(categoryType), 0)
 }
 func ShopInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

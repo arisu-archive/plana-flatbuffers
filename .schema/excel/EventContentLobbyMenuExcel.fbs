@@ -1,0 +1,16 @@
+include "EventContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentLobbyMenuExcel {
+    reddot_sprite_name: string;
+    icon_offset_y: float;
+    icon_offset_x: float;
+    display_order: int;
+    button_text: string;
+    icon_sprite_name: string;
+    event_content_type: EventContentType;
+    event_content_id: long;
+}
+
+root_type EventContentLobbyMenuExcel;

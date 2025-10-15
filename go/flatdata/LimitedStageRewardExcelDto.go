@@ -10,13 +10,13 @@ import (
 // LimitedStageRewardExcelDto represents a FlatBuffers table
 type LimitedStageRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId          int64      `json:"group_id"`
-	RewardTag        RewardTag  `json:"reward_tag"`
-	RewardProb       int32      `json:"reward_prob"`
-	RewardParcelType ParcelType `json:"reward_parcel_type"`
-	RewardId         int64      `json:"reward_id"`
-	RewardAmount     int32      `json:"reward_amount"`
 	IsDisplayed      bool       `json:"is_displayed"`
+	RewardAmount     int32      `json:"reward_amount"`
+	RewardId         int64      `json:"reward_id"`
+	RewardParcelType ParcelType `json:"reward_parcel_type"`
+	RewardProb       int32      `json:"reward_prob"`
+	RewardTag        RewardTag  `json:"reward_tag"`
+	GroupId          int64      `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *LimitedStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageReward"))
 	}
 	LimitedStageRewardExcelStart(b)
-	LimitedStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
 	LimitedStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	LimitedStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return LimitedStageRewardExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *LimitedStageRewardExcelDto) UnmarshalMessage(e *LimitedStageRewardExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageReward"))
 	}
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = e.IsDisplayed()
+	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

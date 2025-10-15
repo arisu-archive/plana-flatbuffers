@@ -10,39 +10,39 @@ import (
 // MinigameTBGDiceExcelDto represents a FlatBuffers table
 type MinigameTBGDiceExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId      int64                    `json:"event_content_id"`
-	UniqueId            int64                    `json:"unique_id"`
-	DiceGroup           int32                    `json:"dice_group"`
-	DiceResult          int32                    `json:"dice_result"`
-	Prob                int32                    `json:"prob"`
-	ProbModifyCondition []TBGProbModifyCondition `json:"prob_modify_condition"`
-	ProbModifyValue     []int32                  `json:"prob_modify_value"`
 	ProbModifyLimit     []int32                  `json:"prob_modify_limit"`
+	ProbModifyValue     []int32                  `json:"prob_modify_value"`
+	ProbModifyCondition []TBGProbModifyCondition `json:"prob_modify_condition"`
+	Prob                int32                    `json:"prob"`
+	DiceResult          int32                    `json:"dice_result"`
+	DiceGroup           int32                    `json:"dice_group"`
+	UniqueId            int64                    `json:"unique_id"`
+	EventContentId      int64                    `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGDiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGDiceExcelStart(b)
-	MinigameTBGDiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameTBGDiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGDiceExcelAddDiceGroup(b, fbsutils.Convert(t.DiceGroup, t.FlatBuffer.TableKey))
-	MinigameTBGDiceExcelAddDiceResult(b, fbsutils.Convert(t.DiceResult, t.FlatBuffer.TableKey))
-	MinigameTBGDiceExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	MinigameTBGDiceExcelStartProbModifyConditionVector(b, len(t.ProbModifyCondition))
-	for i := range len(t.ProbModifyCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MinigameTBGDiceExcelAddProbModifyCondition(b, b.EndVector(len(t.ProbModifyCondition)))
-	MinigameTBGDiceExcelStartProbModifyValueVector(b, len(t.ProbModifyValue))
-	for i := range len(t.ProbModifyValue) {
-		b.PrependInt32(fbsutils.Convert(t.ProbModifyValue[len(t.ProbModifyValue)-i-1], t.FlatBuffer.TableKey))
-	}
-	MinigameTBGDiceExcelAddProbModifyValue(b, b.EndVector(len(t.ProbModifyValue)))
 	MinigameTBGDiceExcelStartProbModifyLimitVector(b, len(t.ProbModifyLimit))
 	for i := range len(t.ProbModifyLimit) {
 		b.PrependInt32(fbsutils.Convert(t.ProbModifyLimit[len(t.ProbModifyLimit)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameTBGDiceExcelAddProbModifyLimit(b, b.EndVector(len(t.ProbModifyLimit)))
+	MinigameTBGDiceExcelStartProbModifyValueVector(b, len(t.ProbModifyValue))
+	for i := range len(t.ProbModifyValue) {
+		b.PrependInt32(fbsutils.Convert(t.ProbModifyValue[len(t.ProbModifyValue)-i-1], t.FlatBuffer.TableKey))
+	}
+	MinigameTBGDiceExcelAddProbModifyValue(b, b.EndVector(len(t.ProbModifyValue)))
+	MinigameTBGDiceExcelStartProbModifyConditionVector(b, len(t.ProbModifyCondition))
+	for i := range len(t.ProbModifyCondition) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MinigameTBGDiceExcelAddProbModifyCondition(b, b.EndVector(len(t.ProbModifyCondition)))
+	MinigameTBGDiceExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	MinigameTBGDiceExcelAddDiceResult(b, fbsutils.Convert(t.DiceResult, t.FlatBuffer.TableKey))
+	MinigameTBGDiceExcelAddDiceGroup(b, fbsutils.Convert(t.DiceGroup, t.FlatBuffer.TableKey))
+	MinigameTBGDiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameTBGDiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameTBGDiceExcelEnd(b)
 }
 
@@ -55,23 +55,23 @@ func (t *MinigameTBGDiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGDiceExcelDto) UnmarshalMessage(e *MinigameTBGDiceExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.DiceGroup = fbsutils.Convert(e.DiceGroup(), t.FlatBuffer.TableKey)
-	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.ProbModifyCondition = make([]TBGProbModifyCondition, e.ProbModifyConditionLength())
-	for i := range e.ProbModifyConditionLength() {
-		t.ProbModifyCondition[i] = TBGProbModifyCondition(fbsutils.Convert(int32(e.ProbModifyCondition(i)), t.FlatBuffer.TableKey))
+	t.ProbModifyLimit = make([]int32, e.ProbModifyLimitLength())
+	for i := range e.ProbModifyLimitLength() {
+		t.ProbModifyLimit[i] = fbsutils.Convert(e.ProbModifyLimit(i), t.FlatBuffer.TableKey)
 	}
 	t.ProbModifyValue = make([]int32, e.ProbModifyValueLength())
 	for i := range e.ProbModifyValueLength() {
 		t.ProbModifyValue[i] = fbsutils.Convert(e.ProbModifyValue(i), t.FlatBuffer.TableKey)
 	}
-	t.ProbModifyLimit = make([]int32, e.ProbModifyLimitLength())
-	for i := range e.ProbModifyLimitLength() {
-		t.ProbModifyLimit[i] = fbsutils.Convert(e.ProbModifyLimit(i), t.FlatBuffer.TableKey)
+	t.ProbModifyCondition = make([]TBGProbModifyCondition, e.ProbModifyConditionLength())
+	for i := range e.ProbModifyConditionLength() {
+		t.ProbModifyCondition[i] = TBGProbModifyCondition(fbsutils.Convert(int32(e.ProbModifyCondition(i)), t.FlatBuffer.TableKey))
 	}
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)
+	t.DiceGroup = fbsutils.Convert(e.DiceGroup(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

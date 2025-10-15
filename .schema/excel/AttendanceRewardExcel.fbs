@@ -3,12 +3,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table AttendanceRewardExcel {
-    attendance_id: long;
-    day: long;
-    reward_icon: string;
-    reward_parcel_type: [ParcelType];
-    reward_id: [long];
     reward_amount: [long];
+    reward_id: [long];
+    reward_parcel_type: [ParcelType];
+    reward_icon: string;
+    day: long;
+    attendance_id: long;
 }
 
 root_type AttendanceRewardExcel;

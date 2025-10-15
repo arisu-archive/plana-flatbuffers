@@ -33,7 +33,7 @@ func (rcv *ShopRecruitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopRecruitExcel) Id() int64 {
+func (rcv *ShopRecruitExcel) MaxSelectCharacterNum() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,35 +41,35 @@ func (rcv *ShopRecruitExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateMaxSelectCharacterNum(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ShopRecruitExcel) CategoryType() ShopCategoryType {
+func (rcv *ShopRecruitExcel) SelectAbleGachaGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *ShopRecruitExcel) MutateSelectAbleGachaGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ShopRecruitExcel) IsLegacy() bool {
+func (rcv *ShopRecruitExcel) DirectPayAppleShopCashId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
+func (rcv *ShopRecruitExcel) MutateDirectPayAppleShopCashId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ShopRecruitExcel) OneGachaGoodsId() int64 {
+func (rcv *ShopRecruitExcel) DirectPayAndroidShopCashId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *ShopRecruitExcel) OneGachaGoodsId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateOneGachaGoodsId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateDirectPayAndroidShopCashId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ShopRecruitExcel) TenGachaGoodsId() int64 {
+func (rcv *ShopRecruitExcel) DirectPayInvisibleTokenId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,77 +89,71 @@ func (rcv *ShopRecruitExcel) TenGachaGoodsId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateTenGachaGoodsId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateDirectPayInvisibleTokenId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *ShopRecruitExcel) GoodsDevName() []byte {
+func (rcv *ShopRecruitExcel) IsSelectRecruit() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *ShopRecruitExcel) DisplayTag() GachaDisplayTag {
+func (rcv *ShopRecruitExcel) MutateIsSelectRecruit(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *ShopRecruitExcel) IsNewbie() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return GachaDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ShopRecruitExcel) MutateIsNewbie(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
+}
+
+func (rcv *ShopRecruitExcel) PurchaseCountResetType() PurchaseCountResetType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return PurchaseCountResetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDisplayTag(n GachaDisplayTag) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+func (rcv *ShopRecruitExcel) MutatePurchaseCountResetType(n PurchaseCountResetType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
-func (rcv *ShopRecruitExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *ShopRecruitExcel) PurchaseCountLimit() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *ShopRecruitExcel) MutatePurchaseCountLimit(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *ShopRecruitExcel) GachaBannerPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopRecruitExcel) VideoId(j int) int64 {
+func (rcv *ShopRecruitExcel) PurchaseCooltimeMin() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) VideoIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *ShopRecruitExcel) MutatePurchaseCooltimeMin(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *ShopRecruitExcel) MutateVideoId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ShopRecruitExcel) LinkedRobbyBannerId() int64 {
+func (rcv *ShopRecruitExcel) RecruitSellectionShopId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -167,12 +161,52 @@ func (rcv *ShopRecruitExcel) LinkedRobbyBannerId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateLinkedRobbyBannerId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateRecruitSellectionShopId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *ShopRecruitExcel) InfoCharacterId(j int) int64 {
+func (rcv *ShopRecruitExcel) RecruitCoinId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRecruitExcel) MutateRecruitCoinId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *ShopRecruitExcel) SalePeriodTo() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopRecruitExcel) SalePeriodFrom() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopRecruitExcel) SalePeriodVisible() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ShopRecruitExcel) MutateSalePeriodVisible(n bool) bool {
+	return rcv._tab.MutateBoolSlot(32, n)
+}
+
+func (rcv *ShopRecruitExcel) InfoCharacterId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -181,7 +215,7 @@ func (rcv *ShopRecruitExcel) InfoCharacterId(j int) int64 {
 }
 
 func (rcv *ShopRecruitExcel) InfoCharacterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -189,7 +223,7 @@ func (rcv *ShopRecruitExcel) InfoCharacterIdLength() int {
 }
 
 func (rcv *ShopRecruitExcel) MutateInfoCharacterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -197,47 +231,7 @@ func (rcv *ShopRecruitExcel) MutateInfoCharacterId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *ShopRecruitExcel) SalePeriodFrom() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopRecruitExcel) SalePeriodTo() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopRecruitExcel) RecruitCoinId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRecruitExcel) MutateRecruitCoinId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
-}
-
-func (rcv *ShopRecruitExcel) RecruitSellectionShopId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRecruitExcel) MutateRecruitSellectionShopId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
-func (rcv *ShopRecruitExcel) PurchaseCooltimeMin() int64 {
+func (rcv *ShopRecruitExcel) LinkedRobbyBannerId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -245,71 +239,77 @@ func (rcv *ShopRecruitExcel) PurchaseCooltimeMin() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutatePurchaseCooltimeMin(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateLinkedRobbyBannerId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(36, n)
 }
 
-func (rcv *ShopRecruitExcel) PurchaseCountLimit() int64 {
+func (rcv *ShopRecruitExcel) VideoId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutatePurchaseCountLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
+func (rcv *ShopRecruitExcel) VideoIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ShopRecruitExcel) PurchaseCountResetType() PurchaseCountResetType {
+func (rcv *ShopRecruitExcel) MutateVideoId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ShopRecruitExcel) GachaBannerPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return PurchaseCountResetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ShopRecruitExcel) MutatePurchaseCountResetType(n PurchaseCountResetType) bool {
-	return rcv._tab.MutateInt32Slot(40, int32(n))
-}
-
-func (rcv *ShopRecruitExcel) IsNewbie() bool {
+func (rcv *ShopRecruitExcel) DisplayOrder() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ShopRecruitExcel) MutateIsNewbie(n bool) bool {
-	return rcv._tab.MutateBoolSlot(42, n)
-}
-
-func (rcv *ShopRecruitExcel) IsSelectRecruit() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ShopRecruitExcel) MutateIsSelectRecruit(n bool) bool {
-	return rcv._tab.MutateBoolSlot(44, n)
-}
-
-func (rcv *ShopRecruitExcel) DirectPayInvisibleTokenId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDirectPayInvisibleTokenId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
+func (rcv *ShopRecruitExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
 }
 
-func (rcv *ShopRecruitExcel) DirectPayAndroidShopCashId() int64 {
+func (rcv *ShopRecruitExcel) DisplayTag() GachaDisplayTag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return GachaDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopRecruitExcel) MutateDisplayTag(n GachaDisplayTag) bool {
+	return rcv._tab.MutateInt32Slot(44, int32(n))
+}
+
+func (rcv *ShopRecruitExcel) GoodsDevName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopRecruitExcel) TenGachaGoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -317,11 +317,11 @@ func (rcv *ShopRecruitExcel) DirectPayAndroidShopCashId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDirectPayAndroidShopCashId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateTenGachaGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *ShopRecruitExcel) DirectPayAppleShopCashId() int64 {
+func (rcv *ShopRecruitExcel) OneGachaGoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -329,120 +329,135 @@ func (rcv *ShopRecruitExcel) DirectPayAppleShopCashId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDirectPayAppleShopCashId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateOneGachaGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *ShopRecruitExcel) SelectAbleGachaGroupId() int64 {
+func (rcv *ShopRecruitExcel) IsLegacy() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ShopRecruitExcel) MutateIsLegacy(n bool) bool {
+	return rcv._tab.MutateBoolSlot(52, n)
+}
+
+func (rcv *ShopRecruitExcel) CategoryType() ShopCategoryType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateSelectAbleGachaGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(52, n)
+func (rcv *ShopRecruitExcel) MutateCategoryType(n ShopCategoryType) bool {
+	return rcv._tab.MutateInt32Slot(54, int32(n))
 }
 
-func (rcv *ShopRecruitExcel) MaxSelectCharacterNum() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+func (rcv *ShopRecruitExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateMaxSelectCharacterNum(n int64) bool {
-	return rcv._tab.MutateInt64Slot(54, n)
+func (rcv *ShopRecruitExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
 }
 
 func ShopRecruitExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(26)
+	builder.StartObject(27)
 }
-func ShopRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func ShopRecruitExcelAddMaxSelectCharacterNum(builder *flatbuffers.Builder, maxSelectCharacterNum int64) {
+	builder.PrependInt64Slot(0, maxSelectCharacterNum, 0)
 }
-func ShopRecruitExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(1, int32(categoryType), 0)
+func ShopRecruitExcelAddSelectAbleGachaGroupId(builder *flatbuffers.Builder, selectAbleGachaGroupId int64) {
+	builder.PrependInt64Slot(1, selectAbleGachaGroupId, 0)
 }
-func ShopRecruitExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(2, isLegacy, false)
+func ShopRecruitExcelAddDirectPayAppleShopCashId(builder *flatbuffers.Builder, directPayAppleShopCashId int64) {
+	builder.PrependInt64Slot(2, directPayAppleShopCashId, 0)
 }
-func ShopRecruitExcelAddOneGachaGoodsId(builder *flatbuffers.Builder, oneGachaGoodsId int64) {
-	builder.PrependInt64Slot(3, oneGachaGoodsId, 0)
+func ShopRecruitExcelAddDirectPayAndroidShopCashId(builder *flatbuffers.Builder, directPayAndroidShopCashId int64) {
+	builder.PrependInt64Slot(3, directPayAndroidShopCashId, 0)
 }
-func ShopRecruitExcelAddTenGachaGoodsId(builder *flatbuffers.Builder, tenGachaGoodsId int64) {
-	builder.PrependInt64Slot(4, tenGachaGoodsId, 0)
+func ShopRecruitExcelAddDirectPayInvisibleTokenId(builder *flatbuffers.Builder, directPayInvisibleTokenId int64) {
+	builder.PrependInt64Slot(4, directPayInvisibleTokenId, 0)
 }
-func ShopRecruitExcelAddGoodsDevName(builder *flatbuffers.Builder, goodsDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(goodsDevName), 0)
+func ShopRecruitExcelAddIsSelectRecruit(builder *flatbuffers.Builder, isSelectRecruit bool) {
+	builder.PrependBoolSlot(5, isSelectRecruit, false)
 }
-func ShopRecruitExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag GachaDisplayTag) {
-	builder.PrependInt32Slot(6, int32(displayTag), 0)
+func ShopRecruitExcelAddIsNewbie(builder *flatbuffers.Builder, isNewbie bool) {
+	builder.PrependBoolSlot(6, isNewbie, false)
 }
-func ShopRecruitExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(7, displayOrder, 0)
+func ShopRecruitExcelAddPurchaseCountResetType(builder *flatbuffers.Builder, purchaseCountResetType PurchaseCountResetType) {
+	builder.PrependInt32Slot(7, int32(purchaseCountResetType), 0)
 }
-func ShopRecruitExcelAddGachaBannerPath(builder *flatbuffers.Builder, gachaBannerPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(gachaBannerPath), 0)
+func ShopRecruitExcelAddPurchaseCountLimit(builder *flatbuffers.Builder, purchaseCountLimit int64) {
+	builder.PrependInt64Slot(8, purchaseCountLimit, 0)
 }
-func ShopRecruitExcelAddVideoId(builder *flatbuffers.Builder, videoId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(videoId), 0)
+func ShopRecruitExcelAddPurchaseCooltimeMin(builder *flatbuffers.Builder, purchaseCooltimeMin int64) {
+	builder.PrependInt64Slot(9, purchaseCooltimeMin, 0)
 }
-func ShopRecruitExcelStartVideoIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ShopRecruitExcelAddRecruitSellectionShopId(builder *flatbuffers.Builder, recruitSellectionShopId int64) {
+	builder.PrependInt64Slot(10, recruitSellectionShopId, 0)
 }
-func ShopRecruitExcelAddLinkedRobbyBannerId(builder *flatbuffers.Builder, linkedRobbyBannerId int64) {
-	builder.PrependInt64Slot(10, linkedRobbyBannerId, 0)
+func ShopRecruitExcelAddRecruitCoinId(builder *flatbuffers.Builder, recruitCoinId int64) {
+	builder.PrependInt64Slot(11, recruitCoinId, 0)
+}
+func ShopRecruitExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeriodTo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(salePeriodTo), 0)
+}
+func ShopRecruitExcelAddSalePeriodFrom(builder *flatbuffers.Builder, salePeriodFrom flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(salePeriodFrom), 0)
+}
+func ShopRecruitExcelAddSalePeriodVisible(builder *flatbuffers.Builder, salePeriodVisible bool) {
+	builder.PrependBoolSlot(14, salePeriodVisible, false)
 }
 func ShopRecruitExcelAddInfoCharacterId(builder *flatbuffers.Builder, infoCharacterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(infoCharacterId), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(infoCharacterId), 0)
 }
 func ShopRecruitExcelStartInfoCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ShopRecruitExcelAddSalePeriodFrom(builder *flatbuffers.Builder, salePeriodFrom flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(salePeriodFrom), 0)
+func ShopRecruitExcelAddLinkedRobbyBannerId(builder *flatbuffers.Builder, linkedRobbyBannerId int64) {
+	builder.PrependInt64Slot(16, linkedRobbyBannerId, 0)
 }
-func ShopRecruitExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeriodTo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(salePeriodTo), 0)
+func ShopRecruitExcelAddVideoId(builder *flatbuffers.Builder, videoId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(videoId), 0)
 }
-func ShopRecruitExcelAddRecruitCoinId(builder *flatbuffers.Builder, recruitCoinId int64) {
-	builder.PrependInt64Slot(14, recruitCoinId, 0)
+func ShopRecruitExcelStartVideoIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func ShopRecruitExcelAddRecruitSellectionShopId(builder *flatbuffers.Builder, recruitSellectionShopId int64) {
-	builder.PrependInt64Slot(15, recruitSellectionShopId, 0)
+func ShopRecruitExcelAddGachaBannerPath(builder *flatbuffers.Builder, gachaBannerPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(gachaBannerPath), 0)
 }
-func ShopRecruitExcelAddPurchaseCooltimeMin(builder *flatbuffers.Builder, purchaseCooltimeMin int64) {
-	builder.PrependInt64Slot(16, purchaseCooltimeMin, 0)
+func ShopRecruitExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(19, displayOrder, 0)
 }
-func ShopRecruitExcelAddPurchaseCountLimit(builder *flatbuffers.Builder, purchaseCountLimit int64) {
-	builder.PrependInt64Slot(17, purchaseCountLimit, 0)
+func ShopRecruitExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag GachaDisplayTag) {
+	builder.PrependInt32Slot(20, int32(displayTag), 0)
 }
-func ShopRecruitExcelAddPurchaseCountResetType(builder *flatbuffers.Builder, purchaseCountResetType PurchaseCountResetType) {
-	builder.PrependInt32Slot(18, int32(purchaseCountResetType), 0)
+func ShopRecruitExcelAddGoodsDevName(builder *flatbuffers.Builder, goodsDevName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(goodsDevName), 0)
 }
-func ShopRecruitExcelAddIsNewbie(builder *flatbuffers.Builder, isNewbie bool) {
-	builder.PrependBoolSlot(19, isNewbie, false)
+func ShopRecruitExcelAddTenGachaGoodsId(builder *flatbuffers.Builder, tenGachaGoodsId int64) {
+	builder.PrependInt64Slot(22, tenGachaGoodsId, 0)
 }
-func ShopRecruitExcelAddIsSelectRecruit(builder *flatbuffers.Builder, isSelectRecruit bool) {
-	builder.PrependBoolSlot(20, isSelectRecruit, false)
+func ShopRecruitExcelAddOneGachaGoodsId(builder *flatbuffers.Builder, oneGachaGoodsId int64) {
+	builder.PrependInt64Slot(23, oneGachaGoodsId, 0)
 }
-func ShopRecruitExcelAddDirectPayInvisibleTokenId(builder *flatbuffers.Builder, directPayInvisibleTokenId int64) {
-	builder.PrependInt64Slot(21, directPayInvisibleTokenId, 0)
+func ShopRecruitExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
+	builder.PrependBoolSlot(24, isLegacy, false)
 }
-func ShopRecruitExcelAddDirectPayAndroidShopCashId(builder *flatbuffers.Builder, directPayAndroidShopCashId int64) {
-	builder.PrependInt64Slot(22, directPayAndroidShopCashId, 0)
+func ShopRecruitExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
+	builder.PrependInt32Slot(25, int32(categoryType), 0)
 }
-func ShopRecruitExcelAddDirectPayAppleShopCashId(builder *flatbuffers.Builder, directPayAppleShopCashId int64) {
-	builder.PrependInt64Slot(23, directPayAppleShopCashId, 0)
-}
-func ShopRecruitExcelAddSelectAbleGachaGroupId(builder *flatbuffers.Builder, selectAbleGachaGroupId int64) {
-	builder.PrependInt64Slot(24, selectAbleGachaGroupId, 0)
-}
-func ShopRecruitExcelAddMaxSelectCharacterNum(builder *flatbuffers.Builder, maxSelectCharacterNum int64) {
-	builder.PrependInt64Slot(25, maxSelectCharacterNum, 0)
+func ShopRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(26, id, 0)
 }
 func ShopRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

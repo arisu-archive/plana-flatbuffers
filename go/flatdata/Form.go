@@ -33,21 +33,8 @@ func (rcv *Form) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *Form) MoveEnd(obj *MoveEnd) *MoveEnd {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		x := rcv._tab.Indirect(o + rcv._tab.Pos)
-		if obj == nil {
-			obj = new(MoveEnd)
-		}
-		obj.Init(rcv._tab.Bytes, x)
-		return obj
-	}
-	return nil
-}
-
 func (rcv *Form) PublicSkill(obj *Motion) *Motion {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		x := rcv._tab.Indirect(o + rcv._tab.Pos)
 		if obj == nil {
@@ -59,14 +46,27 @@ func (rcv *Form) PublicSkill(obj *Motion) *Motion {
 	return nil
 }
 
+func (rcv *Form) MoveEnd(obj *MoveEnd) *MoveEnd {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		x := rcv._tab.Indirect(o + rcv._tab.Pos)
+		if obj == nil {
+			obj = new(MoveEnd)
+		}
+		obj.Init(rcv._tab.Bytes, x)
+		return obj
+	}
+	return nil
+}
+
 func FormStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func FormAddMoveEnd(builder *flatbuffers.Builder, moveEnd flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(moveEnd), 0)
-}
 func FormAddPublicSkill(builder *flatbuffers.Builder, publicSkill flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(publicSkill), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(publicSkill), 0)
+}
+func FormAddMoveEnd(builder *flatbuffers.Builder, moveEnd flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(moveEnd), 0)
 }
 func FormEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

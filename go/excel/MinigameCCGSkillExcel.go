@@ -33,48 +33,16 @@ func (rcv *MinigameCCGSkillExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGSkillExcel) Id() int64 {
+func (rcv *MinigameCCGSkillExcel) SkillIcon() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGSkillExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameCCGSkillExcel) SkillType() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
-}
-
-func (rcv *MinigameCCGSkillExcel) DataLoadPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameCCGSkillExcel) Name() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGSkillExcel) MutateName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
 }
 
 func (rcv *MinigameCCGSkillExcel) Description() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -82,37 +50,69 @@ func (rcv *MinigameCCGSkillExcel) Description() uint32 {
 }
 
 func (rcv *MinigameCCGSkillExcel) MutateDescription(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(12, n)
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *MinigameCCGSkillExcel) SkillIcon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *MinigameCCGSkillExcel) Name() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGSkillExcel) MutateName(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *MinigameCCGSkillExcel) DataLoadPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *MinigameCCGSkillExcel) SkillType() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameCCGSkillExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGSkillExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func MinigameCCGSkillExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MinigameCCGSkillExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func MinigameCCGSkillExcelAddSkillType(builder *flatbuffers.Builder, skillType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(skillType), 0)
-}
-func MinigameCCGSkillExcelAddDataLoadPath(builder *flatbuffers.Builder, dataLoadPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(dataLoadPath), 0)
-}
-func MinigameCCGSkillExcelAddName(builder *flatbuffers.Builder, name uint32) {
-	builder.PrependUint32Slot(3, name, 0)
+func MinigameCCGSkillExcelAddSkillIcon(builder *flatbuffers.Builder, skillIcon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(skillIcon), 0)
 }
 func MinigameCCGSkillExcelAddDescription(builder *flatbuffers.Builder, description uint32) {
-	builder.PrependUint32Slot(4, description, 0)
+	builder.PrependUint32Slot(1, description, 0)
 }
-func MinigameCCGSkillExcelAddSkillIcon(builder *flatbuffers.Builder, skillIcon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(skillIcon), 0)
+func MinigameCCGSkillExcelAddName(builder *flatbuffers.Builder, name uint32) {
+	builder.PrependUint32Slot(2, name, 0)
+}
+func MinigameCCGSkillExcelAddDataLoadPath(builder *flatbuffers.Builder, dataLoadPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(dataLoadPath), 0)
+}
+func MinigameCCGSkillExcelAddSkillType(builder *flatbuffers.Builder, skillType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(skillType), 0)
+}
+func MinigameCCGSkillExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func MinigameCCGSkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

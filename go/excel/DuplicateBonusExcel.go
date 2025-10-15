@@ -33,7 +33,7 @@ func (rcv *DuplicateBonusExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *DuplicateBonusExcel) Id() int64 {
+func (rcv *DuplicateBonusExcel) RewardParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,32 +41,32 @@ func (rcv *DuplicateBonusExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *DuplicateBonusExcel) MutateId(n int64) bool {
+func (rcv *DuplicateBonusExcel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *DuplicateBonusExcel) ItemCategory() ItemCategory {
+func (rcv *DuplicateBonusExcel) RewardParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ItemCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *DuplicateBonusExcel) MutateItemCategory(n ItemCategory) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *DuplicateBonusExcel) ItemId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *DuplicateBonusExcel) MutateItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *DuplicateBonusExcel) MutateRewardParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *DuplicateBonusExcel) RewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *DuplicateBonusExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *DuplicateBonusExcel) CharacterId() int64 {
@@ -81,31 +81,31 @@ func (rcv *DuplicateBonusExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *DuplicateBonusExcel) RewardParcelType() ParcelType {
+func (rcv *DuplicateBonusExcel) ItemId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *DuplicateBonusExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *DuplicateBonusExcel) RewardParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *DuplicateBonusExcel) MutateRewardParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *DuplicateBonusExcel) MutateItemId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *DuplicateBonusExcel) RewardParcelAmount() int64 {
+func (rcv *DuplicateBonusExcel) ItemCategory() ItemCategory {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return ItemCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *DuplicateBonusExcel) MutateItemCategory(n ItemCategory) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *DuplicateBonusExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -113,33 +113,33 @@ func (rcv *DuplicateBonusExcel) RewardParcelAmount() int64 {
 	return 0
 }
 
-func (rcv *DuplicateBonusExcel) MutateRewardParcelAmount(n int64) bool {
+func (rcv *DuplicateBonusExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func DuplicateBonusExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func DuplicateBonusExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func DuplicateBonusExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
+	builder.PrependInt64Slot(0, rewardParcelAmount, 0)
 }
-func DuplicateBonusExcelAddItemCategory(builder *flatbuffers.Builder, itemCategory ItemCategory) {
-	builder.PrependInt32Slot(1, int32(itemCategory), 0)
+func DuplicateBonusExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(1, rewardParcelId, 0)
 }
-func DuplicateBonusExcelAddItemId(builder *flatbuffers.Builder, itemId int64) {
-	builder.PrependInt64Slot(2, itemId, 0)
+func DuplicateBonusExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
 }
 func DuplicateBonusExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(3, characterId, 0)
 }
-func DuplicateBonusExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(4, int32(rewardParcelType), 0)
+func DuplicateBonusExcelAddItemId(builder *flatbuffers.Builder, itemId int64) {
+	builder.PrependInt64Slot(4, itemId, 0)
 }
-func DuplicateBonusExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(5, rewardParcelId, 0)
+func DuplicateBonusExcelAddItemCategory(builder *flatbuffers.Builder, itemCategory ItemCategory) {
+	builder.PrependInt32Slot(5, int32(itemCategory), 0)
 }
-func DuplicateBonusExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
-	builder.PrependInt64Slot(6, rewardParcelAmount, 0)
+func DuplicateBonusExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
 }
 func DuplicateBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

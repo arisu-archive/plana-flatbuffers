@@ -3,9 +3,9 @@ include "FurnitureLocation.fbs";
 namespace FlatData;
 
 table DefaultFurnitureExcel {
-    id: long;
-    location: FurnitureLocation;
-    position_x: float;
-    position_y: float;
     rotation: float;
+    position_y: float;
+    position_x: float;
+    location: FurnitureLocation;
+    id: long;
 }

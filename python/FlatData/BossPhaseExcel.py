@@ -25,29 +25,8 @@ class BossPhaseExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BossPhaseExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # BossPhaseExcel
-    def AiPhase(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # BossPhaseExcel
-    def NormalAttackSkillUniqueName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # BossPhaseExcel
     def UseExSkill(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.BoolFlags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 1))
@@ -55,41 +34,62 @@ class BossPhaseExcel(object):
 
     # BossPhaseExcel
     def UseExSkillAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.BoolFlags, o)
         return 0
 
     # BossPhaseExcel
     def UseExSkillLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # BossPhaseExcel
     def UseExSkillIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
+
+    # BossPhaseExcel
+    def NormalAttackSkillUniqueName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # BossPhaseExcel
+    def AiPhase(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # BossPhaseExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def BossPhaseExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return BossPhaseExcelStart(builder)
-def BossPhaseExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return BossPhaseExcelAddId(builder, id)
-def BossPhaseExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(1, aiPhase, 0)
-def AddAiPhase(builder, aiPhase):
-    return BossPhaseExcelAddAiPhase(builder, aiPhase)
-def BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillUniqueName), 0)
-def AddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName):
-    return BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName)
-def BossPhaseExcelAddUseExSkill(builder, useExSkill): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(useExSkill), 0)
+def BossPhaseExcelAddUseExSkill(builder, useExSkill): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(useExSkill), 0)
 def AddUseExSkill(builder, useExSkill):
     return BossPhaseExcelAddUseExSkill(builder, useExSkill)
 def BossPhaseExcelStartUseExSkillVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartUseExSkillVector(builder, numElems):
     return BossPhaseExcelStartUseExSkillVector(builder, numElems)
+def BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillUniqueName), 0)
+def AddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName):
+    return BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName)
+def BossPhaseExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(2, aiPhase, 0)
+def AddAiPhase(builder, aiPhase):
+    return BossPhaseExcelAddAiPhase(builder, aiPhase)
+def BossPhaseExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+def AddId(builder, id):
+    return BossPhaseExcelAddId(builder, id)
 def BossPhaseExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BossPhaseExcelEnd(builder)

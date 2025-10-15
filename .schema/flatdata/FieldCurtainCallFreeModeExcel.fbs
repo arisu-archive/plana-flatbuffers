@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table FieldCurtainCallFreeModeExcel {
-    unique_id: long;
-    open_date: long;
-    set_field_date_id: long;
     set_field_quest_open_date: long;
+    set_field_date_id: long;
+    open_date: long;
+    unique_id: long;
 }

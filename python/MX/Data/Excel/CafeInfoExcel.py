@@ -25,48 +25,98 @@ class CafeInfoExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CafeInfoExcel
-    def CafeId(self):
+    def SummonTicketIconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CafeInfoExcel
+    def CategoryType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def SummonParcelAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CafeInfoExcel
-    def IsDefault(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def SummonParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CafeInfoExcel
-    def OpenConditionCafeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def SummonParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CafeInfoExcel
     def OpenConditionCafeInvite(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CafeInfoExcelStart(builder): builder.StartObject(4)
+    # CafeInfoExcel
+    def OpenConditionCafeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def IsDefault(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CafeInfoExcel
+    def CafeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+def CafeInfoExcelStart(builder): builder.StartObject(9)
 def Start(builder):
     return CafeInfoExcelStart(builder)
-def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(0, cafeId, 0)
-def AddCafeId(builder, cafeId):
-    return CafeInfoExcelAddCafeId(builder, cafeId)
-def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(1, isDefault, 0)
-def AddIsDefault(builder, isDefault):
-    return CafeInfoExcelAddIsDefault(builder, isDefault)
-def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(2, openConditionCafeId, 0)
-def AddOpenConditionCafeId(builder, openConditionCafeId):
-    return CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
-def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
+def CafeInfoExcelAddSummonTicketIconPath(builder, summonTicketIconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(summonTicketIconPath), 0)
+def AddSummonTicketIconPath(builder, summonTicketIconPath):
+    return CafeInfoExcelAddSummonTicketIconPath(builder, summonTicketIconPath)
+def CafeInfoExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
+def AddCategoryType(builder, categoryType):
+    return CafeInfoExcelAddCategoryType(builder, categoryType)
+def CafeInfoExcelAddSummonParcelAmount(builder, summonParcelAmount): builder.PrependInt64Slot(2, summonParcelAmount, 0)
+def AddSummonParcelAmount(builder, summonParcelAmount):
+    return CafeInfoExcelAddSummonParcelAmount(builder, summonParcelAmount)
+def CafeInfoExcelAddSummonParcelId(builder, summonParcelId): builder.PrependInt64Slot(3, summonParcelId, 0)
+def AddSummonParcelId(builder, summonParcelId):
+    return CafeInfoExcelAddSummonParcelId(builder, summonParcelId)
+def CafeInfoExcelAddSummonParcelType(builder, summonParcelType): builder.PrependInt32Slot(4, summonParcelType, 0)
+def AddSummonParcelType(builder, summonParcelType):
+    return CafeInfoExcelAddSummonParcelType(builder, summonParcelType)
+def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(5, openConditionCafeInvite, 0)
 def AddOpenConditionCafeInvite(builder, openConditionCafeInvite):
     return CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
+def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(6, openConditionCafeId, 0)
+def AddOpenConditionCafeId(builder, openConditionCafeId):
+    return CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
+def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(7, isDefault, 0)
+def AddIsDefault(builder, isDefault):
+    return CafeInfoExcelAddIsDefault(builder, isDefault)
+def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(8, cafeId, 0)
+def AddCafeId(builder, cafeId):
+    return CafeInfoExcelAddCafeId(builder, cafeId)
 def CafeInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeInfoExcelEnd(builder)

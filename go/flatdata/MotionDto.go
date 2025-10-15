@@ -11,8 +11,8 @@ import (
 // MotionDto represents a FlatBuffers table
 type MotionDto struct {
 	fbsutils.FlatBuffer
-	Name      string        `json:"name"`
 	Positions []PositionDto `json:"positions"`
+	Name      string        `json:"name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,13 +21,13 @@ func (t *MotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
 	}
 	MotionStart(b)
-	MotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	MotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
 		// The array should be reversed.
 		b.PrependUOffsetT(t.Positions[len(t.Positions)-i-1].MarshalModel(b))
 	}
 	MotionAddPositions(b, b.EndVector(len(t.Positions)))
+	MotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	return MotionEnd(b)
 }
 
@@ -43,7 +43,6 @@ func (t *MotionDto) UnmarshalMessage(e *Motion) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
 	}
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.Positions = make([]PositionDto, e.PositionsLength())
 	for i := range e.PositionsLength() {
 		d := new(Position)
@@ -52,6 +51,7 @@ func (t *MotionDto) UnmarshalMessage(e *Motion) error {
 		}
 		t.Positions[i].UnmarshalMessage(d)
 	}
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,25 +10,25 @@ import (
 // ScenarioModeRewardExcelDto represents a FlatBuffers table
 type ScenarioModeRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	ScenarioModeRewardId int64      `json:"scenario_mode_reward_id"`
-	RewardTag            RewardTag  `json:"reward_tag"`
-	RewardProb           int32      `json:"reward_prob"`
-	RewardParcelType     ParcelType `json:"reward_parcel_type"`
-	RewardParcelId       int64      `json:"reward_parcel_id"`
-	RewardParcelAmount   int32      `json:"reward_parcel_amount"`
 	IsDisplayed          bool       `json:"is_displayed"`
+	RewardParcelAmount   int32      `json:"reward_parcel_amount"`
+	RewardParcelId       int64      `json:"reward_parcel_id"`
+	RewardParcelType     ParcelType `json:"reward_parcel_type"`
+	RewardProb           int32      `json:"reward_prob"`
+	RewardTag            RewardTag  `json:"reward_tag"`
+	ScenarioModeRewardId int64      `json:"scenario_mode_reward_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioModeRewardExcelStart(b)
-	ScenarioModeRewardExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
-	ScenarioModeRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
-	ScenarioModeRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	ScenarioModeRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	ScenarioModeRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	ScenarioModeRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	ScenarioModeRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	ScenarioModeRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	ScenarioModeRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	ScenarioModeRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	ScenarioModeRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
+	ScenarioModeRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
+	ScenarioModeRewardExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
 	return ScenarioModeRewardExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *ScenarioModeRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeRewardExcelDto) UnmarshalMessage(e *ScenarioModeRewardExcel) error {
-	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = e.IsDisplayed()
+	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
+	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

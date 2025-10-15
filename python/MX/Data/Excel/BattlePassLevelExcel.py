@@ -25,11 +25,11 @@ class BattlePassLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BattlePassLevelExcel
-    def BattlePassId(self):
+    def IsPickUpReward(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # BattlePassLevelExcel
     def Level(self):
@@ -39,24 +39,24 @@ class BattlePassLevelExcel(object):
         return 0
 
     # BattlePassLevelExcel
-    def IsPickUpReward(self):
+    def BattlePassId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def BattlePassLevelExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return BattlePassLevelExcelStart(builder)
-def BattlePassLevelExcelAddBattlePassId(builder, battlePassId): builder.PrependInt64Slot(0, battlePassId, 0)
-def AddBattlePassId(builder, battlePassId):
-    return BattlePassLevelExcelAddBattlePassId(builder, battlePassId)
+def BattlePassLevelExcelAddIsPickUpReward(builder, isPickUpReward): builder.PrependBoolSlot(0, isPickUpReward, 0)
+def AddIsPickUpReward(builder, isPickUpReward):
+    return BattlePassLevelExcelAddIsPickUpReward(builder, isPickUpReward)
 def BattlePassLevelExcelAddLevel(builder, level): builder.PrependInt64Slot(1, level, 0)
 def AddLevel(builder, level):
     return BattlePassLevelExcelAddLevel(builder, level)
-def BattlePassLevelExcelAddIsPickUpReward(builder, isPickUpReward): builder.PrependBoolSlot(2, isPickUpReward, 0)
-def AddIsPickUpReward(builder, isPickUpReward):
-    return BattlePassLevelExcelAddIsPickUpReward(builder, isPickUpReward)
+def BattlePassLevelExcelAddBattlePassId(builder, battlePassId): builder.PrependInt64Slot(2, battlePassId, 0)
+def AddBattlePassId(builder, battlePassId):
+    return BattlePassLevelExcelAddBattlePassId(builder, battlePassId)
 def BattlePassLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattlePassLevelExcelEnd(builder)

@@ -10,33 +10,33 @@ import (
 // AcademyZoneExcelDto represents a FlatBuffers table
 type AcademyZoneExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                    int64   `json:"id"`
-	LocationId            int64   `json:"location_id"`
-	LocationRankForUnlock int64   `json:"location_rank_for_unlock"`
-	LocalizeEtcId         uint32  `json:"localize_etc_id"`
-	StudentVisitProb      []int64 `json:"student_visit_prob"`
-	RewardGroupId         int64   `json:"reward_group_id"`
 	Tags                  []Tag   `json:"tags"`
+	RewardGroupId         int64   `json:"reward_group_id"`
+	StudentVisitProb      []int64 `json:"student_visit_prob"`
+	LocalizeEtcId         uint32  `json:"localize_etc_id"`
+	LocationRankForUnlock int64   `json:"location_rank_for_unlock"`
+	LocationId            int64   `json:"location_id"`
+	Id                    int64   `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AcademyZoneExcelStart(b)
-	AcademyZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AcademyZoneExcelAddLocationId(b, fbsutils.Convert(t.LocationId, t.FlatBuffer.TableKey))
-	AcademyZoneExcelAddLocationRankForUnlock(b, fbsutils.Convert(t.LocationRankForUnlock, t.FlatBuffer.TableKey))
-	AcademyZoneExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	AcademyZoneExcelStartStudentVisitProbVector(b, len(t.StudentVisitProb))
-	for i := range len(t.StudentVisitProb) {
-		b.PrependInt64(fbsutils.Convert(t.StudentVisitProb[len(t.StudentVisitProb)-i-1], t.FlatBuffer.TableKey))
-	}
-	AcademyZoneExcelAddStudentVisitProb(b, b.EndVector(len(t.StudentVisitProb)))
-	AcademyZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
 	AcademyZoneExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyZoneExcelAddTags(b, b.EndVector(len(t.Tags)))
+	AcademyZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
+	AcademyZoneExcelStartStudentVisitProbVector(b, len(t.StudentVisitProb))
+	for i := range len(t.StudentVisitProb) {
+		b.PrependInt64(fbsutils.Convert(t.StudentVisitProb[len(t.StudentVisitProb)-i-1], t.FlatBuffer.TableKey))
+	}
+	AcademyZoneExcelAddStudentVisitProb(b, b.EndVector(len(t.StudentVisitProb)))
+	AcademyZoneExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	AcademyZoneExcelAddLocationRankForUnlock(b, fbsutils.Convert(t.LocationRankForUnlock, t.FlatBuffer.TableKey))
+	AcademyZoneExcelAddLocationId(b, fbsutils.Convert(t.LocationId, t.FlatBuffer.TableKey))
+	AcademyZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return AcademyZoneExcelEnd(b)
 }
 
@@ -49,19 +49,19 @@ func (t *AcademyZoneExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyZoneExcelDto) UnmarshalMessage(e *AcademyZoneExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocationId = fbsutils.Convert(e.LocationId(), t.FlatBuffer.TableKey)
-	t.LocationRankForUnlock = fbsutils.Convert(e.LocationRankForUnlock(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.StudentVisitProb = make([]int64, e.StudentVisitProbLength())
-	for i := range e.StudentVisitProbLength() {
-		t.StudentVisitProb[i] = fbsutils.Convert(e.StudentVisitProb(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
 		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
+	t.StudentVisitProb = make([]int64, e.StudentVisitProbLength())
+	for i := range e.StudentVisitProbLength() {
+		t.StudentVisitProb[i] = fbsutils.Convert(e.StudentVisitProb(i), t.FlatBuffer.TableKey)
+	}
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.LocationRankForUnlock = fbsutils.Convert(e.LocationRankForUnlock(), t.FlatBuffer.TableKey)
+	t.LocationId = fbsutils.Convert(e.LocationId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

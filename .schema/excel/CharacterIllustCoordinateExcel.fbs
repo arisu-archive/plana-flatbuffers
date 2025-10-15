@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table CharacterIllustCoordinateExcel {
+    max_scale: float;
+    min_scale: float;
+    default_scale: float;
+    character_body_center_y: float;
+    character_body_center_x: float;
+    id: long;
+}
+
+root_type CharacterIllustCoordinateExcel;

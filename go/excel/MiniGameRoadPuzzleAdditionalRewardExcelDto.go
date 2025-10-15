@@ -10,21 +10,21 @@ import (
 // MiniGameRoadPuzzleAdditionalRewardExcelDto represents a FlatBuffers table
 type MiniGameRoadPuzzleAdditionalRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId     int64      `json:"event_content_id"`
-	UniqueId           int64      `json:"unique_id"`
-	RewardParcelType   ParcelType `json:"reward_parcel_type"`
-	RewardParcelId     int64      `json:"reward_parcel_id"`
 	RewardParcelAmount int64      `json:"reward_parcel_amount"`
+	RewardParcelId     int64      `json:"reward_parcel_id"`
+	RewardParcelType   ParcelType `json:"reward_parcel_type"`
+	UniqueId           int64      `json:"unique_id"`
+	EventContentId     int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRoadPuzzleAdditionalRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRoadPuzzleAdditionalRewardExcelStart(b)
-	MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleAdditionalRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleAdditionalRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MiniGameRoadPuzzleAdditionalRewardExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MiniGameRoadPuzzleAdditionalRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRoadPuzzleAdditionalRewardExcelDto) UnmarshalMessage(e *MiniGameRoadPuzzleAdditionalRewardExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

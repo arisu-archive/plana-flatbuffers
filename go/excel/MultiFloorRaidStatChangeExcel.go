@@ -33,28 +33,42 @@ func (rcv *MultiFloorRaidStatChangeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) StatChangeId() int64 {
+func (rcv *MultiFloorRaidStatChangeExcel) ApplyCharacterId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) MutateStatChangeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MultiFloorRaidStatChangeExcel) ApplyCharacterIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) StatType(j int) StatType {
+func (rcv *MultiFloorRaidStatChangeExcel) MutateApplyCharacterId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStatChangeExcel) StatMultiply(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return StatType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) StatTypeLength() int {
+func (rcv *MultiFloorRaidStatChangeExcel) StatMultiplyLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -62,11 +76,11 @@ func (rcv *MultiFloorRaidStatChangeExcel) StatTypeLength() int {
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) MutateStatType(j int, n StatType) bool {
+func (rcv *MultiFloorRaidStatChangeExcel) MutateStatMultiply(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
@@ -97,16 +111,16 @@ func (rcv *MultiFloorRaidStatChangeExcel) MutateStatAdd(j int, n int64) bool {
 	return false
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) StatMultiply(j int) int64 {
+func (rcv *MultiFloorRaidStatChangeExcel) StatType(j int) StatType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return StatType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) StatMultiplyLength() int {
+func (rcv *MultiFloorRaidStatChangeExcel) StatTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -114,52 +128,41 @@ func (rcv *MultiFloorRaidStatChangeExcel) StatMultiplyLength() int {
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) MutateStatMultiply(j int, n int64) bool {
+func (rcv *MultiFloorRaidStatChangeExcel) MutateStatType(j int, n StatType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) ApplyCharacterId(j int) int64 {
+func (rcv *MultiFloorRaidStatChangeExcel) StatChangeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MultiFloorRaidStatChangeExcel) ApplyCharacterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStatChangeExcel) MutateApplyCharacterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *MultiFloorRaidStatChangeExcel) MutateStatChangeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MultiFloorRaidStatChangeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MultiFloorRaidStatChangeExcelAddStatChangeId(builder *flatbuffers.Builder, statChangeId int64) {
-	builder.PrependInt64Slot(0, statChangeId, 0)
+func MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder *flatbuffers.Builder, applyCharacterId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(applyCharacterId), 0)
 }
-func MultiFloorRaidStatChangeExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(statType), 0)
+func MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func MultiFloorRaidStatChangeExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MultiFloorRaidStatChangeExcelAddStatMultiply(builder *flatbuffers.Builder, statMultiply flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(statMultiply), 0)
+}
+func MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func MultiFloorRaidStatChangeExcelAddStatAdd(builder *flatbuffers.Builder, statAdd flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(statAdd), 0)
@@ -167,17 +170,14 @@ func MultiFloorRaidStatChangeExcelAddStatAdd(builder *flatbuffers.Builder, statA
 func MultiFloorRaidStatChangeExcelStartStatAddVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MultiFloorRaidStatChangeExcelAddStatMultiply(builder *flatbuffers.Builder, statMultiply flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(statMultiply), 0)
+func MultiFloorRaidStatChangeExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(statType), 0)
 }
-func MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func MultiFloorRaidStatChangeExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder *flatbuffers.Builder, applyCharacterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(applyCharacterId), 0)
-}
-func MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func MultiFloorRaidStatChangeExcelAddStatChangeId(builder *flatbuffers.Builder, statChangeId int64) {
+	builder.PrependInt64Slot(4, statChangeId, 0)
 }
 func MultiFloorRaidStatChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

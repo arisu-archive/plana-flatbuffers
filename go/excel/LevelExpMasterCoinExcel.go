@@ -33,44 +33,8 @@ func (rcv *LevelExpMasterCoinExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LevelExpMasterCoinExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LevelExpMasterCoinExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *LevelExpMasterCoinExcel) MinLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LevelExpMasterCoinExcel) MutateMinLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *LevelExpMasterCoinExcel) MaxLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LevelExpMasterCoinExcel) MutateMaxLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
 func (rcv *LevelExpMasterCoinExcel) Ratio() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -78,23 +42,59 @@ func (rcv *LevelExpMasterCoinExcel) Ratio() int32 {
 }
 
 func (rcv *LevelExpMasterCoinExcel) MutateRatio(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *LevelExpMasterCoinExcel) MaxLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutateMaxLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *LevelExpMasterCoinExcel) MinLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutateMinLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *LevelExpMasterCoinExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func LevelExpMasterCoinExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func LevelExpMasterCoinExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func LevelExpMasterCoinExcelAddMinLevel(builder *flatbuffers.Builder, minLevel int32) {
-	builder.PrependInt32Slot(1, minLevel, 0)
+func LevelExpMasterCoinExcelAddRatio(builder *flatbuffers.Builder, ratio int32) {
+	builder.PrependInt32Slot(0, ratio, 0)
 }
 func LevelExpMasterCoinExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int32) {
-	builder.PrependInt32Slot(2, maxLevel, 0)
+	builder.PrependInt32Slot(1, maxLevel, 0)
 }
-func LevelExpMasterCoinExcelAddRatio(builder *flatbuffers.Builder, ratio int32) {
-	builder.PrependInt32Slot(3, ratio, 0)
+func LevelExpMasterCoinExcelAddMinLevel(builder *flatbuffers.Builder, minLevel int32) {
+	builder.PrependInt32Slot(2, minLevel, 0)
+}
+func LevelExpMasterCoinExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func LevelExpMasterCoinExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

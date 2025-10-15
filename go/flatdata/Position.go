@@ -33,7 +33,7 @@ func (rcv *Position) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *Position) X() float32 {
+func (rcv *Position) Z() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *Position) X() float32 {
 	return 0.0
 }
 
-func (rcv *Position) MutateX(n float32) bool {
+func (rcv *Position) MutateZ(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
-func (rcv *Position) Z() float32 {
+func (rcv *Position) X() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -53,18 +53,18 @@ func (rcv *Position) Z() float32 {
 	return 0.0
 }
 
-func (rcv *Position) MutateZ(n float32) bool {
+func (rcv *Position) MutateX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
 func PositionStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func PositionAddX(builder *flatbuffers.Builder, x float32) {
-	builder.PrependFloat32Slot(0, x, 0.0)
-}
 func PositionAddZ(builder *flatbuffers.Builder, z float32) {
-	builder.PrependFloat32Slot(1, z, 0.0)
+	builder.PrependFloat32Slot(0, z, 0.0)
+}
+func PositionAddX(builder *flatbuffers.Builder, x float32) {
+	builder.PrependFloat32Slot(1, x, 0.0)
 }
 func PositionEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

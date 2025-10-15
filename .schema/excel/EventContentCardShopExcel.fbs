@@ -1,0 +1,21 @@
+include "ParcelType.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentCardShopExcel {
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    prob_weight1: int;
+    prob: int;
+    refresh_group: int;
+    is_legacy: bool;
+    card_group_id: int;
+    cost_goods_id: long;
+    rarity: Rarity;
+    id: long;
+    event_content_id: long;
+}
+
+root_type EventContentCardShopExcel;

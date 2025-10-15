@@ -10,19 +10,19 @@ import (
 // GachaCraftOpenTagExcelDto represents a FlatBuffers table
 type GachaCraftOpenTagExcelDto struct {
 	fbsutils.FlatBuffer
-	NodeTier CraftNodeTier `json:"node_tier"`
 	Tag      []Tag         `json:"tag"`
+	NodeTier CraftNodeTier `json:"node_tier"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftOpenTagExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GachaCraftOpenTagExcelStart(b)
-	GachaCraftOpenTagExcelAddNodeTier(b, fbsutils.Convert(t.NodeTier, t.FlatBuffer.TableKey))
 	GachaCraftOpenTagExcelStartTagVector(b, len(t.Tag))
 	for i := range len(t.Tag) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tag[len(t.Tag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GachaCraftOpenTagExcelAddTag(b, b.EndVector(len(t.Tag)))
+	GachaCraftOpenTagExcelAddNodeTier(b, fbsutils.Convert(t.NodeTier, t.FlatBuffer.TableKey))
 	return GachaCraftOpenTagExcelEnd(b)
 }
 
@@ -35,11 +35,11 @@ func (t *GachaCraftOpenTagExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaCraftOpenTagExcelDto) UnmarshalMessage(e *GachaCraftOpenTagExcel) error {
-	t.NodeTier = CraftNodeTier(fbsutils.Convert(int32(e.NodeTier()), t.FlatBuffer.TableKey))
 	t.Tag = make([]Tag, e.TagLength())
 	for i := range e.TagLength() {
 		t.Tag[i] = Tag(fbsutils.Convert(int32(e.Tag(i)), t.FlatBuffer.TableKey))
 	}
+	t.NodeTier = CraftNodeTier(fbsutils.Convert(int32(e.NodeTier()), t.FlatBuffer.TableKey))
 	return nil
 }
 

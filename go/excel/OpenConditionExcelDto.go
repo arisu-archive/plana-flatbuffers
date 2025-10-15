@@ -10,59 +10,59 @@ import (
 // OpenConditionExcelDto represents a FlatBuffers table
 type OpenConditionExcelDto struct {
 	fbsutils.FlatBuffer
-	OpenConditionContentType   OpenConditionContent       `json:"open_condition_content_type"`
-	LockUi                     []string                   `json:"lock_ui"`
-	ShortcutPopupPriority      int64                      `json:"shortcut_popup_priority"`
-	ShortcutUiName             []string                   `json:"shortcut_ui_name"`
-	ShortcutParam              int32                      `json:"shortcut_param"`
-	Scene                      string                     `json:"scene"`
-	HideWhenLocked             bool                       `json:"hide_when_locked"`
-	AccountLevel               int64                      `json:"account_level"`
-	ScenarioModeId             int64                      `json:"scenario_mode_id"`
-	CampaignStageId            int64                      `json:"campaign_stage_id"`
-	MultipleConditionCheckType MultipleConditionCheckType `json:"multiple_condition_check_type"`
-	OpenDayOfWeek              WeekDay                    `json:"open_day_of_week"`
-	OpenHour                   int64                      `json:"open_hour"`
-	CloseDayOfWeek             WeekDay                    `json:"close_day_of_week"`
-	CloseHour                  int64                      `json:"close_hour"`
-	OpenedCafeId               int64                      `json:"opened_cafe_id"`
-	CafeIdforCafeRank          int64                      `json:"cafe_idfor_cafe_rank"`
-	CafeRank                   int64                      `json:"cafe_rank"`
-	ContentsOpenShow           bool                       `json:"contents_open_show"`
 	ContentsOpenShortcutUi     string                     `json:"contents_open_shortcut_ui"`
+	ContentsOpenShow           bool                       `json:"contents_open_show"`
+	CafeRank                   int64                      `json:"cafe_rank"`
+	CafeIdforCafeRank          int64                      `json:"cafe_idfor_cafe_rank"`
+	OpenedCafeId               int64                      `json:"opened_cafe_id"`
+	CloseHour                  int64                      `json:"close_hour"`
+	CloseDayOfWeek             WeekDay                    `json:"close_day_of_week"`
+	OpenHour                   int64                      `json:"open_hour"`
+	OpenDayOfWeek              WeekDay                    `json:"open_day_of_week"`
+	MultipleConditionCheckType MultipleConditionCheckType `json:"multiple_condition_check_type"`
+	CampaignStageId            int64                      `json:"campaign_stage_id"`
+	ScenarioModeId             int64                      `json:"scenario_mode_id"`
+	AccountLevel               int64                      `json:"account_level"`
+	HideWhenLocked             bool                       `json:"hide_when_locked"`
+	Scene                      string                     `json:"scene"`
+	ShortcutParam              int32                      `json:"shortcut_param"`
+	ShortcutUiName             []string                   `json:"shortcut_ui_name"`
+	ShortcutPopupPriority      int64                      `json:"shortcut_popup_priority"`
+	LockUi                     []string                   `json:"lock_ui"`
+	OpenConditionContentType   OpenConditionContent       `json:"open_condition_content_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	OpenConditionExcelStart(b)
-	OpenConditionExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
-	OpenConditionExcelStartLockUiVector(b, len(t.LockUi))
-	for i := range len(t.LockUi) {
-		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
-	}
-	OpenConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
-	OpenConditionExcelAddShortcutPopupPriority(b, fbsutils.Convert(t.ShortcutPopupPriority, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddContentsOpenShortcutUi(b, b.CreateString(fbsutils.Convert(t.ContentsOpenShortcutUi, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddContentsOpenShow(b, t.ContentsOpenShow)
+	OpenConditionExcelAddCafeRank(b, fbsutils.Convert(t.CafeRank, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddCafeIdforCafeRank(b, fbsutils.Convert(t.CafeIdforCafeRank, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddOpenedCafeId(b, fbsutils.Convert(t.OpenedCafeId, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddCloseHour(b, fbsutils.Convert(t.CloseHour, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddCloseDayOfWeek(b, fbsutils.Convert(t.CloseDayOfWeek, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddOpenHour(b, fbsutils.Convert(t.OpenHour, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddOpenDayOfWeek(b, fbsutils.Convert(t.OpenDayOfWeek, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddCampaignStageId(b, fbsutils.Convert(t.CampaignStageId, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
+	OpenConditionExcelAddScene(b, b.CreateString(fbsutils.Convert(t.Scene, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddShortcutParam(b, fbsutils.Convert(t.ShortcutParam, t.FlatBuffer.TableKey))
 	OpenConditionExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
 	for i := range len(t.ShortcutUiName) {
 		b.PrependUOffsetT(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]))
 	}
 	OpenConditionExcelAddShortcutUiName(b, b.EndVector(len(t.ShortcutUiName)))
-	OpenConditionExcelAddShortcutParam(b, fbsutils.Convert(t.ShortcutParam, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddScene(b, b.CreateString(fbsutils.Convert(t.Scene, t.FlatBuffer.TableKey)))
-	OpenConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
-	OpenConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddCampaignStageId(b, fbsutils.Convert(t.CampaignStageId, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddOpenDayOfWeek(b, fbsutils.Convert(t.OpenDayOfWeek, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddOpenHour(b, fbsutils.Convert(t.OpenHour, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddCloseDayOfWeek(b, fbsutils.Convert(t.CloseDayOfWeek, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddCloseHour(b, fbsutils.Convert(t.CloseHour, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddOpenedCafeId(b, fbsutils.Convert(t.OpenedCafeId, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddCafeIdforCafeRank(b, fbsutils.Convert(t.CafeIdforCafeRank, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddCafeRank(b, fbsutils.Convert(t.CafeRank, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddContentsOpenShow(b, t.ContentsOpenShow)
-	OpenConditionExcelAddContentsOpenShortcutUi(b, b.CreateString(fbsutils.Convert(t.ContentsOpenShortcutUi, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddShortcutPopupPriority(b, fbsutils.Convert(t.ShortcutPopupPriority, t.FlatBuffer.TableKey))
+	OpenConditionExcelStartLockUiVector(b, len(t.LockUi))
+	for i := range len(t.LockUi) {
+		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
+	}
+	OpenConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
+	OpenConditionExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
 	return OpenConditionExcelEnd(b)
 }
 
@@ -75,32 +75,32 @@ func (t *OpenConditionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
-	t.OpenConditionContentType = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))
-	t.LockUi = make([]string, e.LockUiLength())
-	for i := range e.LockUiLength() {
-		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
-	}
-	t.ShortcutPopupPriority = fbsutils.Convert(e.ShortcutPopupPriority(), t.FlatBuffer.TableKey)
+	t.ContentsOpenShortcutUi = fbsutils.Convert(string(e.ContentsOpenShortcutUi()), t.FlatBuffer.TableKey)
+	t.ContentsOpenShow = e.ContentsOpenShow()
+	t.CafeRank = fbsutils.Convert(e.CafeRank(), t.FlatBuffer.TableKey)
+	t.CafeIdforCafeRank = fbsutils.Convert(e.CafeIdforCafeRank(), t.FlatBuffer.TableKey)
+	t.OpenedCafeId = fbsutils.Convert(e.OpenedCafeId(), t.FlatBuffer.TableKey)
+	t.CloseHour = fbsutils.Convert(e.CloseHour(), t.FlatBuffer.TableKey)
+	t.CloseDayOfWeek = WeekDay(fbsutils.Convert(int32(e.CloseDayOfWeek()), t.FlatBuffer.TableKey))
+	t.OpenHour = fbsutils.Convert(e.OpenHour(), t.FlatBuffer.TableKey)
+	t.OpenDayOfWeek = WeekDay(fbsutils.Convert(int32(e.OpenDayOfWeek()), t.FlatBuffer.TableKey))
+	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
+	t.CampaignStageId = fbsutils.Convert(e.CampaignStageId(), t.FlatBuffer.TableKey)
+	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
+	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
+	t.HideWhenLocked = e.HideWhenLocked()
+	t.Scene = fbsutils.Convert(string(e.Scene()), t.FlatBuffer.TableKey)
+	t.ShortcutParam = fbsutils.Convert(e.ShortcutParam(), t.FlatBuffer.TableKey)
 	t.ShortcutUiName = make([]string, e.ShortcutUiNameLength())
 	for i := range e.ShortcutUiNameLength() {
 		t.ShortcutUiName[i] = fbsutils.Convert(string(e.ShortcutUiName(i)), t.FlatBuffer.TableKey)
 	}
-	t.ShortcutParam = fbsutils.Convert(e.ShortcutParam(), t.FlatBuffer.TableKey)
-	t.Scene = fbsutils.Convert(string(e.Scene()), t.FlatBuffer.TableKey)
-	t.HideWhenLocked = e.HideWhenLocked()
-	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
-	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
-	t.CampaignStageId = fbsutils.Convert(e.CampaignStageId(), t.FlatBuffer.TableKey)
-	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
-	t.OpenDayOfWeek = WeekDay(fbsutils.Convert(int32(e.OpenDayOfWeek()), t.FlatBuffer.TableKey))
-	t.OpenHour = fbsutils.Convert(e.OpenHour(), t.FlatBuffer.TableKey)
-	t.CloseDayOfWeek = WeekDay(fbsutils.Convert(int32(e.CloseDayOfWeek()), t.FlatBuffer.TableKey))
-	t.CloseHour = fbsutils.Convert(e.CloseHour(), t.FlatBuffer.TableKey)
-	t.OpenedCafeId = fbsutils.Convert(e.OpenedCafeId(), t.FlatBuffer.TableKey)
-	t.CafeIdforCafeRank = fbsutils.Convert(e.CafeIdforCafeRank(), t.FlatBuffer.TableKey)
-	t.CafeRank = fbsutils.Convert(e.CafeRank(), t.FlatBuffer.TableKey)
-	t.ContentsOpenShow = e.ContentsOpenShow()
-	t.ContentsOpenShortcutUi = fbsutils.Convert(string(e.ContentsOpenShortcutUi()), t.FlatBuffer.TableKey)
+	t.ShortcutPopupPriority = fbsutils.Convert(e.ShortcutPopupPriority(), t.FlatBuffer.TableKey)
+	t.LockUi = make([]string, e.LockUiLength())
+	for i := range e.LockUiLength() {
+		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
+	}
+	t.OpenConditionContentType = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

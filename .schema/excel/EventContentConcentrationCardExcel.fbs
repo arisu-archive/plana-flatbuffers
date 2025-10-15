@@ -1,0 +1,13 @@
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentConcentrationCardExcel {
+    back_image_path: string;
+    image_path: string;
+    rarity: Rarity;
+    card_id: long;
+    event_content_id: long;
+}
+
+root_type EventContentConcentrationCardExcel;

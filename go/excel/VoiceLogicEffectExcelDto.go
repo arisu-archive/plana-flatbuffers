@@ -10,25 +10,25 @@ import (
 // VoiceLogicEffectExcelDto represents a FlatBuffers table
 type VoiceLogicEffectExcelDto struct {
 	fbsutils.FlatBuffer
-	LogicEffectNameHash uint32   `json:"logic_effect_name_hash"`
-	Self                bool     `json:"self"`
-	Priority            int32    `json:"priority"`
-	VoiceHash           []uint32 `json:"voice_hash"`
 	VoiceId             uint32   `json:"voice_id"`
+	VoiceHash           []uint32 `json:"voice_hash"`
+	Priority            int32    `json:"priority"`
+	Self                bool     `json:"self"`
+	LogicEffectNameHash uint32   `json:"logic_effect_name_hash"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceLogicEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	VoiceLogicEffectExcelStart(b)
-	VoiceLogicEffectExcelAddLogicEffectNameHash(b, fbsutils.Convert(t.LogicEffectNameHash, t.FlatBuffer.TableKey))
-	VoiceLogicEffectExcelAddSelf(b, t.Self)
-	VoiceLogicEffectExcelAddPriority(b, fbsutils.Convert(t.Priority, t.FlatBuffer.TableKey))
+	VoiceLogicEffectExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	VoiceLogicEffectExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
 	}
 	VoiceLogicEffectExcelAddVoiceHash(b, b.EndVector(len(t.VoiceHash)))
-	VoiceLogicEffectExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
+	VoiceLogicEffectExcelAddPriority(b, fbsutils.Convert(t.Priority, t.FlatBuffer.TableKey))
+	VoiceLogicEffectExcelAddSelf(b, t.Self)
+	VoiceLogicEffectExcelAddLogicEffectNameHash(b, fbsutils.Convert(t.LogicEffectNameHash, t.FlatBuffer.TableKey))
 	return VoiceLogicEffectExcelEnd(b)
 }
 
@@ -41,14 +41,14 @@ func (t *VoiceLogicEffectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceLogicEffectExcelDto) UnmarshalMessage(e *VoiceLogicEffectExcel) error {
-	t.LogicEffectNameHash = fbsutils.Convert(e.LogicEffectNameHash(), t.FlatBuffer.TableKey)
-	t.Self = e.Self()
-	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
+	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
 		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
-	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
+	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
+	t.Self = e.Self()
+	t.LogicEffectNameHash = fbsutils.Convert(e.LogicEffectNameHash(), t.FlatBuffer.TableKey)
 	return nil
 }
 

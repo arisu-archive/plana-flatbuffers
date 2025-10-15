@@ -3,10 +3,10 @@ include "WebAPIErrorLevel.fbs";
 namespace MX.Data.Excel;
 
 table LocalizeErrorExcel {
-    key: uint;
-    error_level: WebAPIErrorLevel;
-    kr: string;
     jp: string;
+    kr: string;
+    error_level: WebAPIErrorLevel;
+    key: uint;
 }
 
 root_type LocalizeErrorExcel;

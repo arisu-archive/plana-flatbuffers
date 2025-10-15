@@ -10,10 +10,10 @@ import (
 // ConstAudioExcelDto represents a FlatBuffers table
 type ConstAudioExcelDto struct {
 	fbsutils.FlatBuffer
-	DefaultSnapShotName      string `json:"default_snap_shot_name"`
-	BattleSnapShotName       string `json:"battle_snap_shot_name"`
-	RaidSnapShotName         string `json:"raid_snap_shot_name"`
 	ExSkillCutInSnapShotName string `json:"ex_skill_cut_in_snap_shot_name"`
+	RaidSnapShotName         string `json:"raid_snap_shot_name"`
+	BattleSnapShotName       string `json:"battle_snap_shot_name"`
+	DefaultSnapShotName      string `json:"default_snap_shot_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *ConstAudioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
 	ConstAudioExcelStart(b)
-	ConstAudioExcelAddDefaultSnapShotName(b, b.CreateString(fbsutils.Convert(t.DefaultSnapShotName, t.FlatBuffer.TableKey)))
-	ConstAudioExcelAddBattleSnapShotName(b, b.CreateString(fbsutils.Convert(t.BattleSnapShotName, t.FlatBuffer.TableKey)))
-	ConstAudioExcelAddRaidSnapShotName(b, b.CreateString(fbsutils.Convert(t.RaidSnapShotName, t.FlatBuffer.TableKey)))
 	ConstAudioExcelAddExSkillCutInSnapShotName(b, b.CreateString(fbsutils.Convert(t.ExSkillCutInSnapShotName, t.FlatBuffer.TableKey)))
+	ConstAudioExcelAddRaidSnapShotName(b, b.CreateString(fbsutils.Convert(t.RaidSnapShotName, t.FlatBuffer.TableKey)))
+	ConstAudioExcelAddBattleSnapShotName(b, b.CreateString(fbsutils.Convert(t.BattleSnapShotName, t.FlatBuffer.TableKey)))
+	ConstAudioExcelAddDefaultSnapShotName(b, b.CreateString(fbsutils.Convert(t.DefaultSnapShotName, t.FlatBuffer.TableKey)))
 	return ConstAudioExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *ConstAudioExcelDto) UnmarshalMessage(e *ConstAudioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
-	t.DefaultSnapShotName = fbsutils.Convert(string(e.DefaultSnapShotName()), t.FlatBuffer.TableKey)
-	t.BattleSnapShotName = fbsutils.Convert(string(e.BattleSnapShotName()), t.FlatBuffer.TableKey)
-	t.RaidSnapShotName = fbsutils.Convert(string(e.RaidSnapShotName()), t.FlatBuffer.TableKey)
 	t.ExSkillCutInSnapShotName = fbsutils.Convert(string(e.ExSkillCutInSnapShotName()), t.FlatBuffer.TableKey)
+	t.RaidSnapShotName = fbsutils.Convert(string(e.RaidSnapShotName()), t.FlatBuffer.TableKey)
+	t.BattleSnapShotName = fbsutils.Convert(string(e.BattleSnapShotName()), t.FlatBuffer.TableKey)
+	t.DefaultSnapShotName = fbsutils.Convert(string(e.DefaultSnapShotName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

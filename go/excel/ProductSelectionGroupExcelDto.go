@@ -10,27 +10,27 @@ import (
 // ProductSelectionGroupExcelDto represents a FlatBuffers table
 type ProductSelectionGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	ProductSelectionGroupId          int64      `json:"product_selection_group_id"`
-	ProductSelectionGroupComponentId int64      `json:"product_selection_group_component_id"`
-	DisplayOrder                     int64      `json:"display_order"`
-	ParcelType                       ParcelType `json:"parcel_type"`
-	ParcelId                         int64      `json:"parcel_id"`
-	ResultAmount                     int64      `json:"result_amount"`
-	ConditionParcelType              ParcelType `json:"condition_parcel_type"`
 	ConditionParcelId                int64      `json:"condition_parcel_id"`
+	ConditionParcelType              ParcelType `json:"condition_parcel_type"`
+	ResultAmount                     int64      `json:"result_amount"`
+	ParcelId                         int64      `json:"parcel_id"`
+	ParcelType                       ParcelType `json:"parcel_type"`
+	DisplayOrder                     int64      `json:"display_order"`
+	ProductSelectionGroupComponentId int64      `json:"product_selection_group_component_id"`
+	ProductSelectionGroupId          int64      `json:"product_selection_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductSelectionGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ProductSelectionGroupExcelStart(b)
-	ProductSelectionGroupExcelAddProductSelectionGroupId(b, fbsutils.Convert(t.ProductSelectionGroupId, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddProductSelectionGroupComponentId(b, fbsutils.Convert(t.ProductSelectionGroupComponentId, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddResultAmount(b, fbsutils.Convert(t.ResultAmount, t.FlatBuffer.TableKey))
-	ProductSelectionGroupExcelAddConditionParcelType(b, fbsutils.Convert(t.ConditionParcelType, t.FlatBuffer.TableKey))
 	ProductSelectionGroupExcelAddConditionParcelId(b, fbsutils.Convert(t.ConditionParcelId, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddConditionParcelType(b, fbsutils.Convert(t.ConditionParcelType, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddResultAmount(b, fbsutils.Convert(t.ResultAmount, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddProductSelectionGroupComponentId(b, fbsutils.Convert(t.ProductSelectionGroupComponentId, t.FlatBuffer.TableKey))
+	ProductSelectionGroupExcelAddProductSelectionGroupId(b, fbsutils.Convert(t.ProductSelectionGroupId, t.FlatBuffer.TableKey))
 	return ProductSelectionGroupExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *ProductSelectionGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProductSelectionGroupExcelDto) UnmarshalMessage(e *ProductSelectionGroupExcel) error {
-	t.ProductSelectionGroupId = fbsutils.Convert(e.ProductSelectionGroupId(), t.FlatBuffer.TableKey)
-	t.ProductSelectionGroupComponentId = fbsutils.Convert(e.ProductSelectionGroupComponentId(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.ResultAmount = fbsutils.Convert(e.ResultAmount(), t.FlatBuffer.TableKey)
-	t.ConditionParcelType = ParcelType(fbsutils.Convert(int32(e.ConditionParcelType()), t.FlatBuffer.TableKey))
 	t.ConditionParcelId = fbsutils.Convert(e.ConditionParcelId(), t.FlatBuffer.TableKey)
+	t.ConditionParcelType = ParcelType(fbsutils.Convert(int32(e.ConditionParcelType()), t.FlatBuffer.TableKey))
+	t.ResultAmount = fbsutils.Convert(e.ResultAmount(), t.FlatBuffer.TableKey)
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.ProductSelectionGroupComponentId = fbsutils.Convert(e.ProductSelectionGroupComponentId(), t.FlatBuffer.TableKey)
+	t.ProductSelectionGroupId = fbsutils.Convert(e.ProductSelectionGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

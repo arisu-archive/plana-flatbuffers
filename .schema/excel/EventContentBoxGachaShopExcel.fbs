@@ -1,0 +1,14 @@
+namespace MX.Data.Excel;
+
+table EventContentBoxGachaShopExcel {
+    display_order: long;
+    goods_id: [long];
+    is_prize: bool;
+    is_legacy: bool;
+    round: long;
+    group_element_amount: long;
+    group_id: long;
+    event_content_id: long;
+}
+
+root_type EventContentBoxGachaShopExcel;

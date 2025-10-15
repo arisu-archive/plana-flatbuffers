@@ -25,39 +25,79 @@ class EventContentTreasureRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentTreasureRewardExcel
-    def Id(self):
+    def TreasureSizeIconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentTreasureRewardExcel
-    def LocalizeCodeId(self):
+    def TreasureSmallImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # EventContentTreasureRewardExcel
-    def CellUnderImageWidth(self):
+    def CellUnderImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentTreasureRewardExcel
-    def CellUnderImageHeight(self):
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # EventContentTreasureRewardExcel
-    def HiddenImage(self):
+    def RewardParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentTreasureRewardExcel
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
 
     # EventContentTreasureRewardExcel
     def RewardParcelType(self, j):
@@ -87,125 +127,85 @@ class EventContentTreasureRewardExcel(object):
         return o == 0
 
     # EventContentTreasureRewardExcel
-    def RewardParcelId(self, j):
+    def HiddenImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EventContentTreasureRewardExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentTreasureRewardExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentTreasureRewardExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # EventContentTreasureRewardExcel
-    def RewardParcelAmount(self, j):
+    def CellUnderImageHeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentTreasureRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentTreasureRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentTreasureRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # EventContentTreasureRewardExcel
-    def CellUnderImagePath(self):
+    def CellUnderImageWidth(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentTreasureRewardExcel
-    def TreasureSmallImagePath(self):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # EventContentTreasureRewardExcel
-    def TreasureSizeIconPath(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def EventContentTreasureRewardExcelStart(builder): builder.StartObject(11)
 def Start(builder):
     return EventContentTreasureRewardExcelStart(builder)
-def EventContentTreasureRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return EventContentTreasureRewardExcelAddId(builder, id)
-def EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
-def AddLocalizeCodeId(builder, localizeCodeId):
-    return EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
-def EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth): builder.PrependInt32Slot(2, cellUnderImageWidth, 0)
-def AddCellUnderImageWidth(builder, cellUnderImageWidth):
-    return EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth)
-def EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight): builder.PrependInt32Slot(3, cellUnderImageHeight, 0)
-def AddCellUnderImageHeight(builder, cellUnderImageHeight):
-    return EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight)
-def EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage): builder.PrependBoolSlot(4, hiddenImage, 0)
-def AddHiddenImage(builder, hiddenImage):
-    return EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage)
+def EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSizeIconPath), 0)
+def AddTreasureSizeIconPath(builder, treasureSizeIconPath):
+    return EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath)
+def EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSmallImagePath), 0)
+def AddTreasureSmallImagePath(builder, treasureSmallImagePath):
+    return EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath)
+def EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(cellUnderImagePath), 0)
+def AddCellUnderImagePath(builder, cellUnderImagePath):
+    return EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath)
+def EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelAmountVector(builder, numElems):
+    return EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems)
+def EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelIdVector(builder, numElems):
+    return EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems)
 def EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType)
 def EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelIdVector(builder, numElems):
-    return EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, numElems)
-def EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelAmountVector(builder, numElems):
-    return EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, numElems)
-def EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(cellUnderImagePath), 0)
-def AddCellUnderImagePath(builder, cellUnderImagePath):
-    return EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath)
-def EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSmallImagePath), 0)
-def AddTreasureSmallImagePath(builder, treasureSmallImagePath):
-    return EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath)
-def EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(treasureSizeIconPath), 0)
-def AddTreasureSizeIconPath(builder, treasureSizeIconPath):
-    return EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath)
+def EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage): builder.PrependBoolSlot(6, hiddenImage, 0)
+def AddHiddenImage(builder, hiddenImage):
+    return EventContentTreasureRewardExcelAddHiddenImage(builder, hiddenImage)
+def EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight): builder.PrependInt32Slot(7, cellUnderImageHeight, 0)
+def AddCellUnderImageHeight(builder, cellUnderImageHeight):
+    return EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, cellUnderImageHeight)
+def EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth): builder.PrependInt32Slot(8, cellUnderImageWidth, 0)
+def AddCellUnderImageWidth(builder, cellUnderImageWidth):
+    return EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, cellUnderImageWidth)
+def EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
+def AddLocalizeCodeId(builder, localizeCodeId):
+    return EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+def EventContentTreasureRewardExcelAddId(builder, id): builder.PrependInt64Slot(10, id, 0)
+def AddId(builder, id):
+    return EventContentTreasureRewardExcelAddId(builder, id)
 def EventContentTreasureRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentTreasureRewardExcelEnd(builder)

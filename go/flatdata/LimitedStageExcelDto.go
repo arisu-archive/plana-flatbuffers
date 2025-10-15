@@ -10,38 +10,38 @@ import (
 // LimitedStageExcelDto represents a FlatBuffers table
 type LimitedStageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                            int64               `json:"id"`
-	Name                          string              `json:"name"`
-	SeasonId                      int64               `json:"season_id"`
-	StageDifficulty               StageDifficulty     `json:"stage_difficulty"`
-	StageNumber                   string              `json:"stage_number"`
-	StageDisplay                  int32               `json:"stage_display"`
-	PrevStageId                   int64               `json:"prev_stage_id"`
-	OpenDate                      int64               `json:"open_date"`
-	OpenEventPoint                int64               `json:"open_event_point"`
-	BattleDuration                int64               `json:"battle_duration"`
-	StageEnterCostType            ParcelType          `json:"stage_enter_cost_type"`
-	StageEnterCostId              int64               `json:"stage_enter_cost_id"`
-	StageEnterCostAmount          int32               `json:"stage_enter_cost_amount"`
-	StageEnterEchelonCount        int32               `json:"stage_enter_echelon_count"`
-	StarConditionTacticRankSCount int64               `json:"star_condition_tactic_rank_s_count"`
-	StarConditionTurnCount        int64               `json:"star_condition_turn_count"`
-	EnterScenarioGroupId          []int64             `json:"enter_scenario_group_id"`
-	ClearScenarioGroupId          []int64             `json:"clear_scenario_group_id"`
-	StrategyMap                   string              `json:"strategy_map"`
-	StrategyMapBg                 string              `json:"strategy_map_bg"`
-	StageRewardId                 int64               `json:"stage_reward_id"`
-	MaxTurn                       int32               `json:"max_turn"`
-	StageTopography               StageTopography     `json:"stage_topography"`
-	RecommandLevel                int32               `json:"recommand_level"`
-	BgmId                         string              `json:"bgm_id"`
-	StrategyEnvironment           StrategyEnvironment `json:"strategy_environment"`
-	GroundId                      int64               `json:"ground_id"`
-	ContentType                   ContentType         `json:"content_type"`
-	BgmIdC9738509                 int64               `json:"bgm_id_c9738509"`
-	InstantClear                  bool                `json:"instant_clear"`
-	BuffContentId                 int64               `json:"buff_content_id"`
 	ChallengeDisplay              bool                `json:"challenge_display"`
+	BuffContentId                 int64               `json:"buff_content_id"`
+	InstantClear                  bool                `json:"instant_clear"`
+	BgmId                         int64               `json:"bgm_id"`
+	ContentType                   ContentType         `json:"content_type"`
+	GroundId                      int64               `json:"ground_id"`
+	StrategyEnvironment           StrategyEnvironment `json:"strategy_environment"`
+	BgmIdD0807648                 string              `json:"bgm_id_d0807648"`
+	RecommandLevel                int32               `json:"recommand_level"`
+	StageTopography               StageTopography     `json:"stage_topography"`
+	MaxTurn                       int32               `json:"max_turn"`
+	StageRewardId                 int64               `json:"stage_reward_id"`
+	StrategyMapBg                 string              `json:"strategy_map_bg"`
+	StrategyMap                   string              `json:"strategy_map"`
+	ClearScenarioGroupId          []int64             `json:"clear_scenario_group_id"`
+	EnterScenarioGroupId          []int64             `json:"enter_scenario_group_id"`
+	StarConditionTurnCount        int64               `json:"star_condition_turn_count"`
+	StarConditionTacticRankSCount int64               `json:"star_condition_tactic_rank_s_count"`
+	StageEnterEchelonCount        int32               `json:"stage_enter_echelon_count"`
+	StageEnterCostAmount          int32               `json:"stage_enter_cost_amount"`
+	StageEnterCostId              int64               `json:"stage_enter_cost_id"`
+	StageEnterCostType            ParcelType          `json:"stage_enter_cost_type"`
+	BattleDuration                int64               `json:"battle_duration"`
+	OpenEventPoint                int64               `json:"open_event_point"`
+	OpenDate                      int64               `json:"open_date"`
+	PrevStageId                   int64               `json:"prev_stage_id"`
+	StageDisplay                  int32               `json:"stage_display"`
+	StageNumber                   string              `json:"stage_number"`
+	StageDifficulty               StageDifficulty     `json:"stage_difficulty"`
+	SeasonId                      int64               `json:"season_id"`
+	Name                          string              `json:"name"`
+	Id                            int64               `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -50,46 +50,46 @@ func (t *LimitedStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStage"))
 	}
 	LimitedStageExcelStart(b)
-	LimitedStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	LimitedStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
-	LimitedStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddOpenEventPoint(b, fbsutils.Convert(t.OpenEventPoint, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStarConditionTacticRankSCount(b, fbsutils.Convert(t.StarConditionTacticRankSCount, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStarConditionTurnCount(b, fbsutils.Convert(t.StarConditionTurnCount, t.FlatBuffer.TableKey))
-	LimitedStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
-	for i := range len(t.EnterScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	LimitedStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
+	LimitedStageExcelAddChallengeDisplay(b, t.ChallengeDisplay)
+	LimitedStageExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddInstantClear(b, t.InstantClear)
+	LimitedStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddBgmIdD0807648(b, b.CreateString(fbsutils.Convert(t.BgmIdD0807648, t.FlatBuffer.TableKey)))
+	LimitedStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
+	LimitedStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
 	LimitedStageExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
 	for i := range len(t.ClearScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	LimitedStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
-	LimitedStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
-	LimitedStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
-	LimitedStageExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
-	LimitedStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddInstantClear(b, t.InstantClear)
-	LimitedStageExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddChallengeDisplay(b, t.ChallengeDisplay)
+	LimitedStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
+	for i := range len(t.EnterScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	LimitedStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
+	LimitedStageExcelAddStarConditionTurnCount(b, fbsutils.Convert(t.StarConditionTurnCount, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStarConditionTacticRankSCount(b, fbsutils.Convert(t.StarConditionTacticRankSCount, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddOpenEventPoint(b, fbsutils.Convert(t.OpenEventPoint, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
+	LimitedStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	LimitedStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return LimitedStageExcelEnd(b)
 }
 
@@ -105,44 +105,44 @@ func (t *LimitedStageExcelDto) UnmarshalMessage(e *LimitedStageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStage"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
-	t.StageNumber = fbsutils.Convert(string(e.StageNumber()), t.FlatBuffer.TableKey)
-	t.StageDisplay = fbsutils.Convert(e.StageDisplay(), t.FlatBuffer.TableKey)
-	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
-	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
-	t.OpenEventPoint = fbsutils.Convert(e.OpenEventPoint(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
-	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelonCount = fbsutils.Convert(e.StageEnterEchelonCount(), t.FlatBuffer.TableKey)
-	t.StarConditionTacticRankSCount = fbsutils.Convert(e.StarConditionTacticRankSCount(), t.FlatBuffer.TableKey)
-	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
-	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
-	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
+	t.ChallengeDisplay = e.ChallengeDisplay()
+	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)
+	t.InstantClear = e.InstantClear()
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
+	t.BgmIdD0807648 = fbsutils.Convert(string(e.BgmIdD0807648()), t.FlatBuffer.TableKey)
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
+	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
+	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
+	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
 		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
-	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
-	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
-	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
-	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
-	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
-	t.InstantClear = e.InstantClear()
-	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)
-	t.ChallengeDisplay = e.ChallengeDisplay()
+	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
+	for i := range e.EnterScenarioGroupIdLength() {
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
+	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
+	t.StarConditionTacticRankSCount = fbsutils.Convert(e.StarConditionTacticRankSCount(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelonCount = fbsutils.Convert(e.StageEnterEchelonCount(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
+	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.OpenEventPoint = fbsutils.Convert(e.OpenEventPoint(), t.FlatBuffer.TableKey)
+	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
+	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
+	t.StageDisplay = fbsutils.Convert(e.StageDisplay(), t.FlatBuffer.TableKey)
+	t.StageNumber = fbsutils.Convert(string(e.StageNumber()), t.FlatBuffer.TableKey)
+	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

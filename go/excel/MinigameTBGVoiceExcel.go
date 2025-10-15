@@ -33,44 +33,8 @@ func (rcv *MinigameTBGVoiceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGVoiceExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGVoiceExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameTBGVoiceExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGVoiceExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameTBGVoiceExcel) VoiceCondition() TBGVoiceCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return TBGVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGVoiceExcel) MutateVoiceCondition(n TBGVoiceCondition) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *MinigameTBGVoiceExcel) VoiceId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -78,23 +42,59 @@ func (rcv *MinigameTBGVoiceExcel) VoiceId() uint32 {
 }
 
 func (rcv *MinigameTBGVoiceExcel) MutateVoiceId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *MinigameTBGVoiceExcel) VoiceCondition() TBGVoiceCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return TBGVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGVoiceExcel) MutateVoiceCondition(n TBGVoiceCondition) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *MinigameTBGVoiceExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGVoiceExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MinigameTBGVoiceExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGVoiceExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func MinigameTBGVoiceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func MinigameTBGVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MinigameTBGVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
+func MinigameTBGVoiceExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
+	builder.PrependUint32Slot(0, voiceId, 0)
 }
 func MinigameTBGVoiceExcelAddVoiceCondition(builder *flatbuffers.Builder, voiceCondition TBGVoiceCondition) {
-	builder.PrependInt32Slot(2, int32(voiceCondition), 0)
+	builder.PrependInt32Slot(1, int32(voiceCondition), 0)
 }
-func MinigameTBGVoiceExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
-	builder.PrependUint32Slot(3, voiceId, 0)
+func MinigameTBGVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(2, uniqueId, 0)
+}
+func MinigameTBGVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
 }
 func MinigameTBGVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

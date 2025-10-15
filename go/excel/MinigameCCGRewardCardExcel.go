@@ -33,19 +33,19 @@ func (rcv *MinigameCCGRewardCardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGRewardCardExcel) Id() int64 {
+func (rcv *MinigameCCGRewardCardExcel) CardRarity() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGRewardCardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MinigameCCGRewardCardExcel) MutateCardRarity(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *MinigameCCGRewardCardExcel) GroupId() int64 {
+func (rcv *MinigameCCGRewardCardExcel) CardId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *MinigameCCGRewardCardExcel) GroupId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGRewardCardExcel) MutateGroupId(n int64) bool {
+func (rcv *MinigameCCGRewardCardExcel) MutateCardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -69,7 +69,7 @@ func (rcv *MinigameCCGRewardCardExcel) MutateEntityType(n CCGEntityType) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *MinigameCCGRewardCardExcel) CardId() int64 {
+func (rcv *MinigameCCGRewardCardExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,39 +77,39 @@ func (rcv *MinigameCCGRewardCardExcel) CardId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGRewardCardExcel) MutateCardId(n int64) bool {
+func (rcv *MinigameCCGRewardCardExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MinigameCCGRewardCardExcel) CardRarity() int32 {
+func (rcv *MinigameCCGRewardCardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGRewardCardExcel) MutateCardRarity(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+func (rcv *MinigameCCGRewardCardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MinigameCCGRewardCardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MinigameCCGRewardCardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func MinigameCCGRewardCardExcelAddCardRarity(builder *flatbuffers.Builder, cardRarity int32) {
+	builder.PrependInt32Slot(0, cardRarity, 0)
 }
-func MinigameCCGRewardCardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(1, groupId, 0)
+func MinigameCCGRewardCardExcelAddCardId(builder *flatbuffers.Builder, cardId int64) {
+	builder.PrependInt64Slot(1, cardId, 0)
 }
 func MinigameCCGRewardCardExcelAddEntityType(builder *flatbuffers.Builder, entityType CCGEntityType) {
 	builder.PrependInt32Slot(2, int32(entityType), 0)
 }
-func MinigameCCGRewardCardExcelAddCardId(builder *flatbuffers.Builder, cardId int64) {
-	builder.PrependInt64Slot(3, cardId, 0)
+func MinigameCCGRewardCardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(3, groupId, 0)
 }
-func MinigameCCGRewardCardExcelAddCardRarity(builder *flatbuffers.Builder, cardRarity int32) {
-	builder.PrependInt32Slot(4, cardRarity, 0)
+func MinigameCCGRewardCardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
 func MinigameCCGRewardCardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

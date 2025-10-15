@@ -25,11 +25,11 @@ class SkillSelectExTooltipExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SkillSelectExTooltipExcel
-    def GroupId(self):
+    def SkillUseConditionLocalizeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SkillSelectExTooltipExcel
     def SelectableExSkillGroupId(self):
@@ -39,24 +39,24 @@ class SkillSelectExTooltipExcel(object):
         return None
 
     # SkillSelectExTooltipExcel
-    def SkillUseConditionLocalizeId(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def SkillSelectExTooltipExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return SkillSelectExTooltipExcelStart(builder)
-def SkillSelectExTooltipExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
-def AddGroupId(builder, groupId):
-    return SkillSelectExTooltipExcelAddGroupId(builder, groupId)
+def SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(skillUseConditionLocalizeId), 0)
+def AddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId):
+    return SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId)
 def SkillSelectExTooltipExcelAddSelectableExSkillGroupId(builder, selectableExSkillGroupId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(selectableExSkillGroupId), 0)
 def AddSelectableExSkillGroupId(builder, selectableExSkillGroupId):
     return SkillSelectExTooltipExcelAddSelectableExSkillGroupId(builder, selectableExSkillGroupId)
-def SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(skillUseConditionLocalizeId), 0)
-def AddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId):
-    return SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId)
+def SkillSelectExTooltipExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
+def AddGroupId(builder, groupId):
+    return SkillSelectExTooltipExcelAddGroupId(builder, groupId)
 def SkillSelectExTooltipExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SkillSelectExTooltipExcelEnd(builder)

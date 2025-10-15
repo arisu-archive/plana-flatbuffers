@@ -10,17 +10,17 @@ import (
 // SkillSelectExTooltipExcelDto represents a FlatBuffers table
 type SkillSelectExTooltipExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId                     int64  `json:"group_id"`
-	SelectableExSkillGroupId    string `json:"selectable_ex_skill_group_id"`
 	SkillUseConditionLocalizeId string `json:"skill_use_condition_localize_id"`
+	SelectableExSkillGroupId    string `json:"selectable_ex_skill_group_id"`
+	GroupId                     int64  `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SkillSelectExTooltipExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	SkillSelectExTooltipExcelStart(b)
-	SkillSelectExTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	SkillSelectExTooltipExcelAddSelectableExSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SelectableExSkillGroupId, t.FlatBuffer.TableKey)))
 	SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(b, b.CreateString(fbsutils.Convert(t.SkillUseConditionLocalizeId, t.FlatBuffer.TableKey)))
+	SkillSelectExTooltipExcelAddSelectableExSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SelectableExSkillGroupId, t.FlatBuffer.TableKey)))
+	SkillSelectExTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return SkillSelectExTooltipExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *SkillSelectExTooltipExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SkillSelectExTooltipExcelDto) UnmarshalMessage(e *SkillSelectExTooltipExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.SelectableExSkillGroupId = fbsutils.Convert(string(e.SelectableExSkillGroupId()), t.FlatBuffer.TableKey)
 	t.SkillUseConditionLocalizeId = fbsutils.Convert(string(e.SkillUseConditionLocalizeId()), t.FlatBuffer.TableKey)
+	t.SelectableExSkillGroupId = fbsutils.Convert(string(e.SelectableExSkillGroupId()), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

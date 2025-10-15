@@ -4,10 +4,10 @@ include "GroundVector3.fbs";
 namespace FlatData;
 
 table GroundNodeFlat {
-    x: int;
-    y: int;
-    is_can_not_use_skill: bool;
-    position: GroundVector3;
-    node_type: GroundNodeType;
     original_node_type: GroundNodeType;
+    node_type: GroundNodeType;
+    position: GroundVector3;
+    is_can_not_use_skill: bool;
+    y: int;
+    x: int;
 }

@@ -8,26 +8,26 @@ include "ProductionStep.fbs";
 namespace MX.Data.Excel;
 
 table CharacterDialogBattlePassExcel {
-    costume_unique_id: long;
-    original_character_id: long;
-    display_order: long;
-    battle_pass_id: long;
-    production_step: ProductionStep;
-    dialog_category: DialogCategory;
-    dialog_condition: DialogCondition;
-    dialog_condition_detail: DialogConditionDetail;
-    dialog_condition_detail_value: long;
-    group_id: long;
-    dialog_type: DialogType;
-    duration: long;
-    animation_name: string;
-    localize_kr: string;
-    localize_jp: string;
-    voice_id: [uint];
-    collection_visible: bool;
-    cv_collection_type: CVCollectionType;
-    unlock_battle_pass_id: long;
     localize_cv_group: string;
+    unlock_battle_pass_id: long;
+    cv_collection_type: CVCollectionType;
+    collection_visible: bool;
+    voice_id: [uint];
+    localize_jp: string;
+    localize_kr: string;
+    animation_name: string;
+    duration: long;
+    dialog_type: DialogType;
+    group_id: long;
+    dialog_condition_detail_value: long;
+    dialog_condition_detail: DialogConditionDetail;
+    dialog_condition: DialogCondition;
+    dialog_category: DialogCategory;
+    production_step: ProductionStep;
+    battle_pass_id: long;
+    display_order: long;
+    original_character_id: long;
+    costume_unique_id: long;
 }
 
 root_type CharacterDialogBattlePassExcel;

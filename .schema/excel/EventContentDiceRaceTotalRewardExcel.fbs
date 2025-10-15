@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentDiceRaceTotalRewardExcel {
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    display_lap_finish_count: int;
+    required_lap_finish_count: int;
+    reward_id: long;
+    event_content_id: long;
+}
+
+root_type EventContentDiceRaceTotalRewardExcel;

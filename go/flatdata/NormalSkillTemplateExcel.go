@@ -33,44 +33,8 @@ func (rcv *NormalSkillTemplateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *NormalSkillTemplateExcel) Index() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *NormalSkillTemplateExcel) MutateIndex(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *NormalSkillTemplateExcel) FirstCoolTime() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *NormalSkillTemplateExcel) MutateFirstCoolTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(6, n)
-}
-
-func (rcv *NormalSkillTemplateExcel) CoolTime() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *NormalSkillTemplateExcel) MutateCoolTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
-}
-
 func (rcv *NormalSkillTemplateExcel) MultiAni() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -78,23 +42,59 @@ func (rcv *NormalSkillTemplateExcel) MultiAni() bool {
 }
 
 func (rcv *NormalSkillTemplateExcel) MutateMultiAni(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *NormalSkillTemplateExcel) CoolTime() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *NormalSkillTemplateExcel) MutateCoolTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(6, n)
+}
+
+func (rcv *NormalSkillTemplateExcel) FirstCoolTime() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *NormalSkillTemplateExcel) MutateFirstCoolTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(8, n)
+}
+
+func (rcv *NormalSkillTemplateExcel) Index() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *NormalSkillTemplateExcel) MutateIndex(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func NormalSkillTemplateExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func NormalSkillTemplateExcelAddIndex(builder *flatbuffers.Builder, index int64) {
-	builder.PrependInt64Slot(0, index, 0)
-}
-func NormalSkillTemplateExcelAddFirstCoolTime(builder *flatbuffers.Builder, firstCoolTime float32) {
-	builder.PrependFloat32Slot(1, firstCoolTime, 0.0)
+func NormalSkillTemplateExcelAddMultiAni(builder *flatbuffers.Builder, multiAni bool) {
+	builder.PrependBoolSlot(0, multiAni, false)
 }
 func NormalSkillTemplateExcelAddCoolTime(builder *flatbuffers.Builder, coolTime float32) {
-	builder.PrependFloat32Slot(2, coolTime, 0.0)
+	builder.PrependFloat32Slot(1, coolTime, 0.0)
 }
-func NormalSkillTemplateExcelAddMultiAni(builder *flatbuffers.Builder, multiAni bool) {
-	builder.PrependBoolSlot(3, multiAni, false)
+func NormalSkillTemplateExcelAddFirstCoolTime(builder *flatbuffers.Builder, firstCoolTime float32) {
+	builder.PrependFloat32Slot(2, firstCoolTime, 0.0)
+}
+func NormalSkillTemplateExcelAddIndex(builder *flatbuffers.Builder, index int64) {
+	builder.PrependInt64Slot(3, index, 0)
 }
 func NormalSkillTemplateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

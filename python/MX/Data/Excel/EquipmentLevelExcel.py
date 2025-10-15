@@ -25,11 +25,31 @@ class EquipmentLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EquipmentLevelExcel
-    def Level(self):
+    def TotalExp(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # EquipmentLevelExcel
+    def TotalExpAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EquipmentLevelExcel
+    def TotalExpLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EquipmentLevelExcel
+    def TotalExpIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
 
     # EquipmentLevelExcel
     def TierLevelExp(self, j):
@@ -59,50 +79,30 @@ class EquipmentLevelExcel(object):
         return o == 0
 
     # EquipmentLevelExcel
-    def TotalExp(self, j):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
-
-    # EquipmentLevelExcel
-    def TotalExpAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EquipmentLevelExcel
-    def TotalExpLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EquipmentLevelExcel
-    def TotalExpIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
 
 def EquipmentLevelExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return EquipmentLevelExcelStart(builder)
-def EquipmentLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(0, level, 0)
-def AddLevel(builder, level):
-    return EquipmentLevelExcelAddLevel(builder, level)
+def EquipmentLevelExcelAddTotalExp(builder, totalExp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
+def AddTotalExp(builder, totalExp):
+    return EquipmentLevelExcelAddTotalExp(builder, totalExp)
+def EquipmentLevelExcelStartTotalExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartTotalExpVector(builder, numElems):
+    return EquipmentLevelExcelStartTotalExpVector(builder, numElems)
 def EquipmentLevelExcelAddTierLevelExp(builder, tierLevelExp): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(tierLevelExp), 0)
 def AddTierLevelExp(builder, tierLevelExp):
     return EquipmentLevelExcelAddTierLevelExp(builder, tierLevelExp)
 def EquipmentLevelExcelStartTierLevelExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartTierLevelExpVector(builder, numElems):
     return EquipmentLevelExcelStartTierLevelExpVector(builder, numElems)
-def EquipmentLevelExcelAddTotalExp(builder, totalExp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
-def AddTotalExp(builder, totalExp):
-    return EquipmentLevelExcelAddTotalExp(builder, totalExp)
-def EquipmentLevelExcelStartTotalExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartTotalExpVector(builder, numElems):
-    return EquipmentLevelExcelStartTotalExpVector(builder, numElems)
+def EquipmentLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+def AddLevel(builder, level):
+    return EquipmentLevelExcelAddLevel(builder, level)
 def EquipmentLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EquipmentLevelExcelEnd(builder)

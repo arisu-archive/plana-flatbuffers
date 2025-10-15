@@ -4,13 +4,13 @@ include "EventTargetType.fbs";
 namespace MX.Data.Excel;
 
 table EventContentNotifyExcel {
-    id: int;
-    localize_etc_id: uint;
-    icon_path: string;
-    event_notify_type: EventNotifyType;
-    event_target_type: EventTargetType;
-    shortcut_event_target_type: EventTargetType;
     is_shortcut_enable: bool;
+    shortcut_event_target_type: EventTargetType;
+    event_target_type: EventTargetType;
+    event_notify_type: EventNotifyType;
+    icon_path: string;
+    localize_etc_id: uint;
+    id: int;
 }
 
 root_type EventContentNotifyExcel;

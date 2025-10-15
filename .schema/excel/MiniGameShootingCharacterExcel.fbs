@@ -1,25 +1,25 @@
 namespace MX.Data.Excel;
 
 table MiniGameShootingCharacterExcel {
-    unique_id: long;
-    spine_resource_name: string;
-    body_radius: float;
-    model_prefab_name: string;
-    normal_attack_skill_data: string;
-    public_skill_data: [string];
-    death_skill_data: string;
-    max_hp: long;
-    attack_power: long;
-    defense_power: long;
-    critical_rate: long;
-    critical_damage_rate: long;
-    attack_range: long;
-    move_speed: long;
-    shot_time: long;
-    is_boss: bool;
-    scale: float;
-    ignore_obstacle_check: bool;
     character_voice_group_id: long;
+    ignore_obstacle_check: bool;
+    scale: float;
+    is_boss: bool;
+    shot_time: long;
+    move_speed: long;
+    attack_range: long;
+    critical_damage_rate: long;
+    critical_rate: long;
+    defense_power: long;
+    attack_power: long;
+    max_hp: long;
+    death_skill_data: string;
+    public_skill_data: [string];
+    normal_attack_skill_data: string;
+    model_prefab_name: string;
+    body_radius: float;
+    spine_resource_name: string;
+    unique_id: long;
 }
 
 root_type MiniGameShootingCharacterExcel;

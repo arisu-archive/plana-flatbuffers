@@ -33,16 +33,16 @@ func (rcv *BattlePassFlavorTextExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BattlePassFlavorTextExcel) GroupId() int64 {
+func (rcv *BattlePassFlavorTextExcel) LocalizeCodeId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *BattlePassFlavorTextExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *BattlePassFlavorTextExcel) MutateLocalizeCodeId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(4, n)
 }
 
 func (rcv *BattlePassFlavorTextExcel) Id() int64 {
@@ -57,29 +57,29 @@ func (rcv *BattlePassFlavorTextExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BattlePassFlavorTextExcel) LocalizeCodeId() uint32 {
+func (rcv *BattlePassFlavorTextExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *BattlePassFlavorTextExcel) MutateLocalizeCodeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
+func (rcv *BattlePassFlavorTextExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func BattlePassFlavorTextExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func BattlePassFlavorTextExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func BattlePassFlavorTextExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
+	builder.PrependUint32Slot(0, localizeCodeId, 0)
 }
 func BattlePassFlavorTextExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(1, id, 0)
 }
-func BattlePassFlavorTextExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
-	builder.PrependUint32Slot(2, localizeCodeId, 0)
+func BattlePassFlavorTextExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(2, groupId, 0)
 }
 func BattlePassFlavorTextExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

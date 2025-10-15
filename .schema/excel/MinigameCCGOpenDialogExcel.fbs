@@ -1,12 +1,12 @@
 namespace MX.Data.Excel;
 
 table MinigameCCGOpenDialogExcel {
-    dialog_id: long;
-    play_order: int;
-    condition_card: long;
-    dialog: uint;
-    duration: long;
     voice: uint;
+    duration: long;
+    dialog: uint;
+    condition_card: long;
+    play_order: int;
+    dialog_id: long;
 }
 
 root_type MinigameCCGOpenDialogExcel;

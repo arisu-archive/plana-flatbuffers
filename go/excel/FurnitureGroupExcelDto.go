@@ -10,29 +10,29 @@ import (
 // FurnitureGroupExcelDto represents a FlatBuffers table
 type FurnitureGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                     int64   `json:"id"`
-	GroupNameLocalize      uint32  `json:"group_name_localize"`
-	LocalizeEtcId          uint32  `json:"localize_etc_id"`
-	RequiredFurnitureCount []int32 `json:"required_furniture_count"`
 	ComfortBonus           []int64 `json:"comfort_bonus"`
+	RequiredFurnitureCount []int32 `json:"required_furniture_count"`
+	LocalizeEtcId          uint32  `json:"localize_etc_id"`
+	GroupNameLocalize      uint32  `json:"group_name_localize"`
+	Id                     int64   `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FurnitureGroupExcelStart(b)
-	FurnitureGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FurnitureGroupExcelAddGroupNameLocalize(b, fbsutils.Convert(t.GroupNameLocalize, t.FlatBuffer.TableKey))
-	FurnitureGroupExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	FurnitureGroupExcelStartRequiredFurnitureCountVector(b, len(t.RequiredFurnitureCount))
-	for i := range len(t.RequiredFurnitureCount) {
-		b.PrependInt32(fbsutils.Convert(t.RequiredFurnitureCount[len(t.RequiredFurnitureCount)-i-1], t.FlatBuffer.TableKey))
-	}
-	FurnitureGroupExcelAddRequiredFurnitureCount(b, b.EndVector(len(t.RequiredFurnitureCount)))
 	FurnitureGroupExcelStartComfortBonusVector(b, len(t.ComfortBonus))
 	for i := range len(t.ComfortBonus) {
 		b.PrependInt64(fbsutils.Convert(t.ComfortBonus[len(t.ComfortBonus)-i-1], t.FlatBuffer.TableKey))
 	}
 	FurnitureGroupExcelAddComfortBonus(b, b.EndVector(len(t.ComfortBonus)))
+	FurnitureGroupExcelStartRequiredFurnitureCountVector(b, len(t.RequiredFurnitureCount))
+	for i := range len(t.RequiredFurnitureCount) {
+		b.PrependInt32(fbsutils.Convert(t.RequiredFurnitureCount[len(t.RequiredFurnitureCount)-i-1], t.FlatBuffer.TableKey))
+	}
+	FurnitureGroupExcelAddRequiredFurnitureCount(b, b.EndVector(len(t.RequiredFurnitureCount)))
+	FurnitureGroupExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	FurnitureGroupExcelAddGroupNameLocalize(b, fbsutils.Convert(t.GroupNameLocalize, t.FlatBuffer.TableKey))
+	FurnitureGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return FurnitureGroupExcelEnd(b)
 }
 
@@ -45,17 +45,17 @@ func (t *FurnitureGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureGroupExcelDto) UnmarshalMessage(e *FurnitureGroupExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupNameLocalize = fbsutils.Convert(e.GroupNameLocalize(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.RequiredFurnitureCount = make([]int32, e.RequiredFurnitureCountLength())
-	for i := range e.RequiredFurnitureCountLength() {
-		t.RequiredFurnitureCount[i] = fbsutils.Convert(e.RequiredFurnitureCount(i), t.FlatBuffer.TableKey)
-	}
 	t.ComfortBonus = make([]int64, e.ComfortBonusLength())
 	for i := range e.ComfortBonusLength() {
 		t.ComfortBonus[i] = fbsutils.Convert(e.ComfortBonus(i), t.FlatBuffer.TableKey)
 	}
+	t.RequiredFurnitureCount = make([]int32, e.RequiredFurnitureCountLength())
+	for i := range e.RequiredFurnitureCountLength() {
+		t.RequiredFurnitureCount[i] = fbsutils.Convert(e.RequiredFurnitureCount(i), t.FlatBuffer.TableKey)
+	}
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.GroupNameLocalize = fbsutils.Convert(e.GroupNameLocalize(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -3,18 +3,18 @@ include "Rarity.fbs";
 namespace FlatData;
 
 table ConstEventCommonExcel {
-    event_content_hard_stage_count: int;
-    event_strategy_play_time_limit_in_seconds: long;
-    sub_event_change_limit_seconds: long;
-    sub_event_instant_clear: bool;
-    card_shop_prob_weight_count: long;
-    card_shop_prob_weight_rarity: Rarity;
-    meetup_scenario_replay_resource: string;
-    meetup_scenario_replay_title_localize: string;
-    special_operaction_collection_group_id: long;
-    treasure_normal_variation_amount: int;
-    treasure_loop_variation_amount: int;
-    treasure_limit_variation_loop_count: int;
-    treasure_limit_variation_clear_loop_count: int;
     event_story_replay_hide_event_content_id: int;
+    treasure_limit_variation_clear_loop_count: int;
+    treasure_limit_variation_loop_count: int;
+    treasure_loop_variation_amount: int;
+    treasure_normal_variation_amount: int;
+    special_operaction_collection_group_id: long;
+    meetup_scenario_replay_title_localize: string;
+    meetup_scenario_replay_resource: string;
+    card_shop_prob_weight_rarity: Rarity;
+    card_shop_prob_weight_count: long;
+    sub_event_instant_clear: bool;
+    sub_event_change_limit_seconds: long;
+    event_strategy_play_time_limit_in_seconds: long;
+    event_content_hard_stage_count: int;
 }

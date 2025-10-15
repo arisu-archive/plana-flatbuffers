@@ -10,19 +10,19 @@ import (
 // MinigameRoadPuzzleMapTileExcelDto represents a FlatBuffers table
 type MinigameRoadPuzzleMapTileExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64                 `json:"event_content_id"`
-	UniqueId       int64                 `json:"unique_id"`
-	PrefabName     string                `json:"prefab_name"`
 	MapTileType    RoadPuzzleMapTileType `json:"map_tile_type"`
+	PrefabName     string                `json:"prefab_name"`
+	UniqueId       int64                 `json:"unique_id"`
+	EventContentId int64                 `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameRoadPuzzleMapTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameRoadPuzzleMapTileExcelStart(b)
-	MinigameRoadPuzzleMapTileExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleMapTileExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleMapTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
 	MinigameRoadPuzzleMapTileExcelAddMapTileType(b, fbsutils.Convert(t.MapTileType, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleMapTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	MinigameRoadPuzzleMapTileExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleMapTileExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameRoadPuzzleMapTileExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *MinigameRoadPuzzleMapTileExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameRoadPuzzleMapTileExcelDto) UnmarshalMessage(e *MinigameRoadPuzzleMapTileExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
 	t.MapTileType = RoadPuzzleMapTileType(fbsutils.Convert(int32(e.MapTileType()), t.FlatBuffer.TableKey))
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

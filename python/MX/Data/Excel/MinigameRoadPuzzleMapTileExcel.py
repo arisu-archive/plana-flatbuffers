@@ -25,48 +25,48 @@ class MinigameRoadPuzzleMapTileExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameRoadPuzzleMapTileExcel
-    def EventContentId(self):
+    def MapTileType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameRoadPuzzleMapTileExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameRoadPuzzleMapTileExcel
     def PrefabName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameRoadPuzzleMapTileExcel
-    def MapTileType(self):
+    def UniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameRoadPuzzleMapTileExcel
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def MinigameRoadPuzzleMapTileExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return MinigameRoadPuzzleMapTileExcelStart(builder)
-def MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId)
-def MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId)
-def MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-def AddPrefabName(builder, prefabName):
-    return MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName)
-def MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType): builder.PrependInt32Slot(3, mapTileType, 0)
+def MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType): builder.PrependInt32Slot(0, mapTileType, 0)
 def AddMapTileType(builder, mapTileType):
     return MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, mapTileType)
+def MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+def AddPrefabName(builder, prefabName):
+    return MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName)
+def MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(2, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, uniqueId)
+def MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, eventContentId)
 def MinigameRoadPuzzleMapTileExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameRoadPuzzleMapTileExcelEnd(builder)

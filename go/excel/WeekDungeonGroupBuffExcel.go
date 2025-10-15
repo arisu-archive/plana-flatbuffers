@@ -33,28 +33,24 @@ func (rcv *WeekDungeonGroupBuffExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) WeekDungeonBuffId() int64 {
+func (rcv *WeekDungeonGroupBuffExcel) SkillGroupId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) MutateWeekDungeonBuffId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *WeekDungeonGroupBuffExcel) School() School {
+func (rcv *WeekDungeonGroupBuffExcel) FormationLocalizeEtcId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return School(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) MutateSchool(n School) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *WeekDungeonGroupBuffExcel) MutateFormationLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *WeekDungeonGroupBuffExcel) RecommandLocalizeEtcId() uint32 {
@@ -69,43 +65,47 @@ func (rcv *WeekDungeonGroupBuffExcel) MutateRecommandLocalizeEtcId(n uint32) boo
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) FormationLocalizeEtcId() uint32 {
+func (rcv *WeekDungeonGroupBuffExcel) School() School {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return School(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) MutateFormationLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+func (rcv *WeekDungeonGroupBuffExcel) MutateSchool(n School) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *WeekDungeonGroupBuffExcel) SkillGroupId() []byte {
+func (rcv *WeekDungeonGroupBuffExcel) WeekDungeonBuffId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *WeekDungeonGroupBuffExcel) MutateWeekDungeonBuffId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func WeekDungeonGroupBuffExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder *flatbuffers.Builder, weekDungeonBuffId int64) {
-	builder.PrependInt64Slot(0, weekDungeonBuffId, 0)
+func WeekDungeonGroupBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(skillGroupId), 0)
 }
-func WeekDungeonGroupBuffExcelAddSchool(builder *flatbuffers.Builder, school School) {
-	builder.PrependInt32Slot(1, int32(school), 0)
+func WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder *flatbuffers.Builder, formationLocalizeEtcId uint32) {
+	builder.PrependUint32Slot(1, formationLocalizeEtcId, 0)
 }
 func WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder *flatbuffers.Builder, recommandLocalizeEtcId uint32) {
 	builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
 }
-func WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder *flatbuffers.Builder, formationLocalizeEtcId uint32) {
-	builder.PrependUint32Slot(3, formationLocalizeEtcId, 0)
+func WeekDungeonGroupBuffExcelAddSchool(builder *flatbuffers.Builder, school School) {
+	builder.PrependInt32Slot(3, int32(school), 0)
 }
-func WeekDungeonGroupBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(skillGroupId), 0)
+func WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder *flatbuffers.Builder, weekDungeonBuffId int64) {
+	builder.PrependInt64Slot(4, weekDungeonBuffId, 0)
 }
 func WeekDungeonGroupBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

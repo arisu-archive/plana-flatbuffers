@@ -4,6 +4,6 @@ include "MoveEnd.fbs";
 namespace FlatData;
 
 table Form {
-    move_end: MoveEnd;
     public_skill: Motion;
+    move_end: MoveEnd;
 }

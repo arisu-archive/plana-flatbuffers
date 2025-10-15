@@ -33,7 +33,7 @@ func (rcv *MinigameCCGLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGLevelExcel) LevelId() int64 {
+func (rcv *MinigameCCGLevelExcel) BgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,16 @@ func (rcv *MinigameCCGLevelExcel) LevelId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGLevelExcel) MutateLevelId(n int64) bool {
+func (rcv *MinigameCCGLevelExcel) MutateBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameCCGLevelExcel) CcgId() int64 {
+func (rcv *MinigameCCGLevelExcel) BackgroundPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *MinigameCCGLevelExcel) MutateCcgId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return nil
 }
 
 func (rcv *MinigameCCGLevelExcel) FloorIndex() int32 {
@@ -69,15 +65,19 @@ func (rcv *MinigameCCGLevelExcel) MutateFloorIndex(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *MinigameCCGLevelExcel) BackgroundPath() []byte {
+func (rcv *MinigameCCGLevelExcel) CcgId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameCCGLevelExcel) BgmId() int64 {
+func (rcv *MinigameCCGLevelExcel) MutateCcgId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MinigameCCGLevelExcel) LevelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,27 +85,27 @@ func (rcv *MinigameCCGLevelExcel) BgmId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGLevelExcel) MutateBgmId(n int64) bool {
+func (rcv *MinigameCCGLevelExcel) MutateLevelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MinigameCCGLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MinigameCCGLevelExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
-	builder.PrependInt64Slot(0, levelId, 0)
+func MinigameCCGLevelExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(0, bgmId, 0)
 }
-func MinigameCCGLevelExcelAddCcgId(builder *flatbuffers.Builder, ccgId int64) {
-	builder.PrependInt64Slot(1, ccgId, 0)
+func MinigameCCGLevelExcelAddBackgroundPath(builder *flatbuffers.Builder, backgroundPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(backgroundPath), 0)
 }
 func MinigameCCGLevelExcelAddFloorIndex(builder *flatbuffers.Builder, floorIndex int32) {
 	builder.PrependInt32Slot(2, floorIndex, 0)
 }
-func MinigameCCGLevelExcelAddBackgroundPath(builder *flatbuffers.Builder, backgroundPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(backgroundPath), 0)
+func MinigameCCGLevelExcelAddCcgId(builder *flatbuffers.Builder, ccgId int64) {
+	builder.PrependInt64Slot(3, ccgId, 0)
 }
-func MinigameCCGLevelExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(4, bgmId, 0)
+func MinigameCCGLevelExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
+	builder.PrependInt64Slot(4, levelId, 0)
 }
 func MinigameCCGLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

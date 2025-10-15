@@ -33,16 +33,8 @@ func (rcv *ScenarioEffectExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ScenarioEffectExcel) EffectName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *ScenarioEffectExcel) Name() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -50,17 +42,25 @@ func (rcv *ScenarioEffectExcel) Name() uint32 {
 }
 
 func (rcv *ScenarioEffectExcel) MutateName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *ScenarioEffectExcel) EffectName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func ScenarioEffectExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func ScenarioEffectExcelAddEffectName(builder *flatbuffers.Builder, effectName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(effectName), 0)
-}
 func ScenarioEffectExcelAddName(builder *flatbuffers.Builder, name uint32) {
-	builder.PrependUint32Slot(1, name, 0)
+	builder.PrependUint32Slot(0, name, 0)
+}
+func ScenarioEffectExcelAddEffectName(builder *flatbuffers.Builder, effectName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(effectName), 0)
 }
 func ScenarioEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

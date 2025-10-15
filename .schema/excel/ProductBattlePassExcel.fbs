@@ -4,15 +4,15 @@ include "StoreType.fbs";
 namespace MX.Data.Excel;
 
 table ProductBattlePassExcel {
-    id: long;
-    product_id: string;
-    store_type: StoreType;
-    price: long;
-    purchase_count_limit: long;
-    battle_pass_product_group_id: long;
-    parcel_type: [ParcelType];
-    parcel_id: [long];
     parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
+    battle_pass_product_group_id: long;
+    purchase_count_limit: long;
+    price: long;
+    store_type: StoreType;
+    product_id: string;
+    id: long;
 }
 
 root_type ProductBattlePassExcel;

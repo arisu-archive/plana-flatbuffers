@@ -25,48 +25,48 @@ class MinigameTBGVoiceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameTBGVoiceExcel
-    def EventContentId(self):
+    def VoiceId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGVoiceExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGVoiceExcel
     def VoiceCondition(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGVoiceExcel
-    def VoiceId(self):
+    def UniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGVoiceExcel
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def MinigameTBGVoiceExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return MinigameTBGVoiceExcelStart(builder)
-def MinigameTBGVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameTBGVoiceExcelAddEventContentId(builder, eventContentId)
-def MinigameTBGVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MinigameTBGVoiceExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGVoiceExcelAddVoiceCondition(builder, voiceCondition): builder.PrependInt32Slot(2, voiceCondition, 0)
-def AddVoiceCondition(builder, voiceCondition):
-    return MinigameTBGVoiceExcelAddVoiceCondition(builder, voiceCondition)
-def MinigameTBGVoiceExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(3, voiceId, 0)
+def MinigameTBGVoiceExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(0, voiceId, 0)
 def AddVoiceId(builder, voiceId):
     return MinigameTBGVoiceExcelAddVoiceId(builder, voiceId)
+def MinigameTBGVoiceExcelAddVoiceCondition(builder, voiceCondition): builder.PrependInt32Slot(1, voiceCondition, 0)
+def AddVoiceCondition(builder, voiceCondition):
+    return MinigameTBGVoiceExcelAddVoiceCondition(builder, voiceCondition)
+def MinigameTBGVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(2, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MinigameTBGVoiceExcelAddUniqueId(builder, uniqueId)
+def MinigameTBGVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameTBGVoiceExcelAddEventContentId(builder, eventContentId)
 def MinigameTBGVoiceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGVoiceExcelEnd(builder)

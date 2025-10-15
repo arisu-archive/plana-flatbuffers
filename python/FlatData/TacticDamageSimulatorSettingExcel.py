@@ -25,56 +25,76 @@ class TacticDamageSimulatorSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TacticDamageSimulatorSettingExcel
-    def Order(self):
+    def FixedCharacter(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def Repeat(self):
+    def FixedCharacterAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def FixedCharacterLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def FixedCharacterIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # TacticDamageSimulatorSettingExcel
+    def GroundId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def TestPreset(self):
+    def ApplyOverrideFavorLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def TestBattleTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def StrikerSquard(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def SpecialSquard(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def ReplaceCharacterCostRegen(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # TacticDamageSimulatorSettingExcel
-    def ReplaceCostRegenValue(self):
+    def OverrideFavorLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def ApplyOverrideAdaptation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # TacticDamageSimulatorSettingExcel
+    def OverrideIndoorAdaptation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def OverrideOutdoorAdaptation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def OverrideStreetAdaptation(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -88,138 +108,118 @@ class TacticDamageSimulatorSettingExcel(object):
         return False
 
     # TacticDamageSimulatorSettingExcel
-    def OverrideStreetAdaptation(self):
+    def ReplaceCostRegenValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def OverrideOutdoorAdaptation(self):
+    def ReplaceCharacterCostRegen(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # TacticDamageSimulatorSettingExcel
-    def OverrideIndoorAdaptation(self):
+    def SpecialSquard(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def ApplyOverrideAdaptation(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # TacticDamageSimulatorSettingExcel
-    def OverrideFavorLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticDamageSimulatorSettingExcel
-    def ApplyOverrideFavorLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # TacticDamageSimulatorSettingExcel
-    def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def FixedCharacter(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+    def StrikerSquard(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def FixedCharacterAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+    def TestBattleTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def FixedCharacterLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+    def TestPreset(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticDamageSimulatorSettingExcel
-    def FixedCharacterIsNone(self):
+    def Repeat(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticDamageSimulatorSettingExcel
+    def Order(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        return o == 0
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
 def TacticDamageSimulatorSettingExcelStart(builder): builder.StartObject(17)
 def Start(builder):
     return TacticDamageSimulatorSettingExcelStart(builder)
-def TacticDamageSimulatorSettingExcelAddOrder(builder, order): builder.PrependInt32Slot(0, order, 0)
-def AddOrder(builder, order):
-    return TacticDamageSimulatorSettingExcelAddOrder(builder, order)
-def TacticDamageSimulatorSettingExcelAddRepeat(builder, repeat): builder.PrependInt32Slot(1, repeat, 0)
-def AddRepeat(builder, repeat):
-    return TacticDamageSimulatorSettingExcelAddRepeat(builder, repeat)
-def TacticDamageSimulatorSettingExcelAddTestPreset(builder, testPreset): builder.PrependInt64Slot(2, testPreset, 0)
-def AddTestPreset(builder, testPreset):
-    return TacticDamageSimulatorSettingExcelAddTestPreset(builder, testPreset)
-def TacticDamageSimulatorSettingExcelAddTestBattleTime(builder, testBattleTime): builder.PrependInt64Slot(3, testBattleTime, 0)
-def AddTestBattleTime(builder, testBattleTime):
-    return TacticDamageSimulatorSettingExcelAddTestBattleTime(builder, testBattleTime)
-def TacticDamageSimulatorSettingExcelAddStrikerSquard(builder, strikerSquard): builder.PrependInt64Slot(4, strikerSquard, 0)
-def AddStrikerSquard(builder, strikerSquard):
-    return TacticDamageSimulatorSettingExcelAddStrikerSquard(builder, strikerSquard)
-def TacticDamageSimulatorSettingExcelAddSpecialSquard(builder, specialSquard): builder.PrependInt64Slot(5, specialSquard, 0)
-def AddSpecialSquard(builder, specialSquard):
-    return TacticDamageSimulatorSettingExcelAddSpecialSquard(builder, specialSquard)
-def TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen): builder.PrependBoolSlot(6, replaceCharacterCostRegen, 0)
-def AddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen):
-    return TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen)
-def TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(builder, replaceCostRegenValue): builder.PrependInt32Slot(7, replaceCostRegenValue, 0)
-def AddReplaceCostRegenValue(builder, replaceCostRegenValue):
-    return TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(builder, replaceCostRegenValue)
-def TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder, useAutoSkill): builder.PrependBoolSlot(8, useAutoSkill, 0)
-def AddUseAutoSkill(builder, useAutoSkill):
-    return TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder, useAutoSkill)
-def TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder, overrideStreetAdaptation): builder.PrependInt32Slot(9, overrideStreetAdaptation, 0)
-def AddOverrideStreetAdaptation(builder, overrideStreetAdaptation):
-    return TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder, overrideStreetAdaptation)
-def TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation): builder.PrependInt32Slot(10, overrideOutdoorAdaptation, 0)
-def AddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation):
-    return TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation)
-def TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation): builder.PrependInt32Slot(11, overrideIndoorAdaptation, 0)
-def AddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation):
-    return TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation)
-def TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder, applyOverrideAdaptation): builder.PrependBoolSlot(12, applyOverrideAdaptation, 0)
-def AddApplyOverrideAdaptation(builder, applyOverrideAdaptation):
-    return TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder, applyOverrideAdaptation)
-def TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder, overrideFavorLevel): builder.PrependInt32Slot(13, overrideFavorLevel, 0)
-def AddOverrideFavorLevel(builder, overrideFavorLevel):
-    return TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder, overrideFavorLevel)
-def TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel): builder.PrependBoolSlot(14, applyOverrideFavorLevel, 0)
-def AddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel):
-    return TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel)
-def TacticDamageSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(15, groundId, 0)
-def AddGroundId(builder, groundId):
-    return TacticDamageSimulatorSettingExcelAddGroundId(builder, groundId)
-def TacticDamageSimulatorSettingExcelAddFixedCharacter(builder, fixedCharacter): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(fixedCharacter), 0)
+def TacticDamageSimulatorSettingExcelAddFixedCharacter(builder, fixedCharacter): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(fixedCharacter), 0)
 def AddFixedCharacter(builder, fixedCharacter):
     return TacticDamageSimulatorSettingExcelAddFixedCharacter(builder, fixedCharacter)
 def TacticDamageSimulatorSettingExcelStartFixedCharacterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartFixedCharacterVector(builder, numElems):
     return TacticDamageSimulatorSettingExcelStartFixedCharacterVector(builder, numElems)
+def TacticDamageSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(1, groundId, 0)
+def AddGroundId(builder, groundId):
+    return TacticDamageSimulatorSettingExcelAddGroundId(builder, groundId)
+def TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel): builder.PrependBoolSlot(2, applyOverrideFavorLevel, 0)
+def AddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel):
+    return TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder, applyOverrideFavorLevel)
+def TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder, overrideFavorLevel): builder.PrependInt32Slot(3, overrideFavorLevel, 0)
+def AddOverrideFavorLevel(builder, overrideFavorLevel):
+    return TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder, overrideFavorLevel)
+def TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder, applyOverrideAdaptation): builder.PrependBoolSlot(4, applyOverrideAdaptation, 0)
+def AddApplyOverrideAdaptation(builder, applyOverrideAdaptation):
+    return TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder, applyOverrideAdaptation)
+def TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation): builder.PrependInt32Slot(5, overrideIndoorAdaptation, 0)
+def AddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation):
+    return TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder, overrideIndoorAdaptation)
+def TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation): builder.PrependInt32Slot(6, overrideOutdoorAdaptation, 0)
+def AddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation):
+    return TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder, overrideOutdoorAdaptation)
+def TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder, overrideStreetAdaptation): builder.PrependInt32Slot(7, overrideStreetAdaptation, 0)
+def AddOverrideStreetAdaptation(builder, overrideStreetAdaptation):
+    return TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder, overrideStreetAdaptation)
+def TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder, useAutoSkill): builder.PrependBoolSlot(8, useAutoSkill, 0)
+def AddUseAutoSkill(builder, useAutoSkill):
+    return TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder, useAutoSkill)
+def TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(builder, replaceCostRegenValue): builder.PrependInt32Slot(9, replaceCostRegenValue, 0)
+def AddReplaceCostRegenValue(builder, replaceCostRegenValue):
+    return TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(builder, replaceCostRegenValue)
+def TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen): builder.PrependBoolSlot(10, replaceCharacterCostRegen, 0)
+def AddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen):
+    return TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder, replaceCharacterCostRegen)
+def TacticDamageSimulatorSettingExcelAddSpecialSquard(builder, specialSquard): builder.PrependInt64Slot(11, specialSquard, 0)
+def AddSpecialSquard(builder, specialSquard):
+    return TacticDamageSimulatorSettingExcelAddSpecialSquard(builder, specialSquard)
+def TacticDamageSimulatorSettingExcelAddStrikerSquard(builder, strikerSquard): builder.PrependInt64Slot(12, strikerSquard, 0)
+def AddStrikerSquard(builder, strikerSquard):
+    return TacticDamageSimulatorSettingExcelAddStrikerSquard(builder, strikerSquard)
+def TacticDamageSimulatorSettingExcelAddTestBattleTime(builder, testBattleTime): builder.PrependInt64Slot(13, testBattleTime, 0)
+def AddTestBattleTime(builder, testBattleTime):
+    return TacticDamageSimulatorSettingExcelAddTestBattleTime(builder, testBattleTime)
+def TacticDamageSimulatorSettingExcelAddTestPreset(builder, testPreset): builder.PrependInt64Slot(14, testPreset, 0)
+def AddTestPreset(builder, testPreset):
+    return TacticDamageSimulatorSettingExcelAddTestPreset(builder, testPreset)
+def TacticDamageSimulatorSettingExcelAddRepeat(builder, repeat): builder.PrependInt32Slot(15, repeat, 0)
+def AddRepeat(builder, repeat):
+    return TacticDamageSimulatorSettingExcelAddRepeat(builder, repeat)
+def TacticDamageSimulatorSettingExcelAddOrder(builder, order): builder.PrependInt32Slot(16, order, 0)
+def AddOrder(builder, order):
+    return TacticDamageSimulatorSettingExcelAddOrder(builder, order)
 def TacticDamageSimulatorSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticDamageSimulatorSettingExcelEnd(builder)

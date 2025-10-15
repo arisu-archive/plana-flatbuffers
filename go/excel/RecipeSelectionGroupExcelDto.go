@@ -10,23 +10,23 @@ import (
 // RecipeSelectionGroupExcelDto represents a FlatBuffers table
 type RecipeSelectionGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	RecipeSelectionGroupId          int64      `json:"recipe_selection_group_id"`
-	RecipeSelectionGroupComponentId int64      `json:"recipe_selection_group_component_id"`
-	ParcelType                      ParcelType `json:"parcel_type"`
-	ParcelId                        int64      `json:"parcel_id"`
-	ResultAmountMin                 int64      `json:"result_amount_min"`
 	ResultAmountMax                 int64      `json:"result_amount_max"`
+	ResultAmountMin                 int64      `json:"result_amount_min"`
+	ParcelId                        int64      `json:"parcel_id"`
+	ParcelType                      ParcelType `json:"parcel_type"`
+	RecipeSelectionGroupComponentId int64      `json:"recipe_selection_group_component_id"`
+	RecipeSelectionGroupId          int64      `json:"recipe_selection_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeSelectionGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	RecipeSelectionGroupExcelStart(b)
-	RecipeSelectionGroupExcelAddRecipeSelectionGroupId(b, fbsutils.Convert(t.RecipeSelectionGroupId, t.FlatBuffer.TableKey))
-	RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(b, fbsutils.Convert(t.RecipeSelectionGroupComponentId, t.FlatBuffer.TableKey))
-	RecipeSelectionGroupExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	RecipeSelectionGroupExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
-	RecipeSelectionGroupExcelAddResultAmountMin(b, fbsutils.Convert(t.ResultAmountMin, t.FlatBuffer.TableKey))
 	RecipeSelectionGroupExcelAddResultAmountMax(b, fbsutils.Convert(t.ResultAmountMax, t.FlatBuffer.TableKey))
+	RecipeSelectionGroupExcelAddResultAmountMin(b, fbsutils.Convert(t.ResultAmountMin, t.FlatBuffer.TableKey))
+	RecipeSelectionGroupExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
+	RecipeSelectionGroupExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(b, fbsutils.Convert(t.RecipeSelectionGroupComponentId, t.FlatBuffer.TableKey))
+	RecipeSelectionGroupExcelAddRecipeSelectionGroupId(b, fbsutils.Convert(t.RecipeSelectionGroupId, t.FlatBuffer.TableKey))
 	return RecipeSelectionGroupExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *RecipeSelectionGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeSelectionGroupExcelDto) UnmarshalMessage(e *RecipeSelectionGroupExcel) error {
-	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
-	t.RecipeSelectionGroupComponentId = fbsutils.Convert(e.RecipeSelectionGroupComponentId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.ResultAmountMin = fbsutils.Convert(e.ResultAmountMin(), t.FlatBuffer.TableKey)
 	t.ResultAmountMax = fbsutils.Convert(e.ResultAmountMax(), t.FlatBuffer.TableKey)
+	t.ResultAmountMin = fbsutils.Convert(e.ResultAmountMin(), t.FlatBuffer.TableKey)
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.RecipeSelectionGroupComponentId = fbsutils.Convert(e.RecipeSelectionGroupComponentId(), t.FlatBuffer.TableKey)
+	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,56 +25,56 @@ class MinigameCCGInfoExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGInfoExcel
-    def EventContentId(self):
+    def PerkCostParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGInfoExcel
-    def CcgId(self):
+    def PerkCostParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGInfoExcel
-    def CostParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGInfoExcel
-    def CostParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGInfoExcel
-    def CostParcelAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGInfoExcel
     def CardBackPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameCCGInfoExcel
-    def PerkCostParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def CostParcelAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGInfoExcel
-    def PerkCostParcelId(self):
+    def CostParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGInfoExcel
+    def CostParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGInfoExcel
+    def CcgId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGInfoExcel
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -83,30 +83,30 @@ class MinigameCCGInfoExcel(object):
 def MinigameCCGInfoExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return MinigameCCGInfoExcelStart(builder)
-def MinigameCCGInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameCCGInfoExcelAddEventContentId(builder, eventContentId)
-def MinigameCCGInfoExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(1, ccgId, 0)
-def AddCcgId(builder, ccgId):
-    return MinigameCCGInfoExcelAddCcgId(builder, ccgId)
-def MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType): builder.PrependInt32Slot(2, costParcelType, 0)
-def AddCostParcelType(builder, costParcelType):
-    return MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType)
-def MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId): builder.PrependInt64Slot(3, costParcelId, 0)
-def AddCostParcelId(builder, costParcelId):
-    return MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId)
-def MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount): builder.PrependInt32Slot(4, costParcelAmount, 0)
-def AddCostParcelAmount(builder, costParcelAmount):
-    return MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount)
-def MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(cardBackPath), 0)
-def AddCardBackPath(builder, cardBackPath):
-    return MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath)
-def MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType): builder.PrependInt32Slot(6, perkCostParcelType, 0)
-def AddPerkCostParcelType(builder, perkCostParcelType):
-    return MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType)
-def MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId): builder.PrependInt64Slot(7, perkCostParcelId, 0)
+def MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId): builder.PrependInt64Slot(0, perkCostParcelId, 0)
 def AddPerkCostParcelId(builder, perkCostParcelId):
     return MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId)
+def MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType): builder.PrependInt32Slot(1, perkCostParcelType, 0)
+def AddPerkCostParcelType(builder, perkCostParcelType):
+    return MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType)
+def MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(cardBackPath), 0)
+def AddCardBackPath(builder, cardBackPath):
+    return MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath)
+def MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount): builder.PrependInt32Slot(3, costParcelAmount, 0)
+def AddCostParcelAmount(builder, costParcelAmount):
+    return MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount)
+def MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId): builder.PrependInt64Slot(4, costParcelId, 0)
+def AddCostParcelId(builder, costParcelId):
+    return MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId)
+def MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType): builder.PrependInt32Slot(5, costParcelType, 0)
+def AddCostParcelType(builder, costParcelType):
+    return MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType)
+def MinigameCCGInfoExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(6, ccgId, 0)
+def AddCcgId(builder, ccgId):
+    return MinigameCCGInfoExcelAddCcgId(builder, ccgId)
+def MinigameCCGInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(7, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameCCGInfoExcelAddEventContentId(builder, eventContentId)
 def MinigameCCGInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGInfoExcelEnd(builder)

@@ -10,17 +10,17 @@ import (
 // VoiceRoomExceptionExcelDto represents a FlatBuffers table
 type VoiceRoomExceptionExcelDto struct {
 	fbsutils.FlatBuffer
-	CostumeUniqueId               int64       `json:"costume_unique_id"`
-	LinkedCharacterVoicePrintType CVPrintType `json:"linked_character_voice_print_type"`
 	LinkedCostumeUniqueId         int64       `json:"linked_costume_unique_id"`
+	LinkedCharacterVoicePrintType CVPrintType `json:"linked_character_voice_print_type"`
+	CostumeUniqueId               int64       `json:"costume_unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceRoomExceptionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	VoiceRoomExceptionExcelStart(b)
-	VoiceRoomExceptionExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
-	VoiceRoomExceptionExcelAddLinkedCharacterVoicePrintType(b, fbsutils.Convert(t.LinkedCharacterVoicePrintType, t.FlatBuffer.TableKey))
 	VoiceRoomExceptionExcelAddLinkedCostumeUniqueId(b, fbsutils.Convert(t.LinkedCostumeUniqueId, t.FlatBuffer.TableKey))
+	VoiceRoomExceptionExcelAddLinkedCharacterVoicePrintType(b, fbsutils.Convert(t.LinkedCharacterVoicePrintType, t.FlatBuffer.TableKey))
+	VoiceRoomExceptionExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
 	return VoiceRoomExceptionExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *VoiceRoomExceptionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceRoomExceptionExcelDto) UnmarshalMessage(e *VoiceRoomExceptionExcel) error {
-	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
-	t.LinkedCharacterVoicePrintType = CVPrintType(fbsutils.Convert(int32(e.LinkedCharacterVoicePrintType()), t.FlatBuffer.TableKey))
 	t.LinkedCostumeUniqueId = fbsutils.Convert(e.LinkedCostumeUniqueId(), t.FlatBuffer.TableKey)
+	t.LinkedCharacterVoicePrintType = CVPrintType(fbsutils.Convert(int32(e.LinkedCharacterVoicePrintType()), t.FlatBuffer.TableKey))
+	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

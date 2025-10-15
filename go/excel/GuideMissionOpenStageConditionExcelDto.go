@@ -10,29 +10,29 @@ import (
 // GuideMissionOpenStageConditionExcelDto represents a FlatBuffers table
 type GuideMissionOpenStageConditionExcelDto struct {
 	fbsutils.FlatBuffer
-	SeasonId                     int64  `json:"season_id"`
-	OrderNumber                  int64  `json:"order_number"`
-	TabLocalizeCode              string `json:"tab_localize_code"`
-	ClearScenarioModeId          int64  `json:"clear_scenario_mode_id"`
-	LockScenarioTextLocailzeCode string `json:"lock_scenario_text_locailze_code"`
-	ShortcutScenarioUi           string `json:"shortcut_scenario_ui"`
-	ClearStageId                 int64  `json:"clear_stage_id"`
-	LockStageTextLocailzeCode    string `json:"lock_stage_text_locailze_code"`
 	ShortcutStageUi              string `json:"shortcut_stage_ui"`
+	LockStageTextLocailzeCode    string `json:"lock_stage_text_locailze_code"`
+	ClearStageId                 int64  `json:"clear_stage_id"`
+	ShortcutScenarioUi           string `json:"shortcut_scenario_ui"`
+	LockScenarioTextLocailzeCode string `json:"lock_scenario_text_locailze_code"`
+	ClearScenarioModeId          int64  `json:"clear_scenario_mode_id"`
+	TabLocalizeCode              string `json:"tab_localize_code"`
+	OrderNumber                  int64  `json:"order_number"`
+	SeasonId                     int64  `json:"season_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionOpenStageConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GuideMissionOpenStageConditionExcelStart(b)
-	GuideMissionOpenStageConditionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddOrderNumber(b, fbsutils.Convert(t.OrderNumber, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, b.CreateString(fbsutils.Convert(t.TabLocalizeCode, t.FlatBuffer.TableKey)))
-	GuideMissionOpenStageConditionExcelAddClearScenarioModeId(b, fbsutils.Convert(t.ClearScenarioModeId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockScenarioTextLocailzeCode, t.FlatBuffer.TableKey)))
-	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, b.CreateString(fbsutils.Convert(t.ShortcutScenarioUi, t.FlatBuffer.TableKey)))
-	GuideMissionOpenStageConditionExcelAddClearStageId(b, fbsutils.Convert(t.ClearStageId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockStageTextLocailzeCode, t.FlatBuffer.TableKey)))
 	GuideMissionOpenStageConditionExcelAddShortcutStageUi(b, b.CreateString(fbsutils.Convert(t.ShortcutStageUi, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockStageTextLocailzeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddClearStageId(b, fbsutils.Convert(t.ClearStageId, t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, b.CreateString(fbsutils.Convert(t.ShortcutScenarioUi, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockScenarioTextLocailzeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddClearScenarioModeId(b, fbsutils.Convert(t.ClearScenarioModeId, t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, b.CreateString(fbsutils.Convert(t.TabLocalizeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddOrderNumber(b, fbsutils.Convert(t.OrderNumber, t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	return GuideMissionOpenStageConditionExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *GuideMissionOpenStageConditionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GuideMissionOpenStageConditionExcelDto) UnmarshalMessage(e *GuideMissionOpenStageConditionExcel) error {
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.OrderNumber = fbsutils.Convert(e.OrderNumber(), t.FlatBuffer.TableKey)
-	t.TabLocalizeCode = fbsutils.Convert(string(e.TabLocalizeCode()), t.FlatBuffer.TableKey)
-	t.ClearScenarioModeId = fbsutils.Convert(e.ClearScenarioModeId(), t.FlatBuffer.TableKey)
-	t.LockScenarioTextLocailzeCode = fbsutils.Convert(string(e.LockScenarioTextLocailzeCode()), t.FlatBuffer.TableKey)
-	t.ShortcutScenarioUi = fbsutils.Convert(string(e.ShortcutScenarioUi()), t.FlatBuffer.TableKey)
-	t.ClearStageId = fbsutils.Convert(e.ClearStageId(), t.FlatBuffer.TableKey)
-	t.LockStageTextLocailzeCode = fbsutils.Convert(string(e.LockStageTextLocailzeCode()), t.FlatBuffer.TableKey)
 	t.ShortcutStageUi = fbsutils.Convert(string(e.ShortcutStageUi()), t.FlatBuffer.TableKey)
+	t.LockStageTextLocailzeCode = fbsutils.Convert(string(e.LockStageTextLocailzeCode()), t.FlatBuffer.TableKey)
+	t.ClearStageId = fbsutils.Convert(e.ClearStageId(), t.FlatBuffer.TableKey)
+	t.ShortcutScenarioUi = fbsutils.Convert(string(e.ShortcutScenarioUi()), t.FlatBuffer.TableKey)
+	t.LockScenarioTextLocailzeCode = fbsutils.Convert(string(e.LockScenarioTextLocailzeCode()), t.FlatBuffer.TableKey)
+	t.ClearScenarioModeId = fbsutils.Convert(e.ClearScenarioModeId(), t.FlatBuffer.TableKey)
+	t.TabLocalizeCode = fbsutils.Convert(string(e.TabLocalizeCode()), t.FlatBuffer.TableKey)
+	t.OrderNumber = fbsutils.Convert(e.OrderNumber(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

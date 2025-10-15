@@ -10,19 +10,19 @@ import (
 // ConquestCalculateExcelDto represents a FlatBuffers table
 type ConquestCalculateExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId                   int64      `json:"event_content_id"`
-	CalculateConditionParcelType     ParcelType `json:"calculate_condition_parcel_type"`
-	CalculateConditionParcelUniqueId int64      `json:"calculate_condition_parcel_unique_id"`
 	CalculateConditionParcelAmount   int64      `json:"calculate_condition_parcel_amount"`
+	CalculateConditionParcelUniqueId int64      `json:"calculate_condition_parcel_unique_id"`
+	CalculateConditionParcelType     ParcelType `json:"calculate_condition_parcel_type"`
+	EventContentId                   int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestCalculateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ConquestCalculateExcelStart(b)
-	ConquestCalculateExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	ConquestCalculateExcelAddCalculateConditionParcelType(b, fbsutils.Convert(t.CalculateConditionParcelType, t.FlatBuffer.TableKey))
-	ConquestCalculateExcelAddCalculateConditionParcelUniqueId(b, fbsutils.Convert(t.CalculateConditionParcelUniqueId, t.FlatBuffer.TableKey))
 	ConquestCalculateExcelAddCalculateConditionParcelAmount(b, fbsutils.Convert(t.CalculateConditionParcelAmount, t.FlatBuffer.TableKey))
+	ConquestCalculateExcelAddCalculateConditionParcelUniqueId(b, fbsutils.Convert(t.CalculateConditionParcelUniqueId, t.FlatBuffer.TableKey))
+	ConquestCalculateExcelAddCalculateConditionParcelType(b, fbsutils.Convert(t.CalculateConditionParcelType, t.FlatBuffer.TableKey))
+	ConquestCalculateExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return ConquestCalculateExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *ConquestCalculateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestCalculateExcelDto) UnmarshalMessage(e *ConquestCalculateExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.CalculateConditionParcelType = ParcelType(fbsutils.Convert(int32(e.CalculateConditionParcelType()), t.FlatBuffer.TableKey))
-	t.CalculateConditionParcelUniqueId = fbsutils.Convert(e.CalculateConditionParcelUniqueId(), t.FlatBuffer.TableKey)
 	t.CalculateConditionParcelAmount = fbsutils.Convert(e.CalculateConditionParcelAmount(), t.FlatBuffer.TableKey)
+	t.CalculateConditionParcelUniqueId = fbsutils.Convert(e.CalculateConditionParcelUniqueId(), t.FlatBuffer.TableKey)
+	t.CalculateConditionParcelType = ParcelType(fbsutils.Convert(int32(e.CalculateConditionParcelType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

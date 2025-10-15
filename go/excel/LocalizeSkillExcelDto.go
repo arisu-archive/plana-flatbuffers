@@ -10,25 +10,25 @@ import (
 // LocalizeSkillExcelDto represents a FlatBuffers table
 type LocalizeSkillExcelDto struct {
 	fbsutils.FlatBuffer
-	Key                   uint32 `json:"key"`
-	NameKr                string `json:"name_kr"`
-	DescriptionKr         string `json:"description_kr"`
-	SkillInvokeLocalizeKr string `json:"skill_invoke_localize_kr"`
-	NameJp                string `json:"name_jp"`
-	DescriptionJp         string `json:"description_jp"`
 	SkillInvokeLocalizeJp string `json:"skill_invoke_localize_jp"`
+	DescriptionJp         string `json:"description_jp"`
+	NameJp                string `json:"name_jp"`
+	SkillInvokeLocalizeKr string `json:"skill_invoke_localize_kr"`
+	DescriptionKr         string `json:"description_kr"`
+	NameKr                string `json:"name_kr"`
+	Key                   uint32 `json:"key"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeSkillExcelStart(b)
-	LocalizeSkillExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeSkillExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
 	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	return LocalizeSkillExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *LocalizeSkillExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeSkillExcelDto) UnmarshalMessage(e *LocalizeSkillExcel) error {
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
-	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)
-	t.SkillInvokeLocalizeKr = fbsutils.Convert(string(e.SkillInvokeLocalizeKr()), t.FlatBuffer.TableKey)
-	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
-	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
 	t.SkillInvokeLocalizeJp = fbsutils.Convert(string(e.SkillInvokeLocalizeJp()), t.FlatBuffer.TableKey)
+	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
+	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
+	t.SkillInvokeLocalizeKr = fbsutils.Convert(string(e.SkillInvokeLocalizeKr()), t.FlatBuffer.TableKey)
+	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)
+	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	return nil
 }
 

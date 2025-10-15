@@ -33,7 +33,7 @@ func (rcv *VoiceLogicEffectExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceLogicEffectExcel) LogicEffectNameHash() uint32 {
+func (rcv *VoiceLogicEffectExcel) VoiceId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -41,20 +41,34 @@ func (rcv *VoiceLogicEffectExcel) LogicEffectNameHash() uint32 {
 	return 0
 }
 
-func (rcv *VoiceLogicEffectExcel) MutateLogicEffectNameHash(n uint32) bool {
+func (rcv *VoiceLogicEffectExcel) MutateVoiceId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *VoiceLogicEffectExcel) Self() bool {
+func (rcv *VoiceLogicEffectExcel) VoiceHash(j int) uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
 	}
-	return false
+	return 0
 }
 
-func (rcv *VoiceLogicEffectExcel) MutateSelf(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+func (rcv *VoiceLogicEffectExcel) VoiceHashLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *VoiceLogicEffectExcel) MutateVoiceHash(j int, n uint32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func (rcv *VoiceLogicEffectExcel) Priority() int32 {
@@ -69,33 +83,19 @@ func (rcv *VoiceLogicEffectExcel) MutatePriority(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *VoiceLogicEffectExcel) VoiceHash(j int) uint32 {
+func (rcv *VoiceLogicEffectExcel) Self() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *VoiceLogicEffectExcel) VoiceHashLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *VoiceLogicEffectExcel) MutateVoiceHash(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *VoiceLogicEffectExcel) VoiceId() uint32 {
+func (rcv *VoiceLogicEffectExcel) MutateSelf(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *VoiceLogicEffectExcel) LogicEffectNameHash() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -103,30 +103,30 @@ func (rcv *VoiceLogicEffectExcel) VoiceId() uint32 {
 	return 0
 }
 
-func (rcv *VoiceLogicEffectExcel) MutateVoiceId(n uint32) bool {
+func (rcv *VoiceLogicEffectExcel) MutateLogicEffectNameHash(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(12, n)
 }
 
 func VoiceLogicEffectExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func VoiceLogicEffectExcelAddLogicEffectNameHash(builder *flatbuffers.Builder, logicEffectNameHash uint32) {
-	builder.PrependUint32Slot(0, logicEffectNameHash, 0)
-}
-func VoiceLogicEffectExcelAddSelf(builder *flatbuffers.Builder, self bool) {
-	builder.PrependBoolSlot(1, self, false)
-}
-func VoiceLogicEffectExcelAddPriority(builder *flatbuffers.Builder, priority int32) {
-	builder.PrependInt32Slot(2, priority, 0)
+func VoiceLogicEffectExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
+	builder.PrependUint32Slot(0, voiceId, 0)
 }
 func VoiceLogicEffectExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(voiceHash), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(voiceHash), 0)
 }
 func VoiceLogicEffectExcelStartVoiceHashVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func VoiceLogicEffectExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
-	builder.PrependUint32Slot(4, voiceId, 0)
+func VoiceLogicEffectExcelAddPriority(builder *flatbuffers.Builder, priority int32) {
+	builder.PrependInt32Slot(2, priority, 0)
+}
+func VoiceLogicEffectExcelAddSelf(builder *flatbuffers.Builder, self bool) {
+	builder.PrependBoolSlot(3, self, false)
+}
+func VoiceLogicEffectExcelAddLogicEffectNameHash(builder *flatbuffers.Builder, logicEffectNameHash uint32) {
+	builder.PrependUint32Slot(4, logicEffectNameHash, 0)
 }
 func VoiceLogicEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

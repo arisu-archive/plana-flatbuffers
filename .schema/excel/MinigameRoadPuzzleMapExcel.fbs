@@ -1,16 +1,16 @@
 namespace MX.Data.Excel;
 
 table MinigameRoadPuzzleMapExcel {
-    event_content_id: long;
-    unique_id: long;
-    map_group_id: long;
-    map: string;
-    map_bg: string;
-    bgm_id: long;
-    available_rail_tile: [long];
-    available_rail_tile_amount: [long];
-    original_tile_count: [long];
     train_speed: float;
+    original_tile_count: [long];
+    available_rail_tile_amount: [long];
+    available_rail_tile: [long];
+    bgm_id: long;
+    map_bg: string;
+    map: string;
+    map_group_id: long;
+    unique_id: long;
+    event_content_id: long;
 }
 
 root_type MinigameRoadPuzzleMapExcel;

@@ -25,10 +25,10 @@ class BattlePassFlavorTextExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BattlePassFlavorTextExcel
-    def GroupId(self):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # BattlePassFlavorTextExcel
@@ -39,24 +39,24 @@ class BattlePassFlavorTextExcel(object):
         return 0
 
     # BattlePassFlavorTextExcel
-    def LocalizeCodeId(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def BattlePassFlavorTextExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return BattlePassFlavorTextExcelStart(builder)
-def BattlePassFlavorTextExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
-def AddGroupId(builder, groupId):
-    return BattlePassFlavorTextExcelAddGroupId(builder, groupId)
+def BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(0, localizeCodeId, 0)
+def AddLocalizeCodeId(builder, localizeCodeId):
+    return BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId)
 def BattlePassFlavorTextExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
 def AddId(builder, id):
     return BattlePassFlavorTextExcelAddId(builder, id)
-def BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(2, localizeCodeId, 0)
-def AddLocalizeCodeId(builder, localizeCodeId):
-    return BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId)
+def BattlePassFlavorTextExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
+def AddGroupId(builder, groupId):
+    return BattlePassFlavorTextExcelAddGroupId(builder, groupId)
 def BattlePassFlavorTextExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattlePassFlavorTextExcelEnd(builder)

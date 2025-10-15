@@ -33,7 +33,7 @@ func (rcv *ArenaSeasonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ArenaSeasonExcel) UniqueId() int64 {
+func (rcv *ArenaSeasonExcel) PrevSeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,16 +41,20 @@ func (rcv *ArenaSeasonExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *ArenaSeasonExcel) MutateUniqueId(n int64) bool {
+func (rcv *ArenaSeasonExcel) MutatePrevSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ArenaSeasonExcel) SeasonStartDate() []byte {
+func (rcv *ArenaSeasonExcel) SeasonGroupLimit() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ArenaSeasonExcel) MutateSeasonGroupLimit(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *ArenaSeasonExcel) SeasonEndDate() []byte {
@@ -61,19 +65,15 @@ func (rcv *ArenaSeasonExcel) SeasonEndDate() []byte {
 	return nil
 }
 
-func (rcv *ArenaSeasonExcel) SeasonGroupLimit() int64 {
+func (rcv *ArenaSeasonExcel) SeasonStartDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ArenaSeasonExcel) MutateSeasonGroupLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *ArenaSeasonExcel) PrevSeasonId() int64 {
+func (rcv *ArenaSeasonExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -81,27 +81,27 @@ func (rcv *ArenaSeasonExcel) PrevSeasonId() int64 {
 	return 0
 }
 
-func (rcv *ArenaSeasonExcel) MutatePrevSeasonId(n int64) bool {
+func (rcv *ArenaSeasonExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func ArenaSeasonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ArenaSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func ArenaSeasonExcelAddPrevSeasonId(builder *flatbuffers.Builder, prevSeasonId int64) {
+	builder.PrependInt64Slot(0, prevSeasonId, 0)
 }
-func ArenaSeasonExcelAddSeasonStartDate(builder *flatbuffers.Builder, seasonStartDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(seasonStartDate), 0)
+func ArenaSeasonExcelAddSeasonGroupLimit(builder *flatbuffers.Builder, seasonGroupLimit int64) {
+	builder.PrependInt64Slot(1, seasonGroupLimit, 0)
 }
 func ArenaSeasonExcelAddSeasonEndDate(builder *flatbuffers.Builder, seasonEndDate flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(seasonEndDate), 0)
 }
-func ArenaSeasonExcelAddSeasonGroupLimit(builder *flatbuffers.Builder, seasonGroupLimit int64) {
-	builder.PrependInt64Slot(3, seasonGroupLimit, 0)
+func ArenaSeasonExcelAddSeasonStartDate(builder *flatbuffers.Builder, seasonStartDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(seasonStartDate), 0)
 }
-func ArenaSeasonExcelAddPrevSeasonId(builder *flatbuffers.Builder, prevSeasonId int64) {
-	builder.PrependInt64Slot(4, prevSeasonId, 0)
+func ArenaSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(4, uniqueId, 0)
 }
 func ArenaSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

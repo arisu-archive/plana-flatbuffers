@@ -1,11 +1,11 @@
 namespace MX.Data.Excel;
 
 table BGMUIExcel {
-    ui_prefab: uint;
-    bgm_id: long;
-    bgm_id2nd: long;
-    bgm_id3rd: long;
     event_content_id: long;
+    bgm_id3rd: long;
+    bgm_id2nd: long;
+    bgm_id: long;
+    ui_prefab: uint;
 }
 
 root_type BGMUIExcel;

@@ -25,39 +25,59 @@ class MinigameCCGPerkExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGPerkExcel
-    def Id(self):
+    def ShopLocalizeDesc(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def CcgId(self):
+    def ShopLocalizeTitle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def CostParcelAmount(self):
+    def ShopIcon(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MinigameCCGPerkExcel
-    def RerollPoint(self):
+    def ShopOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def DiscardPoint(self):
+    def RequiredPerkId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # MinigameCCGPerkExcel
+    def RequiredPerkIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MinigameCCGPerkExcel
+    def RequiredPerkIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MinigameCCGPerkExcel
+    def RequiredPerkIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
 
     # MinigameCCGPerkExcel
     def EnvironmentLogicEffectId(self, j):
@@ -87,102 +107,82 @@ class MinigameCCGPerkExcel(object):
         return o == 0
 
     # MinigameCCGPerkExcel
-    def RequiredPerkId(self, j):
+    def DiscardPoint(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def RequiredPerkIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MinigameCCGPerkExcel
-    def RequiredPerkIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MinigameCCGPerkExcel
-    def RequiredPerkIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # MinigameCCGPerkExcel
-    def ShopOrder(self):
+    def RerollPoint(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def ShopIcon(self):
+    def CostParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameCCGPerkExcel
-    def ShopLocalizeTitle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGPerkExcel
-    def ShopLocalizeDesc(self):
+    def CcgId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGPerkExcel
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def MinigameCCGPerkExcelStart(builder): builder.StartObject(11)
 def Start(builder):
     return MinigameCCGPerkExcelStart(builder)
-def MinigameCCGPerkExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MinigameCCGPerkExcelAddId(builder, id)
-def MinigameCCGPerkExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(1, ccgId, 0)
-def AddCcgId(builder, ccgId):
-    return MinigameCCGPerkExcelAddCcgId(builder, ccgId)
-def MinigameCCGPerkExcelAddCostParcelAmount(builder, costParcelAmount): builder.PrependInt32Slot(2, costParcelAmount, 0)
-def AddCostParcelAmount(builder, costParcelAmount):
-    return MinigameCCGPerkExcelAddCostParcelAmount(builder, costParcelAmount)
-def MinigameCCGPerkExcelAddRerollPoint(builder, rerollPoint): builder.PrependInt32Slot(3, rerollPoint, 0)
-def AddRerollPoint(builder, rerollPoint):
-    return MinigameCCGPerkExcelAddRerollPoint(builder, rerollPoint)
-def MinigameCCGPerkExcelAddDiscardPoint(builder, discardPoint): builder.PrependInt32Slot(4, discardPoint, 0)
-def AddDiscardPoint(builder, discardPoint):
-    return MinigameCCGPerkExcelAddDiscardPoint(builder, discardPoint)
+def MinigameCCGPerkExcelAddShopLocalizeDesc(builder, shopLocalizeDesc): builder.PrependUint32Slot(0, shopLocalizeDesc, 0)
+def AddShopLocalizeDesc(builder, shopLocalizeDesc):
+    return MinigameCCGPerkExcelAddShopLocalizeDesc(builder, shopLocalizeDesc)
+def MinigameCCGPerkExcelAddShopLocalizeTitle(builder, shopLocalizeTitle): builder.PrependUint32Slot(1, shopLocalizeTitle, 0)
+def AddShopLocalizeTitle(builder, shopLocalizeTitle):
+    return MinigameCCGPerkExcelAddShopLocalizeTitle(builder, shopLocalizeTitle)
+def MinigameCCGPerkExcelAddShopIcon(builder, shopIcon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(shopIcon), 0)
+def AddShopIcon(builder, shopIcon):
+    return MinigameCCGPerkExcelAddShopIcon(builder, shopIcon)
+def MinigameCCGPerkExcelAddShopOrder(builder, shopOrder): builder.PrependInt32Slot(3, shopOrder, 0)
+def AddShopOrder(builder, shopOrder):
+    return MinigameCCGPerkExcelAddShopOrder(builder, shopOrder)
+def MinigameCCGPerkExcelAddRequiredPerkId(builder, requiredPerkId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(requiredPerkId), 0)
+def AddRequiredPerkId(builder, requiredPerkId):
+    return MinigameCCGPerkExcelAddRequiredPerkId(builder, requiredPerkId)
+def MinigameCCGPerkExcelStartRequiredPerkIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRequiredPerkIdVector(builder, numElems):
+    return MinigameCCGPerkExcelStartRequiredPerkIdVector(builder, numElems)
 def MinigameCCGPerkExcelAddEnvironmentLogicEffectId(builder, environmentLogicEffectId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(environmentLogicEffectId), 0)
 def AddEnvironmentLogicEffectId(builder, environmentLogicEffectId):
     return MinigameCCGPerkExcelAddEnvironmentLogicEffectId(builder, environmentLogicEffectId)
 def MinigameCCGPerkExcelStartEnvironmentLogicEffectIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartEnvironmentLogicEffectIdVector(builder, numElems):
     return MinigameCCGPerkExcelStartEnvironmentLogicEffectIdVector(builder, numElems)
-def MinigameCCGPerkExcelAddRequiredPerkId(builder, requiredPerkId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(requiredPerkId), 0)
-def AddRequiredPerkId(builder, requiredPerkId):
-    return MinigameCCGPerkExcelAddRequiredPerkId(builder, requiredPerkId)
-def MinigameCCGPerkExcelStartRequiredPerkIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRequiredPerkIdVector(builder, numElems):
-    return MinigameCCGPerkExcelStartRequiredPerkIdVector(builder, numElems)
-def MinigameCCGPerkExcelAddShopOrder(builder, shopOrder): builder.PrependInt32Slot(7, shopOrder, 0)
-def AddShopOrder(builder, shopOrder):
-    return MinigameCCGPerkExcelAddShopOrder(builder, shopOrder)
-def MinigameCCGPerkExcelAddShopIcon(builder, shopIcon): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(shopIcon), 0)
-def AddShopIcon(builder, shopIcon):
-    return MinigameCCGPerkExcelAddShopIcon(builder, shopIcon)
-def MinigameCCGPerkExcelAddShopLocalizeTitle(builder, shopLocalizeTitle): builder.PrependUint32Slot(9, shopLocalizeTitle, 0)
-def AddShopLocalizeTitle(builder, shopLocalizeTitle):
-    return MinigameCCGPerkExcelAddShopLocalizeTitle(builder, shopLocalizeTitle)
-def MinigameCCGPerkExcelAddShopLocalizeDesc(builder, shopLocalizeDesc): builder.PrependUint32Slot(10, shopLocalizeDesc, 0)
-def AddShopLocalizeDesc(builder, shopLocalizeDesc):
-    return MinigameCCGPerkExcelAddShopLocalizeDesc(builder, shopLocalizeDesc)
+def MinigameCCGPerkExcelAddDiscardPoint(builder, discardPoint): builder.PrependInt32Slot(6, discardPoint, 0)
+def AddDiscardPoint(builder, discardPoint):
+    return MinigameCCGPerkExcelAddDiscardPoint(builder, discardPoint)
+def MinigameCCGPerkExcelAddRerollPoint(builder, rerollPoint): builder.PrependInt32Slot(7, rerollPoint, 0)
+def AddRerollPoint(builder, rerollPoint):
+    return MinigameCCGPerkExcelAddRerollPoint(builder, rerollPoint)
+def MinigameCCGPerkExcelAddCostParcelAmount(builder, costParcelAmount): builder.PrependInt32Slot(8, costParcelAmount, 0)
+def AddCostParcelAmount(builder, costParcelAmount):
+    return MinigameCCGPerkExcelAddCostParcelAmount(builder, costParcelAmount)
+def MinigameCCGPerkExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(9, ccgId, 0)
+def AddCcgId(builder, ccgId):
+    return MinigameCCGPerkExcelAddCcgId(builder, ccgId)
+def MinigameCCGPerkExcelAddId(builder, id): builder.PrependInt64Slot(10, id, 0)
+def AddId(builder, id):
+    return MinigameCCGPerkExcelAddId(builder, id)
 def MinigameCCGPerkExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGPerkExcelEnd(builder)

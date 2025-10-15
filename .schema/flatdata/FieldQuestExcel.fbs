@@ -1,14 +1,14 @@
 namespace FlatData;
 
 table FieldQuestExcel {
-    field_season_id: long;
-    unique_id: long;
-    is_daily: bool;
-    field_date_id: long;
-    opendate: long;
-    asset_path: string;
-    reward_id: long;
-    prob: int;
-    quest_nam_key: uint;
     quest_desc_key: uint;
+    quest_nam_key: uint;
+    prob: int;
+    reward_id: long;
+    asset_path: string;
+    opendate: long;
+    field_date_id: long;
+    is_daily: bool;
+    unique_id: long;
+    field_season_id: long;
 }

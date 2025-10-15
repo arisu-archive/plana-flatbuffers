@@ -33,7 +33,7 @@ func (rcv *AccountLevelRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AccountLevelRewardExcel) Id() int64 {
+func (rcv *AccountLevelRewardExcel) RewardParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *AccountLevelRewardExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelRewardExcel) MutateId(n int64) bool {
+func (rcv *AccountLevelRewardExcel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *AccountLevelRewardExcel) Level() int64 {
+func (rcv *AccountLevelRewardExcel) RewardParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *AccountLevelRewardExcel) Level() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelRewardExcel) MutateLevel(n int64) bool {
+func (rcv *AccountLevelRewardExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -69,7 +69,7 @@ func (rcv *AccountLevelRewardExcel) MutateRewardParcelType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *AccountLevelRewardExcel) RewardParcelId() int64 {
+func (rcv *AccountLevelRewardExcel) Level() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *AccountLevelRewardExcel) RewardParcelId() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelRewardExcel) MutateRewardParcelId(n int64) bool {
+func (rcv *AccountLevelRewardExcel) MutateLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *AccountLevelRewardExcel) RewardParcelAmount() int64 {
+func (rcv *AccountLevelRewardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,27 +89,27 @@ func (rcv *AccountLevelRewardExcel) RewardParcelAmount() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelRewardExcel) MutateRewardParcelAmount(n int64) bool {
+func (rcv *AccountLevelRewardExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func AccountLevelRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func AccountLevelRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func AccountLevelRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
+	builder.PrependInt64Slot(0, rewardParcelAmount, 0)
 }
-func AccountLevelRewardExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(1, level, 0)
+func AccountLevelRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(1, rewardParcelId, 0)
 }
 func AccountLevelRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
 	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
 }
-func AccountLevelRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(3, rewardParcelId, 0)
+func AccountLevelRewardExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(3, level, 0)
 }
-func AccountLevelRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
-	builder.PrependInt64Slot(4, rewardParcelAmount, 0)
+func AccountLevelRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
 func AccountLevelRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

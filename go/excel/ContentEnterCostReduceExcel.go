@@ -33,7 +33,7 @@ func (rcv *ContentEnterCostReduceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ContentEnterCostReduceExcel) EnterCostReduceGroupId() int64 {
+func (rcv *ContentEnterCostReduceExcel) ReduceAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,48 +41,12 @@ func (rcv *ContentEnterCostReduceExcel) EnterCostReduceGroupId() int64 {
 	return 0
 }
 
-func (rcv *ContentEnterCostReduceExcel) MutateEnterCostReduceGroupId(n int64) bool {
+func (rcv *ContentEnterCostReduceExcel) MutateReduceAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ContentEnterCostReduceExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ContentEnterCostReduceExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *ContentEnterCostReduceExcel) StageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ContentEnterCostReduceExcel) MutateStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ContentEnterCostReduceExcel) ReduceEnterCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ContentEnterCostReduceExcel) MutateReduceEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
 func (rcv *ContentEnterCostReduceExcel) ReduceEnterCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,10 +54,46 @@ func (rcv *ContentEnterCostReduceExcel) ReduceEnterCostId() int64 {
 }
 
 func (rcv *ContentEnterCostReduceExcel) MutateReduceEnterCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ContentEnterCostReduceExcel) ReduceAmount() int64 {
+func (rcv *ContentEnterCostReduceExcel) ReduceEnterCostType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ContentEnterCostReduceExcel) MutateReduceEnterCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *ContentEnterCostReduceExcel) StageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ContentEnterCostReduceExcel) MutateStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *ContentEnterCostReduceExcel) ContentType() ContentType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ContentEnterCostReduceExcel) MutateContentType(n ContentType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *ContentEnterCostReduceExcel) EnterCostReduceGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *ContentEnterCostReduceExcel) ReduceAmount() int64 {
 	return 0
 }
 
-func (rcv *ContentEnterCostReduceExcel) MutateReduceAmount(n int64) bool {
+func (rcv *ContentEnterCostReduceExcel) MutateEnterCostReduceGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func ContentEnterCostReduceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder *flatbuffers.Builder, enterCostReduceGroupId int64) {
-	builder.PrependInt64Slot(0, enterCostReduceGroupId, 0)
-}
-func ContentEnterCostReduceExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(1, int32(contentType), 0)
-}
-func ContentEnterCostReduceExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
-	builder.PrependInt64Slot(2, stageId, 0)
-}
-func ContentEnterCostReduceExcelAddReduceEnterCostType(builder *flatbuffers.Builder, reduceEnterCostType ParcelType) {
-	builder.PrependInt32Slot(3, int32(reduceEnterCostType), 0)
+func ContentEnterCostReduceExcelAddReduceAmount(builder *flatbuffers.Builder, reduceAmount int64) {
+	builder.PrependInt64Slot(0, reduceAmount, 0)
 }
 func ContentEnterCostReduceExcelAddReduceEnterCostId(builder *flatbuffers.Builder, reduceEnterCostId int64) {
-	builder.PrependInt64Slot(4, reduceEnterCostId, 0)
+	builder.PrependInt64Slot(1, reduceEnterCostId, 0)
 }
-func ContentEnterCostReduceExcelAddReduceAmount(builder *flatbuffers.Builder, reduceAmount int64) {
-	builder.PrependInt64Slot(5, reduceAmount, 0)
+func ContentEnterCostReduceExcelAddReduceEnterCostType(builder *flatbuffers.Builder, reduceEnterCostType ParcelType) {
+	builder.PrependInt32Slot(2, int32(reduceEnterCostType), 0)
+}
+func ContentEnterCostReduceExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
+	builder.PrependInt64Slot(3, stageId, 0)
+}
+func ContentEnterCostReduceExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
+	builder.PrependInt32Slot(4, int32(contentType), 0)
+}
+func ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder *flatbuffers.Builder, enterCostReduceGroupId int64) {
+	builder.PrependInt64Slot(5, enterCostReduceGroupId, 0)
 }
 func ContentEnterCostReduceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

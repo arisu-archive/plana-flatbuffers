@@ -25,7 +25,7 @@ class GroundVector3(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GroundVector3
-    def X(self):
+    def Z(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class GroundVector3(object):
         return 0.0
 
     # GroundVector3
-    def Z(self):
+    def X(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class GroundVector3(object):
 def GroundVector3Start(builder): builder.StartObject(3)
 def Start(builder):
     return GroundVector3Start(builder)
-def GroundVector3AddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
-def AddX(builder, x):
-    return GroundVector3AddX(builder, x)
+def GroundVector3AddZ(builder, z): builder.PrependFloat32Slot(0, z, 0.0)
+def AddZ(builder, z):
+    return GroundVector3AddZ(builder, z)
 def GroundVector3AddY(builder, y): builder.PrependFloat32Slot(1, y, 0.0)
 def AddY(builder, y):
     return GroundVector3AddY(builder, y)
-def GroundVector3AddZ(builder, z): builder.PrependFloat32Slot(2, z, 0.0)
-def AddZ(builder, z):
-    return GroundVector3AddZ(builder, z)
+def GroundVector3AddX(builder, x): builder.PrependFloat32Slot(2, x, 0.0)
+def AddX(builder, x):
+    return GroundVector3AddX(builder, x)
 def GroundVector3End(builder): return builder.EndObject()
 def End(builder):
     return GroundVector3End(builder)

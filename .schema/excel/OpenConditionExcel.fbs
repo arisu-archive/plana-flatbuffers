@@ -5,26 +5,26 @@ include "WeekDay.fbs";
 namespace MX.Data.Excel;
 
 table OpenConditionExcel {
-    open_condition_content_type: OpenConditionContent;
-    lock_ui: [string];
-    shortcut_popup_priority: long;
-    shortcut_ui_name: [string];
-    shortcut_param: int;
-    scene: string;
-    hide_when_locked: bool;
-    account_level: long;
-    scenario_mode_id: long;
-    campaign_stage_id: long;
-    multiple_condition_check_type: MultipleConditionCheckType;
-    open_day_of_week: WeekDay;
-    open_hour: long;
-    close_day_of_week: WeekDay;
-    close_hour: long;
-    opened_cafe_id: long;
-    cafe_idfor_cafe_rank: long;
-    cafe_rank: long;
-    contents_open_show: bool;
     contents_open_shortcut_ui: string;
+    contents_open_show: bool;
+    cafe_rank: long;
+    cafe_idfor_cafe_rank: long;
+    opened_cafe_id: long;
+    close_hour: long;
+    close_day_of_week: WeekDay;
+    open_hour: long;
+    open_day_of_week: WeekDay;
+    multiple_condition_check_type: MultipleConditionCheckType;
+    campaign_stage_id: long;
+    scenario_mode_id: long;
+    account_level: long;
+    hide_when_locked: bool;
+    scene: string;
+    shortcut_param: int;
+    shortcut_ui_name: [string];
+    shortcut_popup_priority: long;
+    lock_ui: [string];
+    open_condition_content_type: OpenConditionContent;
 }
 
 root_type OpenConditionExcel;

@@ -3,13 +3,13 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table PossessionCheckExcel {
-    unique_id: long;
-    default_parcel_type: ParcelType;
-    default_parcel_id: long;
-    default_parcel_amount: int;
-    replace_parcel_type: ParcelType;
-    replace_parcel_id: long;
     replace_parcel_amount: int;
+    replace_parcel_id: long;
+    replace_parcel_type: ParcelType;
+    default_parcel_amount: int;
+    default_parcel_id: long;
+    default_parcel_type: ParcelType;
+    unique_id: long;
 }
 
 root_type PossessionCheckExcel;

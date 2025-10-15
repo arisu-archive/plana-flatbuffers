@@ -10,12 +10,12 @@ import (
 // LimitedStageSeasonExcelDto represents a FlatBuffers table
 type LimitedStageSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	Id         int64  `json:"id"`
-	StartDate  string `json:"start_date"`
-	EndDate    string `json:"end_date"`
-	TypeACount int64  `json:"type_a_count"`
-	TypeBCount int64  `json:"type_b_count"`
 	TypeCCount int64  `json:"type_c_count"`
+	TypeBCount int64  `json:"type_b_count"`
+	TypeACount int64  `json:"type_a_count"`
+	EndDate    string `json:"end_date"`
+	StartDate  string `json:"start_date"`
+	Id         int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *LimitedStageSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeason"))
 	}
 	LimitedStageSeasonExcelStart(b)
-	LimitedStageSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LimitedStageSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	LimitedStageSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
-	LimitedStageSeasonExcelAddTypeACount(b, fbsutils.Convert(t.TypeACount, t.FlatBuffer.TableKey))
-	LimitedStageSeasonExcelAddTypeBCount(b, fbsutils.Convert(t.TypeBCount, t.FlatBuffer.TableKey))
 	LimitedStageSeasonExcelAddTypeCCount(b, fbsutils.Convert(t.TypeCCount, t.FlatBuffer.TableKey))
+	LimitedStageSeasonExcelAddTypeBCount(b, fbsutils.Convert(t.TypeBCount, t.FlatBuffer.TableKey))
+	LimitedStageSeasonExcelAddTypeACount(b, fbsutils.Convert(t.TypeACount, t.FlatBuffer.TableKey))
+	LimitedStageSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	LimitedStageSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	LimitedStageSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return LimitedStageSeasonExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *LimitedStageSeasonExcelDto) UnmarshalMessage(e *LimitedStageSeasonExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeason"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.TypeACount = fbsutils.Convert(e.TypeACount(), t.FlatBuffer.TableKey)
-	t.TypeBCount = fbsutils.Convert(e.TypeBCount(), t.FlatBuffer.TableKey)
 	t.TypeCCount = fbsutils.Convert(e.TypeCCount(), t.FlatBuffer.TableKey)
+	t.TypeBCount = fbsutils.Convert(e.TypeBCount(), t.FlatBuffer.TableKey)
+	t.TypeACount = fbsutils.Convert(e.TypeACount(), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

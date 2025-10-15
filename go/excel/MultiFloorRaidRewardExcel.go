@@ -33,7 +33,7 @@ func (rcv *MultiFloorRaidRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MultiFloorRaidRewardExcel) RewardGroupId() int64 {
+func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MultiFloorRaidRewardExcel) RewardGroupId() int64 {
 	return 0
 }
 
-func (rcv *MultiFloorRaidRewardExcel) MutateRewardGroupId(n int64) bool {
+func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardProb() int64 {
+func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardParcelUniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardProb() int64 {
 	return 0
 }
 
-func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardProb(n int64) bool {
+func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardParcelUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -69,7 +69,7 @@ func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardParcelType(n ParcelT
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardParcelUniqueId() int64 {
+func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardProb() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardParcelUniqueId() int64 {
 	return 0
 }
 
-func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardParcelUniqueId(n int64) bool {
+func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardProb(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardAmount() int64 {
+func (rcv *MultiFloorRaidRewardExcel) RewardGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,27 +89,27 @@ func (rcv *MultiFloorRaidRewardExcel) ClearStageRewardAmount() int64 {
 	return 0
 }
 
-func (rcv *MultiFloorRaidRewardExcel) MutateClearStageRewardAmount(n int64) bool {
+func (rcv *MultiFloorRaidRewardExcel) MutateRewardGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MultiFloorRaidRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MultiFloorRaidRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
-	builder.PrependInt64Slot(0, rewardGroupId, 0)
+func MultiFloorRaidRewardExcelAddClearStageRewardAmount(builder *flatbuffers.Builder, clearStageRewardAmount int64) {
+	builder.PrependInt64Slot(0, clearStageRewardAmount, 0)
 }
-func MultiFloorRaidRewardExcelAddClearStageRewardProb(builder *flatbuffers.Builder, clearStageRewardProb int64) {
-	builder.PrependInt64Slot(1, clearStageRewardProb, 0)
+func MultiFloorRaidRewardExcelAddClearStageRewardParcelUniqueId(builder *flatbuffers.Builder, clearStageRewardParcelUniqueId int64) {
+	builder.PrependInt64Slot(1, clearStageRewardParcelUniqueId, 0)
 }
 func MultiFloorRaidRewardExcelAddClearStageRewardParcelType(builder *flatbuffers.Builder, clearStageRewardParcelType ParcelType) {
 	builder.PrependInt32Slot(2, int32(clearStageRewardParcelType), 0)
 }
-func MultiFloorRaidRewardExcelAddClearStageRewardParcelUniqueId(builder *flatbuffers.Builder, clearStageRewardParcelUniqueId int64) {
-	builder.PrependInt64Slot(3, clearStageRewardParcelUniqueId, 0)
+func MultiFloorRaidRewardExcelAddClearStageRewardProb(builder *flatbuffers.Builder, clearStageRewardProb int64) {
+	builder.PrependInt64Slot(3, clearStageRewardProb, 0)
 }
-func MultiFloorRaidRewardExcelAddClearStageRewardAmount(builder *flatbuffers.Builder, clearStageRewardAmount int64) {
-	builder.PrependInt64Slot(4, clearStageRewardAmount, 0)
+func MultiFloorRaidRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
+	builder.PrependInt64Slot(4, rewardGroupId, 0)
 }
 func MultiFloorRaidRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

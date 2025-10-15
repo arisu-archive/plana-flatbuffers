@@ -33,32 +33,16 @@ func (rcv *EventContentTreasureRoundExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentTreasureRoundExcel) EventContentId() int64 {
+func (rcv *EventContentTreasureRoundExcel) TreasureCellImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentTreasureRoundExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *EventContentTreasureRoundExcel) TreasureRound() int32 {
+func (rcv *EventContentTreasureRoundExcel) RewardAmount(j int) int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRoundExcel) MutateTreasureRound(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *EventContentTreasureRoundExcel) TreasureRoundSize(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -66,16 +50,16 @@ func (rcv *EventContentTreasureRoundExcel) TreasureRoundSize(j int) int32 {
 	return 0
 }
 
-func (rcv *EventContentTreasureRoundExcel) TreasureRoundSizeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *EventContentTreasureRoundExcel) RewardAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *EventContentTreasureRoundExcel) MutateTreasureRoundSize(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *EventContentTreasureRoundExcel) MutateRewardAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -83,16 +67,42 @@ func (rcv *EventContentTreasureRoundExcel) MutateTreasureRoundSize(j int, n int3
 	return false
 }
 
-func (rcv *EventContentTreasureRoundExcel) CellVisualSortUnstructed() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *EventContentTreasureRoundExcel) RewardId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRoundExcel) RewardIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRoundExcel) MutateRewardId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
 
-func (rcv *EventContentTreasureRoundExcel) MutateCellVisualSortUnstructed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+func (rcv *EventContentTreasureRoundExcel) CellRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRoundExcel) MutateCellRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *EventContentTreasureRoundExcel) CellCheckGoodsId() int64 {
@@ -107,46 +117,20 @@ func (rcv *EventContentTreasureRoundExcel) MutateCellCheckGoodsId(n int64) bool 
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *EventContentTreasureRoundExcel) CellRewardId() int64 {
+func (rcv *EventContentTreasureRoundExcel) CellVisualSortUnstructed() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRoundExcel) MutateCellRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *EventContentTreasureRoundExcel) RewardId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRoundExcel) RewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentTreasureRoundExcel) MutateRewardId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *EventContentTreasureRoundExcel) RewardAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *EventContentTreasureRoundExcel) MutateCellVisualSortUnstructed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *EventContentTreasureRoundExcel) TreasureRoundSize(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -154,16 +138,16 @@ func (rcv *EventContentTreasureRoundExcel) RewardAmount(j int) int32 {
 	return 0
 }
 
-func (rcv *EventContentTreasureRoundExcel) RewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *EventContentTreasureRoundExcel) TreasureRoundSizeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *EventContentTreasureRoundExcel) MutateRewardAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *EventContentTreasureRoundExcel) MutateTreasureRoundSize(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -171,52 +155,68 @@ func (rcv *EventContentTreasureRoundExcel) MutateRewardAmount(j int, n int32) bo
 	return false
 }
 
-func (rcv *EventContentTreasureRoundExcel) TreasureCellImagePath() []byte {
+func (rcv *EventContentTreasureRoundExcel) TreasureRound() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentTreasureRoundExcel) MutateTreasureRound(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *EventContentTreasureRoundExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EventContentTreasureRoundExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func EventContentTreasureRoundExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func EventContentTreasureRoundExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func EventContentTreasureRoundExcelAddTreasureRound(builder *flatbuffers.Builder, treasureRound int32) {
-	builder.PrependInt32Slot(1, treasureRound, 0)
-}
-func EventContentTreasureRoundExcelAddTreasureRoundSize(builder *flatbuffers.Builder, treasureRoundSize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(treasureRoundSize), 0)
-}
-func EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder *flatbuffers.Builder, cellVisualSortUnstructed bool) {
-	builder.PrependBoolSlot(3, cellVisualSortUnstructed, false)
-}
-func EventContentTreasureRoundExcelAddCellCheckGoodsId(builder *flatbuffers.Builder, cellCheckGoodsId int64) {
-	builder.PrependInt64Slot(4, cellCheckGoodsId, 0)
-}
-func EventContentTreasureRoundExcelAddCellRewardId(builder *flatbuffers.Builder, cellRewardId int64) {
-	builder.PrependInt64Slot(5, cellRewardId, 0)
-}
-func EventContentTreasureRoundExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardId), 0)
-}
-func EventContentTreasureRoundExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentTreasureRoundExcelAddTreasureCellImagePath(builder *flatbuffers.Builder, treasureCellImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(treasureCellImagePath), 0)
 }
 func EventContentTreasureRoundExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardAmount), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(rewardAmount), 0)
 }
 func EventContentTreasureRoundExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func EventContentTreasureRoundExcelAddTreasureCellImagePath(builder *flatbuffers.Builder, treasureCellImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(treasureCellImagePath), 0)
+func EventContentTreasureRoundExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardId), 0)
+}
+func EventContentTreasureRoundExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentTreasureRoundExcelAddCellRewardId(builder *flatbuffers.Builder, cellRewardId int64) {
+	builder.PrependInt64Slot(3, cellRewardId, 0)
+}
+func EventContentTreasureRoundExcelAddCellCheckGoodsId(builder *flatbuffers.Builder, cellCheckGoodsId int64) {
+	builder.PrependInt64Slot(4, cellCheckGoodsId, 0)
+}
+func EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder *flatbuffers.Builder, cellVisualSortUnstructed bool) {
+	builder.PrependBoolSlot(5, cellVisualSortUnstructed, false)
+}
+func EventContentTreasureRoundExcelAddTreasureRoundSize(builder *flatbuffers.Builder, treasureRoundSize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(treasureRoundSize), 0)
+}
+func EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func EventContentTreasureRoundExcelAddTreasureRound(builder *flatbuffers.Builder, treasureRound int32) {
+	builder.PrependInt32Slot(7, treasureRound, 0)
+}
+func EventContentTreasureRoundExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(8, eventContentId, 0)
 }
 func EventContentTreasureRoundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -33,44 +33,8 @@ func (rcv *MinigameDreamVoiceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameDreamVoiceExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameDreamVoiceExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameDreamVoiceExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameDreamVoiceExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameDreamVoiceExcel) VoiceCondition() DreamMakerVoiceCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return DreamMakerVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameDreamVoiceExcel) MutateVoiceCondition(n DreamMakerVoiceCondition) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *MinigameDreamVoiceExcel) VoiceClip() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -78,23 +42,59 @@ func (rcv *MinigameDreamVoiceExcel) VoiceClip() uint32 {
 }
 
 func (rcv *MinigameDreamVoiceExcel) MutateVoiceClip(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *MinigameDreamVoiceExcel) VoiceCondition() DreamMakerVoiceCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return DreamMakerVoiceCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameDreamVoiceExcel) MutateVoiceCondition(n DreamMakerVoiceCondition) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *MinigameDreamVoiceExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameDreamVoiceExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MinigameDreamVoiceExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameDreamVoiceExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func MinigameDreamVoiceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func MinigameDreamVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MinigameDreamVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
+func MinigameDreamVoiceExcelAddVoiceClip(builder *flatbuffers.Builder, voiceClip uint32) {
+	builder.PrependUint32Slot(0, voiceClip, 0)
 }
 func MinigameDreamVoiceExcelAddVoiceCondition(builder *flatbuffers.Builder, voiceCondition DreamMakerVoiceCondition) {
-	builder.PrependInt32Slot(2, int32(voiceCondition), 0)
+	builder.PrependInt32Slot(1, int32(voiceCondition), 0)
 }
-func MinigameDreamVoiceExcelAddVoiceClip(builder *flatbuffers.Builder, voiceClip uint32) {
-	builder.PrependUint32Slot(3, voiceClip, 0)
+func MinigameDreamVoiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(2, uniqueId, 0)
+}
+func MinigameDreamVoiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
 }
 func MinigameDreamVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

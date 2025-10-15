@@ -33,40 +33,40 @@ func (rcv *PossessionCheckExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *PossessionCheckExcel) UniqueId() int64 {
+func (rcv *PossessionCheckExcel) ReplaceParcelAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PossessionCheckExcel) MutateReplaceParcelAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *PossessionCheckExcel) ReplaceParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *PossessionCheckExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *PossessionCheckExcel) MutateReplaceParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *PossessionCheckExcel) DefaultParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+func (rcv *PossessionCheckExcel) ReplaceParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *PossessionCheckExcel) MutateDefaultParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *PossessionCheckExcel) DefaultParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *PossessionCheckExcel) MutateDefaultParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *PossessionCheckExcel) MutateReplaceParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *PossessionCheckExcel) DefaultParcelAmount() int32 {
@@ -81,65 +81,65 @@ func (rcv *PossessionCheckExcel) MutateDefaultParcelAmount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *PossessionCheckExcel) ReplaceParcelType() ParcelType {
+func (rcv *PossessionCheckExcel) DefaultParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *PossessionCheckExcel) MutateReplaceParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *PossessionCheckExcel) ReplaceParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *PossessionCheckExcel) MutateReplaceParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *PossessionCheckExcel) MutateDefaultParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *PossessionCheckExcel) ReplaceParcelAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+func (rcv *PossessionCheckExcel) DefaultParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *PossessionCheckExcel) MutateReplaceParcelAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+func (rcv *PossessionCheckExcel) MutateDefaultParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *PossessionCheckExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PossessionCheckExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func PossessionCheckExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func PossessionCheckExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func PossessionCheckExcelAddReplaceParcelAmount(builder *flatbuffers.Builder, replaceParcelAmount int32) {
+	builder.PrependInt32Slot(0, replaceParcelAmount, 0)
 }
-func PossessionCheckExcelAddDefaultParcelType(builder *flatbuffers.Builder, defaultParcelType ParcelType) {
-	builder.PrependInt32Slot(1, int32(defaultParcelType), 0)
+func PossessionCheckExcelAddReplaceParcelId(builder *flatbuffers.Builder, replaceParcelId int64) {
+	builder.PrependInt64Slot(1, replaceParcelId, 0)
 }
-func PossessionCheckExcelAddDefaultParcelId(builder *flatbuffers.Builder, defaultParcelId int64) {
-	builder.PrependInt64Slot(2, defaultParcelId, 0)
+func PossessionCheckExcelAddReplaceParcelType(builder *flatbuffers.Builder, replaceParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(replaceParcelType), 0)
 }
 func PossessionCheckExcelAddDefaultParcelAmount(builder *flatbuffers.Builder, defaultParcelAmount int32) {
 	builder.PrependInt32Slot(3, defaultParcelAmount, 0)
 }
-func PossessionCheckExcelAddReplaceParcelType(builder *flatbuffers.Builder, replaceParcelType ParcelType) {
-	builder.PrependInt32Slot(4, int32(replaceParcelType), 0)
+func PossessionCheckExcelAddDefaultParcelId(builder *flatbuffers.Builder, defaultParcelId int64) {
+	builder.PrependInt64Slot(4, defaultParcelId, 0)
 }
-func PossessionCheckExcelAddReplaceParcelId(builder *flatbuffers.Builder, replaceParcelId int64) {
-	builder.PrependInt64Slot(5, replaceParcelId, 0)
+func PossessionCheckExcelAddDefaultParcelType(builder *flatbuffers.Builder, defaultParcelType ParcelType) {
+	builder.PrependInt32Slot(5, int32(defaultParcelType), 0)
 }
-func PossessionCheckExcelAddReplaceParcelAmount(builder *flatbuffers.Builder, replaceParcelAmount int32) {
-	builder.PrependInt32Slot(6, replaceParcelAmount, 0)
+func PossessionCheckExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(6, uniqueId, 0)
 }
 func PossessionCheckExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

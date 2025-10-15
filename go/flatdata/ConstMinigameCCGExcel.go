@@ -33,268 +33,16 @@ func (rcv *ConstMinigameCCGExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstMinigameCCGExcel) TurnDrawCount() int32 {
+func (rcv *ConstMinigameCCGExcel) AlternativeCardImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateTurnDrawCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetRight() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetRight(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(6, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetTop() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetTop(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetBottom() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetBottom(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(10, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ConquestMapCenterOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateConquestMapCenterOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ConquestMapCenterOffsetY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateConquestMapCenterOffsetY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) CameraAngle() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateCameraAngle(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) CameraZoomMax() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateCameraZoomMax(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(18, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) CameraZoomMin() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateCameraZoomMin(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(20, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) CameraZoomDefault() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateCameraZoomDefault(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(22, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) ThemaLoadingProgressTime() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateThemaLoadingProgressTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(24, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) MapAllyRotation() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateMapAllyRotation(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(26, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) AniAllyBattleAttack() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *ConstMinigameCCGExcel) MaxHandCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateMaxHandCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(30, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) MaxCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateMaxCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(32, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) StartCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateStartCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(34, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) TurnCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateTurnCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(36, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) StrikerSwapFrontCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateStrikerSwapFrontCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) StrikerMaxEquipCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateStrikerMaxEquipCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(40, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) StartDrawCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateStartDrawCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(42, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) CampReviveHealthRate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateCampReviveHealthRate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(44, n)
-}
-
-func (rcv *ConstMinigameCCGExcel) BaseRewardRerollPoint() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMinigameCCGExcel) MutateBaseRewardRerollPoint(n int32) bool {
-	return rcv._tab.MutateInt32Slot(46, n)
-}
-
 func (rcv *ConstMinigameCCGExcel) SelectRewardOptionCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -302,91 +50,343 @@ func (rcv *ConstMinigameCCGExcel) SelectRewardOptionCount() int32 {
 }
 
 func (rcv *ConstMinigameCCGExcel) MutateSelectRewardOptionCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(48, n)
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *ConstMinigameCCGExcel) AlternativeCardImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+func (rcv *ConstMinigameCCGExcel) BaseRewardRerollPoint() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateBaseRewardRerollPoint(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) CampReviveHealthRate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateCampReviveHealthRate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) StartDrawCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateStartDrawCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) StrikerMaxEquipCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateStrikerMaxEquipCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) StrikerSwapFrontCost() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateStrikerSwapFrontCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) TurnCost() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateTurnCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) StartCost() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateStartCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) MaxCost() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateMaxCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) MaxHandCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateMaxHandCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) AniAllyBattleAttack() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *ConstMinigameCCGExcel) MapAllyRotation() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateMapAllyRotation(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(28, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ThemaLoadingProgressTime() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateThemaLoadingProgressTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(30, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) CameraZoomDefault() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateCameraZoomDefault(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(32, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) CameraZoomMin() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateCameraZoomMin(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(34, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) CameraZoomMax() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateCameraZoomMax(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(36, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) CameraAngle() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateCameraAngle(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(38, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ConquestMapCenterOffsetY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateConquestMapCenterOffsetY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(40, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ConquestMapCenterOffsetX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateConquestMapCenterOffsetX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(42, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetBottom() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetBottom(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(44, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetTop() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetTop(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(46, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) ConquestMapBoundaryOffsetRight() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateConquestMapBoundaryOffsetRight(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(48, n)
+}
+
+func (rcv *ConstMinigameCCGExcel) TurnDrawCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMinigameCCGExcel) MutateTurnDrawCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(50, n)
+}
+
 func ConstMinigameCCGExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(24)
 }
-func ConstMinigameCCGExcelAddTurnDrawCount(builder *flatbuffers.Builder, turnDrawCount int32) {
-	builder.PrependInt32Slot(0, turnDrawCount, 0)
-}
-func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetRight(builder *flatbuffers.Builder, conquestMapBoundaryOffsetRight float32) {
-	builder.PrependFloat32Slot(1, conquestMapBoundaryOffsetRight, 0.0)
-}
-func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetTop(builder *flatbuffers.Builder, conquestMapBoundaryOffsetTop float32) {
-	builder.PrependFloat32Slot(2, conquestMapBoundaryOffsetTop, 0.0)
-}
-func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetBottom(builder *flatbuffers.Builder, conquestMapBoundaryOffsetBottom float32) {
-	builder.PrependFloat32Slot(3, conquestMapBoundaryOffsetBottom, 0.0)
-}
-func ConstMinigameCCGExcelAddConquestMapCenterOffsetX(builder *flatbuffers.Builder, conquestMapCenterOffsetX float32) {
-	builder.PrependFloat32Slot(4, conquestMapCenterOffsetX, 0.0)
-}
-func ConstMinigameCCGExcelAddConquestMapCenterOffsetY(builder *flatbuffers.Builder, conquestMapCenterOffsetY float32) {
-	builder.PrependFloat32Slot(5, conquestMapCenterOffsetY, 0.0)
-}
-func ConstMinigameCCGExcelAddCameraAngle(builder *flatbuffers.Builder, cameraAngle float32) {
-	builder.PrependFloat32Slot(6, cameraAngle, 0.0)
-}
-func ConstMinigameCCGExcelAddCameraZoomMax(builder *flatbuffers.Builder, cameraZoomMax float32) {
-	builder.PrependFloat32Slot(7, cameraZoomMax, 0.0)
-}
-func ConstMinigameCCGExcelAddCameraZoomMin(builder *flatbuffers.Builder, cameraZoomMin float32) {
-	builder.PrependFloat32Slot(8, cameraZoomMin, 0.0)
-}
-func ConstMinigameCCGExcelAddCameraZoomDefault(builder *flatbuffers.Builder, cameraZoomDefault float32) {
-	builder.PrependFloat32Slot(9, cameraZoomDefault, 0.0)
-}
-func ConstMinigameCCGExcelAddThemaLoadingProgressTime(builder *flatbuffers.Builder, themaLoadingProgressTime float32) {
-	builder.PrependFloat32Slot(10, themaLoadingProgressTime, 0.0)
-}
-func ConstMinigameCCGExcelAddMapAllyRotation(builder *flatbuffers.Builder, mapAllyRotation float32) {
-	builder.PrependFloat32Slot(11, mapAllyRotation, 0.0)
-}
-func ConstMinigameCCGExcelAddAniAllyBattleAttack(builder *flatbuffers.Builder, aniAllyBattleAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(aniAllyBattleAttack), 0)
-}
-func ConstMinigameCCGExcelAddMaxHandCount(builder *flatbuffers.Builder, maxHandCount int32) {
-	builder.PrependInt32Slot(13, maxHandCount, 0)
-}
-func ConstMinigameCCGExcelAddMaxCost(builder *flatbuffers.Builder, maxCost int32) {
-	builder.PrependInt32Slot(14, maxCost, 0)
-}
-func ConstMinigameCCGExcelAddStartCost(builder *flatbuffers.Builder, startCost int32) {
-	builder.PrependInt32Slot(15, startCost, 0)
-}
-func ConstMinigameCCGExcelAddTurnCost(builder *flatbuffers.Builder, turnCost int32) {
-	builder.PrependInt32Slot(16, turnCost, 0)
-}
-func ConstMinigameCCGExcelAddStrikerSwapFrontCost(builder *flatbuffers.Builder, strikerSwapFrontCost int32) {
-	builder.PrependInt32Slot(17, strikerSwapFrontCost, 0)
-}
-func ConstMinigameCCGExcelAddStrikerMaxEquipCount(builder *flatbuffers.Builder, strikerMaxEquipCount int32) {
-	builder.PrependInt32Slot(18, strikerMaxEquipCount, 0)
-}
-func ConstMinigameCCGExcelAddStartDrawCount(builder *flatbuffers.Builder, startDrawCount int32) {
-	builder.PrependInt32Slot(19, startDrawCount, 0)
-}
-func ConstMinigameCCGExcelAddCampReviveHealthRate(builder *flatbuffers.Builder, campReviveHealthRate int32) {
-	builder.PrependInt32Slot(20, campReviveHealthRate, 0)
-}
-func ConstMinigameCCGExcelAddBaseRewardRerollPoint(builder *flatbuffers.Builder, baseRewardRerollPoint int32) {
-	builder.PrependInt32Slot(21, baseRewardRerollPoint, 0)
+func ConstMinigameCCGExcelAddAlternativeCardImagePath(builder *flatbuffers.Builder, alternativeCardImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(alternativeCardImagePath), 0)
 }
 func ConstMinigameCCGExcelAddSelectRewardOptionCount(builder *flatbuffers.Builder, selectRewardOptionCount int32) {
-	builder.PrependInt32Slot(22, selectRewardOptionCount, 0)
+	builder.PrependInt32Slot(1, selectRewardOptionCount, 0)
 }
-func ConstMinigameCCGExcelAddAlternativeCardImagePath(builder *flatbuffers.Builder, alternativeCardImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(alternativeCardImagePath), 0)
+func ConstMinigameCCGExcelAddBaseRewardRerollPoint(builder *flatbuffers.Builder, baseRewardRerollPoint int32) {
+	builder.PrependInt32Slot(2, baseRewardRerollPoint, 0)
+}
+func ConstMinigameCCGExcelAddCampReviveHealthRate(builder *flatbuffers.Builder, campReviveHealthRate int32) {
+	builder.PrependInt32Slot(3, campReviveHealthRate, 0)
+}
+func ConstMinigameCCGExcelAddStartDrawCount(builder *flatbuffers.Builder, startDrawCount int32) {
+	builder.PrependInt32Slot(4, startDrawCount, 0)
+}
+func ConstMinigameCCGExcelAddStrikerMaxEquipCount(builder *flatbuffers.Builder, strikerMaxEquipCount int32) {
+	builder.PrependInt32Slot(5, strikerMaxEquipCount, 0)
+}
+func ConstMinigameCCGExcelAddStrikerSwapFrontCost(builder *flatbuffers.Builder, strikerSwapFrontCost int32) {
+	builder.PrependInt32Slot(6, strikerSwapFrontCost, 0)
+}
+func ConstMinigameCCGExcelAddTurnCost(builder *flatbuffers.Builder, turnCost int32) {
+	builder.PrependInt32Slot(7, turnCost, 0)
+}
+func ConstMinigameCCGExcelAddStartCost(builder *flatbuffers.Builder, startCost int32) {
+	builder.PrependInt32Slot(8, startCost, 0)
+}
+func ConstMinigameCCGExcelAddMaxCost(builder *flatbuffers.Builder, maxCost int32) {
+	builder.PrependInt32Slot(9, maxCost, 0)
+}
+func ConstMinigameCCGExcelAddMaxHandCount(builder *flatbuffers.Builder, maxHandCount int32) {
+	builder.PrependInt32Slot(10, maxHandCount, 0)
+}
+func ConstMinigameCCGExcelAddAniAllyBattleAttack(builder *flatbuffers.Builder, aniAllyBattleAttack flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(aniAllyBattleAttack), 0)
+}
+func ConstMinigameCCGExcelAddMapAllyRotation(builder *flatbuffers.Builder, mapAllyRotation float32) {
+	builder.PrependFloat32Slot(12, mapAllyRotation, 0.0)
+}
+func ConstMinigameCCGExcelAddThemaLoadingProgressTime(builder *flatbuffers.Builder, themaLoadingProgressTime float32) {
+	builder.PrependFloat32Slot(13, themaLoadingProgressTime, 0.0)
+}
+func ConstMinigameCCGExcelAddCameraZoomDefault(builder *flatbuffers.Builder, cameraZoomDefault float32) {
+	builder.PrependFloat32Slot(14, cameraZoomDefault, 0.0)
+}
+func ConstMinigameCCGExcelAddCameraZoomMin(builder *flatbuffers.Builder, cameraZoomMin float32) {
+	builder.PrependFloat32Slot(15, cameraZoomMin, 0.0)
+}
+func ConstMinigameCCGExcelAddCameraZoomMax(builder *flatbuffers.Builder, cameraZoomMax float32) {
+	builder.PrependFloat32Slot(16, cameraZoomMax, 0.0)
+}
+func ConstMinigameCCGExcelAddCameraAngle(builder *flatbuffers.Builder, cameraAngle float32) {
+	builder.PrependFloat32Slot(17, cameraAngle, 0.0)
+}
+func ConstMinigameCCGExcelAddConquestMapCenterOffsetY(builder *flatbuffers.Builder, conquestMapCenterOffsetY float32) {
+	builder.PrependFloat32Slot(18, conquestMapCenterOffsetY, 0.0)
+}
+func ConstMinigameCCGExcelAddConquestMapCenterOffsetX(builder *flatbuffers.Builder, conquestMapCenterOffsetX float32) {
+	builder.PrependFloat32Slot(19, conquestMapCenterOffsetX, 0.0)
+}
+func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetBottom(builder *flatbuffers.Builder, conquestMapBoundaryOffsetBottom float32) {
+	builder.PrependFloat32Slot(20, conquestMapBoundaryOffsetBottom, 0.0)
+}
+func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetTop(builder *flatbuffers.Builder, conquestMapBoundaryOffsetTop float32) {
+	builder.PrependFloat32Slot(21, conquestMapBoundaryOffsetTop, 0.0)
+}
+func ConstMinigameCCGExcelAddConquestMapBoundaryOffsetRight(builder *flatbuffers.Builder, conquestMapBoundaryOffsetRight float32) {
+	builder.PrependFloat32Slot(22, conquestMapBoundaryOffsetRight, 0.0)
+}
+func ConstMinigameCCGExcelAddTurnDrawCount(builder *flatbuffers.Builder, turnDrawCount int32) {
+	builder.PrependInt32Slot(23, turnDrawCount, 0)
 }
 func ConstMinigameCCGExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

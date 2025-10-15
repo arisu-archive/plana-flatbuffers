@@ -25,14 +25,34 @@ class MinigameCCGLevelNodeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGLevelNodeExcel
-    def LevelId(self):
+    def NextNodeId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # MinigameCCGLevelNodeExcel
-    def NodeId(self):
+    def NextNodeIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MinigameCCGLevelNodeExcel
+    def NextNodeIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MinigameCCGLevelNodeExcel
+    def NextNodeIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # MinigameCCGLevelNodeExcel
+    def StageGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -46,60 +66,40 @@ class MinigameCCGLevelNodeExcel(object):
         return 0
 
     # MinigameCCGLevelNodeExcel
-    def StageGroupId(self):
+    def NodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGLevelNodeExcel
-    def NextNodeId(self, j):
+    def LevelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # MinigameCCGLevelNodeExcel
-    def NextNodeIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MinigameCCGLevelNodeExcel
-    def NextNodeIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MinigameCCGLevelNodeExcel
-    def NextNodeIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
 
 def MinigameCCGLevelNodeExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return MinigameCCGLevelNodeExcelStart(builder)
-def MinigameCCGLevelNodeExcelAddLevelId(builder, levelId): builder.PrependInt64Slot(0, levelId, 0)
-def AddLevelId(builder, levelId):
-    return MinigameCCGLevelNodeExcelAddLevelId(builder, levelId)
-def MinigameCCGLevelNodeExcelAddNodeId(builder, nodeId): builder.PrependInt64Slot(1, nodeId, 0)
-def AddNodeId(builder, nodeId):
-    return MinigameCCGLevelNodeExcelAddNodeId(builder, nodeId)
-def MinigameCCGLevelNodeExcelAddNodeIcon(builder, nodeIcon): builder.PrependInt32Slot(2, nodeIcon, 0)
-def AddNodeIcon(builder, nodeIcon):
-    return MinigameCCGLevelNodeExcelAddNodeIcon(builder, nodeIcon)
-def MinigameCCGLevelNodeExcelAddStageGroupId(builder, stageGroupId): builder.PrependInt64Slot(3, stageGroupId, 0)
-def AddStageGroupId(builder, stageGroupId):
-    return MinigameCCGLevelNodeExcelAddStageGroupId(builder, stageGroupId)
-def MinigameCCGLevelNodeExcelAddNextNodeId(builder, nextNodeId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(nextNodeId), 0)
+def MinigameCCGLevelNodeExcelAddNextNodeId(builder, nextNodeId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(nextNodeId), 0)
 def AddNextNodeId(builder, nextNodeId):
     return MinigameCCGLevelNodeExcelAddNextNodeId(builder, nextNodeId)
 def MinigameCCGLevelNodeExcelStartNextNodeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartNextNodeIdVector(builder, numElems):
     return MinigameCCGLevelNodeExcelStartNextNodeIdVector(builder, numElems)
+def MinigameCCGLevelNodeExcelAddStageGroupId(builder, stageGroupId): builder.PrependInt64Slot(1, stageGroupId, 0)
+def AddStageGroupId(builder, stageGroupId):
+    return MinigameCCGLevelNodeExcelAddStageGroupId(builder, stageGroupId)
+def MinigameCCGLevelNodeExcelAddNodeIcon(builder, nodeIcon): builder.PrependInt32Slot(2, nodeIcon, 0)
+def AddNodeIcon(builder, nodeIcon):
+    return MinigameCCGLevelNodeExcelAddNodeIcon(builder, nodeIcon)
+def MinigameCCGLevelNodeExcelAddNodeId(builder, nodeId): builder.PrependInt64Slot(3, nodeId, 0)
+def AddNodeId(builder, nodeId):
+    return MinigameCCGLevelNodeExcelAddNodeId(builder, nodeId)
+def MinigameCCGLevelNodeExcelAddLevelId(builder, levelId): builder.PrependInt64Slot(4, levelId, 0)
+def AddLevelId(builder, levelId):
+    return MinigameCCGLevelNodeExcelAddLevelId(builder, levelId)
 def MinigameCCGLevelNodeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGLevelNodeExcelEnd(builder)

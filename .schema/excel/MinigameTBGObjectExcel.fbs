@@ -4,15 +4,15 @@ include "TBGObjectType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameTBGObjectExcel {
-    unique_id: long;
-    key: string;
-    prefab_name: string;
-    object_type: TBGObjectType;
-    object_cost_type: ParcelType;
-    object_cost_id: long;
-    object_cost_amount: int;
-    disposable: bool;
     re_encounter_cost: bool;
+    disposable: bool;
+    object_cost_amount: int;
+    object_cost_id: long;
+    object_cost_type: ParcelType;
+    object_type: TBGObjectType;
+    prefab_name: string;
+    key: string;
+    unique_id: long;
 }
 
 root_type MinigameTBGObjectExcel;

@@ -10,29 +10,29 @@ import (
 // ArenaMapExcelDto represents a FlatBuffers table
 type ArenaMapExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                   int64  `json:"unique_id"`
-	TerrainType                int64  `json:"terrain_type"`
-	TerrainTypeLocalizeKey     string `json:"terrain_type_localize_key"`
-	ImagePath                  string `json:"image_path"`
-	GroundGroupId              int64  `json:"ground_group_id"`
-	GroundGroupNameLocalizeKey string `json:"ground_group_name_localize_key"`
-	StartRank                  int64  `json:"start_rank"`
-	EndRank                    int64  `json:"end_rank"`
 	GroundId                   int64  `json:"ground_id"`
+	EndRank                    int64  `json:"end_rank"`
+	StartRank                  int64  `json:"start_rank"`
+	GroundGroupNameLocalizeKey string `json:"ground_group_name_localize_key"`
+	GroundGroupId              int64  `json:"ground_group_id"`
+	ImagePath                  string `json:"image_path"`
+	TerrainTypeLocalizeKey     string `json:"terrain_type_localize_key"`
+	TerrainType                int64  `json:"terrain_type"`
+	UniqueId                   int64  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ArenaMapExcelStart(b)
-	ArenaMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddTerrainType(b, fbsutils.Convert(t.TerrainType, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddTerrainTypeLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TerrainTypeLocalizeKey, t.FlatBuffer.TableKey)))
-	ArenaMapExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	ArenaMapExcelAddGroundGroupId(b, fbsutils.Convert(t.GroundGroupId, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddGroundGroupNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.GroundGroupNameLocalizeKey, t.FlatBuffer.TableKey)))
-	ArenaMapExcelAddStartRank(b, fbsutils.Convert(t.StartRank, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddEndRank(b, fbsutils.Convert(t.EndRank, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	ArenaMapExcelAddEndRank(b, fbsutils.Convert(t.EndRank, t.FlatBuffer.TableKey))
+	ArenaMapExcelAddStartRank(b, fbsutils.Convert(t.StartRank, t.FlatBuffer.TableKey))
+	ArenaMapExcelAddGroundGroupNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.GroundGroupNameLocalizeKey, t.FlatBuffer.TableKey)))
+	ArenaMapExcelAddGroundGroupId(b, fbsutils.Convert(t.GroundGroupId, t.FlatBuffer.TableKey))
+	ArenaMapExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	ArenaMapExcelAddTerrainTypeLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TerrainTypeLocalizeKey, t.FlatBuffer.TableKey)))
+	ArenaMapExcelAddTerrainType(b, fbsutils.Convert(t.TerrainType, t.FlatBuffer.TableKey))
+	ArenaMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return ArenaMapExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *ArenaMapExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaMapExcelDto) UnmarshalMessage(e *ArenaMapExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.TerrainType = fbsutils.Convert(e.TerrainType(), t.FlatBuffer.TableKey)
-	t.TerrainTypeLocalizeKey = fbsutils.Convert(string(e.TerrainTypeLocalizeKey()), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.GroundGroupId = fbsutils.Convert(e.GroundGroupId(), t.FlatBuffer.TableKey)
-	t.GroundGroupNameLocalizeKey = fbsutils.Convert(string(e.GroundGroupNameLocalizeKey()), t.FlatBuffer.TableKey)
-	t.StartRank = fbsutils.Convert(e.StartRank(), t.FlatBuffer.TableKey)
-	t.EndRank = fbsutils.Convert(e.EndRank(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.EndRank = fbsutils.Convert(e.EndRank(), t.FlatBuffer.TableKey)
+	t.StartRank = fbsutils.Convert(e.StartRank(), t.FlatBuffer.TableKey)
+	t.GroundGroupNameLocalizeKey = fbsutils.Convert(string(e.GroundGroupNameLocalizeKey()), t.FlatBuffer.TableKey)
+	t.GroundGroupId = fbsutils.Convert(e.GroundGroupId(), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.TerrainTypeLocalizeKey = fbsutils.Convert(string(e.TerrainTypeLocalizeKey()), t.FlatBuffer.TableKey)
+	t.TerrainType = fbsutils.Convert(e.TerrainType(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

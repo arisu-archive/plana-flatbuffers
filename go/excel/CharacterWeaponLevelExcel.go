@@ -33,16 +33,16 @@ func (rcv *CharacterWeaponLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterWeaponLevelExcel) Level() int32 {
+func (rcv *CharacterWeaponLevelExcel) TotalExp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterWeaponLevelExcel) MutateLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *CharacterWeaponLevelExcel) MutateTotalExp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *CharacterWeaponLevelExcel) Exp() int64 {
@@ -57,29 +57,29 @@ func (rcv *CharacterWeaponLevelExcel) MutateExp(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterWeaponLevelExcel) TotalExp() int64 {
+func (rcv *CharacterWeaponLevelExcel) Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterWeaponLevelExcel) MutateTotalExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *CharacterWeaponLevelExcel) MutateLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func CharacterWeaponLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func CharacterWeaponLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
-	builder.PrependInt32Slot(0, level, 0)
+func CharacterWeaponLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp int64) {
+	builder.PrependInt64Slot(0, totalExp, 0)
 }
 func CharacterWeaponLevelExcelAddExp(builder *flatbuffers.Builder, exp int64) {
 	builder.PrependInt64Slot(1, exp, 0)
 }
-func CharacterWeaponLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp int64) {
-	builder.PrependInt64Slot(2, totalExp, 0)
+func CharacterWeaponLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
+	builder.PrependInt32Slot(2, level, 0)
 }
 func CharacterWeaponLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

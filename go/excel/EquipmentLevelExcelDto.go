@@ -10,25 +10,25 @@ import (
 // EquipmentLevelExcelDto represents a FlatBuffers table
 type EquipmentLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	Level        int32   `json:"level"`
-	TierLevelExp []int64 `json:"tier_level_exp"`
 	TotalExp     []int64 `json:"total_exp"`
+	TierLevelExp []int64 `json:"tier_level_exp"`
+	Level        int32   `json:"level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EquipmentLevelExcelStart(b)
-	EquipmentLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	EquipmentLevelExcelStartTierLevelExpVector(b, len(t.TierLevelExp))
-	for i := range len(t.TierLevelExp) {
-		b.PrependInt64(fbsutils.Convert(t.TierLevelExp[len(t.TierLevelExp)-i-1], t.FlatBuffer.TableKey))
-	}
-	EquipmentLevelExcelAddTierLevelExp(b, b.EndVector(len(t.TierLevelExp)))
 	EquipmentLevelExcelStartTotalExpVector(b, len(t.TotalExp))
 	for i := range len(t.TotalExp) {
 		b.PrependInt64(fbsutils.Convert(t.TotalExp[len(t.TotalExp)-i-1], t.FlatBuffer.TableKey))
 	}
 	EquipmentLevelExcelAddTotalExp(b, b.EndVector(len(t.TotalExp)))
+	EquipmentLevelExcelStartTierLevelExpVector(b, len(t.TierLevelExp))
+	for i := range len(t.TierLevelExp) {
+		b.PrependInt64(fbsutils.Convert(t.TierLevelExp[len(t.TierLevelExp)-i-1], t.FlatBuffer.TableKey))
+	}
+	EquipmentLevelExcelAddTierLevelExp(b, b.EndVector(len(t.TierLevelExp)))
+	EquipmentLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	return EquipmentLevelExcelEnd(b)
 }
 
@@ -41,15 +41,15 @@ func (t *EquipmentLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentLevelExcelDto) UnmarshalMessage(e *EquipmentLevelExcel) error {
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.TierLevelExp = make([]int64, e.TierLevelExpLength())
-	for i := range e.TierLevelExpLength() {
-		t.TierLevelExp[i] = fbsutils.Convert(e.TierLevelExp(i), t.FlatBuffer.TableKey)
-	}
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := range e.TotalExpLength() {
 		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)
 	}
+	t.TierLevelExp = make([]int64, e.TierLevelExpLength())
+	for i := range e.TierLevelExpLength() {
+		t.TierLevelExp[i] = fbsutils.Convert(e.TierLevelExp(i), t.FlatBuffer.TableKey)
+	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	return nil
 }
 

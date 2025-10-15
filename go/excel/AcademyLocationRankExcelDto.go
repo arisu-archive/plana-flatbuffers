@@ -10,17 +10,17 @@ import (
 // AcademyLocationRankExcelDto represents a FlatBuffers table
 type AcademyLocationRankExcelDto struct {
 	fbsutils.FlatBuffer
-	Rank     int64 `json:"rank"`
-	RankExp  int64 `json:"rank_exp"`
 	TotalExp int64 `json:"total_exp"`
+	RankExp  int64 `json:"rank_exp"`
+	Rank     int64 `json:"rank"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyLocationRankExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AcademyLocationRankExcelStart(b)
-	AcademyLocationRankExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
-	AcademyLocationRankExcelAddRankExp(b, fbsutils.Convert(t.RankExp, t.FlatBuffer.TableKey))
 	AcademyLocationRankExcelAddTotalExp(b, fbsutils.Convert(t.TotalExp, t.FlatBuffer.TableKey))
+	AcademyLocationRankExcelAddRankExp(b, fbsutils.Convert(t.RankExp, t.FlatBuffer.TableKey))
+	AcademyLocationRankExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
 	return AcademyLocationRankExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *AcademyLocationRankExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyLocationRankExcelDto) UnmarshalMessage(e *AcademyLocationRankExcel) error {
-	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
-	t.RankExp = fbsutils.Convert(e.RankExp(), t.FlatBuffer.TableKey)
 	t.TotalExp = fbsutils.Convert(e.TotalExp(), t.FlatBuffer.TableKey)
+	t.RankExp = fbsutils.Convert(e.RankExp(), t.FlatBuffer.TableKey)
+	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
 	return nil
 }
 

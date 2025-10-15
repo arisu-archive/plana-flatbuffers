@@ -10,8 +10,8 @@ import (
 // TagExcelDto represents a FlatBuffers table
 type TagExcelDto struct {
 	fbsutils.FlatBuffer
-	Furniture Tag  `json:"furniture"`
 	None      Club `json:"none"`
+	Furniture Tag  `json:"furniture"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *TagExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Tag"))
 	}
 	TagExcelStart(b)
-	TagExcelAddFurniture(b, fbsutils.Convert(t.Furniture, t.FlatBuffer.TableKey))
 	TagExcelAddNone(b, fbsutils.Convert(t.None, t.FlatBuffer.TableKey))
+	TagExcelAddFurniture(b, fbsutils.Convert(t.Furniture, t.FlatBuffer.TableKey))
 	return TagExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *TagExcelDto) UnmarshalMessage(e *TagExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Tag"))
 	}
-	t.Furniture = Tag(fbsutils.Convert(int32(e.Furniture()), t.FlatBuffer.TableKey))
 	t.None = Club(fbsutils.Convert(int32(e.None()), t.FlatBuffer.TableKey))
+	t.Furniture = Tag(fbsutils.Convert(int32(e.Furniture()), t.FlatBuffer.TableKey))
 	return nil
 }
 

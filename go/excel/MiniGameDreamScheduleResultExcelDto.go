@@ -10,45 +10,45 @@ import (
 // MiniGameDreamScheduleResultExcelDto represents a FlatBuffers table
 type MiniGameDreamScheduleResultExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64                          `json:"id"`
-	EventContentId               int64                          `json:"event_content_id"`
-	DreamMakerResult             DreamMakerResult               `json:"dream_maker_result"`
-	DreamMakerScheduleGroup      int64                          `json:"dream_maker_schedule_group"`
-	Prob                         int32                          `json:"prob"`
-	RewardParameter              []DreamMakerParameterType      `json:"reward_parameter"`
-	RewardParameterOperationType []DreamMakerParamOperationType `json:"reward_parameter_operation_type"`
-	RewardParameterAmount        []int64                        `json:"reward_parameter_amount"`
-	RewardParcelType             ParcelType                     `json:"reward_parcel_type"`
-	RewardParcelId               int64                          `json:"reward_parcel_id"`
 	RewardParcelAmount           int64                          `json:"reward_parcel_amount"`
+	RewardParcelId               int64                          `json:"reward_parcel_id"`
+	RewardParcelType             ParcelType                     `json:"reward_parcel_type"`
+	RewardParameterAmount        []int64                        `json:"reward_parameter_amount"`
+	RewardParameterOperationType []DreamMakerParamOperationType `json:"reward_parameter_operation_type"`
+	RewardParameter              []DreamMakerParameterType      `json:"reward_parameter"`
+	Prob                         int32                          `json:"prob"`
+	DreamMakerScheduleGroup      int64                          `json:"dream_maker_schedule_group"`
+	DreamMakerResult             DreamMakerResult               `json:"dream_maker_result"`
+	EventContentId               int64                          `json:"event_content_id"`
+	Id                           int64                          `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamScheduleResultExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamScheduleResultExcelStart(b)
-	MiniGameDreamScheduleResultExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddDreamMakerResult(b, fbsutils.Convert(t.DreamMakerResult, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddDreamMakerScheduleGroup(b, fbsutils.Convert(t.DreamMakerScheduleGroup, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelStartRewardParameterVector(b, len(t.RewardParameter))
-	for i := range len(t.RewardParameter) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParameter[len(t.RewardParameter)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamScheduleResultExcelAddRewardParameter(b, b.EndVector(len(t.RewardParameter)))
-	MiniGameDreamScheduleResultExcelStartRewardParameterOperationTypeVector(b, len(t.RewardParameterOperationType))
-	for i := range len(t.RewardParameterOperationType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParameterOperationType[len(t.RewardParameterOperationType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamScheduleResultExcelAddRewardParameterOperationType(b, b.EndVector(len(t.RewardParameterOperationType)))
+	MiniGameDreamScheduleResultExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleResultExcelStartRewardParameterAmountVector(b, len(t.RewardParameterAmount))
 	for i := range len(t.RewardParameterAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParameterAmount[len(t.RewardParameterAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDreamScheduleResultExcelAddRewardParameterAmount(b, b.EndVector(len(t.RewardParameterAmount)))
-	MiniGameDreamScheduleResultExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleResultExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelStartRewardParameterOperationTypeVector(b, len(t.RewardParameterOperationType))
+	for i := range len(t.RewardParameterOperationType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParameterOperationType[len(t.RewardParameterOperationType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamScheduleResultExcelAddRewardParameterOperationType(b, b.EndVector(len(t.RewardParameterOperationType)))
+	MiniGameDreamScheduleResultExcelStartRewardParameterVector(b, len(t.RewardParameter))
+	for i := range len(t.RewardParameter) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParameter[len(t.RewardParameter)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamScheduleResultExcelAddRewardParameter(b, b.EndVector(len(t.RewardParameter)))
+	MiniGameDreamScheduleResultExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddDreamMakerScheduleGroup(b, fbsutils.Convert(t.DreamMakerScheduleGroup, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddDreamMakerResult(b, fbsutils.Convert(t.DreamMakerResult, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleResultExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return MiniGameDreamScheduleResultExcelEnd(b)
 }
 
@@ -61,26 +61,26 @@ func (t *MiniGameDreamScheduleResultExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamScheduleResultExcelDto) UnmarshalMessage(e *MiniGameDreamScheduleResultExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.DreamMakerResult = DreamMakerResult(fbsutils.Convert(int32(e.DreamMakerResult()), t.FlatBuffer.TableKey))
-	t.DreamMakerScheduleGroup = fbsutils.Convert(e.DreamMakerScheduleGroup(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.RewardParameter = make([]DreamMakerParameterType, e.RewardParameterLength())
-	for i := range e.RewardParameterLength() {
-		t.RewardParameter[i] = DreamMakerParameterType(fbsutils.Convert(int32(e.RewardParameter(i)), t.FlatBuffer.TableKey))
+	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardParameterAmount = make([]int64, e.RewardParameterAmountLength())
+	for i := range e.RewardParameterAmountLength() {
+		t.RewardParameterAmount[i] = fbsutils.Convert(e.RewardParameterAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParameterOperationType = make([]DreamMakerParamOperationType, e.RewardParameterOperationTypeLength())
 	for i := range e.RewardParameterOperationTypeLength() {
 		t.RewardParameterOperationType[i] = DreamMakerParamOperationType(fbsutils.Convert(int32(e.RewardParameterOperationType(i)), t.FlatBuffer.TableKey))
 	}
-	t.RewardParameterAmount = make([]int64, e.RewardParameterAmountLength())
-	for i := range e.RewardParameterAmountLength() {
-		t.RewardParameterAmount[i] = fbsutils.Convert(e.RewardParameterAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParameter = make([]DreamMakerParameterType, e.RewardParameterLength())
+	for i := range e.RewardParameterLength() {
+		t.RewardParameter[i] = DreamMakerParameterType(fbsutils.Convert(int32(e.RewardParameter(i)), t.FlatBuffer.TableKey))
 	}
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.DreamMakerScheduleGroup = fbsutils.Convert(e.DreamMakerScheduleGroup(), t.FlatBuffer.TableKey)
+	t.DreamMakerResult = DreamMakerResult(fbsutils.Convert(int32(e.DreamMakerResult()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

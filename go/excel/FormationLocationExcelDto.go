@@ -10,27 +10,27 @@ import (
 // FormationLocationExcelDto represents a FlatBuffers table
 type FormationLocationExcelDto struct {
 	fbsutils.FlatBuffer
-	Id      int64     `json:"id"`
-	GroupId int64     `json:"group_id"`
-	SlotZ   []float32 `json:"slot_z"`
 	SlotX   []float32 `json:"slot_x"`
+	SlotZ   []float32 `json:"slot_z"`
+	GroupId int64     `json:"group_id"`
+	Id      int64     `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FormationLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FormationLocationExcelStart(b)
-	FormationLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FormationLocationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	FormationLocationExcelStartSlotZVector(b, len(t.SlotZ))
-	for i := range len(t.SlotZ) {
-		b.PrependFloat32(fbsutils.Convert(t.SlotZ[len(t.SlotZ)-i-1], t.FlatBuffer.TableKey))
-	}
-	FormationLocationExcelAddSlotZ(b, b.EndVector(len(t.SlotZ)))
 	FormationLocationExcelStartSlotXVector(b, len(t.SlotX))
 	for i := range len(t.SlotX) {
 		b.PrependFloat32(fbsutils.Convert(t.SlotX[len(t.SlotX)-i-1], t.FlatBuffer.TableKey))
 	}
 	FormationLocationExcelAddSlotX(b, b.EndVector(len(t.SlotX)))
+	FormationLocationExcelStartSlotZVector(b, len(t.SlotZ))
+	for i := range len(t.SlotZ) {
+		b.PrependFloat32(fbsutils.Convert(t.SlotZ[len(t.SlotZ)-i-1], t.FlatBuffer.TableKey))
+	}
+	FormationLocationExcelAddSlotZ(b, b.EndVector(len(t.SlotZ)))
+	FormationLocationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	FormationLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return FormationLocationExcelEnd(b)
 }
 
@@ -43,16 +43,16 @@ func (t *FormationLocationExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FormationLocationExcelDto) UnmarshalMessage(e *FormationLocationExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.SlotZ = make([]float32, e.SlotZLength())
-	for i := range e.SlotZLength() {
-		t.SlotZ[i] = fbsutils.Convert(e.SlotZ(i), t.FlatBuffer.TableKey)
-	}
 	t.SlotX = make([]float32, e.SlotXLength())
 	for i := range e.SlotXLength() {
 		t.SlotX[i] = fbsutils.Convert(e.SlotX(i), t.FlatBuffer.TableKey)
 	}
+	t.SlotZ = make([]float32, e.SlotZLength())
+	for i := range e.SlotZLength() {
+		t.SlotZ[i] = fbsutils.Convert(e.SlotZ(i), t.FlatBuffer.TableKey)
+	}
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

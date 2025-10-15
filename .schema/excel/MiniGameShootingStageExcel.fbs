@@ -3,17 +3,17 @@ include "Difficulty.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameShootingStageExcel {
-    unique_id: long;
-    bgm_id: [long];
-    cost_goods_id: long;
-    difficulty: Difficulty;
-    design_level: string;
-    art_level: string;
-    start_battle_duration: long;
-    default_battle_duration: long;
-    default_logic_effect: string;
-    camera_size_rate: float;
     event_content_stage_reward_id: long;
+    camera_size_rate: float;
+    default_logic_effect: string;
+    default_battle_duration: long;
+    start_battle_duration: long;
+    art_level: string;
+    design_level: string;
+    difficulty: Difficulty;
+    cost_goods_id: long;
+    bgm_id: [long];
+    unique_id: long;
 }
 
 root_type MiniGameShootingStageExcel;

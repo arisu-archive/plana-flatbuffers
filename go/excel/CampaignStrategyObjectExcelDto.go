@@ -10,41 +10,41 @@ import (
 // CampaignStrategyObjectExcelDto represents a FlatBuffers table
 type CampaignStrategyObjectExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                       int64              `json:"id"`
-	Key                      uint32             `json:"key"`
-	Name                     string             `json:"name"`
-	PrefabName               string             `json:"prefab_name"`
-	StrategyObjectType       StrategyObjectType `json:"strategy_object_type"`
-	StrategyRewardParcelType ParcelType         `json:"strategy_reward_parcel_type"`
-	StrategyRewardId         int64              `json:"strategy_reward_id"`
-	StrategyRewardName       string             `json:"strategy_reward_name"`
-	StrategyRewardAmount     int32              `json:"strategy_reward_amount"`
-	StrategySightRange       int64              `json:"strategy_sight_range"`
-	PortalId                 int32              `json:"portal_id"`
-	HealValue                int32              `json:"heal_value"`
-	SwithId                  int32              `json:"swith_id"`
-	BuffId                   int32              `json:"buff_id"`
 	Disposable               bool               `json:"disposable"`
+	BuffId                   int32              `json:"buff_id"`
+	SwithId                  int32              `json:"swith_id"`
+	HealValue                int32              `json:"heal_value"`
+	PortalId                 int32              `json:"portal_id"`
+	StrategySightRange       int64              `json:"strategy_sight_range"`
+	StrategyRewardAmount     int32              `json:"strategy_reward_amount"`
+	StrategyRewardName       string             `json:"strategy_reward_name"`
+	StrategyRewardId         int64              `json:"strategy_reward_id"`
+	StrategyRewardParcelType ParcelType         `json:"strategy_reward_parcel_type"`
+	StrategyObjectType       StrategyObjectType `json:"strategy_object_type"`
+	PrefabName               string             `json:"prefab_name"`
+	Name                     string             `json:"name"`
+	Key                      uint32             `json:"key"`
+	Id                       int64              `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CampaignStrategyObjectExcelStart(b)
-	CampaignStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	CampaignStrategyObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	CampaignStrategyObjectExcelAddStrategyObjectType(b, fbsutils.Convert(t.StrategyObjectType, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddStrategyRewardParcelType(b, fbsutils.Convert(t.StrategyRewardParcelType, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddStrategyRewardId(b, fbsutils.Convert(t.StrategyRewardId, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddStrategyRewardName(b, b.CreateString(fbsutils.Convert(t.StrategyRewardName, t.FlatBuffer.TableKey)))
-	CampaignStrategyObjectExcelAddStrategyRewardAmount(b, fbsutils.Convert(t.StrategyRewardAmount, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddStrategySightRange(b, fbsutils.Convert(t.StrategySightRange, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddPortalId(b, fbsutils.Convert(t.PortalId, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddHealValue(b, fbsutils.Convert(t.HealValue, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddSwithId(b, fbsutils.Convert(t.SwithId, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddBuffId(b, fbsutils.Convert(t.BuffId, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddDisposable(b, t.Disposable)
+	CampaignStrategyObjectExcelAddBuffId(b, fbsutils.Convert(t.BuffId, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddSwithId(b, fbsutils.Convert(t.SwithId, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddHealValue(b, fbsutils.Convert(t.HealValue, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddPortalId(b, fbsutils.Convert(t.PortalId, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategySightRange(b, fbsutils.Convert(t.StrategySightRange, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategyRewardAmount(b, fbsutils.Convert(t.StrategyRewardAmount, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategyRewardName(b, b.CreateString(fbsutils.Convert(t.StrategyRewardName, t.FlatBuffer.TableKey)))
+	CampaignStrategyObjectExcelAddStrategyRewardId(b, fbsutils.Convert(t.StrategyRewardId, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategyRewardParcelType(b, fbsutils.Convert(t.StrategyRewardParcelType, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategyObjectType(b, fbsutils.Convert(t.StrategyObjectType, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	CampaignStrategyObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	CampaignStrategyObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return CampaignStrategyObjectExcelEnd(b)
 }
 
@@ -57,21 +57,21 @@ func (t *CampaignStrategyObjectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignStrategyObjectExcelDto) UnmarshalMessage(e *CampaignStrategyObjectExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.StrategyObjectType = StrategyObjectType(fbsutils.Convert(int32(e.StrategyObjectType()), t.FlatBuffer.TableKey))
-	t.StrategyRewardParcelType = ParcelType(fbsutils.Convert(int32(e.StrategyRewardParcelType()), t.FlatBuffer.TableKey))
-	t.StrategyRewardId = fbsutils.Convert(e.StrategyRewardId(), t.FlatBuffer.TableKey)
-	t.StrategyRewardName = fbsutils.Convert(string(e.StrategyRewardName()), t.FlatBuffer.TableKey)
-	t.StrategyRewardAmount = fbsutils.Convert(e.StrategyRewardAmount(), t.FlatBuffer.TableKey)
-	t.StrategySightRange = fbsutils.Convert(e.StrategySightRange(), t.FlatBuffer.TableKey)
-	t.PortalId = fbsutils.Convert(e.PortalId(), t.FlatBuffer.TableKey)
-	t.HealValue = fbsutils.Convert(e.HealValue(), t.FlatBuffer.TableKey)
-	t.SwithId = fbsutils.Convert(e.SwithId(), t.FlatBuffer.TableKey)
-	t.BuffId = fbsutils.Convert(e.BuffId(), t.FlatBuffer.TableKey)
 	t.Disposable = e.Disposable()
+	t.BuffId = fbsutils.Convert(e.BuffId(), t.FlatBuffer.TableKey)
+	t.SwithId = fbsutils.Convert(e.SwithId(), t.FlatBuffer.TableKey)
+	t.HealValue = fbsutils.Convert(e.HealValue(), t.FlatBuffer.TableKey)
+	t.PortalId = fbsutils.Convert(e.PortalId(), t.FlatBuffer.TableKey)
+	t.StrategySightRange = fbsutils.Convert(e.StrategySightRange(), t.FlatBuffer.TableKey)
+	t.StrategyRewardAmount = fbsutils.Convert(e.StrategyRewardAmount(), t.FlatBuffer.TableKey)
+	t.StrategyRewardName = fbsutils.Convert(string(e.StrategyRewardName()), t.FlatBuffer.TableKey)
+	t.StrategyRewardId = fbsutils.Convert(e.StrategyRewardId(), t.FlatBuffer.TableKey)
+	t.StrategyRewardParcelType = ParcelType(fbsutils.Convert(int32(e.StrategyRewardParcelType()), t.FlatBuffer.TableKey))
+	t.StrategyObjectType = StrategyObjectType(fbsutils.Convert(int32(e.StrategyObjectType()), t.FlatBuffer.TableKey))
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

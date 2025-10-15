@@ -33,19 +33,15 @@ func (rcv *LocalizeSkillExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeSkillExcel) Key() uint32 {
+func (rcv *LocalizeSkillExcel) SkillInvokeLocalizeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *LocalizeSkillExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
-func (rcv *LocalizeSkillExcel) NameKr() []byte {
+func (rcv *LocalizeSkillExcel) DescriptionJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -53,7 +49,7 @@ func (rcv *LocalizeSkillExcel) NameKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillExcel) DescriptionKr() []byte {
+func (rcv *LocalizeSkillExcel) NameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -69,7 +65,7 @@ func (rcv *LocalizeSkillExcel) SkillInvokeLocalizeKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillExcel) NameJp() []byte {
+func (rcv *LocalizeSkillExcel) DescriptionKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -77,7 +73,7 @@ func (rcv *LocalizeSkillExcel) NameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillExcel) DescriptionJp() []byte {
+func (rcv *LocalizeSkillExcel) NameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,37 +81,41 @@ func (rcv *LocalizeSkillExcel) DescriptionJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillExcel) SkillInvokeLocalizeJp() []byte {
+func (rcv *LocalizeSkillExcel) Key() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *LocalizeSkillExcel) MutateKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func LocalizeSkillExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func LocalizeSkillExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(0, key, 0)
+func LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder *flatbuffers.Builder, skillInvokeLocalizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(skillInvokeLocalizeJp), 0)
 }
-func LocalizeSkillExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(nameKr), 0)
+func LocalizeSkillExcelAddDescriptionJp(builder *flatbuffers.Builder, descriptionJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(descriptionJp), 0)
 }
-func LocalizeSkillExcelAddDescriptionKr(builder *flatbuffers.Builder, descriptionKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(descriptionKr), 0)
+func LocalizeSkillExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameJp), 0)
 }
 func LocalizeSkillExcelAddSkillInvokeLocalizeKr(builder *flatbuffers.Builder, skillInvokeLocalizeKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(skillInvokeLocalizeKr), 0)
 }
-func LocalizeSkillExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(nameJp), 0)
+func LocalizeSkillExcelAddDescriptionKr(builder *flatbuffers.Builder, descriptionKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(descriptionKr), 0)
 }
-func LocalizeSkillExcelAddDescriptionJp(builder *flatbuffers.Builder, descriptionJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(descriptionJp), 0)
+func LocalizeSkillExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(nameKr), 0)
 }
-func LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder *flatbuffers.Builder, skillInvokeLocalizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(skillInvokeLocalizeJp), 0)
+func LocalizeSkillExcelAddKey(builder *flatbuffers.Builder, key uint32) {
+	builder.PrependUint32Slot(6, key, 0)
 }
 func LocalizeSkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

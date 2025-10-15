@@ -33,7 +33,7 @@ func (rcv *AniEventData) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AniEventData) Name() []byte {
+func (rcv *AniEventData) StringParam() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *AniEventData) Name() []byte {
 	return nil
 }
 
-func (rcv *AniEventData) Time() float32 {
+func (rcv *AniEventData) FloatParam() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *AniEventData) Time() float32 {
 	return 0.0
 }
 
-func (rcv *AniEventData) MutateTime(n float32) bool {
+func (rcv *AniEventData) MutateFloatParam(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
@@ -65,7 +65,7 @@ func (rcv *AniEventData) MutateIntParam(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *AniEventData) FloatParam() float32 {
+func (rcv *AniEventData) Time() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -73,11 +73,11 @@ func (rcv *AniEventData) FloatParam() float32 {
 	return 0.0
 }
 
-func (rcv *AniEventData) MutateFloatParam(n float32) bool {
+func (rcv *AniEventData) MutateTime(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *AniEventData) StringParam() []byte {
+func (rcv *AniEventData) Name() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -88,20 +88,20 @@ func (rcv *AniEventData) StringParam() []byte {
 func AniEventDataStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func AniEventDataAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(name), 0)
+func AniEventDataAddStringParam(builder *flatbuffers.Builder, stringParam flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(stringParam), 0)
 }
-func AniEventDataAddTime(builder *flatbuffers.Builder, time float32) {
-	builder.PrependFloat32Slot(1, time, 0.0)
+func AniEventDataAddFloatParam(builder *flatbuffers.Builder, floatParam float32) {
+	builder.PrependFloat32Slot(1, floatParam, 0.0)
 }
 func AniEventDataAddIntParam(builder *flatbuffers.Builder, intParam int32) {
 	builder.PrependInt32Slot(2, intParam, 0)
 }
-func AniEventDataAddFloatParam(builder *flatbuffers.Builder, floatParam float32) {
-	builder.PrependFloat32Slot(3, floatParam, 0.0)
+func AniEventDataAddTime(builder *flatbuffers.Builder, time float32) {
+	builder.PrependFloat32Slot(3, time, 0.0)
 }
-func AniEventDataAddStringParam(builder *flatbuffers.Builder, stringParam flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(stringParam), 0)
+func AniEventDataAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(name), 0)
 }
 func AniEventDataEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

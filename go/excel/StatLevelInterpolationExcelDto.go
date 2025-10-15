@@ -10,19 +10,19 @@ import (
 // StatLevelInterpolationExcelDto represents a FlatBuffers table
 type StatLevelInterpolationExcelDto struct {
 	fbsutils.FlatBuffer
-	Level         int64   `json:"level"`
 	StatTypeIndex []int64 `json:"stat_type_index"`
+	Level         int64   `json:"level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StatLevelInterpolationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	StatLevelInterpolationExcelStart(b)
-	StatLevelInterpolationExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	StatLevelInterpolationExcelStartStatTypeIndexVector(b, len(t.StatTypeIndex))
 	for i := range len(t.StatTypeIndex) {
 		b.PrependInt64(fbsutils.Convert(t.StatTypeIndex[len(t.StatTypeIndex)-i-1], t.FlatBuffer.TableKey))
 	}
 	StatLevelInterpolationExcelAddStatTypeIndex(b, b.EndVector(len(t.StatTypeIndex)))
+	StatLevelInterpolationExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	return StatLevelInterpolationExcelEnd(b)
 }
 
@@ -35,11 +35,11 @@ func (t *StatLevelInterpolationExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StatLevelInterpolationExcelDto) UnmarshalMessage(e *StatLevelInterpolationExcel) error {
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.StatTypeIndex = make([]int64, e.StatTypeIndexLength())
 	for i := range e.StatTypeIndexLength() {
 		t.StatTypeIndex[i] = fbsutils.Convert(e.StatTypeIndex(i), t.FlatBuffer.TableKey)
 	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	return nil
 }
 

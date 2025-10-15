@@ -33,7 +33,7 @@ func (rcv *MiniGameDreamParameterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDreamParameterExcel) Id() int64 {
+func (rcv *MiniGameDreamParameterExcel) ParameterMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MiniGameDreamParameterExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateId(n int64) bool {
+func (rcv *MiniGameDreamParameterExcel) MutateParameterMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameDreamParameterExcel) EventContentId() int64 {
+func (rcv *MiniGameDreamParameterExcel) ParameterMin() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,32 +53,32 @@ func (rcv *MiniGameDreamParameterExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateEventContentId(n int64) bool {
+func (rcv *MiniGameDreamParameterExcel) MutateParameterMin(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameDreamParameterExcel) ParameterType() DreamMakerParameterType {
+func (rcv *MiniGameDreamParameterExcel) ParameterBaseMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return DreamMakerParameterType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateParameterType(n DreamMakerParameterType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+func (rcv *MiniGameDreamParameterExcel) MutateParameterBaseMax(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MiniGameDreamParameterExcel) LocalizeEtcId() uint32 {
+func (rcv *MiniGameDreamParameterExcel) ParameterBase() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+func (rcv *MiniGameDreamParameterExcel) MutateParameterBase(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *MiniGameDreamParameterExcel) IconPath() []byte {
@@ -89,31 +89,31 @@ func (rcv *MiniGameDreamParameterExcel) IconPath() []byte {
 	return nil
 }
 
-func (rcv *MiniGameDreamParameterExcel) ParameterBase() int64 {
+func (rcv *MiniGameDreamParameterExcel) LocalizeEtcId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateParameterBase(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *MiniGameDreamParameterExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(14, n)
 }
 
-func (rcv *MiniGameDreamParameterExcel) ParameterBaseMax() int64 {
+func (rcv *MiniGameDreamParameterExcel) ParameterType() DreamMakerParameterType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return DreamMakerParameterType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateParameterBaseMax(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+func (rcv *MiniGameDreamParameterExcel) MutateParameterType(n DreamMakerParameterType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *MiniGameDreamParameterExcel) ParameterMin() int64 {
+func (rcv *MiniGameDreamParameterExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -121,11 +121,11 @@ func (rcv *MiniGameDreamParameterExcel) ParameterMin() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateParameterMin(n int64) bool {
+func (rcv *MiniGameDreamParameterExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *MiniGameDreamParameterExcel) ParameterMax() int64 {
+func (rcv *MiniGameDreamParameterExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -133,39 +133,39 @@ func (rcv *MiniGameDreamParameterExcel) ParameterMax() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamParameterExcel) MutateParameterMax(n int64) bool {
+func (rcv *MiniGameDreamParameterExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func MiniGameDreamParameterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func MiniGameDreamParameterExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func MiniGameDreamParameterExcelAddParameterMax(builder *flatbuffers.Builder, parameterMax int64) {
+	builder.PrependInt64Slot(0, parameterMax, 0)
 }
-func MiniGameDreamParameterExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
+func MiniGameDreamParameterExcelAddParameterMin(builder *flatbuffers.Builder, parameterMin int64) {
+	builder.PrependInt64Slot(1, parameterMin, 0)
 }
-func MiniGameDreamParameterExcelAddParameterType(builder *flatbuffers.Builder, parameterType DreamMakerParameterType) {
-	builder.PrependInt32Slot(2, int32(parameterType), 0)
+func MiniGameDreamParameterExcelAddParameterBaseMax(builder *flatbuffers.Builder, parameterBaseMax int64) {
+	builder.PrependInt64Slot(2, parameterBaseMax, 0)
 }
-func MiniGameDreamParameterExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(3, localizeEtcId, 0)
+func MiniGameDreamParameterExcelAddParameterBase(builder *flatbuffers.Builder, parameterBase int64) {
+	builder.PrependInt64Slot(3, parameterBase, 0)
 }
 func MiniGameDreamParameterExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(iconPath), 0)
 }
-func MiniGameDreamParameterExcelAddParameterBase(builder *flatbuffers.Builder, parameterBase int64) {
-	builder.PrependInt64Slot(5, parameterBase, 0)
+func MiniGameDreamParameterExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(5, localizeEtcId, 0)
 }
-func MiniGameDreamParameterExcelAddParameterBaseMax(builder *flatbuffers.Builder, parameterBaseMax int64) {
-	builder.PrependInt64Slot(6, parameterBaseMax, 0)
+func MiniGameDreamParameterExcelAddParameterType(builder *flatbuffers.Builder, parameterType DreamMakerParameterType) {
+	builder.PrependInt32Slot(6, int32(parameterType), 0)
 }
-func MiniGameDreamParameterExcelAddParameterMin(builder *flatbuffers.Builder, parameterMin int64) {
-	builder.PrependInt64Slot(7, parameterMin, 0)
+func MiniGameDreamParameterExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(7, eventContentId, 0)
 }
-func MiniGameDreamParameterExcelAddParameterMax(builder *flatbuffers.Builder, parameterMax int64) {
-	builder.PrependInt64Slot(8, parameterMax, 0)
+func MiniGameDreamParameterExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(8, id, 0)
 }
 func MiniGameDreamParameterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -33,72 +33,8 @@ func (rcv *FieldTutorialExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldTutorialExcel) SeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldTutorialExcel) TutorialType(j int) FieldTutorialType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return FieldTutorialType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) TutorialTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) MutateTutorialType(j int, n FieldTutorialType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *FieldTutorialExcel) ConditionType(j int) FieldConditionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return FieldConditionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) ConditionTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) MutateConditionType(j int, n FieldConditionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
 func (rcv *FieldTutorialExcel) ConditionId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -107,7 +43,7 @@ func (rcv *FieldTutorialExcel) ConditionId(j int) int64 {
 }
 
 func (rcv *FieldTutorialExcel) ConditionIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -115,7 +51,7 @@ func (rcv *FieldTutorialExcel) ConditionIdLength() int {
 }
 
 func (rcv *FieldTutorialExcel) MutateConditionId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -123,29 +59,93 @@ func (rcv *FieldTutorialExcel) MutateConditionId(j int, n int64) bool {
 	return false
 }
 
+func (rcv *FieldTutorialExcel) ConditionType(j int) FieldConditionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return FieldConditionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) ConditionTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) MutateConditionType(j int, n FieldConditionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *FieldTutorialExcel) TutorialType(j int) FieldTutorialType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return FieldTutorialType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) TutorialTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) MutateTutorialType(j int, n FieldTutorialType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *FieldTutorialExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
 func FieldTutorialExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func FieldTutorialExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(0, seasonId, 0)
+func FieldTutorialExcelAddConditionId(builder *flatbuffers.Builder, conditionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(conditionId), 0)
 }
-func FieldTutorialExcelAddTutorialType(builder *flatbuffers.Builder, tutorialType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(tutorialType), 0)
-}
-func FieldTutorialExcelStartTutorialTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func FieldTutorialExcelStartConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func FieldTutorialExcelAddConditionType(builder *flatbuffers.Builder, conditionType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(conditionType), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(conditionType), 0)
 }
 func FieldTutorialExcelStartConditionTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func FieldTutorialExcelAddConditionId(builder *flatbuffers.Builder, conditionId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(conditionId), 0)
+func FieldTutorialExcelAddTutorialType(builder *flatbuffers.Builder, tutorialType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(tutorialType), 0)
 }
-func FieldTutorialExcelStartConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func FieldTutorialExcelStartTutorialTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func FieldTutorialExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(3, seasonId, 0)
 }
 func FieldTutorialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

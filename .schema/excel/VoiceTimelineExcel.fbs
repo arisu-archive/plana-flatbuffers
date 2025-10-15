@@ -3,11 +3,11 @@ include "Nation.fbs";
 namespace MX.Data.Excel;
 
 table VoiceTimelineExcel {
-    unique_id: long;
-    id: uint;
-    nation: [Nation];
-    path: [string];
     sound_volume: [float];
+    path: [string];
+    nation: [Nation];
+    id: uint;
+    unique_id: long;
 }
 
 root_type VoiceTimelineExcel;

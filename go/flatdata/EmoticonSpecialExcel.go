@@ -33,16 +33,12 @@ func (rcv *EmoticonSpecialExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EmoticonSpecialExcel) UniqueId() int64 {
+func (rcv *EmoticonSpecialExcel) Random() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *EmoticonSpecialExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return nil
 }
 
 func (rcv *EmoticonSpecialExcel) CharacterUniqueId() int64 {
@@ -57,25 +53,29 @@ func (rcv *EmoticonSpecialExcel) MutateCharacterUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EmoticonSpecialExcel) Random() []byte {
+func (rcv *EmoticonSpecialExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EmoticonSpecialExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func EmoticonSpecialExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func EmoticonSpecialExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func EmoticonSpecialExcelAddRandom(builder *flatbuffers.Builder, random flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(random), 0)
 }
 func EmoticonSpecialExcelAddCharacterUniqueId(builder *flatbuffers.Builder, characterUniqueId int64) {
 	builder.PrependInt64Slot(1, characterUniqueId, 0)
 }
-func EmoticonSpecialExcelAddRandom(builder *flatbuffers.Builder, random flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(random), 0)
+func EmoticonSpecialExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(2, uniqueId, 0)
 }
 func EmoticonSpecialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

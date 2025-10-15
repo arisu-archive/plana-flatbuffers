@@ -3,16 +3,16 @@ include "FieldDialogType.fbs";
 namespace FlatData;
 
 table FieldSeasonExcel {
-    unique_id: long;
-    event_content_id: long;
-    entry_date_id: long;
-    instant_entry_date_id: long;
-    start_date: string;
-    end_date: string;
-    lobby_bgm_change_stage_id: long;
-    field_prefab_control_id: long;
-    field_get_keyword_call_dialog_enum: FieldDialogType;
-    mastery_image_path: string;
-    field_lobby_title_image_path: string;
     keyword_logo_image_path: string;
+    field_lobby_title_image_path: string;
+    mastery_image_path: string;
+    field_get_keyword_call_dialog_enum: FieldDialogType;
+    field_prefab_control_id: long;
+    lobby_bgm_change_stage_id: long;
+    end_date: string;
+    start_date: string;
+    instant_entry_date_id: long;
+    entry_date_id: long;
+    event_content_id: long;
+    unique_id: long;
 }

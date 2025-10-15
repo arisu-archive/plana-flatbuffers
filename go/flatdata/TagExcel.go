@@ -33,20 +33,8 @@ func (rcv *TagExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TagExcel) Furniture() Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return Tag(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TagExcel) MutateFurniture(n Tag) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *TagExcel) None() Club {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return Club(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,17 +42,29 @@ func (rcv *TagExcel) None() Club {
 }
 
 func (rcv *TagExcel) MutateNone(n Club) bool {
+	return rcv._tab.MutateInt32Slot(4, int32(n))
+}
+
+func (rcv *TagExcel) Furniture() Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return Tag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TagExcel) MutateFurniture(n Tag) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func TagExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func TagExcelAddFurniture(builder *flatbuffers.Builder, furniture Tag) {
-	builder.PrependInt32Slot(0, int32(furniture), 0)
-}
 func TagExcelAddNone(builder *flatbuffers.Builder, none Club) {
-	builder.PrependInt32Slot(1, int32(none), 0)
+	builder.PrependInt32Slot(0, int32(none), 0)
+}
+func TagExcelAddFurniture(builder *flatbuffers.Builder, furniture Tag) {
+	builder.PrependInt32Slot(1, int32(furniture), 0)
 }
 func TagExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

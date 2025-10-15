@@ -10,19 +10,19 @@ import (
 // CharacterPotentialStatExcelDto represents a FlatBuffers table
 type CharacterPotentialStatExcelDto struct {
 	fbsutils.FlatBuffer
-	PotentialStatGroupId int64 `json:"potential_stat_group_id"`
-	PotentialLevel       int32 `json:"potential_level"`
-	RecipeId             int64 `json:"recipe_id"`
 	StatBonusRate        int64 `json:"stat_bonus_rate"`
+	RecipeId             int64 `json:"recipe_id"`
+	PotentialLevel       int32 `json:"potential_level"`
+	PotentialStatGroupId int64 `json:"potential_stat_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterPotentialStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterPotentialStatExcelStart(b)
-	CharacterPotentialStatExcelAddPotentialStatGroupId(b, fbsutils.Convert(t.PotentialStatGroupId, t.FlatBuffer.TableKey))
-	CharacterPotentialStatExcelAddPotentialLevel(b, fbsutils.Convert(t.PotentialLevel, t.FlatBuffer.TableKey))
-	CharacterPotentialStatExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
 	CharacterPotentialStatExcelAddStatBonusRate(b, fbsutils.Convert(t.StatBonusRate, t.FlatBuffer.TableKey))
+	CharacterPotentialStatExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
+	CharacterPotentialStatExcelAddPotentialLevel(b, fbsutils.Convert(t.PotentialLevel, t.FlatBuffer.TableKey))
+	CharacterPotentialStatExcelAddPotentialStatGroupId(b, fbsutils.Convert(t.PotentialStatGroupId, t.FlatBuffer.TableKey))
 	return CharacterPotentialStatExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *CharacterPotentialStatExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterPotentialStatExcelDto) UnmarshalMessage(e *CharacterPotentialStatExcel) error {
-	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
-	t.PotentialLevel = fbsutils.Convert(e.PotentialLevel(), t.FlatBuffer.TableKey)
-	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
 	t.StatBonusRate = fbsutils.Convert(e.StatBonusRate(), t.FlatBuffer.TableKey)
+	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
+	t.PotentialLevel = fbsutils.Convert(e.PotentialLevel(), t.FlatBuffer.TableKey)
+	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

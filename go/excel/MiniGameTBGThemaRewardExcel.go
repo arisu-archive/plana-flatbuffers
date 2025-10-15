@@ -33,120 +33,8 @@ func (rcv *MiniGameTBGThemaRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameTBGThemaRewardExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) ThemaRound() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateThemaRound(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) ThemaUniqueId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateThemaUniqueId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) IsLoop() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateIsLoop(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MiniGameTbgThemaRewardType() MiniGameTBGThemaRewardType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return MiniGameTBGThemaRewardType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateMiniGameTbgThemaRewardType(n MiniGameTBGThemaRewardType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -155,7 +43,7 @@ func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelAmount(j int) int32 {
 }
 
 func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -163,7 +51,7 @@ func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelAmountLength() int {
 }
 
 func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -171,41 +59,153 @@ func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelAmount(j int, n int32)
 	return false
 }
 
+func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) RewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MiniGameTbgThemaRewardType() MiniGameTBGThemaRewardType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return MiniGameTBGThemaRewardType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateMiniGameTbgThemaRewardType(n MiniGameTBGThemaRewardType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) IsLoop() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateIsLoop(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) ThemaUniqueId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateThemaUniqueId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) ThemaRound() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateThemaRound(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameTBGThemaRewardExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
 func MiniGameTBGThemaRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func MiniGameTBGThemaRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
-func MiniGameTBGThemaRewardExcelAddThemaRound(builder *flatbuffers.Builder, themaRound int32) {
-	builder.PrependInt32Slot(1, themaRound, 0)
-}
-func MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder *flatbuffers.Builder, themaUniqueId int32) {
-	builder.PrependInt32Slot(2, themaUniqueId, 0)
-}
-func MiniGameTBGThemaRewardExcelAddIsLoop(builder *flatbuffers.Builder, isLoop bool) {
-	builder.PrependBoolSlot(3, isLoop, false)
-}
-func MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(builder *flatbuffers.Builder, miniGameTbgThemaRewardType MiniGameTBGThemaRewardType) {
-	builder.PrependInt32Slot(4, int32(miniGameTbgThemaRewardType), 0)
-}
-func MiniGameTBGThemaRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameTBGThemaRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func MiniGameTBGThemaRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(builder *flatbuffers.Builder, miniGameTbgThemaRewardType MiniGameTBGThemaRewardType) {
+	builder.PrependInt32Slot(3, int32(miniGameTbgThemaRewardType), 0)
+}
+func MiniGameTBGThemaRewardExcelAddIsLoop(builder *flatbuffers.Builder, isLoop bool) {
+	builder.PrependBoolSlot(4, isLoop, false)
+}
+func MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder *flatbuffers.Builder, themaUniqueId int32) {
+	builder.PrependInt32Slot(5, themaUniqueId, 0)
+}
+func MiniGameTBGThemaRewardExcelAddThemaRound(builder *flatbuffers.Builder, themaRound int32) {
+	builder.PrependInt32Slot(6, themaRound, 0)
+}
+func MiniGameTBGThemaRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(7, eventContentId, 0)
 }
 func MiniGameTBGThemaRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

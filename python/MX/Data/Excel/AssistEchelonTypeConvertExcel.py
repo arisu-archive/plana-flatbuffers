@@ -25,14 +25,14 @@ class AssistEchelonTypeConvertExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AssistEchelonTypeConvertExcel
-    def Contents(self):
+    def ConvertTo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # AssistEchelonTypeConvertExcel
-    def ConvertTo(self):
+    def Contents(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class AssistEchelonTypeConvertExcel(object):
 def AssistEchelonTypeConvertExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return AssistEchelonTypeConvertExcelStart(builder)
-def AssistEchelonTypeConvertExcelAddContents(builder, contents): builder.PrependInt32Slot(0, contents, 0)
-def AddContents(builder, contents):
-    return AssistEchelonTypeConvertExcelAddContents(builder, contents)
-def AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo): builder.PrependInt32Slot(1, convertTo, 0)
+def AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo): builder.PrependInt32Slot(0, convertTo, 0)
 def AddConvertTo(builder, convertTo):
     return AssistEchelonTypeConvertExcelAddConvertTo(builder, convertTo)
+def AssistEchelonTypeConvertExcelAddContents(builder, contents): builder.PrependInt32Slot(1, contents, 0)
+def AddContents(builder, contents):
+    return AssistEchelonTypeConvertExcelAddContents(builder, contents)
 def AssistEchelonTypeConvertExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AssistEchelonTypeConvertExcelEnd(builder)

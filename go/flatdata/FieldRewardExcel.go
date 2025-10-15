@@ -33,28 +33,28 @@ func (rcv *FieldRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldRewardExcel) GroupId() int64 {
+func (rcv *FieldRewardExcel) RewardAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldRewardExcel) RewardProb() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldRewardExcel) MutateRewardProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+func (rcv *FieldRewardExcel) MutateRewardAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *FieldRewardExcel) RewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldRewardExcel) MutateRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *FieldRewardExcel) RewardParcelType() ParcelType {
@@ -69,47 +69,47 @@ func (rcv *FieldRewardExcel) MutateRewardParcelType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *FieldRewardExcel) RewardId() int64 {
+func (rcv *FieldRewardExcel) RewardProb() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldRewardExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *FieldRewardExcel) RewardAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldRewardExcel) MutateRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+func (rcv *FieldRewardExcel) MutateRewardProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *FieldRewardExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldRewardExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func FieldRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func FieldRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func FieldRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
+	builder.PrependInt32Slot(0, rewardAmount, 0)
 }
-func FieldRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
-	builder.PrependInt32Slot(1, rewardProb, 0)
+func FieldRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
+	builder.PrependInt64Slot(1, rewardId, 0)
 }
 func FieldRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
 	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
 }
-func FieldRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(3, rewardId, 0)
+func FieldRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
+	builder.PrependInt32Slot(3, rewardProb, 0)
 }
-func FieldRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
-	builder.PrependInt32Slot(4, rewardAmount, 0)
+func FieldRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(4, groupId, 0)
 }
 func FieldRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

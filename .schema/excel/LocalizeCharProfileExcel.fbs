@@ -1,0 +1,44 @@
+namespace MX.Data.Excel;
+
+table LocalizeCharProfileExcel {
+    character_ssr_new_jp: string;
+    character_ssr_new_kr: string;
+    profile_introduction_jp: string;
+    profile_introduction_kr: string;
+    weapon_desc_jp: string;
+    weapon_name_jp: string;
+    weapon_desc_kr: string;
+    weapon_name_kr: string;
+    hobby_jp: string;
+    hobby_kr: string;
+    character_voice_jp: string;
+    character_voice_kr: string;
+    illustrator_name_jp: string;
+    illustrator_name_kr: string;
+    designer_name_jp: string;
+    designer_name_kr: string;
+    char_height_jp: string;
+    char_height_kr: string;
+    birthday_jp: string;
+    birthday_kr: string;
+    birth_day: string;
+    character_age_jp: string;
+    character_age_kr: string;
+    school_year_jp: string;
+    school_year_kr: string;
+    personal_name_ruby_jp: string;
+    personal_name_jp: string;
+    family_name_ruby_jp: string;
+    family_name_jp: string;
+    personal_name_ruby_kr: string;
+    personal_name_kr: string;
+    family_name_ruby_kr: string;
+    family_name_kr: string;
+    full_name_jp: string;
+    full_name_kr: string;
+    status_message_jp: string;
+    status_message_kr: string;
+    character_id: long;
+}
+
+root_type LocalizeCharProfileExcel;

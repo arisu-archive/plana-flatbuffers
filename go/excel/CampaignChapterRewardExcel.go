@@ -33,28 +33,56 @@ func (rcv *CampaignChapterRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CampaignChapterRewardExcel) Id() int64 {
+func (rcv *CampaignChapterRewardExcel) ChapterRewardAmount(j int) int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterRewardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CampaignChapterRewardExcel) ChapterRewardAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CampaignChapterRewardExcel) CampaignChapterStar() int64 {
+func (rcv *CampaignChapterRewardExcel) MutateChapterRewardAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *CampaignChapterRewardExcel) ChapterRewardId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterRewardExcel) MutateCampaignChapterStar(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *CampaignChapterRewardExcel) ChapterRewardIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CampaignChapterRewardExcel) MutateChapterRewardId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *CampaignChapterRewardExcel) ChapterRewardParcelType(j int) ParcelType {
@@ -83,66 +111,44 @@ func (rcv *CampaignChapterRewardExcel) MutateChapterRewardParcelType(j int, n Pa
 	return false
 }
 
-func (rcv *CampaignChapterRewardExcel) ChapterRewardId(j int) int64 {
+func (rcv *CampaignChapterRewardExcel) CampaignChapterStar() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterRewardExcel) ChapterRewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *CampaignChapterRewardExcel) MutateCampaignChapterStar(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CampaignChapterRewardExcel) MutateChapterRewardId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *CampaignChapterRewardExcel) ChapterRewardAmount(j int) int32 {
+func (rcv *CampaignChapterRewardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterRewardExcel) ChapterRewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CampaignChapterRewardExcel) MutateChapterRewardAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
+func (rcv *CampaignChapterRewardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func CampaignChapterRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func CampaignChapterRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func CampaignChapterRewardExcelAddChapterRewardAmount(builder *flatbuffers.Builder, chapterRewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(chapterRewardAmount), 0)
 }
-func CampaignChapterRewardExcelAddCampaignChapterStar(builder *flatbuffers.Builder, campaignChapterStar int64) {
-	builder.PrependInt64Slot(1, campaignChapterStar, 0)
+func CampaignChapterRewardExcelStartChapterRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func CampaignChapterRewardExcelAddChapterRewardId(builder *flatbuffers.Builder, chapterRewardId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(chapterRewardId), 0)
+}
+func CampaignChapterRewardExcelStartChapterRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func CampaignChapterRewardExcelAddChapterRewardParcelType(builder *flatbuffers.Builder, chapterRewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(chapterRewardParcelType), 0)
@@ -150,17 +156,11 @@ func CampaignChapterRewardExcelAddChapterRewardParcelType(builder *flatbuffers.B
 func CampaignChapterRewardExcelStartChapterRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CampaignChapterRewardExcelAddChapterRewardId(builder *flatbuffers.Builder, chapterRewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(chapterRewardId), 0)
+func CampaignChapterRewardExcelAddCampaignChapterStar(builder *flatbuffers.Builder, campaignChapterStar int64) {
+	builder.PrependInt64Slot(3, campaignChapterStar, 0)
 }
-func CampaignChapterRewardExcelStartChapterRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func CampaignChapterRewardExcelAddChapterRewardAmount(builder *flatbuffers.Builder, chapterRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(chapterRewardAmount), 0)
-}
-func CampaignChapterRewardExcelStartChapterRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func CampaignChapterRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
 func CampaignChapterRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

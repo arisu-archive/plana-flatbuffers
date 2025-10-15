@@ -33,55 +33,51 @@ func (rcv *ConstMiniGameShootingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstMiniGameShootingExcel) NormalStageId() int64 {
+func (rcv *ConstMiniGameShootingExcel) FreeGearInterval() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateNormalStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *ConstMiniGameShootingExcel) MutateFreeGearInterval(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ConstMiniGameShootingExcel) NormalSectionCount() int32 {
+func (rcv *ConstMiniGameShootingExcel) WaitTimeAfterSpawn() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateNormalSectionCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+func (rcv *ConstMiniGameShootingExcel) MutateWaitTimeAfterSpawn(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
-func (rcv *ConstMiniGameShootingExcel) HardStageId() int64 {
+func (rcv *ConstMiniGameShootingExcel) SpawnEffectPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateHardStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ConstMiniGameShootingExcel) HardSectionCount() int32 {
+func (rcv *ConstMiniGameShootingExcel) CameraSmoothTime() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateHardSectionCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+func (rcv *ConstMiniGameShootingExcel) MutateCameraSmoothTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *ConstMiniGameShootingExcel) FreeStageId() int64 {
+func (rcv *ConstMiniGameShootingExcel) HiddenPlayerCharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,24 +85,12 @@ func (rcv *ConstMiniGameShootingExcel) FreeStageId() int64 {
 	return 0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateFreeStageId(n int64) bool {
+func (rcv *ConstMiniGameShootingExcel) MutateHiddenPlayerCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *ConstMiniGameShootingExcel) FreeSectionCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstMiniGameShootingExcel) MutateFreeSectionCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
 func (rcv *ConstMiniGameShootingExcel) PlayerCharacterId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -115,7 +99,7 @@ func (rcv *ConstMiniGameShootingExcel) PlayerCharacterId(j int) int64 {
 }
 
 func (rcv *ConstMiniGameShootingExcel) PlayerCharacterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,7 +107,7 @@ func (rcv *ConstMiniGameShootingExcel) PlayerCharacterIdLength() int {
 }
 
 func (rcv *ConstMiniGameShootingExcel) MutatePlayerCharacterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -131,7 +115,19 @@ func (rcv *ConstMiniGameShootingExcel) MutatePlayerCharacterId(j int, n int64) b
 	return false
 }
 
-func (rcv *ConstMiniGameShootingExcel) HiddenPlayerCharacterId() int64 {
+func (rcv *ConstMiniGameShootingExcel) FreeSectionCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMiniGameShootingExcel) MutateFreeSectionCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ConstMiniGameShootingExcel) FreeStageId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -139,95 +135,99 @@ func (rcv *ConstMiniGameShootingExcel) HiddenPlayerCharacterId() int64 {
 	return 0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateHiddenPlayerCharacterId(n int64) bool {
+func (rcv *ConstMiniGameShootingExcel) MutateFreeStageId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *ConstMiniGameShootingExcel) CameraSmoothTime() float32 {
+func (rcv *ConstMiniGameShootingExcel) HardSectionCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMiniGameShootingExcel) MutateCameraSmoothTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(20, n)
-}
-
-func (rcv *ConstMiniGameShootingExcel) SpawnEffectPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConstMiniGameShootingExcel) WaitTimeAfterSpawn() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstMiniGameShootingExcel) MutateWaitTimeAfterSpawn(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(24, n)
-}
-
-func (rcv *ConstMiniGameShootingExcel) FreeGearInterval() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstMiniGameShootingExcel) MutateFreeGearInterval(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
+func (rcv *ConstMiniGameShootingExcel) MutateHardSectionCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ConstMiniGameShootingExcel) HardStageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMiniGameShootingExcel) MutateHardStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *ConstMiniGameShootingExcel) NormalSectionCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMiniGameShootingExcel) MutateNormalSectionCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *ConstMiniGameShootingExcel) NormalStageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstMiniGameShootingExcel) MutateNormalStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
 }
 
 func ConstMiniGameShootingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func ConstMiniGameShootingExcelAddNormalStageId(builder *flatbuffers.Builder, normalStageId int64) {
-	builder.PrependInt64Slot(0, normalStageId, 0)
+func ConstMiniGameShootingExcelAddFreeGearInterval(builder *flatbuffers.Builder, freeGearInterval int32) {
+	builder.PrependInt32Slot(0, freeGearInterval, 0)
 }
-func ConstMiniGameShootingExcelAddNormalSectionCount(builder *flatbuffers.Builder, normalSectionCount int32) {
-	builder.PrependInt32Slot(1, normalSectionCount, 0)
+func ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(builder *flatbuffers.Builder, waitTimeAfterSpawn float32) {
+	builder.PrependFloat32Slot(1, waitTimeAfterSpawn, 0.0)
 }
-func ConstMiniGameShootingExcelAddHardStageId(builder *flatbuffers.Builder, hardStageId int64) {
-	builder.PrependInt64Slot(2, hardStageId, 0)
+func ConstMiniGameShootingExcelAddSpawnEffectPath(builder *flatbuffers.Builder, spawnEffectPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(spawnEffectPath), 0)
 }
-func ConstMiniGameShootingExcelAddHardSectionCount(builder *flatbuffers.Builder, hardSectionCount int32) {
-	builder.PrependInt32Slot(3, hardSectionCount, 0)
+func ConstMiniGameShootingExcelAddCameraSmoothTime(builder *flatbuffers.Builder, cameraSmoothTime float32) {
+	builder.PrependFloat32Slot(3, cameraSmoothTime, 0.0)
 }
-func ConstMiniGameShootingExcelAddFreeStageId(builder *flatbuffers.Builder, freeStageId int64) {
-	builder.PrependInt64Slot(4, freeStageId, 0)
-}
-func ConstMiniGameShootingExcelAddFreeSectionCount(builder *flatbuffers.Builder, freeSectionCount int32) {
-	builder.PrependInt32Slot(5, freeSectionCount, 0)
+func ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(builder *flatbuffers.Builder, hiddenPlayerCharacterId int64) {
+	builder.PrependInt64Slot(4, hiddenPlayerCharacterId, 0)
 }
 func ConstMiniGameShootingExcelAddPlayerCharacterId(builder *flatbuffers.Builder, playerCharacterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(playerCharacterId), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(playerCharacterId), 0)
 }
 func ConstMiniGameShootingExcelStartPlayerCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(builder *flatbuffers.Builder, hiddenPlayerCharacterId int64) {
-	builder.PrependInt64Slot(7, hiddenPlayerCharacterId, 0)
+func ConstMiniGameShootingExcelAddFreeSectionCount(builder *flatbuffers.Builder, freeSectionCount int32) {
+	builder.PrependInt32Slot(6, freeSectionCount, 0)
 }
-func ConstMiniGameShootingExcelAddCameraSmoothTime(builder *flatbuffers.Builder, cameraSmoothTime float32) {
-	builder.PrependFloat32Slot(8, cameraSmoothTime, 0.0)
+func ConstMiniGameShootingExcelAddFreeStageId(builder *flatbuffers.Builder, freeStageId int64) {
+	builder.PrependInt64Slot(7, freeStageId, 0)
 }
-func ConstMiniGameShootingExcelAddSpawnEffectPath(builder *flatbuffers.Builder, spawnEffectPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(spawnEffectPath), 0)
+func ConstMiniGameShootingExcelAddHardSectionCount(builder *flatbuffers.Builder, hardSectionCount int32) {
+	builder.PrependInt32Slot(8, hardSectionCount, 0)
 }
-func ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(builder *flatbuffers.Builder, waitTimeAfterSpawn float32) {
-	builder.PrependFloat32Slot(10, waitTimeAfterSpawn, 0.0)
+func ConstMiniGameShootingExcelAddHardStageId(builder *flatbuffers.Builder, hardStageId int64) {
+	builder.PrependInt64Slot(9, hardStageId, 0)
 }
-func ConstMiniGameShootingExcelAddFreeGearInterval(builder *flatbuffers.Builder, freeGearInterval int32) {
-	builder.PrependInt32Slot(11, freeGearInterval, 0)
+func ConstMiniGameShootingExcelAddNormalSectionCount(builder *flatbuffers.Builder, normalSectionCount int32) {
+	builder.PrependInt32Slot(10, normalSectionCount, 0)
+}
+func ConstMiniGameShootingExcelAddNormalStageId(builder *flatbuffers.Builder, normalStageId int64) {
+	builder.PrependInt64Slot(11, normalStageId, 0)
 }
 func ConstMiniGameShootingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -25,24 +25,24 @@ class DuplicateBonusExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DuplicateBonusExcel
-    def Id(self):
+    def RewardParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # DuplicateBonusExcel
-    def ItemCategory(self):
+    def RewardParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # DuplicateBonusExcel
-    def ItemId(self):
+    def RewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DuplicateBonusExcel
@@ -53,21 +53,21 @@ class DuplicateBonusExcel(object):
         return 0
 
     # DuplicateBonusExcel
-    def RewardParcelType(self):
+    def ItemId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # DuplicateBonusExcel
-    def RewardParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # DuplicateBonusExcel
-    def RewardParcelAmount(self):
+    def ItemCategory(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # DuplicateBonusExcel
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -76,27 +76,27 @@ class DuplicateBonusExcel(object):
 def DuplicateBonusExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return DuplicateBonusExcelStart(builder)
-def DuplicateBonusExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return DuplicateBonusExcelAddId(builder, id)
-def DuplicateBonusExcelAddItemCategory(builder, itemCategory): builder.PrependInt32Slot(1, itemCategory, 0)
-def AddItemCategory(builder, itemCategory):
-    return DuplicateBonusExcelAddItemCategory(builder, itemCategory)
-def DuplicateBonusExcelAddItemId(builder, itemId): builder.PrependInt64Slot(2, itemId, 0)
-def AddItemId(builder, itemId):
-    return DuplicateBonusExcelAddItemId(builder, itemId)
+def DuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(0, rewardParcelAmount, 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return DuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def DuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(1, rewardParcelId, 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return DuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId)
+def DuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(2, rewardParcelType, 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return DuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType)
 def DuplicateBonusExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(3, characterId, 0)
 def AddCharacterId(builder, characterId):
     return DuplicateBonusExcelAddCharacterId(builder, characterId)
-def DuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(4, rewardParcelType, 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return DuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType)
-def DuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(5, rewardParcelId, 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return DuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId)
-def DuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(6, rewardParcelAmount, 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return DuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def DuplicateBonusExcelAddItemId(builder, itemId): builder.PrependInt64Slot(4, itemId, 0)
+def AddItemId(builder, itemId):
+    return DuplicateBonusExcelAddItemId(builder, itemId)
+def DuplicateBonusExcelAddItemCategory(builder, itemCategory): builder.PrependInt32Slot(5, itemCategory, 0)
+def AddItemCategory(builder, itemCategory):
+    return DuplicateBonusExcelAddItemCategory(builder, itemCategory)
+def DuplicateBonusExcelAddId(builder, id): builder.PrependInt64Slot(6, id, 0)
+def AddId(builder, id):
+    return DuplicateBonusExcelAddId(builder, id)
 def DuplicateBonusExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return DuplicateBonusExcelEnd(builder)

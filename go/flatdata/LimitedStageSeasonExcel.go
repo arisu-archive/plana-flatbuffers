@@ -33,7 +33,7 @@ func (rcv *LimitedStageSeasonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LimitedStageSeasonExcel) Id() int64 {
+func (rcv *LimitedStageSeasonExcel) TypeCCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,40 +41,12 @@ func (rcv *LimitedStageSeasonExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *LimitedStageSeasonExcel) MutateId(n int64) bool {
+func (rcv *LimitedStageSeasonExcel) MutateTypeCCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *LimitedStageSeasonExcel) StartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LimitedStageSeasonExcel) EndDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LimitedStageSeasonExcel) TypeACount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageSeasonExcel) MutateTypeACount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
 func (rcv *LimitedStageSeasonExcel) TypeBCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -82,10 +54,38 @@ func (rcv *LimitedStageSeasonExcel) TypeBCount() int64 {
 }
 
 func (rcv *LimitedStageSeasonExcel) MutateTypeBCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *LimitedStageSeasonExcel) TypeCCount() int64 {
+func (rcv *LimitedStageSeasonExcel) TypeACount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageSeasonExcel) MutateTypeACount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *LimitedStageSeasonExcel) EndDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LimitedStageSeasonExcel) StartDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LimitedStageSeasonExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -93,30 +93,30 @@ func (rcv *LimitedStageSeasonExcel) TypeCCount() int64 {
 	return 0
 }
 
-func (rcv *LimitedStageSeasonExcel) MutateTypeCCount(n int64) bool {
+func (rcv *LimitedStageSeasonExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func LimitedStageSeasonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func LimitedStageSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func LimitedStageSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(startDate), 0)
-}
-func LimitedStageSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(endDate), 0)
-}
-func LimitedStageSeasonExcelAddTypeACount(builder *flatbuffers.Builder, typeACount int64) {
-	builder.PrependInt64Slot(3, typeACount, 0)
+func LimitedStageSeasonExcelAddTypeCCount(builder *flatbuffers.Builder, typeCCount int64) {
+	builder.PrependInt64Slot(0, typeCCount, 0)
 }
 func LimitedStageSeasonExcelAddTypeBCount(builder *flatbuffers.Builder, typeBCount int64) {
-	builder.PrependInt64Slot(4, typeBCount, 0)
+	builder.PrependInt64Slot(1, typeBCount, 0)
 }
-func LimitedStageSeasonExcelAddTypeCCount(builder *flatbuffers.Builder, typeCCount int64) {
-	builder.PrependInt64Slot(5, typeCCount, 0)
+func LimitedStageSeasonExcelAddTypeACount(builder *flatbuffers.Builder, typeACount int64) {
+	builder.PrependInt64Slot(2, typeACount, 0)
+}
+func LimitedStageSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(endDate), 0)
+}
+func LimitedStageSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(startDate), 0)
+}
+func LimitedStageSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func LimitedStageSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

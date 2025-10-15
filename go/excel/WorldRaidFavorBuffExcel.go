@@ -33,7 +33,7 @@ func (rcv *WorldRaidFavorBuffExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRank() int64 {
+func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRankBonus() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRank() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidFavorBuffExcel) MutateWorldRaidFavorRank(n int64) bool {
+func (rcv *WorldRaidFavorBuffExcel) MutateWorldRaidFavorRankBonus(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRankBonus() int64 {
+func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,18 +53,18 @@ func (rcv *WorldRaidFavorBuffExcel) WorldRaidFavorRankBonus() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidFavorBuffExcel) MutateWorldRaidFavorRankBonus(n int64) bool {
+func (rcv *WorldRaidFavorBuffExcel) MutateWorldRaidFavorRank(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func WorldRaidFavorBuffExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder *flatbuffers.Builder, worldRaidFavorRank int64) {
-	builder.PrependInt64Slot(0, worldRaidFavorRank, 0)
-}
 func WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder *flatbuffers.Builder, worldRaidFavorRankBonus int64) {
-	builder.PrependInt64Slot(1, worldRaidFavorRankBonus, 0)
+	builder.PrependInt64Slot(0, worldRaidFavorRankBonus, 0)
+}
+func WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder *flatbuffers.Builder, worldRaidFavorRank int64) {
+	builder.PrependInt64Slot(1, worldRaidFavorRank, 0)
 }
 func WorldRaidFavorBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

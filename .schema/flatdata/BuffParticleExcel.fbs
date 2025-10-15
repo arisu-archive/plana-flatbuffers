@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table BuffParticleExcel {
-    unique_id: long;
-    unique_name: string;
-    buff_type: string;
-    buff_name: string;
     resource_path: string;
+    buff_name: string;
+    buff_type: string;
+    unique_name: string;
+    unique_id: long;
 }

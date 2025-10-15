@@ -10,8 +10,8 @@ import (
 // PositionDto represents a FlatBuffers table
 type PositionDto struct {
 	fbsutils.FlatBuffer
-	X float32 `json:"x"`
 	Z float32 `json:"z"`
+	X float32 `json:"x"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *PositionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Position"))
 	}
 	PositionStart(b)
-	PositionAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	PositionAddZ(b, fbsutils.Convert(t.Z, t.FlatBuffer.TableKey))
+	PositionAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	return PositionEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *PositionDto) UnmarshalMessage(e *Position) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Position"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	return nil
 }
 

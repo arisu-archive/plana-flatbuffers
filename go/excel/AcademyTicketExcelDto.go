@@ -10,15 +10,15 @@ import (
 // AcademyTicketExcelDto represents a FlatBuffers table
 type AcademyTicketExcelDto struct {
 	fbsutils.FlatBuffer
-	LocationRankSum    int64 `json:"location_rank_sum"`
 	ScheduleTicktetMax int64 `json:"schedule_ticktet_max"`
+	LocationRankSum    int64 `json:"location_rank_sum"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyTicketExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AcademyTicketExcelStart(b)
-	AcademyTicketExcelAddLocationRankSum(b, fbsutils.Convert(t.LocationRankSum, t.FlatBuffer.TableKey))
 	AcademyTicketExcelAddScheduleTicktetMax(b, fbsutils.Convert(t.ScheduleTicktetMax, t.FlatBuffer.TableKey))
+	AcademyTicketExcelAddLocationRankSum(b, fbsutils.Convert(t.LocationRankSum, t.FlatBuffer.TableKey))
 	return AcademyTicketExcelEnd(b)
 }
 
@@ -31,8 +31,8 @@ func (t *AcademyTicketExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyTicketExcelDto) UnmarshalMessage(e *AcademyTicketExcel) error {
-	t.LocationRankSum = fbsutils.Convert(e.LocationRankSum(), t.FlatBuffer.TableKey)
 	t.ScheduleTicktetMax = fbsutils.Convert(e.ScheduleTicktetMax(), t.FlatBuffer.TableKey)
+	t.LocationRankSum = fbsutils.Convert(e.LocationRankSum(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -33,7 +33,7 @@ func (rcv *RecipeSelectionGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupId() int64 {
+func (rcv *RecipeSelectionGroupExcel) ResultAmountMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupId() int64 {
 	return 0
 }
 
-func (rcv *RecipeSelectionGroupExcel) MutateRecipeSelectionGroupId(n int64) bool {
+func (rcv *RecipeSelectionGroupExcel) MutateResultAmountMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupComponentId() int64 {
+func (rcv *RecipeSelectionGroupExcel) ResultAmountMin() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,24 +53,12 @@ func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupComponentId() int64 {
 	return 0
 }
 
-func (rcv *RecipeSelectionGroupExcel) MutateRecipeSelectionGroupComponentId(n int64) bool {
+func (rcv *RecipeSelectionGroupExcel) MutateResultAmountMin(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *RecipeSelectionGroupExcel) ParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *RecipeSelectionGroupExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *RecipeSelectionGroupExcel) ParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -78,10 +66,22 @@ func (rcv *RecipeSelectionGroupExcel) ParcelId() int64 {
 }
 
 func (rcv *RecipeSelectionGroupExcel) MutateParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *RecipeSelectionGroupExcel) ResultAmountMin() int64 {
+func (rcv *RecipeSelectionGroupExcel) ParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *RecipeSelectionGroupExcel) MutateParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupComponentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *RecipeSelectionGroupExcel) ResultAmountMin() int64 {
 	return 0
 }
 
-func (rcv *RecipeSelectionGroupExcel) MutateResultAmountMin(n int64) bool {
+func (rcv *RecipeSelectionGroupExcel) MutateRecipeSelectionGroupComponentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *RecipeSelectionGroupExcel) ResultAmountMax() int64 {
+func (rcv *RecipeSelectionGroupExcel) RecipeSelectionGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *RecipeSelectionGroupExcel) ResultAmountMax() int64 {
 	return 0
 }
 
-func (rcv *RecipeSelectionGroupExcel) MutateResultAmountMax(n int64) bool {
+func (rcv *RecipeSelectionGroupExcel) MutateRecipeSelectionGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func RecipeSelectionGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder *flatbuffers.Builder, recipeSelectionGroupId int64) {
-	builder.PrependInt64Slot(0, recipeSelectionGroupId, 0)
-}
-func RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder *flatbuffers.Builder, recipeSelectionGroupComponentId int64) {
-	builder.PrependInt64Slot(1, recipeSelectionGroupComponentId, 0)
-}
-func RecipeSelectionGroupExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(parcelType), 0)
-}
-func RecipeSelectionGroupExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
-	builder.PrependInt64Slot(3, parcelId, 0)
+func RecipeSelectionGroupExcelAddResultAmountMax(builder *flatbuffers.Builder, resultAmountMax int64) {
+	builder.PrependInt64Slot(0, resultAmountMax, 0)
 }
 func RecipeSelectionGroupExcelAddResultAmountMin(builder *flatbuffers.Builder, resultAmountMin int64) {
-	builder.PrependInt64Slot(4, resultAmountMin, 0)
+	builder.PrependInt64Slot(1, resultAmountMin, 0)
 }
-func RecipeSelectionGroupExcelAddResultAmountMax(builder *flatbuffers.Builder, resultAmountMax int64) {
-	builder.PrependInt64Slot(5, resultAmountMax, 0)
+func RecipeSelectionGroupExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
+	builder.PrependInt64Slot(2, parcelId, 0)
+}
+func RecipeSelectionGroupExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(3, int32(parcelType), 0)
+}
+func RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder *flatbuffers.Builder, recipeSelectionGroupComponentId int64) {
+	builder.PrependInt64Slot(4, recipeSelectionGroupComponentId, 0)
+}
+func RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder *flatbuffers.Builder, recipeSelectionGroupId int64) {
+	builder.PrependInt64Slot(5, recipeSelectionGroupId, 0)
 }
 func RecipeSelectionGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

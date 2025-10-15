@@ -33,7 +33,7 @@ func (rcv *MiniGameDreamDailyPointExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) UniqueId() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) DailyPointCorrectionValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MiniGameDreamDailyPointExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateUniqueId(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateDailyPointCorrectionValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) EventContentId() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) DailyPointCoefficient() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *MiniGameDreamDailyPointExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateEventContentId(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateDailyPointCoefficient(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMin() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMin() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateTotalParameterMin(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateTotalParameterMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMax() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMin() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *MiniGameDreamDailyPointExcel) TotalParameterMax() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateTotalParameterMax(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateTotalParameterMin(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) DailyPointCoefficient() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *MiniGameDreamDailyPointExcel) DailyPointCoefficient() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateDailyPointCoefficient(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) DailyPointCorrectionValue() int64 {
+func (rcv *MiniGameDreamDailyPointExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *MiniGameDreamDailyPointExcel) DailyPointCorrectionValue() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamDailyPointExcel) MutateDailyPointCorrectionValue(n int64) bool {
+func (rcv *MiniGameDreamDailyPointExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func MiniGameDreamDailyPointExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MiniGameDreamDailyPointExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func MiniGameDreamDailyPointExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
-}
-func MiniGameDreamDailyPointExcelAddTotalParameterMin(builder *flatbuffers.Builder, totalParameterMin int64) {
-	builder.PrependInt64Slot(2, totalParameterMin, 0)
-}
-func MiniGameDreamDailyPointExcelAddTotalParameterMax(builder *flatbuffers.Builder, totalParameterMax int64) {
-	builder.PrependInt64Slot(3, totalParameterMax, 0)
+func MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder *flatbuffers.Builder, dailyPointCorrectionValue int64) {
+	builder.PrependInt64Slot(0, dailyPointCorrectionValue, 0)
 }
 func MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder *flatbuffers.Builder, dailyPointCoefficient int64) {
-	builder.PrependInt64Slot(4, dailyPointCoefficient, 0)
+	builder.PrependInt64Slot(1, dailyPointCoefficient, 0)
 }
-func MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder *flatbuffers.Builder, dailyPointCorrectionValue int64) {
-	builder.PrependInt64Slot(5, dailyPointCorrectionValue, 0)
+func MiniGameDreamDailyPointExcelAddTotalParameterMax(builder *flatbuffers.Builder, totalParameterMax int64) {
+	builder.PrependInt64Slot(2, totalParameterMax, 0)
+}
+func MiniGameDreamDailyPointExcelAddTotalParameterMin(builder *flatbuffers.Builder, totalParameterMin int64) {
+	builder.PrependInt64Slot(3, totalParameterMin, 0)
+}
+func MiniGameDreamDailyPointExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
+}
+func MiniGameDreamDailyPointExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(5, uniqueId, 0)
 }
 func MiniGameDreamDailyPointExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

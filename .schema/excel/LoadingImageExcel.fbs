@@ -1,10 +1,10 @@
 namespace MX.Data.Excel;
 
 table LoadingImageExcel {
-    id: long;
-    image_path_kr: string;
-    image_path_jp: string;
     display_weight: int;
+    image_path_jp: string;
+    image_path_kr: string;
+    id: long;
 }
 
 root_type LoadingImageExcel;

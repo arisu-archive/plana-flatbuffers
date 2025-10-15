@@ -33,7 +33,7 @@ func (rcv *LocalizeCharProfileChangeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeCharProfileChangeExcel) CharacterId() int64 {
+func (rcv *LocalizeCharProfileChangeExcel) ChangeCharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *LocalizeCharProfileChangeExcel) CharacterId() int64 {
 	return 0
 }
 
-func (rcv *LocalizeCharProfileChangeExcel) MutateCharacterId(n int64) bool {
+func (rcv *LocalizeCharProfileChangeExcel) MutateChangeCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,7 +57,7 @@ func (rcv *LocalizeCharProfileChangeExcel) MutateScenarioModeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *LocalizeCharProfileChangeExcel) ChangeCharacterId() int64 {
+func (rcv *LocalizeCharProfileChangeExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,21 +65,21 @@ func (rcv *LocalizeCharProfileChangeExcel) ChangeCharacterId() int64 {
 	return 0
 }
 
-func (rcv *LocalizeCharProfileChangeExcel) MutateChangeCharacterId(n int64) bool {
+func (rcv *LocalizeCharProfileChangeExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func LocalizeCharProfileChangeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func LocalizeCharProfileChangeExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(0, characterId, 0)
+func LocalizeCharProfileChangeExcelAddChangeCharacterId(builder *flatbuffers.Builder, changeCharacterId int64) {
+	builder.PrependInt64Slot(0, changeCharacterId, 0)
 }
 func LocalizeCharProfileChangeExcelAddScenarioModeId(builder *flatbuffers.Builder, scenarioModeId int64) {
 	builder.PrependInt64Slot(1, scenarioModeId, 0)
 }
-func LocalizeCharProfileChangeExcelAddChangeCharacterId(builder *flatbuffers.Builder, changeCharacterId int64) {
-	builder.PrependInt64Slot(2, changeCharacterId, 0)
+func LocalizeCharProfileChangeExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(2, characterId, 0)
 }
 func LocalizeCharProfileChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

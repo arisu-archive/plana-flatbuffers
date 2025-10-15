@@ -11,13 +11,13 @@ include "StoryCondition.fbs";
 namespace FlatData;
 
 table ScenarioExcel {
-    none: [ScenarioBGType];
-    idle: [ScenarioCharacterAction];
-    cafe: DialogCategory;
-    talk: DialogType;
-    open: StoryCondition;
-    enter_conver: EmojiEvent;
-    center: ScenarioZoomAnchors;
-    instant: ScenarioZoomType;
     prologue: ScenarioContentType;
+    instant: ScenarioZoomType;
+    center: ScenarioZoomAnchors;
+    enter_conver: EmojiEvent;
+    open: StoryCondition;
+    talk: DialogType;
+    cafe: DialogCategory;
+    idle: [ScenarioCharacterAction];
+    none: [ScenarioBGType];
 }

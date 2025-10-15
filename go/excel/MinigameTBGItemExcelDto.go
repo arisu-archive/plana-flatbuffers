@@ -10,31 +10,31 @@ import (
 // MinigameTBGItemExcelDto represents a FlatBuffers table
 type MinigameTBGItemExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId           int64             `json:"unique_id"`
-	ItemType           TBGItemType       `json:"item_type"`
-	TbgItemEffectType  TBGItemEffectType `json:"tbg_item_effect_type"`
-	ItemParameter      int32             `json:"item_parameter"`
-	LocalizeEtcId      string            `json:"localize_etc_id"`
-	Icon               string            `json:"icon"`
-	BuffIcon           string            `json:"buff_icon"`
-	EncounterCount     int32             `json:"encounter_count"`
-	DiceEffectAniClip  string            `json:"dice_effect_ani_clip"`
 	BuffIconHudVisible bool              `json:"buff_icon_hud_visible"`
+	DiceEffectAniClip  string            `json:"dice_effect_ani_clip"`
+	EncounterCount     int32             `json:"encounter_count"`
+	BuffIcon           string            `json:"buff_icon"`
+	Icon               string            `json:"icon"`
+	LocalizeEtcId      string            `json:"localize_etc_id"`
+	ItemParameter      int32             `json:"item_parameter"`
+	TbgItemEffectType  TBGItemEffectType `json:"tbg_item_effect_type"`
+	ItemType           TBGItemType       `json:"item_type"`
+	UniqueId           int64             `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGItemExcelStart(b)
-	MinigameTBGItemExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddItemType(b, fbsutils.Convert(t.ItemType, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddTbgItemEffectType(b, fbsutils.Convert(t.TbgItemEffectType, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddItemParameter(b, fbsutils.Convert(t.ItemParameter, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddLocalizeEtcId(b, b.CreateString(fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey)))
-	MinigameTBGItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	MinigameTBGItemExcelAddBuffIcon(b, b.CreateString(fbsutils.Convert(t.BuffIcon, t.FlatBuffer.TableKey)))
-	MinigameTBGItemExcelAddEncounterCount(b, fbsutils.Convert(t.EncounterCount, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddDiceEffectAniClip(b, b.CreateString(fbsutils.Convert(t.DiceEffectAniClip, t.FlatBuffer.TableKey)))
 	MinigameTBGItemExcelAddBuffIconHudVisible(b, t.BuffIconHudVisible)
+	MinigameTBGItemExcelAddDiceEffectAniClip(b, b.CreateString(fbsutils.Convert(t.DiceEffectAniClip, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddEncounterCount(b, fbsutils.Convert(t.EncounterCount, t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddBuffIcon(b, b.CreateString(fbsutils.Convert(t.BuffIcon, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddLocalizeEtcId(b, b.CreateString(fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddItemParameter(b, fbsutils.Convert(t.ItemParameter, t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddTbgItemEffectType(b, fbsutils.Convert(t.TbgItemEffectType, t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddItemType(b, fbsutils.Convert(t.ItemType, t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MinigameTBGItemExcelEnd(b)
 }
 
@@ -47,16 +47,16 @@ func (t *MinigameTBGItemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGItemExcelDto) UnmarshalMessage(e *MinigameTBGItemExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.ItemType = TBGItemType(fbsutils.Convert(int32(e.ItemType()), t.FlatBuffer.TableKey))
-	t.TbgItemEffectType = TBGItemEffectType(fbsutils.Convert(int32(e.TbgItemEffectType()), t.FlatBuffer.TableKey))
-	t.ItemParameter = fbsutils.Convert(e.ItemParameter(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(string(e.LocalizeEtcId()), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.BuffIcon = fbsutils.Convert(string(e.BuffIcon()), t.FlatBuffer.TableKey)
-	t.EncounterCount = fbsutils.Convert(e.EncounterCount(), t.FlatBuffer.TableKey)
-	t.DiceEffectAniClip = fbsutils.Convert(string(e.DiceEffectAniClip()), t.FlatBuffer.TableKey)
 	t.BuffIconHudVisible = e.BuffIconHudVisible()
+	t.DiceEffectAniClip = fbsutils.Convert(string(e.DiceEffectAniClip()), t.FlatBuffer.TableKey)
+	t.EncounterCount = fbsutils.Convert(e.EncounterCount(), t.FlatBuffer.TableKey)
+	t.BuffIcon = fbsutils.Convert(string(e.BuffIcon()), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(string(e.LocalizeEtcId()), t.FlatBuffer.TableKey)
+	t.ItemParameter = fbsutils.Convert(e.ItemParameter(), t.FlatBuffer.TableKey)
+	t.TbgItemEffectType = TBGItemEffectType(fbsutils.Convert(int32(e.TbgItemEffectType()), t.FlatBuffer.TableKey))
+	t.ItemType = TBGItemType(fbsutils.Convert(int32(e.ItemType()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

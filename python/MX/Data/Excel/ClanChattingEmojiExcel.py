@@ -25,18 +25,18 @@ class ClanChattingEmojiExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ClanChattingEmojiExcel
-    def Id(self):
+    def ImagePathJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ClanChattingEmojiExcel
-    def TabGroupId(self):
+    def ImagePathKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ClanChattingEmojiExcel
     def DisplayOrder(self):
@@ -46,37 +46,37 @@ class ClanChattingEmojiExcel(object):
         return 0
 
     # ClanChattingEmojiExcel
-    def ImagePathKr(self):
+    def TabGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # ClanChattingEmojiExcel
-    def ImagePathJp(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def ClanChattingEmojiExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return ClanChattingEmojiExcelStart(builder)
-def ClanChattingEmojiExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return ClanChattingEmojiExcelAddId(builder, id)
-def ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId): builder.PrependInt32Slot(1, tabGroupId, 0)
-def AddTabGroupId(builder, tabGroupId):
-    return ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId)
+def ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+def AddImagePathJp(builder, imagePathJp):
+    return ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp)
+def ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+def AddImagePathKr(builder, imagePathKr):
+    return ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr)
 def ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
     return ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder)
-def ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
-def AddImagePathKr(builder, imagePathKr):
-    return ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr)
-def ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
-def AddImagePathJp(builder, imagePathJp):
-    return ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp)
+def ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId): builder.PrependInt32Slot(3, tabGroupId, 0)
+def AddTabGroupId(builder, tabGroupId):
+    return ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId)
+def ClanChattingEmojiExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+def AddId(builder, id):
+    return ClanChattingEmojiExcelAddId(builder, id)
 def ClanChattingEmojiExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ClanChattingEmojiExcelEnd(builder)

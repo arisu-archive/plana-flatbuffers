@@ -33,12 +33,24 @@ func (rcv *PropMotion) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *PropMotion) Name() []byte {
+func (rcv *PropMotion) Rotations(obj *PropVector3, j int) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		x := rcv._tab.Vector(o)
+		x += flatbuffers.UOffsetT(j) * 4
+		x = rcv._tab.Indirect(x)
+		obj.Init(rcv._tab.Bytes, x)
+		return true
 	}
-	return nil
+	return false
+}
+
+func (rcv *PropMotion) RotationsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func (rcv *PropMotion) Positions(obj *PropVector3, j int) bool {
@@ -61,31 +73,22 @@ func (rcv *PropMotion) PositionsLength() int {
 	return 0
 }
 
-func (rcv *PropMotion) Rotations(obj *PropVector3, j int) bool {
+func (rcv *PropMotion) Name() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		x := rcv._tab.Vector(o)
-		x += flatbuffers.UOffsetT(j) * 4
-		x = rcv._tab.Indirect(x)
-		obj.Init(rcv._tab.Bytes, x)
-		return true
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *PropMotion) RotationsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+	return nil
 }
 
 func PropMotionStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func PropMotionAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(name), 0)
+func PropMotionAddRotations(builder *flatbuffers.Builder, rotations flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(rotations), 0)
+}
+func PropMotionStartRotationsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func PropMotionAddPositions(builder *flatbuffers.Builder, positions flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(positions), 0)
@@ -93,11 +96,8 @@ func PropMotionAddPositions(builder *flatbuffers.Builder, positions flatbuffers.
 func PropMotionStartPositionsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func PropMotionAddRotations(builder *flatbuffers.Builder, rotations flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rotations), 0)
-}
-func PropMotionStartRotationsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func PropMotionAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(name), 0)
 }
 func PropMotionEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

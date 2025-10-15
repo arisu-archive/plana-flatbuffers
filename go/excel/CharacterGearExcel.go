@@ -33,88 +33,136 @@ func (rcv *CharacterGearExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterGearExcel) Id() int64 {
+func (rcv *CharacterGearExcel) Tags(j int) Tag {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CharacterGearExcel) TagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CharacterGearExcel) CharacterId() int64 {
+func (rcv *CharacterGearExcel) MutateTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterGearExcel) LocalizeEtcId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *CharacterGearExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *CharacterGearExcel) StatLevelUpType() StatLevelUpType {
+func (rcv *CharacterGearExcel) Icon() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *CharacterGearExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *CharacterGearExcel) Tier() int64 {
+func (rcv *CharacterGearExcel) MaxStatValue(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateTier(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *CharacterGearExcel) MaxStatValueLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CharacterGearExcel) NextTierEquipment() int64 {
+func (rcv *CharacterGearExcel) MutateMaxStatValue(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CharacterGearExcel) MinStatValue(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateNextTierEquipment(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *CharacterGearExcel) MinStatValueLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CharacterGearExcel) RecipeId() int64 {
+func (rcv *CharacterGearExcel) MutateMinStatValue(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CharacterGearExcel) StatType(j int) EquipmentOptionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateRecipeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *CharacterGearExcel) StatTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CharacterGearExcel) OpenFavorLevel() int64 {
+func (rcv *CharacterGearExcel) MutateStatType(j int, n EquipmentOptionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterGearExcel) LearnSkillSlot() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *CharacterGearExcel) MutateOpenFavorLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return nil
 }
 
 func (rcv *CharacterGearExcel) MaxLevel() int64 {
@@ -129,197 +177,149 @@ func (rcv *CharacterGearExcel) MutateMaxLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *CharacterGearExcel) LearnSkillSlot() []byte {
+func (rcv *CharacterGearExcel) OpenFavorLevel() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *CharacterGearExcel) StatType(j int) EquipmentOptionType {
+func (rcv *CharacterGearExcel) MutateOpenFavorLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *CharacterGearExcel) RecipeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) StatTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *CharacterGearExcel) MutateRecipeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *CharacterGearExcel) MutateStatType(j int, n EquipmentOptionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *CharacterGearExcel) MinStatValue(j int) int64 {
+func (rcv *CharacterGearExcel) NextTierEquipment() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MinStatValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *CharacterGearExcel) MutateNextTierEquipment(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *CharacterGearExcel) MutateMinStatValue(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *CharacterGearExcel) MaxStatValue(j int) int64 {
+func (rcv *CharacterGearExcel) Tier() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MaxStatValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *CharacterGearExcel) MutateTier(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *CharacterGearExcel) MutateMaxStatValue(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *CharacterGearExcel) Icon() []byte {
+func (rcv *CharacterGearExcel) StatLevelUpType() StatLevelUpType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *CharacterGearExcel) LocalizeEtcId() uint32 {
+func (rcv *CharacterGearExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
+}
+
+func (rcv *CharacterGearExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(30, n)
+func (rcv *CharacterGearExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
 }
 
-func (rcv *CharacterGearExcel) Tags(j int) Tag {
+func (rcv *CharacterGearExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterGearExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterGearExcel) MutateTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+func (rcv *CharacterGearExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
 }
 
 func CharacterGearExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(15)
 }
-func CharacterGearExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func CharacterGearExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(tags), 0)
 }
-func CharacterGearExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(1, characterId, 0)
-}
-func CharacterGearExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
-	builder.PrependInt32Slot(2, int32(statLevelUpType), 0)
-}
-func CharacterGearExcelAddTier(builder *flatbuffers.Builder, tier int64) {
-	builder.PrependInt64Slot(3, tier, 0)
-}
-func CharacterGearExcelAddNextTierEquipment(builder *flatbuffers.Builder, nextTierEquipment int64) {
-	builder.PrependInt64Slot(4, nextTierEquipment, 0)
-}
-func CharacterGearExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int64) {
-	builder.PrependInt64Slot(5, recipeId, 0)
-}
-func CharacterGearExcelAddOpenFavorLevel(builder *flatbuffers.Builder, openFavorLevel int64) {
-	builder.PrependInt64Slot(6, openFavorLevel, 0)
-}
-func CharacterGearExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int64) {
-	builder.PrependInt64Slot(7, maxLevel, 0)
-}
-func CharacterGearExcelAddLearnSkillSlot(builder *flatbuffers.Builder, learnSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(learnSkillSlot), 0)
-}
-func CharacterGearExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(statType), 0)
-}
-func CharacterGearExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterGearExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CharacterGearExcelAddMinStatValue(builder *flatbuffers.Builder, minStatValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(minStatValue), 0)
+func CharacterGearExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(1, localizeEtcId, 0)
 }
-func CharacterGearExcelStartMinStatValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func CharacterGearExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(icon), 0)
 }
 func CharacterGearExcelAddMaxStatValue(builder *flatbuffers.Builder, maxStatValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(maxStatValue), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(maxStatValue), 0)
 }
 func CharacterGearExcelStartMaxStatValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CharacterGearExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(icon), 0)
+func CharacterGearExcelAddMinStatValue(builder *flatbuffers.Builder, minStatValue flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(minStatValue), 0)
 }
-func CharacterGearExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(13, localizeEtcId, 0)
+func CharacterGearExcelStartMinStatValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func CharacterGearExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(tags), 0)
+func CharacterGearExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(statType), 0)
 }
-func CharacterGearExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterGearExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func CharacterGearExcelAddLearnSkillSlot(builder *flatbuffers.Builder, learnSkillSlot flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(learnSkillSlot), 0)
+}
+func CharacterGearExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int64) {
+	builder.PrependInt64Slot(7, maxLevel, 0)
+}
+func CharacterGearExcelAddOpenFavorLevel(builder *flatbuffers.Builder, openFavorLevel int64) {
+	builder.PrependInt64Slot(8, openFavorLevel, 0)
+}
+func CharacterGearExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int64) {
+	builder.PrependInt64Slot(9, recipeId, 0)
+}
+func CharacterGearExcelAddNextTierEquipment(builder *flatbuffers.Builder, nextTierEquipment int64) {
+	builder.PrependInt64Slot(10, nextTierEquipment, 0)
+}
+func CharacterGearExcelAddTier(builder *flatbuffers.Builder, tier int64) {
+	builder.PrependInt64Slot(11, tier, 0)
+}
+func CharacterGearExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
+	builder.PrependInt32Slot(12, int32(statLevelUpType), 0)
+}
+func CharacterGearExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(13, characterId, 0)
+}
+func CharacterGearExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(14, id, 0)
 }
 func CharacterGearExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

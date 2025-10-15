@@ -1,10 +1,10 @@
 namespace FlatData;
 
 table SpecialLobbyIllustExcel {
-    unique_id: long;
-    dev_name: string;
-    character_costume_unique_id: long;
-    prefab_name: string;
-    slot_texture_name: string;
     reward_texture_name: string;
+    slot_texture_name: string;
+    prefab_name: string;
+    character_costume_unique_id: long;
+    dev_name: string;
+    unique_id: long;
 }

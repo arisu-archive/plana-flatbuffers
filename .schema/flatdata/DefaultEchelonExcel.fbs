@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table DefaultEchelonExcel {
-    echlon_id: int;
-    leader_id: long;
-    main_id: [long];
-    support_id: [long];
     tss_id: long;
+    support_id: [long];
+    main_id: [long];
+    leader_id: long;
+    echlon_id: int;
 }

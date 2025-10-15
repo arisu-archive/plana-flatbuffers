@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum AssistRewardType: int {
+    None = 0,
+    AssistTerm = 1,
+    AssistRent = 2,
+}

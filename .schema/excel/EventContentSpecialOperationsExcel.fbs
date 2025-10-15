@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table EventContentSpecialOperationsExcel {
+    point_item_id: long;
+    event_content_id: long;
+}
+
+root_type EventContentSpecialOperationsExcel;

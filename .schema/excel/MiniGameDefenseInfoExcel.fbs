@@ -3,11 +3,11 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameDefenseInfoExcel {
-    event_content_id: long;
-    defense_battle_parcel_type: ParcelType;
-    defense_battle_parcel_id: long;
-    defense_battle_multiplier_max: long;
     disable_root_motion: bool;
+    defense_battle_multiplier_max: long;
+    defense_battle_parcel_id: long;
+    defense_battle_parcel_type: ParcelType;
+    event_content_id: long;
 }
 
 root_type MiniGameDefenseInfoExcel;

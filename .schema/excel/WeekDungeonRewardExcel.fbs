@@ -4,14 +4,14 @@ include "WeekDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table WeekDungeonRewardExcel {
-    group_id: long;
-    dungeon_type: WeekDungeonType;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
-    reward_parcel_amount: long;
-    reward_parcel_probability: long;
-    is_displayed: bool;
     drop_item_model_prefab_path: string;
+    is_displayed: bool;
+    reward_parcel_probability: long;
+    reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    dungeon_type: WeekDungeonType;
+    group_id: long;
 }
 
 root_type WeekDungeonRewardExcel;

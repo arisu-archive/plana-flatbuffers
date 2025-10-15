@@ -10,93 +10,93 @@ import (
 // CampaignStageExcelDto represents a FlatBuffers table
 type CampaignStageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                            int64                `json:"id"`
-	Deprecated                    bool                 `json:"deprecated"`
-	Name                          string               `json:"name"`
-	StageNumber                   string               `json:"stage_number"`
-	CleardScenarioId              int64                `json:"cleard_scenario_id"`
-	BattleDuration                int64                `json:"battle_duration"`
-	StageEnterCostType            ParcelType           `json:"stage_enter_cost_type"`
-	StageEnterCostId              int64                `json:"stage_enter_cost_id"`
-	StageEnterCostAmount          int32                `json:"stage_enter_cost_amount"`
-	StageEnterEchelonCount        int32                `json:"stage_enter_echelon_count"`
-	StarConditionTacticRankSCount int64                `json:"star_condition_tactic_rank_s_count"`
-	StarConditionTurnCount        int64                `json:"star_condition_turn_count"`
-	EnterScenarioGroupId          []int64              `json:"enter_scenario_group_id"`
-	ClearScenarioGroupId          []int64              `json:"clear_scenario_group_id"`
-	StrategyMap                   string               `json:"strategy_map"`
-	StrategyMapBg                 string               `json:"strategy_map_bg"`
-	CampaignStageRewardId         int64                `json:"campaign_stage_reward_id"`
-	MaxTurn                       int32                `json:"max_turn"`
-	StageTopography               StageTopography      `json:"stage_topography"`
-	RecommandLevel                int32                `json:"recommand_level"`
-	RecommandLevelGapForGuide     int32                `json:"recommand_level_gap_for_guide"`
-	MinEquipmentTierForGuide      []int64              `json:"min_equipment_tier_for_guide"`
-	MinSkillLevelForGuide         []int64              `json:"min_skill_level_for_guide"`
-	BgmId                         string               `json:"bgm_id"`
-	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
-	GroundId                      int64                `json:"ground_id"`
-	StrategySkipGroundId          int32                `json:"strategy_skip_ground_id"`
-	ContentType                   ContentType          `json:"content_type"`
-	BgmIdC9738509                 int64                `json:"bgm_id_c9738509"`
-	FirstClearReportEventName     string               `json:"first_clear_report_event_name"`
-	TacticRewardExp               int64                `json:"tactic_reward_exp"`
-	FixedEchelonId                int64                `json:"fixed_echelon_id"`
 	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
+	FixedEchelonId                int64                `json:"fixed_echelon_id"`
+	TacticRewardExp               int64                `json:"tactic_reward_exp"`
+	FirstClearReportEventName     string               `json:"first_clear_report_event_name"`
+	BgmId                         int64                `json:"bgm_id"`
+	ContentType                   ContentType          `json:"content_type"`
+	StrategySkipGroundId          int32                `json:"strategy_skip_ground_id"`
+	GroundId                      int64                `json:"ground_id"`
+	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
+	BgmIdD0807648                 string               `json:"bgm_id_d0807648"`
+	MinSkillLevelForGuide         []int64              `json:"min_skill_level_for_guide"`
+	MinEquipmentTierForGuide      []int64              `json:"min_equipment_tier_for_guide"`
+	RecommandLevelGapForGuide     int32                `json:"recommand_level_gap_for_guide"`
+	RecommandLevel                int32                `json:"recommand_level"`
+	StageTopography               StageTopography      `json:"stage_topography"`
+	MaxTurn                       int32                `json:"max_turn"`
+	CampaignStageRewardId         int64                `json:"campaign_stage_reward_id"`
+	StrategyMapBg                 string               `json:"strategy_map_bg"`
+	StrategyMap                   string               `json:"strategy_map"`
+	ClearScenarioGroupId          []int64              `json:"clear_scenario_group_id"`
+	EnterScenarioGroupId          []int64              `json:"enter_scenario_group_id"`
+	StarConditionTurnCount        int64                `json:"star_condition_turn_count"`
+	StarConditionTacticRankSCount int64                `json:"star_condition_tactic_rank_s_count"`
+	StageEnterEchelonCount        int32                `json:"stage_enter_echelon_count"`
+	StageEnterCostAmount          int32                `json:"stage_enter_cost_amount"`
+	StageEnterCostId              int64                `json:"stage_enter_cost_id"`
+	StageEnterCostType            ParcelType           `json:"stage_enter_cost_type"`
+	BattleDuration                int64                `json:"battle_duration"`
+	CleardScenarioId              int64                `json:"cleard_scenario_id"`
+	StageNumber                   string               `json:"stage_number"`
+	Name                          string               `json:"name"`
+	Deprecated                    bool                 `json:"deprecated"`
+	Id                            int64                `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CampaignStageExcelStart(b)
-	CampaignStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddDeprecated(b, t.Deprecated)
-	CampaignStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddCleardScenarioId(b, fbsutils.Convert(t.CleardScenarioId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStarConditionTacticRankSCount(b, fbsutils.Convert(t.StarConditionTacticRankSCount, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStarConditionTurnCount(b, fbsutils.Convert(t.StarConditionTurnCount, t.FlatBuffer.TableKey))
-	CampaignStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
-	for i := range len(t.EnterScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	CampaignStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
-	CampaignStageExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
-	for i := range len(t.ClearScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	CampaignStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
-	CampaignStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddCampaignStageRewardId(b, fbsutils.Convert(t.CampaignStageRewardId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddRecommandLevelGapForGuide(b, fbsutils.Convert(t.RecommandLevelGapForGuide, t.FlatBuffer.TableKey))
-	CampaignStageExcelStartMinEquipmentTierForGuideVector(b, len(t.MinEquipmentTierForGuide))
-	for i := range len(t.MinEquipmentTierForGuide) {
-		b.PrependInt64(fbsutils.Convert(t.MinEquipmentTierForGuide[len(t.MinEquipmentTierForGuide)-i-1], t.FlatBuffer.TableKey))
-	}
-	CampaignStageExcelAddMinEquipmentTierForGuide(b, b.EndVector(len(t.MinEquipmentTierForGuide)))
+	CampaignStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddTacticRewardExp(b, fbsutils.Convert(t.TacticRewardExp, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddFirstClearReportEventName(b, b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey)))
+	CampaignStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStrategySkipGroundId(b, fbsutils.Convert(t.StrategySkipGroundId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddBgmIdD0807648(b, b.CreateString(fbsutils.Convert(t.BgmIdD0807648, t.FlatBuffer.TableKey)))
 	CampaignStageExcelStartMinSkillLevelForGuideVector(b, len(t.MinSkillLevelForGuide))
 	for i := range len(t.MinSkillLevelForGuide) {
 		b.PrependInt64(fbsutils.Convert(t.MinSkillLevelForGuide[len(t.MinSkillLevelForGuide)-i-1], t.FlatBuffer.TableKey))
 	}
 	CampaignStageExcelAddMinSkillLevelForGuide(b, b.EndVector(len(t.MinSkillLevelForGuide)))
-	CampaignStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddStrategySkipGroundId(b, fbsutils.Convert(t.StrategySkipGroundId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddFirstClearReportEventName(b, b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey)))
-	CampaignStageExcelAddTacticRewardExp(b, fbsutils.Convert(t.TacticRewardExp, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	CampaignStageExcelStartMinEquipmentTierForGuideVector(b, len(t.MinEquipmentTierForGuide))
+	for i := range len(t.MinEquipmentTierForGuide) {
+		b.PrependInt64(fbsutils.Convert(t.MinEquipmentTierForGuide[len(t.MinEquipmentTierForGuide)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignStageExcelAddMinEquipmentTierForGuide(b, b.EndVector(len(t.MinEquipmentTierForGuide)))
+	CampaignStageExcelAddRecommandLevelGapForGuide(b, fbsutils.Convert(t.RecommandLevelGapForGuide, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddCampaignStageRewardId(b, fbsutils.Convert(t.CampaignStageRewardId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
+	CampaignStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
+	CampaignStageExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
+	for i := range len(t.ClearScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
+	CampaignStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
+	for i := range len(t.EnterScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
+	CampaignStageExcelAddStarConditionTurnCount(b, fbsutils.Convert(t.StarConditionTurnCount, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStarConditionTacticRankSCount(b, fbsutils.Convert(t.StarConditionTacticRankSCount, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddCleardScenarioId(b, fbsutils.Convert(t.CleardScenarioId, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
+	CampaignStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	CampaignStageExcelAddDeprecated(b, t.Deprecated)
+	CampaignStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return CampaignStageExcelEnd(b)
 }
 
@@ -109,51 +109,51 @@ func (t *CampaignStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Deprecated = e.Deprecated()
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.StageNumber = fbsutils.Convert(string(e.StageNumber()), t.FlatBuffer.TableKey)
-	t.CleardScenarioId = fbsutils.Convert(e.CleardScenarioId(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
-	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelonCount = fbsutils.Convert(e.StageEnterEchelonCount(), t.FlatBuffer.TableKey)
-	t.StarConditionTacticRankSCount = fbsutils.Convert(e.StarConditionTacticRankSCount(), t.FlatBuffer.TableKey)
-	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
-	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
-	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
-	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
-	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
-	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
-	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
-	t.CampaignStageRewardId = fbsutils.Convert(e.CampaignStageRewardId(), t.FlatBuffer.TableKey)
-	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.RecommandLevelGapForGuide = fbsutils.Convert(e.RecommandLevelGapForGuide(), t.FlatBuffer.TableKey)
-	t.MinEquipmentTierForGuide = make([]int64, e.MinEquipmentTierForGuideLength())
-	for i := range e.MinEquipmentTierForGuideLength() {
-		t.MinEquipmentTierForGuide[i] = fbsutils.Convert(e.MinEquipmentTierForGuide(i), t.FlatBuffer.TableKey)
-	}
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.TacticRewardExp = fbsutils.Convert(e.TacticRewardExp(), t.FlatBuffer.TableKey)
+	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
+	t.StrategySkipGroundId = fbsutils.Convert(e.StrategySkipGroundId(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
+	t.BgmIdD0807648 = fbsutils.Convert(string(e.BgmIdD0807648()), t.FlatBuffer.TableKey)
 	t.MinSkillLevelForGuide = make([]int64, e.MinSkillLevelForGuideLength())
 	for i := range e.MinSkillLevelForGuideLength() {
 		t.MinSkillLevelForGuide[i] = fbsutils.Convert(e.MinSkillLevelForGuide(i), t.FlatBuffer.TableKey)
 	}
-	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
-	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.StrategySkipGroundId = fbsutils.Convert(e.StrategySkipGroundId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
-	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
-	t.TacticRewardExp = fbsutils.Convert(e.TacticRewardExp(), t.FlatBuffer.TableKey)
-	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.MinEquipmentTierForGuide = make([]int64, e.MinEquipmentTierForGuideLength())
+	for i := range e.MinEquipmentTierForGuideLength() {
+		t.MinEquipmentTierForGuide[i] = fbsutils.Convert(e.MinEquipmentTierForGuide(i), t.FlatBuffer.TableKey)
+	}
+	t.RecommandLevelGapForGuide = fbsutils.Convert(e.RecommandLevelGapForGuide(), t.FlatBuffer.TableKey)
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
+	t.CampaignStageRewardId = fbsutils.Convert(e.CampaignStageRewardId(), t.FlatBuffer.TableKey)
+	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
+	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
+	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
+	for i := range e.ClearScenarioGroupIdLength() {
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
+	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
+	for i := range e.EnterScenarioGroupIdLength() {
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
+	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
+	t.StarConditionTacticRankSCount = fbsutils.Convert(e.StarConditionTacticRankSCount(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelonCount = fbsutils.Convert(e.StageEnterEchelonCount(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
+	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.CleardScenarioId = fbsutils.Convert(e.CleardScenarioId(), t.FlatBuffer.TableKey)
+	t.StageNumber = fbsutils.Convert(string(e.StageNumber()), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Deprecated = e.Deprecated()
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

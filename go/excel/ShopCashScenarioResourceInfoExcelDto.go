@@ -10,17 +10,17 @@ import (
 // ShopCashScenarioResourceInfoExcelDto represents a FlatBuffers table
 type ShopCashScenarioResourceInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	ScenarioResrouceInfoId int64  `json:"scenario_resrouce_info_id"`
-	ShopCashId             int64  `json:"shop_cash_id"`
 	IconPath               string `json:"icon_path"`
+	ShopCashId             int64  `json:"shop_cash_id"`
+	ScenarioResrouceInfoId int64  `json:"scenario_resrouce_info_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopCashScenarioResourceInfoExcelStart(b)
-	ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(b, fbsutils.Convert(t.ScenarioResrouceInfoId, t.FlatBuffer.TableKey))
-	ShopCashScenarioResourceInfoExcelAddShopCashId(b, fbsutils.Convert(t.ShopCashId, t.FlatBuffer.TableKey))
 	ShopCashScenarioResourceInfoExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	ShopCashScenarioResourceInfoExcelAddShopCashId(b, fbsutils.Convert(t.ShopCashId, t.FlatBuffer.TableKey))
+	ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(b, fbsutils.Convert(t.ScenarioResrouceInfoId, t.FlatBuffer.TableKey))
 	return ShopCashScenarioResourceInfoExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *ShopCashScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopCashScenarioResourceInfoExcelDto) UnmarshalMessage(e *ShopCashScenarioResourceInfoExcel) error {
-	t.ScenarioResrouceInfoId = fbsutils.Convert(e.ScenarioResrouceInfoId(), t.FlatBuffer.TableKey)
-	t.ShopCashId = fbsutils.Convert(e.ShopCashId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.ShopCashId = fbsutils.Convert(e.ShopCashId(), t.FlatBuffer.TableKey)
+	t.ScenarioResrouceInfoId = fbsutils.Convert(e.ScenarioResrouceInfoId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

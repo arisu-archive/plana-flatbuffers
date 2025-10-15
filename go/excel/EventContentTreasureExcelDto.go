@@ -10,21 +10,21 @@ import (
 // EventContentTreasureExcelDto represents a FlatBuffers table
 type EventContentTreasureExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId      int64  `json:"event_content_id"`
-	TitleLocalize       string `json:"title_localize"`
-	LoopRound           int32  `json:"loop_round"`
-	UsePrefabName       string `json:"use_prefab_name"`
 	TreasureBgImagePath string `json:"treasure_bg_image_path"`
+	UsePrefabName       string `json:"use_prefab_name"`
+	LoopRound           int32  `json:"loop_round"`
+	TitleLocalize       string `json:"title_localize"`
+	EventContentId      int64  `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EventContentTreasureExcelStart(b)
-	EventContentTreasureExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddTitleLocalize(b, b.CreateString(fbsutils.Convert(t.TitleLocalize, t.FlatBuffer.TableKey)))
-	EventContentTreasureExcelAddLoopRound(b, fbsutils.Convert(t.LoopRound, t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddUsePrefabName(b, b.CreateString(fbsutils.Convert(t.UsePrefabName, t.FlatBuffer.TableKey)))
 	EventContentTreasureExcelAddTreasureBgImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureBgImagePath, t.FlatBuffer.TableKey)))
+	EventContentTreasureExcelAddUsePrefabName(b, b.CreateString(fbsutils.Convert(t.UsePrefabName, t.FlatBuffer.TableKey)))
+	EventContentTreasureExcelAddLoopRound(b, fbsutils.Convert(t.LoopRound, t.FlatBuffer.TableKey))
+	EventContentTreasureExcelAddTitleLocalize(b, b.CreateString(fbsutils.Convert(t.TitleLocalize, t.FlatBuffer.TableKey)))
+	EventContentTreasureExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return EventContentTreasureExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *EventContentTreasureExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentTreasureExcelDto) UnmarshalMessage(e *EventContentTreasureExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.TitleLocalize = fbsutils.Convert(string(e.TitleLocalize()), t.FlatBuffer.TableKey)
-	t.LoopRound = fbsutils.Convert(e.LoopRound(), t.FlatBuffer.TableKey)
-	t.UsePrefabName = fbsutils.Convert(string(e.UsePrefabName()), t.FlatBuffer.TableKey)
 	t.TreasureBgImagePath = fbsutils.Convert(string(e.TreasureBgImagePath()), t.FlatBuffer.TableKey)
+	t.UsePrefabName = fbsutils.Convert(string(e.UsePrefabName()), t.FlatBuffer.TableKey)
+	t.LoopRound = fbsutils.Convert(e.LoopRound(), t.FlatBuffer.TableKey)
+	t.TitleLocalize = fbsutils.Convert(string(e.TitleLocalize()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

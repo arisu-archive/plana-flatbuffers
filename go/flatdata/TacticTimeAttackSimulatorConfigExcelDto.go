@@ -10,12 +10,12 @@ import (
 // TacticTimeAttackSimulatorConfigExcelDto represents a FlatBuffers table
 type TacticTimeAttackSimulatorConfigExcelDto struct {
 	fbsutils.FlatBuffer
-	Order            int64 `json:"order"`
-	Repeat           int64 `json:"repeat"`
-	PresetGroupId    int64 `json:"preset_group_id"`
-	AttackStrikerNum int64 `json:"attack_striker_num"`
-	AttackSpecialNum int64 `json:"attack_special_num"`
 	GeasId           int64 `json:"geas_id"`
+	AttackSpecialNum int64 `json:"attack_special_num"`
+	AttackStrikerNum int64 `json:"attack_striker_num"`
+	PresetGroupId    int64 `json:"preset_group_id"`
+	Repeat           int64 `json:"repeat"`
+	Order            int64 `json:"order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *TacticTimeAttackSimulatorConfigExcelDto) MarshalModel(b *flatbuffers.Bu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticTimeAttackSimulatorConfig"))
 	}
 	TacticTimeAttackSimulatorConfigExcelStart(b)
-	TacticTimeAttackSimulatorConfigExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	TacticTimeAttackSimulatorConfigExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
-	TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(b, fbsutils.Convert(t.PresetGroupId, t.FlatBuffer.TableKey))
-	TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(b, fbsutils.Convert(t.AttackStrikerNum, t.FlatBuffer.TableKey))
-	TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(b, fbsutils.Convert(t.AttackSpecialNum, t.FlatBuffer.TableKey))
 	TacticTimeAttackSimulatorConfigExcelAddGeasId(b, fbsutils.Convert(t.GeasId, t.FlatBuffer.TableKey))
+	TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(b, fbsutils.Convert(t.AttackSpecialNum, t.FlatBuffer.TableKey))
+	TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(b, fbsutils.Convert(t.AttackStrikerNum, t.FlatBuffer.TableKey))
+	TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(b, fbsutils.Convert(t.PresetGroupId, t.FlatBuffer.TableKey))
+	TacticTimeAttackSimulatorConfigExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
+	TacticTimeAttackSimulatorConfigExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	return TacticTimeAttackSimulatorConfigExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *TacticTimeAttackSimulatorConfigExcelDto) UnmarshalMessage(e *TacticTime
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticTimeAttackSimulatorConfig"))
 	}
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
-	t.PresetGroupId = fbsutils.Convert(e.PresetGroupId(), t.FlatBuffer.TableKey)
-	t.AttackStrikerNum = fbsutils.Convert(e.AttackStrikerNum(), t.FlatBuffer.TableKey)
-	t.AttackSpecialNum = fbsutils.Convert(e.AttackSpecialNum(), t.FlatBuffer.TableKey)
 	t.GeasId = fbsutils.Convert(e.GeasId(), t.FlatBuffer.TableKey)
+	t.AttackSpecialNum = fbsutils.Convert(e.AttackSpecialNum(), t.FlatBuffer.TableKey)
+	t.AttackStrikerNum = fbsutils.Convert(e.AttackStrikerNum(), t.FlatBuffer.TableKey)
+	t.PresetGroupId = fbsutils.Convert(e.PresetGroupId(), t.FlatBuffer.TableKey)
+	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	return nil
 }
 

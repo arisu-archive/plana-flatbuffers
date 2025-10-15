@@ -25,56 +25,56 @@ class ProductSelectionGroupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ProductSelectionGroupExcel
-    def ProductSelectionGroupId(self):
+    def ConditionParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def ProductSelectionGroupComponentId(self):
+    def ConditionParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def DisplayOrder(self):
+    def ResultAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def ParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ProductSelectionGroupExcel
     def ParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def ResultAmount(self):
+    def ParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductSelectionGroupExcel
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def ConditionParcelType(self):
+    def ProductSelectionGroupComponentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ProductSelectionGroupExcel
-    def ConditionParcelId(self):
+    def ProductSelectionGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -83,30 +83,30 @@ class ProductSelectionGroupExcel(object):
 def ProductSelectionGroupExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return ProductSelectionGroupExcelStart(builder)
-def ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId): builder.PrependInt64Slot(0, productSelectionGroupId, 0)
-def AddProductSelectionGroupId(builder, productSelectionGroupId):
-    return ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId)
-def ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId): builder.PrependInt64Slot(1, productSelectionGroupComponentId, 0)
-def AddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId):
-    return ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId)
-def ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
-def AddDisplayOrder(builder, displayOrder):
-    return ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder)
-def ProductSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(3, parcelType, 0)
-def AddParcelType(builder, parcelType):
-    return ProductSelectionGroupExcelAddParcelType(builder, parcelType)
-def ProductSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(4, parcelId, 0)
-def AddParcelId(builder, parcelId):
-    return ProductSelectionGroupExcelAddParcelId(builder, parcelId)
-def ProductSelectionGroupExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(5, resultAmount, 0)
-def AddResultAmount(builder, resultAmount):
-    return ProductSelectionGroupExcelAddResultAmount(builder, resultAmount)
-def ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType): builder.PrependInt32Slot(6, conditionParcelType, 0)
-def AddConditionParcelType(builder, conditionParcelType):
-    return ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType)
-def ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId): builder.PrependInt64Slot(7, conditionParcelId, 0)
+def ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId): builder.PrependInt64Slot(0, conditionParcelId, 0)
 def AddConditionParcelId(builder, conditionParcelId):
     return ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId)
+def ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType): builder.PrependInt32Slot(1, conditionParcelType, 0)
+def AddConditionParcelType(builder, conditionParcelType):
+    return ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType)
+def ProductSelectionGroupExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(2, resultAmount, 0)
+def AddResultAmount(builder, resultAmount):
+    return ProductSelectionGroupExcelAddResultAmount(builder, resultAmount)
+def ProductSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(3, parcelId, 0)
+def AddParcelId(builder, parcelId):
+    return ProductSelectionGroupExcelAddParcelId(builder, parcelId)
+def ProductSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(4, parcelType, 0)
+def AddParcelType(builder, parcelType):
+    return ProductSelectionGroupExcelAddParcelType(builder, parcelType)
+def ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(5, displayOrder, 0)
+def AddDisplayOrder(builder, displayOrder):
+    return ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder)
+def ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId): builder.PrependInt64Slot(6, productSelectionGroupComponentId, 0)
+def AddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId):
+    return ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId)
+def ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId): builder.PrependInt64Slot(7, productSelectionGroupId, 0)
+def AddProductSelectionGroupId(builder, productSelectionGroupId):
+    return ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId)
 def ProductSelectionGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ProductSelectionGroupExcelEnd(builder)

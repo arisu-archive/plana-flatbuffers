@@ -10,33 +10,33 @@ import (
 // StickerGroupExcelDto represents a FlatBuffers table
 type StickerGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64      `json:"id"`
-	Layout                       string     `json:"layout"`
-	UniqueLayoutPath             string     `json:"unique_layout_path"`
-	StickerGroupIconpath         string     `json:"sticker_group_iconpath"`
-	PageCompleteSlot             int64      `json:"page_complete_slot"`
-	PageCompleteRewardParcelType ParcelType `json:"page_complete_reward_parcel_type"`
-	PageCompleteRewardParcelId   int64      `json:"page_complete_reward_parcel_id"`
-	PageCompleteRewardAmount     int32      `json:"page_complete_reward_amount"`
-	LocalizeTitle                uint32     `json:"localize_title"`
-	LocalizeDescription          uint32     `json:"localize_description"`
 	StickerGroupCoverpath        string     `json:"sticker_group_coverpath"`
+	LocalizeDescription          uint32     `json:"localize_description"`
+	LocalizeTitle                uint32     `json:"localize_title"`
+	PageCompleteRewardAmount     int32      `json:"page_complete_reward_amount"`
+	PageCompleteRewardParcelId   int64      `json:"page_complete_reward_parcel_id"`
+	PageCompleteRewardParcelType ParcelType `json:"page_complete_reward_parcel_type"`
+	PageCompleteSlot             int64      `json:"page_complete_slot"`
+	StickerGroupIconpath         string     `json:"sticker_group_iconpath"`
+	UniqueLayoutPath             string     `json:"unique_layout_path"`
+	Layout                       string     `json:"layout"`
+	Id                           int64      `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	StickerGroupExcelStart(b)
-	StickerGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddLayout(b, b.CreateString(fbsutils.Convert(t.Layout, t.FlatBuffer.TableKey)))
-	StickerGroupExcelAddUniqueLayoutPath(b, b.CreateString(fbsutils.Convert(t.UniqueLayoutPath, t.FlatBuffer.TableKey)))
-	StickerGroupExcelAddStickerGroupIconpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupIconpath, t.FlatBuffer.TableKey)))
-	StickerGroupExcelAddPageCompleteSlot(b, fbsutils.Convert(t.PageCompleteSlot, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddPageCompleteRewardParcelType(b, fbsutils.Convert(t.PageCompleteRewardParcelType, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddPageCompleteRewardParcelId(b, fbsutils.Convert(t.PageCompleteRewardParcelId, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddPageCompleteRewardAmount(b, fbsutils.Convert(t.PageCompleteRewardAmount, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddLocalizeTitle(b, fbsutils.Convert(t.LocalizeTitle, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddLocalizeDescription(b, fbsutils.Convert(t.LocalizeDescription, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddStickerGroupCoverpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupCoverpath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddLocalizeDescription(b, fbsutils.Convert(t.LocalizeDescription, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddLocalizeTitle(b, fbsutils.Convert(t.LocalizeTitle, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddPageCompleteRewardAmount(b, fbsutils.Convert(t.PageCompleteRewardAmount, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddPageCompleteRewardParcelId(b, fbsutils.Convert(t.PageCompleteRewardParcelId, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddPageCompleteRewardParcelType(b, fbsutils.Convert(t.PageCompleteRewardParcelType, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddPageCompleteSlot(b, fbsutils.Convert(t.PageCompleteSlot, t.FlatBuffer.TableKey))
+	StickerGroupExcelAddStickerGroupIconpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupIconpath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddUniqueLayoutPath(b, b.CreateString(fbsutils.Convert(t.UniqueLayoutPath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddLayout(b, b.CreateString(fbsutils.Convert(t.Layout, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return StickerGroupExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *StickerGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StickerGroupExcelDto) UnmarshalMessage(e *StickerGroupExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Layout = fbsutils.Convert(string(e.Layout()), t.FlatBuffer.TableKey)
-	t.UniqueLayoutPath = fbsutils.Convert(string(e.UniqueLayoutPath()), t.FlatBuffer.TableKey)
-	t.StickerGroupIconpath = fbsutils.Convert(string(e.StickerGroupIconpath()), t.FlatBuffer.TableKey)
-	t.PageCompleteSlot = fbsutils.Convert(e.PageCompleteSlot(), t.FlatBuffer.TableKey)
-	t.PageCompleteRewardParcelType = ParcelType(fbsutils.Convert(int32(e.PageCompleteRewardParcelType()), t.FlatBuffer.TableKey))
-	t.PageCompleteRewardParcelId = fbsutils.Convert(e.PageCompleteRewardParcelId(), t.FlatBuffer.TableKey)
-	t.PageCompleteRewardAmount = fbsutils.Convert(e.PageCompleteRewardAmount(), t.FlatBuffer.TableKey)
-	t.LocalizeTitle = fbsutils.Convert(e.LocalizeTitle(), t.FlatBuffer.TableKey)
-	t.LocalizeDescription = fbsutils.Convert(e.LocalizeDescription(), t.FlatBuffer.TableKey)
 	t.StickerGroupCoverpath = fbsutils.Convert(string(e.StickerGroupCoverpath()), t.FlatBuffer.TableKey)
+	t.LocalizeDescription = fbsutils.Convert(e.LocalizeDescription(), t.FlatBuffer.TableKey)
+	t.LocalizeTitle = fbsutils.Convert(e.LocalizeTitle(), t.FlatBuffer.TableKey)
+	t.PageCompleteRewardAmount = fbsutils.Convert(e.PageCompleteRewardAmount(), t.FlatBuffer.TableKey)
+	t.PageCompleteRewardParcelId = fbsutils.Convert(e.PageCompleteRewardParcelId(), t.FlatBuffer.TableKey)
+	t.PageCompleteRewardParcelType = ParcelType(fbsutils.Convert(int32(e.PageCompleteRewardParcelType()), t.FlatBuffer.TableKey))
+	t.PageCompleteSlot = fbsutils.Convert(e.PageCompleteSlot(), t.FlatBuffer.TableKey)
+	t.StickerGroupIconpath = fbsutils.Convert(string(e.StickerGroupIconpath()), t.FlatBuffer.TableKey)
+	t.UniqueLayoutPath = fbsutils.Convert(string(e.UniqueLayoutPath()), t.FlatBuffer.TableKey)
+	t.Layout = fbsutils.Convert(string(e.Layout()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

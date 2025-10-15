@@ -10,55 +10,55 @@ import (
 // CharacterVoiceExcelDto represents a FlatBuffers table
 type CharacterVoiceExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterVoiceUniqueId int64            `json:"character_voice_unique_id"`
-	CharacterVoiceGroupId  int64            `json:"character_voice_group_id"`
-	VoiceHash              uint32           `json:"voice_hash"`
-	OnlyOne                bool             `json:"only_one"`
-	Priority               int32            `json:"priority"`
-	DisplayOrder           int64            `json:"display_order"`
-	CollectionVisible      bool             `json:"collection_visible"`
-	CvCollectionType       CVCollectionType `json:"cv_collection_type"`
-	UnlockFavorRank        int64            `json:"unlock_favor_rank"`
-	LocalizeCvGroup        string           `json:"localize_cv_group"`
-	Nation                 []Nation         `json:"nation"`
-	Volume                 []float32        `json:"volume"`
-	Delay                  []float32        `json:"delay"`
 	Path                   []string         `json:"path"`
+	Delay                  []float32        `json:"delay"`
+	Volume                 []float32        `json:"volume"`
+	Nation                 []Nation         `json:"nation"`
+	LocalizeCvGroup        string           `json:"localize_cv_group"`
+	UnlockFavorRank        int64            `json:"unlock_favor_rank"`
+	CvCollectionType       CVCollectionType `json:"cv_collection_type"`
+	CollectionVisible      bool             `json:"collection_visible"`
+	DisplayOrder           int64            `json:"display_order"`
+	Priority               int32            `json:"priority"`
+	OnlyOne                bool             `json:"only_one"`
+	VoiceHash              uint32           `json:"voice_hash"`
+	CharacterVoiceGroupId  int64            `json:"character_voice_group_id"`
+	CharacterVoiceUniqueId int64            `json:"character_voice_unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterVoiceExcelStart(b)
-	CharacterVoiceExcelAddCharacterVoiceUniqueId(b, fbsutils.Convert(t.CharacterVoiceUniqueId, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddVoiceHash(b, fbsutils.Convert(t.VoiceHash, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddOnlyOne(b, t.OnlyOne)
-	CharacterVoiceExcelAddPriority(b, fbsutils.Convert(t.Priority, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddCollectionVisible(b, t.CollectionVisible)
-	CharacterVoiceExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
-	CharacterVoiceExcelStartNationVector(b, len(t.Nation))
-	for i := range len(t.Nation) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
-	}
-	CharacterVoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
-	CharacterVoiceExcelStartVolumeVector(b, len(t.Volume))
-	for i := range len(t.Volume) {
-		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))
-	}
-	CharacterVoiceExcelAddVolume(b, b.EndVector(len(t.Volume)))
-	CharacterVoiceExcelStartDelayVector(b, len(t.Delay))
-	for i := range len(t.Delay) {
-		b.PrependFloat32(fbsutils.Convert(t.Delay[len(t.Delay)-i-1], t.FlatBuffer.TableKey))
-	}
-	CharacterVoiceExcelAddDelay(b, b.EndVector(len(t.Delay)))
 	CharacterVoiceExcelStartPathVector(b, len(t.Path))
 	for i := range len(t.Path) {
 		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
 	}
 	CharacterVoiceExcelAddPath(b, b.EndVector(len(t.Path)))
+	CharacterVoiceExcelStartDelayVector(b, len(t.Delay))
+	for i := range len(t.Delay) {
+		b.PrependFloat32(fbsutils.Convert(t.Delay[len(t.Delay)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterVoiceExcelAddDelay(b, b.EndVector(len(t.Delay)))
+	CharacterVoiceExcelStartVolumeVector(b, len(t.Volume))
+	for i := range len(t.Volume) {
+		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterVoiceExcelAddVolume(b, b.EndVector(len(t.Volume)))
+	CharacterVoiceExcelStartNationVector(b, len(t.Nation))
+	for i := range len(t.Nation) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
+	}
+	CharacterVoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
+	CharacterVoiceExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterVoiceExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddCollectionVisible(b, t.CollectionVisible)
+	CharacterVoiceExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddPriority(b, fbsutils.Convert(t.Priority, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddOnlyOne(b, t.OnlyOne)
+	CharacterVoiceExcelAddVoiceHash(b, fbsutils.Convert(t.VoiceHash, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
+	CharacterVoiceExcelAddCharacterVoiceUniqueId(b, fbsutils.Convert(t.CharacterVoiceUniqueId, t.FlatBuffer.TableKey))
 	return CharacterVoiceExcelEnd(b)
 }
 
@@ -71,32 +71,32 @@ func (t *CharacterVoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVoiceExcelDto) UnmarshalMessage(e *CharacterVoiceExcel) error {
-	t.CharacterVoiceUniqueId = fbsutils.Convert(e.CharacterVoiceUniqueId(), t.FlatBuffer.TableKey)
-	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
-	t.VoiceHash = fbsutils.Convert(e.VoiceHash(), t.FlatBuffer.TableKey)
-	t.OnlyOne = e.OnlyOne()
-	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.CollectionVisible = e.CollectionVisible()
-	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
-	t.UnlockFavorRank = fbsutils.Convert(e.UnlockFavorRank(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
-	t.Nation = make([]Nation, e.NationLength())
-	for i := range e.NationLength() {
-		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
-	}
-	t.Volume = make([]float32, e.VolumeLength())
-	for i := range e.VolumeLength() {
-		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
+	t.Path = make([]string, e.PathLength())
+	for i := range e.PathLength() {
+		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)
 	}
 	t.Delay = make([]float32, e.DelayLength())
 	for i := range e.DelayLength() {
 		t.Delay[i] = fbsutils.Convert(e.Delay(i), t.FlatBuffer.TableKey)
 	}
-	t.Path = make([]string, e.PathLength())
-	for i := range e.PathLength() {
-		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)
+	t.Volume = make([]float32, e.VolumeLength())
+	for i := range e.VolumeLength() {
+		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
 	}
+	t.Nation = make([]Nation, e.NationLength())
+	for i := range e.NationLength() {
+		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
+	}
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
+	t.UnlockFavorRank = fbsutils.Convert(e.UnlockFavorRank(), t.FlatBuffer.TableKey)
+	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
+	t.CollectionVisible = e.CollectionVisible()
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
+	t.OnlyOne = e.OnlyOne()
+	t.VoiceHash = fbsutils.Convert(e.VoiceHash(), t.FlatBuffer.TableKey)
+	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
+	t.CharacterVoiceUniqueId = fbsutils.Convert(e.CharacterVoiceUniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

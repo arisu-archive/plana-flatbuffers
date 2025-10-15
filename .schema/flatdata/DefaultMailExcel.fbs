@@ -4,12 +4,12 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table DefaultMailExcel {
-    id: long;
-    localize_code_id: uint;
-    mail_type: MailType;
-    mail_send_period_from: string;
-    mail_send_period_to: string;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
     reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    mail_send_period_to: string;
+    mail_send_period_from: string;
+    mail_type: MailType;
+    localize_code_id: uint;
+    id: long;
 }

@@ -33,16 +33,16 @@ func (rcv *KnockBackExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *KnockBackExcel) Index() int64 {
+func (rcv *KnockBackExcel) Speed() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *KnockBackExcel) MutateIndex(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *KnockBackExcel) MutateSpeed(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
 func (rcv *KnockBackExcel) Dist() float32 {
@@ -57,29 +57,29 @@ func (rcv *KnockBackExcel) MutateDist(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
-func (rcv *KnockBackExcel) Speed() float32 {
+func (rcv *KnockBackExcel) Index() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *KnockBackExcel) MutateSpeed(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
+func (rcv *KnockBackExcel) MutateIndex(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func KnockBackExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func KnockBackExcelAddIndex(builder *flatbuffers.Builder, index int64) {
-	builder.PrependInt64Slot(0, index, 0)
+func KnockBackExcelAddSpeed(builder *flatbuffers.Builder, speed float32) {
+	builder.PrependFloat32Slot(0, speed, 0.0)
 }
 func KnockBackExcelAddDist(builder *flatbuffers.Builder, dist float32) {
 	builder.PrependFloat32Slot(1, dist, 0.0)
 }
-func KnockBackExcelAddSpeed(builder *flatbuffers.Builder, speed float32) {
-	builder.PrependFloat32Slot(2, speed, 0.0)
+func KnockBackExcelAddIndex(builder *flatbuffers.Builder, index int64) {
+	builder.PrependInt64Slot(2, index, 0)
 }
 func KnockBackExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

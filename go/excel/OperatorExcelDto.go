@@ -10,39 +10,39 @@ import (
 // OperatorExcelDto represents a FlatBuffers table
 type OperatorExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId               int64             `json:"unique_id"`
-	GroupId                string            `json:"group_id"`
-	OperatorCondition      OperatorCondition `json:"operator_condition"`
-	OutputSequence         int32             `json:"output_sequence"`
-	RandomWeight           int32             `json:"random_weight"`
-	OutputDelay            int32             `json:"output_delay"`
-	Duration               int32             `json:"duration"`
-	OperatorOutputPriority int32             `json:"operator_output_priority"`
-	PortraitPath           string            `json:"portrait_path"`
-	TextLocalizeKey        string            `json:"text_localize_key"`
-	VoiceId                []uint32          `json:"voice_id"`
 	OperatorWaitQueue      bool              `json:"operator_wait_queue"`
+	VoiceId                []uint32          `json:"voice_id"`
+	TextLocalizeKey        string            `json:"text_localize_key"`
+	PortraitPath           string            `json:"portrait_path"`
+	OperatorOutputPriority int32             `json:"operator_output_priority"`
+	Duration               int32             `json:"duration"`
+	OutputDelay            int32             `json:"output_delay"`
+	RandomWeight           int32             `json:"random_weight"`
+	OutputSequence         int32             `json:"output_sequence"`
+	OperatorCondition      OperatorCondition `json:"operator_condition"`
+	GroupId                string            `json:"group_id"`
+	UniqueId               int64             `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OperatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	OperatorExcelStart(b)
-	OperatorExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	OperatorExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
-	OperatorExcelAddOperatorCondition(b, fbsutils.Convert(t.OperatorCondition, t.FlatBuffer.TableKey))
-	OperatorExcelAddOutputSequence(b, fbsutils.Convert(t.OutputSequence, t.FlatBuffer.TableKey))
-	OperatorExcelAddRandomWeight(b, fbsutils.Convert(t.RandomWeight, t.FlatBuffer.TableKey))
-	OperatorExcelAddOutputDelay(b, fbsutils.Convert(t.OutputDelay, t.FlatBuffer.TableKey))
-	OperatorExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	OperatorExcelAddOperatorOutputPriority(b, fbsutils.Convert(t.OperatorOutputPriority, t.FlatBuffer.TableKey))
-	OperatorExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
-	OperatorExcelAddTextLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TextLocalizeKey, t.FlatBuffer.TableKey)))
+	OperatorExcelAddOperatorWaitQueue(b, t.OperatorWaitQueue)
 	OperatorExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	OperatorExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	OperatorExcelAddOperatorWaitQueue(b, t.OperatorWaitQueue)
+	OperatorExcelAddTextLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TextLocalizeKey, t.FlatBuffer.TableKey)))
+	OperatorExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
+	OperatorExcelAddOperatorOutputPriority(b, fbsutils.Convert(t.OperatorOutputPriority, t.FlatBuffer.TableKey))
+	OperatorExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	OperatorExcelAddOutputDelay(b, fbsutils.Convert(t.OutputDelay, t.FlatBuffer.TableKey))
+	OperatorExcelAddRandomWeight(b, fbsutils.Convert(t.RandomWeight, t.FlatBuffer.TableKey))
+	OperatorExcelAddOutputSequence(b, fbsutils.Convert(t.OutputSequence, t.FlatBuffer.TableKey))
+	OperatorExcelAddOperatorCondition(b, fbsutils.Convert(t.OperatorCondition, t.FlatBuffer.TableKey))
+	OperatorExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
+	OperatorExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return OperatorExcelEnd(b)
 }
 
@@ -55,21 +55,21 @@ func (t *OperatorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *OperatorExcelDto) UnmarshalMessage(e *OperatorExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
-	t.OperatorCondition = OperatorCondition(fbsutils.Convert(int32(e.OperatorCondition()), t.FlatBuffer.TableKey))
-	t.OutputSequence = fbsutils.Convert(e.OutputSequence(), t.FlatBuffer.TableKey)
-	t.RandomWeight = fbsutils.Convert(e.RandomWeight(), t.FlatBuffer.TableKey)
-	t.OutputDelay = fbsutils.Convert(e.OutputDelay(), t.FlatBuffer.TableKey)
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.OperatorOutputPriority = fbsutils.Convert(e.OperatorOutputPriority(), t.FlatBuffer.TableKey)
-	t.PortraitPath = fbsutils.Convert(string(e.PortraitPath()), t.FlatBuffer.TableKey)
-	t.TextLocalizeKey = fbsutils.Convert(string(e.TextLocalizeKey()), t.FlatBuffer.TableKey)
+	t.OperatorWaitQueue = e.OperatorWaitQueue()
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
-	t.OperatorWaitQueue = e.OperatorWaitQueue()
+	t.TextLocalizeKey = fbsutils.Convert(string(e.TextLocalizeKey()), t.FlatBuffer.TableKey)
+	t.PortraitPath = fbsutils.Convert(string(e.PortraitPath()), t.FlatBuffer.TableKey)
+	t.OperatorOutputPriority = fbsutils.Convert(e.OperatorOutputPriority(), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.OutputDelay = fbsutils.Convert(e.OutputDelay(), t.FlatBuffer.TableKey)
+	t.RandomWeight = fbsutils.Convert(e.RandomWeight(), t.FlatBuffer.TableKey)
+	t.OutputSequence = fbsutils.Convert(e.OutputSequence(), t.FlatBuffer.TableKey)
+	t.OperatorCondition = OperatorCondition(fbsutils.Convert(int32(e.OperatorCondition()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

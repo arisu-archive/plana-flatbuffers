@@ -33,68 +33,8 @@ func (rcv *MinigameCCGOpenDialogExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGOpenDialogExcel) DialogId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) MutateDialogId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) PlayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) MutatePlayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) ConditionCard() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) MutateConditionCard(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) Dialog() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) MutateDialog(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) Duration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGOpenDialogExcel) MutateDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
 func (rcv *MinigameCCGOpenDialogExcel) Voice() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -102,29 +42,89 @@ func (rcv *MinigameCCGOpenDialogExcel) Voice() uint32 {
 }
 
 func (rcv *MinigameCCGOpenDialogExcel) MutateVoice(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) Duration() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutateDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) Dialog() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutateDialog(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) ConditionCard() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutateConditionCard(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) PlayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutatePlayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) DialogId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutateDialogId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func MinigameCCGOpenDialogExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MinigameCCGOpenDialogExcelAddDialogId(builder *flatbuffers.Builder, dialogId int64) {
-	builder.PrependInt64Slot(0, dialogId, 0)
-}
-func MinigameCCGOpenDialogExcelAddPlayOrder(builder *flatbuffers.Builder, playOrder int32) {
-	builder.PrependInt32Slot(1, playOrder, 0)
-}
-func MinigameCCGOpenDialogExcelAddConditionCard(builder *flatbuffers.Builder, conditionCard int64) {
-	builder.PrependInt64Slot(2, conditionCard, 0)
-}
-func MinigameCCGOpenDialogExcelAddDialog(builder *flatbuffers.Builder, dialog uint32) {
-	builder.PrependUint32Slot(3, dialog, 0)
+func MinigameCCGOpenDialogExcelAddVoice(builder *flatbuffers.Builder, voice uint32) {
+	builder.PrependUint32Slot(0, voice, 0)
 }
 func MinigameCCGOpenDialogExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
-	builder.PrependInt64Slot(4, duration, 0)
+	builder.PrependInt64Slot(1, duration, 0)
 }
-func MinigameCCGOpenDialogExcelAddVoice(builder *flatbuffers.Builder, voice uint32) {
-	builder.PrependUint32Slot(5, voice, 0)
+func MinigameCCGOpenDialogExcelAddDialog(builder *flatbuffers.Builder, dialog uint32) {
+	builder.PrependUint32Slot(2, dialog, 0)
+}
+func MinigameCCGOpenDialogExcelAddConditionCard(builder *flatbuffers.Builder, conditionCard int64) {
+	builder.PrependInt64Slot(3, conditionCard, 0)
+}
+func MinigameCCGOpenDialogExcelAddPlayOrder(builder *flatbuffers.Builder, playOrder int32) {
+	builder.PrependInt32Slot(4, playOrder, 0)
+}
+func MinigameCCGOpenDialogExcelAddDialogId(builder *flatbuffers.Builder, dialogId int64) {
+	builder.PrependInt64Slot(5, dialogId, 0)
 }
 func MinigameCCGOpenDialogExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,47 +10,47 @@ import (
 // ArenaNPCExcelDto represents a FlatBuffers table
 type ArenaNPCExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                     int64    `json:"unique_id"`
-	Rank                         int64    `json:"rank"`
-	NpcAccountLevel              int64    `json:"npc_account_level"`
-	NpcLevel                     int64    `json:"npc_level"`
-	NpcLevelDeviation            int64    `json:"npc_level_deviation"`
-	NpcStarGrade                 int64    `json:"npc_star_grade"`
-	ExceptionCharacterRarities   []Rarity `json:"exception_character_rarities"`
-	ExceptionMainCharacterIds    []int64  `json:"exception_main_character_ids"`
-	ExceptionSupportCharacterIds []int64  `json:"exception_support_character_ids"`
 	ExceptionTssIds              []int64  `json:"exception_tss_ids"`
+	ExceptionSupportCharacterIds []int64  `json:"exception_support_character_ids"`
+	ExceptionMainCharacterIds    []int64  `json:"exception_main_character_ids"`
+	ExceptionCharacterRarities   []Rarity `json:"exception_character_rarities"`
+	NpcStarGrade                 int64    `json:"npc_star_grade"`
+	NpcLevelDeviation            int64    `json:"npc_level_deviation"`
+	NpcLevel                     int64    `json:"npc_level"`
+	NpcAccountLevel              int64    `json:"npc_account_level"`
+	Rank                         int64    `json:"rank"`
+	UniqueId                     int64    `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaNPCExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ArenaNPCExcelStart(b)
-	ArenaNPCExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	ArenaNPCExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
-	ArenaNPCExcelAddNpcAccountLevel(b, fbsutils.Convert(t.NpcAccountLevel, t.FlatBuffer.TableKey))
-	ArenaNPCExcelAddNpcLevel(b, fbsutils.Convert(t.NpcLevel, t.FlatBuffer.TableKey))
-	ArenaNPCExcelAddNpcLevelDeviation(b, fbsutils.Convert(t.NpcLevelDeviation, t.FlatBuffer.TableKey))
-	ArenaNPCExcelAddNpcStarGrade(b, fbsutils.Convert(t.NpcStarGrade, t.FlatBuffer.TableKey))
-	ArenaNPCExcelStartExceptionCharacterRaritiesVector(b, len(t.ExceptionCharacterRarities))
-	for i := range len(t.ExceptionCharacterRarities) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ExceptionCharacterRarities[len(t.ExceptionCharacterRarities)-i-1]), t.FlatBuffer.TableKey))
-	}
-	ArenaNPCExcelAddExceptionCharacterRarities(b, b.EndVector(len(t.ExceptionCharacterRarities)))
-	ArenaNPCExcelStartExceptionMainCharacterIdsVector(b, len(t.ExceptionMainCharacterIds))
-	for i := range len(t.ExceptionMainCharacterIds) {
-		b.PrependInt64(fbsutils.Convert(t.ExceptionMainCharacterIds[len(t.ExceptionMainCharacterIds)-i-1], t.FlatBuffer.TableKey))
-	}
-	ArenaNPCExcelAddExceptionMainCharacterIds(b, b.EndVector(len(t.ExceptionMainCharacterIds)))
-	ArenaNPCExcelStartExceptionSupportCharacterIdsVector(b, len(t.ExceptionSupportCharacterIds))
-	for i := range len(t.ExceptionSupportCharacterIds) {
-		b.PrependInt64(fbsutils.Convert(t.ExceptionSupportCharacterIds[len(t.ExceptionSupportCharacterIds)-i-1], t.FlatBuffer.TableKey))
-	}
-	ArenaNPCExcelAddExceptionSupportCharacterIds(b, b.EndVector(len(t.ExceptionSupportCharacterIds)))
 	ArenaNPCExcelStartExceptionTssIdsVector(b, len(t.ExceptionTssIds))
 	for i := range len(t.ExceptionTssIds) {
 		b.PrependInt64(fbsutils.Convert(t.ExceptionTssIds[len(t.ExceptionTssIds)-i-1], t.FlatBuffer.TableKey))
 	}
 	ArenaNPCExcelAddExceptionTssIds(b, b.EndVector(len(t.ExceptionTssIds)))
+	ArenaNPCExcelStartExceptionSupportCharacterIdsVector(b, len(t.ExceptionSupportCharacterIds))
+	for i := range len(t.ExceptionSupportCharacterIds) {
+		b.PrependInt64(fbsutils.Convert(t.ExceptionSupportCharacterIds[len(t.ExceptionSupportCharacterIds)-i-1], t.FlatBuffer.TableKey))
+	}
+	ArenaNPCExcelAddExceptionSupportCharacterIds(b, b.EndVector(len(t.ExceptionSupportCharacterIds)))
+	ArenaNPCExcelStartExceptionMainCharacterIdsVector(b, len(t.ExceptionMainCharacterIds))
+	for i := range len(t.ExceptionMainCharacterIds) {
+		b.PrependInt64(fbsutils.Convert(t.ExceptionMainCharacterIds[len(t.ExceptionMainCharacterIds)-i-1], t.FlatBuffer.TableKey))
+	}
+	ArenaNPCExcelAddExceptionMainCharacterIds(b, b.EndVector(len(t.ExceptionMainCharacterIds)))
+	ArenaNPCExcelStartExceptionCharacterRaritiesVector(b, len(t.ExceptionCharacterRarities))
+	for i := range len(t.ExceptionCharacterRarities) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ExceptionCharacterRarities[len(t.ExceptionCharacterRarities)-i-1]), t.FlatBuffer.TableKey))
+	}
+	ArenaNPCExcelAddExceptionCharacterRarities(b, b.EndVector(len(t.ExceptionCharacterRarities)))
+	ArenaNPCExcelAddNpcStarGrade(b, fbsutils.Convert(t.NpcStarGrade, t.FlatBuffer.TableKey))
+	ArenaNPCExcelAddNpcLevelDeviation(b, fbsutils.Convert(t.NpcLevelDeviation, t.FlatBuffer.TableKey))
+	ArenaNPCExcelAddNpcLevel(b, fbsutils.Convert(t.NpcLevel, t.FlatBuffer.TableKey))
+	ArenaNPCExcelAddNpcAccountLevel(b, fbsutils.Convert(t.NpcAccountLevel, t.FlatBuffer.TableKey))
+	ArenaNPCExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
+	ArenaNPCExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return ArenaNPCExcelEnd(b)
 }
 
@@ -63,28 +63,28 @@ func (t *ArenaNPCExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaNPCExcelDto) UnmarshalMessage(e *ArenaNPCExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
-	t.NpcAccountLevel = fbsutils.Convert(e.NpcAccountLevel(), t.FlatBuffer.TableKey)
-	t.NpcLevel = fbsutils.Convert(e.NpcLevel(), t.FlatBuffer.TableKey)
-	t.NpcLevelDeviation = fbsutils.Convert(e.NpcLevelDeviation(), t.FlatBuffer.TableKey)
-	t.NpcStarGrade = fbsutils.Convert(e.NpcStarGrade(), t.FlatBuffer.TableKey)
-	t.ExceptionCharacterRarities = make([]Rarity, e.ExceptionCharacterRaritiesLength())
-	for i := range e.ExceptionCharacterRaritiesLength() {
-		t.ExceptionCharacterRarities[i] = Rarity(fbsutils.Convert(int32(e.ExceptionCharacterRarities(i)), t.FlatBuffer.TableKey))
-	}
-	t.ExceptionMainCharacterIds = make([]int64, e.ExceptionMainCharacterIdsLength())
-	for i := range e.ExceptionMainCharacterIdsLength() {
-		t.ExceptionMainCharacterIds[i] = fbsutils.Convert(e.ExceptionMainCharacterIds(i), t.FlatBuffer.TableKey)
+	t.ExceptionTssIds = make([]int64, e.ExceptionTssIdsLength())
+	for i := range e.ExceptionTssIdsLength() {
+		t.ExceptionTssIds[i] = fbsutils.Convert(e.ExceptionTssIds(i), t.FlatBuffer.TableKey)
 	}
 	t.ExceptionSupportCharacterIds = make([]int64, e.ExceptionSupportCharacterIdsLength())
 	for i := range e.ExceptionSupportCharacterIdsLength() {
 		t.ExceptionSupportCharacterIds[i] = fbsutils.Convert(e.ExceptionSupportCharacterIds(i), t.FlatBuffer.TableKey)
 	}
-	t.ExceptionTssIds = make([]int64, e.ExceptionTssIdsLength())
-	for i := range e.ExceptionTssIdsLength() {
-		t.ExceptionTssIds[i] = fbsutils.Convert(e.ExceptionTssIds(i), t.FlatBuffer.TableKey)
+	t.ExceptionMainCharacterIds = make([]int64, e.ExceptionMainCharacterIdsLength())
+	for i := range e.ExceptionMainCharacterIdsLength() {
+		t.ExceptionMainCharacterIds[i] = fbsutils.Convert(e.ExceptionMainCharacterIds(i), t.FlatBuffer.TableKey)
 	}
+	t.ExceptionCharacterRarities = make([]Rarity, e.ExceptionCharacterRaritiesLength())
+	for i := range e.ExceptionCharacterRaritiesLength() {
+		t.ExceptionCharacterRarities[i] = Rarity(fbsutils.Convert(int32(e.ExceptionCharacterRarities(i)), t.FlatBuffer.TableKey))
+	}
+	t.NpcStarGrade = fbsutils.Convert(e.NpcStarGrade(), t.FlatBuffer.TableKey)
+	t.NpcLevelDeviation = fbsutils.Convert(e.NpcLevelDeviation(), t.FlatBuffer.TableKey)
+	t.NpcLevel = fbsutils.Convert(e.NpcLevel(), t.FlatBuffer.TableKey)
+	t.NpcAccountLevel = fbsutils.Convert(e.NpcAccountLevel(), t.FlatBuffer.TableKey)
+	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

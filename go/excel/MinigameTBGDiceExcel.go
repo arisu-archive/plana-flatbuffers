@@ -33,120 +33,8 @@ func (rcv *MinigameTBGDiceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGDiceExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameTBGDiceExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameTBGDiceExcel) DiceGroup() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateDiceGroup(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *MinigameTBGDiceExcel) DiceResult() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateDiceResult(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *MinigameTBGDiceExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *MinigameTBGDiceExcel) ProbModifyCondition(j int) TBGProbModifyCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return TBGProbModifyCondition(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) ProbModifyConditionLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateProbModifyCondition(j int, n TBGProbModifyCondition) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *MinigameTBGDiceExcel) ProbModifyValue(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) ProbModifyValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGDiceExcel) MutateProbModifyValue(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
 func (rcv *MinigameTBGDiceExcel) ProbModifyLimit(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -155,7 +43,7 @@ func (rcv *MinigameTBGDiceExcel) ProbModifyLimit(j int) int32 {
 }
 
 func (rcv *MinigameTBGDiceExcel) ProbModifyLimitLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -163,7 +51,7 @@ func (rcv *MinigameTBGDiceExcel) ProbModifyLimitLength() int {
 }
 
 func (rcv *MinigameTBGDiceExcel) MutateProbModifyLimit(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -171,41 +59,153 @@ func (rcv *MinigameTBGDiceExcel) MutateProbModifyLimit(j int, n int32) bool {
 	return false
 }
 
+func (rcv *MinigameTBGDiceExcel) ProbModifyValue(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) ProbModifyValueLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateProbModifyValue(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *MinigameTBGDiceExcel) ProbModifyCondition(j int) TBGProbModifyCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return TBGProbModifyCondition(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) ProbModifyConditionLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateProbModifyCondition(j int, n TBGProbModifyCondition) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *MinigameTBGDiceExcel) Prob() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *MinigameTBGDiceExcel) DiceResult() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateDiceResult(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *MinigameTBGDiceExcel) DiceGroup() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateDiceGroup(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *MinigameTBGDiceExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *MinigameTBGDiceExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGDiceExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
 func MinigameTBGDiceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func MinigameTBGDiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func MinigameTBGDiceExcelAddProbModifyLimit(builder *flatbuffers.Builder, probModifyLimit flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(probModifyLimit), 0)
 }
-func MinigameTBGDiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameTBGDiceExcelAddDiceGroup(builder *flatbuffers.Builder, diceGroup int32) {
-	builder.PrependInt32Slot(2, diceGroup, 0)
-}
-func MinigameTBGDiceExcelAddDiceResult(builder *flatbuffers.Builder, diceResult int32) {
-	builder.PrependInt32Slot(3, diceResult, 0)
-}
-func MinigameTBGDiceExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(4, prob, 0)
-}
-func MinigameTBGDiceExcelAddProbModifyCondition(builder *flatbuffers.Builder, probModifyCondition flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(probModifyCondition), 0)
-}
-func MinigameTBGDiceExcelStartProbModifyConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MinigameTBGDiceExcelStartProbModifyLimitVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MinigameTBGDiceExcelAddProbModifyValue(builder *flatbuffers.Builder, probModifyValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(probModifyValue), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(probModifyValue), 0)
 }
 func MinigameTBGDiceExcelStartProbModifyValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func MinigameTBGDiceExcelAddProbModifyLimit(builder *flatbuffers.Builder, probModifyLimit flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(probModifyLimit), 0)
+func MinigameTBGDiceExcelAddProbModifyCondition(builder *flatbuffers.Builder, probModifyCondition flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(probModifyCondition), 0)
 }
-func MinigameTBGDiceExcelStartProbModifyLimitVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MinigameTBGDiceExcelStartProbModifyConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func MinigameTBGDiceExcelAddProb(builder *flatbuffers.Builder, prob int32) {
+	builder.PrependInt32Slot(3, prob, 0)
+}
+func MinigameTBGDiceExcelAddDiceResult(builder *flatbuffers.Builder, diceResult int32) {
+	builder.PrependInt32Slot(4, diceResult, 0)
+}
+func MinigameTBGDiceExcelAddDiceGroup(builder *flatbuffers.Builder, diceGroup int32) {
+	builder.PrependInt32Slot(5, diceGroup, 0)
+}
+func MinigameTBGDiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(6, uniqueId, 0)
+}
+func MinigameTBGDiceExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(7, eventContentId, 0)
 }
 func MinigameTBGDiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

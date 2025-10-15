@@ -33,20 +33,8 @@ func (rcv *StatLevelInterpolationExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StatLevelInterpolationExcel) Level() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StatLevelInterpolationExcel) MutateLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *StatLevelInterpolationExcel) StatTypeIndex(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -55,7 +43,7 @@ func (rcv *StatLevelInterpolationExcel) StatTypeIndex(j int) int64 {
 }
 
 func (rcv *StatLevelInterpolationExcel) StatTypeIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,7 +51,7 @@ func (rcv *StatLevelInterpolationExcel) StatTypeIndexLength() int {
 }
 
 func (rcv *StatLevelInterpolationExcel) MutateStatTypeIndex(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -71,17 +59,29 @@ func (rcv *StatLevelInterpolationExcel) MutateStatTypeIndex(j int, n int64) bool
 	return false
 }
 
+func (rcv *StatLevelInterpolationExcel) Level() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StatLevelInterpolationExcel) MutateLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
 func StatLevelInterpolationExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func StatLevelInterpolationExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(0, level, 0)
-}
 func StatLevelInterpolationExcelAddStatTypeIndex(builder *flatbuffers.Builder, statTypeIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(statTypeIndex), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(statTypeIndex), 0)
 }
 func StatLevelInterpolationExcelStartStatTypeIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func StatLevelInterpolationExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(1, level, 0)
 }
 func StatLevelInterpolationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

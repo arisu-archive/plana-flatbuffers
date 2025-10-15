@@ -33,16 +33,12 @@ func (rcv *SkillAdditionalTooltipExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *SkillAdditionalTooltipExcel) GroupId() int64 {
+func (rcv *SkillAdditionalTooltipExcel) ShowSkillSlot() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *SkillAdditionalTooltipExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return nil
 }
 
 func (rcv *SkillAdditionalTooltipExcel) AdditionalSkillGroupId() []byte {
@@ -53,25 +49,29 @@ func (rcv *SkillAdditionalTooltipExcel) AdditionalSkillGroupId() []byte {
 	return nil
 }
 
-func (rcv *SkillAdditionalTooltipExcel) ShowSkillSlot() []byte {
+func (rcv *SkillAdditionalTooltipExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *SkillAdditionalTooltipExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func SkillAdditionalTooltipExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func SkillAdditionalTooltipExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func SkillAdditionalTooltipExcelAddShowSkillSlot(builder *flatbuffers.Builder, showSkillSlot flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(showSkillSlot), 0)
 }
 func SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(builder *flatbuffers.Builder, additionalSkillGroupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(additionalSkillGroupId), 0)
 }
-func SkillAdditionalTooltipExcelAddShowSkillSlot(builder *flatbuffers.Builder, showSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(showSkillSlot), 0)
+func SkillAdditionalTooltipExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(2, groupId, 0)
 }
 func SkillAdditionalTooltipExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

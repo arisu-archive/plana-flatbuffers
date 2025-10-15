@@ -10,25 +10,25 @@ import (
 // MinigameCCGLevelNodeExcelDto represents a FlatBuffers table
 type MinigameCCGLevelNodeExcelDto struct {
 	fbsutils.FlatBuffer
-	LevelId      int64            `json:"level_id"`
-	NodeId       int64            `json:"node_id"`
-	NodeIcon     CCGLevelNodeIcon `json:"node_icon"`
-	StageGroupId int64            `json:"stage_group_id"`
 	NextNodeId   []int64          `json:"next_node_id"`
+	StageGroupId int64            `json:"stage_group_id"`
+	NodeIcon     CCGLevelNodeIcon `json:"node_icon"`
+	NodeId       int64            `json:"node_id"`
+	LevelId      int64            `json:"level_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLevelNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGLevelNodeExcelStart(b)
-	MinigameCCGLevelNodeExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelNodeExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelNodeExcelAddNodeIcon(b, fbsutils.Convert(t.NodeIcon, t.FlatBuffer.TableKey))
-	MinigameCCGLevelNodeExcelAddStageGroupId(b, fbsutils.Convert(t.StageGroupId, t.FlatBuffer.TableKey))
 	MinigameCCGLevelNodeExcelStartNextNodeIdVector(b, len(t.NextNodeId))
 	for i := range len(t.NextNodeId) {
 		b.PrependInt64(fbsutils.Convert(t.NextNodeId[len(t.NextNodeId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameCCGLevelNodeExcelAddNextNodeId(b, b.EndVector(len(t.NextNodeId)))
+	MinigameCCGLevelNodeExcelAddStageGroupId(b, fbsutils.Convert(t.StageGroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelNodeExcelAddNodeIcon(b, fbsutils.Convert(t.NodeIcon, t.FlatBuffer.TableKey))
+	MinigameCCGLevelNodeExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelNodeExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
 	return MinigameCCGLevelNodeExcelEnd(b)
 }
 
@@ -41,14 +41,14 @@ func (t *MinigameCCGLevelNodeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGLevelNodeExcelDto) UnmarshalMessage(e *MinigameCCGLevelNodeExcel) error {
-	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
-	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
-	t.NodeIcon = CCGLevelNodeIcon(fbsutils.Convert(int32(e.NodeIcon()), t.FlatBuffer.TableKey))
-	t.StageGroupId = fbsutils.Convert(e.StageGroupId(), t.FlatBuffer.TableKey)
 	t.NextNodeId = make([]int64, e.NextNodeIdLength())
 	for i := range e.NextNodeIdLength() {
 		t.NextNodeId[i] = fbsutils.Convert(e.NextNodeId(i), t.FlatBuffer.TableKey)
 	}
+	t.StageGroupId = fbsutils.Convert(e.StageGroupId(), t.FlatBuffer.TableKey)
+	t.NodeIcon = CCGLevelNodeIcon(fbsutils.Convert(int32(e.NodeIcon()), t.FlatBuffer.TableKey))
+	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
+	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

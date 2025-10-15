@@ -33,7 +33,7 @@ func (rcv *AcademyTicketExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AcademyTicketExcel) LocationRankSum() int64 {
+func (rcv *AcademyTicketExcel) ScheduleTicktetMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *AcademyTicketExcel) LocationRankSum() int64 {
 	return 0
 }
 
-func (rcv *AcademyTicketExcel) MutateLocationRankSum(n int64) bool {
+func (rcv *AcademyTicketExcel) MutateScheduleTicktetMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *AcademyTicketExcel) ScheduleTicktetMax() int64 {
+func (rcv *AcademyTicketExcel) LocationRankSum() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,18 +53,18 @@ func (rcv *AcademyTicketExcel) ScheduleTicktetMax() int64 {
 	return 0
 }
 
-func (rcv *AcademyTicketExcel) MutateScheduleTicktetMax(n int64) bool {
+func (rcv *AcademyTicketExcel) MutateLocationRankSum(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func AcademyTicketExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func AcademyTicketExcelAddLocationRankSum(builder *flatbuffers.Builder, locationRankSum int64) {
-	builder.PrependInt64Slot(0, locationRankSum, 0)
-}
 func AcademyTicketExcelAddScheduleTicktetMax(builder *flatbuffers.Builder, scheduleTicktetMax int64) {
-	builder.PrependInt64Slot(1, scheduleTicktetMax, 0)
+	builder.PrependInt64Slot(0, scheduleTicktetMax, 0)
+}
+func AcademyTicketExcelAddLocationRankSum(builder *flatbuffers.Builder, locationRankSum int64) {
+	builder.PrependInt64Slot(1, locationRankSum, 0)
 }
 func AcademyTicketExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

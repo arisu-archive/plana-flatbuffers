@@ -3,7 +3,7 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table DefaultParcelExcel {
-    parcel_type: ParcelType;
-    parcel_id: long;
     parcel_amount: long;
+    parcel_id: long;
+    parcel_type: ParcelType;
 }

@@ -3,10 +3,10 @@ include "GachaGroupType.fbs";
 namespace MX.Data.Excel;
 
 table GachaGroupExcel {
-    id: long;
-    name_kr: string;
-    is_recursive: bool;
     group_type: GachaGroupType;
+    is_recursive: bool;
+    name_kr: string;
+    id: long;
 }
 
 root_type GachaGroupExcel;

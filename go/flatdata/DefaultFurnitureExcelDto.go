@@ -10,11 +10,11 @@ import (
 // DefaultFurnitureExcelDto represents a FlatBuffers table
 type DefaultFurnitureExcelDto struct {
 	fbsutils.FlatBuffer
-	Id        int64             `json:"id"`
-	Location  FurnitureLocation `json:"location"`
-	PositionX float32           `json:"position_x"`
-	PositionY float32           `json:"position_y"`
 	Rotation  float32           `json:"rotation"`
+	PositionY float32           `json:"position_y"`
+	PositionX float32           `json:"position_x"`
+	Location  FurnitureLocation `json:"location"`
+	Id        int64             `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *DefaultFurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultFurniture"))
 	}
 	DefaultFurnitureExcelStart(b)
-	DefaultFurnitureExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddLocation(b, fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddPositionX(b, fbsutils.Convert(t.PositionX, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddPositionY(b, fbsutils.Convert(t.PositionY, t.FlatBuffer.TableKey))
 	DefaultFurnitureExcelAddRotation(b, fbsutils.Convert(t.Rotation, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddPositionY(b, fbsutils.Convert(t.PositionY, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddPositionX(b, fbsutils.Convert(t.PositionX, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddLocation(b, fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return DefaultFurnitureExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *DefaultFurnitureExcelDto) UnmarshalMessage(e *DefaultFurnitureExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultFurniture"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
-	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
-	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
 	t.Rotation = fbsutils.Convert(e.Rotation(), t.FlatBuffer.TableKey)
+	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
+	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
+	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

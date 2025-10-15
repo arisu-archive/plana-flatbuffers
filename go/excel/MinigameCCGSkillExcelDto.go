@@ -10,23 +10,23 @@ import (
 // MinigameCCGSkillExcelDto represents a FlatBuffers table
 type MinigameCCGSkillExcelDto struct {
 	fbsutils.FlatBuffer
-	Id           int64  `json:"id"`
-	SkillType    string `json:"skill_type"`
-	DataLoadPath string `json:"data_load_path"`
-	Name         uint32 `json:"name"`
-	Description  uint32 `json:"description"`
 	SkillIcon    string `json:"skill_icon"`
+	Description  uint32 `json:"description"`
+	Name         uint32 `json:"name"`
+	DataLoadPath string `json:"data_load_path"`
+	SkillType    string `json:"skill_type"`
+	Id           int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGSkillExcelStart(b)
-	MinigameCCGSkillExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGSkillExcelAddSkillType(b, b.CreateString(fbsutils.Convert(t.SkillType, t.FlatBuffer.TableKey)))
-	MinigameCCGSkillExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
-	MinigameCCGSkillExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	MinigameCCGSkillExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	MinigameCCGSkillExcelAddSkillIcon(b, b.CreateString(fbsutils.Convert(t.SkillIcon, t.FlatBuffer.TableKey)))
+	MinigameCCGSkillExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
+	MinigameCCGSkillExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	MinigameCCGSkillExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
+	MinigameCCGSkillExcelAddSkillType(b, b.CreateString(fbsutils.Convert(t.SkillType, t.FlatBuffer.TableKey)))
+	MinigameCCGSkillExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return MinigameCCGSkillExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *MinigameCCGSkillExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGSkillExcelDto) UnmarshalMessage(e *MinigameCCGSkillExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.SkillType = fbsutils.Convert(string(e.SkillType()), t.FlatBuffer.TableKey)
-	t.DataLoadPath = fbsutils.Convert(string(e.DataLoadPath()), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
 	t.SkillIcon = fbsutils.Convert(string(e.SkillIcon()), t.FlatBuffer.TableKey)
+	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
+	t.DataLoadPath = fbsutils.Convert(string(e.DataLoadPath()), t.FlatBuffer.TableKey)
+	t.SkillType = fbsutils.Convert(string(e.SkillType()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

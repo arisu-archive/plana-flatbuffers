@@ -10,19 +10,19 @@ import (
 // MinigameTBGVoiceExcelDto represents a FlatBuffers table
 type MinigameTBGVoiceExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64             `json:"event_content_id"`
-	UniqueId       int64             `json:"unique_id"`
-	VoiceCondition TBGVoiceCondition `json:"voice_condition"`
 	VoiceId        uint32            `json:"voice_id"`
+	VoiceCondition TBGVoiceCondition `json:"voice_condition"`
+	UniqueId       int64             `json:"unique_id"`
+	EventContentId int64             `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGVoiceExcelStart(b)
-	MinigameTBGVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameTBGVoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGVoiceExcelAddVoiceCondition(b, fbsutils.Convert(t.VoiceCondition, t.FlatBuffer.TableKey))
 	MinigameTBGVoiceExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
+	MinigameTBGVoiceExcelAddVoiceCondition(b, fbsutils.Convert(t.VoiceCondition, t.FlatBuffer.TableKey))
+	MinigameTBGVoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameTBGVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MinigameTBGVoiceExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *MinigameTBGVoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGVoiceExcelDto) UnmarshalMessage(e *MinigameTBGVoiceExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.VoiceCondition = TBGVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
 	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
+	t.VoiceCondition = TBGVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

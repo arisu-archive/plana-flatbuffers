@@ -25,11 +25,24 @@ class PresetCharacterGroupSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # PresetCharacterGroupSettingExcel
-    def CharacterId(self):
+    def PresetType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # PresetCharacterGroupSettingExcel
+    def PresetTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
+
+    # PresetCharacterGroupSettingExcel
+    def PresetTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
 
     # PresetCharacterGroupSettingExcel
     def ArenaSimulatorFixed(self):
@@ -39,40 +52,27 @@ class PresetCharacterGroupSettingExcel(object):
         return False
 
     # PresetCharacterGroupSettingExcel
-    def PresetType(self, j):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # PresetCharacterGroupSettingExcel
-    def PresetTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # PresetCharacterGroupSettingExcel
-    def PresetTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
 
 def PresetCharacterGroupSettingExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return PresetCharacterGroupSettingExcelStart(builder)
-def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
-def AddCharacterId(builder, characterId):
-    return PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
-def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed): builder.PrependBoolSlot(1, arenaSimulatorFixed, 0)
-def AddArenaSimulatorFixed(builder, arenaSimulatorFixed):
-    return PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed)
-def PresetCharacterGroupSettingExcelAddPresetType(builder, presetType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(presetType), 0)
+def PresetCharacterGroupSettingExcelAddPresetType(builder, presetType): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(presetType), 0)
 def AddPresetType(builder, presetType):
     return PresetCharacterGroupSettingExcelAddPresetType(builder, presetType)
 def PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPresetTypeVector(builder, numElems):
     return PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, numElems)
+def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed): builder.PrependBoolSlot(1, arenaSimulatorFixed, 0)
+def AddArenaSimulatorFixed(builder, arenaSimulatorFixed):
+    return PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed)
+def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(2, characterId, 0)
+def AddCharacterId(builder, characterId):
+    return PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
 def PresetCharacterGroupSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return PresetCharacterGroupSettingExcelEnd(builder)

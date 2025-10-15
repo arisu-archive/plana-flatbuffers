@@ -10,29 +10,29 @@ import (
 // FixedStrategyExcelDto represents a FlatBuffers table
 type FixedStrategyExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                                int64 `json:"id"`
-	StageEnterEchelon01FixedEchelonId int64 `json:"stage_enter_echelon01_fixed_echelon_id"`
-	StageEnterEchelon01Starttile      int64 `json:"stage_enter_echelon01_starttile"`
-	StageEnterEchelon02FixedEchelonId int64 `json:"stage_enter_echelon02_fixed_echelon_id"`
-	StageEnterEchelon02Starttile      int64 `json:"stage_enter_echelon02_starttile"`
-	StageEnterEchelon03FixedEchelonId int64 `json:"stage_enter_echelon03_fixed_echelon_id"`
-	StageEnterEchelon03Starttile      int64 `json:"stage_enter_echelon03_starttile"`
-	StageEnterEchelon04FixedEchelonId int64 `json:"stage_enter_echelon04_fixed_echelon_id"`
 	StageEnterEchelon04Starttile      int64 `json:"stage_enter_echelon04_starttile"`
+	StageEnterEchelon04FixedEchelonId int64 `json:"stage_enter_echelon04_fixed_echelon_id"`
+	StageEnterEchelon03Starttile      int64 `json:"stage_enter_echelon03_starttile"`
+	StageEnterEchelon03FixedEchelonId int64 `json:"stage_enter_echelon03_fixed_echelon_id"`
+	StageEnterEchelon02Starttile      int64 `json:"stage_enter_echelon02_starttile"`
+	StageEnterEchelon02FixedEchelonId int64 `json:"stage_enter_echelon02_fixed_echelon_id"`
+	StageEnterEchelon01Starttile      int64 `json:"stage_enter_echelon01_starttile"`
+	StageEnterEchelon01FixedEchelonId int64 `json:"stage_enter_echelon01_fixed_echelon_id"`
+	Id                                int64 `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FixedStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FixedStrategyExcelStart(b)
-	FixedStrategyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon01FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon01FixedEchelonId, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon01Starttile(b, fbsutils.Convert(t.StageEnterEchelon01Starttile, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon02FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon02FixedEchelonId, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon02Starttile(b, fbsutils.Convert(t.StageEnterEchelon02Starttile, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon03FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon03FixedEchelonId, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon03Starttile(b, fbsutils.Convert(t.StageEnterEchelon03Starttile, t.FlatBuffer.TableKey))
-	FixedStrategyExcelAddStageEnterEchelon04FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon04FixedEchelonId, t.FlatBuffer.TableKey))
 	FixedStrategyExcelAddStageEnterEchelon04Starttile(b, fbsutils.Convert(t.StageEnterEchelon04Starttile, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon04FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon04FixedEchelonId, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon03Starttile(b, fbsutils.Convert(t.StageEnterEchelon03Starttile, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon03FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon03FixedEchelonId, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon02Starttile(b, fbsutils.Convert(t.StageEnterEchelon02Starttile, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon02FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon02FixedEchelonId, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon01Starttile(b, fbsutils.Convert(t.StageEnterEchelon01Starttile, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddStageEnterEchelon01FixedEchelonId(b, fbsutils.Convert(t.StageEnterEchelon01FixedEchelonId, t.FlatBuffer.TableKey))
+	FixedStrategyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return FixedStrategyExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *FixedStrategyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FixedStrategyExcelDto) UnmarshalMessage(e *FixedStrategyExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon01FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon01FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon01Starttile = fbsutils.Convert(e.StageEnterEchelon01Starttile(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon02FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon02FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon02Starttile = fbsutils.Convert(e.StageEnterEchelon02Starttile(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon03FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon03FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon03Starttile = fbsutils.Convert(e.StageEnterEchelon03Starttile(), t.FlatBuffer.TableKey)
-	t.StageEnterEchelon04FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon04FixedEchelonId(), t.FlatBuffer.TableKey)
 	t.StageEnterEchelon04Starttile = fbsutils.Convert(e.StageEnterEchelon04Starttile(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon04FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon04FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon03Starttile = fbsutils.Convert(e.StageEnterEchelon03Starttile(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon03FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon03FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon02Starttile = fbsutils.Convert(e.StageEnterEchelon02Starttile(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon02FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon02FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon01Starttile = fbsutils.Convert(e.StageEnterEchelon01Starttile(), t.FlatBuffer.TableKey)
+	t.StageEnterEchelon01FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon01FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

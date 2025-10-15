@@ -1,13 +1,13 @@
 namespace MX.Data.Excel;
 
 table ScenarioCharacterSituationSetExcel {
-    name: uint;
-    face: string;
-    behavior: string;
-    action: string;
-    shape: string;
-    effect: uint;
     emotion: uint;
+    effect: uint;
+    shape: string;
+    action: string;
+    behavior: string;
+    face: string;
+    name: uint;
 }
 
 root_type ScenarioCharacterSituationSetExcel;

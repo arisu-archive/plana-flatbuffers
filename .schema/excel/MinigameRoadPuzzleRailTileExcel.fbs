@@ -3,12 +3,12 @@ include "RoadPuzzleRailTileType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameRoadPuzzleRailTileExcel {
-    event_content_id: long;
-    unique_id: long;
-    group_id: long;
-    original_tile: bool;
-    prefab_name: string;
     rail_tile_type: RoadPuzzleRailTileType;
+    prefab_name: string;
+    original_tile: bool;
+    group_id: long;
+    unique_id: long;
+    event_content_id: long;
 }
 
 root_type MinigameRoadPuzzleRailTileExcel;

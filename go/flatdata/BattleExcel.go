@@ -33,82 +33,344 @@ func (rcv *BattleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BattleExcel) None(j int) UnitType {
+func (rcv *BattleExcel) Talk() BattleDialogType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return UnitType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return BattleDialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) NoneLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *BattleExcel) MutateTalk(n BattleDialogType) bool {
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *BattleExcel) MutateNone(j int, n UnitType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *BattleExcel) Single() AttackType {
+func (rcv *BattleExcel) SpecialTransStat() StatTransType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return AttackType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return StatTransType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateSingle(n AttackType) bool {
+func (rcv *BattleExcel) MutateSpecialTransStat(n StatTransType) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *BattleExcel) Guided() ProjectileType {
+func (rcv *BattleExcel) FinalDamage() BattleCalculationStat {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return ProjectileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return BattleCalculationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateGuided(n ProjectileType) bool {
+func (rcv *BattleExcel) MutateFinalDamage(n BattleCalculationStat) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *BattleExcel) Blue() DamageFontColor {
+func (rcv *BattleExcel) Preset() ArenaSimulatorServer {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return DamageFontColor(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return ArenaSimulatorServer(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateBlue(n DamageFontColor) bool {
+func (rcv *BattleExcel) MutatePreset(n ArenaSimulatorServer) bool {
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *BattleExcel) CoverEnter() EmoticonEvent {
+func (rcv *BattleExcel) Duration() EndCondition {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return EmoticonEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return EndCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateCoverEnter(n EmoticonEvent) bool {
+func (rcv *BattleExcel) MutateDuration(n EndCondition) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *BattleExcel) Normal(j int) BulletType {
+func (rcv *BattleExcel) TargetToCaster() KnockbackDirection {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return KnockbackDirection(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateTargetToCaster(n KnockbackDirection) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *BattleExcel) Main() StageType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return StageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateMain(n StageType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *BattleExcel) Ally() SkillPriorityCheckTarget {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return SkillPriorityCheckTarget(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateAlly(n SkillPriorityCheckTarget) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *BattleExcel) Resist() DamageAttribute {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return DamageAttribute(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateResist(n DamageAttribute) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *BattleExcel) Low() ObstacleHeightType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return ObstacleHeightType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateLow(n ObstacleHeightType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *BattleExcel) Remain() ObstacleDestroyType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return ObstacleDestroyType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateRemain(n ObstacleDestroyType) bool {
+	return rcv._tab.MutateInt32Slot(24, int32(n))
+}
+
+func (rcv *BattleExcel) Main619a7dca() ObstacleClass {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return ObstacleClass(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateMain619a7dca(n ObstacleClass) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *BattleExcel) D() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateD(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
+}
+
+func (rcv *BattleExcel) Street() StageTopography {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateStreet(n StageTopography) bool {
+	return rcv._tab.MutateInt32Slot(30, int32(n))
+}
+
+func (rcv *BattleExcel) Position() HitEffectPosition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return HitEffectPosition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutatePosition(n HitEffectPosition) bool {
+	return rcv._tab.MutateInt32Slot(32, int32(n))
+}
+
+func (rcv *BattleExcel) SearchAndMove() EngageType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return EngageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateSearchAndMove(n EngageType) bool {
+	return rcv._tab.MutateInt32Slot(34, int32(n))
+}
+
+func (rcv *BattleExcel) Student() TacticEntityType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateStudent(n TacticEntityType) bool {
+	return rcv._tab.MutateInt32Slot(36, int32(n))
+}
+
+func (rcv *BattleExcel) UseNextExSkill() ExternalBehavior {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return ExternalBehavior(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateUseNextExSkill(n ExternalBehavior) bool {
+	return rcv._tab.MutateInt32Slot(38, int32(n))
+}
+
+func (rcv *BattleExcel) Sequence() ExternalBTNodeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return ExternalBTNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateSequence(n ExternalBTNodeType) bool {
+	return rcv._tab.MutateInt32Slot(40, int32(n))
+}
+
+func (rcv *BattleExcel) Students() FormationLine {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return FormationLine(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateStudents(n FormationLine) bool {
+	return rcv._tab.MutateInt32Slot(42, int32(n))
+}
+
+func (rcv *BattleExcel) CloseToObstacle() PositioningType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return PositioningType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateCloseToObstacle(n PositioningType) bool {
+	return rcv._tab.MutateInt32Slot(44, int32(n))
+}
+
+func (rcv *BattleExcel) Distance() TargetSortBy {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return TargetSortBy(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateDistance(n TargetSortBy) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
+}
+
+func (rcv *BattleExcel) All() CoverMotionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return CoverMotionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateAll(n CoverMotionType) bool {
+	return rcv._tab.MutateInt32Slot(48, int32(n))
+}
+
+func (rcv *BattleExcel) Wood() EntityMaterialType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return EntityMaterialType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateWood(n EntityMaterialType) bool {
+	return rcv._tab.MutateInt32Slot(50, int32(n))
+}
+
+func (rcv *BattleExcel) LightArmor() ArmorType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return ArmorType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateLightArmor(n ArmorType) bool {
+	return rcv._tab.MutateInt32Slot(52, int32(n))
+}
+
+func (rcv *BattleExcel) AllySelf() ReArrangeTargetType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return ReArrangeTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateAllySelf(n ReArrangeTargetType) bool {
+	return rcv._tab.MutateInt32Slot(54, int32(n))
+}
+
+func (rcv *BattleExcel) Able() BuffOverlap {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return BuffOverlap(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateAble(n BuffOverlap) bool {
+	return rcv._tab.MutateInt32Slot(56, int32(n))
+}
+
+func (rcv *BattleExcel) Crush() ActionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return ActionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateCrush(n ActionType) bool {
+	return rcv._tab.MutateInt32Slot(58, int32(n))
+}
+
+func (rcv *BattleExcel) Normal(j int) BulletType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return BulletType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -117,7 +379,7 @@ func (rcv *BattleExcel) Normal(j int) BulletType {
 }
 
 func (rcv *BattleExcel) NormalLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -125,7 +387,7 @@ func (rcv *BattleExcel) NormalLength() int {
 }
 
 func (rcv *BattleExcel) MutateNormal(j int, n BulletType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -133,452 +395,190 @@ func (rcv *BattleExcel) MutateNormal(j int, n BulletType) bool {
 	return false
 }
 
-func (rcv *BattleExcel) Crush() ActionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return ActionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateCrush(n ActionType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
-}
-
-func (rcv *BattleExcel) Able() BuffOverlap {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return BuffOverlap(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateAble(n BuffOverlap) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *BattleExcel) AllySelf() ReArrangeTargetType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return ReArrangeTargetType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateAllySelf(n ReArrangeTargetType) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
-}
-
-func (rcv *BattleExcel) LightArmor() ArmorType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return ArmorType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateLightArmor(n ArmorType) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
-}
-
-func (rcv *BattleExcel) Wood() EntityMaterialType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return EntityMaterialType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateWood(n EntityMaterialType) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
-}
-
-func (rcv *BattleExcel) All() CoverMotionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return CoverMotionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateAll(n CoverMotionType) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *BattleExcel) Distance() TargetSortBy {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return TargetSortBy(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateDistance(n TargetSortBy) bool {
-	return rcv._tab.MutateInt32Slot(28, int32(n))
-}
-
-func (rcv *BattleExcel) CloseToObstacle() PositioningType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return PositioningType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateCloseToObstacle(n PositioningType) bool {
-	return rcv._tab.MutateInt32Slot(30, int32(n))
-}
-
-func (rcv *BattleExcel) Students() FormationLine {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return FormationLine(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateStudents(n FormationLine) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
-}
-
-func (rcv *BattleExcel) Sequence() ExternalBTNodeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return ExternalBTNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateSequence(n ExternalBTNodeType) bool {
-	return rcv._tab.MutateInt32Slot(34, int32(n))
-}
-
-func (rcv *BattleExcel) UseNextExSkill() ExternalBehavior {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return ExternalBehavior(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateUseNextExSkill(n ExternalBehavior) bool {
-	return rcv._tab.MutateInt32Slot(36, int32(n))
-}
-
-func (rcv *BattleExcel) Student() TacticEntityType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateStudent(n TacticEntityType) bool {
-	return rcv._tab.MutateInt32Slot(38, int32(n))
-}
-
-func (rcv *BattleExcel) SearchAndMove() EngageType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return EngageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateSearchAndMove(n EngageType) bool {
-	return rcv._tab.MutateInt32Slot(40, int32(n))
-}
-
-func (rcv *BattleExcel) Position() HitEffectPosition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return HitEffectPosition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutatePosition(n HitEffectPosition) bool {
-	return rcv._tab.MutateInt32Slot(42, int32(n))
-}
-
-func (rcv *BattleExcel) Street() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateStreet(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(44, int32(n))
-}
-
-func (rcv *BattleExcel) D() TerrainAdaptationStat {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateD(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(46, int32(n))
-}
-
-func (rcv *BattleExcel) Main() ObstacleClass {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return ObstacleClass(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateMain(n ObstacleClass) bool {
-	return rcv._tab.MutateInt32Slot(48, int32(n))
-}
-
-func (rcv *BattleExcel) Remain() ObstacleDestroyType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return ObstacleDestroyType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateRemain(n ObstacleDestroyType) bool {
-	return rcv._tab.MutateInt32Slot(50, int32(n))
-}
-
-func (rcv *BattleExcel) Low() ObstacleHeightType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return ObstacleHeightType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateLow(n ObstacleHeightType) bool {
-	return rcv._tab.MutateInt32Slot(52, int32(n))
-}
-
-func (rcv *BattleExcel) Resist() DamageAttribute {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return DamageAttribute(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateResist(n DamageAttribute) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
-}
-
-func (rcv *BattleExcel) Ally() SkillPriorityCheckTarget {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		return SkillPriorityCheckTarget(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateAlly(n SkillPriorityCheckTarget) bool {
-	return rcv._tab.MutateInt32Slot(56, int32(n))
-}
-
-func (rcv *BattleExcel) Main166405e7() StageType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return StageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateMain166405e7(n StageType) bool {
-	return rcv._tab.MutateInt32Slot(58, int32(n))
-}
-
-func (rcv *BattleExcel) TargetToCaster() KnockbackDirection {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
-	if o != 0 {
-		return KnockbackDirection(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BattleExcel) MutateTargetToCaster(n KnockbackDirection) bool {
-	return rcv._tab.MutateInt32Slot(60, int32(n))
-}
-
-func (rcv *BattleExcel) Duration() EndCondition {
+func (rcv *BattleExcel) CoverEnter() EmoticonEvent {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
-		return EndCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return EmoticonEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateDuration(n EndCondition) bool {
+func (rcv *BattleExcel) MutateCoverEnter(n EmoticonEvent) bool {
 	return rcv._tab.MutateInt32Slot(62, int32(n))
 }
 
-func (rcv *BattleExcel) Preset() ArenaSimulatorServer {
+func (rcv *BattleExcel) Blue() DamageFontColor {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
-		return ArenaSimulatorServer(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return DamageFontColor(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutatePreset(n ArenaSimulatorServer) bool {
+func (rcv *BattleExcel) MutateBlue(n DamageFontColor) bool {
 	return rcv._tab.MutateInt32Slot(64, int32(n))
 }
 
-func (rcv *BattleExcel) FinalDamage() BattleCalculationStat {
+func (rcv *BattleExcel) Guided() ProjectileType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
-		return BattleCalculationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return ProjectileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateFinalDamage(n BattleCalculationStat) bool {
+func (rcv *BattleExcel) MutateGuided(n ProjectileType) bool {
 	return rcv._tab.MutateInt32Slot(66, int32(n))
 }
 
-func (rcv *BattleExcel) SpecialTransStat() StatTransType {
+func (rcv *BattleExcel) Single() AttackType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
-		return StatTransType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return AttackType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateSpecialTransStat(n StatTransType) bool {
+func (rcv *BattleExcel) MutateSingle(n AttackType) bool {
 	return rcv._tab.MutateInt32Slot(68, int32(n))
 }
 
-func (rcv *BattleExcel) Talk() BattleDialogType {
+func (rcv *BattleExcel) None(j int) UnitType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
-		return BattleDialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return UnitType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateTalk(n BattleDialogType) bool {
-	return rcv._tab.MutateInt32Slot(70, int32(n))
+func (rcv *BattleExcel) NoneLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateNone(j int, n UnitType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
 }
 
 func BattleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(34)
 }
-func BattleExcelAddNone(builder *flatbuffers.Builder, none flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(none), 0)
+func BattleExcelAddTalk(builder *flatbuffers.Builder, talk BattleDialogType) {
+	builder.PrependInt32Slot(0, int32(talk), 0)
 }
-func BattleExcelStartNoneVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func BattleExcelAddSpecialTransStat(builder *flatbuffers.Builder, specialTransStat StatTransType) {
+	builder.PrependInt32Slot(1, int32(specialTransStat), 0)
 }
-func BattleExcelAddSingle(builder *flatbuffers.Builder, single AttackType) {
-	builder.PrependInt32Slot(1, int32(single), 0)
+func BattleExcelAddFinalDamage(builder *flatbuffers.Builder, finalDamage BattleCalculationStat) {
+	builder.PrependInt32Slot(2, int32(finalDamage), 0)
 }
-func BattleExcelAddGuided(builder *flatbuffers.Builder, guided ProjectileType) {
-	builder.PrependInt32Slot(2, int32(guided), 0)
+func BattleExcelAddPreset(builder *flatbuffers.Builder, preset ArenaSimulatorServer) {
+	builder.PrependInt32Slot(3, int32(preset), 0)
 }
-func BattleExcelAddBlue(builder *flatbuffers.Builder, blue DamageFontColor) {
-	builder.PrependInt32Slot(3, int32(blue), 0)
+func BattleExcelAddDuration(builder *flatbuffers.Builder, duration EndCondition) {
+	builder.PrependInt32Slot(4, int32(duration), 0)
 }
-func BattleExcelAddCoverEnter(builder *flatbuffers.Builder, coverEnter EmoticonEvent) {
-	builder.PrependInt32Slot(4, int32(coverEnter), 0)
+func BattleExcelAddTargetToCaster(builder *flatbuffers.Builder, targetToCaster KnockbackDirection) {
+	builder.PrependInt32Slot(5, int32(targetToCaster), 0)
+}
+func BattleExcelAddMain(builder *flatbuffers.Builder, main StageType) {
+	builder.PrependInt32Slot(6, int32(main), 0)
+}
+func BattleExcelAddAlly(builder *flatbuffers.Builder, ally SkillPriorityCheckTarget) {
+	builder.PrependInt32Slot(7, int32(ally), 0)
+}
+func BattleExcelAddResist(builder *flatbuffers.Builder, resist DamageAttribute) {
+	builder.PrependInt32Slot(8, int32(resist), 0)
+}
+func BattleExcelAddLow(builder *flatbuffers.Builder, low ObstacleHeightType) {
+	builder.PrependInt32Slot(9, int32(low), 0)
+}
+func BattleExcelAddRemain(builder *flatbuffers.Builder, remain ObstacleDestroyType) {
+	builder.PrependInt32Slot(10, int32(remain), 0)
+}
+func BattleExcelAddMain619a7dca(builder *flatbuffers.Builder, main619a7dca ObstacleClass) {
+	builder.PrependInt32Slot(11, int32(main619a7dca), 0)
+}
+func BattleExcelAddD(builder *flatbuffers.Builder, d TerrainAdaptationStat) {
+	builder.PrependInt32Slot(12, int32(d), 0)
+}
+func BattleExcelAddStreet(builder *flatbuffers.Builder, street StageTopography) {
+	builder.PrependInt32Slot(13, int32(street), 0)
+}
+func BattleExcelAddPosition(builder *flatbuffers.Builder, position HitEffectPosition) {
+	builder.PrependInt32Slot(14, int32(position), 0)
+}
+func BattleExcelAddSearchAndMove(builder *flatbuffers.Builder, searchAndMove EngageType) {
+	builder.PrependInt32Slot(15, int32(searchAndMove), 0)
+}
+func BattleExcelAddStudent(builder *flatbuffers.Builder, student TacticEntityType) {
+	builder.PrependInt32Slot(16, int32(student), 0)
+}
+func BattleExcelAddUseNextExSkill(builder *flatbuffers.Builder, useNextExSkill ExternalBehavior) {
+	builder.PrependInt32Slot(17, int32(useNextExSkill), 0)
+}
+func BattleExcelAddSequence(builder *flatbuffers.Builder, sequence ExternalBTNodeType) {
+	builder.PrependInt32Slot(18, int32(sequence), 0)
+}
+func BattleExcelAddStudents(builder *flatbuffers.Builder, students FormationLine) {
+	builder.PrependInt32Slot(19, int32(students), 0)
+}
+func BattleExcelAddCloseToObstacle(builder *flatbuffers.Builder, closeToObstacle PositioningType) {
+	builder.PrependInt32Slot(20, int32(closeToObstacle), 0)
+}
+func BattleExcelAddDistance(builder *flatbuffers.Builder, distance TargetSortBy) {
+	builder.PrependInt32Slot(21, int32(distance), 0)
+}
+func BattleExcelAddAll(builder *flatbuffers.Builder, all CoverMotionType) {
+	builder.PrependInt32Slot(22, int32(all), 0)
+}
+func BattleExcelAddWood(builder *flatbuffers.Builder, wood EntityMaterialType) {
+	builder.PrependInt32Slot(23, int32(wood), 0)
+}
+func BattleExcelAddLightArmor(builder *flatbuffers.Builder, lightArmor ArmorType) {
+	builder.PrependInt32Slot(24, int32(lightArmor), 0)
+}
+func BattleExcelAddAllySelf(builder *flatbuffers.Builder, allySelf ReArrangeTargetType) {
+	builder.PrependInt32Slot(25, int32(allySelf), 0)
+}
+func BattleExcelAddAble(builder *flatbuffers.Builder, able BuffOverlap) {
+	builder.PrependInt32Slot(26, int32(able), 0)
+}
+func BattleExcelAddCrush(builder *flatbuffers.Builder, crush ActionType) {
+	builder.PrependInt32Slot(27, int32(crush), 0)
 }
 func BattleExcelAddNormal(builder *flatbuffers.Builder, normal flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(normal), 0)
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(normal), 0)
 }
 func BattleExcelStartNormalVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func BattleExcelAddCrush(builder *flatbuffers.Builder, crush ActionType) {
-	builder.PrependInt32Slot(6, int32(crush), 0)
+func BattleExcelAddCoverEnter(builder *flatbuffers.Builder, coverEnter EmoticonEvent) {
+	builder.PrependInt32Slot(29, int32(coverEnter), 0)
 }
-func BattleExcelAddAble(builder *flatbuffers.Builder, able BuffOverlap) {
-	builder.PrependInt32Slot(7, int32(able), 0)
+func BattleExcelAddBlue(builder *flatbuffers.Builder, blue DamageFontColor) {
+	builder.PrependInt32Slot(30, int32(blue), 0)
 }
-func BattleExcelAddAllySelf(builder *flatbuffers.Builder, allySelf ReArrangeTargetType) {
-	builder.PrependInt32Slot(8, int32(allySelf), 0)
+func BattleExcelAddGuided(builder *flatbuffers.Builder, guided ProjectileType) {
+	builder.PrependInt32Slot(31, int32(guided), 0)
 }
-func BattleExcelAddLightArmor(builder *flatbuffers.Builder, lightArmor ArmorType) {
-	builder.PrependInt32Slot(9, int32(lightArmor), 0)
+func BattleExcelAddSingle(builder *flatbuffers.Builder, single AttackType) {
+	builder.PrependInt32Slot(32, int32(single), 0)
 }
-func BattleExcelAddWood(builder *flatbuffers.Builder, wood EntityMaterialType) {
-	builder.PrependInt32Slot(10, int32(wood), 0)
+func BattleExcelAddNone(builder *flatbuffers.Builder, none flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(none), 0)
 }
-func BattleExcelAddAll(builder *flatbuffers.Builder, all CoverMotionType) {
-	builder.PrependInt32Slot(11, int32(all), 0)
-}
-func BattleExcelAddDistance(builder *flatbuffers.Builder, distance TargetSortBy) {
-	builder.PrependInt32Slot(12, int32(distance), 0)
-}
-func BattleExcelAddCloseToObstacle(builder *flatbuffers.Builder, closeToObstacle PositioningType) {
-	builder.PrependInt32Slot(13, int32(closeToObstacle), 0)
-}
-func BattleExcelAddStudents(builder *flatbuffers.Builder, students FormationLine) {
-	builder.PrependInt32Slot(14, int32(students), 0)
-}
-func BattleExcelAddSequence(builder *flatbuffers.Builder, sequence ExternalBTNodeType) {
-	builder.PrependInt32Slot(15, int32(sequence), 0)
-}
-func BattleExcelAddUseNextExSkill(builder *flatbuffers.Builder, useNextExSkill ExternalBehavior) {
-	builder.PrependInt32Slot(16, int32(useNextExSkill), 0)
-}
-func BattleExcelAddStudent(builder *flatbuffers.Builder, student TacticEntityType) {
-	builder.PrependInt32Slot(17, int32(student), 0)
-}
-func BattleExcelAddSearchAndMove(builder *flatbuffers.Builder, searchAndMove EngageType) {
-	builder.PrependInt32Slot(18, int32(searchAndMove), 0)
-}
-func BattleExcelAddPosition(builder *flatbuffers.Builder, position HitEffectPosition) {
-	builder.PrependInt32Slot(19, int32(position), 0)
-}
-func BattleExcelAddStreet(builder *flatbuffers.Builder, street StageTopography) {
-	builder.PrependInt32Slot(20, int32(street), 0)
-}
-func BattleExcelAddD(builder *flatbuffers.Builder, d TerrainAdaptationStat) {
-	builder.PrependInt32Slot(21, int32(d), 0)
-}
-func BattleExcelAddMain(builder *flatbuffers.Builder, main ObstacleClass) {
-	builder.PrependInt32Slot(22, int32(main), 0)
-}
-func BattleExcelAddRemain(builder *flatbuffers.Builder, remain ObstacleDestroyType) {
-	builder.PrependInt32Slot(23, int32(remain), 0)
-}
-func BattleExcelAddLow(builder *flatbuffers.Builder, low ObstacleHeightType) {
-	builder.PrependInt32Slot(24, int32(low), 0)
-}
-func BattleExcelAddResist(builder *flatbuffers.Builder, resist DamageAttribute) {
-	builder.PrependInt32Slot(25, int32(resist), 0)
-}
-func BattleExcelAddAlly(builder *flatbuffers.Builder, ally SkillPriorityCheckTarget) {
-	builder.PrependInt32Slot(26, int32(ally), 0)
-}
-func BattleExcelAddMain166405e7(builder *flatbuffers.Builder, main166405e7 StageType) {
-	builder.PrependInt32Slot(27, int32(main166405e7), 0)
-}
-func BattleExcelAddTargetToCaster(builder *flatbuffers.Builder, targetToCaster KnockbackDirection) {
-	builder.PrependInt32Slot(28, int32(targetToCaster), 0)
-}
-func BattleExcelAddDuration(builder *flatbuffers.Builder, duration EndCondition) {
-	builder.PrependInt32Slot(29, int32(duration), 0)
-}
-func BattleExcelAddPreset(builder *flatbuffers.Builder, preset ArenaSimulatorServer) {
-	builder.PrependInt32Slot(30, int32(preset), 0)
-}
-func BattleExcelAddFinalDamage(builder *flatbuffers.Builder, finalDamage BattleCalculationStat) {
-	builder.PrependInt32Slot(31, int32(finalDamage), 0)
-}
-func BattleExcelAddSpecialTransStat(builder *flatbuffers.Builder, specialTransStat StatTransType) {
-	builder.PrependInt32Slot(32, int32(specialTransStat), 0)
-}
-func BattleExcelAddTalk(builder *flatbuffers.Builder, talk BattleDialogType) {
-	builder.PrependInt32Slot(33, int32(talk), 0)
+func BattleExcelStartNoneVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func BattleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

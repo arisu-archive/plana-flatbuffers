@@ -25,18 +25,58 @@ class EventContentTreasureCellRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentTreasureCellRewardExcel
-    def Id(self):
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # EventContentTreasureCellRewardExcel
-    def LocalizeCodeId(self):
+    def RewardParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentTreasureCellRewardExcel
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
 
     # EventContentTreasureCellRewardExcel
     def RewardParcelType(self, j):
@@ -66,86 +106,46 @@ class EventContentTreasureCellRewardExcel(object):
         return o == 0
 
     # EventContentTreasureCellRewardExcel
-    def RewardParcelId(self, j):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentTreasureCellRewardExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelAmount(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentTreasureCellRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
 
 def EventContentTreasureCellRewardExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return EventContentTreasureCellRewardExcelStart(builder)
-def EventContentTreasureCellRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return EventContentTreasureCellRewardExcelAddId(builder, id)
-def EventContentTreasureCellRewardExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
-def AddLocalizeCodeId(builder, localizeCodeId):
-    return EventContentTreasureCellRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+def EventContentTreasureCellRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return EventContentTreasureCellRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelAmountVector(builder, numElems):
+    return EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(builder, numElems)
+def EventContentTreasureCellRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return EventContentTreasureCellRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentTreasureCellRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelIdVector(builder, numElems):
+    return EventContentTreasureCellRewardExcelStartRewardParcelIdVector(builder, numElems)
 def EventContentTreasureCellRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return EventContentTreasureCellRewardExcelAddRewardParcelType(builder, rewardParcelType)
 def EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentTreasureCellRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentTreasureCellRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentTreasureCellRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelIdVector(builder, numElems):
-    return EventContentTreasureCellRewardExcelStartRewardParcelIdVector(builder, numElems)
-def EventContentTreasureCellRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return EventContentTreasureCellRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelAmountVector(builder, numElems):
-    return EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(builder, numElems)
+def EventContentTreasureCellRewardExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
+def AddLocalizeCodeId(builder, localizeCodeId):
+    return EventContentTreasureCellRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+def EventContentTreasureCellRewardExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+def AddId(builder, id):
+    return EventContentTreasureCellRewardExcelAddId(builder, id)
 def EventContentTreasureCellRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentTreasureCellRewardExcelEnd(builder)

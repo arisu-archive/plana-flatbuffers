@@ -3,8 +3,8 @@ include "EchelonType.fbs";
 namespace MX.Data.Excel;
 
 table AssistEchelonTypeConvertExcel {
-    contents: EchelonType;
     convert_to: EchelonType;
+    contents: EchelonType;
 }
 
 root_type AssistEchelonTypeConvertExcel;

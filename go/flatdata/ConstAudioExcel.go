@@ -33,7 +33,7 @@ func (rcv *ConstAudioExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstAudioExcel) DefaultSnapShotName() []byte {
+func (rcv *ConstAudioExcel) ExSkillCutInSnapShotName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *ConstAudioExcel) DefaultSnapShotName() []byte {
 	return nil
 }
 
-func (rcv *ConstAudioExcel) BattleSnapShotName() []byte {
+func (rcv *ConstAudioExcel) RaidSnapShotName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *ConstAudioExcel) BattleSnapShotName() []byte {
 	return nil
 }
 
-func (rcv *ConstAudioExcel) RaidSnapShotName() []byte {
+func (rcv *ConstAudioExcel) BattleSnapShotName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -57,7 +57,7 @@ func (rcv *ConstAudioExcel) RaidSnapShotName() []byte {
 	return nil
 }
 
-func (rcv *ConstAudioExcel) ExSkillCutInSnapShotName() []byte {
+func (rcv *ConstAudioExcel) DefaultSnapShotName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -68,17 +68,17 @@ func (rcv *ConstAudioExcel) ExSkillCutInSnapShotName() []byte {
 func ConstAudioExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func ConstAudioExcelAddDefaultSnapShotName(builder *flatbuffers.Builder, defaultSnapShotName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(defaultSnapShotName), 0)
-}
-func ConstAudioExcelAddBattleSnapShotName(builder *flatbuffers.Builder, battleSnapShotName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(battleSnapShotName), 0)
+func ConstAudioExcelAddExSkillCutInSnapShotName(builder *flatbuffers.Builder, exSkillCutInSnapShotName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(exSkillCutInSnapShotName), 0)
 }
 func ConstAudioExcelAddRaidSnapShotName(builder *flatbuffers.Builder, raidSnapShotName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(raidSnapShotName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(raidSnapShotName), 0)
 }
-func ConstAudioExcelAddExSkillCutInSnapShotName(builder *flatbuffers.Builder, exSkillCutInSnapShotName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(exSkillCutInSnapShotName), 0)
+func ConstAudioExcelAddBattleSnapShotName(builder *flatbuffers.Builder, battleSnapShotName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(battleSnapShotName), 0)
+}
+func ConstAudioExcelAddDefaultSnapShotName(builder *flatbuffers.Builder, defaultSnapShotName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(defaultSnapShotName), 0)
 }
 func ConstAudioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

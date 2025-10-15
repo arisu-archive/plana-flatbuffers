@@ -33,46 +33,44 @@ func (rcv *CharacterPotentialRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterPotentialRewardExcel) Id() int64 {
+func (rcv *CharacterPotentialRewardExcel) RewardAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterPotentialRewardExcel) MutateRewardAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *CharacterPotentialRewardExcel) RewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterPotentialRewardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CharacterPotentialRewardExcel) MutateRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatType(j int) PotentialStatBonusRateType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+func (rcv *CharacterPotentialRewardExcel) RewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return PotentialStatBonusRateType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterPotentialRewardExcel) MutateRequirePotentialStatType(j int, n PotentialStatBonusRateType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+func (rcv *CharacterPotentialRewardExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatLevel(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -81,7 +79,7 @@ func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatLevel(j int) int64
 }
 
 func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -89,7 +87,7 @@ func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatLevelLength() int 
 }
 
 func (rcv *CharacterPotentialRewardExcel) MutateRequirePotentialStatLevel(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -97,68 +95,70 @@ func (rcv *CharacterPotentialRewardExcel) MutateRequirePotentialStatLevel(j int,
 	return false
 }
 
-func (rcv *CharacterPotentialRewardExcel) RewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatType(j int) PotentialStatBonusRateType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return PotentialStatBonusRateType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *CharacterPotentialRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *CharacterPotentialRewardExcel) RequirePotentialStatTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CharacterPotentialRewardExcel) RewardId() int64 {
+func (rcv *CharacterPotentialRewardExcel) MutateRequirePotentialStatType(j int, n PotentialStatBonusRateType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterPotentialRewardExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterPotentialRewardExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *CharacterPotentialRewardExcel) RewardAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterPotentialRewardExcel) MutateRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+func (rcv *CharacterPotentialRewardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func CharacterPotentialRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func CharacterPotentialRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func CharacterPotentialRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
+	builder.PrependInt32Slot(0, rewardAmount, 0)
 }
-func CharacterPotentialRewardExcelAddRequirePotentialStatType(builder *flatbuffers.Builder, requirePotentialStatType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(requirePotentialStatType), 0)
+func CharacterPotentialRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
+	builder.PrependInt64Slot(1, rewardId, 0)
 }
-func CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func CharacterPotentialRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
 }
 func CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder *flatbuffers.Builder, requirePotentialStatLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(requirePotentialStatLevel), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(requirePotentialStatLevel), 0)
 }
 func CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CharacterPotentialRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
+func CharacterPotentialRewardExcelAddRequirePotentialStatType(builder *flatbuffers.Builder, requirePotentialStatType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(requirePotentialStatType), 0)
 }
-func CharacterPotentialRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(4, rewardId, 0)
+func CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func CharacterPotentialRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
-	builder.PrependInt32Slot(5, rewardAmount, 0)
+func CharacterPotentialRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func CharacterPotentialRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

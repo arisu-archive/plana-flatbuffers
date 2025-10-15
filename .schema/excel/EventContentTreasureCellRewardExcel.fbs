@@ -3,11 +3,11 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table EventContentTreasureCellRewardExcel {
-    id: long;
-    localize_code_id: string;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
     reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    localize_code_id: string;
+    id: long;
 }
 
 root_type EventContentTreasureCellRewardExcel;

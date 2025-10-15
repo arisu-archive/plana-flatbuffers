@@ -10,8 +10,8 @@ import (
 // FormDto represents a FlatBuffers table
 type FormDto struct {
 	fbsutils.FlatBuffer
-	MoveEnd     MoveEndDto `json:"move_end"`
 	PublicSkill MotionDto  `json:"public_skill"`
+	MoveEnd     MoveEndDto `json:"move_end"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *FormDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Form"))
 	}
 	FormStart(b)
-	FormAddMoveEnd(b, t.MoveEnd.MarshalModel(b))
 	FormAddPublicSkill(b, t.PublicSkill.MarshalModel(b))
+	FormAddMoveEnd(b, t.MoveEnd.MarshalModel(b))
 	return FormEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *FormDto) UnmarshalMessage(e *Form) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Form"))
 	}
-	t.MoveEnd.UnmarshalMessage(e.MoveEnd(nil))
 	t.PublicSkill.UnmarshalMessage(e.PublicSkill(nil))
+	t.MoveEnd.UnmarshalMessage(e.MoveEnd(nil))
 	return nil
 }
 

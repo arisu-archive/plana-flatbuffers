@@ -10,21 +10,21 @@ import (
 // ClanChattingEmojiExcelDto represents a FlatBuffers table
 type ClanChattingEmojiExcelDto struct {
 	fbsutils.FlatBuffer
-	Id           int64  `json:"id"`
-	TabGroupId   int32  `json:"tab_group_id"`
-	DisplayOrder int32  `json:"display_order"`
-	ImagePathKr  string `json:"image_path_kr"`
 	ImagePathJp  string `json:"image_path_jp"`
+	ImagePathKr  string `json:"image_path_kr"`
+	DisplayOrder int32  `json:"display_order"`
+	TabGroupId   int32  `json:"tab_group_id"`
+	Id           int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanChattingEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ClanChattingEmojiExcelStart(b)
-	ClanChattingEmojiExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddTabGroupId(b, fbsutils.Convert(t.TabGroupId, t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
 	ClanChattingEmojiExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	ClanChattingEmojiExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
+	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddTabGroupId(b, fbsutils.Convert(t.TabGroupId, t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ClanChattingEmojiExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *ClanChattingEmojiExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClanChattingEmojiExcelDto) UnmarshalMessage(e *ClanChattingEmojiExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TabGroupId = fbsutils.Convert(e.TabGroupId(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
 	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.TabGroupId = fbsutils.Convert(e.TabGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

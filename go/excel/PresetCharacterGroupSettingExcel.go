@@ -33,16 +33,21 @@ func (rcv *PresetCharacterGroupSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *PresetCharacterGroupSettingExcel) CharacterId() int64 {
+func (rcv *PresetCharacterGroupSettingExcel) PresetType(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
-	return 0
+	return nil
 }
 
-func (rcv *PresetCharacterGroupSettingExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *PresetCharacterGroupSettingExcel) PresetTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func (rcv *PresetCharacterGroupSettingExcel) ArenaSimulatorFixed() bool {
@@ -57,37 +62,32 @@ func (rcv *PresetCharacterGroupSettingExcel) MutateArenaSimulatorFixed(n bool) b
 	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *PresetCharacterGroupSettingExcel) PresetType(j int) []byte {
+func (rcv *PresetCharacterGroupSettingExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *PresetCharacterGroupSettingExcel) PresetTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
+}
+
+func (rcv *PresetCharacterGroupSettingExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func PresetCharacterGroupSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func PresetCharacterGroupSettingExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(0, characterId, 0)
+func PresetCharacterGroupSettingExcelAddPresetType(builder *flatbuffers.Builder, presetType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(presetType), 0)
+}
+func PresetCharacterGroupSettingExcelStartPresetTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder *flatbuffers.Builder, arenaSimulatorFixed bool) {
 	builder.PrependBoolSlot(1, arenaSimulatorFixed, false)
 }
-func PresetCharacterGroupSettingExcelAddPresetType(builder *flatbuffers.Builder, presetType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(presetType), 0)
-}
-func PresetCharacterGroupSettingExcelStartPresetTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func PresetCharacterGroupSettingExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(2, characterId, 0)
 }
 func PresetCharacterGroupSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

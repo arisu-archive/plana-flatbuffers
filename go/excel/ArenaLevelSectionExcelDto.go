@@ -10,19 +10,19 @@ import (
 // ArenaLevelSectionExcelDto represents a FlatBuffers table
 type ArenaLevelSectionExcelDto struct {
 	fbsutils.FlatBuffer
-	ArenaSeasonId int64 `json:"arena_season_id"`
-	StartLevel    int64 `json:"start_level"`
-	LastLevel     int64 `json:"last_level"`
 	UserCount     int64 `json:"user_count"`
+	LastLevel     int64 `json:"last_level"`
+	StartLevel    int64 `json:"start_level"`
+	ArenaSeasonId int64 `json:"arena_season_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaLevelSectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ArenaLevelSectionExcelStart(b)
-	ArenaLevelSectionExcelAddArenaSeasonId(b, fbsutils.Convert(t.ArenaSeasonId, t.FlatBuffer.TableKey))
-	ArenaLevelSectionExcelAddStartLevel(b, fbsutils.Convert(t.StartLevel, t.FlatBuffer.TableKey))
-	ArenaLevelSectionExcelAddLastLevel(b, fbsutils.Convert(t.LastLevel, t.FlatBuffer.TableKey))
 	ArenaLevelSectionExcelAddUserCount(b, fbsutils.Convert(t.UserCount, t.FlatBuffer.TableKey))
+	ArenaLevelSectionExcelAddLastLevel(b, fbsutils.Convert(t.LastLevel, t.FlatBuffer.TableKey))
+	ArenaLevelSectionExcelAddStartLevel(b, fbsutils.Convert(t.StartLevel, t.FlatBuffer.TableKey))
+	ArenaLevelSectionExcelAddArenaSeasonId(b, fbsutils.Convert(t.ArenaSeasonId, t.FlatBuffer.TableKey))
 	return ArenaLevelSectionExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *ArenaLevelSectionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaLevelSectionExcelDto) UnmarshalMessage(e *ArenaLevelSectionExcel) error {
-	t.ArenaSeasonId = fbsutils.Convert(e.ArenaSeasonId(), t.FlatBuffer.TableKey)
-	t.StartLevel = fbsutils.Convert(e.StartLevel(), t.FlatBuffer.TableKey)
-	t.LastLevel = fbsutils.Convert(e.LastLevel(), t.FlatBuffer.TableKey)
 	t.UserCount = fbsutils.Convert(e.UserCount(), t.FlatBuffer.TableKey)
+	t.LastLevel = fbsutils.Convert(e.LastLevel(), t.FlatBuffer.TableKey)
+	t.StartLevel = fbsutils.Convert(e.StartLevel(), t.FlatBuffer.TableKey)
+	t.ArenaSeasonId = fbsutils.Convert(e.ArenaSeasonId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

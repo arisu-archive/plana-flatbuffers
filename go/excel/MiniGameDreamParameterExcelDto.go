@@ -10,29 +10,29 @@ import (
 // MiniGameDreamParameterExcelDto represents a FlatBuffers table
 type MiniGameDreamParameterExcelDto struct {
 	fbsutils.FlatBuffer
-	Id               int64                   `json:"id"`
-	EventContentId   int64                   `json:"event_content_id"`
-	ParameterType    DreamMakerParameterType `json:"parameter_type"`
-	LocalizeEtcId    uint32                  `json:"localize_etc_id"`
-	IconPath         string                  `json:"icon_path"`
-	ParameterBase    int64                   `json:"parameter_base"`
-	ParameterBaseMax int64                   `json:"parameter_base_max"`
-	ParameterMin     int64                   `json:"parameter_min"`
 	ParameterMax     int64                   `json:"parameter_max"`
+	ParameterMin     int64                   `json:"parameter_min"`
+	ParameterBaseMax int64                   `json:"parameter_base_max"`
+	ParameterBase    int64                   `json:"parameter_base"`
+	IconPath         string                  `json:"icon_path"`
+	LocalizeEtcId    uint32                  `json:"localize_etc_id"`
+	ParameterType    DreamMakerParameterType `json:"parameter_type"`
+	EventContentId   int64                   `json:"event_content_id"`
+	Id               int64                   `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamParameterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamParameterExcelStart(b)
-	MiniGameDreamParameterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddParameterType(b, fbsutils.Convert(t.ParameterType, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	MiniGameDreamParameterExcelAddParameterBase(b, fbsutils.Convert(t.ParameterBase, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddParameterBaseMax(b, fbsutils.Convert(t.ParameterBaseMax, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddParameterMin(b, fbsutils.Convert(t.ParameterMin, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddParameterMax(b, fbsutils.Convert(t.ParameterMax, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddParameterMin(b, fbsutils.Convert(t.ParameterMin, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddParameterBaseMax(b, fbsutils.Convert(t.ParameterBaseMax, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddParameterBase(b, fbsutils.Convert(t.ParameterBase, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	MiniGameDreamParameterExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddParameterType(b, fbsutils.Convert(t.ParameterType, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamParameterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return MiniGameDreamParameterExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *MiniGameDreamParameterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamParameterExcelDto) UnmarshalMessage(e *MiniGameDreamParameterExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ParameterType = DreamMakerParameterType(fbsutils.Convert(int32(e.ParameterType()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.ParameterBase = fbsutils.Convert(e.ParameterBase(), t.FlatBuffer.TableKey)
-	t.ParameterBaseMax = fbsutils.Convert(e.ParameterBaseMax(), t.FlatBuffer.TableKey)
-	t.ParameterMin = fbsutils.Convert(e.ParameterMin(), t.FlatBuffer.TableKey)
 	t.ParameterMax = fbsutils.Convert(e.ParameterMax(), t.FlatBuffer.TableKey)
+	t.ParameterMin = fbsutils.Convert(e.ParameterMin(), t.FlatBuffer.TableKey)
+	t.ParameterBaseMax = fbsutils.Convert(e.ParameterBaseMax(), t.FlatBuffer.TableKey)
+	t.ParameterBase = fbsutils.Convert(e.ParameterBase(), t.FlatBuffer.TableKey)
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.ParameterType = DreamMakerParameterType(fbsutils.Convert(int32(e.ParameterType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

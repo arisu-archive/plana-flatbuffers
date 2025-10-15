@@ -1,0 +1,18 @@
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentShopRefreshExcel {
+    buy_report_event_name: string;
+    prob: int;
+    refresh_group: int;
+    category_type: ShopCategoryType;
+    display_order: long;
+    goods_id: long;
+    is_legacy: bool;
+    localize_etc_id: uint;
+    id: long;
+    event_content_id: long;
+}
+
+root_type EventContentShopRefreshExcel;

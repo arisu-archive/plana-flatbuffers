@@ -25,14 +25,14 @@ class Position(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # Position
-    def X(self):
+    def Z(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # Position
-    def Z(self):
+    def X(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class Position(object):
 def PositionStart(builder): builder.StartObject(2)
 def Start(builder):
     return PositionStart(builder)
-def PositionAddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
-def AddX(builder, x):
-    return PositionAddX(builder, x)
-def PositionAddZ(builder, z): builder.PrependFloat32Slot(1, z, 0.0)
+def PositionAddZ(builder, z): builder.PrependFloat32Slot(0, z, 0.0)
 def AddZ(builder, z):
     return PositionAddZ(builder, z)
+def PositionAddX(builder, x): builder.PrependFloat32Slot(1, x, 0.0)
+def AddX(builder, x):
+    return PositionAddX(builder, x)
 def PositionEnd(builder): return builder.EndObject()
 def End(builder):
     return PositionEnd(builder)

@@ -33,7 +33,7 @@ func (rcv *EventContentBoxGachaElementExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentBoxGachaElementExcel) EventContentId() int64 {
+func (rcv *EventContentBoxGachaElementExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *EventContentBoxGachaElementExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaElementExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentBoxGachaElementExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentBoxGachaElementExcel) Id() int64 {
+func (rcv *EventContentBoxGachaElementExcel) Round() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *EventContentBoxGachaElementExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaElementExcel) MutateId(n int64) bool {
+func (rcv *EventContentBoxGachaElementExcel) MutateRound(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentBoxGachaElementExcel) Round() int64 {
+func (rcv *EventContentBoxGachaElementExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *EventContentBoxGachaElementExcel) Round() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaElementExcel) MutateRound(n int64) bool {
+func (rcv *EventContentBoxGachaElementExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *EventContentBoxGachaElementExcel) GroupId() int64 {
+func (rcv *EventContentBoxGachaElementExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,24 +77,24 @@ func (rcv *EventContentBoxGachaElementExcel) GroupId() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaElementExcel) MutateGroupId(n int64) bool {
+func (rcv *EventContentBoxGachaElementExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func EventContentBoxGachaElementExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentBoxGachaElementExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func EventContentBoxGachaElementExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
+func EventContentBoxGachaElementExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(0, groupId, 0)
 }
 func EventContentBoxGachaElementExcelAddRound(builder *flatbuffers.Builder, round int64) {
-	builder.PrependInt64Slot(2, round, 0)
+	builder.PrependInt64Slot(1, round, 0)
 }
-func EventContentBoxGachaElementExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(3, groupId, 0)
+func EventContentBoxGachaElementExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
+}
+func EventContentBoxGachaElementExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
 }
 func EventContentBoxGachaElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

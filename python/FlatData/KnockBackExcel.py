@@ -25,11 +25,11 @@ class KnockBackExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # KnockBackExcel
-    def Index(self):
+    def Speed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # KnockBackExcel
     def Dist(self):
@@ -39,24 +39,24 @@ class KnockBackExcel(object):
         return 0.0
 
     # KnockBackExcel
-    def Speed(self):
+    def Index(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def KnockBackExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return KnockBackExcelStart(builder)
-def KnockBackExcelAddIndex(builder, index): builder.PrependInt64Slot(0, index, 0)
-def AddIndex(builder, index):
-    return KnockBackExcelAddIndex(builder, index)
+def KnockBackExcelAddSpeed(builder, speed): builder.PrependFloat32Slot(0, speed, 0.0)
+def AddSpeed(builder, speed):
+    return KnockBackExcelAddSpeed(builder, speed)
 def KnockBackExcelAddDist(builder, dist): builder.PrependFloat32Slot(1, dist, 0.0)
 def AddDist(builder, dist):
     return KnockBackExcelAddDist(builder, dist)
-def KnockBackExcelAddSpeed(builder, speed): builder.PrependFloat32Slot(2, speed, 0.0)
-def AddSpeed(builder, speed):
-    return KnockBackExcelAddSpeed(builder, speed)
+def KnockBackExcelAddIndex(builder, index): builder.PrependInt64Slot(2, index, 0)
+def AddIndex(builder, index):
+    return KnockBackExcelAddIndex(builder, index)
 def KnockBackExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return KnockBackExcelEnd(builder)

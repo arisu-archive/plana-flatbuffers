@@ -33,43 +33,51 @@ func (rcv *StickerGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StickerGroupExcel) Id() int64 {
+func (rcv *StickerGroupExcel) StickerGroupCoverpath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StickerGroupExcel) LocalizeDescription() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *StickerGroupExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *StickerGroupExcel) MutateLocalizeDescription(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *StickerGroupExcel) Layout() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *StickerGroupExcel) UniqueLayoutPath() []byte {
+func (rcv *StickerGroupExcel) LocalizeTitle() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *StickerGroupExcel) StickerGroupIconpath() []byte {
+func (rcv *StickerGroupExcel) MutateLocalizeTitle(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *StickerGroupExcel) PageCompleteRewardAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *StickerGroupExcel) PageCompleteSlot() int64 {
+func (rcv *StickerGroupExcel) MutatePageCompleteRewardAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *StickerGroupExcel) PageCompleteRewardParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,7 +85,7 @@ func (rcv *StickerGroupExcel) PageCompleteSlot() int64 {
 	return 0
 }
 
-func (rcv *StickerGroupExcel) MutatePageCompleteSlot(n int64) bool {
+func (rcv *StickerGroupExcel) MutatePageCompleteRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
@@ -93,7 +101,7 @@ func (rcv *StickerGroupExcel) MutatePageCompleteRewardParcelType(n ParcelType) b
 	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *StickerGroupExcel) PageCompleteRewardParcelId() int64 {
+func (rcv *StickerGroupExcel) PageCompleteSlot() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,89 +109,81 @@ func (rcv *StickerGroupExcel) PageCompleteRewardParcelId() int64 {
 	return 0
 }
 
-func (rcv *StickerGroupExcel) MutatePageCompleteRewardParcelId(n int64) bool {
+func (rcv *StickerGroupExcel) MutatePageCompleteSlot(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *StickerGroupExcel) PageCompleteRewardAmount() int32 {
+func (rcv *StickerGroupExcel) StickerGroupIconpath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StickerGroupExcel) MutatePageCompleteRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *StickerGroupExcel) LocalizeTitle() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StickerGroupExcel) MutateLocalizeTitle(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(20, n)
-}
-
-func (rcv *StickerGroupExcel) LocalizeDescription() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StickerGroupExcel) MutateLocalizeDescription(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(22, n)
-}
-
-func (rcv *StickerGroupExcel) StickerGroupCoverpath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *StickerGroupExcel) UniqueLayoutPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StickerGroupExcel) Layout() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StickerGroupExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StickerGroupExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
 func StickerGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
-func StickerGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func StickerGroupExcelAddStickerGroupCoverpath(builder *flatbuffers.Builder, stickerGroupCoverpath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(stickerGroupCoverpath), 0)
 }
-func StickerGroupExcelAddLayout(builder *flatbuffers.Builder, layout flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(layout), 0)
+func StickerGroupExcelAddLocalizeDescription(builder *flatbuffers.Builder, localizeDescription uint32) {
+	builder.PrependUint32Slot(1, localizeDescription, 0)
 }
-func StickerGroupExcelAddUniqueLayoutPath(builder *flatbuffers.Builder, uniqueLayoutPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(uniqueLayoutPath), 0)
+func StickerGroupExcelAddLocalizeTitle(builder *flatbuffers.Builder, localizeTitle uint32) {
+	builder.PrependUint32Slot(2, localizeTitle, 0)
 }
-func StickerGroupExcelAddStickerGroupIconpath(builder *flatbuffers.Builder, stickerGroupIconpath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(stickerGroupIconpath), 0)
+func StickerGroupExcelAddPageCompleteRewardAmount(builder *flatbuffers.Builder, pageCompleteRewardAmount int32) {
+	builder.PrependInt32Slot(3, pageCompleteRewardAmount, 0)
 }
-func StickerGroupExcelAddPageCompleteSlot(builder *flatbuffers.Builder, pageCompleteSlot int64) {
-	builder.PrependInt64Slot(4, pageCompleteSlot, 0)
+func StickerGroupExcelAddPageCompleteRewardParcelId(builder *flatbuffers.Builder, pageCompleteRewardParcelId int64) {
+	builder.PrependInt64Slot(4, pageCompleteRewardParcelId, 0)
 }
 func StickerGroupExcelAddPageCompleteRewardParcelType(builder *flatbuffers.Builder, pageCompleteRewardParcelType ParcelType) {
 	builder.PrependInt32Slot(5, int32(pageCompleteRewardParcelType), 0)
 }
-func StickerGroupExcelAddPageCompleteRewardParcelId(builder *flatbuffers.Builder, pageCompleteRewardParcelId int64) {
-	builder.PrependInt64Slot(6, pageCompleteRewardParcelId, 0)
+func StickerGroupExcelAddPageCompleteSlot(builder *flatbuffers.Builder, pageCompleteSlot int64) {
+	builder.PrependInt64Slot(6, pageCompleteSlot, 0)
 }
-func StickerGroupExcelAddPageCompleteRewardAmount(builder *flatbuffers.Builder, pageCompleteRewardAmount int32) {
-	builder.PrependInt32Slot(7, pageCompleteRewardAmount, 0)
+func StickerGroupExcelAddStickerGroupIconpath(builder *flatbuffers.Builder, stickerGroupIconpath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(stickerGroupIconpath), 0)
 }
-func StickerGroupExcelAddLocalizeTitle(builder *flatbuffers.Builder, localizeTitle uint32) {
-	builder.PrependUint32Slot(8, localizeTitle, 0)
+func StickerGroupExcelAddUniqueLayoutPath(builder *flatbuffers.Builder, uniqueLayoutPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(uniqueLayoutPath), 0)
 }
-func StickerGroupExcelAddLocalizeDescription(builder *flatbuffers.Builder, localizeDescription uint32) {
-	builder.PrependUint32Slot(9, localizeDescription, 0)
+func StickerGroupExcelAddLayout(builder *flatbuffers.Builder, layout flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(layout), 0)
 }
-func StickerGroupExcelAddStickerGroupCoverpath(builder *flatbuffers.Builder, stickerGroupCoverpath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(stickerGroupCoverpath), 0)
+func StickerGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(10, id, 0)
 }
 func StickerGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

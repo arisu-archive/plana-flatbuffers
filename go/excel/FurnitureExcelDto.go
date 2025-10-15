@@ -10,121 +10,121 @@ import (
 // FurnitureExcelDto represents a FlatBuffers table
 type FurnitureExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                         int64                 `json:"id"`
-	ProductionStep             ProductionStep        `json:"production_step"`
-	Rarity                     Rarity                `json:"rarity"`
-	Category                   FurnitureCategory     `json:"category"`
-	SubCategory                FurnitureSubCategory  `json:"sub_category"`
-	CheckFloorDecoration       bool                  `json:"check_floor_decoration"`
-	LocalizeEtcId              uint32                `json:"localize_etc_id"`
-	StarGradeInit              int32                 `json:"star_grade_init"`
-	Tier                       int64                 `json:"tier"`
-	Icon                       string                `json:"icon"`
-	SizeWidth                  int32                 `json:"size_width"`
-	SizeHeight                 int32                 `json:"size_height"`
-	OtherSize                  int32                 `json:"other_size"`
-	ExpandWidth                int32                 `json:"expand_width"`
-	Enable                     bool                  `json:"enable"`
-	ReverseRotation            bool                  `json:"reverse_rotation"`
-	Prefab                     string                `json:"prefab"`
-	PrefabExpand               string                `json:"prefab_expand"`
-	SubPrefab                  string                `json:"sub_prefab"`
-	SubExpandPrefab            string                `json:"sub_expand_prefab"`
-	CornerPrefab               string                `json:"corner_prefab"`
-	StackableMax               int64                 `json:"stackable_max"`
-	RecipeCraftId              int64                 `json:"recipe_craft_id"`
-	SetGroudpId                int64                 `json:"set_groudp_id"`
-	ComfortBonus               int64                 `json:"comfort_bonus"`
-	VisitOperationType         int64                 `json:"visit_operation_type"`
-	VisitBonusOperationType    int64                 `json:"visit_bonus_operation_type"`
-	Tags                       []Tag                 `json:"tags"`
-	CraftQualityTier0          int64                 `json:"craft_quality_tier0"`
-	CraftQualityTier1          int64                 `json:"craft_quality_tier1"`
-	CraftQualityTier2          int64                 `json:"craft_quality_tier2"`
-	ShiftingCraftQuality       int64                 `json:"shifting_craft_quality"`
-	FurnitureFunctionType      FurnitureFunctionType `json:"furniture_function_type"`
-	FurnitureFunctionParameter []int64               `json:"furniture_function_parameter"`
-	VideoId                    int64                 `json:"video_id"`
-	EventCollectionId          int64                 `json:"event_collection_id"`
-	FurnitureBubbleOffsetX     int64                 `json:"furniture_bubble_offset_x"`
-	FurnitureBubbleOffsetY     int64                 `json:"furniture_bubble_offset_y"`
-	CafeCharacterStateReq      []string              `json:"cafe_character_state_req"`
-	CafeCharacterStateAdd      []string              `json:"cafe_character_state_add"`
-	CafeCharacterStateMake     []string              `json:"cafe_character_state_make"`
-	CafeCharacterStateOnly     []string              `json:"cafe_character_state_only"`
 	HideCraftShortcut          bool                  `json:"hide_craft_shortcut"`
+	CafeCharacterStateOnly     []string              `json:"cafe_character_state_only"`
+	CafeCharacterStateMake     []string              `json:"cafe_character_state_make"`
+	CafeCharacterStateAdd      []string              `json:"cafe_character_state_add"`
+	CafeCharacterStateReq      []string              `json:"cafe_character_state_req"`
+	FurnitureBubbleOffsetY     int64                 `json:"furniture_bubble_offset_y"`
+	FurnitureBubbleOffsetX     int64                 `json:"furniture_bubble_offset_x"`
+	EventCollectionId          int64                 `json:"event_collection_id"`
+	VideoId                    int64                 `json:"video_id"`
+	FurnitureFunctionParameter []int64               `json:"furniture_function_parameter"`
+	FurnitureFunctionType      FurnitureFunctionType `json:"furniture_function_type"`
+	ShiftingCraftQuality       int64                 `json:"shifting_craft_quality"`
+	CraftQualityTier2          int64                 `json:"craft_quality_tier2"`
+	CraftQualityTier1          int64                 `json:"craft_quality_tier1"`
+	CraftQualityTier0          int64                 `json:"craft_quality_tier0"`
+	Tags                       []Tag                 `json:"tags"`
+	VisitBonusOperationType    int64                 `json:"visit_bonus_operation_type"`
+	VisitOperationType         int64                 `json:"visit_operation_type"`
+	ComfortBonus               int64                 `json:"comfort_bonus"`
+	SetGroudpId                int64                 `json:"set_groudp_id"`
+	RecipeCraftId              int64                 `json:"recipe_craft_id"`
+	StackableMax               int64                 `json:"stackable_max"`
+	CornerPrefab               string                `json:"corner_prefab"`
+	SubExpandPrefab            string                `json:"sub_expand_prefab"`
+	SubPrefab                  string                `json:"sub_prefab"`
+	PrefabExpand               string                `json:"prefab_expand"`
+	Prefab                     string                `json:"prefab"`
+	ReverseRotation            bool                  `json:"reverse_rotation"`
+	Enable                     bool                  `json:"enable"`
+	ExpandWidth                int32                 `json:"expand_width"`
+	OtherSize                  int32                 `json:"other_size"`
+	SizeHeight                 int32                 `json:"size_height"`
+	SizeWidth                  int32                 `json:"size_width"`
+	Icon                       string                `json:"icon"`
+	Tier                       int64                 `json:"tier"`
+	StarGradeInit              int32                 `json:"star_grade_init"`
+	LocalizeEtcId              uint32                `json:"localize_etc_id"`
+	CheckFloorDecoration       bool                  `json:"check_floor_decoration"`
+	SubCategory                FurnitureSubCategory  `json:"sub_category"`
+	Category                   FurnitureCategory     `json:"category"`
+	Rarity                     Rarity                `json:"rarity"`
+	ProductionStep             ProductionStep        `json:"production_step"`
+	Id                         int64                 `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FurnitureExcelStart(b)
-	FurnitureExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FurnitureExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	FurnitureExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	FurnitureExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
-	FurnitureExcelAddSubCategory(b, fbsutils.Convert(t.SubCategory, t.FlatBuffer.TableKey))
-	FurnitureExcelAddCheckFloorDecoration(b, t.CheckFloorDecoration)
-	FurnitureExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	FurnitureExcelAddStarGradeInit(b, fbsutils.Convert(t.StarGradeInit, t.FlatBuffer.TableKey))
-	FurnitureExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
-	FurnitureExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddSizeWidth(b, fbsutils.Convert(t.SizeWidth, t.FlatBuffer.TableKey))
-	FurnitureExcelAddSizeHeight(b, fbsutils.Convert(t.SizeHeight, t.FlatBuffer.TableKey))
-	FurnitureExcelAddOtherSize(b, fbsutils.Convert(t.OtherSize, t.FlatBuffer.TableKey))
-	FurnitureExcelAddExpandWidth(b, fbsutils.Convert(t.ExpandWidth, t.FlatBuffer.TableKey))
-	FurnitureExcelAddEnable(b, t.Enable)
-	FurnitureExcelAddReverseRotation(b, t.ReverseRotation)
-	FurnitureExcelAddPrefab(b, b.CreateString(fbsutils.Convert(t.Prefab, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddPrefabExpand(b, b.CreateString(fbsutils.Convert(t.PrefabExpand, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddSubPrefab(b, b.CreateString(fbsutils.Convert(t.SubPrefab, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddSubExpandPrefab(b, b.CreateString(fbsutils.Convert(t.SubExpandPrefab, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddCornerPrefab(b, b.CreateString(fbsutils.Convert(t.CornerPrefab, t.FlatBuffer.TableKey)))
-	FurnitureExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
-	FurnitureExcelAddRecipeCraftId(b, fbsutils.Convert(t.RecipeCraftId, t.FlatBuffer.TableKey))
-	FurnitureExcelAddSetGroudpId(b, fbsutils.Convert(t.SetGroudpId, t.FlatBuffer.TableKey))
-	FurnitureExcelAddComfortBonus(b, fbsutils.Convert(t.ComfortBonus, t.FlatBuffer.TableKey))
-	FurnitureExcelAddVisitOperationType(b, fbsutils.Convert(t.VisitOperationType, t.FlatBuffer.TableKey))
-	FurnitureExcelAddVisitBonusOperationType(b, fbsutils.Convert(t.VisitBonusOperationType, t.FlatBuffer.TableKey))
-	FurnitureExcelStartTagsVector(b, len(t.Tags))
-	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
-	}
-	FurnitureExcelAddTags(b, b.EndVector(len(t.Tags)))
-	FurnitureExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
-	FurnitureExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
-	FurnitureExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
-	FurnitureExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
-	FurnitureExcelAddFurnitureFunctionType(b, fbsutils.Convert(t.FurnitureFunctionType, t.FlatBuffer.TableKey))
-	FurnitureExcelStartFurnitureFunctionParameterVector(b, len(t.FurnitureFunctionParameter))
-	for i := range len(t.FurnitureFunctionParameter) {
-		b.PrependInt64(fbsutils.Convert(t.FurnitureFunctionParameter[len(t.FurnitureFunctionParameter)-i-1], t.FlatBuffer.TableKey))
-	}
-	FurnitureExcelAddFurnitureFunctionParameter(b, b.EndVector(len(t.FurnitureFunctionParameter)))
-	FurnitureExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
-	FurnitureExcelAddEventCollectionId(b, fbsutils.Convert(t.EventCollectionId, t.FlatBuffer.TableKey))
-	FurnitureExcelAddFurnitureBubbleOffsetX(b, fbsutils.Convert(t.FurnitureBubbleOffsetX, t.FlatBuffer.TableKey))
-	FurnitureExcelAddFurnitureBubbleOffsetY(b, fbsutils.Convert(t.FurnitureBubbleOffsetY, t.FlatBuffer.TableKey))
-	FurnitureExcelStartCafeCharacterStateReqVector(b, len(t.CafeCharacterStateReq))
-	for i := range len(t.CafeCharacterStateReq) {
-		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateReq[len(t.CafeCharacterStateReq)-i-1]))
-	}
-	FurnitureExcelAddCafeCharacterStateReq(b, b.EndVector(len(t.CafeCharacterStateReq)))
-	FurnitureExcelStartCafeCharacterStateAddVector(b, len(t.CafeCharacterStateAdd))
-	for i := range len(t.CafeCharacterStateAdd) {
-		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateAdd[len(t.CafeCharacterStateAdd)-i-1]))
-	}
-	FurnitureExcelAddCafeCharacterStateAdd(b, b.EndVector(len(t.CafeCharacterStateAdd)))
-	FurnitureExcelStartCafeCharacterStateMakeVector(b, len(t.CafeCharacterStateMake))
-	for i := range len(t.CafeCharacterStateMake) {
-		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateMake[len(t.CafeCharacterStateMake)-i-1]))
-	}
-	FurnitureExcelAddCafeCharacterStateMake(b, b.EndVector(len(t.CafeCharacterStateMake)))
+	FurnitureExcelAddHideCraftShortcut(b, t.HideCraftShortcut)
 	FurnitureExcelStartCafeCharacterStateOnlyVector(b, len(t.CafeCharacterStateOnly))
 	for i := range len(t.CafeCharacterStateOnly) {
 		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateOnly[len(t.CafeCharacterStateOnly)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateOnly(b, b.EndVector(len(t.CafeCharacterStateOnly)))
-	FurnitureExcelAddHideCraftShortcut(b, t.HideCraftShortcut)
+	FurnitureExcelStartCafeCharacterStateMakeVector(b, len(t.CafeCharacterStateMake))
+	for i := range len(t.CafeCharacterStateMake) {
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateMake[len(t.CafeCharacterStateMake)-i-1]))
+	}
+	FurnitureExcelAddCafeCharacterStateMake(b, b.EndVector(len(t.CafeCharacterStateMake)))
+	FurnitureExcelStartCafeCharacterStateAddVector(b, len(t.CafeCharacterStateAdd))
+	for i := range len(t.CafeCharacterStateAdd) {
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateAdd[len(t.CafeCharacterStateAdd)-i-1]))
+	}
+	FurnitureExcelAddCafeCharacterStateAdd(b, b.EndVector(len(t.CafeCharacterStateAdd)))
+	FurnitureExcelStartCafeCharacterStateReqVector(b, len(t.CafeCharacterStateReq))
+	for i := range len(t.CafeCharacterStateReq) {
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateReq[len(t.CafeCharacterStateReq)-i-1]))
+	}
+	FurnitureExcelAddCafeCharacterStateReq(b, b.EndVector(len(t.CafeCharacterStateReq)))
+	FurnitureExcelAddFurnitureBubbleOffsetY(b, fbsutils.Convert(t.FurnitureBubbleOffsetY, t.FlatBuffer.TableKey))
+	FurnitureExcelAddFurnitureBubbleOffsetX(b, fbsutils.Convert(t.FurnitureBubbleOffsetX, t.FlatBuffer.TableKey))
+	FurnitureExcelAddEventCollectionId(b, fbsutils.Convert(t.EventCollectionId, t.FlatBuffer.TableKey))
+	FurnitureExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
+	FurnitureExcelStartFurnitureFunctionParameterVector(b, len(t.FurnitureFunctionParameter))
+	for i := range len(t.FurnitureFunctionParameter) {
+		b.PrependInt64(fbsutils.Convert(t.FurnitureFunctionParameter[len(t.FurnitureFunctionParameter)-i-1], t.FlatBuffer.TableKey))
+	}
+	FurnitureExcelAddFurnitureFunctionParameter(b, b.EndVector(len(t.FurnitureFunctionParameter)))
+	FurnitureExcelAddFurnitureFunctionType(b, fbsutils.Convert(t.FurnitureFunctionType, t.FlatBuffer.TableKey))
+	FurnitureExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
+	FurnitureExcelStartTagsVector(b, len(t.Tags))
+	for i := range len(t.Tags) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
+	}
+	FurnitureExcelAddTags(b, b.EndVector(len(t.Tags)))
+	FurnitureExcelAddVisitBonusOperationType(b, fbsutils.Convert(t.VisitBonusOperationType, t.FlatBuffer.TableKey))
+	FurnitureExcelAddVisitOperationType(b, fbsutils.Convert(t.VisitOperationType, t.FlatBuffer.TableKey))
+	FurnitureExcelAddComfortBonus(b, fbsutils.Convert(t.ComfortBonus, t.FlatBuffer.TableKey))
+	FurnitureExcelAddSetGroudpId(b, fbsutils.Convert(t.SetGroudpId, t.FlatBuffer.TableKey))
+	FurnitureExcelAddRecipeCraftId(b, fbsutils.Convert(t.RecipeCraftId, t.FlatBuffer.TableKey))
+	FurnitureExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCornerPrefab(b, b.CreateString(fbsutils.Convert(t.CornerPrefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddSubExpandPrefab(b, b.CreateString(fbsutils.Convert(t.SubExpandPrefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddSubPrefab(b, b.CreateString(fbsutils.Convert(t.SubPrefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddPrefabExpand(b, b.CreateString(fbsutils.Convert(t.PrefabExpand, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddPrefab(b, b.CreateString(fbsutils.Convert(t.Prefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddReverseRotation(b, t.ReverseRotation)
+	FurnitureExcelAddEnable(b, t.Enable)
+	FurnitureExcelAddExpandWidth(b, fbsutils.Convert(t.ExpandWidth, t.FlatBuffer.TableKey))
+	FurnitureExcelAddOtherSize(b, fbsutils.Convert(t.OtherSize, t.FlatBuffer.TableKey))
+	FurnitureExcelAddSizeHeight(b, fbsutils.Convert(t.SizeHeight, t.FlatBuffer.TableKey))
+	FurnitureExcelAddSizeWidth(b, fbsutils.Convert(t.SizeWidth, t.FlatBuffer.TableKey))
+	FurnitureExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
+	FurnitureExcelAddStarGradeInit(b, fbsutils.Convert(t.StarGradeInit, t.FlatBuffer.TableKey))
+	FurnitureExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCheckFloorDecoration(b, t.CheckFloorDecoration)
+	FurnitureExcelAddSubCategory(b, fbsutils.Convert(t.SubCategory, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
+	FurnitureExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	FurnitureExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	FurnitureExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return FurnitureExcelEnd(b)
 }
 
@@ -137,67 +137,67 @@ func (t *FurnitureExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.Category = FurnitureCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
-	t.SubCategory = FurnitureSubCategory(fbsutils.Convert(int32(e.SubCategory()), t.FlatBuffer.TableKey))
-	t.CheckFloorDecoration = e.CheckFloorDecoration()
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.StarGradeInit = fbsutils.Convert(e.StarGradeInit(), t.FlatBuffer.TableKey)
-	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.SizeWidth = fbsutils.Convert(e.SizeWidth(), t.FlatBuffer.TableKey)
-	t.SizeHeight = fbsutils.Convert(e.SizeHeight(), t.FlatBuffer.TableKey)
-	t.OtherSize = fbsutils.Convert(e.OtherSize(), t.FlatBuffer.TableKey)
-	t.ExpandWidth = fbsutils.Convert(e.ExpandWidth(), t.FlatBuffer.TableKey)
-	t.Enable = e.Enable()
-	t.ReverseRotation = e.ReverseRotation()
-	t.Prefab = fbsutils.Convert(string(e.Prefab()), t.FlatBuffer.TableKey)
-	t.PrefabExpand = fbsutils.Convert(string(e.PrefabExpand()), t.FlatBuffer.TableKey)
-	t.SubPrefab = fbsutils.Convert(string(e.SubPrefab()), t.FlatBuffer.TableKey)
-	t.SubExpandPrefab = fbsutils.Convert(string(e.SubExpandPrefab()), t.FlatBuffer.TableKey)
-	t.CornerPrefab = fbsutils.Convert(string(e.CornerPrefab()), t.FlatBuffer.TableKey)
-	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
-	t.RecipeCraftId = fbsutils.Convert(e.RecipeCraftId(), t.FlatBuffer.TableKey)
-	t.SetGroudpId = fbsutils.Convert(e.SetGroudpId(), t.FlatBuffer.TableKey)
-	t.ComfortBonus = fbsutils.Convert(e.ComfortBonus(), t.FlatBuffer.TableKey)
-	t.VisitOperationType = fbsutils.Convert(e.VisitOperationType(), t.FlatBuffer.TableKey)
-	t.VisitBonusOperationType = fbsutils.Convert(e.VisitBonusOperationType(), t.FlatBuffer.TableKey)
-	t.Tags = make([]Tag, e.TagsLength())
-	for i := range e.TagsLength() {
-		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
-	}
-	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
-	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
-	t.FurnitureFunctionType = FurnitureFunctionType(fbsutils.Convert(int32(e.FurnitureFunctionType()), t.FlatBuffer.TableKey))
-	t.FurnitureFunctionParameter = make([]int64, e.FurnitureFunctionParameterLength())
-	for i := range e.FurnitureFunctionParameterLength() {
-		t.FurnitureFunctionParameter[i] = fbsutils.Convert(e.FurnitureFunctionParameter(i), t.FlatBuffer.TableKey)
-	}
-	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
-	t.EventCollectionId = fbsutils.Convert(e.EventCollectionId(), t.FlatBuffer.TableKey)
-	t.FurnitureBubbleOffsetX = fbsutils.Convert(e.FurnitureBubbleOffsetX(), t.FlatBuffer.TableKey)
-	t.FurnitureBubbleOffsetY = fbsutils.Convert(e.FurnitureBubbleOffsetY(), t.FlatBuffer.TableKey)
-	t.CafeCharacterStateReq = make([]string, e.CafeCharacterStateReqLength())
-	for i := range e.CafeCharacterStateReqLength() {
-		t.CafeCharacterStateReq[i] = fbsutils.Convert(string(e.CafeCharacterStateReq(i)), t.FlatBuffer.TableKey)
-	}
-	t.CafeCharacterStateAdd = make([]string, e.CafeCharacterStateAddLength())
-	for i := range e.CafeCharacterStateAddLength() {
-		t.CafeCharacterStateAdd[i] = fbsutils.Convert(string(e.CafeCharacterStateAdd(i)), t.FlatBuffer.TableKey)
+	t.HideCraftShortcut = e.HideCraftShortcut()
+	t.CafeCharacterStateOnly = make([]string, e.CafeCharacterStateOnlyLength())
+	for i := range e.CafeCharacterStateOnlyLength() {
+		t.CafeCharacterStateOnly[i] = fbsutils.Convert(string(e.CafeCharacterStateOnly(i)), t.FlatBuffer.TableKey)
 	}
 	t.CafeCharacterStateMake = make([]string, e.CafeCharacterStateMakeLength())
 	for i := range e.CafeCharacterStateMakeLength() {
 		t.CafeCharacterStateMake[i] = fbsutils.Convert(string(e.CafeCharacterStateMake(i)), t.FlatBuffer.TableKey)
 	}
-	t.CafeCharacterStateOnly = make([]string, e.CafeCharacterStateOnlyLength())
-	for i := range e.CafeCharacterStateOnlyLength() {
-		t.CafeCharacterStateOnly[i] = fbsutils.Convert(string(e.CafeCharacterStateOnly(i)), t.FlatBuffer.TableKey)
+	t.CafeCharacterStateAdd = make([]string, e.CafeCharacterStateAddLength())
+	for i := range e.CafeCharacterStateAddLength() {
+		t.CafeCharacterStateAdd[i] = fbsutils.Convert(string(e.CafeCharacterStateAdd(i)), t.FlatBuffer.TableKey)
 	}
-	t.HideCraftShortcut = e.HideCraftShortcut()
+	t.CafeCharacterStateReq = make([]string, e.CafeCharacterStateReqLength())
+	for i := range e.CafeCharacterStateReqLength() {
+		t.CafeCharacterStateReq[i] = fbsutils.Convert(string(e.CafeCharacterStateReq(i)), t.FlatBuffer.TableKey)
+	}
+	t.FurnitureBubbleOffsetY = fbsutils.Convert(e.FurnitureBubbleOffsetY(), t.FlatBuffer.TableKey)
+	t.FurnitureBubbleOffsetX = fbsutils.Convert(e.FurnitureBubbleOffsetX(), t.FlatBuffer.TableKey)
+	t.EventCollectionId = fbsutils.Convert(e.EventCollectionId(), t.FlatBuffer.TableKey)
+	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
+	t.FurnitureFunctionParameter = make([]int64, e.FurnitureFunctionParameterLength())
+	for i := range e.FurnitureFunctionParameterLength() {
+		t.FurnitureFunctionParameter[i] = fbsutils.Convert(e.FurnitureFunctionParameter(i), t.FlatBuffer.TableKey)
+	}
+	t.FurnitureFunctionType = FurnitureFunctionType(fbsutils.Convert(int32(e.FurnitureFunctionType()), t.FlatBuffer.TableKey))
+	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
+	t.Tags = make([]Tag, e.TagsLength())
+	for i := range e.TagsLength() {
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
+	}
+	t.VisitBonusOperationType = fbsutils.Convert(e.VisitBonusOperationType(), t.FlatBuffer.TableKey)
+	t.VisitOperationType = fbsutils.Convert(e.VisitOperationType(), t.FlatBuffer.TableKey)
+	t.ComfortBonus = fbsutils.Convert(e.ComfortBonus(), t.FlatBuffer.TableKey)
+	t.SetGroudpId = fbsutils.Convert(e.SetGroudpId(), t.FlatBuffer.TableKey)
+	t.RecipeCraftId = fbsutils.Convert(e.RecipeCraftId(), t.FlatBuffer.TableKey)
+	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
+	t.CornerPrefab = fbsutils.Convert(string(e.CornerPrefab()), t.FlatBuffer.TableKey)
+	t.SubExpandPrefab = fbsutils.Convert(string(e.SubExpandPrefab()), t.FlatBuffer.TableKey)
+	t.SubPrefab = fbsutils.Convert(string(e.SubPrefab()), t.FlatBuffer.TableKey)
+	t.PrefabExpand = fbsutils.Convert(string(e.PrefabExpand()), t.FlatBuffer.TableKey)
+	t.Prefab = fbsutils.Convert(string(e.Prefab()), t.FlatBuffer.TableKey)
+	t.ReverseRotation = e.ReverseRotation()
+	t.Enable = e.Enable()
+	t.ExpandWidth = fbsutils.Convert(e.ExpandWidth(), t.FlatBuffer.TableKey)
+	t.OtherSize = fbsutils.Convert(e.OtherSize(), t.FlatBuffer.TableKey)
+	t.SizeHeight = fbsutils.Convert(e.SizeHeight(), t.FlatBuffer.TableKey)
+	t.SizeWidth = fbsutils.Convert(e.SizeWidth(), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
+	t.StarGradeInit = fbsutils.Convert(e.StarGradeInit(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.CheckFloorDecoration = e.CheckFloorDecoration()
+	t.SubCategory = FurnitureSubCategory(fbsutils.Convert(int32(e.SubCategory()), t.FlatBuffer.TableKey))
+	t.Category = FurnitureCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,19 +10,19 @@ import (
 // MiniGameRoadPuzzleVoiceExcelDto represents a FlatBuffers table
 type MiniGameRoadPuzzleVoiceExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64                    `json:"event_content_id"`
-	UniqueId       int64                    `json:"unique_id"`
-	VoiceCondition RoadPuzzleVoiceCondition `json:"voice_condition"`
 	VoiceClip      uint32                   `json:"voice_clip"`
+	VoiceCondition RoadPuzzleVoiceCondition `json:"voice_condition"`
+	UniqueId       int64                    `json:"unique_id"`
+	EventContentId int64                    `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRoadPuzzleVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRoadPuzzleVoiceExcelStart(b)
-	MiniGameRoadPuzzleVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleVoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(b, fbsutils.Convert(t.VoiceCondition, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleVoiceExcelAddVoiceClip(b, fbsutils.Convert(t.VoiceClip, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(b, fbsutils.Convert(t.VoiceCondition, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleVoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MiniGameRoadPuzzleVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MiniGameRoadPuzzleVoiceExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *MiniGameRoadPuzzleVoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRoadPuzzleVoiceExcelDto) UnmarshalMessage(e *MiniGameRoadPuzzleVoiceExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.VoiceCondition = RoadPuzzleVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
 	t.VoiceClip = fbsutils.Convert(e.VoiceClip(), t.FlatBuffer.TableKey)
+	t.VoiceCondition = RoadPuzzleVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,8 +10,8 @@ import (
 // TacticSimulatorSettingExcelDto represents a FlatBuffers table
 type TacticSimulatorSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	GroundId       int64 `json:"ground_id"`
 	FixedEchelonId int64 `json:"fixed_echelon_id"`
+	GroundId       int64 `json:"ground_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *TacticSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSetting"))
 	}
 	TacticSimulatorSettingExcelStart(b)
-	TacticSimulatorSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	TacticSimulatorSettingExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
+	TacticSimulatorSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	return TacticSimulatorSettingExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *TacticSimulatorSettingExcelDto) UnmarshalMessage(e *TacticSimulatorSett
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSetting"))
 	}
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

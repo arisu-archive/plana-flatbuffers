@@ -33,7 +33,7 @@ func (rcv *FieldMasteryManageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldMasteryManageExcel) FieldSeason() int64 {
+func (rcv *FieldMasteryManageExcel) LevelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,12 +41,20 @@ func (rcv *FieldMasteryManageExcel) FieldSeason() int64 {
 	return 0
 }
 
-func (rcv *FieldMasteryManageExcel) MutateFieldSeason(n int64) bool {
+func (rcv *FieldMasteryManageExcel) MutateLevelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FieldMasteryManageExcel) LocalizeEtc() uint32 {
+func (rcv *FieldMasteryManageExcel) ImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *FieldMasteryManageExcel) LocalizeEtc() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -54,18 +62,10 @@ func (rcv *FieldMasteryManageExcel) LocalizeEtc() uint32 {
 }
 
 func (rcv *FieldMasteryManageExcel) MutateLocalizeEtc(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *FieldMasteryManageExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *FieldMasteryManageExcel) LevelId() int64 {
+func (rcv *FieldMasteryManageExcel) FieldSeason() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,24 +73,24 @@ func (rcv *FieldMasteryManageExcel) LevelId() int64 {
 	return 0
 }
 
-func (rcv *FieldMasteryManageExcel) MutateLevelId(n int64) bool {
+func (rcv *FieldMasteryManageExcel) MutateFieldSeason(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func FieldMasteryManageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func FieldMasteryManageExcelAddFieldSeason(builder *flatbuffers.Builder, fieldSeason int64) {
-	builder.PrependInt64Slot(0, fieldSeason, 0)
-}
-func FieldMasteryManageExcelAddLocalizeEtc(builder *flatbuffers.Builder, localizeEtc uint32) {
-	builder.PrependUint32Slot(1, localizeEtc, 0)
+func FieldMasteryManageExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
+	builder.PrependInt64Slot(0, levelId, 0)
 }
 func FieldMasteryManageExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePath), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(imagePath), 0)
 }
-func FieldMasteryManageExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
-	builder.PrependInt64Slot(3, levelId, 0)
+func FieldMasteryManageExcelAddLocalizeEtc(builder *flatbuffers.Builder, localizeEtc uint32) {
+	builder.PrependUint32Slot(2, localizeEtc, 0)
+}
+func FieldMasteryManageExcelAddFieldSeason(builder *flatbuffers.Builder, fieldSeason int64) {
+	builder.PrependInt64Slot(3, fieldSeason, 0)
 }
 func FieldMasteryManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

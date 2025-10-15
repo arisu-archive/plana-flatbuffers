@@ -10,29 +10,29 @@ import (
 // ScenarioBGNameExcelDto represents a FlatBuffers table
 type ScenarioBGNameExcelDto struct {
 	fbsutils.FlatBuffer
-	Name           uint32         `json:"name"`
-	ProductionStep ProductionStep `json:"production_step"`
-	BgFileName     string         `json:"bg_file_name"`
-	BgType         ScenarioBGType `json:"bg_type"`
-	AnimationRoot  string         `json:"animation_root"`
-	AnimationName  string         `json:"animation_name"`
-	SpineScale     float32        `json:"spine_scale"`
-	SpineLocalPosX int32          `json:"spine_local_pos_x"`
 	SpineLocalPosY int32          `json:"spine_local_pos_y"`
+	SpineLocalPosX int32          `json:"spine_local_pos_x"`
+	SpineScale     float32        `json:"spine_scale"`
+	AnimationName  string         `json:"animation_name"`
+	AnimationRoot  string         `json:"animation_root"`
+	BgType         ScenarioBGType `json:"bg_type"`
+	BgFileName     string         `json:"bg_file_name"`
+	ProductionStep ProductionStep `json:"production_step"`
+	Name           uint32         `json:"name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioBGNameExcelStart(b)
-	ScenarioBGNameExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddBgFileName(b, b.CreateString(fbsutils.Convert(t.BgFileName, t.FlatBuffer.TableKey)))
-	ScenarioBGNameExcelAddBgType(b, fbsutils.Convert(t.BgType, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddAnimationRoot(b, b.CreateString(fbsutils.Convert(t.AnimationRoot, t.FlatBuffer.TableKey)))
-	ScenarioBGNameExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
-	ScenarioBGNameExcelAddSpineScale(b, fbsutils.Convert(t.SpineScale, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddSpineLocalPosX(b, fbsutils.Convert(t.SpineLocalPosX, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddSpineLocalPosY(b, fbsutils.Convert(t.SpineLocalPosY, t.FlatBuffer.TableKey))
+	ScenarioBGNameExcelAddSpineLocalPosX(b, fbsutils.Convert(t.SpineLocalPosX, t.FlatBuffer.TableKey))
+	ScenarioBGNameExcelAddSpineScale(b, fbsutils.Convert(t.SpineScale, t.FlatBuffer.TableKey))
+	ScenarioBGNameExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
+	ScenarioBGNameExcelAddAnimationRoot(b, b.CreateString(fbsutils.Convert(t.AnimationRoot, t.FlatBuffer.TableKey)))
+	ScenarioBGNameExcelAddBgType(b, fbsutils.Convert(t.BgType, t.FlatBuffer.TableKey))
+	ScenarioBGNameExcelAddBgFileName(b, b.CreateString(fbsutils.Convert(t.BgFileName, t.FlatBuffer.TableKey)))
+	ScenarioBGNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	ScenarioBGNameExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	return ScenarioBGNameExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *ScenarioBGNameExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGNameExcelDto) UnmarshalMessage(e *ScenarioBGNameExcel) error {
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.BgFileName = fbsutils.Convert(string(e.BgFileName()), t.FlatBuffer.TableKey)
-	t.BgType = ScenarioBGType(fbsutils.Convert(int32(e.BgType()), t.FlatBuffer.TableKey))
-	t.AnimationRoot = fbsutils.Convert(string(e.AnimationRoot()), t.FlatBuffer.TableKey)
-	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
-	t.SpineScale = fbsutils.Convert(e.SpineScale(), t.FlatBuffer.TableKey)
-	t.SpineLocalPosX = fbsutils.Convert(e.SpineLocalPosX(), t.FlatBuffer.TableKey)
 	t.SpineLocalPosY = fbsutils.Convert(e.SpineLocalPosY(), t.FlatBuffer.TableKey)
+	t.SpineLocalPosX = fbsutils.Convert(e.SpineLocalPosX(), t.FlatBuffer.TableKey)
+	t.SpineScale = fbsutils.Convert(e.SpineScale(), t.FlatBuffer.TableKey)
+	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
+	t.AnimationRoot = fbsutils.Convert(string(e.AnimationRoot()), t.FlatBuffer.TableKey)
+	t.BgType = ScenarioBGType(fbsutils.Convert(int32(e.BgType()), t.FlatBuffer.TableKey))
+	t.BgFileName = fbsutils.Convert(string(e.BgFileName()), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	return nil
 }
 

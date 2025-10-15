@@ -33,16 +33,16 @@ func (rcv *BattlePassLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BattlePassLevelExcel) BattlePassId() int64 {
+func (rcv *BattlePassLevelExcel) IsPickUpReward() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *BattlePassLevelExcel) MutateBattlePassId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *BattlePassLevelExcel) MutateIsPickUpReward(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *BattlePassLevelExcel) Level() int64 {
@@ -57,29 +57,29 @@ func (rcv *BattlePassLevelExcel) MutateLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BattlePassLevelExcel) IsPickUpReward() bool {
+func (rcv *BattlePassLevelExcel) BattlePassId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *BattlePassLevelExcel) MutateIsPickUpReward(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
+func (rcv *BattlePassLevelExcel) MutateBattlePassId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func BattlePassLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func BattlePassLevelExcelAddBattlePassId(builder *flatbuffers.Builder, battlePassId int64) {
-	builder.PrependInt64Slot(0, battlePassId, 0)
+func BattlePassLevelExcelAddIsPickUpReward(builder *flatbuffers.Builder, isPickUpReward bool) {
+	builder.PrependBoolSlot(0, isPickUpReward, false)
 }
 func BattlePassLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
 	builder.PrependInt64Slot(1, level, 0)
 }
-func BattlePassLevelExcelAddIsPickUpReward(builder *flatbuffers.Builder, isPickUpReward bool) {
-	builder.PrependBoolSlot(2, isPickUpReward, false)
+func BattlePassLevelExcelAddBattlePassId(builder *flatbuffers.Builder, battlePassId int64) {
+	builder.PrependInt64Slot(2, battlePassId, 0)
 }
 func BattlePassLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

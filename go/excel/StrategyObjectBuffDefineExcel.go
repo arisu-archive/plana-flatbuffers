@@ -33,28 +33,24 @@ func (rcv *StrategyObjectBuffDefineExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectBuffId() int64 {
+func (rcv *StrategyObjectBuffDefineExcel) IconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectBuffId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectTurn() int32 {
+func (rcv *StrategyObjectBuffDefineExcel) LocalizeCodeId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectTurn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+func (rcv *StrategyObjectBuffDefineExcel) MutateLocalizeCodeId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *StrategyObjectBuffDefineExcel) SkillGroupId() []byte {
@@ -65,43 +61,47 @@ func (rcv *StrategyObjectBuffDefineExcel) SkillGroupId() []byte {
 	return nil
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) LocalizeCodeId() uint32 {
+func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectTurn() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) MutateLocalizeCodeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectTurn(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) IconPath() []byte {
+func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectBuffId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectBuffId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func StrategyObjectBuffDefineExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder *flatbuffers.Builder, strategyObjectBuffId int64) {
-	builder.PrependInt64Slot(0, strategyObjectBuffId, 0)
+func StrategyObjectBuffDefineExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(iconPath), 0)
 }
-func StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder *flatbuffers.Builder, strategyObjectTurn int32) {
-	builder.PrependInt32Slot(1, strategyObjectTurn, 0)
+func StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
+	builder.PrependUint32Slot(1, localizeCodeId, 0)
 }
 func StrategyObjectBuffDefineExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(skillGroupId), 0)
 }
-func StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
-	builder.PrependUint32Slot(3, localizeCodeId, 0)
+func StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder *flatbuffers.Builder, strategyObjectTurn int32) {
+	builder.PrependInt32Slot(3, strategyObjectTurn, 0)
 }
-func StrategyObjectBuffDefineExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(iconPath), 0)
+func StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder *flatbuffers.Builder, strategyObjectBuffId int64) {
+	builder.PrependInt64Slot(4, strategyObjectBuffId, 0)
 }
 func StrategyObjectBuffDefineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

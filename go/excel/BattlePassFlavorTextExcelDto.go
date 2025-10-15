@@ -10,17 +10,17 @@ import (
 // BattlePassFlavorTextExcelDto represents a FlatBuffers table
 type BattlePassFlavorTextExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId        int64  `json:"group_id"`
-	Id             int64  `json:"id"`
 	LocalizeCodeId uint32 `json:"localize_code_id"`
+	Id             int64  `json:"id"`
+	GroupId        int64  `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassFlavorTextExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BattlePassFlavorTextExcelStart(b)
-	BattlePassFlavorTextExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	BattlePassFlavorTextExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BattlePassFlavorTextExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
+	BattlePassFlavorTextExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	BattlePassFlavorTextExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return BattlePassFlavorTextExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *BattlePassFlavorTextExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattlePassFlavorTextExcelDto) UnmarshalMessage(e *BattlePassFlavorTextExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

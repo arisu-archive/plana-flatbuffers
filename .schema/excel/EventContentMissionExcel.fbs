@@ -1,0 +1,44 @@
+include "AccountState.fbs";
+include "MissionCategory.fbs";
+include "MissionCompleteConditionType.fbs";
+include "MissionResetType.fbs";
+include "MissionToastDisplayConditionType.fbs";
+include "ParcelType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentMissionExcel {
+    condition_reward_amount: [int];
+    condition_reward_parcel_id: [long];
+    condition_reward_parcel_type: [ParcelType];
+    mission_reward_amount: [int];
+    mission_reward_parcel_id: [long];
+    mission_reward_parcel_type: [ParcelType];
+    complete_condition_mission_count: long;
+    complete_condition_mission_id: [long];
+    reward_icon: string;
+    complete_condition_parameter_tag: [Tag];
+    complete_condition_parameter: [long];
+    complete_condition_count: long;
+    is_complete_extension_time: bool;
+    complete_condition_type: MissionCompleteConditionType;
+    challenge_stage_shortcut: long;
+    shortcut_ui: [string];
+    account_level: long;
+    account_type: AccountState;
+    pre_mission_id: [long];
+    display_order: long;
+    view_flag: bool;
+    toast_image_path: string;
+    toast_display_type: MissionToastDisplayConditionType;
+    reset_type: MissionResetType;
+    description: uint;
+    category: MissionCategory;
+    group_name: string;
+    group_id: long;
+    event_content_id: long;
+    id: long;
+}
+
+root_type EventContentMissionExcel;

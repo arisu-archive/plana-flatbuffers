@@ -33,7 +33,7 @@ func (rcv *MinigameCCGStartDeckCharacterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGStartDeckCharacterExcel) CcgId() int64 {
+func (rcv *MinigameCCGStartDeckCharacterExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MinigameCCGStartDeckCharacterExcel) CcgId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGStartDeckCharacterExcel) MutateCcgId(n int64) bool {
+func (rcv *MinigameCCGStartDeckCharacterExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameCCGStartDeckCharacterExcel) CharacterId() int64 {
+func (rcv *MinigameCCGStartDeckCharacterExcel) CcgId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,18 +53,18 @@ func (rcv *MinigameCCGStartDeckCharacterExcel) CharacterId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGStartDeckCharacterExcel) MutateCharacterId(n int64) bool {
+func (rcv *MinigameCCGStartDeckCharacterExcel) MutateCcgId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func MinigameCCGStartDeckCharacterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func MinigameCCGStartDeckCharacterExcelAddCcgId(builder *flatbuffers.Builder, ccgId int64) {
-	builder.PrependInt64Slot(0, ccgId, 0)
-}
 func MinigameCCGStartDeckCharacterExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(1, characterId, 0)
+	builder.PrependInt64Slot(0, characterId, 0)
+}
+func MinigameCCGStartDeckCharacterExcelAddCcgId(builder *flatbuffers.Builder, ccgId int64) {
+	builder.PrependInt64Slot(1, ccgId, 0)
 }
 func MinigameCCGStartDeckCharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

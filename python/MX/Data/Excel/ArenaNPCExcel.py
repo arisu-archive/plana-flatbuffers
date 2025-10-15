@@ -25,131 +25,8 @@ class ArenaNPCExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ArenaNPCExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def Rank(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def NpcAccountLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def NpcLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def NpcLevelDeviation(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def NpcStarGrade(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionCharacterRarities(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionCharacterRaritiesAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionCharacterRaritiesLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionCharacterRaritiesIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # ArenaNPCExcel
-    def ExceptionMainCharacterIds(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionMainCharacterIdsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionMainCharacterIdsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionMainCharacterIdsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # ArenaNPCExcel
-    def ExceptionSupportCharacterIds(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionSupportCharacterIdsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionSupportCharacterIdsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ArenaNPCExcel
-    def ExceptionSupportCharacterIdsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        return o == 0
-
-    # ArenaNPCExcel
     def ExceptionTssIds(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -157,68 +34,191 @@ class ArenaNPCExcel(object):
 
     # ArenaNPCExcel
     def ExceptionTssIdsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ArenaNPCExcel
     def ExceptionTssIdsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ArenaNPCExcel
     def ExceptionTssIdsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
+
+    # ArenaNPCExcel
+    def ExceptionSupportCharacterIds(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionSupportCharacterIdsAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionSupportCharacterIdsLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionSupportCharacterIdsIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # ArenaNPCExcel
+    def ExceptionMainCharacterIds(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionMainCharacterIdsAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionMainCharacterIdsLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionMainCharacterIdsIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # ArenaNPCExcel
+    def ExceptionCharacterRarities(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionCharacterRaritiesAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionCharacterRaritiesLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ArenaNPCExcel
+    def ExceptionCharacterRaritiesIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # ArenaNPCExcel
+    def NpcStarGrade(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaNPCExcel
+    def NpcLevelDeviation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaNPCExcel
+    def NpcLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaNPCExcel
+    def NpcAccountLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaNPCExcel
+    def Rank(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaNPCExcel
+    def UniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def ArenaNPCExcelStart(builder): builder.StartObject(10)
 def Start(builder):
     return ArenaNPCExcelStart(builder)
-def ArenaNPCExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return ArenaNPCExcelAddUniqueId(builder, uniqueId)
-def ArenaNPCExcelAddRank(builder, rank): builder.PrependInt64Slot(1, rank, 0)
-def AddRank(builder, rank):
-    return ArenaNPCExcelAddRank(builder, rank)
-def ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel): builder.PrependInt64Slot(2, npcAccountLevel, 0)
-def AddNpcAccountLevel(builder, npcAccountLevel):
-    return ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel)
-def ArenaNPCExcelAddNpcLevel(builder, npcLevel): builder.PrependInt64Slot(3, npcLevel, 0)
-def AddNpcLevel(builder, npcLevel):
-    return ArenaNPCExcelAddNpcLevel(builder, npcLevel)
-def ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation): builder.PrependInt64Slot(4, npcLevelDeviation, 0)
-def AddNpcLevelDeviation(builder, npcLevelDeviation):
-    return ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation)
-def ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade): builder.PrependInt64Slot(5, npcStarGrade, 0)
-def AddNpcStarGrade(builder, npcStarGrade):
-    return ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade)
-def ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionCharacterRarities), 0)
-def AddExceptionCharacterRarities(builder, exceptionCharacterRarities):
-    return ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities)
-def ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartExceptionCharacterRaritiesVector(builder, numElems):
-    return ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems)
-def ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionMainCharacterIds), 0)
-def AddExceptionMainCharacterIds(builder, exceptionMainCharacterIds):
-    return ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds)
-def ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartExceptionMainCharacterIdsVector(builder, numElems):
-    return ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems)
-def ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionSupportCharacterIds), 0)
-def AddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds):
-    return ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds)
-def ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartExceptionSupportCharacterIdsVector(builder, numElems):
-    return ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems)
-def ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionTssIds), 0)
+def ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionTssIds), 0)
 def AddExceptionTssIds(builder, exceptionTssIds):
     return ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds)
 def ArenaNPCExcelStartExceptionTssIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartExceptionTssIdsVector(builder, numElems):
     return ArenaNPCExcelStartExceptionTssIdsVector(builder, numElems)
+def ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionSupportCharacterIds), 0)
+def AddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds):
+    return ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds)
+def ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartExceptionSupportCharacterIdsVector(builder, numElems):
+    return ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems)
+def ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionMainCharacterIds), 0)
+def AddExceptionMainCharacterIds(builder, exceptionMainCharacterIds):
+    return ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds)
+def ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartExceptionMainCharacterIdsVector(builder, numElems):
+    return ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems)
+def ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionCharacterRarities), 0)
+def AddExceptionCharacterRarities(builder, exceptionCharacterRarities):
+    return ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities)
+def ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartExceptionCharacterRaritiesVector(builder, numElems):
+    return ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems)
+def ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade): builder.PrependInt64Slot(4, npcStarGrade, 0)
+def AddNpcStarGrade(builder, npcStarGrade):
+    return ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade)
+def ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation): builder.PrependInt64Slot(5, npcLevelDeviation, 0)
+def AddNpcLevelDeviation(builder, npcLevelDeviation):
+    return ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation)
+def ArenaNPCExcelAddNpcLevel(builder, npcLevel): builder.PrependInt64Slot(6, npcLevel, 0)
+def AddNpcLevel(builder, npcLevel):
+    return ArenaNPCExcelAddNpcLevel(builder, npcLevel)
+def ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel): builder.PrependInt64Slot(7, npcAccountLevel, 0)
+def AddNpcAccountLevel(builder, npcAccountLevel):
+    return ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel)
+def ArenaNPCExcelAddRank(builder, rank): builder.PrependInt64Slot(8, rank, 0)
+def AddRank(builder, rank):
+    return ArenaNPCExcelAddRank(builder, rank)
+def ArenaNPCExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(9, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return ArenaNPCExcelAddUniqueId(builder, uniqueId)
 def ArenaNPCExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ArenaNPCExcelEnd(builder)

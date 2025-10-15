@@ -25,48 +25,48 @@ class LevelExpMasterCoinExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LevelExpMasterCoinExcel
-    def Id(self):
+    def Ratio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LevelExpMasterCoinExcel
-    def MinLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # LevelExpMasterCoinExcel
     def MaxLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def MinLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # LevelExpMasterCoinExcel
-    def Ratio(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def LevelExpMasterCoinExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return LevelExpMasterCoinExcelStart(builder)
-def LevelExpMasterCoinExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return LevelExpMasterCoinExcelAddId(builder, id)
-def LevelExpMasterCoinExcelAddMinLevel(builder, minLevel): builder.PrependInt32Slot(1, minLevel, 0)
-def AddMinLevel(builder, minLevel):
-    return LevelExpMasterCoinExcelAddMinLevel(builder, minLevel)
-def LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel): builder.PrependInt32Slot(2, maxLevel, 0)
-def AddMaxLevel(builder, maxLevel):
-    return LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel)
-def LevelExpMasterCoinExcelAddRatio(builder, ratio): builder.PrependInt32Slot(3, ratio, 0)
+def LevelExpMasterCoinExcelAddRatio(builder, ratio): builder.PrependInt32Slot(0, ratio, 0)
 def AddRatio(builder, ratio):
     return LevelExpMasterCoinExcelAddRatio(builder, ratio)
+def LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel): builder.PrependInt32Slot(1, maxLevel, 0)
+def AddMaxLevel(builder, maxLevel):
+    return LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel)
+def LevelExpMasterCoinExcelAddMinLevel(builder, minLevel): builder.PrependInt32Slot(2, minLevel, 0)
+def AddMinLevel(builder, minLevel):
+    return LevelExpMasterCoinExcelAddMinLevel(builder, minLevel)
+def LevelExpMasterCoinExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+def AddId(builder, id):
+    return LevelExpMasterCoinExcelAddId(builder, id)
 def LevelExpMasterCoinExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LevelExpMasterCoinExcelEnd(builder)

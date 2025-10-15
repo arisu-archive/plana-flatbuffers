@@ -3,14 +3,14 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table ConquestUnexpectedEventExcel {
-    event_content_id: long;
-    unexpected_event_condition_type: ParcelType;
-    unexpected_event_condition_unique_id: long;
-    unexpected_event_condition_amount: long;
-    unexpected_event_occur_daily_limit_count: int;
-    unit_count_per_step: int;
-    unexpected_event_prefab: [string];
     unexpected_event_unit_id: [long];
+    unexpected_event_prefab: [string];
+    unit_count_per_step: int;
+    unexpected_event_occur_daily_limit_count: int;
+    unexpected_event_condition_amount: long;
+    unexpected_event_condition_unique_id: long;
+    unexpected_event_condition_type: ParcelType;
+    event_content_id: long;
 }
 
 root_type ConquestUnexpectedEventExcel;

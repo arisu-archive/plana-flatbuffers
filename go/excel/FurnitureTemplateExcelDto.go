@@ -10,19 +10,19 @@ import (
 // FurnitureTemplateExcelDto represents a FlatBuffers table
 type FurnitureTemplateExcelDto struct {
 	fbsutils.FlatBuffer
-	FurnitureTemplateId   int64  `json:"furniture_template_id"`
-	FunitureTemplateTitle uint32 `json:"funiture_template_title"`
-	ThumbnailImagePath    string `json:"thumbnail_image_path"`
 	ImagePath             string `json:"image_path"`
+	ThumbnailImagePath    string `json:"thumbnail_image_path"`
+	FunitureTemplateTitle uint32 `json:"funiture_template_title"`
+	FurnitureTemplateId   int64  `json:"furniture_template_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FurnitureTemplateExcelStart(b)
-	FurnitureTemplateExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
-	FurnitureTemplateExcelAddFunitureTemplateTitle(b, fbsutils.Convert(t.FunitureTemplateTitle, t.FlatBuffer.TableKey))
-	FurnitureTemplateExcelAddThumbnailImagePath(b, b.CreateString(fbsutils.Convert(t.ThumbnailImagePath, t.FlatBuffer.TableKey)))
 	FurnitureTemplateExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	FurnitureTemplateExcelAddThumbnailImagePath(b, b.CreateString(fbsutils.Convert(t.ThumbnailImagePath, t.FlatBuffer.TableKey)))
+	FurnitureTemplateExcelAddFunitureTemplateTitle(b, fbsutils.Convert(t.FunitureTemplateTitle, t.FlatBuffer.TableKey))
+	FurnitureTemplateExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
 	return FurnitureTemplateExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *FurnitureTemplateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureTemplateExcelDto) UnmarshalMessage(e *FurnitureTemplateExcel) error {
-	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
-	t.FunitureTemplateTitle = fbsutils.Convert(e.FunitureTemplateTitle(), t.FlatBuffer.TableKey)
-	t.ThumbnailImagePath = fbsutils.Convert(string(e.ThumbnailImagePath()), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.ThumbnailImagePath = fbsutils.Convert(string(e.ThumbnailImagePath()), t.FlatBuffer.TableKey)
+	t.FunitureTemplateTitle = fbsutils.Convert(e.FunitureTemplateTitle(), t.FlatBuffer.TableKey)
+	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

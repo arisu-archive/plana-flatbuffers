@@ -10,83 +10,83 @@ import (
 // ItemExcelDto represents a FlatBuffers table
 type ItemExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                       int64              `json:"id"`
-	GroupId                  int64              `json:"group_id"`
-	Rarity                   Rarity             `json:"rarity"`
-	ProductionStep           ProductionStep     `json:"production_step"`
-	LocalizeEtcId            uint32             `json:"localize_etc_id"`
-	ItemCategory             ItemCategory       `json:"item_category"`
-	Quality                  int64              `json:"quality"`
-	Icon                     string             `json:"icon"`
-	SpriteName               string             `json:"sprite_name"`
-	StackableMax             int32              `json:"stackable_max"`
-	StackableFunction        int32              `json:"stackable_function"`
-	ImmediateUse             bool               `json:"immediate_use"`
-	UsingResultParcelType    ParcelType         `json:"using_result_parcel_type"`
-	UsingResultId            int64              `json:"using_result_id"`
-	UsingResultAmount        int64              `json:"using_result_amount"`
-	MailType                 MailType           `json:"mail_type"`
-	ExpiryChangeParcelType   ParcelType         `json:"expiry_change_parcel_type"`
-	ExpiryChangeId           int64              `json:"expiry_change_id"`
-	ExpiryChangeAmount       int64              `json:"expiry_change_amount"`
-	CanTierUpgrade           bool               `json:"can_tier_upgrade"`
-	TierUpgradeRecipeCraftId int64              `json:"tier_upgrade_recipe_craft_id"`
-	Tags                     []Tag              `json:"tags"`
-	CraftQualityTier0        int64              `json:"craft_quality_tier0"`
-	CraftQualityTier1        int64              `json:"craft_quality_tier1"`
-	CraftQualityTier2        int64              `json:"craft_quality_tier2"`
-	ShiftingCraftQuality     int64              `json:"shifting_craft_quality"`
-	MaxGiftTags              int32              `json:"max_gift_tags"`
-	ShopCategory             []ShopCategoryType `json:"shop_category"`
-	ExpirationDateTime       string             `json:"expiration_date_time"`
-	ExpirationNotifyDateIn   int32              `json:"expiration_notify_date_in"`
-	ShortcutTypeId           int64              `json:"shortcut_type_id"`
 	GachaTicket              GachaTicketType    `json:"gacha_ticket"`
+	ShortcutTypeId           int64              `json:"shortcut_type_id"`
+	ExpirationNotifyDateIn   int32              `json:"expiration_notify_date_in"`
+	ExpirationDateTime       string             `json:"expiration_date_time"`
+	ShopCategory             []ShopCategoryType `json:"shop_category"`
+	MaxGiftTags              int32              `json:"max_gift_tags"`
+	ShiftingCraftQuality     int64              `json:"shifting_craft_quality"`
+	CraftQualityTier2        int64              `json:"craft_quality_tier2"`
+	CraftQualityTier1        int64              `json:"craft_quality_tier1"`
+	CraftQualityTier0        int64              `json:"craft_quality_tier0"`
+	Tags                     []Tag              `json:"tags"`
+	TierUpgradeRecipeCraftId int64              `json:"tier_upgrade_recipe_craft_id"`
+	CanTierUpgrade           bool               `json:"can_tier_upgrade"`
+	ExpiryChangeAmount       int64              `json:"expiry_change_amount"`
+	ExpiryChangeId           int64              `json:"expiry_change_id"`
+	ExpiryChangeParcelType   ParcelType         `json:"expiry_change_parcel_type"`
+	MailType                 MailType           `json:"mail_type"`
+	UsingResultAmount        int64              `json:"using_result_amount"`
+	UsingResultId            int64              `json:"using_result_id"`
+	UsingResultParcelType    ParcelType         `json:"using_result_parcel_type"`
+	ImmediateUse             bool               `json:"immediate_use"`
+	StackableFunction        int32              `json:"stackable_function"`
+	StackableMax             int32              `json:"stackable_max"`
+	SpriteName               string             `json:"sprite_name"`
+	Icon                     string             `json:"icon"`
+	Quality                  int64              `json:"quality"`
+	ItemCategory             ItemCategory       `json:"item_category"`
+	LocalizeEtcId            uint32             `json:"localize_etc_id"`
+	ProductionStep           ProductionStep     `json:"production_step"`
+	Rarity                   Rarity             `json:"rarity"`
+	GroupId                  int64              `json:"group_id"`
+	Id                       int64              `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ItemExcelStart(b)
-	ItemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ItemExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	ItemExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	ItemExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	ItemExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	ItemExcelAddItemCategory(b, fbsutils.Convert(t.ItemCategory, t.FlatBuffer.TableKey))
-	ItemExcelAddQuality(b, fbsutils.Convert(t.Quality, t.FlatBuffer.TableKey))
-	ItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	ItemExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
-	ItemExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
-	ItemExcelAddStackableFunction(b, fbsutils.Convert(t.StackableFunction, t.FlatBuffer.TableKey))
-	ItemExcelAddImmediateUse(b, t.ImmediateUse)
-	ItemExcelAddUsingResultParcelType(b, fbsutils.Convert(t.UsingResultParcelType, t.FlatBuffer.TableKey))
-	ItemExcelAddUsingResultId(b, fbsutils.Convert(t.UsingResultId, t.FlatBuffer.TableKey))
-	ItemExcelAddUsingResultAmount(b, fbsutils.Convert(t.UsingResultAmount, t.FlatBuffer.TableKey))
-	ItemExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
-	ItemExcelAddExpiryChangeParcelType(b, fbsutils.Convert(t.ExpiryChangeParcelType, t.FlatBuffer.TableKey))
-	ItemExcelAddExpiryChangeId(b, fbsutils.Convert(t.ExpiryChangeId, t.FlatBuffer.TableKey))
-	ItemExcelAddExpiryChangeAmount(b, fbsutils.Convert(t.ExpiryChangeAmount, t.FlatBuffer.TableKey))
-	ItemExcelAddCanTierUpgrade(b, t.CanTierUpgrade)
-	ItemExcelAddTierUpgradeRecipeCraftId(b, fbsutils.Convert(t.TierUpgradeRecipeCraftId, t.FlatBuffer.TableKey))
-	ItemExcelStartTagsVector(b, len(t.Tags))
-	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
-	}
-	ItemExcelAddTags(b, b.EndVector(len(t.Tags)))
-	ItemExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
-	ItemExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
-	ItemExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
-	ItemExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
-	ItemExcelAddMaxGiftTags(b, fbsutils.Convert(t.MaxGiftTags, t.FlatBuffer.TableKey))
+	ItemExcelAddGachaTicket(b, fbsutils.Convert(t.GachaTicket, t.FlatBuffer.TableKey))
+	ItemExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
+	ItemExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
+	ItemExcelAddExpirationDateTime(b, b.CreateString(fbsutils.Convert(t.ExpirationDateTime, t.FlatBuffer.TableKey)))
 	ItemExcelStartShopCategoryVector(b, len(t.ShopCategory))
 	for i := range len(t.ShopCategory) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ShopCategory[len(t.ShopCategory)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ItemExcelAddShopCategory(b, b.EndVector(len(t.ShopCategory)))
-	ItemExcelAddExpirationDateTime(b, b.CreateString(fbsutils.Convert(t.ExpirationDateTime, t.FlatBuffer.TableKey)))
-	ItemExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
-	ItemExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
-	ItemExcelAddGachaTicket(b, fbsutils.Convert(t.GachaTicket, t.FlatBuffer.TableKey))
+	ItemExcelAddMaxGiftTags(b, fbsutils.Convert(t.MaxGiftTags, t.FlatBuffer.TableKey))
+	ItemExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
+	ItemExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
+	ItemExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
+	ItemExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
+	ItemExcelStartTagsVector(b, len(t.Tags))
+	for i := range len(t.Tags) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
+	}
+	ItemExcelAddTags(b, b.EndVector(len(t.Tags)))
+	ItemExcelAddTierUpgradeRecipeCraftId(b, fbsutils.Convert(t.TierUpgradeRecipeCraftId, t.FlatBuffer.TableKey))
+	ItemExcelAddCanTierUpgrade(b, t.CanTierUpgrade)
+	ItemExcelAddExpiryChangeAmount(b, fbsutils.Convert(t.ExpiryChangeAmount, t.FlatBuffer.TableKey))
+	ItemExcelAddExpiryChangeId(b, fbsutils.Convert(t.ExpiryChangeId, t.FlatBuffer.TableKey))
+	ItemExcelAddExpiryChangeParcelType(b, fbsutils.Convert(t.ExpiryChangeParcelType, t.FlatBuffer.TableKey))
+	ItemExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
+	ItemExcelAddUsingResultAmount(b, fbsutils.Convert(t.UsingResultAmount, t.FlatBuffer.TableKey))
+	ItemExcelAddUsingResultId(b, fbsutils.Convert(t.UsingResultId, t.FlatBuffer.TableKey))
+	ItemExcelAddUsingResultParcelType(b, fbsutils.Convert(t.UsingResultParcelType, t.FlatBuffer.TableKey))
+	ItemExcelAddImmediateUse(b, t.ImmediateUse)
+	ItemExcelAddStackableFunction(b, fbsutils.Convert(t.StackableFunction, t.FlatBuffer.TableKey))
+	ItemExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
+	ItemExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
+	ItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	ItemExcelAddQuality(b, fbsutils.Convert(t.Quality, t.FlatBuffer.TableKey))
+	ItemExcelAddItemCategory(b, fbsutils.Convert(t.ItemCategory, t.FlatBuffer.TableKey))
+	ItemExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	ItemExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	ItemExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	ItemExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	ItemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ItemExcelEnd(b)
 }
 
@@ -99,44 +99,44 @@ func (t *ItemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
-	t.Quality = fbsutils.Convert(e.Quality(), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
-	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
-	t.StackableFunction = fbsutils.Convert(e.StackableFunction(), t.FlatBuffer.TableKey)
-	t.ImmediateUse = e.ImmediateUse()
-	t.UsingResultParcelType = ParcelType(fbsutils.Convert(int32(e.UsingResultParcelType()), t.FlatBuffer.TableKey))
-	t.UsingResultId = fbsutils.Convert(e.UsingResultId(), t.FlatBuffer.TableKey)
-	t.UsingResultAmount = fbsutils.Convert(e.UsingResultAmount(), t.FlatBuffer.TableKey)
-	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
-	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
-	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
-	t.ExpiryChangeAmount = fbsutils.Convert(e.ExpiryChangeAmount(), t.FlatBuffer.TableKey)
-	t.CanTierUpgrade = e.CanTierUpgrade()
-	t.TierUpgradeRecipeCraftId = fbsutils.Convert(e.TierUpgradeRecipeCraftId(), t.FlatBuffer.TableKey)
-	t.Tags = make([]Tag, e.TagsLength())
-	for i := range e.TagsLength() {
-		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
-	}
-	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
-	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
-	t.MaxGiftTags = fbsutils.Convert(e.MaxGiftTags(), t.FlatBuffer.TableKey)
+	t.GachaTicket = GachaTicketType(fbsutils.Convert(int32(e.GachaTicket()), t.FlatBuffer.TableKey))
+	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
+	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
+	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ShopCategory = make([]ShopCategoryType, e.ShopCategoryLength())
 	for i := range e.ShopCategoryLength() {
 		t.ShopCategory[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategory(i)), t.FlatBuffer.TableKey))
 	}
-	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
-	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
-	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
-	t.GachaTicket = GachaTicketType(fbsutils.Convert(int32(e.GachaTicket()), t.FlatBuffer.TableKey))
+	t.MaxGiftTags = fbsutils.Convert(e.MaxGiftTags(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
+	t.Tags = make([]Tag, e.TagsLength())
+	for i := range e.TagsLength() {
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
+	}
+	t.TierUpgradeRecipeCraftId = fbsutils.Convert(e.TierUpgradeRecipeCraftId(), t.FlatBuffer.TableKey)
+	t.CanTierUpgrade = e.CanTierUpgrade()
+	t.ExpiryChangeAmount = fbsutils.Convert(e.ExpiryChangeAmount(), t.FlatBuffer.TableKey)
+	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
+	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
+	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
+	t.UsingResultAmount = fbsutils.Convert(e.UsingResultAmount(), t.FlatBuffer.TableKey)
+	t.UsingResultId = fbsutils.Convert(e.UsingResultId(), t.FlatBuffer.TableKey)
+	t.UsingResultParcelType = ParcelType(fbsutils.Convert(int32(e.UsingResultParcelType()), t.FlatBuffer.TableKey))
+	t.ImmediateUse = e.ImmediateUse()
+	t.StackableFunction = fbsutils.Convert(e.StackableFunction(), t.FlatBuffer.TableKey)
+	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
+	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Quality = fbsutils.Convert(e.Quality(), t.FlatBuffer.TableKey)
+	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

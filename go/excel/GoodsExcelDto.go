@@ -10,91 +10,91 @@ import (
 // GoodsExcelDto represents a FlatBuffers table
 type GoodsExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64              `json:"id"`
-	Type                         int32              `json:"type"`
-	Rarity                       Rarity             `json:"rarity"`
-	IconPath                     string             `json:"icon_path"`
-	ConsumeParcelType            []ParcelType       `json:"consume_parcel_type"`
-	ConsumeParcelId              []int64            `json:"consume_parcel_id"`
-	ConsumeParcelAmount          []int64            `json:"consume_parcel_amount"`
-	ConsumeCondition             []ConsumeCondition `json:"consume_condition"`
-	ConsumeGachaTicketType       []GachaTicketType  `json:"consume_gacha_ticket_type"`
-	ConsumeGachaTicketTypeAmount []int64            `json:"consume_gacha_ticket_type_amount"`
-	ProductIdAos                 int64              `json:"product_id_aos"`
-	ProductIdiOs                 int64              `json:"product_idi_os"`
-	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
-	ConsumeExtraAmount           []int64            `json:"consume_extra_amount"`
-	State                        int32              `json:"state"`
-	ParcelType                   []ParcelType       `json:"parcel_type"`
-	ParcelId                     []int64            `json:"parcel_id"`
 	ParcelAmount                 []int64            `json:"parcel_amount"`
+	ParcelId                     []int64            `json:"parcel_id"`
+	ParcelType                   []ParcelType       `json:"parcel_type"`
+	State                        int32              `json:"state"`
+	ConsumeExtraAmount           []int64            `json:"consume_extra_amount"`
+	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
+	ProductIdiOs                 int64              `json:"product_idi_os"`
+	ProductIdAos                 int64              `json:"product_id_aos"`
+	ConsumeGachaTicketTypeAmount []int64            `json:"consume_gacha_ticket_type_amount"`
+	ConsumeGachaTicketType       []GachaTicketType  `json:"consume_gacha_ticket_type"`
+	ConsumeCondition             []ConsumeCondition `json:"consume_condition"`
+	ConsumeParcelAmount          []int64            `json:"consume_parcel_amount"`
+	ConsumeParcelId              []int64            `json:"consume_parcel_id"`
+	ConsumeParcelType            []ParcelType       `json:"consume_parcel_type"`
+	IconPath                     string             `json:"icon_path"`
+	Rarity                       Rarity             `json:"rarity"`
+	Type                         int32              `json:"type"`
+	Id                           int64              `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GoodsExcelStart(b)
-	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
-	GoodsExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	GoodsExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	GoodsExcelStartConsumeParcelTypeVector(b, len(t.ConsumeParcelType))
-	for i := range len(t.ConsumeParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeParcelType(b, b.EndVector(len(t.ConsumeParcelType)))
-	GoodsExcelStartConsumeParcelIdVector(b, len(t.ConsumeParcelId))
-	for i := range len(t.ConsumeParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ConsumeParcelId[len(t.ConsumeParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeParcelId(b, b.EndVector(len(t.ConsumeParcelId)))
-	GoodsExcelStartConsumeParcelAmountVector(b, len(t.ConsumeParcelAmount))
-	for i := range len(t.ConsumeParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.ConsumeParcelAmount[len(t.ConsumeParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeParcelAmount(b, b.EndVector(len(t.ConsumeParcelAmount)))
-	GoodsExcelStartConsumeConditionVector(b, len(t.ConsumeCondition))
-	for i := range len(t.ConsumeCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeCondition[len(t.ConsumeCondition)-i-1]), t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeCondition(b, b.EndVector(len(t.ConsumeCondition)))
-	GoodsExcelStartConsumeGachaTicketTypeVector(b, len(t.ConsumeGachaTicketType))
-	for i := range len(t.ConsumeGachaTicketType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeGachaTicketType[len(t.ConsumeGachaTicketType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeGachaTicketType(b, b.EndVector(len(t.ConsumeGachaTicketType)))
-	GoodsExcelStartConsumeGachaTicketTypeAmountVector(b, len(t.ConsumeGachaTicketTypeAmount))
-	for i := range len(t.ConsumeGachaTicketTypeAmount) {
-		b.PrependInt64(fbsutils.Convert(t.ConsumeGachaTicketTypeAmount[len(t.ConsumeGachaTicketTypeAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeGachaTicketTypeAmount(b, b.EndVector(len(t.ConsumeGachaTicketTypeAmount)))
-	GoodsExcelAddProductIdAos(b, fbsutils.Convert(t.ProductIdAos, t.FlatBuffer.TableKey))
-	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
-	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
-	for i := range len(t.ConsumeExtraStep) {
-		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraStep[len(t.ConsumeExtraStep)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeExtraStep(b, b.EndVector(len(t.ConsumeExtraStep)))
-	GoodsExcelStartConsumeExtraAmountVector(b, len(t.ConsumeExtraAmount))
-	for i := range len(t.ConsumeExtraAmount) {
-		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraAmount[len(t.ConsumeExtraAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddConsumeExtraAmount(b, b.EndVector(len(t.ConsumeExtraAmount)))
-	GoodsExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
-	GoodsExcelStartParcelTypeVector(b, len(t.ParcelType))
-	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
-	GoodsExcelStartParcelIdVector(b, len(t.ParcelId))
-	for i := range len(t.ParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	GoodsExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
 	GoodsExcelStartParcelAmountVector(b, len(t.ParcelAmount))
 	for i := range len(t.ParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.ParcelAmount[len(t.ParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddParcelAmount(b, b.EndVector(len(t.ParcelAmount)))
+	GoodsExcelStartParcelIdVector(b, len(t.ParcelId))
+	for i := range len(t.ParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
+	GoodsExcelStartParcelTypeVector(b, len(t.ParcelType))
+	for i := range len(t.ParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
+	GoodsExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
+	GoodsExcelStartConsumeExtraAmountVector(b, len(t.ConsumeExtraAmount))
+	for i := range len(t.ConsumeExtraAmount) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraAmount[len(t.ConsumeExtraAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeExtraAmount(b, b.EndVector(len(t.ConsumeExtraAmount)))
+	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
+	for i := range len(t.ConsumeExtraStep) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraStep[len(t.ConsumeExtraStep)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeExtraStep(b, b.EndVector(len(t.ConsumeExtraStep)))
+	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
+	GoodsExcelAddProductIdAos(b, fbsutils.Convert(t.ProductIdAos, t.FlatBuffer.TableKey))
+	GoodsExcelStartConsumeGachaTicketTypeAmountVector(b, len(t.ConsumeGachaTicketTypeAmount))
+	for i := range len(t.ConsumeGachaTicketTypeAmount) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeGachaTicketTypeAmount[len(t.ConsumeGachaTicketTypeAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeGachaTicketTypeAmount(b, b.EndVector(len(t.ConsumeGachaTicketTypeAmount)))
+	GoodsExcelStartConsumeGachaTicketTypeVector(b, len(t.ConsumeGachaTicketType))
+	for i := range len(t.ConsumeGachaTicketType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeGachaTicketType[len(t.ConsumeGachaTicketType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeGachaTicketType(b, b.EndVector(len(t.ConsumeGachaTicketType)))
+	GoodsExcelStartConsumeConditionVector(b, len(t.ConsumeCondition))
+	for i := range len(t.ConsumeCondition) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeCondition[len(t.ConsumeCondition)-i-1]), t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeCondition(b, b.EndVector(len(t.ConsumeCondition)))
+	GoodsExcelStartConsumeParcelAmountVector(b, len(t.ConsumeParcelAmount))
+	for i := range len(t.ConsumeParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeParcelAmount[len(t.ConsumeParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeParcelAmount(b, b.EndVector(len(t.ConsumeParcelAmount)))
+	GoodsExcelStartConsumeParcelIdVector(b, len(t.ConsumeParcelId))
+	for i := range len(t.ConsumeParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ConsumeParcelId[len(t.ConsumeParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeParcelId(b, b.EndVector(len(t.ConsumeParcelId)))
+	GoodsExcelStartConsumeParcelTypeVector(b, len(t.ConsumeParcelType))
+	for i := range len(t.ConsumeParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	GoodsExcelAddConsumeParcelType(b, b.EndVector(len(t.ConsumeParcelType)))
+	GoodsExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	GoodsExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return GoodsExcelEnd(b)
 }
 
@@ -107,57 +107,57 @@ func (t *GoodsExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.ConsumeParcelType = make([]ParcelType, e.ConsumeParcelTypeLength())
-	for i := range e.ConsumeParcelTypeLength() {
-		t.ConsumeParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType(i)), t.FlatBuffer.TableKey))
-	}
-	t.ConsumeParcelId = make([]int64, e.ConsumeParcelIdLength())
-	for i := range e.ConsumeParcelIdLength() {
-		t.ConsumeParcelId[i] = fbsutils.Convert(e.ConsumeParcelId(i), t.FlatBuffer.TableKey)
-	}
-	t.ConsumeParcelAmount = make([]int64, e.ConsumeParcelAmountLength())
-	for i := range e.ConsumeParcelAmountLength() {
-		t.ConsumeParcelAmount[i] = fbsutils.Convert(e.ConsumeParcelAmount(i), t.FlatBuffer.TableKey)
-	}
-	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
-	for i := range e.ConsumeConditionLength() {
-		t.ConsumeCondition[i] = ConsumeCondition(fbsutils.Convert(int32(e.ConsumeCondition(i)), t.FlatBuffer.TableKey))
-	}
-	t.ConsumeGachaTicketType = make([]GachaTicketType, e.ConsumeGachaTicketTypeLength())
-	for i := range e.ConsumeGachaTicketTypeLength() {
-		t.ConsumeGachaTicketType[i] = GachaTicketType(fbsutils.Convert(int32(e.ConsumeGachaTicketType(i)), t.FlatBuffer.TableKey))
-	}
-	t.ConsumeGachaTicketTypeAmount = make([]int64, e.ConsumeGachaTicketTypeAmountLength())
-	for i := range e.ConsumeGachaTicketTypeAmountLength() {
-		t.ConsumeGachaTicketTypeAmount[i] = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(i), t.FlatBuffer.TableKey)
-	}
-	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
-	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
-	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
-	for i := range e.ConsumeExtraStepLength() {
-		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)
-	}
-	t.ConsumeExtraAmount = make([]int64, e.ConsumeExtraAmountLength())
-	for i := range e.ConsumeExtraAmountLength() {
-		t.ConsumeExtraAmount[i] = fbsutils.Convert(e.ConsumeExtraAmount(i), t.FlatBuffer.TableKey)
-	}
-	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
-	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
-	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
+	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
+	for i := range e.ParcelAmountLength() {
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
 		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
-	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
+	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
+	for i := range e.ParcelTypeLength() {
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
+	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
+	t.ConsumeExtraAmount = make([]int64, e.ConsumeExtraAmountLength())
+	for i := range e.ConsumeExtraAmountLength() {
+		t.ConsumeExtraAmount[i] = fbsutils.Convert(e.ConsumeExtraAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
+	for i := range e.ConsumeExtraStepLength() {
+		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)
+	}
+	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
+	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
+	t.ConsumeGachaTicketTypeAmount = make([]int64, e.ConsumeGachaTicketTypeAmountLength())
+	for i := range e.ConsumeGachaTicketTypeAmountLength() {
+		t.ConsumeGachaTicketTypeAmount[i] = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.ConsumeGachaTicketType = make([]GachaTicketType, e.ConsumeGachaTicketTypeLength())
+	for i := range e.ConsumeGachaTicketTypeLength() {
+		t.ConsumeGachaTicketType[i] = GachaTicketType(fbsutils.Convert(int32(e.ConsumeGachaTicketType(i)), t.FlatBuffer.TableKey))
+	}
+	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
+	for i := range e.ConsumeConditionLength() {
+		t.ConsumeCondition[i] = ConsumeCondition(fbsutils.Convert(int32(e.ConsumeCondition(i)), t.FlatBuffer.TableKey))
+	}
+	t.ConsumeParcelAmount = make([]int64, e.ConsumeParcelAmountLength())
+	for i := range e.ConsumeParcelAmountLength() {
+		t.ConsumeParcelAmount[i] = fbsutils.Convert(e.ConsumeParcelAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.ConsumeParcelId = make([]int64, e.ConsumeParcelIdLength())
+	for i := range e.ConsumeParcelIdLength() {
+		t.ConsumeParcelId[i] = fbsutils.Convert(e.ConsumeParcelId(i), t.FlatBuffer.TableKey)
+	}
+	t.ConsumeParcelType = make([]ParcelType, e.ConsumeParcelTypeLength())
+	for i := range e.ConsumeParcelTypeLength() {
+		t.ConsumeParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType(i)), t.FlatBuffer.TableKey))
+	}
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

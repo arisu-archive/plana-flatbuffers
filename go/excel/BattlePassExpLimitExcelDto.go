@@ -10,19 +10,19 @@ import (
 // BattlePassExpLimitExcelDto represents a FlatBuffers table
 type BattlePassExpLimitExcelDto struct {
 	fbsutils.FlatBuffer
-	BattlePassId   int64  `json:"battle_pass_id"`
-	LimitStartTime string `json:"limit_start_time"`
-	LimitEndTime   string `json:"limit_end_time"`
 	ExpLimitAmount int64  `json:"exp_limit_amount"`
+	LimitEndTime   string `json:"limit_end_time"`
+	LimitStartTime string `json:"limit_start_time"`
+	BattlePassId   int64  `json:"battle_pass_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassExpLimitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BattlePassExpLimitExcelStart(b)
-	BattlePassExpLimitExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
-	BattlePassExpLimitExcelAddLimitStartTime(b, b.CreateString(fbsutils.Convert(t.LimitStartTime, t.FlatBuffer.TableKey)))
-	BattlePassExpLimitExcelAddLimitEndTime(b, b.CreateString(fbsutils.Convert(t.LimitEndTime, t.FlatBuffer.TableKey)))
 	BattlePassExpLimitExcelAddExpLimitAmount(b, fbsutils.Convert(t.ExpLimitAmount, t.FlatBuffer.TableKey))
+	BattlePassExpLimitExcelAddLimitEndTime(b, b.CreateString(fbsutils.Convert(t.LimitEndTime, t.FlatBuffer.TableKey)))
+	BattlePassExpLimitExcelAddLimitStartTime(b, b.CreateString(fbsutils.Convert(t.LimitStartTime, t.FlatBuffer.TableKey)))
+	BattlePassExpLimitExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
 	return BattlePassExpLimitExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *BattlePassExpLimitExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattlePassExpLimitExcelDto) UnmarshalMessage(e *BattlePassExpLimitExcel) error {
-	t.BattlePassId = fbsutils.Convert(e.BattlePassId(), t.FlatBuffer.TableKey)
-	t.LimitStartTime = fbsutils.Convert(string(e.LimitStartTime()), t.FlatBuffer.TableKey)
-	t.LimitEndTime = fbsutils.Convert(string(e.LimitEndTime()), t.FlatBuffer.TableKey)
 	t.ExpLimitAmount = fbsutils.Convert(e.ExpLimitAmount(), t.FlatBuffer.TableKey)
+	t.LimitEndTime = fbsutils.Convert(string(e.LimitEndTime()), t.FlatBuffer.TableKey)
+	t.LimitStartTime = fbsutils.Convert(string(e.LimitStartTime()), t.FlatBuffer.TableKey)
+	t.BattlePassId = fbsutils.Convert(e.BattlePassId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -33,254 +33,8 @@ func (rcv *ObstacleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ObstacleExcel) Index() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateIndex(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ObstacleExcel) PrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ObstacleExcel) JumpAble() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ObstacleExcel) MutateJumpAble(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *ObstacleExcel) SubOffset(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) SubOffsetLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateSubOffset(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *ObstacleExcel) X() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ObstacleExcel) MutateX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
-}
-
-func (rcv *ObstacleExcel) Z() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ObstacleExcel) MutateZ(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
-}
-
-func (rcv *ObstacleExcel) Hp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateHp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *ObstacleExcel) MaxHp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateMaxHp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *ObstacleExcel) BlockRate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateBlockRate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *ObstacleExcel) EvasionRate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateEvasionRate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
-}
-
-func (rcv *ObstacleExcel) DestroyType() ObstacleDestroyType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return ObstacleDestroyType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateDestroyType(n ObstacleDestroyType) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
-}
-
-func (rcv *ObstacleExcel) Point1Offeset(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) Point1OffesetLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutatePoint1Offeset(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *ObstacleExcel) EnemyPoint1Osset(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) EnemyPoint1OssetLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateEnemyPoint1Osset(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *ObstacleExcel) Point2Offeset(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) Point2OffesetLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutatePoint2Offeset(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *ObstacleExcel) EnemyPoint2Osset(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) EnemyPoint2OssetLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ObstacleExcel) MutateEnemyPoint2Osset(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
 func (rcv *ObstacleExcel) SubObstacleId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -289,7 +43,7 @@ func (rcv *ObstacleExcel) SubObstacleId(j int) int64 {
 }
 
 func (rcv *ObstacleExcel) SubObstacleIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -297,7 +51,7 @@ func (rcv *ObstacleExcel) SubObstacleIdLength() int {
 }
 
 func (rcv *ObstacleExcel) MutateSubObstacleId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -305,74 +59,320 @@ func (rcv *ObstacleExcel) MutateSubObstacleId(j int, n int64) bool {
 	return false
 }
 
+func (rcv *ObstacleExcel) EnemyPoint2Osset(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) EnemyPoint2OssetLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateEnemyPoint2Osset(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) Point2Offeset(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) Point2OffesetLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutatePoint2Offeset(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) EnemyPoint1Osset(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) EnemyPoint1OssetLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateEnemyPoint1Osset(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) Point1Offeset(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) Point1OffesetLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutatePoint1Offeset(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) DestroyType() ObstacleDestroyType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return ObstacleDestroyType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateDestroyType(n ObstacleDestroyType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *ObstacleExcel) EvasionRate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateEvasionRate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ObstacleExcel) BlockRate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateBlockRate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ObstacleExcel) MaxHp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateMaxHp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *ObstacleExcel) Hp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateHp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *ObstacleExcel) Z() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ObstacleExcel) MutateZ(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(24, n)
+}
+
+func (rcv *ObstacleExcel) X() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ObstacleExcel) MutateX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(26, n)
+}
+
+func (rcv *ObstacleExcel) SubOffset(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) SubOffsetLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateSubOffset(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) JumpAble() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ObstacleExcel) MutateJumpAble(n bool) bool {
+	return rcv._tab.MutateBoolSlot(30, n)
+}
+
+func (rcv *ObstacleExcel) PrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ObstacleExcel) Index() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleExcel) MutateIndex(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
 func ObstacleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(16)
 }
-func ObstacleExcelAddIndex(builder *flatbuffers.Builder, index int64) {
-	builder.PrependInt64Slot(0, index, 0)
+func ObstacleExcelAddSubObstacleId(builder *flatbuffers.Builder, subObstacleId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(subObstacleId), 0)
 }
-func ObstacleExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(prefabName), 0)
-}
-func ObstacleExcelAddJumpAble(builder *flatbuffers.Builder, jumpAble bool) {
-	builder.PrependBoolSlot(2, jumpAble, false)
-}
-func ObstacleExcelAddSubOffset(builder *flatbuffers.Builder, subOffset flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(subOffset), 0)
-}
-func ObstacleExcelStartSubOffsetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func ObstacleExcelAddX(builder *flatbuffers.Builder, x float32) {
-	builder.PrependFloat32Slot(4, x, 0.0)
-}
-func ObstacleExcelAddZ(builder *flatbuffers.Builder, z float32) {
-	builder.PrependFloat32Slot(5, z, 0.0)
-}
-func ObstacleExcelAddHp(builder *flatbuffers.Builder, hp int64) {
-	builder.PrependInt64Slot(6, hp, 0)
-}
-func ObstacleExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
-	builder.PrependInt64Slot(7, maxHp, 0)
-}
-func ObstacleExcelAddBlockRate(builder *flatbuffers.Builder, blockRate int32) {
-	builder.PrependInt32Slot(8, blockRate, 0)
-}
-func ObstacleExcelAddEvasionRate(builder *flatbuffers.Builder, evasionRate int32) {
-	builder.PrependInt32Slot(9, evasionRate, 0)
-}
-func ObstacleExcelAddDestroyType(builder *flatbuffers.Builder, destroyType ObstacleDestroyType) {
-	builder.PrependInt32Slot(10, int32(destroyType), 0)
-}
-func ObstacleExcelAddPoint1Offeset(builder *flatbuffers.Builder, point1Offeset flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(point1Offeset), 0)
-}
-func ObstacleExcelStartPoint1OffesetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func ObstacleExcelAddEnemyPoint1Osset(builder *flatbuffers.Builder, enemyPoint1Osset flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(enemyPoint1Osset), 0)
-}
-func ObstacleExcelStartEnemyPoint1OssetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func ObstacleExcelAddPoint2Offeset(builder *flatbuffers.Builder, point2Offeset flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(point2Offeset), 0)
-}
-func ObstacleExcelStartPoint2OffesetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func ObstacleExcelStartSubObstacleIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func ObstacleExcelAddEnemyPoint2Osset(builder *flatbuffers.Builder, enemyPoint2Osset flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(enemyPoint2Osset), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(enemyPoint2Osset), 0)
 }
 func ObstacleExcelStartEnemyPoint2OssetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func ObstacleExcelAddSubObstacleId(builder *flatbuffers.Builder, subObstacleId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(subObstacleId), 0)
+func ObstacleExcelAddPoint2Offeset(builder *flatbuffers.Builder, point2Offeset flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(point2Offeset), 0)
 }
-func ObstacleExcelStartSubObstacleIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ObstacleExcelStartPoint2OffesetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func ObstacleExcelAddEnemyPoint1Osset(builder *flatbuffers.Builder, enemyPoint1Osset flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(enemyPoint1Osset), 0)
+}
+func ObstacleExcelStartEnemyPoint1OssetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func ObstacleExcelAddPoint1Offeset(builder *flatbuffers.Builder, point1Offeset flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(point1Offeset), 0)
+}
+func ObstacleExcelStartPoint1OffesetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func ObstacleExcelAddDestroyType(builder *flatbuffers.Builder, destroyType ObstacleDestroyType) {
+	builder.PrependInt32Slot(5, int32(destroyType), 0)
+}
+func ObstacleExcelAddEvasionRate(builder *flatbuffers.Builder, evasionRate int32) {
+	builder.PrependInt32Slot(6, evasionRate, 0)
+}
+func ObstacleExcelAddBlockRate(builder *flatbuffers.Builder, blockRate int32) {
+	builder.PrependInt32Slot(7, blockRate, 0)
+}
+func ObstacleExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
+	builder.PrependInt64Slot(8, maxHp, 0)
+}
+func ObstacleExcelAddHp(builder *flatbuffers.Builder, hp int64) {
+	builder.PrependInt64Slot(9, hp, 0)
+}
+func ObstacleExcelAddZ(builder *flatbuffers.Builder, z float32) {
+	builder.PrependFloat32Slot(10, z, 0.0)
+}
+func ObstacleExcelAddX(builder *flatbuffers.Builder, x float32) {
+	builder.PrependFloat32Slot(11, x, 0.0)
+}
+func ObstacleExcelAddSubOffset(builder *flatbuffers.Builder, subOffset flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(subOffset), 0)
+}
+func ObstacleExcelStartSubOffsetVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func ObstacleExcelAddJumpAble(builder *flatbuffers.Builder, jumpAble bool) {
+	builder.PrependBoolSlot(13, jumpAble, false)
+}
+func ObstacleExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(prefabName), 0)
+}
+func ObstacleExcelAddIndex(builder *flatbuffers.Builder, index int64) {
+	builder.PrependInt64Slot(15, index, 0)
 }
 func ObstacleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

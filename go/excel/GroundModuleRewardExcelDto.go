@@ -10,25 +10,25 @@ import (
 // GroundModuleRewardExcelDto represents a FlatBuffers table
 type GroundModuleRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId                 uint32     `json:"group_id"`
-	RewardParcelType        ParcelType `json:"reward_parcel_type"`
-	RewardParcelId          int64      `json:"reward_parcel_id"`
-	RewardParcelAmount      int64      `json:"reward_parcel_amount"`
-	RewardParcelProbability int64      `json:"reward_parcel_probability"`
-	IsDisplayed             bool       `json:"is_displayed"`
 	DropItemModelPrefabPath string     `json:"drop_item_model_prefab_path"`
+	IsDisplayed             bool       `json:"is_displayed"`
+	RewardParcelProbability int64      `json:"reward_parcel_probability"`
+	RewardParcelAmount      int64      `json:"reward_parcel_amount"`
+	RewardParcelId          int64      `json:"reward_parcel_id"`
+	RewardParcelType        ParcelType `json:"reward_parcel_type"`
+	GroupId                 uint32     `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundModuleRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GroundModuleRewardExcelStart(b)
-	GroundModuleRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	GroundModuleRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
+	GroundModuleRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	GroundModuleRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
+	GroundModuleRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	GroundModuleRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	GroundModuleRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	GroundModuleRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return GroundModuleRewardExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *GroundModuleRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundModuleRewardExcelDto) UnmarshalMessage(e *GroundModuleRewardExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
-	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = e.IsDisplayed()
 	t.DropItemModelPrefabPath = fbsutils.Convert(string(e.DropItemModelPrefabPath()), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
+	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

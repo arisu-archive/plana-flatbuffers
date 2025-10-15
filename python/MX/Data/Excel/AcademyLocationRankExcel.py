@@ -25,7 +25,7 @@ class AcademyLocationRankExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AcademyLocationRankExcel
-    def Rank(self):
+    def TotalExp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class AcademyLocationRankExcel(object):
         return 0
 
     # AcademyLocationRankExcel
-    def TotalExp(self):
+    def Rank(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class AcademyLocationRankExcel(object):
 def AcademyLocationRankExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return AcademyLocationRankExcelStart(builder)
-def AcademyLocationRankExcelAddRank(builder, rank): builder.PrependInt64Slot(0, rank, 0)
-def AddRank(builder, rank):
-    return AcademyLocationRankExcelAddRank(builder, rank)
+def AcademyLocationRankExcelAddTotalExp(builder, totalExp): builder.PrependInt64Slot(0, totalExp, 0)
+def AddTotalExp(builder, totalExp):
+    return AcademyLocationRankExcelAddTotalExp(builder, totalExp)
 def AcademyLocationRankExcelAddRankExp(builder, rankExp): builder.PrependInt64Slot(1, rankExp, 0)
 def AddRankExp(builder, rankExp):
     return AcademyLocationRankExcelAddRankExp(builder, rankExp)
-def AcademyLocationRankExcelAddTotalExp(builder, totalExp): builder.PrependInt64Slot(2, totalExp, 0)
-def AddTotalExp(builder, totalExp):
-    return AcademyLocationRankExcelAddTotalExp(builder, totalExp)
+def AcademyLocationRankExcelAddRank(builder, rank): builder.PrependInt64Slot(2, rank, 0)
+def AddRank(builder, rank):
+    return AcademyLocationRankExcelAddRank(builder, rank)
 def AcademyLocationRankExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AcademyLocationRankExcelEnd(builder)

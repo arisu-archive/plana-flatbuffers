@@ -33,19 +33,19 @@ func (rcv *AccountLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AccountLevelExcel) Id() int64 {
+func (rcv *AccountLevelExcel) NeedReportEvent() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *AccountLevelExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *AccountLevelExcel) MutateNeedReportEvent(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *AccountLevelExcel) Level() int64 {
+func (rcv *AccountLevelExcel) ApAutoChargeMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,20 +53,20 @@ func (rcv *AccountLevelExcel) Level() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelExcel) MutateLevel(n int64) bool {
+func (rcv *AccountLevelExcel) MutateApAutoChargeMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *AccountLevelExcel) Exp() int64 {
+func (rcv *AccountLevelExcel) CloseInterval() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *AccountLevelExcel) MutateExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *AccountLevelExcel) MutateCloseInterval(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func (rcv *AccountLevelExcel) NewbieExpRatio() int32 {
@@ -81,19 +81,19 @@ func (rcv *AccountLevelExcel) MutateNewbieExpRatio(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *AccountLevelExcel) CloseInterval() int32 {
+func (rcv *AccountLevelExcel) Exp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *AccountLevelExcel) MutateCloseInterval(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+func (rcv *AccountLevelExcel) MutateExp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *AccountLevelExcel) ApAutoChargeMax() int64 {
+func (rcv *AccountLevelExcel) Level() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,45 +101,45 @@ func (rcv *AccountLevelExcel) ApAutoChargeMax() int64 {
 	return 0
 }
 
-func (rcv *AccountLevelExcel) MutateApAutoChargeMax(n int64) bool {
+func (rcv *AccountLevelExcel) MutateLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *AccountLevelExcel) NeedReportEvent() bool {
+func (rcv *AccountLevelExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *AccountLevelExcel) MutateNeedReportEvent(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *AccountLevelExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func AccountLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func AccountLevelExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func AccountLevelExcelAddNeedReportEvent(builder *flatbuffers.Builder, needReportEvent bool) {
+	builder.PrependBoolSlot(0, needReportEvent, false)
 }
-func AccountLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(1, level, 0)
+func AccountLevelExcelAddApAutoChargeMax(builder *flatbuffers.Builder, apAutoChargeMax int64) {
+	builder.PrependInt64Slot(1, apAutoChargeMax, 0)
 }
-func AccountLevelExcelAddExp(builder *flatbuffers.Builder, exp int64) {
-	builder.PrependInt64Slot(2, exp, 0)
+func AccountLevelExcelAddCloseInterval(builder *flatbuffers.Builder, closeInterval int32) {
+	builder.PrependInt32Slot(2, closeInterval, 0)
 }
 func AccountLevelExcelAddNewbieExpRatio(builder *flatbuffers.Builder, newbieExpRatio int32) {
 	builder.PrependInt32Slot(3, newbieExpRatio, 0)
 }
-func AccountLevelExcelAddCloseInterval(builder *flatbuffers.Builder, closeInterval int32) {
-	builder.PrependInt32Slot(4, closeInterval, 0)
+func AccountLevelExcelAddExp(builder *flatbuffers.Builder, exp int64) {
+	builder.PrependInt64Slot(4, exp, 0)
 }
-func AccountLevelExcelAddApAutoChargeMax(builder *flatbuffers.Builder, apAutoChargeMax int64) {
-	builder.PrependInt64Slot(5, apAutoChargeMax, 0)
+func AccountLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(5, level, 0)
 }
-func AccountLevelExcelAddNeedReportEvent(builder *flatbuffers.Builder, needReportEvent bool) {
-	builder.PrependBoolSlot(6, needReportEvent, false)
+func AccountLevelExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
 }
 func AccountLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

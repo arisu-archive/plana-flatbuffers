@@ -33,202 +33,8 @@ func (rcv *CharacterVoiceExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterVoiceExcel) CharacterVoiceUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateCharacterVoiceUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *CharacterVoiceExcel) CharacterVoiceGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateCharacterVoiceGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *CharacterVoiceExcel) VoiceHash() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateVoiceHash(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
-}
-
-func (rcv *CharacterVoiceExcel) OnlyOne() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CharacterVoiceExcel) MutateOnlyOne(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *CharacterVoiceExcel) Priority() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutatePriority(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *CharacterVoiceExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *CharacterVoiceExcel) CollectionVisible() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CharacterVoiceExcel) MutateCollectionVisible(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *CharacterVoiceExcel) CvCollectionType() CVCollectionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return CVCollectionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateCvCollectionType(n CVCollectionType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *CharacterVoiceExcel) UnlockFavorRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateUnlockFavorRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *CharacterVoiceExcel) LocalizeCvGroup() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVoiceExcel) Nation(j int) Nation {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Nation(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) NationLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateNation(j int, n Nation) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *CharacterVoiceExcel) Volume(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) VolumeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateVolume(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *CharacterVoiceExcel) Delay(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) DelayLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterVoiceExcel) MutateDelay(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
 func (rcv *CharacterVoiceExcel) Path(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -237,69 +43,263 @@ func (rcv *CharacterVoiceExcel) Path(j int) []byte {
 }
 
 func (rcv *CharacterVoiceExcel) PathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *CharacterVoiceExcel) Delay(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) DelayLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateDelay(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *CharacterVoiceExcel) Volume(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) VolumeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateVolume(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *CharacterVoiceExcel) Nation(j int) Nation {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Nation(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) NationLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateNation(j int, n Nation) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterVoiceExcel) LocalizeCvGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVoiceExcel) UnlockFavorRank() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateUnlockFavorRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *CharacterVoiceExcel) CvCollectionType() CVCollectionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return CVCollectionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateCvCollectionType(n CVCollectionType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *CharacterVoiceExcel) CollectionVisible() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterVoiceExcel) MutateCollectionVisible(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
+}
+
+func (rcv *CharacterVoiceExcel) DisplayOrder() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *CharacterVoiceExcel) Priority() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutatePriority(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
+func (rcv *CharacterVoiceExcel) OnlyOne() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterVoiceExcel) MutateOnlyOne(n bool) bool {
+	return rcv._tab.MutateBoolSlot(24, n)
+}
+
+func (rcv *CharacterVoiceExcel) VoiceHash() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateVoiceHash(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(26, n)
+}
+
+func (rcv *CharacterVoiceExcel) CharacterVoiceGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateCharacterVoiceGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *CharacterVoiceExcel) CharacterVoiceUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVoiceExcel) MutateCharacterVoiceUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
 func CharacterVoiceExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
-func CharacterVoiceExcelAddCharacterVoiceUniqueId(builder *flatbuffers.Builder, characterVoiceUniqueId int64) {
-	builder.PrependInt64Slot(0, characterVoiceUniqueId, 0)
+func CharacterVoiceExcelAddPath(builder *flatbuffers.Builder, path flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(path), 0)
 }
-func CharacterVoiceExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
-	builder.PrependInt64Slot(1, characterVoiceGroupId, 0)
-}
-func CharacterVoiceExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash uint32) {
-	builder.PrependUint32Slot(2, voiceHash, 0)
-}
-func CharacterVoiceExcelAddOnlyOne(builder *flatbuffers.Builder, onlyOne bool) {
-	builder.PrependBoolSlot(3, onlyOne, false)
-}
-func CharacterVoiceExcelAddPriority(builder *flatbuffers.Builder, priority int32) {
-	builder.PrependInt32Slot(4, priority, 0)
-}
-func CharacterVoiceExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(5, displayOrder, 0)
-}
-func CharacterVoiceExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
-	builder.PrependBoolSlot(6, collectionVisible, false)
-}
-func CharacterVoiceExcelAddCvCollectionType(builder *flatbuffers.Builder, cvCollectionType CVCollectionType) {
-	builder.PrependInt32Slot(7, int32(cvCollectionType), 0)
-}
-func CharacterVoiceExcelAddUnlockFavorRank(builder *flatbuffers.Builder, unlockFavorRank int64) {
-	builder.PrependInt64Slot(8, unlockFavorRank, 0)
-}
-func CharacterVoiceExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(localizeCvGroup), 0)
-}
-func CharacterVoiceExcelAddNation(builder *flatbuffers.Builder, nation flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(nation), 0)
-}
-func CharacterVoiceExcelStartNationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func CharacterVoiceExcelAddVolume(builder *flatbuffers.Builder, volume flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(volume), 0)
-}
-func CharacterVoiceExcelStartVolumeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterVoiceExcelStartPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterVoiceExcelAddDelay(builder *flatbuffers.Builder, delay flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(delay), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(delay), 0)
 }
 func CharacterVoiceExcelStartDelayVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CharacterVoiceExcelAddPath(builder *flatbuffers.Builder, path flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(path), 0)
+func CharacterVoiceExcelAddVolume(builder *flatbuffers.Builder, volume flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(volume), 0)
 }
-func CharacterVoiceExcelStartPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterVoiceExcelStartVolumeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func CharacterVoiceExcelAddNation(builder *flatbuffers.Builder, nation flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nation), 0)
+}
+func CharacterVoiceExcelStartNationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func CharacterVoiceExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(localizeCvGroup), 0)
+}
+func CharacterVoiceExcelAddUnlockFavorRank(builder *flatbuffers.Builder, unlockFavorRank int64) {
+	builder.PrependInt64Slot(5, unlockFavorRank, 0)
+}
+func CharacterVoiceExcelAddCvCollectionType(builder *flatbuffers.Builder, cvCollectionType CVCollectionType) {
+	builder.PrependInt32Slot(6, int32(cvCollectionType), 0)
+}
+func CharacterVoiceExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
+	builder.PrependBoolSlot(7, collectionVisible, false)
+}
+func CharacterVoiceExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(8, displayOrder, 0)
+}
+func CharacterVoiceExcelAddPriority(builder *flatbuffers.Builder, priority int32) {
+	builder.PrependInt32Slot(9, priority, 0)
+}
+func CharacterVoiceExcelAddOnlyOne(builder *flatbuffers.Builder, onlyOne bool) {
+	builder.PrependBoolSlot(10, onlyOne, false)
+}
+func CharacterVoiceExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash uint32) {
+	builder.PrependUint32Slot(11, voiceHash, 0)
+}
+func CharacterVoiceExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
+	builder.PrependInt64Slot(12, characterVoiceGroupId, 0)
+}
+func CharacterVoiceExcelAddCharacterVoiceUniqueId(builder *flatbuffers.Builder, characterVoiceUniqueId int64) {
+	builder.PrependInt64Slot(13, characterVoiceUniqueId, 0)
 }
 func CharacterVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

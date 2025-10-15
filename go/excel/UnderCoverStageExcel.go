@@ -33,88 +33,8 @@ func (rcv *UnderCoverStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *UnderCoverStageExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *UnderCoverStageExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *UnderCoverStageExcel) StageNameFile() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *UnderCoverStageExcel) StageTryCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *UnderCoverStageExcel) MutateStageTryCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *UnderCoverStageExcel) ApplySkip() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *UnderCoverStageExcel) MutateApplySkip(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *UnderCoverStageExcel) SkipCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *UnderCoverStageExcel) MutateSkipCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *UnderCoverStageExcel) ShowClearScene() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *UnderCoverStageExcel) MutateShowClearScene(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
-func (rcv *UnderCoverStageExcel) StageTips() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *UnderCoverStageExcel) MutateStageTips(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(16, n)
-}
-
 func (rcv *UnderCoverStageExcel) StageName() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -122,35 +42,115 @@ func (rcv *UnderCoverStageExcel) StageName() uint32 {
 }
 
 func (rcv *UnderCoverStageExcel) MutateStageName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(18, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *UnderCoverStageExcel) StageTips() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *UnderCoverStageExcel) MutateStageTips(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *UnderCoverStageExcel) ShowClearScene() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *UnderCoverStageExcel) MutateShowClearScene(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *UnderCoverStageExcel) SkipCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *UnderCoverStageExcel) MutateSkipCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *UnderCoverStageExcel) ApplySkip() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *UnderCoverStageExcel) MutateApplySkip(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
+}
+
+func (rcv *UnderCoverStageExcel) StageTryCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *UnderCoverStageExcel) MutateStageTryCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *UnderCoverStageExcel) StageNameFile() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *UnderCoverStageExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *UnderCoverStageExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func UnderCoverStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func UnderCoverStageExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
-func UnderCoverStageExcelAddStageNameFile(builder *flatbuffers.Builder, stageNameFile flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(stageNameFile), 0)
-}
-func UnderCoverStageExcelAddStageTryCount(builder *flatbuffers.Builder, stageTryCount int32) {
-	builder.PrependInt32Slot(2, stageTryCount, 0)
-}
-func UnderCoverStageExcelAddApplySkip(builder *flatbuffers.Builder, applySkip bool) {
-	builder.PrependBoolSlot(3, applySkip, false)
-}
-func UnderCoverStageExcelAddSkipCount(builder *flatbuffers.Builder, skipCount int32) {
-	builder.PrependInt32Slot(4, skipCount, 0)
-}
-func UnderCoverStageExcelAddShowClearScene(builder *flatbuffers.Builder, showClearScene bool) {
-	builder.PrependBoolSlot(5, showClearScene, false)
+func UnderCoverStageExcelAddStageName(builder *flatbuffers.Builder, stageName uint32) {
+	builder.PrependUint32Slot(0, stageName, 0)
 }
 func UnderCoverStageExcelAddStageTips(builder *flatbuffers.Builder, stageTips uint32) {
-	builder.PrependUint32Slot(6, stageTips, 0)
+	builder.PrependUint32Slot(1, stageTips, 0)
 }
-func UnderCoverStageExcelAddStageName(builder *flatbuffers.Builder, stageName uint32) {
-	builder.PrependUint32Slot(7, stageName, 0)
+func UnderCoverStageExcelAddShowClearScene(builder *flatbuffers.Builder, showClearScene bool) {
+	builder.PrependBoolSlot(2, showClearScene, false)
+}
+func UnderCoverStageExcelAddSkipCount(builder *flatbuffers.Builder, skipCount int32) {
+	builder.PrependInt32Slot(3, skipCount, 0)
+}
+func UnderCoverStageExcelAddApplySkip(builder *flatbuffers.Builder, applySkip bool) {
+	builder.PrependBoolSlot(4, applySkip, false)
+}
+func UnderCoverStageExcelAddStageTryCount(builder *flatbuffers.Builder, stageTryCount int32) {
+	builder.PrependInt32Slot(5, stageTryCount, 0)
+}
+func UnderCoverStageExcelAddStageNameFile(builder *flatbuffers.Builder, stageNameFile flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(stageNameFile), 0)
+}
+func UnderCoverStageExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(7, groupId, 0)
 }
 func UnderCoverStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

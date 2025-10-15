@@ -33,7 +33,7 @@ func (rcv *FixedStrategyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FixedStrategyExcel) Id() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon04Starttile() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *FixedStrategyExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateId(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon04Starttile(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon01FixedEchelonId() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon04FixedEchelonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon01FixedEchelonId() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon01FixedEchelonId(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon04FixedEchelonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon01Starttile() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon03Starttile() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon01Starttile() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon01Starttile(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon03Starttile(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon02FixedEchelonId() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon03FixedEchelonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,7 +77,7 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon02FixedEchelonId() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon02FixedEchelonId(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon03FixedEchelonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
@@ -93,7 +93,7 @@ func (rcv *FixedStrategyExcel) MutateStageEnterEchelon02Starttile(n int64) bool 
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon03FixedEchelonId() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon02FixedEchelonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,11 +101,11 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon03FixedEchelonId() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon03FixedEchelonId(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon02FixedEchelonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon03Starttile() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon01Starttile() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -113,11 +113,11 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon03Starttile() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon03Starttile(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon01Starttile(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon04FixedEchelonId() int64 {
+func (rcv *FixedStrategyExcel) StageEnterEchelon01FixedEchelonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -125,11 +125,11 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon04FixedEchelonId() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon04FixedEchelonId(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateStageEnterEchelon01FixedEchelonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *FixedStrategyExcel) StageEnterEchelon04Starttile() int64 {
+func (rcv *FixedStrategyExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -137,39 +137,39 @@ func (rcv *FixedStrategyExcel) StageEnterEchelon04Starttile() int64 {
 	return 0
 }
 
-func (rcv *FixedStrategyExcel) MutateStageEnterEchelon04Starttile(n int64) bool {
+func (rcv *FixedStrategyExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func FixedStrategyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func FixedStrategyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func FixedStrategyExcelAddStageEnterEchelon04Starttile(builder *flatbuffers.Builder, stageEnterEchelon04Starttile int64) {
+	builder.PrependInt64Slot(0, stageEnterEchelon04Starttile, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon01FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon01FixedEchelonId int64) {
-	builder.PrependInt64Slot(1, stageEnterEchelon01FixedEchelonId, 0)
+func FixedStrategyExcelAddStageEnterEchelon04FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon04FixedEchelonId int64) {
+	builder.PrependInt64Slot(1, stageEnterEchelon04FixedEchelonId, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon01Starttile(builder *flatbuffers.Builder, stageEnterEchelon01Starttile int64) {
-	builder.PrependInt64Slot(2, stageEnterEchelon01Starttile, 0)
+func FixedStrategyExcelAddStageEnterEchelon03Starttile(builder *flatbuffers.Builder, stageEnterEchelon03Starttile int64) {
+	builder.PrependInt64Slot(2, stageEnterEchelon03Starttile, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon02FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon02FixedEchelonId int64) {
-	builder.PrependInt64Slot(3, stageEnterEchelon02FixedEchelonId, 0)
+func FixedStrategyExcelAddStageEnterEchelon03FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon03FixedEchelonId int64) {
+	builder.PrependInt64Slot(3, stageEnterEchelon03FixedEchelonId, 0)
 }
 func FixedStrategyExcelAddStageEnterEchelon02Starttile(builder *flatbuffers.Builder, stageEnterEchelon02Starttile int64) {
 	builder.PrependInt64Slot(4, stageEnterEchelon02Starttile, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon03FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon03FixedEchelonId int64) {
-	builder.PrependInt64Slot(5, stageEnterEchelon03FixedEchelonId, 0)
+func FixedStrategyExcelAddStageEnterEchelon02FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon02FixedEchelonId int64) {
+	builder.PrependInt64Slot(5, stageEnterEchelon02FixedEchelonId, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon03Starttile(builder *flatbuffers.Builder, stageEnterEchelon03Starttile int64) {
-	builder.PrependInt64Slot(6, stageEnterEchelon03Starttile, 0)
+func FixedStrategyExcelAddStageEnterEchelon01Starttile(builder *flatbuffers.Builder, stageEnterEchelon01Starttile int64) {
+	builder.PrependInt64Slot(6, stageEnterEchelon01Starttile, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon04FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon04FixedEchelonId int64) {
-	builder.PrependInt64Slot(7, stageEnterEchelon04FixedEchelonId, 0)
+func FixedStrategyExcelAddStageEnterEchelon01FixedEchelonId(builder *flatbuffers.Builder, stageEnterEchelon01FixedEchelonId int64) {
+	builder.PrependInt64Slot(7, stageEnterEchelon01FixedEchelonId, 0)
 }
-func FixedStrategyExcelAddStageEnterEchelon04Starttile(builder *flatbuffers.Builder, stageEnterEchelon04Starttile int64) {
-	builder.PrependInt64Slot(8, stageEnterEchelon04Starttile, 0)
+func FixedStrategyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(8, id, 0)
 }
 func FixedStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

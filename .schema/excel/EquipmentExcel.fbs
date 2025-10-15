@@ -6,25 +6,25 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table EquipmentExcel {
-    id: long;
-    equipment_category: EquipmentCategory;
-    rarity: Rarity;
-    localize_etc_id: uint;
-    wear: bool;
-    max_level: int;
-    recipe_id: int;
-    tier_init: long;
-    next_tier_equipment: long;
-    stackable_max: int;
-    icon: string;
-    image_name: string;
-    tags: [Tag];
-    craft_quality_tier0: long;
-    craft_quality_tier1: long;
-    craft_quality_tier2: long;
-    shifting_craft_quality: long;
-    shop_category: [ShopCategoryType];
     shortcut_type_id: long;
+    shop_category: [ShopCategoryType];
+    shifting_craft_quality: long;
+    craft_quality_tier2: long;
+    craft_quality_tier1: long;
+    craft_quality_tier0: long;
+    tags: [Tag];
+    image_name: string;
+    icon: string;
+    stackable_max: int;
+    next_tier_equipment: long;
+    tier_init: long;
+    recipe_id: int;
+    max_level: int;
+    wear: bool;
+    localize_etc_id: uint;
+    rarity: Rarity;
+    equipment_category: EquipmentCategory;
+    id: long;
 }
 
 root_type EquipmentExcel;

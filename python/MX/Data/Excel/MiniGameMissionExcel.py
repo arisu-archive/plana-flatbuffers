@@ -25,121 +25,281 @@ class MiniGameMissionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameMissionExcel
-    def Id(self):
+    def ConditionRewardAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # MiniGameMissionExcel
-    def EventContentId(self):
+    def ConditionRewardAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def ConditionRewardAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def ConditionRewardAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def ConditionRewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def GroupName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MiniGameMissionExcel
-    def Category(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def Description(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def ResetType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def ToastDisplayType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def ToastImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MiniGameMissionExcel
-    def ViewFlag(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # MiniGameMissionExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def PreMissionId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # MiniGameMissionExcel
-    def PreMissionIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+    def ConditionRewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # MiniGameMissionExcel
-    def PreMissionIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+    def ConditionRewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MiniGameMissionExcel
-    def PreMissionIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+    def ConditionRewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # MiniGameMissionExcel
-    def AccountType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+    def ConditionRewardParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # MiniGameMissionExcel
-    def AccountLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+    def ConditionRewardParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def ConditionRewardParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def ConditionRewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def MissionRewardAmount(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def MissionRewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionMissionCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionMissionId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionMissionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionMissionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionMissionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def RewardIcon(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterTag(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterTagAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterTagLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterTagIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameter(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionParameterIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def CompleteConditionCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def IsCompleteExtensionTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # MiniGameMissionExcel
+    def CompleteConditionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
@@ -163,406 +323,246 @@ class MiniGameMissionExcel(object):
         return o == 0
 
     # MiniGameMissionExcel
-    def CompleteConditionType(self):
+    def AccountLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameMissionExcel
-    def IsCompleteExtensionTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # MiniGameMissionExcel
-    def CompleteConditionCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionParameter(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def AccountType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def PreMissionId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionParameterAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def PreMissionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionParameterLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def PreMissionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionParameterIsNone(self):
+    def PreMissionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        return o == 0
+
+    # MiniGameMissionExcel
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def CompleteConditionParameterTag(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionParameterTagAsNumpy(self):
+    def ViewFlag(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MiniGameMissionExcel
-    def CompleteConditionParameterTagLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def CompleteConditionParameterTagIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def RewardIcon(self):
+    def ToastImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MiniGameMissionExcel
-    def CompleteConditionMissionId(self, j):
+    def ToastDisplayType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
-    def CompleteConditionMissionIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def CompleteConditionMissionIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def CompleteConditionMissionIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def CompleteConditionMissionCount(self):
+    def ResetType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def Description(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def Category(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameMissionExcel
+    def GroupName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MiniGameMissionExcel
+    def GroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
-    def MissionRewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def MissionRewardAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def MissionRewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelId(self, j):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameMissionExcel
-    def ConditionRewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        return o == 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardAmount(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameMissionExcel
-    def ConditionRewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        return o == 0
 
 def MiniGameMissionExcelStart(builder): builder.StartObject(29)
 def Start(builder):
     return MiniGameMissionExcelStart(builder)
-def MiniGameMissionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MiniGameMissionExcelAddId(builder, id)
-def MiniGameMissionExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MiniGameMissionExcelAddEventContentId(builder, eventContentId)
-def MiniGameMissionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
-def AddGroupId(builder, groupId):
-    return MiniGameMissionExcelAddGroupId(builder, groupId)
-def MiniGameMissionExcelAddGroupName(builder, groupName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(groupName), 0)
-def AddGroupName(builder, groupName):
-    return MiniGameMissionExcelAddGroupName(builder, groupName)
-def MiniGameMissionExcelAddCategory(builder, category): builder.PrependInt32Slot(4, category, 0)
-def AddCategory(builder, category):
-    return MiniGameMissionExcelAddCategory(builder, category)
-def MiniGameMissionExcelAddDescription(builder, description): builder.PrependUint32Slot(5, description, 0)
-def AddDescription(builder, description):
-    return MiniGameMissionExcelAddDescription(builder, description)
-def MiniGameMissionExcelAddResetType(builder, resetType): builder.PrependInt32Slot(6, resetType, 0)
-def AddResetType(builder, resetType):
-    return MiniGameMissionExcelAddResetType(builder, resetType)
-def MiniGameMissionExcelAddToastDisplayType(builder, toastDisplayType): builder.PrependInt32Slot(7, toastDisplayType, 0)
-def AddToastDisplayType(builder, toastDisplayType):
-    return MiniGameMissionExcelAddToastDisplayType(builder, toastDisplayType)
-def MiniGameMissionExcelAddToastImagePath(builder, toastImagePath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
-def AddToastImagePath(builder, toastImagePath):
-    return MiniGameMissionExcelAddToastImagePath(builder, toastImagePath)
-def MiniGameMissionExcelAddViewFlag(builder, viewFlag): builder.PrependBoolSlot(9, viewFlag, 0)
-def AddViewFlag(builder, viewFlag):
-    return MiniGameMissionExcelAddViewFlag(builder, viewFlag)
-def MiniGameMissionExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(10, displayOrder, 0)
-def AddDisplayOrder(builder, displayOrder):
-    return MiniGameMissionExcelAddDisplayOrder(builder, displayOrder)
-def MiniGameMissionExcelAddPreMissionId(builder, preMissionId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
-def AddPreMissionId(builder, preMissionId):
-    return MiniGameMissionExcelAddPreMissionId(builder, preMissionId)
-def MiniGameMissionExcelStartPreMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartPreMissionIdVector(builder, numElems):
-    return MiniGameMissionExcelStartPreMissionIdVector(builder, numElems)
-def MiniGameMissionExcelAddAccountType(builder, accountType): builder.PrependInt32Slot(12, accountType, 0)
-def AddAccountType(builder, accountType):
-    return MiniGameMissionExcelAddAccountType(builder, accountType)
-def MiniGameMissionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(13, accountLevel, 0)
-def AddAccountLevel(builder, accountLevel):
-    return MiniGameMissionExcelAddAccountLevel(builder, accountLevel)
+def MiniGameMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardAmount), 0)
+def AddConditionRewardAmount(builder, conditionRewardAmount):
+    return MiniGameMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount)
+def MiniGameMissionExcelStartConditionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartConditionRewardAmountVector(builder, numElems):
+    return MiniGameMissionExcelStartConditionRewardAmountVector(builder, numElems)
+def MiniGameMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelId), 0)
+def AddConditionRewardParcelId(builder, conditionRewardParcelId):
+    return MiniGameMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId)
+def MiniGameMissionExcelStartConditionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartConditionRewardParcelIdVector(builder, numElems):
+    return MiniGameMissionExcelStartConditionRewardParcelIdVector(builder, numElems)
+def MiniGameMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelType), 0)
+def AddConditionRewardParcelType(builder, conditionRewardParcelType):
+    return MiniGameMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType)
+def MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartConditionRewardParcelTypeVector(builder, numElems):
+    return MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder, numElems)
+def MiniGameMissionExcelAddMissionRewardAmount(builder, missionRewardAmount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
+def AddMissionRewardAmount(builder, missionRewardAmount):
+    return MiniGameMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+def MiniGameMissionExcelStartMissionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartMissionRewardAmountVector(builder, numElems):
+    return MiniGameMissionExcelStartMissionRewardAmountVector(builder, numElems)
+def MiniGameMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
+def AddMissionRewardParcelId(builder, missionRewardParcelId):
+    return MiniGameMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+def MiniGameMissionExcelStartMissionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartMissionRewardParcelIdVector(builder, numElems):
+    return MiniGameMissionExcelStartMissionRewardParcelIdVector(builder, numElems)
+def MiniGameMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
+def AddMissionRewardParcelType(builder, missionRewardParcelType):
+    return MiniGameMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+def MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartMissionRewardParcelTypeVector(builder, numElems):
+    return MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder, numElems)
+def MiniGameMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount): builder.PrependInt64Slot(6, completeConditionMissionCount, 0)
+def AddCompleteConditionMissionCount(builder, completeConditionMissionCount):
+    return MiniGameMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount)
+def MiniGameMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionMissionId), 0)
+def AddCompleteConditionMissionId(builder, completeConditionMissionId):
+    return MiniGameMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId)
+def MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartCompleteConditionMissionIdVector(builder, numElems):
+    return MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder, numElems)
+def MiniGameMissionExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
+def AddRewardIcon(builder, rewardIcon):
+    return MiniGameMissionExcelAddRewardIcon(builder, rewardIcon)
+def MiniGameMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
+def AddCompleteConditionParameterTag(builder, completeConditionParameterTag):
+    return MiniGameMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+def MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartCompleteConditionParameterTagVector(builder, numElems):
+    return MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder, numElems)
+def MiniGameMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
+def AddCompleteConditionParameter(builder, completeConditionParameter):
+    return MiniGameMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+def MiniGameMissionExcelStartCompleteConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartCompleteConditionParameterVector(builder, numElems):
+    return MiniGameMissionExcelStartCompleteConditionParameterVector(builder, numElems)
+def MiniGameMissionExcelAddCompleteConditionCount(builder, completeConditionCount): builder.PrependInt64Slot(11, completeConditionCount, 0)
+def AddCompleteConditionCount(builder, completeConditionCount):
+    return MiniGameMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
+def MiniGameMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime): builder.PrependBoolSlot(12, isCompleteExtensionTime, 0)
+def AddIsCompleteExtensionTime(builder, isCompleteExtensionTime):
+    return MiniGameMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime)
+def MiniGameMissionExcelAddCompleteConditionType(builder, completeConditionType): builder.PrependInt32Slot(13, completeConditionType, 0)
+def AddCompleteConditionType(builder, completeConditionType):
+    return MiniGameMissionExcelAddCompleteConditionType(builder, completeConditionType)
 def MiniGameMissionExcelAddShortcutUi(builder, shortcutUi): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
 def AddShortcutUi(builder, shortcutUi):
     return MiniGameMissionExcelAddShortcutUi(builder, shortcutUi)
 def MiniGameMissionExcelStartShortcutUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShortcutUiVector(builder, numElems):
     return MiniGameMissionExcelStartShortcutUiVector(builder, numElems)
-def MiniGameMissionExcelAddCompleteConditionType(builder, completeConditionType): builder.PrependInt32Slot(15, completeConditionType, 0)
-def AddCompleteConditionType(builder, completeConditionType):
-    return MiniGameMissionExcelAddCompleteConditionType(builder, completeConditionType)
-def MiniGameMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime): builder.PrependBoolSlot(16, isCompleteExtensionTime, 0)
-def AddIsCompleteExtensionTime(builder, isCompleteExtensionTime):
-    return MiniGameMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime)
-def MiniGameMissionExcelAddCompleteConditionCount(builder, completeConditionCount): builder.PrependInt64Slot(17, completeConditionCount, 0)
-def AddCompleteConditionCount(builder, completeConditionCount):
-    return MiniGameMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
-def MiniGameMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
-def AddCompleteConditionParameter(builder, completeConditionParameter):
-    return MiniGameMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
-def MiniGameMissionExcelStartCompleteConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartCompleteConditionParameterVector(builder, numElems):
-    return MiniGameMissionExcelStartCompleteConditionParameterVector(builder, numElems)
-def MiniGameMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
-def AddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    return MiniGameMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
-def MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartCompleteConditionParameterTagVector(builder, numElems):
-    return MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder, numElems)
-def MiniGameMissionExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
-def AddRewardIcon(builder, rewardIcon):
-    return MiniGameMissionExcelAddRewardIcon(builder, rewardIcon)
-def MiniGameMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionMissionId), 0)
-def AddCompleteConditionMissionId(builder, completeConditionMissionId):
-    return MiniGameMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId)
-def MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartCompleteConditionMissionIdVector(builder, numElems):
-    return MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder, numElems)
-def MiniGameMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount): builder.PrependInt64Slot(22, completeConditionMissionCount, 0)
-def AddCompleteConditionMissionCount(builder, completeConditionMissionCount):
-    return MiniGameMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount)
-def MiniGameMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
-def AddMissionRewardParcelType(builder, missionRewardParcelType):
-    return MiniGameMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
-def MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartMissionRewardParcelTypeVector(builder, numElems):
-    return MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder, numElems)
-def MiniGameMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
-def AddMissionRewardParcelId(builder, missionRewardParcelId):
-    return MiniGameMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
-def MiniGameMissionExcelStartMissionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartMissionRewardParcelIdVector(builder, numElems):
-    return MiniGameMissionExcelStartMissionRewardParcelIdVector(builder, numElems)
-def MiniGameMissionExcelAddMissionRewardAmount(builder, missionRewardAmount): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
-def AddMissionRewardAmount(builder, missionRewardAmount):
-    return MiniGameMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
-def MiniGameMissionExcelStartMissionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartMissionRewardAmountVector(builder, numElems):
-    return MiniGameMissionExcelStartMissionRewardAmountVector(builder, numElems)
-def MiniGameMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelType), 0)
-def AddConditionRewardParcelType(builder, conditionRewardParcelType):
-    return MiniGameMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType)
-def MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartConditionRewardParcelTypeVector(builder, numElems):
-    return MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder, numElems)
-def MiniGameMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelId), 0)
-def AddConditionRewardParcelId(builder, conditionRewardParcelId):
-    return MiniGameMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId)
-def MiniGameMissionExcelStartConditionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartConditionRewardParcelIdVector(builder, numElems):
-    return MiniGameMissionExcelStartConditionRewardParcelIdVector(builder, numElems)
-def MiniGameMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardAmount), 0)
-def AddConditionRewardAmount(builder, conditionRewardAmount):
-    return MiniGameMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount)
-def MiniGameMissionExcelStartConditionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartConditionRewardAmountVector(builder, numElems):
-    return MiniGameMissionExcelStartConditionRewardAmountVector(builder, numElems)
+def MiniGameMissionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(15, accountLevel, 0)
+def AddAccountLevel(builder, accountLevel):
+    return MiniGameMissionExcelAddAccountLevel(builder, accountLevel)
+def MiniGameMissionExcelAddAccountType(builder, accountType): builder.PrependInt32Slot(16, accountType, 0)
+def AddAccountType(builder, accountType):
+    return MiniGameMissionExcelAddAccountType(builder, accountType)
+def MiniGameMissionExcelAddPreMissionId(builder, preMissionId): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
+def AddPreMissionId(builder, preMissionId):
+    return MiniGameMissionExcelAddPreMissionId(builder, preMissionId)
+def MiniGameMissionExcelStartPreMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartPreMissionIdVector(builder, numElems):
+    return MiniGameMissionExcelStartPreMissionIdVector(builder, numElems)
+def MiniGameMissionExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(18, displayOrder, 0)
+def AddDisplayOrder(builder, displayOrder):
+    return MiniGameMissionExcelAddDisplayOrder(builder, displayOrder)
+def MiniGameMissionExcelAddViewFlag(builder, viewFlag): builder.PrependBoolSlot(19, viewFlag, 0)
+def AddViewFlag(builder, viewFlag):
+    return MiniGameMissionExcelAddViewFlag(builder, viewFlag)
+def MiniGameMissionExcelAddToastImagePath(builder, toastImagePath): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
+def AddToastImagePath(builder, toastImagePath):
+    return MiniGameMissionExcelAddToastImagePath(builder, toastImagePath)
+def MiniGameMissionExcelAddToastDisplayType(builder, toastDisplayType): builder.PrependInt32Slot(21, toastDisplayType, 0)
+def AddToastDisplayType(builder, toastDisplayType):
+    return MiniGameMissionExcelAddToastDisplayType(builder, toastDisplayType)
+def MiniGameMissionExcelAddResetType(builder, resetType): builder.PrependInt32Slot(22, resetType, 0)
+def AddResetType(builder, resetType):
+    return MiniGameMissionExcelAddResetType(builder, resetType)
+def MiniGameMissionExcelAddDescription(builder, description): builder.PrependUint32Slot(23, description, 0)
+def AddDescription(builder, description):
+    return MiniGameMissionExcelAddDescription(builder, description)
+def MiniGameMissionExcelAddCategory(builder, category): builder.PrependInt32Slot(24, category, 0)
+def AddCategory(builder, category):
+    return MiniGameMissionExcelAddCategory(builder, category)
+def MiniGameMissionExcelAddGroupName(builder, groupName): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(groupName), 0)
+def AddGroupName(builder, groupName):
+    return MiniGameMissionExcelAddGroupName(builder, groupName)
+def MiniGameMissionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(26, groupId, 0)
+def AddGroupId(builder, groupId):
+    return MiniGameMissionExcelAddGroupId(builder, groupId)
+def MiniGameMissionExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(27, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MiniGameMissionExcelAddEventContentId(builder, eventContentId)
+def MiniGameMissionExcelAddId(builder, id): builder.PrependInt64Slot(28, id, 0)
+def AddId(builder, id):
+    return MiniGameMissionExcelAddId(builder, id)
 def MiniGameMissionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameMissionExcelEnd(builder)

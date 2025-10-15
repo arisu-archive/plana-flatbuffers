@@ -3,17 +3,17 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table EventContentTreasureRewardExcel {
-    id: long;
-    localize_code_id: string;
-    cell_under_image_width: int;
-    cell_under_image_height: int;
-    hidden_image: bool;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
-    reward_parcel_amount: [long];
-    cell_under_image_path: string;
-    treasure_small_image_path: string;
     treasure_size_icon_path: string;
+    treasure_small_image_path: string;
+    cell_under_image_path: string;
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    hidden_image: bool;
+    cell_under_image_height: int;
+    cell_under_image_width: int;
+    localize_code_id: string;
+    id: long;
 }
 
 root_type EventContentTreasureRewardExcel;

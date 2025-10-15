@@ -10,17 +10,17 @@ import (
 // MinigameCCGRewardCardRateExcelDto represents a FlatBuffers table
 type MinigameCCGRewardCardRateExcelDto struct {
 	fbsutils.FlatBuffer
-	RarityGroupId int64 `json:"rarity_group_id"`
-	CardRarity    int32 `json:"card_rarity"`
 	Rate          int32 `json:"rate"`
+	CardRarity    int32 `json:"card_rarity"`
+	RarityGroupId int64 `json:"rarity_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGRewardCardRateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGRewardCardRateExcelStart(b)
-	MinigameCCGRewardCardRateExcelAddRarityGroupId(b, fbsutils.Convert(t.RarityGroupId, t.FlatBuffer.TableKey))
-	MinigameCCGRewardCardRateExcelAddCardRarity(b, fbsutils.Convert(t.CardRarity, t.FlatBuffer.TableKey))
 	MinigameCCGRewardCardRateExcelAddRate(b, fbsutils.Convert(t.Rate, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardRateExcelAddCardRarity(b, fbsutils.Convert(t.CardRarity, t.FlatBuffer.TableKey))
+	MinigameCCGRewardCardRateExcelAddRarityGroupId(b, fbsutils.Convert(t.RarityGroupId, t.FlatBuffer.TableKey))
 	return MinigameCCGRewardCardRateExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *MinigameCCGRewardCardRateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGRewardCardRateExcelDto) UnmarshalMessage(e *MinigameCCGRewardCardRateExcel) error {
-	t.RarityGroupId = fbsutils.Convert(e.RarityGroupId(), t.FlatBuffer.TableKey)
-	t.CardRarity = fbsutils.Convert(e.CardRarity(), t.FlatBuffer.TableKey)
 	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
+	t.CardRarity = fbsutils.Convert(e.CardRarity(), t.FlatBuffer.TableKey)
+	t.RarityGroupId = fbsutils.Convert(e.RarityGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -5,16 +5,16 @@ include "WeekDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table FarmingDungeonLocationManageExcel {
-    farming_dungeon_location_id: long;
-    content_type: ContentType;
-    week_dungeon_type: WeekDungeonType;
-    school_dungeon_type: SchoolDungeonType;
-    order: long;
-    open_start_date_time: string;
-    open_end_date_time: string;
-    location_button_image_path: string;
-    localize_code_title: uint;
     localize_code_info: uint;
+    localize_code_title: uint;
+    location_button_image_path: string;
+    open_end_date_time: string;
+    open_start_date_time: string;
+    order: long;
+    school_dungeon_type: SchoolDungeonType;
+    week_dungeon_type: WeekDungeonType;
+    content_type: ContentType;
+    farming_dungeon_location_id: long;
 }
 
 root_type FarmingDungeonLocationManageExcel;

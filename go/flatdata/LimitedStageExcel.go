@@ -33,131 +33,135 @@ func (rcv *LimitedStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LimitedStageExcel) Id() int64 {
+func (rcv *LimitedStageExcel) ChallengeDisplay() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *LimitedStageExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *LimitedStageExcel) MutateChallengeDisplay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *LimitedStageExcel) Name() []byte {
+func (rcv *LimitedStageExcel) BuffContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *LimitedStageExcel) SeasonId() int64 {
+func (rcv *LimitedStageExcel) MutateBuffContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *LimitedStageExcel) InstantClear() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *LimitedStageExcel) MutateInstantClear(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *LimitedStageExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *LimitedStageExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *LimitedStageExcel) StageDifficulty() StageDifficulty {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *LimitedStageExcel) ContentType() ContentType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return StageDifficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageDifficulty(n StageDifficulty) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *LimitedStageExcel) MutateContentType(n ContentType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *LimitedStageExcel) StageNumber() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+func (rcv *LimitedStageExcel) GroundId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateGroundId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *LimitedStageExcel) StrategyEnvironment() StrategyEnvironment {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *LimitedStageExcel) BgmIdD0807648() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *LimitedStageExcel) StageDisplay() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *LimitedStageExcel) RecommandLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageDisplay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+func (rcv *LimitedStageExcel) MutateRecommandLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
-func (rcv *LimitedStageExcel) PrevStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutatePrevStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *LimitedStageExcel) OpenDate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateOpenDate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *LimitedStageExcel) OpenEventPoint() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateOpenEventPoint(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *LimitedStageExcel) BattleDuration() int64 {
+func (rcv *LimitedStageExcel) StageTopography() StageTopography {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
+func (rcv *LimitedStageExcel) MutateStageTopography(n StageTopography) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
 }
 
-func (rcv *LimitedStageExcel) StageEnterCostType() ParcelType {
+func (rcv *LimitedStageExcel) MaxTurn() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
+func (rcv *LimitedStageExcel) MutateMaxTurn(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
 }
 
-func (rcv *LimitedStageExcel) StageEnterCostId() int64 {
+func (rcv *LimitedStageExcel) StageRewardId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -165,86 +169,28 @@ func (rcv *LimitedStageExcel) StageEnterCostId() int64 {
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageEnterCostId(n int64) bool {
+func (rcv *LimitedStageExcel) MutateStageRewardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *LimitedStageExcel) StageEnterCostAmount() int32 {
+func (rcv *LimitedStageExcel) StrategyMapBg() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *LimitedStageExcel) MutateStageEnterCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(28, n)
-}
-
-func (rcv *LimitedStageExcel) StageEnterEchelonCount() int32 {
+func (rcv *LimitedStageExcel) StrategyMap() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateStageEnterEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(30, n)
-}
-
-func (rcv *LimitedStageExcel) StarConditionTacticRankSCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateStarConditionTacticRankSCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
-}
-
-func (rcv *LimitedStageExcel) StarConditionTurnCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateStarConditionTurnCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
-func (rcv *LimitedStageExcel) EnterScenarioGroupId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) EnterScenarioGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateEnterScenarioGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+	return nil
 }
 
 func (rcv *LimitedStageExcel) ClearScenarioGroupId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -253,7 +199,7 @@ func (rcv *LimitedStageExcel) ClearScenarioGroupId(j int) int64 {
 }
 
 func (rcv *LimitedStageExcel) ClearScenarioGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -261,7 +207,7 @@ func (rcv *LimitedStageExcel) ClearScenarioGroupIdLength() int {
 }
 
 func (rcv *LimitedStageExcel) MutateClearScenarioGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -269,23 +215,81 @@ func (rcv *LimitedStageExcel) MutateClearScenarioGroupId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *LimitedStageExcel) StrategyMap() []byte {
+func (rcv *LimitedStageExcel) EnterScenarioGroupId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) EnterScenarioGroupIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateEnterScenarioGroupId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *LimitedStageExcel) StarConditionTurnCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateStarConditionTurnCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *LimitedStageExcel) StarConditionTacticRankSCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateStarConditionTacticRankSCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(38, n)
+}
+
+func (rcv *LimitedStageExcel) StageEnterEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *LimitedStageExcel) StrategyMapBg() []byte {
+func (rcv *LimitedStageExcel) MutateStageEnterEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(40, n)
+}
+
+func (rcv *LimitedStageExcel) StageEnterCostAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *LimitedStageExcel) StageRewardId() int64 {
+func (rcv *LimitedStageExcel) MutateStageEnterCostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
+}
+
+func (rcv *LimitedStageExcel) StageEnterCostId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -293,242 +297,238 @@ func (rcv *LimitedStageExcel) StageRewardId() int64 {
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageRewardId(n int64) bool {
+func (rcv *LimitedStageExcel) MutateStageEnterCostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
-func (rcv *LimitedStageExcel) MaxTurn() int32 {
+func (rcv *LimitedStageExcel) StageEnterCostType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateMaxTurn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(46, n)
+func (rcv *LimitedStageExcel) MutateStageEnterCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
 }
 
-func (rcv *LimitedStageExcel) StageTopography() StageTopography {
+func (rcv *LimitedStageExcel) BattleDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(48, int32(n))
+func (rcv *LimitedStageExcel) MutateBattleDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *LimitedStageExcel) RecommandLevel() int32 {
+func (rcv *LimitedStageExcel) OpenEventPoint() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateOpenEventPoint(n int64) bool {
+	return rcv._tab.MutateInt64Slot(50, n)
+}
+
+func (rcv *LimitedStageExcel) OpenDate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutateOpenDate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(52, n)
+}
+
+func (rcv *LimitedStageExcel) PrevStageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageExcel) MutatePrevStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(54, n)
+}
+
+func (rcv *LimitedStageExcel) StageDisplay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateRecommandLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(50, n)
+func (rcv *LimitedStageExcel) MutateStageDisplay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(56, n)
 }
 
-func (rcv *LimitedStageExcel) BgmId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+func (rcv *LimitedStageExcel) StageNumber() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *LimitedStageExcel) StrategyEnvironment() StrategyEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
-}
-
-func (rcv *LimitedStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(56, n)
-}
-
-func (rcv *LimitedStageExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *LimitedStageExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(58, int32(n))
-}
-
-func (rcv *LimitedStageExcel) BgmIdC9738509() int64 {
+func (rcv *LimitedStageExcel) StageDifficulty() StageDifficulty {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return StageDifficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateBgmIdC9738509(n int64) bool {
-	return rcv._tab.MutateInt64Slot(60, n)
+func (rcv *LimitedStageExcel) MutateStageDifficulty(n StageDifficulty) bool {
+	return rcv._tab.MutateInt32Slot(60, int32(n))
 }
 
-func (rcv *LimitedStageExcel) InstantClear() bool {
+func (rcv *LimitedStageExcel) SeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateInstantClear(n bool) bool {
-	return rcv._tab.MutateBoolSlot(62, n)
+func (rcv *LimitedStageExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(62, n)
 }
 
-func (rcv *LimitedStageExcel) BuffContentId() int64 {
+func (rcv *LimitedStageExcel) Name() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LimitedStageExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageExcel) MutateBuffContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(64, n)
-}
-
-func (rcv *LimitedStageExcel) ChallengeDisplay() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *LimitedStageExcel) MutateChallengeDisplay(n bool) bool {
-	return rcv._tab.MutateBoolSlot(66, n)
+func (rcv *LimitedStageExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(66, n)
 }
 
 func LimitedStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(32)
 }
-func LimitedStageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func LimitedStageExcelAddChallengeDisplay(builder *flatbuffers.Builder, challengeDisplay bool) {
+	builder.PrependBoolSlot(0, challengeDisplay, false)
 }
-func LimitedStageExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
+func LimitedStageExcelAddBuffContentId(builder *flatbuffers.Builder, buffContentId int64) {
+	builder.PrependInt64Slot(1, buffContentId, 0)
 }
-func LimitedStageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(2, seasonId, 0)
+func LimitedStageExcelAddInstantClear(builder *flatbuffers.Builder, instantClear bool) {
+	builder.PrependBoolSlot(2, instantClear, false)
 }
-func LimitedStageExcelAddStageDifficulty(builder *flatbuffers.Builder, stageDifficulty StageDifficulty) {
-	builder.PrependInt32Slot(3, int32(stageDifficulty), 0)
+func LimitedStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(3, bgmId, 0)
 }
-func LimitedStageExcelAddStageNumber(builder *flatbuffers.Builder, stageNumber flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(stageNumber), 0)
+func LimitedStageExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
+	builder.PrependInt32Slot(4, int32(contentType), 0)
 }
-func LimitedStageExcelAddStageDisplay(builder *flatbuffers.Builder, stageDisplay int32) {
-	builder.PrependInt32Slot(5, stageDisplay, 0)
+func LimitedStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(5, groundId, 0)
 }
-func LimitedStageExcelAddPrevStageId(builder *flatbuffers.Builder, prevStageId int64) {
-	builder.PrependInt64Slot(6, prevStageId, 0)
+func LimitedStageExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
+	builder.PrependInt32Slot(6, int32(strategyEnvironment), 0)
 }
-func LimitedStageExcelAddOpenDate(builder *flatbuffers.Builder, openDate int64) {
-	builder.PrependInt64Slot(7, openDate, 0)
+func LimitedStageExcelAddBgmIdD0807648(builder *flatbuffers.Builder, bgmIdD0807648 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(bgmIdD0807648), 0)
 }
-func LimitedStageExcelAddOpenEventPoint(builder *flatbuffers.Builder, openEventPoint int64) {
-	builder.PrependInt64Slot(8, openEventPoint, 0)
+func LimitedStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
+	builder.PrependInt32Slot(8, recommandLevel, 0)
 }
-func LimitedStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(9, battleDuration, 0)
+func LimitedStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
+	builder.PrependInt32Slot(9, int32(stageTopography), 0)
 }
-func LimitedStageExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType ParcelType) {
-	builder.PrependInt32Slot(10, int32(stageEnterCostType), 0)
+func LimitedStageExcelAddMaxTurn(builder *flatbuffers.Builder, maxTurn int32) {
+	builder.PrependInt32Slot(10, maxTurn, 0)
 }
-func LimitedStageExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId int64) {
-	builder.PrependInt64Slot(11, stageEnterCostId, 0)
+func LimitedStageExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
+	builder.PrependInt64Slot(11, stageRewardId, 0)
 }
-func LimitedStageExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount int32) {
-	builder.PrependInt32Slot(12, stageEnterCostAmount, 0)
+func LimitedStageExcelAddStrategyMapBg(builder *flatbuffers.Builder, strategyMapBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(strategyMapBg), 0)
 }
-func LimitedStageExcelAddStageEnterEchelonCount(builder *flatbuffers.Builder, stageEnterEchelonCount int32) {
-	builder.PrependInt32Slot(13, stageEnterEchelonCount, 0)
-}
-func LimitedStageExcelAddStarConditionTacticRankSCount(builder *flatbuffers.Builder, starConditionTacticRankSCount int64) {
-	builder.PrependInt64Slot(14, starConditionTacticRankSCount, 0)
-}
-func LimitedStageExcelAddStarConditionTurnCount(builder *flatbuffers.Builder, starConditionTurnCount int64) {
-	builder.PrependInt64Slot(15, starConditionTurnCount, 0)
-}
-func LimitedStageExcelAddEnterScenarioGroupId(builder *flatbuffers.Builder, enterScenarioGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(enterScenarioGroupId), 0)
-}
-func LimitedStageExcelStartEnterScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func LimitedStageExcelAddStrategyMap(builder *flatbuffers.Builder, strategyMap flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(strategyMap), 0)
 }
 func LimitedStageExcelAddClearScenarioGroupId(builder *flatbuffers.Builder, clearScenarioGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(clearScenarioGroupId), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(clearScenarioGroupId), 0)
 }
 func LimitedStageExcelStartClearScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func LimitedStageExcelAddStrategyMap(builder *flatbuffers.Builder, strategyMap flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(strategyMap), 0)
+func LimitedStageExcelAddEnterScenarioGroupId(builder *flatbuffers.Builder, enterScenarioGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(enterScenarioGroupId), 0)
 }
-func LimitedStageExcelAddStrategyMapBg(builder *flatbuffers.Builder, strategyMapBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(strategyMapBg), 0)
+func LimitedStageExcelStartEnterScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func LimitedStageExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
-	builder.PrependInt64Slot(20, stageRewardId, 0)
+func LimitedStageExcelAddStarConditionTurnCount(builder *flatbuffers.Builder, starConditionTurnCount int64) {
+	builder.PrependInt64Slot(16, starConditionTurnCount, 0)
 }
-func LimitedStageExcelAddMaxTurn(builder *flatbuffers.Builder, maxTurn int32) {
-	builder.PrependInt32Slot(21, maxTurn, 0)
+func LimitedStageExcelAddStarConditionTacticRankSCount(builder *flatbuffers.Builder, starConditionTacticRankSCount int64) {
+	builder.PrependInt64Slot(17, starConditionTacticRankSCount, 0)
 }
-func LimitedStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(22, int32(stageTopography), 0)
+func LimitedStageExcelAddStageEnterEchelonCount(builder *flatbuffers.Builder, stageEnterEchelonCount int32) {
+	builder.PrependInt32Slot(18, stageEnterEchelonCount, 0)
 }
-func LimitedStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
-	builder.PrependInt32Slot(23, recommandLevel, 0)
+func LimitedStageExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount int32) {
+	builder.PrependInt32Slot(19, stageEnterCostAmount, 0)
 }
-func LimitedStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(bgmId), 0)
+func LimitedStageExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId int64) {
+	builder.PrependInt64Slot(20, stageEnterCostId, 0)
 }
-func LimitedStageExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
-	builder.PrependInt32Slot(25, int32(strategyEnvironment), 0)
+func LimitedStageExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType ParcelType) {
+	builder.PrependInt32Slot(21, int32(stageEnterCostType), 0)
 }
-func LimitedStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(26, groundId, 0)
+func LimitedStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
+	builder.PrependInt64Slot(22, battleDuration, 0)
 }
-func LimitedStageExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(27, int32(contentType), 0)
+func LimitedStageExcelAddOpenEventPoint(builder *flatbuffers.Builder, openEventPoint int64) {
+	builder.PrependInt64Slot(23, openEventPoint, 0)
 }
-func LimitedStageExcelAddBgmIdC9738509(builder *flatbuffers.Builder, bgmIdC9738509 int64) {
-	builder.PrependInt64Slot(28, bgmIdC9738509, 0)
+func LimitedStageExcelAddOpenDate(builder *flatbuffers.Builder, openDate int64) {
+	builder.PrependInt64Slot(24, openDate, 0)
 }
-func LimitedStageExcelAddInstantClear(builder *flatbuffers.Builder, instantClear bool) {
-	builder.PrependBoolSlot(29, instantClear, false)
+func LimitedStageExcelAddPrevStageId(builder *flatbuffers.Builder, prevStageId int64) {
+	builder.PrependInt64Slot(25, prevStageId, 0)
 }
-func LimitedStageExcelAddBuffContentId(builder *flatbuffers.Builder, buffContentId int64) {
-	builder.PrependInt64Slot(30, buffContentId, 0)
+func LimitedStageExcelAddStageDisplay(builder *flatbuffers.Builder, stageDisplay int32) {
+	builder.PrependInt32Slot(26, stageDisplay, 0)
 }
-func LimitedStageExcelAddChallengeDisplay(builder *flatbuffers.Builder, challengeDisplay bool) {
-	builder.PrependBoolSlot(31, challengeDisplay, false)
+func LimitedStageExcelAddStageNumber(builder *flatbuffers.Builder, stageNumber flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(stageNumber), 0)
+}
+func LimitedStageExcelAddStageDifficulty(builder *flatbuffers.Builder, stageDifficulty StageDifficulty) {
+	builder.PrependInt32Slot(28, int32(stageDifficulty), 0)
+}
+func LimitedStageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(29, seasonId, 0)
+}
+func LimitedStageExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(name), 0)
+}
+func LimitedStageExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(31, id, 0)
 }
 func LimitedStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

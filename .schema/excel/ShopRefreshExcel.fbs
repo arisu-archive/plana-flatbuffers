@@ -5,20 +5,21 @@ include "ShopPurchasePopupType.fbs";
 namespace MX.Data.Excel;
 
 table ShopRefreshExcel {
-    id: long;
-    localize_etc_id: uint;
-    is_legacy: bool;
-    goods_id: long;
-    is_bundle: bool;
-    shop_purchase_popup_type: ShopPurchasePopupType;
-    visible_amount: long;
-    purchase_count_limit: long;
-    display_order: long;
-    category_type: ShopCategoryType;
-    refresh_group: int;
-    prob: int;
-    buy_report_event_name: string;
     display_tag: ProductDisplayTag;
+    product_update_time: string;
+    buy_report_event_name: string;
+    prob: int;
+    refresh_group: int;
+    category_type: ShopCategoryType;
+    display_order: long;
+    purchase_count_limit: long;
+    visible_amount: long;
+    shop_purchase_popup_type: ShopPurchasePopupType;
+    is_bundle: bool;
+    goods_id: long;
+    is_legacy: bool;
+    localize_etc_id: uint;
+    id: long;
 }
 
 root_type ShopRefreshExcel;

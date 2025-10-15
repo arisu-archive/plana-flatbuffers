@@ -25,11 +25,11 @@ class SoundUIExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SoundUIExcel
-    def Id(self):
+    def Path(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SoundUIExcel
     def SoundUniqueId(self):
@@ -39,24 +39,24 @@ class SoundUIExcel(object):
         return None
 
     # SoundUIExcel
-    def Path(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def SoundUIExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return SoundUIExcelStart(builder)
-def SoundUIExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return SoundUIExcelAddId(builder, id)
+def SoundUIExcelAddPath(builder, path): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
+def AddPath(builder, path):
+    return SoundUIExcelAddPath(builder, path)
 def SoundUIExcelAddSoundUniqueId(builder, soundUniqueId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(soundUniqueId), 0)
 def AddSoundUniqueId(builder, soundUniqueId):
     return SoundUIExcelAddSoundUniqueId(builder, soundUniqueId)
-def SoundUIExcelAddPath(builder, path): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
-def AddPath(builder, path):
-    return SoundUIExcelAddPath(builder, path)
+def SoundUIExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+def AddId(builder, id):
+    return SoundUIExcelAddId(builder, id)
 def SoundUIExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SoundUIExcelEnd(builder)

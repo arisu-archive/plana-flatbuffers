@@ -4,13 +4,13 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table DuplicateBonusExcel {
-    id: long;
-    item_category: ItemCategory;
-    item_id: long;
-    character_id: long;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
     reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    character_id: long;
+    item_id: long;
+    item_category: ItemCategory;
+    id: long;
 }
 
 root_type DuplicateBonusExcel;

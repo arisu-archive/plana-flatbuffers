@@ -10,12 +10,12 @@ import (
 // GroundNodeFlatDto represents a FlatBuffers table
 type GroundNodeFlatDto struct {
 	fbsutils.FlatBuffer
-	X                int32            `json:"x"`
-	Y                int32            `json:"y"`
-	IsCanNotUseSkill bool             `json:"is_can_not_use_skill"`
-	Position         GroundVector3Dto `json:"position"`
-	NodeType         GroundNodeType   `json:"node_type"`
 	OriginalNodeType GroundNodeType   `json:"original_node_type"`
+	NodeType         GroundNodeType   `json:"node_type"`
+	Position         GroundVector3Dto `json:"position"`
+	IsCanNotUseSkill bool             `json:"is_can_not_use_skill"`
+	Y                int32            `json:"y"`
+	X                int32            `json:"x"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *GroundNodeFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
 	}
 	GroundNodeFlatStart(b)
-	GroundNodeFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	GroundNodeFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
-	GroundNodeFlatAddIsCanNotUseSkill(b, t.IsCanNotUseSkill)
-	GroundNodeFlatAddPosition(b, t.Position.MarshalModel(b))
-	GroundNodeFlatAddNodeType(b, fbsutils.Convert(t.NodeType, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddOriginalNodeType(b, fbsutils.Convert(t.OriginalNodeType, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddNodeType(b, fbsutils.Convert(t.NodeType, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddPosition(b, t.Position.MarshalModel(b))
+	GroundNodeFlatAddIsCanNotUseSkill(b, t.IsCanNotUseSkill)
+	GroundNodeFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	return GroundNodeFlatEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
-	t.IsCanNotUseSkill = e.IsCanNotUseSkill()
-	t.Position.UnmarshalMessage(e.Position(nil))
-	t.NodeType = GroundNodeType(fbsutils.Convert(int32(e.NodeType()), t.FlatBuffer.TableKey))
 	t.OriginalNodeType = GroundNodeType(fbsutils.Convert(int32(e.OriginalNodeType()), t.FlatBuffer.TableKey))
+	t.NodeType = GroundNodeType(fbsutils.Convert(int32(e.NodeType()), t.FlatBuffer.TableKey))
+	t.Position.UnmarshalMessage(e.Position(nil))
+	t.IsCanNotUseSkill = e.IsCanNotUseSkill()
+	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	return nil
 }
 

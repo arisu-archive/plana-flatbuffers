@@ -1,0 +1,12 @@
+include "EventTargetType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentMiniEventShortCutExcel {
+    shortcut_ui: string;
+    shorcut_content_type: EventTargetType;
+    localize_etc_id: uint;
+    id: int;
+}
+
+root_type EventContentMiniEventShortCutExcel;

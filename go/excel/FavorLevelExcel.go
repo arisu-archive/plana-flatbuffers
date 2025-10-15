@@ -33,20 +33,8 @@ func (rcv *FavorLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FavorLevelExcel) Level() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FavorLevelExcel) MutateLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *FavorLevelExcel) ExpType(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -55,7 +43,7 @@ func (rcv *FavorLevelExcel) ExpType(j int) int64 {
 }
 
 func (rcv *FavorLevelExcel) ExpTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,7 +51,7 @@ func (rcv *FavorLevelExcel) ExpTypeLength() int {
 }
 
 func (rcv *FavorLevelExcel) MutateExpType(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -71,17 +59,29 @@ func (rcv *FavorLevelExcel) MutateExpType(j int, n int64) bool {
 	return false
 }
 
+func (rcv *FavorLevelExcel) Level() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FavorLevelExcel) MutateLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
 func FavorLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func FavorLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(0, level, 0)
-}
 func FavorLevelExcelAddExpType(builder *flatbuffers.Builder, expType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(expType), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(expType), 0)
 }
 func FavorLevelExcelStartExpTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func FavorLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(1, level, 0)
 }
 func FavorLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

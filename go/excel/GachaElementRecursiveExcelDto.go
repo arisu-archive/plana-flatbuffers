@@ -10,27 +10,27 @@ import (
 // GachaElementRecursiveExcelDto represents a FlatBuffers table
 type GachaElementRecursiveExcelDto struct {
 	fbsutils.FlatBuffer
-	Id              int64      `json:"id"`
-	GachaGroupId    int64      `json:"gacha_group_id"`
-	ParcelType      ParcelType `json:"parcel_type"`
-	ParcelId        int64      `json:"parcel_id"`
-	ParcelAmountMin int32      `json:"parcel_amount_min"`
-	ParcelAmountMax int32      `json:"parcel_amount_max"`
-	Prob            int32      `json:"prob"`
 	State           int32      `json:"state"`
+	Prob            int32      `json:"prob"`
+	ParcelAmountMax int32      `json:"parcel_amount_max"`
+	ParcelAmountMin int32      `json:"parcel_amount_min"`
+	ParcelId        int64      `json:"parcel_id"`
+	ParcelType      ParcelType `json:"parcel_type"`
+	GachaGroupId    int64      `json:"gacha_group_id"`
+	Id              int64      `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaElementRecursiveExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GachaElementRecursiveExcelStart(b)
-	GachaElementRecursiveExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddParcelAmountMin(b, fbsutils.Convert(t.ParcelAmountMin, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddParcelAmountMax(b, fbsutils.Convert(t.ParcelAmountMax, t.FlatBuffer.TableKey))
-	GachaElementRecursiveExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	GachaElementRecursiveExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddParcelAmountMax(b, fbsutils.Convert(t.ParcelAmountMax, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddParcelAmountMin(b, fbsutils.Convert(t.ParcelAmountMin, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
+	GachaElementRecursiveExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return GachaElementRecursiveExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *GachaElementRecursiveExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaElementRecursiveExcelDto) UnmarshalMessage(e *GachaElementRecursiveExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.ParcelAmountMin = fbsutils.Convert(e.ParcelAmountMin(), t.FlatBuffer.TableKey)
-	t.ParcelAmountMax = fbsutils.Convert(e.ParcelAmountMax(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.ParcelAmountMax = fbsutils.Convert(e.ParcelAmountMax(), t.FlatBuffer.TableKey)
+	t.ParcelAmountMin = fbsutils.Convert(e.ParcelAmountMin(), t.FlatBuffer.TableKey)
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

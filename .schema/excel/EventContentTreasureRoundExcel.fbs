@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table EventContentTreasureRoundExcel {
-    event_content_id: long;
-    treasure_round: int;
-    treasure_round_size: [int];
-    cell_visual_sort_unstructed: bool;
-    cell_check_goods_id: long;
-    cell_reward_id: long;
-    reward_id: [long];
-    reward_amount: [int];
     treasure_cell_image_path: string;
+    reward_amount: [int];
+    reward_id: [long];
+    cell_reward_id: long;
+    cell_check_goods_id: long;
+    cell_visual_sort_unstructed: bool;
+    treasure_round_size: [int];
+    treasure_round: int;
+    event_content_id: long;
 }
 
 root_type EventContentTreasureRoundExcel;

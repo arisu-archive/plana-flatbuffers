@@ -3,12 +3,12 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table CharacterAcademyTagsExcel {
-    id: long;
-    favor_tags: [Tag];
-    favor_item_tags: [Tag];
-    favor_item_unique_tags: [Tag];
-    forbidden_tags: [Tag];
     zone_white_list_tags: [Tag];
+    forbidden_tags: [Tag];
+    favor_item_unique_tags: [Tag];
+    favor_item_tags: [Tag];
+    favor_tags: [Tag];
+    id: long;
 }
 
 root_type CharacterAcademyTagsExcel;

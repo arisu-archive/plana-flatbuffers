@@ -33,20 +33,24 @@ func (rcv *InformationStrategyObjectExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *InformationStrategyObjectExcel) Id() int64 {
+func (rcv *InformationStrategyObjectExcel) LocalizeCodeId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *InformationStrategyObjectExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *InformationStrategyObjectExcel) PageName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *InformationStrategyObjectExcel) StageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -54,39 +58,35 @@ func (rcv *InformationStrategyObjectExcel) StageId() int64 {
 }
 
 func (rcv *InformationStrategyObjectExcel) MutateStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *InformationStrategyObjectExcel) PageName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *InformationStrategyObjectExcel) LocalizeCodeId() []byte {
+func (rcv *InformationStrategyObjectExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *InformationStrategyObjectExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func InformationStrategyObjectExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func InformationStrategyObjectExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func InformationStrategyObjectExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
-	builder.PrependInt64Slot(1, stageId, 0)
+func InformationStrategyObjectExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(localizeCodeId), 0)
 }
 func InformationStrategyObjectExcelAddPageName(builder *flatbuffers.Builder, pageName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(pageName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(pageName), 0)
 }
-func InformationStrategyObjectExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeCodeId), 0)
+func InformationStrategyObjectExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
+	builder.PrependInt64Slot(2, stageId, 0)
+}
+func InformationStrategyObjectExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func InformationStrategyObjectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

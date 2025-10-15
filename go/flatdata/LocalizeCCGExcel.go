@@ -33,16 +33,12 @@ func (rcv *LocalizeCCGExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeCCGExcel) Key() uint32 {
+func (rcv *LocalizeCCGExcel) Jp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *LocalizeCCGExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
+	return nil
 }
 
 func (rcv *LocalizeCCGExcel) Kr() []byte {
@@ -53,25 +49,29 @@ func (rcv *LocalizeCCGExcel) Kr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCCGExcel) Jp() []byte {
+func (rcv *LocalizeCCGExcel) Key() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *LocalizeCCGExcel) MutateKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func LocalizeCCGExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func LocalizeCCGExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(0, key, 0)
+func LocalizeCCGExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(jp), 0)
 }
 func LocalizeCCGExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(kr), 0)
 }
-func LocalizeCCGExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(jp), 0)
+func LocalizeCCGExcelAddKey(builder *flatbuffers.Builder, key uint32) {
+	builder.PrependUint32Slot(2, key, 0)
 }
 func LocalizeCCGExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

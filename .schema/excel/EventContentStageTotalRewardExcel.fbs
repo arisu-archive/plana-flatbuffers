@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentStageTotalRewardExcel {
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    required_event_item_amount: long;
+    event_content_id: long;
+    id: long;
+}
+
+root_type EventContentStageTotalRewardExcel;

@@ -10,21 +10,21 @@ import (
 // TutorialFailureImageExcelDto represents a FlatBuffers table
 type TutorialFailureImageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id          int64                      `json:"id"`
-	Contents    TutorialFailureContentType `json:"contents"`
-	Type        string                     `json:"type"`
-	ImagePathKr string                     `json:"image_path_kr"`
 	ImagePathJp string                     `json:"image_path_jp"`
+	ImagePathKr string                     `json:"image_path_kr"`
+	Type        string                     `json:"type"`
+	Contents    TutorialFailureContentType `json:"contents"`
+	Id          int64                      `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialFailureImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TutorialFailureImageExcelStart(b)
-	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
-	TutorialFailureImageExcelAddType(b, b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
 	TutorialFailureImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	TutorialFailureImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
+	TutorialFailureImageExcelAddType(b, b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey)))
+	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
+	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return TutorialFailureImageExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *TutorialFailureImageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialFailureImageExcelDto) UnmarshalMessage(e *TutorialFailureImageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
-	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)
-	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
 	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
+	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)
+	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

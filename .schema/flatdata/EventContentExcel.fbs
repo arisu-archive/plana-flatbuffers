@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table EventContentExcel {
-    id: long;
-    dev_name: string;
-    event_content_id: long;
     bg_image_path: string;
+    event_content_id: long;
+    dev_name: string;
+    id: long;
 }

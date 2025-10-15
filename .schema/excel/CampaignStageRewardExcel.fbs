@@ -4,13 +4,13 @@ include "RewardTag.fbs";
 namespace MX.Data.Excel;
 
 table CampaignStageRewardExcel {
-    group_id: long;
-    reward_tag: RewardTag;
-    stage_reward_prob: int;
-    stage_reward_parcel_type: ParcelType;
-    stage_reward_id: long;
-    stage_reward_amount: int;
     is_displayed: bool;
+    stage_reward_amount: int;
+    stage_reward_id: long;
+    stage_reward_parcel_type: ParcelType;
+    stage_reward_prob: int;
+    reward_tag: RewardTag;
+    group_id: long;
 }
 
 root_type CampaignStageRewardExcel;

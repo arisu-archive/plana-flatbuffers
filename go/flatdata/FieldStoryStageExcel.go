@@ -33,112 +33,8 @@ func (rcv *FieldStoryStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldStoryStageExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldStoryStageExcel) SeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *FieldStoryStageExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *FieldStoryStageExcel) BattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *FieldStoryStageExcel) StageTopography() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *FieldStoryStageExcel) RecommandLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateRecommandLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
-func (rcv *FieldStoryStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *FieldStoryStageExcel) BgmId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateBgmId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *FieldStoryStageExcel) FixedEchelonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldStoryStageExcel) MutateFixedEchelonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
 func (rcv *FieldStoryStageExcel) SkipFormationSettings() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -146,41 +42,145 @@ func (rcv *FieldStoryStageExcel) SkipFormationSettings() bool {
 }
 
 func (rcv *FieldStoryStageExcel) MutateSkipFormationSettings(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *FieldStoryStageExcel) FixedEchelonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateFixedEchelonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *FieldStoryStageExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *FieldStoryStageExcel) GroundId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateGroundId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *FieldStoryStageExcel) RecommandLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateRecommandLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *FieldStoryStageExcel) StageTopography() StageTopography {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateStageTopography(n StageTopography) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *FieldStoryStageExcel) BattleDuration() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateBattleDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *FieldStoryStageExcel) Name() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *FieldStoryStageExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *FieldStoryStageExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldStoryStageExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func FieldStoryStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func FieldStoryStageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func FieldStoryStageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
-}
-func FieldStoryStageExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(name), 0)
-}
-func FieldStoryStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(3, battleDuration, 0)
-}
-func FieldStoryStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(4, int32(stageTopography), 0)
-}
-func FieldStoryStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
-	builder.PrependInt32Slot(5, recommandLevel, 0)
-}
-func FieldStoryStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(6, groundId, 0)
-}
-func FieldStoryStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(7, bgmId, 0)
+func FieldStoryStageExcelAddSkipFormationSettings(builder *flatbuffers.Builder, skipFormationSettings bool) {
+	builder.PrependBoolSlot(0, skipFormationSettings, false)
 }
 func FieldStoryStageExcelAddFixedEchelonId(builder *flatbuffers.Builder, fixedEchelonId int64) {
-	builder.PrependInt64Slot(8, fixedEchelonId, 0)
+	builder.PrependInt64Slot(1, fixedEchelonId, 0)
 }
-func FieldStoryStageExcelAddSkipFormationSettings(builder *flatbuffers.Builder, skipFormationSettings bool) {
-	builder.PrependBoolSlot(9, skipFormationSettings, false)
+func FieldStoryStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(2, bgmId, 0)
+}
+func FieldStoryStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(3, groundId, 0)
+}
+func FieldStoryStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
+	builder.PrependInt32Slot(4, recommandLevel, 0)
+}
+func FieldStoryStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
+	builder.PrependInt32Slot(5, int32(stageTopography), 0)
+}
+func FieldStoryStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
+	builder.PrependInt64Slot(6, battleDuration, 0)
+}
+func FieldStoryStageExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(name), 0)
+}
+func FieldStoryStageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(8, seasonId, 0)
+}
+func FieldStoryStageExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(9, id, 0)
 }
 func FieldStoryStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

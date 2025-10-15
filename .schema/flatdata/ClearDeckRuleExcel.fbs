@@ -3,6 +3,6 @@ include "ContentType.fbs";
 namespace FlatData;
 
 table ClearDeckRuleExcel {
-    content_type: ContentType;
     size_limit: long;
+    content_type: ContentType;
 }

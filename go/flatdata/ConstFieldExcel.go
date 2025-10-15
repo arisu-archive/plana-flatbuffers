@@ -33,7 +33,7 @@ func (rcv *ConstFieldExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstFieldExcel) DialogSmoothTime() int32 {
+func (rcv *ConstFieldExcel) IdleThinkDelayMax() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *ConstFieldExcel) DialogSmoothTime() int32 {
 	return 0
 }
 
-func (rcv *ConstFieldExcel) MutateDialogSmoothTime(n int32) bool {
+func (rcv *ConstFieldExcel) MutateIdleThinkDelayMax(n int32) bool {
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ConstFieldExcel) TalkDialogDurationDefault() int32 {
+func (rcv *ConstFieldExcel) IdleThinkDelayMin() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *ConstFieldExcel) TalkDialogDurationDefault() int32 {
 	return 0
 }
 
-func (rcv *ConstFieldExcel) MutateTalkDialogDurationDefault(n int32) bool {
+func (rcv *ConstFieldExcel) MutateIdleThinkDelayMin(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
@@ -69,7 +69,7 @@ func (rcv *ConstFieldExcel) MutateThinkDialogDurationDefault(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *ConstFieldExcel) IdleThinkDelayMin() int32 {
+func (rcv *ConstFieldExcel) TalkDialogDurationDefault() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *ConstFieldExcel) IdleThinkDelayMin() int32 {
 	return 0
 }
 
-func (rcv *ConstFieldExcel) MutateIdleThinkDelayMin(n int32) bool {
+func (rcv *ConstFieldExcel) MutateTalkDialogDurationDefault(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *ConstFieldExcel) IdleThinkDelayMax() int32 {
+func (rcv *ConstFieldExcel) DialogSmoothTime() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -89,27 +89,27 @@ func (rcv *ConstFieldExcel) IdleThinkDelayMax() int32 {
 	return 0
 }
 
-func (rcv *ConstFieldExcel) MutateIdleThinkDelayMax(n int32) bool {
+func (rcv *ConstFieldExcel) MutateDialogSmoothTime(n int32) bool {
 	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func ConstFieldExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ConstFieldExcelAddDialogSmoothTime(builder *flatbuffers.Builder, dialogSmoothTime int32) {
-	builder.PrependInt32Slot(0, dialogSmoothTime, 0)
+func ConstFieldExcelAddIdleThinkDelayMax(builder *flatbuffers.Builder, idleThinkDelayMax int32) {
+	builder.PrependInt32Slot(0, idleThinkDelayMax, 0)
 }
-func ConstFieldExcelAddTalkDialogDurationDefault(builder *flatbuffers.Builder, talkDialogDurationDefault int32) {
-	builder.PrependInt32Slot(1, talkDialogDurationDefault, 0)
+func ConstFieldExcelAddIdleThinkDelayMin(builder *flatbuffers.Builder, idleThinkDelayMin int32) {
+	builder.PrependInt32Slot(1, idleThinkDelayMin, 0)
 }
 func ConstFieldExcelAddThinkDialogDurationDefault(builder *flatbuffers.Builder, thinkDialogDurationDefault int32) {
 	builder.PrependInt32Slot(2, thinkDialogDurationDefault, 0)
 }
-func ConstFieldExcelAddIdleThinkDelayMin(builder *flatbuffers.Builder, idleThinkDelayMin int32) {
-	builder.PrependInt32Slot(3, idleThinkDelayMin, 0)
+func ConstFieldExcelAddTalkDialogDurationDefault(builder *flatbuffers.Builder, talkDialogDurationDefault int32) {
+	builder.PrependInt32Slot(3, talkDialogDurationDefault, 0)
 }
-func ConstFieldExcelAddIdleThinkDelayMax(builder *flatbuffers.Builder, idleThinkDelayMax int32) {
-	builder.PrependInt32Slot(4, idleThinkDelayMax, 0)
+func ConstFieldExcelAddDialogSmoothTime(builder *flatbuffers.Builder, dialogSmoothTime int32) {
+	builder.PrependInt32Slot(4, dialogSmoothTime, 0)
 }
 func ConstFieldExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

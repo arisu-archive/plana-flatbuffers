@@ -1,0 +1,14 @@
+include "EchelonExtensionType.fbs";
+include "StatTransType.fbs";
+include "StatType.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterStatsTransExcel {
+    stat_trans_type: StatTransType;
+    trans_support_stats_factor: int;
+    echelon_extension_type: EchelonExtensionType;
+    trans_support_stats: StatType;
+}
+
+root_type CharacterStatsTransExcel;

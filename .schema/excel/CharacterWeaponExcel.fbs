@@ -4,22 +4,22 @@ include "StatLevelUpType.fbs";
 namespace MX.Data.Excel;
 
 table CharacterWeaponExcel {
-    id: long;
-    image_path: string;
-    set_recipe: long;
-    stat_level_up_type: StatLevelUpType;
-    attack_power: long;
-    attack_power100: long;
-    max_hp: long;
-    max_hp100: long;
-    heal_power: long;
-    heal_power100: long;
-    unlock: [bool];
-    recipe_id: [long];
-    max_level: [int];
-    learn_skill_slot: [string];
-    stat_type: [EquipmentOptionType];
     stat_value: [long];
+    stat_type: [EquipmentOptionType];
+    learn_skill_slot: [string];
+    max_level: [int];
+    recipe_id: [long];
+    unlock: [bool];
+    heal_power100: long;
+    heal_power: long;
+    max_hp100: long;
+    max_hp: long;
+    attack_power100: long;
+    attack_power: long;
+    stat_level_up_type: StatLevelUpType;
+    set_recipe: long;
+    image_path: string;
+    id: long;
 }
 
 root_type CharacterWeaponExcel;

@@ -3,8 +3,8 @@ include "MailType.fbs";
 namespace FlatData;
 
 table SystemMailExcel {
-    mail_type: MailType;
-    expired_day: long;
-    sender: string;
     comment: string;
+    sender: string;
+    expired_day: long;
+    mail_type: MailType;
 }

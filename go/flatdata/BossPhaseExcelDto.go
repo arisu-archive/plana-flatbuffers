@@ -10,10 +10,10 @@ import (
 // BossPhaseExcelDto represents a FlatBuffers table
 type BossPhaseExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                          int64  `json:"id"`
-	AiPhase                     int64  `json:"ai_phase"`
-	NormalAttackSkillUniqueName string `json:"normal_attack_skill_unique_name"`
 	UseExSkill                  []bool `json:"use_ex_skill"`
+	NormalAttackSkillUniqueName string `json:"normal_attack_skill_unique_name"`
+	AiPhase                     int64  `json:"ai_phase"`
+	Id                          int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,14 +22,14 @@ func (t *BossPhaseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
 	BossPhaseExcelStart(b)
-	BossPhaseExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	BossPhaseExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
-	BossPhaseExcelAddNormalAttackSkillUniqueName(b, b.CreateString(fbsutils.Convert(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey)))
 	BossPhaseExcelStartUseExSkillVector(b, len(t.UseExSkill))
 	for i := range len(t.UseExSkill) {
 		b.PrependBool(t.UseExSkill[len(t.UseExSkill)-i-1])
 	}
 	BossPhaseExcelAddUseExSkill(b, b.EndVector(len(t.UseExSkill)))
+	BossPhaseExcelAddNormalAttackSkillUniqueName(b, b.CreateString(fbsutils.Convert(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey)))
+	BossPhaseExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
+	BossPhaseExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return BossPhaseExcelEnd(b)
 }
 
@@ -45,13 +45,13 @@ func (t *BossPhaseExcelDto) UnmarshalMessage(e *BossPhaseExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
-	t.NormalAttackSkillUniqueName = fbsutils.Convert(string(e.NormalAttackSkillUniqueName()), t.FlatBuffer.TableKey)
 	t.UseExSkill = make([]bool, e.UseExSkillLength())
 	for i := range e.UseExSkillLength() {
 		t.UseExSkill[i] = e.UseExSkill(i)
 	}
+	t.NormalAttackSkillUniqueName = fbsutils.Convert(string(e.NormalAttackSkillUniqueName()), t.FlatBuffer.TableKey)
+	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

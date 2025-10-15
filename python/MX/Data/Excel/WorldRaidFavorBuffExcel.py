@@ -25,14 +25,14 @@ class WorldRaidFavorBuffExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WorldRaidFavorBuffExcel
-    def WorldRaidFavorRank(self):
+    def WorldRaidFavorRankBonus(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # WorldRaidFavorBuffExcel
-    def WorldRaidFavorRankBonus(self):
+    def WorldRaidFavorRank(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class WorldRaidFavorBuffExcel(object):
 def WorldRaidFavorBuffExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return WorldRaidFavorBuffExcelStart(builder)
-def WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank): builder.PrependInt64Slot(0, worldRaidFavorRank, 0)
-def AddWorldRaidFavorRank(builder, worldRaidFavorRank):
-    return WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank)
-def WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus): builder.PrependInt64Slot(1, worldRaidFavorRankBonus, 0)
+def WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus): builder.PrependInt64Slot(0, worldRaidFavorRankBonus, 0)
 def AddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus):
     return WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus)
+def WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank): builder.PrependInt64Slot(1, worldRaidFavorRank, 0)
+def AddWorldRaidFavorRank(builder, worldRaidFavorRank):
+    return WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank)
 def WorldRaidFavorBuffExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return WorldRaidFavorBuffExcelEnd(builder)

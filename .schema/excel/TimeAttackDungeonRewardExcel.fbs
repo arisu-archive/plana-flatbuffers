@@ -4,14 +4,14 @@ include "TimeAttackDungeonRewardType.fbs";
 namespace MX.Data.Excel;
 
 table TimeAttackDungeonRewardExcel {
-    id: long;
-    reward_max_point: long;
-    reward_type: [TimeAttackDungeonRewardType];
-    reward_min_point: [long];
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
-    reward_parcel_default_amount: [long];
     reward_parcel_max_amount: [long];
+    reward_parcel_default_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    reward_min_point: [long];
+    reward_type: [TimeAttackDungeonRewardType];
+    reward_max_point: long;
+    id: long;
 }
 
 root_type TimeAttackDungeonRewardExcel;

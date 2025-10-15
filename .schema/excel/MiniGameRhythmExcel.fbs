@@ -3,26 +3,26 @@ include "Difficulty.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameRhythmExcel {
-    unique_id: long;
-    rhythm_bgm_id: long;
-    preset_name: string;
-    stage_difficulty: Difficulty;
-    is_special: bool;
-    open_stage_score_amount: long;
-    max_hp: long;
-    miss_damage: long;
-    critical_hp_restore_value: long;
-    max_score: long;
-    fever_score_rate: long;
-    note_score_rate: long;
-    combo_score_rate: long;
-    attack_score_rate: long;
-    fever_critical_rate: float;
-    fever_attack_rate: float;
-    max_hp_score: long;
-    rhythm_file_name: string;
-    art_level_scene_name: string;
     combo_image_path: string;
+    art_level_scene_name: string;
+    rhythm_file_name: string;
+    max_hp_score: long;
+    fever_attack_rate: float;
+    fever_critical_rate: float;
+    attack_score_rate: long;
+    combo_score_rate: long;
+    note_score_rate: long;
+    fever_score_rate: long;
+    max_score: long;
+    critical_hp_restore_value: long;
+    miss_damage: long;
+    max_hp: long;
+    open_stage_score_amount: long;
+    is_special: bool;
+    stage_difficulty: Difficulty;
+    preset_name: string;
+    rhythm_bgm_id: long;
+    unique_id: long;
 }
 
 root_type MiniGameRhythmExcel;

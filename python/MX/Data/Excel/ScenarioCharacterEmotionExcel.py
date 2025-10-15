@@ -25,28 +25,28 @@ class ScenarioCharacterEmotionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ScenarioCharacterEmotionExcel
-    def EmoticonName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ScenarioCharacterEmotionExcel
     def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
+    # ScenarioCharacterEmotionExcel
+    def EmoticonName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def ScenarioCharacterEmotionExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return ScenarioCharacterEmotionExcelStart(builder)
-def ScenarioCharacterEmotionExcelAddEmoticonName(builder, emoticonName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(emoticonName), 0)
-def AddEmoticonName(builder, emoticonName):
-    return ScenarioCharacterEmotionExcelAddEmoticonName(builder, emoticonName)
-def ScenarioCharacterEmotionExcelAddName(builder, name): builder.PrependUint32Slot(1, name, 0)
+def ScenarioCharacterEmotionExcelAddName(builder, name): builder.PrependUint32Slot(0, name, 0)
 def AddName(builder, name):
     return ScenarioCharacterEmotionExcelAddName(builder, name)
+def ScenarioCharacterEmotionExcelAddEmoticonName(builder, emoticonName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(emoticonName), 0)
+def AddEmoticonName(builder, emoticonName):
+    return ScenarioCharacterEmotionExcelAddEmoticonName(builder, emoticonName)
 def ScenarioCharacterEmotionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioCharacterEmotionExcelEnd(builder)

@@ -4,15 +4,15 @@ include "ScenarioCharacterShapes.fbs";
 namespace MX.Data.Excel;
 
 table ScenarioCharacterNameExcel {
-    character_name: uint;
-    production_step: ProductionStep;
-    name_kr: string;
-    nickname_kr: string;
-    name_jp: string;
-    nickname_jp: string;
-    shape: ScenarioCharacterShapes;
-    spine_prefab_name: string;
     small_portrait: string;
+    spine_prefab_name: string;
+    shape: ScenarioCharacterShapes;
+    nickname_jp: string;
+    name_jp: string;
+    nickname_kr: string;
+    name_kr: string;
+    production_step: ProductionStep;
+    character_name: uint;
 }
 
 root_type ScenarioCharacterNameExcel;

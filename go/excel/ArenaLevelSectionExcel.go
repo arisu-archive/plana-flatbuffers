@@ -33,7 +33,7 @@ func (rcv *ArenaLevelSectionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ArenaLevelSectionExcel) ArenaSeasonId() int64 {
+func (rcv *ArenaLevelSectionExcel) UserCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *ArenaLevelSectionExcel) ArenaSeasonId() int64 {
 	return 0
 }
 
-func (rcv *ArenaLevelSectionExcel) MutateArenaSeasonId(n int64) bool {
+func (rcv *ArenaLevelSectionExcel) MutateUserCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ArenaLevelSectionExcel) StartLevel() int64 {
+func (rcv *ArenaLevelSectionExcel) LastLevel() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *ArenaLevelSectionExcel) StartLevel() int64 {
 	return 0
 }
 
-func (rcv *ArenaLevelSectionExcel) MutateStartLevel(n int64) bool {
+func (rcv *ArenaLevelSectionExcel) MutateLastLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ArenaLevelSectionExcel) LastLevel() int64 {
+func (rcv *ArenaLevelSectionExcel) StartLevel() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *ArenaLevelSectionExcel) LastLevel() int64 {
 	return 0
 }
 
-func (rcv *ArenaLevelSectionExcel) MutateLastLevel(n int64) bool {
+func (rcv *ArenaLevelSectionExcel) MutateStartLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ArenaLevelSectionExcel) UserCount() int64 {
+func (rcv *ArenaLevelSectionExcel) ArenaSeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,24 +77,24 @@ func (rcv *ArenaLevelSectionExcel) UserCount() int64 {
 	return 0
 }
 
-func (rcv *ArenaLevelSectionExcel) MutateUserCount(n int64) bool {
+func (rcv *ArenaLevelSectionExcel) MutateArenaSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func ArenaLevelSectionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func ArenaLevelSectionExcelAddArenaSeasonId(builder *flatbuffers.Builder, arenaSeasonId int64) {
-	builder.PrependInt64Slot(0, arenaSeasonId, 0)
-}
-func ArenaLevelSectionExcelAddStartLevel(builder *flatbuffers.Builder, startLevel int64) {
-	builder.PrependInt64Slot(1, startLevel, 0)
+func ArenaLevelSectionExcelAddUserCount(builder *flatbuffers.Builder, userCount int64) {
+	builder.PrependInt64Slot(0, userCount, 0)
 }
 func ArenaLevelSectionExcelAddLastLevel(builder *flatbuffers.Builder, lastLevel int64) {
-	builder.PrependInt64Slot(2, lastLevel, 0)
+	builder.PrependInt64Slot(1, lastLevel, 0)
 }
-func ArenaLevelSectionExcelAddUserCount(builder *flatbuffers.Builder, userCount int64) {
-	builder.PrependInt64Slot(3, userCount, 0)
+func ArenaLevelSectionExcelAddStartLevel(builder *flatbuffers.Builder, startLevel int64) {
+	builder.PrependInt64Slot(2, startLevel, 0)
+}
+func ArenaLevelSectionExcelAddArenaSeasonId(builder *flatbuffers.Builder, arenaSeasonId int64) {
+	builder.PrependInt64Slot(3, arenaSeasonId, 0)
 }
 func ArenaLevelSectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

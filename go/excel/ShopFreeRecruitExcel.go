@@ -33,27 +33,45 @@ func (rcv *ShopFreeRecruitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopFreeRecruitExcel) Id() int64 {
+func (rcv *ShopFreeRecruitExcel) ShopRecruitId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ShopFreeRecruitExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *ShopFreeRecruitExcel) ShopRecruitIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ShopFreeRecruitExcel) FreeRecruitPeriodFrom() []byte {
+func (rcv *ShopFreeRecruitExcel) MutateShopRecruitId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ShopFreeRecruitExcel) TenRecruitCountOnly() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *ShopFreeRecruitExcel) FreeRecruitPeriodTo() []byte {
+func (rcv *ShopFreeRecruitExcel) MutateTenRecruitCountOnly(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *ShopFreeRecruitExcel) FreeRecruitDecorationImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,7 +91,7 @@ func (rcv *ShopFreeRecruitExcel) MutateFreeRecruitType(n ShopFreeRecruitType) bo
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *ShopFreeRecruitExcel) FreeRecruitDecorationImagePath() []byte {
+func (rcv *ShopFreeRecruitExcel) FreeRecruitPeriodTo() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,55 +99,52 @@ func (rcv *ShopFreeRecruitExcel) FreeRecruitDecorationImagePath() []byte {
 	return nil
 }
 
-func (rcv *ShopFreeRecruitExcel) ShopRecruitId(j int) int64 {
+func (rcv *ShopFreeRecruitExcel) FreeRecruitPeriodFrom() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopFreeRecruitExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ShopFreeRecruitExcel) ShopRecruitIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ShopFreeRecruitExcel) MutateShopRecruitId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *ShopFreeRecruitExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func ShopFreeRecruitExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
-func ShopFreeRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func ShopFreeRecruitExcelAddShopRecruitId(builder *flatbuffers.Builder, shopRecruitId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(shopRecruitId), 0)
 }
-func ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(builder *flatbuffers.Builder, freeRecruitPeriodFrom flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(freeRecruitPeriodFrom), 0)
+func ShopFreeRecruitExcelStartShopRecruitIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
-func ShopFreeRecruitExcelAddFreeRecruitPeriodTo(builder *flatbuffers.Builder, freeRecruitPeriodTo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(freeRecruitPeriodTo), 0)
+func ShopFreeRecruitExcelAddTenRecruitCountOnly(builder *flatbuffers.Builder, tenRecruitCountOnly bool) {
+	builder.PrependBoolSlot(1, tenRecruitCountOnly, false)
+}
+func ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder *flatbuffers.Builder, freeRecruitDecorationImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(freeRecruitDecorationImagePath), 0)
 }
 func ShopFreeRecruitExcelAddFreeRecruitType(builder *flatbuffers.Builder, freeRecruitType ShopFreeRecruitType) {
 	builder.PrependInt32Slot(3, int32(freeRecruitType), 0)
 }
-func ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder *flatbuffers.Builder, freeRecruitDecorationImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(freeRecruitDecorationImagePath), 0)
+func ShopFreeRecruitExcelAddFreeRecruitPeriodTo(builder *flatbuffers.Builder, freeRecruitPeriodTo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(freeRecruitPeriodTo), 0)
 }
-func ShopFreeRecruitExcelAddShopRecruitId(builder *flatbuffers.Builder, shopRecruitId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(shopRecruitId), 0)
+func ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(builder *flatbuffers.Builder, freeRecruitPeriodFrom flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(freeRecruitPeriodFrom), 0)
 }
-func ShopFreeRecruitExcelStartShopRecruitIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ShopFreeRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
 }
 func ShopFreeRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table EventContentFortuneGachaModifyExcel {
+    title_localize_key: string;
+    shop_bg_image_path: string;
+    bucket_image_path: string;
+    use_prefab_name: string;
+    prob_modify_start_count: int;
+    target_grade: int;
+    event_content_id: int;
+}
+
+root_type EventContentFortuneGachaModifyExcel;

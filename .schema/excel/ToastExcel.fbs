@@ -3,11 +3,11 @@ include "ToastType.fbs";
 namespace MX.Data.Excel;
 
 table ToastExcel {
-    id: uint;
-    toast_type: ToastType;
-    mission_id: uint;
-    text_id: uint;
     life_time: long;
+    text_id: uint;
+    mission_id: uint;
+    toast_type: ToastType;
+    id: uint;
 }
 
 root_type ToastExcel;

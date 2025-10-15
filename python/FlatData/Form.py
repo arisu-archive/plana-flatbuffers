@@ -25,19 +25,8 @@ class Form(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # Form
-    def MoveEnd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            x = self._tab.Indirect(o + self._tab.Pos)
-            from FlatData.MoveEnd import MoveEnd
-            obj = MoveEnd()
-            obj.Init(self._tab.Bytes, x)
-            return obj
-        return None
-
-    # Form
     def PublicSkill(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
             from FlatData.Motion import Motion
@@ -46,15 +35,26 @@ class Form(object):
             return obj
         return None
 
+    # Form
+    def MoveEnd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            x = self._tab.Indirect(o + self._tab.Pos)
+            from FlatData.MoveEnd import MoveEnd
+            obj = MoveEnd()
+            obj.Init(self._tab.Bytes, x)
+            return obj
+        return None
+
 def FormStart(builder): builder.StartObject(2)
 def Start(builder):
     return FormStart(builder)
-def FormAddMoveEnd(builder, moveEnd): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(moveEnd), 0)
-def AddMoveEnd(builder, moveEnd):
-    return FormAddMoveEnd(builder, moveEnd)
-def FormAddPublicSkill(builder, publicSkill): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkill), 0)
+def FormAddPublicSkill(builder, publicSkill): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkill), 0)
 def AddPublicSkill(builder, publicSkill):
     return FormAddPublicSkill(builder, publicSkill)
+def FormAddMoveEnd(builder, moveEnd): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(moveEnd), 0)
+def AddMoveEnd(builder, moveEnd):
+    return FormAddMoveEnd(builder, moveEnd)
 def FormEnd(builder): return builder.EndObject()
 def End(builder):
     return FormEnd(builder)

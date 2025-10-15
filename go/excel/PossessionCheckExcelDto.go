@@ -10,25 +10,25 @@ import (
 // PossessionCheckExcelDto represents a FlatBuffers table
 type PossessionCheckExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId            int64      `json:"unique_id"`
-	DefaultParcelType   ParcelType `json:"default_parcel_type"`
-	DefaultParcelId     int64      `json:"default_parcel_id"`
-	DefaultParcelAmount int32      `json:"default_parcel_amount"`
-	ReplaceParcelType   ParcelType `json:"replace_parcel_type"`
-	ReplaceParcelId     int64      `json:"replace_parcel_id"`
 	ReplaceParcelAmount int32      `json:"replace_parcel_amount"`
+	ReplaceParcelId     int64      `json:"replace_parcel_id"`
+	ReplaceParcelType   ParcelType `json:"replace_parcel_type"`
+	DefaultParcelAmount int32      `json:"default_parcel_amount"`
+	DefaultParcelId     int64      `json:"default_parcel_id"`
+	DefaultParcelType   ParcelType `json:"default_parcel_type"`
+	UniqueId            int64      `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PossessionCheckExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	PossessionCheckExcelStart(b)
-	PossessionCheckExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	PossessionCheckExcelAddDefaultParcelType(b, fbsutils.Convert(t.DefaultParcelType, t.FlatBuffer.TableKey))
-	PossessionCheckExcelAddDefaultParcelId(b, fbsutils.Convert(t.DefaultParcelId, t.FlatBuffer.TableKey))
-	PossessionCheckExcelAddDefaultParcelAmount(b, fbsutils.Convert(t.DefaultParcelAmount, t.FlatBuffer.TableKey))
-	PossessionCheckExcelAddReplaceParcelType(b, fbsutils.Convert(t.ReplaceParcelType, t.FlatBuffer.TableKey))
-	PossessionCheckExcelAddReplaceParcelId(b, fbsutils.Convert(t.ReplaceParcelId, t.FlatBuffer.TableKey))
 	PossessionCheckExcelAddReplaceParcelAmount(b, fbsutils.Convert(t.ReplaceParcelAmount, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddReplaceParcelId(b, fbsutils.Convert(t.ReplaceParcelId, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddReplaceParcelType(b, fbsutils.Convert(t.ReplaceParcelType, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddDefaultParcelAmount(b, fbsutils.Convert(t.DefaultParcelAmount, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddDefaultParcelId(b, fbsutils.Convert(t.DefaultParcelId, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddDefaultParcelType(b, fbsutils.Convert(t.DefaultParcelType, t.FlatBuffer.TableKey))
+	PossessionCheckExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return PossessionCheckExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *PossessionCheckExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PossessionCheckExcelDto) UnmarshalMessage(e *PossessionCheckExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.DefaultParcelType = ParcelType(fbsutils.Convert(int32(e.DefaultParcelType()), t.FlatBuffer.TableKey))
-	t.DefaultParcelId = fbsutils.Convert(e.DefaultParcelId(), t.FlatBuffer.TableKey)
-	t.DefaultParcelAmount = fbsutils.Convert(e.DefaultParcelAmount(), t.FlatBuffer.TableKey)
-	t.ReplaceParcelType = ParcelType(fbsutils.Convert(int32(e.ReplaceParcelType()), t.FlatBuffer.TableKey))
-	t.ReplaceParcelId = fbsutils.Convert(e.ReplaceParcelId(), t.FlatBuffer.TableKey)
 	t.ReplaceParcelAmount = fbsutils.Convert(e.ReplaceParcelAmount(), t.FlatBuffer.TableKey)
+	t.ReplaceParcelId = fbsutils.Convert(e.ReplaceParcelId(), t.FlatBuffer.TableKey)
+	t.ReplaceParcelType = ParcelType(fbsutils.Convert(int32(e.ReplaceParcelType()), t.FlatBuffer.TableKey))
+	t.DefaultParcelAmount = fbsutils.Convert(e.DefaultParcelAmount(), t.FlatBuffer.TableKey)
+	t.DefaultParcelId = fbsutils.Convert(e.DefaultParcelId(), t.FlatBuffer.TableKey)
+	t.DefaultParcelType = ParcelType(fbsutils.Convert(int32(e.DefaultParcelType()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

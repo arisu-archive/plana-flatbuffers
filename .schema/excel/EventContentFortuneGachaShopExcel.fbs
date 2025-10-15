@@ -1,0 +1,20 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentFortuneGachaShopExcel {
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    prob_modify_limit: int;
+    prob_modify_value: int;
+    prob: int;
+    fortune_gacha_group_id: int;
+    is_legacy: bool;
+    cost_goods_id: long;
+    grade: int;
+    id: long;
+    event_content_id: long;
+}
+
+root_type EventContentFortuneGachaShopExcel;

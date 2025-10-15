@@ -3,11 +3,11 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table AccountLevelRewardExcel {
-    id: long;
-    level: long;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
     reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    level: long;
+    id: long;
 }
 
 root_type AccountLevelRewardExcel;

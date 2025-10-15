@@ -25,33 +25,30 @@ class RootMotionFlat(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # RootMotionFlat
-    def Forms(self, j):
+    def MoveRight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            x = self._tab.Vector(o)
-            x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
-            x = self._tab.Indirect(x)
-            from FlatData.Form import Form
-            obj = Form()
+            x = self._tab.Indirect(o + self._tab.Pos)
+            from FlatData.Motion import Motion
+            obj = Motion()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
     # RootMotionFlat
-    def FormsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+    def MoveLeft(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # RootMotionFlat
-    def FormsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
+            x = self._tab.Indirect(o + self._tab.Pos)
+            from FlatData.Motion import Motion
+            obj = Motion()
+            obj.Init(self._tab.Bytes, x)
+            return obj
+        return None
 
     # RootMotionFlat
     def ExSkills(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
@@ -64,59 +61,62 @@ class RootMotionFlat(object):
 
     # RootMotionFlat
     def ExSkillsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RootMotionFlat
     def ExSkillsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # RootMotionFlat
-    def MoveLeft(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def Forms(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            x = self._tab.Indirect(o + self._tab.Pos)
-            from FlatData.Motion import Motion
-            obj = Motion()
+            x = self._tab.Vector(o)
+            x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
+            x = self._tab.Indirect(x)
+            from FlatData.Form import Form
+            obj = Form()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
     # RootMotionFlat
-    def MoveRight(self):
+    def FormsLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            x = self._tab.Indirect(o + self._tab.Pos)
-            from FlatData.Motion import Motion
-            obj = Motion()
-            obj.Init(self._tab.Bytes, x)
-            return obj
-        return None
+            return self._tab.VectorLen(o)
+        return 0
+
+    # RootMotionFlat
+    def FormsIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
 
 def RootMotionFlatStart(builder): builder.StartObject(4)
 def Start(builder):
     return RootMotionFlatStart(builder)
-def RootMotionFlatAddForms(builder, forms): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(forms), 0)
-def AddForms(builder, forms):
-    return RootMotionFlatAddForms(builder, forms)
-def RootMotionFlatStartFormsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartFormsVector(builder, numElems):
-    return RootMotionFlatStartFormsVector(builder, numElems)
-def RootMotionFlatAddExSkills(builder, exSkills): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exSkills), 0)
+def RootMotionFlatAddMoveRight(builder, moveRight): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(moveRight), 0)
+def AddMoveRight(builder, moveRight):
+    return RootMotionFlatAddMoveRight(builder, moveRight)
+def RootMotionFlatAddMoveLeft(builder, moveLeft): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(moveLeft), 0)
+def AddMoveLeft(builder, moveLeft):
+    return RootMotionFlatAddMoveLeft(builder, moveLeft)
+def RootMotionFlatAddExSkills(builder, exSkills): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exSkills), 0)
 def AddExSkills(builder, exSkills):
     return RootMotionFlatAddExSkills(builder, exSkills)
 def RootMotionFlatStartExSkillsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExSkillsVector(builder, numElems):
     return RootMotionFlatStartExSkillsVector(builder, numElems)
-def RootMotionFlatAddMoveLeft(builder, moveLeft): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(moveLeft), 0)
-def AddMoveLeft(builder, moveLeft):
-    return RootMotionFlatAddMoveLeft(builder, moveLeft)
-def RootMotionFlatAddMoveRight(builder, moveRight): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(moveRight), 0)
-def AddMoveRight(builder, moveRight):
-    return RootMotionFlatAddMoveRight(builder, moveRight)
+def RootMotionFlatAddForms(builder, forms): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(forms), 0)
+def AddForms(builder, forms):
+    return RootMotionFlatAddForms(builder, forms)
+def RootMotionFlatStartFormsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartFormsVector(builder, numElems):
+    return RootMotionFlatStartFormsVector(builder, numElems)
 def RootMotionFlatEnd(builder): return builder.EndObject()
 def End(builder):
     return RootMotionFlatEnd(builder)

@@ -33,7 +33,7 @@ func (rcv *TimeAttackDungeonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TimeAttackDungeonExcel) Id() int64 {
+func (rcv *TimeAttackDungeonExcel) InformationGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,16 @@ func (rcv *TimeAttackDungeonExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *TimeAttackDungeonExcel) MutateId(n int64) bool {
+func (rcv *TimeAttackDungeonExcel) MutateInformationGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *TimeAttackDungeonExcel) TimeAttackDungeonType() TimeAttackDungeonType {
+func (rcv *TimeAttackDungeonExcel) IconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return TimeAttackDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *TimeAttackDungeonExcel) MutateTimeAttackDungeonType(n TimeAttackDungeonType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return nil
 }
 
 func (rcv *TimeAttackDungeonExcel) LocalizeEtcKey() uint32 {
@@ -69,15 +65,19 @@ func (rcv *TimeAttackDungeonExcel) MutateLocalizeEtcKey(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *TimeAttackDungeonExcel) IconPath() []byte {
+func (rcv *TimeAttackDungeonExcel) TimeAttackDungeonType() TimeAttackDungeonType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return TimeAttackDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *TimeAttackDungeonExcel) InformationGroupId() int64 {
+func (rcv *TimeAttackDungeonExcel) MutateTimeAttackDungeonType(n TimeAttackDungeonType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *TimeAttackDungeonExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,27 +85,27 @@ func (rcv *TimeAttackDungeonExcel) InformationGroupId() int64 {
 	return 0
 }
 
-func (rcv *TimeAttackDungeonExcel) MutateInformationGroupId(n int64) bool {
+func (rcv *TimeAttackDungeonExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func TimeAttackDungeonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func TimeAttackDungeonExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func TimeAttackDungeonExcelAddInformationGroupId(builder *flatbuffers.Builder, informationGroupId int64) {
+	builder.PrependInt64Slot(0, informationGroupId, 0)
 }
-func TimeAttackDungeonExcelAddTimeAttackDungeonType(builder *flatbuffers.Builder, timeAttackDungeonType TimeAttackDungeonType) {
-	builder.PrependInt32Slot(1, int32(timeAttackDungeonType), 0)
+func TimeAttackDungeonExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(iconPath), 0)
 }
 func TimeAttackDungeonExcelAddLocalizeEtcKey(builder *flatbuffers.Builder, localizeEtcKey uint32) {
 	builder.PrependUint32Slot(2, localizeEtcKey, 0)
 }
-func TimeAttackDungeonExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(iconPath), 0)
+func TimeAttackDungeonExcelAddTimeAttackDungeonType(builder *flatbuffers.Builder, timeAttackDungeonType TimeAttackDungeonType) {
+	builder.PrependInt32Slot(3, int32(timeAttackDungeonType), 0)
 }
-func TimeAttackDungeonExcelAddInformationGroupId(builder *flatbuffers.Builder, informationGroupId int64) {
-	builder.PrependInt64Slot(4, informationGroupId, 0)
+func TimeAttackDungeonExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
 func TimeAttackDungeonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

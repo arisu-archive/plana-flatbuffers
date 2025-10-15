@@ -33,20 +33,8 @@ func (rcv *BlendData) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BlendData) Type() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *BlendData) MutateType(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
 func (rcv *BlendData) InfoList(obj *BlendInfo, j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		x := rcv._tab.Vector(o)
 		x += flatbuffers.UOffsetT(j) * 4
@@ -58,24 +46,36 @@ func (rcv *BlendData) InfoList(obj *BlendInfo, j int) bool {
 }
 
 func (rcv *BlendData) InfoListLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *BlendData) Type() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *BlendData) MutateType(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
 func BlendDataStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func BlendDataAddType(builder *flatbuffers.Builder, type_ int32) {
-	builder.PrependInt32Slot(0, type_, 0)
-}
 func BlendDataAddInfoList(builder *flatbuffers.Builder, infoList flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(infoList), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(infoList), 0)
 }
 func BlendDataStartInfoListVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func BlendDataAddType(builder *flatbuffers.Builder, type_ int32) {
+	builder.PrependInt32Slot(1, type_, 0)
 }
 func BlendDataEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,57 +10,57 @@ import (
 // EquipmentExcelDto represents a FlatBuffers table
 type EquipmentExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64              `json:"id"`
-	EquipmentCategory    EquipmentCategory  `json:"equipment_category"`
-	Rarity               Rarity             `json:"rarity"`
-	LocalizeEtcId        uint32             `json:"localize_etc_id"`
-	Wear                 bool               `json:"wear"`
-	MaxLevel             int32              `json:"max_level"`
-	RecipeId             int32              `json:"recipe_id"`
-	TierInit             int64              `json:"tier_init"`
-	NextTierEquipment    int64              `json:"next_tier_equipment"`
-	StackableMax         int32              `json:"stackable_max"`
-	Icon                 string             `json:"icon"`
-	ImageName            string             `json:"image_name"`
-	Tags                 []Tag              `json:"tags"`
-	CraftQualityTier0    int64              `json:"craft_quality_tier0"`
-	CraftQualityTier1    int64              `json:"craft_quality_tier1"`
-	CraftQualityTier2    int64              `json:"craft_quality_tier2"`
-	ShiftingCraftQuality int64              `json:"shifting_craft_quality"`
-	ShopCategory         []ShopCategoryType `json:"shop_category"`
 	ShortcutTypeId       int64              `json:"shortcut_type_id"`
+	ShopCategory         []ShopCategoryType `json:"shop_category"`
+	ShiftingCraftQuality int64              `json:"shifting_craft_quality"`
+	CraftQualityTier2    int64              `json:"craft_quality_tier2"`
+	CraftQualityTier1    int64              `json:"craft_quality_tier1"`
+	CraftQualityTier0    int64              `json:"craft_quality_tier0"`
+	Tags                 []Tag              `json:"tags"`
+	ImageName            string             `json:"image_name"`
+	Icon                 string             `json:"icon"`
+	StackableMax         int32              `json:"stackable_max"`
+	NextTierEquipment    int64              `json:"next_tier_equipment"`
+	TierInit             int64              `json:"tier_init"`
+	RecipeId             int32              `json:"recipe_id"`
+	MaxLevel             int32              `json:"max_level"`
+	Wear                 bool               `json:"wear"`
+	LocalizeEtcId        uint32             `json:"localize_etc_id"`
+	Rarity               Rarity             `json:"rarity"`
+	EquipmentCategory    EquipmentCategory  `json:"equipment_category"`
+	Id                   int64              `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EquipmentExcelStart(b)
-	EquipmentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EquipmentExcelAddEquipmentCategory(b, fbsutils.Convert(t.EquipmentCategory, t.FlatBuffer.TableKey))
-	EquipmentExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	EquipmentExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EquipmentExcelAddWear(b, t.Wear)
-	EquipmentExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
-	EquipmentExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
-	EquipmentExcelAddTierInit(b, fbsutils.Convert(t.TierInit, t.FlatBuffer.TableKey))
-	EquipmentExcelAddNextTierEquipment(b, fbsutils.Convert(t.NextTierEquipment, t.FlatBuffer.TableKey))
-	EquipmentExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
-	EquipmentExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	EquipmentExcelAddImageName(b, b.CreateString(fbsutils.Convert(t.ImageName, t.FlatBuffer.TableKey)))
-	EquipmentExcelStartTagsVector(b, len(t.Tags))
-	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
-	}
-	EquipmentExcelAddTags(b, b.EndVector(len(t.Tags)))
-	EquipmentExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
-	EquipmentExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
-	EquipmentExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
-	EquipmentExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
+	EquipmentExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
 	EquipmentExcelStartShopCategoryVector(b, len(t.ShopCategory))
 	for i := range len(t.ShopCategory) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ShopCategory[len(t.ShopCategory)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EquipmentExcelAddShopCategory(b, b.EndVector(len(t.ShopCategory)))
-	EquipmentExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
+	EquipmentExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
+	EquipmentExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
+	EquipmentExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
+	EquipmentExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
+	EquipmentExcelStartTagsVector(b, len(t.Tags))
+	for i := range len(t.Tags) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
+	}
+	EquipmentExcelAddTags(b, b.EndVector(len(t.Tags)))
+	EquipmentExcelAddImageName(b, b.CreateString(fbsutils.Convert(t.ImageName, t.FlatBuffer.TableKey)))
+	EquipmentExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	EquipmentExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
+	EquipmentExcelAddNextTierEquipment(b, fbsutils.Convert(t.NextTierEquipment, t.FlatBuffer.TableKey))
+	EquipmentExcelAddTierInit(b, fbsutils.Convert(t.TierInit, t.FlatBuffer.TableKey))
+	EquipmentExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
+	EquipmentExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
+	EquipmentExcelAddWear(b, t.Wear)
+	EquipmentExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EquipmentExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	EquipmentExcelAddEquipmentCategory(b, fbsutils.Convert(t.EquipmentCategory, t.FlatBuffer.TableKey))
+	EquipmentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return EquipmentExcelEnd(b)
 }
 
@@ -73,31 +73,31 @@ func (t *EquipmentExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EquipmentCategory = EquipmentCategory(fbsutils.Convert(int32(e.EquipmentCategory()), t.FlatBuffer.TableKey))
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.Wear = e.Wear()
-	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
-	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
-	t.TierInit = fbsutils.Convert(e.TierInit(), t.FlatBuffer.TableKey)
-	t.NextTierEquipment = fbsutils.Convert(e.NextTierEquipment(), t.FlatBuffer.TableKey)
-	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.ImageName = fbsutils.Convert(string(e.ImageName()), t.FlatBuffer.TableKey)
-	t.Tags = make([]Tag, e.TagsLength())
-	for i := range e.TagsLength() {
-		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
-	}
-	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
-	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
-	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
+	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
 	t.ShopCategory = make([]ShopCategoryType, e.ShopCategoryLength())
 	for i := range e.ShopCategoryLength() {
 		t.ShopCategory[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategory(i)), t.FlatBuffer.TableKey))
 	}
-	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
+	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
+	t.Tags = make([]Tag, e.TagsLength())
+	for i := range e.TagsLength() {
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
+	}
+	t.ImageName = fbsutils.Convert(string(e.ImageName()), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
+	t.NextTierEquipment = fbsutils.Convert(e.NextTierEquipment(), t.FlatBuffer.TableKey)
+	t.TierInit = fbsutils.Convert(e.TierInit(), t.FlatBuffer.TableKey)
+	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
+	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
+	t.Wear = e.Wear()
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.EquipmentCategory = EquipmentCategory(fbsutils.Convert(int32(e.EquipmentCategory()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

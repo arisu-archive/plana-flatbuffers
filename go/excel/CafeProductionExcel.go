@@ -33,7 +33,7 @@ func (rcv *CafeProductionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CafeProductionExcel) CafeId() int64 {
+func (rcv *CafeProductionExcel) ParcelStorageMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *CafeProductionExcel) CafeId() int64 {
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateCafeId(n int64) bool {
+func (rcv *CafeProductionExcel) MutateParcelStorageMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CafeProductionExcel) Rank() int64 {
+func (rcv *CafeProductionExcel) ParcelProductionCorrectionValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,20 +53,20 @@ func (rcv *CafeProductionExcel) Rank() int64 {
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateRank(n int64) bool {
+func (rcv *CafeProductionExcel) MutateParcelProductionCorrectionValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CafeProductionExcel) CafeProductionParcelType() ParcelType {
+func (rcv *CafeProductionExcel) ParcelProductionCoefficient() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateCafeProductionParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+func (rcv *CafeProductionExcel) MutateParcelProductionCoefficient(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *CafeProductionExcel) CafeProductionParcelId() int64 {
@@ -81,19 +81,19 @@ func (rcv *CafeProductionExcel) MutateCafeProductionParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CafeProductionExcel) ParcelProductionCoefficient() int64 {
+func (rcv *CafeProductionExcel) CafeProductionParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateParcelProductionCoefficient(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *CafeProductionExcel) MutateCafeProductionParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *CafeProductionExcel) ParcelProductionCorrectionValue() int64 {
+func (rcv *CafeProductionExcel) Rank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,11 +101,11 @@ func (rcv *CafeProductionExcel) ParcelProductionCorrectionValue() int64 {
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateParcelProductionCorrectionValue(n int64) bool {
+func (rcv *CafeProductionExcel) MutateRank(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *CafeProductionExcel) ParcelStorageMax() int64 {
+func (rcv *CafeProductionExcel) CafeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -113,33 +113,33 @@ func (rcv *CafeProductionExcel) ParcelStorageMax() int64 {
 	return 0
 }
 
-func (rcv *CafeProductionExcel) MutateParcelStorageMax(n int64) bool {
+func (rcv *CafeProductionExcel) MutateCafeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func CafeProductionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func CafeProductionExcelAddCafeId(builder *flatbuffers.Builder, cafeId int64) {
-	builder.PrependInt64Slot(0, cafeId, 0)
+func CafeProductionExcelAddParcelStorageMax(builder *flatbuffers.Builder, parcelStorageMax int64) {
+	builder.PrependInt64Slot(0, parcelStorageMax, 0)
 }
-func CafeProductionExcelAddRank(builder *flatbuffers.Builder, rank int64) {
-	builder.PrependInt64Slot(1, rank, 0)
+func CafeProductionExcelAddParcelProductionCorrectionValue(builder *flatbuffers.Builder, parcelProductionCorrectionValue int64) {
+	builder.PrependInt64Slot(1, parcelProductionCorrectionValue, 0)
 }
-func CafeProductionExcelAddCafeProductionParcelType(builder *flatbuffers.Builder, cafeProductionParcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(cafeProductionParcelType), 0)
+func CafeProductionExcelAddParcelProductionCoefficient(builder *flatbuffers.Builder, parcelProductionCoefficient int64) {
+	builder.PrependInt64Slot(2, parcelProductionCoefficient, 0)
 }
 func CafeProductionExcelAddCafeProductionParcelId(builder *flatbuffers.Builder, cafeProductionParcelId int64) {
 	builder.PrependInt64Slot(3, cafeProductionParcelId, 0)
 }
-func CafeProductionExcelAddParcelProductionCoefficient(builder *flatbuffers.Builder, parcelProductionCoefficient int64) {
-	builder.PrependInt64Slot(4, parcelProductionCoefficient, 0)
+func CafeProductionExcelAddCafeProductionParcelType(builder *flatbuffers.Builder, cafeProductionParcelType ParcelType) {
+	builder.PrependInt32Slot(4, int32(cafeProductionParcelType), 0)
 }
-func CafeProductionExcelAddParcelProductionCorrectionValue(builder *flatbuffers.Builder, parcelProductionCorrectionValue int64) {
-	builder.PrependInt64Slot(5, parcelProductionCorrectionValue, 0)
+func CafeProductionExcelAddRank(builder *flatbuffers.Builder, rank int64) {
+	builder.PrependInt64Slot(5, rank, 0)
 }
-func CafeProductionExcelAddParcelStorageMax(builder *flatbuffers.Builder, parcelStorageMax int64) {
-	builder.PrependInt64Slot(6, parcelStorageMax, 0)
+func CafeProductionExcelAddCafeId(builder *flatbuffers.Builder, cafeId int64) {
+	builder.PrependInt64Slot(6, cafeId, 0)
 }
 func CafeProductionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

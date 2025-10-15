@@ -10,21 +10,21 @@ import (
 // ToastExcelDto represents a FlatBuffers table
 type ToastExcelDto struct {
 	fbsutils.FlatBuffer
-	Id        uint32    `json:"id"`
-	ToastType ToastType `json:"toast_type"`
-	MissionId uint32    `json:"mission_id"`
-	TextId    uint32    `json:"text_id"`
 	LifeTime  int64     `json:"life_time"`
+	TextId    uint32    `json:"text_id"`
+	MissionId uint32    `json:"mission_id"`
+	ToastType ToastType `json:"toast_type"`
+	Id        uint32    `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ToastExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ToastExcelStart(b)
-	ToastExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ToastExcelAddToastType(b, fbsutils.Convert(t.ToastType, t.FlatBuffer.TableKey))
-	ToastExcelAddMissionId(b, fbsutils.Convert(t.MissionId, t.FlatBuffer.TableKey))
-	ToastExcelAddTextId(b, fbsutils.Convert(t.TextId, t.FlatBuffer.TableKey))
 	ToastExcelAddLifeTime(b, fbsutils.Convert(t.LifeTime, t.FlatBuffer.TableKey))
+	ToastExcelAddTextId(b, fbsutils.Convert(t.TextId, t.FlatBuffer.TableKey))
+	ToastExcelAddMissionId(b, fbsutils.Convert(t.MissionId, t.FlatBuffer.TableKey))
+	ToastExcelAddToastType(b, fbsutils.Convert(t.ToastType, t.FlatBuffer.TableKey))
+	ToastExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ToastExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *ToastExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ToastExcelDto) UnmarshalMessage(e *ToastExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ToastType = ToastType(fbsutils.Convert(int32(e.ToastType()), t.FlatBuffer.TableKey))
-	t.MissionId = fbsutils.Convert(e.MissionId(), t.FlatBuffer.TableKey)
-	t.TextId = fbsutils.Convert(e.TextId(), t.FlatBuffer.TableKey)
 	t.LifeTime = fbsutils.Convert(e.LifeTime(), t.FlatBuffer.TableKey)
+	t.TextId = fbsutils.Convert(e.TextId(), t.FlatBuffer.TableKey)
+	t.MissionId = fbsutils.Convert(e.MissionId(), t.FlatBuffer.TableKey)
+	t.ToastType = ToastType(fbsutils.Convert(int32(e.ToastType()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

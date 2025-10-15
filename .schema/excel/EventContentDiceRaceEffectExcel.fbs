@@ -1,0 +1,13 @@
+include "EventContentDiceRaceResultType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentDiceRaceEffectExcel {
+    voice_id: [uint];
+    ani_clip: string;
+    is_dice_result: bool;
+    event_content_dice_race_result_type: EventContentDiceRaceResultType;
+    event_content_id: long;
+}
+
+root_type EventContentDiceRaceEffectExcel;

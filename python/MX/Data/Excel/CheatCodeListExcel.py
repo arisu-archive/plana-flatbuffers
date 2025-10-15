@@ -25,35 +25,15 @@ class CheatCodeListExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CheatCodeListExcel
-    def Id(self):
+    def Desc(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CheatCodeListExcel
-    def CheatCode(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # CheatCodeListExcel
-    def CheatCodeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CheatCodeListExcel
-    def CheatCodeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CheatCodeListExcel
     def InputTitle(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -61,44 +41,64 @@ class CheatCodeListExcel(object):
 
     # CheatCodeListExcel
     def InputTitleLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CheatCodeListExcel
     def InputTitleIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # CheatCodeListExcel
+    def CheatCode(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # CheatCodeListExcel
+    def CheatCodeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CheatCodeListExcel
+    def CheatCodeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # CheatCodeListExcel
-    def Desc(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def CheatCodeListExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return CheatCodeListExcelStart(builder)
-def CheatCodeListExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return CheatCodeListExcelAddId(builder, id)
-def CheatCodeListExcelAddCheatCode(builder, cheatCode): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(cheatCode), 0)
-def AddCheatCode(builder, cheatCode):
-    return CheatCodeListExcelAddCheatCode(builder, cheatCode)
-def CheatCodeListExcelStartCheatCodeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartCheatCodeVector(builder, numElems):
-    return CheatCodeListExcelStartCheatCodeVector(builder, numElems)
-def CheatCodeListExcelAddInputTitle(builder, inputTitle): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(inputTitle), 0)
+def CheatCodeListExcelAddDesc(builder, desc): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(desc), 0)
+def AddDesc(builder, desc):
+    return CheatCodeListExcelAddDesc(builder, desc)
+def CheatCodeListExcelAddInputTitle(builder, inputTitle): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(inputTitle), 0)
 def AddInputTitle(builder, inputTitle):
     return CheatCodeListExcelAddInputTitle(builder, inputTitle)
 def CheatCodeListExcelStartInputTitleVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartInputTitleVector(builder, numElems):
     return CheatCodeListExcelStartInputTitleVector(builder, numElems)
-def CheatCodeListExcelAddDesc(builder, desc): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(desc), 0)
-def AddDesc(builder, desc):
-    return CheatCodeListExcelAddDesc(builder, desc)
+def CheatCodeListExcelAddCheatCode(builder, cheatCode): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(cheatCode), 0)
+def AddCheatCode(builder, cheatCode):
+    return CheatCodeListExcelAddCheatCode(builder, cheatCode)
+def CheatCodeListExcelStartCheatCodeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartCheatCodeVector(builder, numElems):
+    return CheatCodeListExcelStartCheatCodeVector(builder, numElems)
+def CheatCodeListExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+def AddId(builder, id):
+    return CheatCodeListExcelAddId(builder, id)
 def CheatCodeListExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CheatCodeListExcelEnd(builder)

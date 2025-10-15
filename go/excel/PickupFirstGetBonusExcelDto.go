@@ -10,23 +10,23 @@ import (
 // PickupFirstGetBonusExcelDto represents a FlatBuffers table
 type PickupFirstGetBonusExcelDto struct {
 	fbsutils.FlatBuffer
-	ShopRecruitId           int64      `json:"shop_recruit_id"`
-	RecruitSellectionShopId int64      `json:"recruit_sellection_shop_id"`
-	PickupCharacterId       int64      `json:"pickup_character_id"`
-	RewardParcelType        ParcelType `json:"reward_parcel_type"`
-	RewardParcelId          int64      `json:"reward_parcel_id"`
 	RewardParcelAmount      int64      `json:"reward_parcel_amount"`
+	RewardParcelId          int64      `json:"reward_parcel_id"`
+	RewardParcelType        ParcelType `json:"reward_parcel_type"`
+	PickupCharacterId       int64      `json:"pickup_character_id"`
+	RecruitSellectionShopId int64      `json:"recruit_sellection_shop_id"`
+	ShopRecruitId           int64      `json:"shop_recruit_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PickupFirstGetBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	PickupFirstGetBonusExcelStart(b)
-	PickupFirstGetBonusExcelAddShopRecruitId(b, fbsutils.Convert(t.ShopRecruitId, t.FlatBuffer.TableKey))
-	PickupFirstGetBonusExcelAddRecruitSellectionShopId(b, fbsutils.Convert(t.RecruitSellectionShopId, t.FlatBuffer.TableKey))
-	PickupFirstGetBonusExcelAddPickupCharacterId(b, fbsutils.Convert(t.PickupCharacterId, t.FlatBuffer.TableKey))
-	PickupFirstGetBonusExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	PickupFirstGetBonusExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	PickupFirstGetBonusExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	PickupFirstGetBonusExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	PickupFirstGetBonusExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	PickupFirstGetBonusExcelAddPickupCharacterId(b, fbsutils.Convert(t.PickupCharacterId, t.FlatBuffer.TableKey))
+	PickupFirstGetBonusExcelAddRecruitSellectionShopId(b, fbsutils.Convert(t.RecruitSellectionShopId, t.FlatBuffer.TableKey))
+	PickupFirstGetBonusExcelAddShopRecruitId(b, fbsutils.Convert(t.ShopRecruitId, t.FlatBuffer.TableKey))
 	return PickupFirstGetBonusExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *PickupFirstGetBonusExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PickupFirstGetBonusExcelDto) UnmarshalMessage(e *PickupFirstGetBonusExcel) error {
-	t.ShopRecruitId = fbsutils.Convert(e.ShopRecruitId(), t.FlatBuffer.TableKey)
-	t.RecruitSellectionShopId = fbsutils.Convert(e.RecruitSellectionShopId(), t.FlatBuffer.TableKey)
-	t.PickupCharacterId = fbsutils.Convert(e.PickupCharacterId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.PickupCharacterId = fbsutils.Convert(e.PickupCharacterId(), t.FlatBuffer.TableKey)
+	t.RecruitSellectionShopId = fbsutils.Convert(e.RecruitSellectionShopId(), t.FlatBuffer.TableKey)
+	t.ShopRecruitId = fbsutils.Convert(e.ShopRecruitId(), t.FlatBuffer.TableKey)
 	return nil
 }
 
