@@ -33,8 +33,20 @@ func (rcv *GachaGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaGroupExcel) Id() int64 {
+func (rcv *GachaGroupExcel) GroupType() GachaGroupType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return GachaGroupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *GachaGroupExcel) MutateGroupType(n GachaGroupType) bool {
+	return rcv._tab.MutateInt32Slot(4, int32(n))
+}
+
+func (rcv *GachaGroupExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -42,15 +54,7 @@ func (rcv *GachaGroupExcel) Id() int64 {
 }
 
 func (rcv *GachaGroupExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *GachaGroupExcel) NameKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *GachaGroupExcel) IsRecursive() bool {
@@ -65,32 +69,28 @@ func (rcv *GachaGroupExcel) MutateIsRecursive(n bool) bool {
 	return rcv._tab.MutateBoolSlot(8, n)
 }
 
-func (rcv *GachaGroupExcel) GroupType() GachaGroupType {
+func (rcv *GachaGroupExcel) NameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return GachaGroupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *GachaGroupExcel) MutateGroupType(n GachaGroupType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return nil
 }
 
 func GachaGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func GachaGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func GachaGroupExcelAddGroupType(builder *flatbuffers.Builder, groupType GachaGroupType) {
+	builder.PrependInt32Slot(0, int32(groupType), 0)
 }
-func GachaGroupExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(nameKr), 0)
+func GachaGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
 }
 func GachaGroupExcelAddIsRecursive(builder *flatbuffers.Builder, isRecursive bool) {
 	builder.PrependBoolSlot(2, isRecursive, false)
 }
-func GachaGroupExcelAddGroupType(builder *flatbuffers.Builder, groupType GachaGroupType) {
-	builder.PrependInt32Slot(3, int32(groupType), 0)
+func GachaGroupExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nameKr), 0)
 }
 func GachaGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

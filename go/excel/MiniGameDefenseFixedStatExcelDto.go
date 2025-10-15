@@ -10,41 +10,41 @@ import (
 // MiniGameDefenseFixedStatExcelDto represents a FlatBuffers table
 type MiniGameDefenseFixedStatExcelDto struct {
 	fbsutils.FlatBuffer
-	MinigameDefenseFixedStatId int64 `json:"minigame_defense_fixed_stat_id"`
-	Level                      int32 `json:"level"`
-	Grade                      int32 `json:"grade"`
-	ExSkillLevel               int32 `json:"ex_skill_level"`
-	NoneExSkillLevel           int32 `json:"none_ex_skill_level"`
-	Equipment1Tier             int32 `json:"equipment1_tier"`
-	Equipment1Level            int32 `json:"equipment1_level"`
-	Equipment2Tier             int32 `json:"equipment2_tier"`
-	Equipment2Level            int32 `json:"equipment2_level"`
-	Equipment3Tier             int32 `json:"equipment3_tier"`
-	Equipment3Level            int32 `json:"equipment3_level"`
+	CharacterGearLevel         int32 `json:"character_gear_level"`
+	CharacterGearTier          int32 `json:"character_gear_tier"`
 	CharacterWeaponGrade       int32 `json:"character_weapon_grade"`
 	CharacterWeaponLevel       int32 `json:"character_weapon_level"`
-	CharacterGearTier          int32 `json:"character_gear_tier"`
-	CharacterGearLevel         int32 `json:"character_gear_level"`
+	Equipment1Level            int32 `json:"equipment1_level"`
+	Equipment1Tier             int32 `json:"equipment1_tier"`
+	Equipment2Level            int32 `json:"equipment2_level"`
+	Equipment2Tier             int32 `json:"equipment2_tier"`
+	Equipment3Level            int32 `json:"equipment3_level"`
+	Equipment3Tier             int32 `json:"equipment3_tier"`
+	ExSkillLevel               int32 `json:"ex_skill_level"`
+	Grade                      int32 `json:"grade"`
+	Level                      int32 `json:"level"`
+	MinigameDefenseFixedStatId int64 `json:"minigame_defense_fixed_stat_id"`
+	NoneExSkillLevel           int32 `json:"none_ex_skill_level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseFixedStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDefenseFixedStatExcelStart(b)
-	MiniGameDefenseFixedStatExcelAddMinigameDefenseFixedStatId(b, fbsutils.Convert(t.MinigameDefenseFixedStatId, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddExSkillLevel(b, fbsutils.Convert(t.ExSkillLevel, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(b, fbsutils.Convert(t.NoneExSkillLevel, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment1Tier(b, fbsutils.Convert(t.Equipment1Tier, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment1Level(b, fbsutils.Convert(t.Equipment1Level, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment2Tier(b, fbsutils.Convert(t.Equipment2Tier, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment2Level(b, fbsutils.Convert(t.Equipment2Level, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment3Tier(b, fbsutils.Convert(t.Equipment3Tier, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddEquipment3Level(b, fbsutils.Convert(t.Equipment3Level, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddCharacterGearLevel(b, fbsutils.Convert(t.CharacterGearLevel, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddCharacterGearTier(b, fbsutils.Convert(t.CharacterGearTier, t.FlatBuffer.TableKey))
 	MiniGameDefenseFixedStatExcelAddCharacterWeaponGrade(b, fbsutils.Convert(t.CharacterWeaponGrade, t.FlatBuffer.TableKey))
 	MiniGameDefenseFixedStatExcelAddCharacterWeaponLevel(b, fbsutils.Convert(t.CharacterWeaponLevel, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddCharacterGearTier(b, fbsutils.Convert(t.CharacterGearTier, t.FlatBuffer.TableKey))
-	MiniGameDefenseFixedStatExcelAddCharacterGearLevel(b, fbsutils.Convert(t.CharacterGearLevel, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment1Level(b, fbsutils.Convert(t.Equipment1Level, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment1Tier(b, fbsutils.Convert(t.Equipment1Tier, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment2Level(b, fbsutils.Convert(t.Equipment2Level, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment2Tier(b, fbsutils.Convert(t.Equipment2Tier, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment3Level(b, fbsutils.Convert(t.Equipment3Level, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddEquipment3Tier(b, fbsutils.Convert(t.Equipment3Tier, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddExSkillLevel(b, fbsutils.Convert(t.ExSkillLevel, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddMinigameDefenseFixedStatId(b, fbsutils.Convert(t.MinigameDefenseFixedStatId, t.FlatBuffer.TableKey))
+	MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(b, fbsutils.Convert(t.NoneExSkillLevel, t.FlatBuffer.TableKey))
 	return MiniGameDefenseFixedStatExcelEnd(b)
 }
 
@@ -57,21 +57,21 @@ func (t *MiniGameDefenseFixedStatExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseFixedStatExcelDto) UnmarshalMessage(e *MiniGameDefenseFixedStatExcel) error {
-	t.MinigameDefenseFixedStatId = fbsutils.Convert(e.MinigameDefenseFixedStatId(), t.FlatBuffer.TableKey)
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.Grade = fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)
-	t.ExSkillLevel = fbsutils.Convert(e.ExSkillLevel(), t.FlatBuffer.TableKey)
-	t.NoneExSkillLevel = fbsutils.Convert(e.NoneExSkillLevel(), t.FlatBuffer.TableKey)
-	t.Equipment1Tier = fbsutils.Convert(e.Equipment1Tier(), t.FlatBuffer.TableKey)
-	t.Equipment1Level = fbsutils.Convert(e.Equipment1Level(), t.FlatBuffer.TableKey)
-	t.Equipment2Tier = fbsutils.Convert(e.Equipment2Tier(), t.FlatBuffer.TableKey)
-	t.Equipment2Level = fbsutils.Convert(e.Equipment2Level(), t.FlatBuffer.TableKey)
-	t.Equipment3Tier = fbsutils.Convert(e.Equipment3Tier(), t.FlatBuffer.TableKey)
-	t.Equipment3Level = fbsutils.Convert(e.Equipment3Level(), t.FlatBuffer.TableKey)
+	t.CharacterGearLevel = fbsutils.Convert(e.CharacterGearLevel(), t.FlatBuffer.TableKey)
+	t.CharacterGearTier = fbsutils.Convert(e.CharacterGearTier(), t.FlatBuffer.TableKey)
 	t.CharacterWeaponGrade = fbsutils.Convert(e.CharacterWeaponGrade(), t.FlatBuffer.TableKey)
 	t.CharacterWeaponLevel = fbsutils.Convert(e.CharacterWeaponLevel(), t.FlatBuffer.TableKey)
-	t.CharacterGearTier = fbsutils.Convert(e.CharacterGearTier(), t.FlatBuffer.TableKey)
-	t.CharacterGearLevel = fbsutils.Convert(e.CharacterGearLevel(), t.FlatBuffer.TableKey)
+	t.Equipment1Level = fbsutils.Convert(e.Equipment1Level(), t.FlatBuffer.TableKey)
+	t.Equipment1Tier = fbsutils.Convert(e.Equipment1Tier(), t.FlatBuffer.TableKey)
+	t.Equipment2Level = fbsutils.Convert(e.Equipment2Level(), t.FlatBuffer.TableKey)
+	t.Equipment2Tier = fbsutils.Convert(e.Equipment2Tier(), t.FlatBuffer.TableKey)
+	t.Equipment3Level = fbsutils.Convert(e.Equipment3Level(), t.FlatBuffer.TableKey)
+	t.Equipment3Tier = fbsutils.Convert(e.Equipment3Tier(), t.FlatBuffer.TableKey)
+	t.ExSkillLevel = fbsutils.Convert(e.ExSkillLevel(), t.FlatBuffer.TableKey)
+	t.Grade = fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
+	t.MinigameDefenseFixedStatId = fbsutils.Convert(e.MinigameDefenseFixedStatId(), t.FlatBuffer.TableKey)
+	t.NoneExSkillLevel = fbsutils.Convert(e.NoneExSkillLevel(), t.FlatBuffer.TableKey)
 	return nil
 }
 

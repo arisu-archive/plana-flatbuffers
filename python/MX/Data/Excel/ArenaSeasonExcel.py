@@ -25,35 +25,35 @@ class ArenaSeasonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ArenaSeasonExcel
-    def UniqueId(self):
+    def PrevSeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ArenaSeasonExcel
-    def SeasonStartDate(self):
+    def SeasonEndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ArenaSeasonExcel
-    def SeasonEndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ArenaSeasonExcel
     def SeasonGroupLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ArenaSeasonExcel
-    def PrevSeasonId(self):
+    def SeasonStartDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ArenaSeasonExcel
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class ArenaSeasonExcel(object):
 def ArenaSeasonExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return ArenaSeasonExcelStart(builder)
-def ArenaSeasonExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return ArenaSeasonExcelAddUniqueId(builder, uniqueId)
-def ArenaSeasonExcelAddSeasonStartDate(builder, seasonStartDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartDate), 0)
-def AddSeasonStartDate(builder, seasonStartDate):
-    return ArenaSeasonExcelAddSeasonStartDate(builder, seasonStartDate)
-def ArenaSeasonExcelAddSeasonEndDate(builder, seasonEndDate): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndDate), 0)
-def AddSeasonEndDate(builder, seasonEndDate):
-    return ArenaSeasonExcelAddSeasonEndDate(builder, seasonEndDate)
-def ArenaSeasonExcelAddSeasonGroupLimit(builder, seasonGroupLimit): builder.PrependInt64Slot(3, seasonGroupLimit, 0)
-def AddSeasonGroupLimit(builder, seasonGroupLimit):
-    return ArenaSeasonExcelAddSeasonGroupLimit(builder, seasonGroupLimit)
-def ArenaSeasonExcelAddPrevSeasonId(builder, prevSeasonId): builder.PrependInt64Slot(4, prevSeasonId, 0)
+def ArenaSeasonExcelAddPrevSeasonId(builder, prevSeasonId): builder.PrependInt64Slot(0, prevSeasonId, 0)
 def AddPrevSeasonId(builder, prevSeasonId):
     return ArenaSeasonExcelAddPrevSeasonId(builder, prevSeasonId)
+def ArenaSeasonExcelAddSeasonEndDate(builder, seasonEndDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndDate), 0)
+def AddSeasonEndDate(builder, seasonEndDate):
+    return ArenaSeasonExcelAddSeasonEndDate(builder, seasonEndDate)
+def ArenaSeasonExcelAddSeasonGroupLimit(builder, seasonGroupLimit): builder.PrependInt64Slot(2, seasonGroupLimit, 0)
+def AddSeasonGroupLimit(builder, seasonGroupLimit):
+    return ArenaSeasonExcelAddSeasonGroupLimit(builder, seasonGroupLimit)
+def ArenaSeasonExcelAddSeasonStartDate(builder, seasonStartDate): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartDate), 0)
+def AddSeasonStartDate(builder, seasonStartDate):
+    return ArenaSeasonExcelAddSeasonStartDate(builder, seasonStartDate)
+def ArenaSeasonExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(4, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return ArenaSeasonExcelAddUniqueId(builder, uniqueId)
 def ArenaSeasonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ArenaSeasonExcelEnd(builder)

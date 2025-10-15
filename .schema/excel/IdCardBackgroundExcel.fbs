@@ -3,14 +3,14 @@ include "Rarity.fbs";
 namespace MX.Data.Excel;
 
 table IdCardBackgroundExcel {
-    id: long;
-    rarity: Rarity;
-    display_order: long;
-    collection_visible: bool;
-    is_default: bool;
     bg_path: string;
-    localize_etc_id: uint;
+    collection_visible: bool;
+    display_order: long;
     icon: string;
+    id: long;
+    is_default: bool;
+    localize_etc_id: uint;
+    rarity: Rarity;
 }
 
 root_type IdCardBackgroundExcel;

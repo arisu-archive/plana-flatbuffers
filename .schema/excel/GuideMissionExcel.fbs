@@ -7,24 +7,24 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table GuideMissionExcel {
-    season_id: long;
-    id: long;
     category: MissionCategory;
-    is_legacy: bool;
-    tab_number: long;
-    pre_mission_id: [long];
-    description: uint;
-    toast_display_type: MissionToastDisplayConditionType;
-    toast_image_path: string;
-    shortcut_ui: [string];
-    complete_condition_type: MissionCompleteConditionType;
     complete_condition_count: long;
     complete_condition_parameter: [long];
     complete_condition_parameter_tag: [Tag];
+    complete_condition_type: MissionCompleteConditionType;
+    description: uint;
+    id: long;
     is_auto_clear_for_scenario: bool;
-    mission_reward_parcel_type: [ParcelType];
-    mission_reward_parcel_id: [long];
+    is_legacy: bool;
     mission_reward_amount: [int];
+    mission_reward_parcel_id: [long];
+    mission_reward_parcel_type: [ParcelType];
+    pre_mission_id: [long];
+    season_id: long;
+    shortcut_ui: [string];
+    tab_number: long;
+    toast_display_type: MissionToastDisplayConditionType;
+    toast_image_path: string;
 }
 
 root_type GuideMissionExcel;

@@ -3,14 +3,14 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table ProductSelectionGroupExcel {
-    product_selection_group_id: long;
-    product_selection_group_component_id: long;
-    display_order: long;
-    parcel_type: ParcelType;
-    parcel_id: long;
-    result_amount: long;
-    condition_parcel_type: ParcelType;
     condition_parcel_id: long;
+    condition_parcel_type: ParcelType;
+    display_order: long;
+    parcel_id: long;
+    parcel_type: ParcelType;
+    product_selection_group_component_id: long;
+    product_selection_group_id: long;
+    result_amount: long;
 }
 
 root_type ProductSelectionGroupExcel;

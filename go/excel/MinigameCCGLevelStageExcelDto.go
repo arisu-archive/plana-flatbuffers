@@ -10,45 +10,45 @@ import (
 // MinigameCCGLevelStageExcelDto represents a FlatBuffers table
 type MinigameCCGLevelStageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64              `json:"id"`
-	GroupId              int64              `json:"group_id"`
-	EnemyGroupId         []int64            `json:"enemy_group_id"`
-	StageType            CCGStageType       `json:"stage_type"`
+	CampBackgroundPath   string             `json:"camp_background_path"`
 	CampDiscardCardCount int32              `json:"camp_discard_card_count"`
 	CampSprPath          string             `json:"camp_spr_path"`
-	CampBackgroundPath   string             `json:"camp_background_path"`
-	RewardType           CCGStageRewardType `json:"reward_type"`
-	RewardCount          int32              `json:"reward_count"`
-	RewardCardGroupId    int64              `json:"reward_card_group_id"`
 	CardRarityGroupId    int64              `json:"card_rarity_group_id"`
-	IsSkipIntroScenario  bool               `json:"is_skip_intro_scenario"`
+	EnemyGroupId         []int64            `json:"enemy_group_id"`
+	GroupId              int64              `json:"group_id"`
+	Id                   int64              `json:"id"`
 	IntroScenarioGroupId int64              `json:"intro_scenario_group_id"`
+	IsSkipIntroScenario  bool               `json:"is_skip_intro_scenario"`
 	IsSkipOutroScenario  bool               `json:"is_skip_outro_scenario"`
 	OutroScenarioGroupId int64              `json:"outro_scenario_group_id"`
+	RewardCardGroupId    int64              `json:"reward_card_group_id"`
+	RewardCount          int32              `json:"reward_count"`
+	RewardType           CCGStageRewardType `json:"reward_type"`
+	StageType            CCGStageType       `json:"stage_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLevelStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGLevelStageExcelStart(b)
-	MinigameCCGLevelStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddCampBackgroundPath(b, b.CreateString(fbsutils.Convert(t.CampBackgroundPath, t.FlatBuffer.TableKey)))
+	MinigameCCGLevelStageExcelAddCampDiscardCardCount(b, fbsutils.Convert(t.CampDiscardCardCount, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddCampSprPath(b, b.CreateString(fbsutils.Convert(t.CampSprPath, t.FlatBuffer.TableKey)))
+	MinigameCCGLevelStageExcelAddCardRarityGroupId(b, fbsutils.Convert(t.CardRarityGroupId, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelStartEnemyGroupIdVector(b, len(t.EnemyGroupId))
 	for i := range len(t.EnemyGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.EnemyGroupId[len(t.EnemyGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameCCGLevelStageExcelAddEnemyGroupId(b, b.EndVector(len(t.EnemyGroupId)))
-	MinigameCCGLevelStageExcelAddStageType(b, fbsutils.Convert(t.StageType, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddCampDiscardCardCount(b, fbsutils.Convert(t.CampDiscardCardCount, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddCampSprPath(b, b.CreateString(fbsutils.Convert(t.CampSprPath, t.FlatBuffer.TableKey)))
-	MinigameCCGLevelStageExcelAddCampBackgroundPath(b, b.CreateString(fbsutils.Convert(t.CampBackgroundPath, t.FlatBuffer.TableKey)))
-	MinigameCCGLevelStageExcelAddRewardType(b, fbsutils.Convert(t.RewardType, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddRewardCount(b, fbsutils.Convert(t.RewardCount, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddRewardCardGroupId(b, fbsutils.Convert(t.RewardCardGroupId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddCardRarityGroupId(b, fbsutils.Convert(t.CardRarityGroupId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddIsSkipIntroScenario(b, t.IsSkipIntroScenario)
+	MinigameCCGLevelStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelAddIntroScenarioGroupId(b, fbsutils.Convert(t.IntroScenarioGroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddIsSkipIntroScenario(b, t.IsSkipIntroScenario)
 	MinigameCCGLevelStageExcelAddIsSkipOutroScenario(b, t.IsSkipOutroScenario)
 	MinigameCCGLevelStageExcelAddOutroScenarioGroupId(b, fbsutils.Convert(t.OutroScenarioGroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddRewardCardGroupId(b, fbsutils.Convert(t.RewardCardGroupId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddRewardCount(b, fbsutils.Convert(t.RewardCount, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddRewardType(b, fbsutils.Convert(t.RewardType, t.FlatBuffer.TableKey))
+	MinigameCCGLevelStageExcelAddStageType(b, fbsutils.Convert(t.StageType, t.FlatBuffer.TableKey))
 	return MinigameCCGLevelStageExcelEnd(b)
 }
 
@@ -61,24 +61,24 @@ func (t *MinigameCCGLevelStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGLevelStageExcelDto) UnmarshalMessage(e *MinigameCCGLevelStageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.CampBackgroundPath = fbsutils.Convert(string(e.CampBackgroundPath()), t.FlatBuffer.TableKey)
+	t.CampDiscardCardCount = fbsutils.Convert(e.CampDiscardCardCount(), t.FlatBuffer.TableKey)
+	t.CampSprPath = fbsutils.Convert(string(e.CampSprPath()), t.FlatBuffer.TableKey)
+	t.CardRarityGroupId = fbsutils.Convert(e.CardRarityGroupId(), t.FlatBuffer.TableKey)
 	t.EnemyGroupId = make([]int64, e.EnemyGroupIdLength())
 	for i := range e.EnemyGroupIdLength() {
 		t.EnemyGroupId[i] = fbsutils.Convert(e.EnemyGroupId(i), t.FlatBuffer.TableKey)
 	}
-	t.StageType = CCGStageType(fbsutils.Convert(int32(e.StageType()), t.FlatBuffer.TableKey))
-	t.CampDiscardCardCount = fbsutils.Convert(e.CampDiscardCardCount(), t.FlatBuffer.TableKey)
-	t.CampSprPath = fbsutils.Convert(string(e.CampSprPath()), t.FlatBuffer.TableKey)
-	t.CampBackgroundPath = fbsutils.Convert(string(e.CampBackgroundPath()), t.FlatBuffer.TableKey)
-	t.RewardType = CCGStageRewardType(fbsutils.Convert(int32(e.RewardType()), t.FlatBuffer.TableKey))
-	t.RewardCount = fbsutils.Convert(e.RewardCount(), t.FlatBuffer.TableKey)
-	t.RewardCardGroupId = fbsutils.Convert(e.RewardCardGroupId(), t.FlatBuffer.TableKey)
-	t.CardRarityGroupId = fbsutils.Convert(e.CardRarityGroupId(), t.FlatBuffer.TableKey)
-	t.IsSkipIntroScenario = e.IsSkipIntroScenario()
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IntroScenarioGroupId = fbsutils.Convert(e.IntroScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.IsSkipIntroScenario = e.IsSkipIntroScenario()
 	t.IsSkipOutroScenario = e.IsSkipOutroScenario()
 	t.OutroScenarioGroupId = fbsutils.Convert(e.OutroScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.RewardCardGroupId = fbsutils.Convert(e.RewardCardGroupId(), t.FlatBuffer.TableKey)
+	t.RewardCount = fbsutils.Convert(e.RewardCount(), t.FlatBuffer.TableKey)
+	t.RewardType = CCGStageRewardType(fbsutils.Convert(int32(e.RewardType()), t.FlatBuffer.TableKey))
+	t.StageType = CCGStageType(fbsutils.Convert(int32(e.StageType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

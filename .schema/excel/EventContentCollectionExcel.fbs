@@ -1,0 +1,25 @@
+include "CollectionUnlockType.fbs";
+include "MultipleConditionCheckType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentCollectionExcel {
+    decoration: string;
+    emblem_resource: string;
+    event_content_id: long;
+    full_resource: string;
+    group_id: long;
+    id: long;
+    is_horizon: bool;
+    is_object: bool;
+    is_object_on_full_resource: bool;
+    localize_etc_id: uint;
+    multiple_condition_check_type: MultipleConditionCheckType;
+    sub_name_localize_code_id: string;
+    thumb_resource: string;
+    unlock_condition_count: long;
+    unlock_condition_parameter: [long];
+    unlock_condition_type: CollectionUnlockType;
+}
+
+root_type EventContentCollectionExcel;

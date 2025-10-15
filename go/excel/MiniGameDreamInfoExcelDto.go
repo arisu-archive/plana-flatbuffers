@@ -10,37 +10,37 @@ import (
 // MiniGameDreamInfoExcelDto represents a FlatBuffers table
 type MiniGameDreamInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId                     int64                         `json:"event_content_id"`
+	DreamMakerActionPoint              int64                         `json:"dream_maker_action_point"`
+	DreamMakerDailyPointId             int64                         `json:"dream_maker_daily_point_id"`
+	DreamMakerDailyPointParcelType     ParcelType                    `json:"dream_maker_daily_point_parcel_type"`
+	DreamMakerDays                     int64                         `json:"dream_maker_days"`
 	DreamMakerMultiplierCondition      DreamMakerMultiplierCondition `json:"dream_maker_multiplier_condition"`
 	DreamMakerMultiplierConditionValue int64                         `json:"dream_maker_multiplier_condition_value"`
 	DreamMakerMultiplierMax            int64                         `json:"dream_maker_multiplier_max"`
-	DreamMakerDays                     int64                         `json:"dream_maker_days"`
-	DreamMakerActionPoint              int64                         `json:"dream_maker_action_point"`
-	DreamMakerParcelType               ParcelType                    `json:"dream_maker_parcel_type"`
-	DreamMakerParcelId                 int64                         `json:"dream_maker_parcel_id"`
-	DreamMakerDailyPointParcelType     ParcelType                    `json:"dream_maker_daily_point_parcel_type"`
-	DreamMakerDailyPointId             int64                         `json:"dream_maker_daily_point_id"`
 	DreamMakerParameterTransfer        int64                         `json:"dream_maker_parameter_transfer"`
-	ScheduleCostGoodsId                int64                         `json:"schedule_cost_goods_id"`
+	DreamMakerParcelId                 int64                         `json:"dream_maker_parcel_id"`
+	DreamMakerParcelType               ParcelType                    `json:"dream_maker_parcel_type"`
+	EventContentId                     int64                         `json:"event_content_id"`
 	LobbyBgmChangeScenarioId           int64                         `json:"lobby_bgm_change_scenario_id"`
+	ScheduleCostGoodsId                int64                         `json:"schedule_cost_goods_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamInfoExcelStart(b)
-	MiniGameDreamInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerDailyPointId(b, fbsutils.Convert(t.DreamMakerDailyPointId, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(b, fbsutils.Convert(t.DreamMakerDailyPointParcelType, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerDays(b, fbsutils.Convert(t.DreamMakerDays, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(b, fbsutils.Convert(t.DreamMakerMultiplierCondition, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(b, fbsutils.Convert(t.DreamMakerMultiplierConditionValue, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(b, fbsutils.Convert(t.DreamMakerMultiplierMax, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerDays(b, fbsutils.Convert(t.DreamMakerDays, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerParcelType(b, fbsutils.Convert(t.DreamMakerParcelType, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerParcelId(b, fbsutils.Convert(t.DreamMakerParcelId, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(b, fbsutils.Convert(t.DreamMakerDailyPointParcelType, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddDreamMakerDailyPointId(b, fbsutils.Convert(t.DreamMakerDailyPointId, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(b, fbsutils.Convert(t.DreamMakerParameterTransfer, t.FlatBuffer.TableKey))
-	MiniGameDreamInfoExcelAddScheduleCostGoodsId(b, fbsutils.Convert(t.ScheduleCostGoodsId, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerParcelId(b, fbsutils.Convert(t.DreamMakerParcelId, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddDreamMakerParcelType(b, fbsutils.Convert(t.DreamMakerParcelType, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(b, fbsutils.Convert(t.LobbyBgmChangeScenarioId, t.FlatBuffer.TableKey))
+	MiniGameDreamInfoExcelAddScheduleCostGoodsId(b, fbsutils.Convert(t.ScheduleCostGoodsId, t.FlatBuffer.TableKey))
 	return MiniGameDreamInfoExcelEnd(b)
 }
 
@@ -53,19 +53,19 @@ func (t *MiniGameDreamInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamInfoExcelDto) UnmarshalMessage(e *MiniGameDreamInfoExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.DreamMakerActionPoint = fbsutils.Convert(e.DreamMakerActionPoint(), t.FlatBuffer.TableKey)
+	t.DreamMakerDailyPointId = fbsutils.Convert(e.DreamMakerDailyPointId(), t.FlatBuffer.TableKey)
+	t.DreamMakerDailyPointParcelType = ParcelType(fbsutils.Convert(int32(e.DreamMakerDailyPointParcelType()), t.FlatBuffer.TableKey))
+	t.DreamMakerDays = fbsutils.Convert(e.DreamMakerDays(), t.FlatBuffer.TableKey)
 	t.DreamMakerMultiplierCondition = DreamMakerMultiplierCondition(fbsutils.Convert(int32(e.DreamMakerMultiplierCondition()), t.FlatBuffer.TableKey))
 	t.DreamMakerMultiplierConditionValue = fbsutils.Convert(e.DreamMakerMultiplierConditionValue(), t.FlatBuffer.TableKey)
 	t.DreamMakerMultiplierMax = fbsutils.Convert(e.DreamMakerMultiplierMax(), t.FlatBuffer.TableKey)
-	t.DreamMakerDays = fbsutils.Convert(e.DreamMakerDays(), t.FlatBuffer.TableKey)
-	t.DreamMakerActionPoint = fbsutils.Convert(e.DreamMakerActionPoint(), t.FlatBuffer.TableKey)
-	t.DreamMakerParcelType = ParcelType(fbsutils.Convert(int32(e.DreamMakerParcelType()), t.FlatBuffer.TableKey))
-	t.DreamMakerParcelId = fbsutils.Convert(e.DreamMakerParcelId(), t.FlatBuffer.TableKey)
-	t.DreamMakerDailyPointParcelType = ParcelType(fbsutils.Convert(int32(e.DreamMakerDailyPointParcelType()), t.FlatBuffer.TableKey))
-	t.DreamMakerDailyPointId = fbsutils.Convert(e.DreamMakerDailyPointId(), t.FlatBuffer.TableKey)
 	t.DreamMakerParameterTransfer = fbsutils.Convert(e.DreamMakerParameterTransfer(), t.FlatBuffer.TableKey)
-	t.ScheduleCostGoodsId = fbsutils.Convert(e.ScheduleCostGoodsId(), t.FlatBuffer.TableKey)
+	t.DreamMakerParcelId = fbsutils.Convert(e.DreamMakerParcelId(), t.FlatBuffer.TableKey)
+	t.DreamMakerParcelType = ParcelType(fbsutils.Convert(int32(e.DreamMakerParcelType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.LobbyBgmChangeScenarioId = fbsutils.Convert(e.LobbyBgmChangeScenarioId(), t.FlatBuffer.TableKey)
+	t.ScheduleCostGoodsId = fbsutils.Convert(e.ScheduleCostGoodsId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

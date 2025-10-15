@@ -33,16 +33,16 @@ func (rcv *DefaultParcelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *DefaultParcelExcel) ParcelType() ParcelType {
+func (rcv *DefaultParcelExcel) ParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *DefaultParcelExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
+func (rcv *DefaultParcelExcel) MutateParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *DefaultParcelExcel) ParcelId() int64 {
@@ -57,29 +57,29 @@ func (rcv *DefaultParcelExcel) MutateParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *DefaultParcelExcel) ParcelAmount() int64 {
+func (rcv *DefaultParcelExcel) ParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *DefaultParcelExcel) MutateParcelAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *DefaultParcelExcel) MutateParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func DefaultParcelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func DefaultParcelExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(0, int32(parcelType), 0)
+func DefaultParcelExcelAddParcelAmount(builder *flatbuffers.Builder, parcelAmount int64) {
+	builder.PrependInt64Slot(0, parcelAmount, 0)
 }
 func DefaultParcelExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
 	builder.PrependInt64Slot(1, parcelId, 0)
 }
-func DefaultParcelExcelAddParcelAmount(builder *flatbuffers.Builder, parcelAmount int64) {
-	builder.PrependInt64Slot(2, parcelAmount, 0)
+func DefaultParcelExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(parcelType), 0)
 }
 func DefaultParcelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

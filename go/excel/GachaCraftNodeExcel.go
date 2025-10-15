@@ -33,19 +33,15 @@ func (rcv *GachaCraftNodeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaCraftNodeExcel) Id() int64 {
+func (rcv *GachaCraftNodeExcel) Icon() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *GachaCraftNodeExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *GachaCraftNodeExcel) Tier() int64 {
+func (rcv *GachaCraftNodeExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,20 +49,20 @@ func (rcv *GachaCraftNodeExcel) Tier() int64 {
 	return 0
 }
 
-func (rcv *GachaCraftNodeExcel) MutateTier(n int64) bool {
+func (rcv *GachaCraftNodeExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *GachaCraftNodeExcel) QuickCraftNodeDisplayOrder() int32 {
+func (rcv *GachaCraftNodeExcel) LocalizeKey() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *GachaCraftNodeExcel) MutateQuickCraftNodeDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *GachaCraftNodeExcel) MutateLocalizeKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *GachaCraftNodeExcel) NodeQuality() int64 {
@@ -81,28 +77,8 @@ func (rcv *GachaCraftNodeExcel) MutateNodeQuality(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *GachaCraftNodeExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *GachaCraftNodeExcel) LocalizeKey() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *GachaCraftNodeExcel) MutateLocalizeKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
-}
-
 func (rcv *GachaCraftNodeExcel) Property() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -110,32 +86,56 @@ func (rcv *GachaCraftNodeExcel) Property() int64 {
 }
 
 func (rcv *GachaCraftNodeExcel) MutateProperty(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *GachaCraftNodeExcel) QuickCraftNodeDisplayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *GachaCraftNodeExcel) MutateQuickCraftNodeDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *GachaCraftNodeExcel) Tier() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *GachaCraftNodeExcel) MutateTier(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func GachaCraftNodeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
+func GachaCraftNodeExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(icon), 0)
+}
 func GachaCraftNodeExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+	builder.PrependInt64Slot(1, id, 0)
 }
-func GachaCraftNodeExcelAddTier(builder *flatbuffers.Builder, tier int64) {
-	builder.PrependInt64Slot(1, tier, 0)
-}
-func GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder *flatbuffers.Builder, quickCraftNodeDisplayOrder int32) {
-	builder.PrependInt32Slot(2, quickCraftNodeDisplayOrder, 0)
+func GachaCraftNodeExcelAddLocalizeKey(builder *flatbuffers.Builder, localizeKey uint32) {
+	builder.PrependUint32Slot(2, localizeKey, 0)
 }
 func GachaCraftNodeExcelAddNodeQuality(builder *flatbuffers.Builder, nodeQuality int64) {
 	builder.PrependInt64Slot(3, nodeQuality, 0)
 }
-func GachaCraftNodeExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(icon), 0)
-}
-func GachaCraftNodeExcelAddLocalizeKey(builder *flatbuffers.Builder, localizeKey uint32) {
-	builder.PrependUint32Slot(5, localizeKey, 0)
-}
 func GachaCraftNodeExcelAddProperty(builder *flatbuffers.Builder, property int64) {
-	builder.PrependInt64Slot(6, property, 0)
+	builder.PrependInt64Slot(4, property, 0)
+}
+func GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder *flatbuffers.Builder, quickCraftNodeDisplayOrder int32) {
+	builder.PrependInt32Slot(5, quickCraftNodeDisplayOrder, 0)
+}
+func GachaCraftNodeExcelAddTier(builder *flatbuffers.Builder, tier int64) {
+	builder.PrependInt64Slot(6, tier, 0)
 }
 func GachaCraftNodeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

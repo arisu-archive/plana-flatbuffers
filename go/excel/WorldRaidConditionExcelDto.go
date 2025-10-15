@@ -10,40 +10,40 @@ import (
 // WorldRaidConditionExcelDto represents a FlatBuffers table
 type WorldRaidConditionExcelDto struct {
 	fbsutils.FlatBuffer
+	AccountLevel               int64                      `json:"account_level"`
+	AfterWhenDate              string                     `json:"after_when_date"`
+	CampaignStageId            []int64                    `json:"campaign_stage_id"`
+	HideWhenLocked             bool                       `json:"hide_when_locked"`
 	Id                         int64                      `json:"id"`
 	LockUi                     []string                   `json:"lock_ui"`
-	HideWhenLocked             bool                       `json:"hide_when_locked"`
-	AccountLevel               int64                      `json:"account_level"`
-	ScenarioModeId             []int64                    `json:"scenario_mode_id"`
-	CampaignStageId            []int64                    `json:"campaign_stage_id"`
 	MultipleConditionCheckType MultipleConditionCheckType `json:"multiple_condition_check_type"`
-	AfterWhenDate              string                     `json:"after_when_date"`
+	ScenarioModeId             []int64                    `json:"scenario_mode_id"`
 	WorldRaidBossKill          []int64                    `json:"world_raid_boss_kill"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	WorldRaidConditionExcelStart(b)
+	WorldRaidConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelAddAfterWhenDate(b, b.CreateString(fbsutils.Convert(t.AfterWhenDate, t.FlatBuffer.TableKey)))
+	WorldRaidConditionExcelStartCampaignStageIdVector(b, len(t.CampaignStageId))
+	for i := range len(t.CampaignStageId) {
+		b.PrependInt64(fbsutils.Convert(t.CampaignStageId[len(t.CampaignStageId)-i-1], t.FlatBuffer.TableKey))
+	}
+	WorldRaidConditionExcelAddCampaignStageId(b, b.EndVector(len(t.CampaignStageId)))
+	WorldRaidConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
 	WorldRaidConditionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WorldRaidConditionExcelStartLockUiVector(b, len(t.LockUi))
 	for i := range len(t.LockUi) {
 		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
 	}
 	WorldRaidConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
-	WorldRaidConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
-	WorldRaidConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
 	WorldRaidConditionExcelStartScenarioModeIdVector(b, len(t.ScenarioModeId))
 	for i := range len(t.ScenarioModeId) {
 		b.PrependInt64(fbsutils.Convert(t.ScenarioModeId[len(t.ScenarioModeId)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidConditionExcelAddScenarioModeId(b, b.EndVector(len(t.ScenarioModeId)))
-	WorldRaidConditionExcelStartCampaignStageIdVector(b, len(t.CampaignStageId))
-	for i := range len(t.CampaignStageId) {
-		b.PrependInt64(fbsutils.Convert(t.CampaignStageId[len(t.CampaignStageId)-i-1], t.FlatBuffer.TableKey))
-	}
-	WorldRaidConditionExcelAddCampaignStageId(b, b.EndVector(len(t.CampaignStageId)))
-	WorldRaidConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
-	WorldRaidConditionExcelAddAfterWhenDate(b, b.CreateString(fbsutils.Convert(t.AfterWhenDate, t.FlatBuffer.TableKey)))
 	WorldRaidConditionExcelStartWorldRaidBossKillVector(b, len(t.WorldRaidBossKill))
 	for i := range len(t.WorldRaidBossKill) {
 		b.PrependInt64(fbsutils.Convert(t.WorldRaidBossKill[len(t.WorldRaidBossKill)-i-1], t.FlatBuffer.TableKey))
@@ -61,23 +61,23 @@ func (t *WorldRaidConditionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel) error {
+	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
+	t.AfterWhenDate = fbsutils.Convert(string(e.AfterWhenDate()), t.FlatBuffer.TableKey)
+	t.CampaignStageId = make([]int64, e.CampaignStageIdLength())
+	for i := range e.CampaignStageIdLength() {
+		t.CampaignStageId[i] = fbsutils.Convert(e.CampaignStageId(i), t.FlatBuffer.TableKey)
+	}
+	t.HideWhenLocked = e.HideWhenLocked()
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LockUi = make([]string, e.LockUiLength())
 	for i := range e.LockUiLength() {
 		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
 	}
-	t.HideWhenLocked = e.HideWhenLocked()
-	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
+	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
 	t.ScenarioModeId = make([]int64, e.ScenarioModeIdLength())
 	for i := range e.ScenarioModeIdLength() {
 		t.ScenarioModeId[i] = fbsutils.Convert(e.ScenarioModeId(i), t.FlatBuffer.TableKey)
 	}
-	t.CampaignStageId = make([]int64, e.CampaignStageIdLength())
-	for i := range e.CampaignStageIdLength() {
-		t.CampaignStageId[i] = fbsutils.Convert(e.CampaignStageId(i), t.FlatBuffer.TableKey)
-	}
-	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
-	t.AfterWhenDate = fbsutils.Convert(string(e.AfterWhenDate()), t.FlatBuffer.TableKey)
 	t.WorldRaidBossKill = make([]int64, e.WorldRaidBossKillLength())
 	for i := range e.WorldRaidBossKillLength() {
 		t.WorldRaidBossKill[i] = fbsutils.Convert(e.WorldRaidBossKill(i), t.FlatBuffer.TableKey)

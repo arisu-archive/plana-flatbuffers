@@ -1,18 +1,18 @@
 namespace MX.Data.Excel;
 
 table ScenarioResourceInfoExcel {
+    audio_name: string;
+    bgm_id: long;
     id: long;
-    scenario_mode_id: long;
+    lobby_ani_path: string;
+    localize_id: uint;
+    movie_cg_path: string;
     priority_order: long;
     pv_display_order: long;
-    video_id: long;
-    bgm_id: long;
-    audio_name: string;
-    spine_path: string;
     ratio: int;
-    lobby_ani_path: string;
-    movie_cg_path: string;
-    localize_id: uint;
+    scenario_mode_id: long;
+    spine_path: string;
+    video_id: long;
 }
 
 root_type ScenarioResourceInfoExcel;

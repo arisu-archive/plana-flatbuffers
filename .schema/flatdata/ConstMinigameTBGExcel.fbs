@@ -1,25 +1,25 @@
 namespace FlatData;
 
 table ConstMinigameTBGExcel {
+    ani_ally_battle_attack: string;
+    ani_enemy_battle_attack: string;
+    camera_angle: float;
+    camera_zoom_default: float;
+    camera_zoom_max: float;
+    camera_zoom_min: float;
+    conquest_map_boundary_offset_bottom: float;
     conquest_map_boundary_offset_left: float;
     conquest_map_boundary_offset_right: float;
     conquest_map_boundary_offset_top: float;
-    conquest_map_boundary_offset_bottom: float;
     conquest_map_center_offset_x: float;
     conquest_map_center_offset_y: float;
-    camera_angle: float;
-    camera_zoom_max: float;
-    camera_zoom_min: float;
-    camera_zoom_default: float;
-    thema_loading_progress_time: float;
-    map_ally_rotation: float;
-    ani_ally_battle_attack: string;
     effect_ally_battle_attack: string;
     effect_ally_battle_damage: string;
-    ani_enemy_battle_attack: string;
     effect_enemy_battle_attack: string;
     effect_enemy_battle_damage: string;
     encounter_ally_rotation: float;
     encounter_enemy_rotation: float;
     encounter_reward_receive_index: int;
+    map_ally_rotation: float;
+    thema_loading_progress_time: float;
 }

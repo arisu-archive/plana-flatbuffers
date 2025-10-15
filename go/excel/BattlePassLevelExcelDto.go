@@ -11,16 +11,16 @@ import (
 type BattlePassLevelExcelDto struct {
 	fbsutils.FlatBuffer
 	BattlePassId   int64 `json:"battle_pass_id"`
-	Level          int64 `json:"level"`
 	IsPickUpReward bool  `json:"is_pick_up_reward"`
+	Level          int64 `json:"level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BattlePassLevelExcelStart(b)
 	BattlePassLevelExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
-	BattlePassLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	BattlePassLevelExcelAddIsPickUpReward(b, t.IsPickUpReward)
+	BattlePassLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	return BattlePassLevelExcelEnd(b)
 }
 
@@ -34,8 +34,8 @@ func (t *BattlePassLevelExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattlePassLevelExcelDto) UnmarshalMessage(e *BattlePassLevelExcel) error {
 	t.BattlePassId = fbsutils.Convert(e.BattlePassId(), t.FlatBuffer.TableKey)
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.IsPickUpReward = e.IsPickUpReward()
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	return nil
 }
 

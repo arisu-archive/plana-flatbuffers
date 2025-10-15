@@ -33,7 +33,7 @@ func (rcv *AniStateData) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AniStateData) StateName() []byte {
+func (rcv *AniStateData) ClipName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -41,108 +41,8 @@ func (rcv *AniStateData) StateName() []byte {
 	return nil
 }
 
-func (rcv *AniStateData) StatePrefix() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AniStateData) StateNameWithPrefix() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AniStateData) Tag() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AniStateData) SpeedParameterName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AniStateData) SpeedParamter() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *AniStateData) MutateSpeedParamter(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
-}
-
-func (rcv *AniStateData) StateSpeed() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *AniStateData) MutateStateSpeed(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
-}
-
-func (rcv *AniStateData) ClipName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AniStateData) Length() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *AniStateData) MutateLength(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(20, n)
-}
-
-func (rcv *AniStateData) FrameRate() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *AniStateData) MutateFrameRate(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(22, n)
-}
-
-func (rcv *AniStateData) IsLooping() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *AniStateData) MutateIsLooping(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
-}
-
 func (rcv *AniStateData) Events(obj *AniEventData, j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		x := rcv._tab.Vector(o)
 		x += flatbuffers.UOffsetT(j) * 4
@@ -154,54 +54,154 @@ func (rcv *AniStateData) Events(obj *AniEventData, j int) bool {
 }
 
 func (rcv *AniStateData) EventsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *AniStateData) FrameRate() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *AniStateData) MutateFrameRate(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(8, n)
+}
+
+func (rcv *AniStateData) IsLooping() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *AniStateData) MutateIsLooping(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *AniStateData) Length() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *AniStateData) MutateLength(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(12, n)
+}
+
+func (rcv *AniStateData) SpeedParameterName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AniStateData) SpeedParamter() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *AniStateData) MutateSpeedParamter(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(16, n)
+}
+
+func (rcv *AniStateData) StateName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AniStateData) StateNameWithPrefix() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AniStateData) StatePrefix() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AniStateData) StateSpeed() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *AniStateData) MutateStateSpeed(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(24, n)
+}
+
+func (rcv *AniStateData) Tag() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func AniStateDataStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func AniStateDataAddStateName(builder *flatbuffers.Builder, stateName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(stateName), 0)
-}
-func AniStateDataAddStatePrefix(builder *flatbuffers.Builder, statePrefix flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(statePrefix), 0)
-}
-func AniStateDataAddStateNameWithPrefix(builder *flatbuffers.Builder, stateNameWithPrefix flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(stateNameWithPrefix), 0)
-}
-func AniStateDataAddTag(builder *flatbuffers.Builder, tag flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(tag), 0)
-}
-func AniStateDataAddSpeedParameterName(builder *flatbuffers.Builder, speedParameterName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(speedParameterName), 0)
-}
-func AniStateDataAddSpeedParamter(builder *flatbuffers.Builder, speedParamter float32) {
-	builder.PrependFloat32Slot(5, speedParamter, 0.0)
-}
-func AniStateDataAddStateSpeed(builder *flatbuffers.Builder, stateSpeed float32) {
-	builder.PrependFloat32Slot(6, stateSpeed, 0.0)
-}
 func AniStateDataAddClipName(builder *flatbuffers.Builder, clipName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(clipName), 0)
-}
-func AniStateDataAddLength(builder *flatbuffers.Builder, length float32) {
-	builder.PrependFloat32Slot(8, length, 0.0)
-}
-func AniStateDataAddFrameRate(builder *flatbuffers.Builder, frameRate float32) {
-	builder.PrependFloat32Slot(9, frameRate, 0.0)
-}
-func AniStateDataAddIsLooping(builder *flatbuffers.Builder, isLooping bool) {
-	builder.PrependBoolSlot(10, isLooping, false)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(clipName), 0)
 }
 func AniStateDataAddEvents(builder *flatbuffers.Builder, events flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(events), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(events), 0)
 }
 func AniStateDataStartEventsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func AniStateDataAddFrameRate(builder *flatbuffers.Builder, frameRate float32) {
+	builder.PrependFloat32Slot(2, frameRate, 0.0)
+}
+func AniStateDataAddIsLooping(builder *flatbuffers.Builder, isLooping bool) {
+	builder.PrependBoolSlot(3, isLooping, false)
+}
+func AniStateDataAddLength(builder *flatbuffers.Builder, length float32) {
+	builder.PrependFloat32Slot(4, length, 0.0)
+}
+func AniStateDataAddSpeedParameterName(builder *flatbuffers.Builder, speedParameterName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(speedParameterName), 0)
+}
+func AniStateDataAddSpeedParamter(builder *flatbuffers.Builder, speedParamter float32) {
+	builder.PrependFloat32Slot(6, speedParamter, 0.0)
+}
+func AniStateDataAddStateName(builder *flatbuffers.Builder, stateName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(stateName), 0)
+}
+func AniStateDataAddStateNameWithPrefix(builder *flatbuffers.Builder, stateNameWithPrefix flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(stateNameWithPrefix), 0)
+}
+func AniStateDataAddStatePrefix(builder *flatbuffers.Builder, statePrefix flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(statePrefix), 0)
+}
+func AniStateDataAddStateSpeed(builder *flatbuffers.Builder, stateSpeed float32) {
+	builder.PrependFloat32Slot(10, stateSpeed, 0.0)
+}
+func AniStateDataAddTag(builder *flatbuffers.Builder, tag flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(tag), 0)
 }
 func AniStateDataEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

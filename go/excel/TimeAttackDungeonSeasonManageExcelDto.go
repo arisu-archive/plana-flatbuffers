@@ -10,33 +10,33 @@ import (
 // TimeAttackDungeonSeasonManageExcelDto represents a FlatBuffers table
 type TimeAttackDungeonSeasonManageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                        int64   `json:"id"`
-	StartDate                 string  `json:"start_date"`
-	EndNoteLabelStartDate     string  `json:"end_note_label_start_date"`
-	EndDate                   string  `json:"end_date"`
-	UiSlot                    int64   `json:"ui_slot"`
-	DungeonId                 int64   `json:"dungeon_id"`
 	DifficultyGeas            []int64 `json:"difficulty_geas"`
-	TimeAttackDungeonRewardId int64   `json:"time_attack_dungeon_reward_id"`
+	DungeonId                 int64   `json:"dungeon_id"`
+	EndDate                   string  `json:"end_date"`
+	EndNoteLabelStartDate     string  `json:"end_note_label_start_date"`
+	Id                        int64   `json:"id"`
 	RoomLifeTimeInSeconds     int64   `json:"room_life_time_in_seconds"`
+	StartDate                 string  `json:"start_date"`
+	TimeAttackDungeonRewardId int64   `json:"time_attack_dungeon_reward_id"`
+	UiSlot                    int64   `json:"ui_slot"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TimeAttackDungeonSeasonManageExcelStart(b)
-	TimeAttackDungeonSeasonManageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TimeAttackDungeonSeasonManageExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
-	TimeAttackDungeonSeasonManageExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
-	TimeAttackDungeonSeasonManageExcelAddUiSlot(b, fbsutils.Convert(t.UiSlot, t.FlatBuffer.TableKey))
-	TimeAttackDungeonSeasonManageExcelAddDungeonId(b, fbsutils.Convert(t.DungeonId, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(b, len(t.DifficultyGeas))
 	for i := range len(t.DifficultyGeas) {
 		b.PrependInt64(fbsutils.Convert(t.DifficultyGeas[len(t.DifficultyGeas)-i-1], t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonSeasonManageExcelAddDifficultyGeas(b, b.EndVector(len(t.DifficultyGeas)))
-	TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(b, fbsutils.Convert(t.TimeAttackDungeonRewardId, t.FlatBuffer.TableKey))
+	TimeAttackDungeonSeasonManageExcelAddDungeonId(b, fbsutils.Convert(t.DungeonId, t.FlatBuffer.TableKey))
+	TimeAttackDungeonSeasonManageExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelAddRoomLifeTimeInSeconds(b, fbsutils.Convert(t.RoomLifeTimeInSeconds, t.FlatBuffer.TableKey))
+	TimeAttackDungeonSeasonManageExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(b, fbsutils.Convert(t.TimeAttackDungeonRewardId, t.FlatBuffer.TableKey))
+	TimeAttackDungeonSeasonManageExcelAddUiSlot(b, fbsutils.Convert(t.UiSlot, t.FlatBuffer.TableKey))
 	return TimeAttackDungeonSeasonManageExcelEnd(b)
 }
 
@@ -49,18 +49,18 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonSeasonManageExcelDto) UnmarshalMessage(e *TimeAttackDungeonSeasonManageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.UiSlot = fbsutils.Convert(e.UiSlot(), t.FlatBuffer.TableKey)
-	t.DungeonId = fbsutils.Convert(e.DungeonId(), t.FlatBuffer.TableKey)
 	t.DifficultyGeas = make([]int64, e.DifficultyGeasLength())
 	for i := range e.DifficultyGeasLength() {
 		t.DifficultyGeas[i] = fbsutils.Convert(e.DifficultyGeas(i), t.FlatBuffer.TableKey)
 	}
-	t.TimeAttackDungeonRewardId = fbsutils.Convert(e.TimeAttackDungeonRewardId(), t.FlatBuffer.TableKey)
+	t.DungeonId = fbsutils.Convert(e.DungeonId(), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.RoomLifeTimeInSeconds = fbsutils.Convert(e.RoomLifeTimeInSeconds(), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonRewardId = fbsutils.Convert(e.TimeAttackDungeonRewardId(), t.FlatBuffer.TableKey)
+	t.UiSlot = fbsutils.Convert(e.UiSlot(), t.FlatBuffer.TableKey)
 	return nil
 }
 

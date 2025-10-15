@@ -10,18 +10,18 @@ import (
 // FieldWorldMapZoneExcelDto represents a FlatBuffers table
 type FieldWorldMapZoneExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                      int64                   `json:"id"`
-	GroupId                 int32                   `json:"group_id"`
-	Date                    int32                   `json:"date"`
-	OpenConditionType       FieldConditionType      `json:"open_condition_type"`
-	OpenConditionId         int64                   `json:"open_condition_id"`
-	CloseConditionType      FieldConditionType      `json:"close_condition_type"`
 	CloseConditionId        int64                   `json:"close_condition_id"`
-	ResultFieldScene        int64                   `json:"result_field_scene"`
+	CloseConditionType      FieldConditionType      `json:"close_condition_type"`
+	Date                    int32                   `json:"date"`
 	FieldStageInteractionId int64                   `json:"field_stage_interaction_id"`
-	WorldMapButtonType      FieldWorldMapButtonType `json:"world_map_button_type"`
+	GroupId                 int32                   `json:"group_id"`
+	Id                      int64                   `json:"id"`
 	LocalizeCode            uint32                  `json:"localize_code"`
 	NewTagDisplay           bool                    `json:"new_tag_display"`
+	OpenConditionId         int64                   `json:"open_condition_id"`
+	OpenConditionType       FieldConditionType      `json:"open_condition_type"`
+	ResultFieldScene        int64                   `json:"result_field_scene"`
+	WorldMapButtonType      FieldWorldMapButtonType `json:"world_map_button_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,18 +30,18 @@ func (t *FieldWorldMapZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZone"))
 	}
 	FieldWorldMapZoneExcelStart(b)
-	FieldWorldMapZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddDate(b, fbsutils.Convert(t.Date, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddOpenConditionType(b, fbsutils.Convert(t.OpenConditionType, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddOpenConditionId(b, fbsutils.Convert(t.OpenConditionId, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddCloseConditionType(b, fbsutils.Convert(t.CloseConditionType, t.FlatBuffer.TableKey))
 	FieldWorldMapZoneExcelAddCloseConditionId(b, fbsutils.Convert(t.CloseConditionId, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddResultFieldScene(b, fbsutils.Convert(t.ResultFieldScene, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddCloseConditionType(b, fbsutils.Convert(t.CloseConditionType, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddDate(b, fbsutils.Convert(t.Date, t.FlatBuffer.TableKey))
 	FieldWorldMapZoneExcelAddFieldStageInteractionId(b, fbsutils.Convert(t.FieldStageInteractionId, t.FlatBuffer.TableKey))
-	FieldWorldMapZoneExcelAddWorldMapButtonType(b, fbsutils.Convert(t.WorldMapButtonType, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	FieldWorldMapZoneExcelAddLocalizeCode(b, fbsutils.Convert(t.LocalizeCode, t.FlatBuffer.TableKey))
 	FieldWorldMapZoneExcelAddNewTagDisplay(b, t.NewTagDisplay)
+	FieldWorldMapZoneExcelAddOpenConditionId(b, fbsutils.Convert(t.OpenConditionId, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddOpenConditionType(b, fbsutils.Convert(t.OpenConditionType, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddResultFieldScene(b, fbsutils.Convert(t.ResultFieldScene, t.FlatBuffer.TableKey))
+	FieldWorldMapZoneExcelAddWorldMapButtonType(b, fbsutils.Convert(t.WorldMapButtonType, t.FlatBuffer.TableKey))
 	return FieldWorldMapZoneExcelEnd(b)
 }
 
@@ -57,18 +57,18 @@ func (t *FieldWorldMapZoneExcelDto) UnmarshalMessage(e *FieldWorldMapZoneExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZone"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Date = fbsutils.Convert(e.Date(), t.FlatBuffer.TableKey)
-	t.OpenConditionType = FieldConditionType(fbsutils.Convert(int32(e.OpenConditionType()), t.FlatBuffer.TableKey))
-	t.OpenConditionId = fbsutils.Convert(e.OpenConditionId(), t.FlatBuffer.TableKey)
-	t.CloseConditionType = FieldConditionType(fbsutils.Convert(int32(e.CloseConditionType()), t.FlatBuffer.TableKey))
 	t.CloseConditionId = fbsutils.Convert(e.CloseConditionId(), t.FlatBuffer.TableKey)
-	t.ResultFieldScene = fbsutils.Convert(e.ResultFieldScene(), t.FlatBuffer.TableKey)
+	t.CloseConditionType = FieldConditionType(fbsutils.Convert(int32(e.CloseConditionType()), t.FlatBuffer.TableKey))
+	t.Date = fbsutils.Convert(e.Date(), t.FlatBuffer.TableKey)
 	t.FieldStageInteractionId = fbsutils.Convert(e.FieldStageInteractionId(), t.FlatBuffer.TableKey)
-	t.WorldMapButtonType = FieldWorldMapButtonType(fbsutils.Convert(int32(e.WorldMapButtonType()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeCode = fbsutils.Convert(e.LocalizeCode(), t.FlatBuffer.TableKey)
 	t.NewTagDisplay = e.NewTagDisplay()
+	t.OpenConditionId = fbsutils.Convert(e.OpenConditionId(), t.FlatBuffer.TableKey)
+	t.OpenConditionType = FieldConditionType(fbsutils.Convert(int32(e.OpenConditionType()), t.FlatBuffer.TableKey))
+	t.ResultFieldScene = fbsutils.Convert(e.ResultFieldScene(), t.FlatBuffer.TableKey)
+	t.WorldMapButtonType = FieldWorldMapButtonType(fbsutils.Convert(int32(e.WorldMapButtonType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

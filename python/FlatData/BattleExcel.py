@@ -25,8 +25,127 @@ class BattleExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BattleExcel
-    def None(self, j):
+    def Able(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def All(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Ally(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def AllySelf(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Blue(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def CloseToObstacle(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def CoverEnter(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Crush(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def D(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Distance(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Duration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def FinalDamage(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Guided(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def LightArmor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Low(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Main(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def Main619a7dca(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # BattleExcel
+    def None(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -34,54 +153,26 @@ class BattleExcel(object):
 
     # BattleExcel
     def NoneAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # BattleExcel
     def NoneLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # BattleExcel
     def NoneIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         return o == 0
 
     # BattleExcel
-    def Single(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Guided(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Blue(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def CoverEnter(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
     def Normal(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -89,113 +180,22 @@ class BattleExcel(object):
 
     # BattleExcel
     def NormalAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # BattleExcel
     def NormalLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # BattleExcel
     def NormalIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
-
-    # BattleExcel
-    def Crush(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Able(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def AllySelf(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def LightArmor(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Wood(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def All(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Distance(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def CloseToObstacle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Students(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Sequence(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def UseNextExSkill(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def Student(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # BattleExcel
-    def SearchAndMove(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # BattleExcel
     def Position(self):
@@ -205,98 +205,98 @@ class BattleExcel(object):
         return 0
 
     # BattleExcel
-    def Street(self):
+    def Preset(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def D(self):
+    def Remain(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Main(self):
+    def Resist(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Remain(self):
+    def SearchAndMove(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Low(self):
+    def Sequence(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Resist(self):
+    def Single(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Ally(self):
+    def SpecialTransStat(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Main166405e7(self):
+    def Street(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def TargetToCaster(self):
+    def Student(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Duration(self):
+    def Students(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Preset(self):
+    def Talk(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def FinalDamage(self):
+    def TargetToCaster(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def SpecialTransStat(self):
+    def UseNextExSkill(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattleExcel
-    def Talk(self):
+    def Wood(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -305,114 +305,114 @@ class BattleExcel(object):
 def BattleExcelStart(builder): builder.StartObject(34)
 def Start(builder):
     return BattleExcelStart(builder)
-def BattleExcelAddNone(builder, none): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(none), 0)
+def BattleExcelAddAble(builder, able): builder.PrependInt32Slot(0, able, 0)
+def AddAble(builder, able):
+    return BattleExcelAddAble(builder, able)
+def BattleExcelAddAll(builder, all): builder.PrependInt32Slot(1, all, 0)
+def AddAll(builder, all):
+    return BattleExcelAddAll(builder, all)
+def BattleExcelAddAlly(builder, ally): builder.PrependInt32Slot(2, ally, 0)
+def AddAlly(builder, ally):
+    return BattleExcelAddAlly(builder, ally)
+def BattleExcelAddAllySelf(builder, allySelf): builder.PrependInt32Slot(3, allySelf, 0)
+def AddAllySelf(builder, allySelf):
+    return BattleExcelAddAllySelf(builder, allySelf)
+def BattleExcelAddBlue(builder, blue): builder.PrependInt32Slot(4, blue, 0)
+def AddBlue(builder, blue):
+    return BattleExcelAddBlue(builder, blue)
+def BattleExcelAddCloseToObstacle(builder, closeToObstacle): builder.PrependInt32Slot(5, closeToObstacle, 0)
+def AddCloseToObstacle(builder, closeToObstacle):
+    return BattleExcelAddCloseToObstacle(builder, closeToObstacle)
+def BattleExcelAddCoverEnter(builder, coverEnter): builder.PrependInt32Slot(6, coverEnter, 0)
+def AddCoverEnter(builder, coverEnter):
+    return BattleExcelAddCoverEnter(builder, coverEnter)
+def BattleExcelAddCrush(builder, crush): builder.PrependInt32Slot(7, crush, 0)
+def AddCrush(builder, crush):
+    return BattleExcelAddCrush(builder, crush)
+def BattleExcelAddD(builder, d): builder.PrependInt32Slot(8, d, 0)
+def AddD(builder, d):
+    return BattleExcelAddD(builder, d)
+def BattleExcelAddDistance(builder, distance): builder.PrependInt32Slot(9, distance, 0)
+def AddDistance(builder, distance):
+    return BattleExcelAddDistance(builder, distance)
+def BattleExcelAddDuration(builder, duration): builder.PrependInt32Slot(10, duration, 0)
+def AddDuration(builder, duration):
+    return BattleExcelAddDuration(builder, duration)
+def BattleExcelAddFinalDamage(builder, finalDamage): builder.PrependInt32Slot(11, finalDamage, 0)
+def AddFinalDamage(builder, finalDamage):
+    return BattleExcelAddFinalDamage(builder, finalDamage)
+def BattleExcelAddGuided(builder, guided): builder.PrependInt32Slot(12, guided, 0)
+def AddGuided(builder, guided):
+    return BattleExcelAddGuided(builder, guided)
+def BattleExcelAddLightArmor(builder, lightArmor): builder.PrependInt32Slot(13, lightArmor, 0)
+def AddLightArmor(builder, lightArmor):
+    return BattleExcelAddLightArmor(builder, lightArmor)
+def BattleExcelAddLow(builder, low): builder.PrependInt32Slot(14, low, 0)
+def AddLow(builder, low):
+    return BattleExcelAddLow(builder, low)
+def BattleExcelAddMain(builder, main): builder.PrependInt32Slot(15, main, 0)
+def AddMain(builder, main):
+    return BattleExcelAddMain(builder, main)
+def BattleExcelAddMain619a7dca(builder, main619a7dca): builder.PrependInt32Slot(16, main619a7dca, 0)
+def AddMain619a7dca(builder, main619a7dca):
+    return BattleExcelAddMain619a7dca(builder, main619a7dca)
+def BattleExcelAddNone(builder, none): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(none), 0)
 def AddNone(builder, none):
     return BattleExcelAddNone(builder, none)
 def BattleExcelStartNoneVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartNoneVector(builder, numElems):
     return BattleExcelStartNoneVector(builder, numElems)
-def BattleExcelAddSingle(builder, single): builder.PrependInt32Slot(1, single, 0)
-def AddSingle(builder, single):
-    return BattleExcelAddSingle(builder, single)
-def BattleExcelAddGuided(builder, guided): builder.PrependInt32Slot(2, guided, 0)
-def AddGuided(builder, guided):
-    return BattleExcelAddGuided(builder, guided)
-def BattleExcelAddBlue(builder, blue): builder.PrependInt32Slot(3, blue, 0)
-def AddBlue(builder, blue):
-    return BattleExcelAddBlue(builder, blue)
-def BattleExcelAddCoverEnter(builder, coverEnter): builder.PrependInt32Slot(4, coverEnter, 0)
-def AddCoverEnter(builder, coverEnter):
-    return BattleExcelAddCoverEnter(builder, coverEnter)
-def BattleExcelAddNormal(builder, normal): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
+def BattleExcelAddNormal(builder, normal): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
 def AddNormal(builder, normal):
     return BattleExcelAddNormal(builder, normal)
 def BattleExcelStartNormalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartNormalVector(builder, numElems):
     return BattleExcelStartNormalVector(builder, numElems)
-def BattleExcelAddCrush(builder, crush): builder.PrependInt32Slot(6, crush, 0)
-def AddCrush(builder, crush):
-    return BattleExcelAddCrush(builder, crush)
-def BattleExcelAddAble(builder, able): builder.PrependInt32Slot(7, able, 0)
-def AddAble(builder, able):
-    return BattleExcelAddAble(builder, able)
-def BattleExcelAddAllySelf(builder, allySelf): builder.PrependInt32Slot(8, allySelf, 0)
-def AddAllySelf(builder, allySelf):
-    return BattleExcelAddAllySelf(builder, allySelf)
-def BattleExcelAddLightArmor(builder, lightArmor): builder.PrependInt32Slot(9, lightArmor, 0)
-def AddLightArmor(builder, lightArmor):
-    return BattleExcelAddLightArmor(builder, lightArmor)
-def BattleExcelAddWood(builder, wood): builder.PrependInt32Slot(10, wood, 0)
-def AddWood(builder, wood):
-    return BattleExcelAddWood(builder, wood)
-def BattleExcelAddAll(builder, all): builder.PrependInt32Slot(11, all, 0)
-def AddAll(builder, all):
-    return BattleExcelAddAll(builder, all)
-def BattleExcelAddDistance(builder, distance): builder.PrependInt32Slot(12, distance, 0)
-def AddDistance(builder, distance):
-    return BattleExcelAddDistance(builder, distance)
-def BattleExcelAddCloseToObstacle(builder, closeToObstacle): builder.PrependInt32Slot(13, closeToObstacle, 0)
-def AddCloseToObstacle(builder, closeToObstacle):
-    return BattleExcelAddCloseToObstacle(builder, closeToObstacle)
-def BattleExcelAddStudents(builder, students): builder.PrependInt32Slot(14, students, 0)
-def AddStudents(builder, students):
-    return BattleExcelAddStudents(builder, students)
-def BattleExcelAddSequence(builder, sequence): builder.PrependInt32Slot(15, sequence, 0)
-def AddSequence(builder, sequence):
-    return BattleExcelAddSequence(builder, sequence)
-def BattleExcelAddUseNextExSkill(builder, useNextExSkill): builder.PrependInt32Slot(16, useNextExSkill, 0)
-def AddUseNextExSkill(builder, useNextExSkill):
-    return BattleExcelAddUseNextExSkill(builder, useNextExSkill)
-def BattleExcelAddStudent(builder, student): builder.PrependInt32Slot(17, student, 0)
-def AddStudent(builder, student):
-    return BattleExcelAddStudent(builder, student)
-def BattleExcelAddSearchAndMove(builder, searchAndMove): builder.PrependInt32Slot(18, searchAndMove, 0)
-def AddSearchAndMove(builder, searchAndMove):
-    return BattleExcelAddSearchAndMove(builder, searchAndMove)
 def BattleExcelAddPosition(builder, position): builder.PrependInt32Slot(19, position, 0)
 def AddPosition(builder, position):
     return BattleExcelAddPosition(builder, position)
-def BattleExcelAddStreet(builder, street): builder.PrependInt32Slot(20, street, 0)
-def AddStreet(builder, street):
-    return BattleExcelAddStreet(builder, street)
-def BattleExcelAddD(builder, d): builder.PrependInt32Slot(21, d, 0)
-def AddD(builder, d):
-    return BattleExcelAddD(builder, d)
-def BattleExcelAddMain(builder, main): builder.PrependInt32Slot(22, main, 0)
-def AddMain(builder, main):
-    return BattleExcelAddMain(builder, main)
-def BattleExcelAddRemain(builder, remain): builder.PrependInt32Slot(23, remain, 0)
-def AddRemain(builder, remain):
-    return BattleExcelAddRemain(builder, remain)
-def BattleExcelAddLow(builder, low): builder.PrependInt32Slot(24, low, 0)
-def AddLow(builder, low):
-    return BattleExcelAddLow(builder, low)
-def BattleExcelAddResist(builder, resist): builder.PrependInt32Slot(25, resist, 0)
-def AddResist(builder, resist):
-    return BattleExcelAddResist(builder, resist)
-def BattleExcelAddAlly(builder, ally): builder.PrependInt32Slot(26, ally, 0)
-def AddAlly(builder, ally):
-    return BattleExcelAddAlly(builder, ally)
-def BattleExcelAddMain166405e7(builder, main166405e7): builder.PrependInt32Slot(27, main166405e7, 0)
-def AddMain166405e7(builder, main166405e7):
-    return BattleExcelAddMain166405e7(builder, main166405e7)
-def BattleExcelAddTargetToCaster(builder, targetToCaster): builder.PrependInt32Slot(28, targetToCaster, 0)
-def AddTargetToCaster(builder, targetToCaster):
-    return BattleExcelAddTargetToCaster(builder, targetToCaster)
-def BattleExcelAddDuration(builder, duration): builder.PrependInt32Slot(29, duration, 0)
-def AddDuration(builder, duration):
-    return BattleExcelAddDuration(builder, duration)
-def BattleExcelAddPreset(builder, preset): builder.PrependInt32Slot(30, preset, 0)
+def BattleExcelAddPreset(builder, preset): builder.PrependInt32Slot(20, preset, 0)
 def AddPreset(builder, preset):
     return BattleExcelAddPreset(builder, preset)
-def BattleExcelAddFinalDamage(builder, finalDamage): builder.PrependInt32Slot(31, finalDamage, 0)
-def AddFinalDamage(builder, finalDamage):
-    return BattleExcelAddFinalDamage(builder, finalDamage)
-def BattleExcelAddSpecialTransStat(builder, specialTransStat): builder.PrependInt32Slot(32, specialTransStat, 0)
+def BattleExcelAddRemain(builder, remain): builder.PrependInt32Slot(21, remain, 0)
+def AddRemain(builder, remain):
+    return BattleExcelAddRemain(builder, remain)
+def BattleExcelAddResist(builder, resist): builder.PrependInt32Slot(22, resist, 0)
+def AddResist(builder, resist):
+    return BattleExcelAddResist(builder, resist)
+def BattleExcelAddSearchAndMove(builder, searchAndMove): builder.PrependInt32Slot(23, searchAndMove, 0)
+def AddSearchAndMove(builder, searchAndMove):
+    return BattleExcelAddSearchAndMove(builder, searchAndMove)
+def BattleExcelAddSequence(builder, sequence): builder.PrependInt32Slot(24, sequence, 0)
+def AddSequence(builder, sequence):
+    return BattleExcelAddSequence(builder, sequence)
+def BattleExcelAddSingle(builder, single): builder.PrependInt32Slot(25, single, 0)
+def AddSingle(builder, single):
+    return BattleExcelAddSingle(builder, single)
+def BattleExcelAddSpecialTransStat(builder, specialTransStat): builder.PrependInt32Slot(26, specialTransStat, 0)
 def AddSpecialTransStat(builder, specialTransStat):
     return BattleExcelAddSpecialTransStat(builder, specialTransStat)
-def BattleExcelAddTalk(builder, talk): builder.PrependInt32Slot(33, talk, 0)
+def BattleExcelAddStreet(builder, street): builder.PrependInt32Slot(27, street, 0)
+def AddStreet(builder, street):
+    return BattleExcelAddStreet(builder, street)
+def BattleExcelAddStudent(builder, student): builder.PrependInt32Slot(28, student, 0)
+def AddStudent(builder, student):
+    return BattleExcelAddStudent(builder, student)
+def BattleExcelAddStudents(builder, students): builder.PrependInt32Slot(29, students, 0)
+def AddStudents(builder, students):
+    return BattleExcelAddStudents(builder, students)
+def BattleExcelAddTalk(builder, talk): builder.PrependInt32Slot(30, talk, 0)
 def AddTalk(builder, talk):
     return BattleExcelAddTalk(builder, talk)
+def BattleExcelAddTargetToCaster(builder, targetToCaster): builder.PrependInt32Slot(31, targetToCaster, 0)
+def AddTargetToCaster(builder, targetToCaster):
+    return BattleExcelAddTargetToCaster(builder, targetToCaster)
+def BattleExcelAddUseNextExSkill(builder, useNextExSkill): builder.PrependInt32Slot(32, useNextExSkill, 0)
+def AddUseNextExSkill(builder, useNextExSkill):
+    return BattleExcelAddUseNextExSkill(builder, useNextExSkill)
+def BattleExcelAddWood(builder, wood): builder.PrependInt32Slot(33, wood, 0)
+def AddWood(builder, wood):
+    return BattleExcelAddWood(builder, wood)
 def BattleExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattleExcelEnd(builder)

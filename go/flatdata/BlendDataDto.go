@@ -11,8 +11,8 @@ import (
 // BlendDataDto represents a FlatBuffers table
 type BlendDataDto struct {
 	fbsutils.FlatBuffer
-	Type     int32          `json:"type"`
 	InfoList []BlendInfoDto `json:"info_list"`
+	Type     int32          `json:"type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,13 +21,13 @@ func (t *BlendDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
 	}
 	BlendDataStart(b)
-	BlendDataAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	BlendDataStartInfoListVector(b, len(t.InfoList))
 	for i := range len(t.InfoList) {
 		// The array should be reversed.
 		b.PrependUOffsetT(t.InfoList[len(t.InfoList)-i-1].MarshalModel(b))
 	}
 	BlendDataAddInfoList(b, b.EndVector(len(t.InfoList)))
+	BlendDataAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	return BlendDataEnd(b)
 }
 
@@ -43,7 +43,6 @@ func (t *BlendDataDto) UnmarshalMessage(e *BlendData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
 	}
-	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
 	t.InfoList = make([]BlendInfoDto, e.InfoListLength())
 	for i := range e.InfoListLength() {
 		d := new(BlendInfo)
@@ -52,6 +51,7 @@ func (t *BlendDataDto) UnmarshalMessage(e *BlendData) error {
 		}
 		t.InfoList[i].UnmarshalMessage(d)
 	}
+	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
 	return nil
 }
 

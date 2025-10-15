@@ -10,17 +10,17 @@ import (
 // BGMRaidExcelDto represents a FlatBuffers table
 type BGMRaidExcelDto struct {
 	fbsutils.FlatBuffer
-	StageId    int64 `json:"stage_id"`
-	PhaseIndex int64 `json:"phase_index"`
 	BgmId      int64 `json:"bgm_id"`
+	PhaseIndex int64 `json:"phase_index"`
+	StageId    int64 `json:"stage_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMRaidExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BGMRaidExcelStart(b)
-	BGMRaidExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
-	BGMRaidExcelAddPhaseIndex(b, fbsutils.Convert(t.PhaseIndex, t.FlatBuffer.TableKey))
 	BGMRaidExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	BGMRaidExcelAddPhaseIndex(b, fbsutils.Convert(t.PhaseIndex, t.FlatBuffer.TableKey))
+	BGMRaidExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
 	return BGMRaidExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *BGMRaidExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMRaidExcelDto) UnmarshalMessage(e *BGMRaidExcel) error {
-	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
-	t.PhaseIndex = fbsutils.Convert(e.PhaseIndex(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.PhaseIndex = fbsutils.Convert(e.PhaseIndex(), t.FlatBuffer.TableKey)
+	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

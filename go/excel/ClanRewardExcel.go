@@ -57,16 +57,16 @@ func (rcv *ClanRewardExcel) MutateEchelonType(n EchelonType) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *ClanRewardExcel) RewardParcelType() ParcelType {
+func (rcv *ClanRewardExcel) RewardParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ClanRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+func (rcv *ClanRewardExcel) MutateRewardParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *ClanRewardExcel) RewardParcelId() int64 {
@@ -81,16 +81,16 @@ func (rcv *ClanRewardExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ClanRewardExcel) RewardParcelAmount() int64 {
+func (rcv *ClanRewardExcel) RewardParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ClanRewardExcel) MutateRewardParcelAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *ClanRewardExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func ClanRewardExcelStart(builder *flatbuffers.Builder) {
@@ -102,14 +102,14 @@ func ClanRewardExcelAddClanRewardType(builder *flatbuffers.Builder, clanRewardTy
 func ClanRewardExcelAddEchelonType(builder *flatbuffers.Builder, echelonType EchelonType) {
 	builder.PrependInt32Slot(1, int32(echelonType), 0)
 }
-func ClanRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
+func ClanRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
+	builder.PrependInt64Slot(2, rewardParcelAmount, 0)
 }
 func ClanRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
 	builder.PrependInt64Slot(3, rewardParcelId, 0)
 }
-func ClanRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
-	builder.PrependInt64Slot(4, rewardParcelAmount, 0)
+func ClanRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(4, int32(rewardParcelType), 0)
 }
 func ClanRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

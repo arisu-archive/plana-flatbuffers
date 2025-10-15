@@ -5,20 +5,20 @@ include "StrategyEnvironment.fbs";
 namespace MX.Data.Excel;
 
 table StoryStrategyExcel {
-    id: long;
-    name: string;
-    localize: string;
-    stage_enter_echelon_count: int;
     battle_duration: long;
-    white_list_id: long;
-    strategy_map: string;
-    strategy_map_bg: string;
+    bgm_id: long;
+    content_type: ContentType;
+    first_clear_report_event_name: string;
+    id: long;
+    localize: string;
     max_turn: int;
+    name: string;
+    stage_enter_echelon_count: int;
     stage_topography: StageTopography;
     strategy_environment: StrategyEnvironment;
-    content_type: ContentType;
-    bgm_id: long;
-    first_clear_report_event_name: string;
+    strategy_map: string;
+    strategy_map_bg: string;
+    white_list_id: long;
 }
 
 root_type StoryStrategyExcel;

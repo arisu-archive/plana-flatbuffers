@@ -25,35 +25,35 @@ class MinigameCCGLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGLevelExcel
-    def LevelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelExcel
-    def CcgId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelExcel
-    def FloorIndex(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelExcel
     def BackgroundPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameCCGLevelExcel
     def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelExcel
+    def CcgId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelExcel
+    def FloorIndex(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelExcel
+    def LevelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class MinigameCCGLevelExcel(object):
 def MinigameCCGLevelExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return MinigameCCGLevelExcelStart(builder)
-def MinigameCCGLevelExcelAddLevelId(builder, levelId): builder.PrependInt64Slot(0, levelId, 0)
-def AddLevelId(builder, levelId):
-    return MinigameCCGLevelExcelAddLevelId(builder, levelId)
-def MinigameCCGLevelExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(1, ccgId, 0)
-def AddCcgId(builder, ccgId):
-    return MinigameCCGLevelExcelAddCcgId(builder, ccgId)
-def MinigameCCGLevelExcelAddFloorIndex(builder, floorIndex): builder.PrependInt32Slot(2, floorIndex, 0)
-def AddFloorIndex(builder, floorIndex):
-    return MinigameCCGLevelExcelAddFloorIndex(builder, floorIndex)
-def MinigameCCGLevelExcelAddBackgroundPath(builder, backgroundPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(backgroundPath), 0)
+def MinigameCCGLevelExcelAddBackgroundPath(builder, backgroundPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backgroundPath), 0)
 def AddBackgroundPath(builder, backgroundPath):
     return MinigameCCGLevelExcelAddBackgroundPath(builder, backgroundPath)
-def MinigameCCGLevelExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(4, bgmId, 0)
+def MinigameCCGLevelExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(1, bgmId, 0)
 def AddBgmId(builder, bgmId):
     return MinigameCCGLevelExcelAddBgmId(builder, bgmId)
+def MinigameCCGLevelExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(2, ccgId, 0)
+def AddCcgId(builder, ccgId):
+    return MinigameCCGLevelExcelAddCcgId(builder, ccgId)
+def MinigameCCGLevelExcelAddFloorIndex(builder, floorIndex): builder.PrependInt32Slot(3, floorIndex, 0)
+def AddFloorIndex(builder, floorIndex):
+    return MinigameCCGLevelExcelAddFloorIndex(builder, floorIndex)
+def MinigameCCGLevelExcelAddLevelId(builder, levelId): builder.PrependInt64Slot(4, levelId, 0)
+def AddLevelId(builder, levelId):
+    return MinigameCCGLevelExcelAddLevelId(builder, levelId)
 def MinigameCCGLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGLevelExcelEnd(builder)

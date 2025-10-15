@@ -33,19 +33,15 @@ func (rcv *MiniGameRhythmExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameRhythmExcel) UniqueId() int64 {
+func (rcv *MiniGameRhythmExcel) ArtLevelSceneName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MiniGameRhythmExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MiniGameRhythmExcel) RhythmBgmId() int64 {
+func (rcv *MiniGameRhythmExcel) AttackScoreRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +49,11 @@ func (rcv *MiniGameRhythmExcel) RhythmBgmId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameRhythmExcel) MutateRhythmBgmId(n int64) bool {
+func (rcv *MiniGameRhythmExcel) MutateAttackScoreRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameRhythmExcel) PresetName() []byte {
+func (rcv *MiniGameRhythmExcel) ComboImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -65,116 +61,8 @@ func (rcv *MiniGameRhythmExcel) PresetName() []byte {
 	return nil
 }
 
-func (rcv *MiniGameRhythmExcel) StageDifficulty() Difficulty {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateStageDifficulty(n Difficulty) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *MiniGameRhythmExcel) IsSpecial() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MiniGameRhythmExcel) MutateIsSpecial(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *MiniGameRhythmExcel) OpenStageScoreAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateOpenStageScoreAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *MiniGameRhythmExcel) MaxHp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateMaxHp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *MiniGameRhythmExcel) MissDamage() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateMissDamage(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *MiniGameRhythmExcel) CriticalHpRestoreValue() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateCriticalHpRestoreValue(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *MiniGameRhythmExcel) MaxScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateMaxScore(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *MiniGameRhythmExcel) FeverScoreRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateFeverScoreRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *MiniGameRhythmExcel) NoteScoreRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateNoteScoreRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
-}
-
 func (rcv *MiniGameRhythmExcel) ComboScoreRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -182,35 +70,23 @@ func (rcv *MiniGameRhythmExcel) ComboScoreRate() int64 {
 }
 
 func (rcv *MiniGameRhythmExcel) MutateComboScoreRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MiniGameRhythmExcel) AttackScoreRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+func (rcv *MiniGameRhythmExcel) CriticalHpRestoreValue() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameRhythmExcel) MutateAttackScoreRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *MiniGameRhythmExcel) FeverCriticalRate() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *MiniGameRhythmExcel) MutateFeverCriticalRate(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(32, n)
+func (rcv *MiniGameRhythmExcel) MutateCriticalHpRestoreValue(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *MiniGameRhythmExcel) FeverAttackRate() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -218,11 +94,59 @@ func (rcv *MiniGameRhythmExcel) FeverAttackRate() float32 {
 }
 
 func (rcv *MiniGameRhythmExcel) MutateFeverAttackRate(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(34, n)
+	return rcv._tab.MutateFloat32Slot(14, n)
+}
+
+func (rcv *MiniGameRhythmExcel) FeverCriticalRate() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateFeverCriticalRate(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(16, n)
+}
+
+func (rcv *MiniGameRhythmExcel) FeverScoreRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateFeverScoreRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *MiniGameRhythmExcel) IsSpecial() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MiniGameRhythmExcel) MutateIsSpecial(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *MiniGameRhythmExcel) MaxHp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateMaxHp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func (rcv *MiniGameRhythmExcel) MaxHpScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -230,6 +154,74 @@ func (rcv *MiniGameRhythmExcel) MaxHpScore() int64 {
 }
 
 func (rcv *MiniGameRhythmExcel) MutateMaxHpScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *MiniGameRhythmExcel) MaxScore() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateMaxScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *MiniGameRhythmExcel) MissDamage() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateMissDamage(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *MiniGameRhythmExcel) NoteScoreRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateNoteScoreRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *MiniGameRhythmExcel) OpenStageScoreAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateOpenStageScoreAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *MiniGameRhythmExcel) PresetName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameRhythmExcel) RhythmBgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateRhythmBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(36, n)
 }
 
@@ -241,84 +233,92 @@ func (rcv *MiniGameRhythmExcel) RhythmFileName() []byte {
 	return nil
 }
 
-func (rcv *MiniGameRhythmExcel) ArtLevelSceneName() []byte {
+func (rcv *MiniGameRhythmExcel) StageDifficulty() Difficulty {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MiniGameRhythmExcel) ComboImagePath() []byte {
+func (rcv *MiniGameRhythmExcel) MutateStageDifficulty(n Difficulty) bool {
+	return rcv._tab.MutateInt32Slot(40, int32(n))
+}
+
+func (rcv *MiniGameRhythmExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MiniGameRhythmExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
 }
 
 func MiniGameRhythmExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(20)
 }
-func MiniGameRhythmExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func MiniGameRhythmExcelAddRhythmBgmId(builder *flatbuffers.Builder, rhythmBgmId int64) {
-	builder.PrependInt64Slot(1, rhythmBgmId, 0)
-}
-func MiniGameRhythmExcelAddPresetName(builder *flatbuffers.Builder, presetName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(presetName), 0)
-}
-func MiniGameRhythmExcelAddStageDifficulty(builder *flatbuffers.Builder, stageDifficulty Difficulty) {
-	builder.PrependInt32Slot(3, int32(stageDifficulty), 0)
-}
-func MiniGameRhythmExcelAddIsSpecial(builder *flatbuffers.Builder, isSpecial bool) {
-	builder.PrependBoolSlot(4, isSpecial, false)
-}
-func MiniGameRhythmExcelAddOpenStageScoreAmount(builder *flatbuffers.Builder, openStageScoreAmount int64) {
-	builder.PrependInt64Slot(5, openStageScoreAmount, 0)
-}
-func MiniGameRhythmExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
-	builder.PrependInt64Slot(6, maxHp, 0)
-}
-func MiniGameRhythmExcelAddMissDamage(builder *flatbuffers.Builder, missDamage int64) {
-	builder.PrependInt64Slot(7, missDamage, 0)
-}
-func MiniGameRhythmExcelAddCriticalHpRestoreValue(builder *flatbuffers.Builder, criticalHpRestoreValue int64) {
-	builder.PrependInt64Slot(8, criticalHpRestoreValue, 0)
-}
-func MiniGameRhythmExcelAddMaxScore(builder *flatbuffers.Builder, maxScore int64) {
-	builder.PrependInt64Slot(9, maxScore, 0)
-}
-func MiniGameRhythmExcelAddFeverScoreRate(builder *flatbuffers.Builder, feverScoreRate int64) {
-	builder.PrependInt64Slot(10, feverScoreRate, 0)
-}
-func MiniGameRhythmExcelAddNoteScoreRate(builder *flatbuffers.Builder, noteScoreRate int64) {
-	builder.PrependInt64Slot(11, noteScoreRate, 0)
-}
-func MiniGameRhythmExcelAddComboScoreRate(builder *flatbuffers.Builder, comboScoreRate int64) {
-	builder.PrependInt64Slot(12, comboScoreRate, 0)
+func MiniGameRhythmExcelAddArtLevelSceneName(builder *flatbuffers.Builder, artLevelSceneName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(artLevelSceneName), 0)
 }
 func MiniGameRhythmExcelAddAttackScoreRate(builder *flatbuffers.Builder, attackScoreRate int64) {
-	builder.PrependInt64Slot(13, attackScoreRate, 0)
+	builder.PrependInt64Slot(1, attackScoreRate, 0)
 }
-func MiniGameRhythmExcelAddFeverCriticalRate(builder *flatbuffers.Builder, feverCriticalRate float32) {
-	builder.PrependFloat32Slot(14, feverCriticalRate, 0.0)
+func MiniGameRhythmExcelAddComboImagePath(builder *flatbuffers.Builder, comboImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(comboImagePath), 0)
+}
+func MiniGameRhythmExcelAddComboScoreRate(builder *flatbuffers.Builder, comboScoreRate int64) {
+	builder.PrependInt64Slot(3, comboScoreRate, 0)
+}
+func MiniGameRhythmExcelAddCriticalHpRestoreValue(builder *flatbuffers.Builder, criticalHpRestoreValue int64) {
+	builder.PrependInt64Slot(4, criticalHpRestoreValue, 0)
 }
 func MiniGameRhythmExcelAddFeverAttackRate(builder *flatbuffers.Builder, feverAttackRate float32) {
-	builder.PrependFloat32Slot(15, feverAttackRate, 0.0)
+	builder.PrependFloat32Slot(5, feverAttackRate, 0.0)
+}
+func MiniGameRhythmExcelAddFeverCriticalRate(builder *flatbuffers.Builder, feverCriticalRate float32) {
+	builder.PrependFloat32Slot(6, feverCriticalRate, 0.0)
+}
+func MiniGameRhythmExcelAddFeverScoreRate(builder *flatbuffers.Builder, feverScoreRate int64) {
+	builder.PrependInt64Slot(7, feverScoreRate, 0)
+}
+func MiniGameRhythmExcelAddIsSpecial(builder *flatbuffers.Builder, isSpecial bool) {
+	builder.PrependBoolSlot(8, isSpecial, false)
+}
+func MiniGameRhythmExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
+	builder.PrependInt64Slot(9, maxHp, 0)
 }
 func MiniGameRhythmExcelAddMaxHpScore(builder *flatbuffers.Builder, maxHpScore int64) {
-	builder.PrependInt64Slot(16, maxHpScore, 0)
+	builder.PrependInt64Slot(10, maxHpScore, 0)
+}
+func MiniGameRhythmExcelAddMaxScore(builder *flatbuffers.Builder, maxScore int64) {
+	builder.PrependInt64Slot(11, maxScore, 0)
+}
+func MiniGameRhythmExcelAddMissDamage(builder *flatbuffers.Builder, missDamage int64) {
+	builder.PrependInt64Slot(12, missDamage, 0)
+}
+func MiniGameRhythmExcelAddNoteScoreRate(builder *flatbuffers.Builder, noteScoreRate int64) {
+	builder.PrependInt64Slot(13, noteScoreRate, 0)
+}
+func MiniGameRhythmExcelAddOpenStageScoreAmount(builder *flatbuffers.Builder, openStageScoreAmount int64) {
+	builder.PrependInt64Slot(14, openStageScoreAmount, 0)
+}
+func MiniGameRhythmExcelAddPresetName(builder *flatbuffers.Builder, presetName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(presetName), 0)
+}
+func MiniGameRhythmExcelAddRhythmBgmId(builder *flatbuffers.Builder, rhythmBgmId int64) {
+	builder.PrependInt64Slot(16, rhythmBgmId, 0)
 }
 func MiniGameRhythmExcelAddRhythmFileName(builder *flatbuffers.Builder, rhythmFileName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(rhythmFileName), 0)
 }
-func MiniGameRhythmExcelAddArtLevelSceneName(builder *flatbuffers.Builder, artLevelSceneName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(artLevelSceneName), 0)
+func MiniGameRhythmExcelAddStageDifficulty(builder *flatbuffers.Builder, stageDifficulty Difficulty) {
+	builder.PrependInt32Slot(18, int32(stageDifficulty), 0)
 }
-func MiniGameRhythmExcelAddComboImagePath(builder *flatbuffers.Builder, comboImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(comboImagePath), 0)
+func MiniGameRhythmExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(19, uniqueId, 0)
 }
 func MiniGameRhythmExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

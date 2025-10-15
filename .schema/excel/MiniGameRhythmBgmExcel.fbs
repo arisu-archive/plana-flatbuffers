@@ -1,16 +1,16 @@
 namespace MX.Data.Excel;
 
 table MiniGameRhythmBgmExcel {
-    rhythm_bgm_id: long;
-    event_content_id: long;
-    stage_select_image_path: string;
-    bpm: long;
     bgm: long;
-    bgm_name_text: string;
     bgm_artist_text: string;
-    has_lyricist: bool;
     bgm_composer_text: string;
     bgm_length: int;
+    bgm_name_text: string;
+    bpm: long;
+    event_content_id: long;
+    has_lyricist: bool;
+    rhythm_bgm_id: long;
+    stage_select_image_path: string;
 }
 
 root_type MiniGameRhythmBgmExcel;

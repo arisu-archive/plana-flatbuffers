@@ -33,116 +33,8 @@ func (rcv *FieldInteractionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldInteractionExcel) FieldSeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateFieldSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldInteractionExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *FieldInteractionExcel) FieldDateId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateFieldDateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *FieldInteractionExcel) ShowEmoji() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *FieldInteractionExcel) MutateShowEmoji(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *FieldInteractionExcel) KeywordLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *FieldInteractionExcel) InteractionType(j int) FieldInteractionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return FieldInteractionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) InteractionTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateInteractionType(j int, n FieldInteractionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *FieldInteractionExcel) InteractionId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) InteractionIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateInteractionId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *FieldInteractionExcel) ConditionClass() FieldConditionClass {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return FieldConditionClass(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -150,11 +42,11 @@ func (rcv *FieldInteractionExcel) ConditionClass() FieldConditionClass {
 }
 
 func (rcv *FieldInteractionExcel) MutateConditionClass(n FieldConditionClass) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
 func (rcv *FieldInteractionExcel) ConditionClassParameters(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -163,7 +55,7 @@ func (rcv *FieldInteractionExcel) ConditionClassParameters(j int) int64 {
 }
 
 func (rcv *FieldInteractionExcel) ConditionClassParametersLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -171,80 +63,16 @@ func (rcv *FieldInteractionExcel) ConditionClassParametersLength() int {
 }
 
 func (rcv *FieldInteractionExcel) MutateConditionClassParameters(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *FieldInteractionExcel) OnceOnly() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *FieldInteractionExcel) MutateOnceOnly(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
-}
-
-func (rcv *FieldInteractionExcel) ConditionIndex(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) ConditionIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateConditionIndex(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *FieldInteractionExcel) ConditionType(j int) FieldConditionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return FieldConditionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) ConditionTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldInteractionExcel) MutateConditionType(j int, n FieldConditionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
 
 func (rcv *FieldInteractionExcel) ConditionId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -253,7 +81,7 @@ func (rcv *FieldInteractionExcel) ConditionId(j int) int64 {
 }
 
 func (rcv *FieldInteractionExcel) ConditionIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -261,7 +89,7 @@ func (rcv *FieldInteractionExcel) ConditionIdLength() int {
 }
 
 func (rcv *FieldInteractionExcel) MutateConditionId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -269,8 +97,144 @@ func (rcv *FieldInteractionExcel) MutateConditionId(j int, n int64) bool {
 	return false
 }
 
+func (rcv *FieldInteractionExcel) ConditionIndex(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) ConditionIndexLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateConditionIndex(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) ConditionType(j int) FieldConditionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return FieldConditionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) ConditionTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateConditionType(j int, n FieldConditionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) FieldDateId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateFieldDateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *FieldInteractionExcel) FieldSeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateFieldSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *FieldInteractionExcel) InteractionId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) InteractionIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateInteractionId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) InteractionType(j int) FieldInteractionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return FieldInteractionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) InteractionTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateInteractionType(j int, n FieldInteractionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) KeywordLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func (rcv *FieldInteractionExcel) NegateCondition(j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
@@ -279,7 +243,7 @@ func (rcv *FieldInteractionExcel) NegateCondition(j int) bool {
 }
 
 func (rcv *FieldInteractionExcel) NegateConditionLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -287,7 +251,7 @@ func (rcv *FieldInteractionExcel) NegateConditionLength() int {
 }
 
 func (rcv *FieldInteractionExcel) MutateNegateCondition(j int, n bool) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
@@ -295,71 +259,107 @@ func (rcv *FieldInteractionExcel) MutateNegateCondition(j int, n bool) bool {
 	return false
 }
 
+func (rcv *FieldInteractionExcel) OnceOnly() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) MutateOnceOnly(n bool) bool {
+	return rcv._tab.MutateBoolSlot(26, n)
+}
+
+func (rcv *FieldInteractionExcel) ShowEmoji() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FieldInteractionExcel) MutateShowEmoji(n bool) bool {
+	return rcv._tab.MutateBoolSlot(28, n)
+}
+
+func (rcv *FieldInteractionExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldInteractionExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
 func FieldInteractionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
-func FieldInteractionExcelAddFieldSeasonId(builder *flatbuffers.Builder, fieldSeasonId int64) {
-	builder.PrependInt64Slot(0, fieldSeasonId, 0)
-}
-func FieldInteractionExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func FieldInteractionExcelAddFieldDateId(builder *flatbuffers.Builder, fieldDateId int64) {
-	builder.PrependInt64Slot(2, fieldDateId, 0)
-}
-func FieldInteractionExcelAddShowEmoji(builder *flatbuffers.Builder, showEmoji bool) {
-	builder.PrependBoolSlot(3, showEmoji, false)
-}
-func FieldInteractionExcelAddKeywordLocalize(builder *flatbuffers.Builder, keywordLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(keywordLocalize), 0)
-}
-func FieldInteractionExcelAddInteractionType(builder *flatbuffers.Builder, interactionType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(interactionType), 0)
-}
-func FieldInteractionExcelStartInteractionTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func FieldInteractionExcelAddInteractionId(builder *flatbuffers.Builder, interactionId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(interactionId), 0)
-}
-func FieldInteractionExcelStartInteractionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
 func FieldInteractionExcelAddConditionClass(builder *flatbuffers.Builder, conditionClass FieldConditionClass) {
-	builder.PrependInt32Slot(7, int32(conditionClass), 0)
+	builder.PrependInt32Slot(0, int32(conditionClass), 0)
 }
 func FieldInteractionExcelAddConditionClassParameters(builder *flatbuffers.Builder, conditionClassParameters flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(conditionClassParameters), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(conditionClassParameters), 0)
 }
 func FieldInteractionExcelStartConditionClassParametersVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func FieldInteractionExcelAddOnceOnly(builder *flatbuffers.Builder, onceOnly bool) {
-	builder.PrependBoolSlot(9, onceOnly, false)
+func FieldInteractionExcelAddConditionId(builder *flatbuffers.Builder, conditionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(conditionId), 0)
+}
+func FieldInteractionExcelStartConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func FieldInteractionExcelAddConditionIndex(builder *flatbuffers.Builder, conditionIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(conditionIndex), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(conditionIndex), 0)
 }
 func FieldInteractionExcelStartConditionIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func FieldInteractionExcelAddConditionType(builder *flatbuffers.Builder, conditionType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(conditionType), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(conditionType), 0)
 }
 func FieldInteractionExcelStartConditionTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func FieldInteractionExcelAddConditionId(builder *flatbuffers.Builder, conditionId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(conditionId), 0)
+func FieldInteractionExcelAddFieldDateId(builder *flatbuffers.Builder, fieldDateId int64) {
+	builder.PrependInt64Slot(5, fieldDateId, 0)
 }
-func FieldInteractionExcelStartConditionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func FieldInteractionExcelAddFieldSeasonId(builder *flatbuffers.Builder, fieldSeasonId int64) {
+	builder.PrependInt64Slot(6, fieldSeasonId, 0)
+}
+func FieldInteractionExcelAddInteractionId(builder *flatbuffers.Builder, interactionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(interactionId), 0)
+}
+func FieldInteractionExcelStartInteractionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
+func FieldInteractionExcelAddInteractionType(builder *flatbuffers.Builder, interactionType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(interactionType), 0)
+}
+func FieldInteractionExcelStartInteractionTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func FieldInteractionExcelAddKeywordLocalize(builder *flatbuffers.Builder, keywordLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(keywordLocalize), 0)
+}
 func FieldInteractionExcelAddNegateCondition(builder *flatbuffers.Builder, negateCondition flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(negateCondition), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(negateCondition), 0)
 }
 func FieldInteractionExcelStartNegateConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(1, numElems, 1)
+}
+func FieldInteractionExcelAddOnceOnly(builder *flatbuffers.Builder, onceOnly bool) {
+	builder.PrependBoolSlot(11, onceOnly, false)
+}
+func FieldInteractionExcelAddShowEmoji(builder *flatbuffers.Builder, showEmoji bool) {
+	builder.PrependBoolSlot(12, showEmoji, false)
+}
+func FieldInteractionExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(13, uniqueId, 0)
 }
 func FieldInteractionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

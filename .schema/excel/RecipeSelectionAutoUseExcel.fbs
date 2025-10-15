@@ -5,8 +5,8 @@ namespace MX.Data.Excel;
 table RecipeSelectionAutoUseExcel {
     id: long;
     parcel_type: ParcelType;
-    target_item_id: long;
     priority: [long];
+    target_item_id: long;
 }
 
 root_type RecipeSelectionAutoUseExcel;

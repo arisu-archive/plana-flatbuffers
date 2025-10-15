@@ -25,32 +25,32 @@ class FieldQuestExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldQuestExcel
-    def FieldSeasonId(self):
+    def AssetPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # FieldQuestExcel
-    def UniqueId(self):
+    def FieldDateId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldQuestExcel
-    def IsDaily(self):
+    def FieldSeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # FieldQuestExcel
-    def FieldDateId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # FieldQuestExcel
+    def IsDaily(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # FieldQuestExcel
     def Opendate(self):
@@ -60,73 +60,73 @@ class FieldQuestExcel(object):
         return 0
 
     # FieldQuestExcel
-    def AssetPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # FieldQuestExcel
-    def RewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldQuestExcel
     def Prob(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldQuestExcel
-    def QuestNamKey(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+    def QuestDescKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # FieldQuestExcel
-    def QuestDescKey(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+    def QuestNamKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldQuestExcel
+    def RewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldQuestExcel
+    def UniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def FieldQuestExcelStart(builder): builder.StartObject(10)
 def Start(builder):
     return FieldQuestExcelStart(builder)
-def FieldQuestExcelAddFieldSeasonId(builder, fieldSeasonId): builder.PrependInt64Slot(0, fieldSeasonId, 0)
-def AddFieldSeasonId(builder, fieldSeasonId):
-    return FieldQuestExcelAddFieldSeasonId(builder, fieldSeasonId)
-def FieldQuestExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return FieldQuestExcelAddUniqueId(builder, uniqueId)
-def FieldQuestExcelAddIsDaily(builder, isDaily): builder.PrependBoolSlot(2, isDaily, 0)
-def AddIsDaily(builder, isDaily):
-    return FieldQuestExcelAddIsDaily(builder, isDaily)
-def FieldQuestExcelAddFieldDateId(builder, fieldDateId): builder.PrependInt64Slot(3, fieldDateId, 0)
+def FieldQuestExcelAddAssetPath(builder, assetPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(assetPath), 0)
+def AddAssetPath(builder, assetPath):
+    return FieldQuestExcelAddAssetPath(builder, assetPath)
+def FieldQuestExcelAddFieldDateId(builder, fieldDateId): builder.PrependInt64Slot(1, fieldDateId, 0)
 def AddFieldDateId(builder, fieldDateId):
     return FieldQuestExcelAddFieldDateId(builder, fieldDateId)
+def FieldQuestExcelAddFieldSeasonId(builder, fieldSeasonId): builder.PrependInt64Slot(2, fieldSeasonId, 0)
+def AddFieldSeasonId(builder, fieldSeasonId):
+    return FieldQuestExcelAddFieldSeasonId(builder, fieldSeasonId)
+def FieldQuestExcelAddIsDaily(builder, isDaily): builder.PrependBoolSlot(3, isDaily, 0)
+def AddIsDaily(builder, isDaily):
+    return FieldQuestExcelAddIsDaily(builder, isDaily)
 def FieldQuestExcelAddOpendate(builder, opendate): builder.PrependInt64Slot(4, opendate, 0)
 def AddOpendate(builder, opendate):
     return FieldQuestExcelAddOpendate(builder, opendate)
-def FieldQuestExcelAddAssetPath(builder, assetPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(assetPath), 0)
-def AddAssetPath(builder, assetPath):
-    return FieldQuestExcelAddAssetPath(builder, assetPath)
-def FieldQuestExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(6, rewardId, 0)
-def AddRewardId(builder, rewardId):
-    return FieldQuestExcelAddRewardId(builder, rewardId)
-def FieldQuestExcelAddProb(builder, prob): builder.PrependInt32Slot(7, prob, 0)
+def FieldQuestExcelAddProb(builder, prob): builder.PrependInt32Slot(5, prob, 0)
 def AddProb(builder, prob):
     return FieldQuestExcelAddProb(builder, prob)
-def FieldQuestExcelAddQuestNamKey(builder, questNamKey): builder.PrependUint32Slot(8, questNamKey, 0)
-def AddQuestNamKey(builder, questNamKey):
-    return FieldQuestExcelAddQuestNamKey(builder, questNamKey)
-def FieldQuestExcelAddQuestDescKey(builder, questDescKey): builder.PrependUint32Slot(9, questDescKey, 0)
+def FieldQuestExcelAddQuestDescKey(builder, questDescKey): builder.PrependUint32Slot(6, questDescKey, 0)
 def AddQuestDescKey(builder, questDescKey):
     return FieldQuestExcelAddQuestDescKey(builder, questDescKey)
+def FieldQuestExcelAddQuestNamKey(builder, questNamKey): builder.PrependUint32Slot(7, questNamKey, 0)
+def AddQuestNamKey(builder, questNamKey):
+    return FieldQuestExcelAddQuestNamKey(builder, questNamKey)
+def FieldQuestExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(8, rewardId, 0)
+def AddRewardId(builder, rewardId):
+    return FieldQuestExcelAddRewardId(builder, rewardId)
+def FieldQuestExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(9, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return FieldQuestExcelAddUniqueId(builder, uniqueId)
 def FieldQuestExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldQuestExcelEnd(builder)

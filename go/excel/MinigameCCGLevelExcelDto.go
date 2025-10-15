@@ -10,21 +10,21 @@ import (
 // MinigameCCGLevelExcelDto represents a FlatBuffers table
 type MinigameCCGLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	LevelId        int64  `json:"level_id"`
-	CcgId          int64  `json:"ccg_id"`
-	FloorIndex     int32  `json:"floor_index"`
 	BackgroundPath string `json:"background_path"`
 	BgmId          int64  `json:"bgm_id"`
+	CcgId          int64  `json:"ccg_id"`
+	FloorIndex     int32  `json:"floor_index"`
+	LevelId        int64  `json:"level_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGLevelExcelStart(b)
-	MinigameCCGLevelExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
-	MinigameCCGLevelExcelAddFloorIndex(b, fbsutils.Convert(t.FloorIndex, t.FlatBuffer.TableKey))
 	MinigameCCGLevelExcelAddBackgroundPath(b, b.CreateString(fbsutils.Convert(t.BackgroundPath, t.FlatBuffer.TableKey)))
 	MinigameCCGLevelExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
+	MinigameCCGLevelExcelAddFloorIndex(b, fbsutils.Convert(t.FloorIndex, t.FlatBuffer.TableKey))
+	MinigameCCGLevelExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
 	return MinigameCCGLevelExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MinigameCCGLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGLevelExcelDto) UnmarshalMessage(e *MinigameCCGLevelExcel) error {
-	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
-	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
-	t.FloorIndex = fbsutils.Convert(e.FloorIndex(), t.FlatBuffer.TableKey)
 	t.BackgroundPath = fbsutils.Convert(string(e.BackgroundPath()), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
+	t.FloorIndex = fbsutils.Convert(e.FloorIndex(), t.FlatBuffer.TableKey)
+	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

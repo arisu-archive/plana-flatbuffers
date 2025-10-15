@@ -3,12 +3,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table GachaElementRecursiveExcel {
-    id: long;
     gacha_group_id: long;
-    parcel_type: ParcelType;
-    parcel_id: long;
-    parcel_amount_min: int;
+    id: long;
     parcel_amount_max: int;
+    parcel_amount_min: int;
+    parcel_id: long;
+    parcel_type: ParcelType;
     prob: int;
     state: int;
 }

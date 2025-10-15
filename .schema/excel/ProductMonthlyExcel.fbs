@@ -5,22 +5,22 @@ include "StoreType.fbs";
 namespace MX.Data.Excel;
 
 table ProductMonthlyExcel {
+    daily_parcel_amount: [long];
+    daily_parcel_id: [long];
+    daily_parcel_type: [ParcelType];
+    enter_cost_reduce_group_id: long;
     id: long;
-    product_id: string;
-    store_type: StoreType;
+    monthly_days: long;
+    parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
     price: long;
     price_reference: string;
+    product_id: string;
     product_tag_type: ProductTagType;
-    monthly_days: long;
-    use_monthly_product_check: bool;
     purchase_count_limit: long;
-    parcel_type: [ParcelType];
-    parcel_id: [long];
-    parcel_amount: [long];
-    enter_cost_reduce_group_id: long;
-    daily_parcel_type: [ParcelType];
-    daily_parcel_id: [long];
-    daily_parcel_amount: [long];
+    store_type: StoreType;
+    use_monthly_product_check: bool;
 }
 
 root_type ProductMonthlyExcel;

@@ -33,7 +33,7 @@ func (rcv *ProductSelectionGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ProductSelectionGroupExcel) ProductSelectionGroupId() int64 {
+func (rcv *ProductSelectionGroupExcel) ConditionParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,20 @@ func (rcv *ProductSelectionGroupExcel) ProductSelectionGroupId() int64 {
 	return 0
 }
 
-func (rcv *ProductSelectionGroupExcel) MutateProductSelectionGroupId(n int64) bool {
+func (rcv *ProductSelectionGroupExcel) MutateConditionParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ProductSelectionGroupExcel) ProductSelectionGroupComponentId() int64 {
+func (rcv *ProductSelectionGroupExcel) ConditionParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ProductSelectionGroupExcel) MutateProductSelectionGroupComponentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *ProductSelectionGroupExcel) MutateConditionParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *ProductSelectionGroupExcel) DisplayOrder() int64 {
@@ -69,20 +69,8 @@ func (rcv *ProductSelectionGroupExcel) MutateDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ProductSelectionGroupExcel) ParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ProductSelectionGroupExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
 func (rcv *ProductSelectionGroupExcel) ParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,10 +78,22 @@ func (rcv *ProductSelectionGroupExcel) ParcelId() int64 {
 }
 
 func (rcv *ProductSelectionGroupExcel) MutateParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ProductSelectionGroupExcel) ResultAmount() int64 {
+func (rcv *ProductSelectionGroupExcel) ParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ProductSelectionGroupExcel) MutateParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *ProductSelectionGroupExcel) ProductSelectionGroupComponentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,23 +101,23 @@ func (rcv *ProductSelectionGroupExcel) ResultAmount() int64 {
 	return 0
 }
 
-func (rcv *ProductSelectionGroupExcel) MutateResultAmount(n int64) bool {
+func (rcv *ProductSelectionGroupExcel) MutateProductSelectionGroupComponentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *ProductSelectionGroupExcel) ConditionParcelType() ParcelType {
+func (rcv *ProductSelectionGroupExcel) ProductSelectionGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ProductSelectionGroupExcel) MutateConditionParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+func (rcv *ProductSelectionGroupExcel) MutateProductSelectionGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *ProductSelectionGroupExcel) ConditionParcelId() int64 {
+func (rcv *ProductSelectionGroupExcel) ResultAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -125,36 +125,36 @@ func (rcv *ProductSelectionGroupExcel) ConditionParcelId() int64 {
 	return 0
 }
 
-func (rcv *ProductSelectionGroupExcel) MutateConditionParcelId(n int64) bool {
+func (rcv *ProductSelectionGroupExcel) MutateResultAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func ProductSelectionGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func ProductSelectionGroupExcelAddProductSelectionGroupId(builder *flatbuffers.Builder, productSelectionGroupId int64) {
-	builder.PrependInt64Slot(0, productSelectionGroupId, 0)
+func ProductSelectionGroupExcelAddConditionParcelId(builder *flatbuffers.Builder, conditionParcelId int64) {
+	builder.PrependInt64Slot(0, conditionParcelId, 0)
 }
-func ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder *flatbuffers.Builder, productSelectionGroupComponentId int64) {
-	builder.PrependInt64Slot(1, productSelectionGroupComponentId, 0)
+func ProductSelectionGroupExcelAddConditionParcelType(builder *flatbuffers.Builder, conditionParcelType ParcelType) {
+	builder.PrependInt32Slot(1, int32(conditionParcelType), 0)
 }
 func ProductSelectionGroupExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
 	builder.PrependInt64Slot(2, displayOrder, 0)
 }
-func ProductSelectionGroupExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(parcelType), 0)
-}
 func ProductSelectionGroupExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
-	builder.PrependInt64Slot(4, parcelId, 0)
+	builder.PrependInt64Slot(3, parcelId, 0)
+}
+func ProductSelectionGroupExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(4, int32(parcelType), 0)
+}
+func ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder *flatbuffers.Builder, productSelectionGroupComponentId int64) {
+	builder.PrependInt64Slot(5, productSelectionGroupComponentId, 0)
+}
+func ProductSelectionGroupExcelAddProductSelectionGroupId(builder *flatbuffers.Builder, productSelectionGroupId int64) {
+	builder.PrependInt64Slot(6, productSelectionGroupId, 0)
 }
 func ProductSelectionGroupExcelAddResultAmount(builder *flatbuffers.Builder, resultAmount int64) {
-	builder.PrependInt64Slot(5, resultAmount, 0)
-}
-func ProductSelectionGroupExcelAddConditionParcelType(builder *flatbuffers.Builder, conditionParcelType ParcelType) {
-	builder.PrependInt32Slot(6, int32(conditionParcelType), 0)
-}
-func ProductSelectionGroupExcelAddConditionParcelId(builder *flatbuffers.Builder, conditionParcelId int64) {
-	builder.PrependInt64Slot(7, conditionParcelId, 0)
+	builder.PrependInt64Slot(7, resultAmount, 0)
 }
 func ProductSelectionGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

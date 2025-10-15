@@ -1,0 +1,12 @@
+include "ConcentrationVoiceCondition.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentConcentrationVoiceExcel {
+    event_content_id: long;
+    unique_id: long;
+    voice_clip: uint;
+    voice_condition: ConcentrationVoiceCondition;
+}
+
+root_type EventContentConcentrationVoiceExcel;

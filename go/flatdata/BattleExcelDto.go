@@ -10,40 +10,40 @@ import (
 // BattleExcelDto represents a FlatBuffers table
 type BattleExcelDto struct {
 	fbsutils.FlatBuffer
-	None             []UnitType               `json:"none"`
-	Single           AttackType               `json:"single"`
-	Guided           ProjectileType           `json:"guided"`
-	Blue             DamageFontColor          `json:"blue"`
-	CoverEnter       EmoticonEvent            `json:"cover_enter"`
-	Normal           []BulletType             `json:"normal"`
-	Crush            ActionType               `json:"crush"`
 	Able             BuffOverlap              `json:"able"`
-	AllySelf         ReArrangeTargetType      `json:"ally_self"`
-	LightArmor       ArmorType                `json:"light_armor"`
-	Wood             EntityMaterialType       `json:"wood"`
 	All              CoverMotionType          `json:"all"`
-	Distance         TargetSortBy             `json:"distance"`
-	CloseToObstacle  PositioningType          `json:"close_to_obstacle"`
-	Students         FormationLine            `json:"students"`
-	Sequence         ExternalBTNodeType       `json:"sequence"`
-	UseNextExSkill   ExternalBehavior         `json:"use_next_ex_skill"`
-	Student          TacticEntityType         `json:"student"`
-	SearchAndMove    EngageType               `json:"search_and_move"`
-	Position         HitEffectPosition        `json:"position"`
-	Street           StageTopography          `json:"street"`
-	D                TerrainAdaptationStat    `json:"d"`
-	Main             ObstacleClass            `json:"main"`
-	Remain           ObstacleDestroyType      `json:"remain"`
-	Low              ObstacleHeightType       `json:"low"`
-	Resist           DamageAttribute          `json:"resist"`
 	Ally             SkillPriorityCheckTarget `json:"ally"`
-	Main166405e7     StageType                `json:"main_166405e7"`
-	TargetToCaster   KnockbackDirection       `json:"target_to_caster"`
+	AllySelf         ReArrangeTargetType      `json:"ally_self"`
+	Blue             DamageFontColor          `json:"blue"`
+	CloseToObstacle  PositioningType          `json:"close_to_obstacle"`
+	CoverEnter       EmoticonEvent            `json:"cover_enter"`
+	Crush            ActionType               `json:"crush"`
+	D                TerrainAdaptationStat    `json:"d"`
+	Distance         TargetSortBy             `json:"distance"`
 	Duration         EndCondition             `json:"duration"`
-	Preset           ArenaSimulatorServer     `json:"preset"`
 	FinalDamage      BattleCalculationStat    `json:"final_damage"`
+	Guided           ProjectileType           `json:"guided"`
+	LightArmor       ArmorType                `json:"light_armor"`
+	Low              ObstacleHeightType       `json:"low"`
+	Main             StageType                `json:"main"`
+	Main619a7dca     ObstacleClass            `json:"main_619a7dca"`
+	None             []UnitType               `json:"none"`
+	Normal           []BulletType             `json:"normal"`
+	Position         HitEffectPosition        `json:"position"`
+	Preset           ArenaSimulatorServer     `json:"preset"`
+	Remain           ObstacleDestroyType      `json:"remain"`
+	Resist           DamageAttribute          `json:"resist"`
+	SearchAndMove    EngageType               `json:"search_and_move"`
+	Sequence         ExternalBTNodeType       `json:"sequence"`
+	Single           AttackType               `json:"single"`
 	SpecialTransStat StatTransType            `json:"special_trans_stat"`
+	Street           StageTopography          `json:"street"`
+	Student          TacticEntityType         `json:"student"`
+	Students         FormationLine            `json:"students"`
 	Talk             BattleDialogType         `json:"talk"`
+	TargetToCaster   KnockbackDirection       `json:"target_to_caster"`
+	UseNextExSkill   ExternalBehavior         `json:"use_next_ex_skill"`
+	Wood             EntityMaterialType       `json:"wood"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -52,48 +52,48 @@ func (t *BattleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Battle"))
 	}
 	BattleExcelStart(b)
+	BattleExcelAddAble(b, fbsutils.Convert(t.Able, t.FlatBuffer.TableKey))
+	BattleExcelAddAll(b, fbsutils.Convert(t.All, t.FlatBuffer.TableKey))
+	BattleExcelAddAlly(b, fbsutils.Convert(t.Ally, t.FlatBuffer.TableKey))
+	BattleExcelAddAllySelf(b, fbsutils.Convert(t.AllySelf, t.FlatBuffer.TableKey))
+	BattleExcelAddBlue(b, fbsutils.Convert(t.Blue, t.FlatBuffer.TableKey))
+	BattleExcelAddCloseToObstacle(b, fbsutils.Convert(t.CloseToObstacle, t.FlatBuffer.TableKey))
+	BattleExcelAddCoverEnter(b, fbsutils.Convert(t.CoverEnter, t.FlatBuffer.TableKey))
+	BattleExcelAddCrush(b, fbsutils.Convert(t.Crush, t.FlatBuffer.TableKey))
+	BattleExcelAddD(b, fbsutils.Convert(t.D, t.FlatBuffer.TableKey))
+	BattleExcelAddDistance(b, fbsutils.Convert(t.Distance, t.FlatBuffer.TableKey))
+	BattleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	BattleExcelAddFinalDamage(b, fbsutils.Convert(t.FinalDamage, t.FlatBuffer.TableKey))
+	BattleExcelAddGuided(b, fbsutils.Convert(t.Guided, t.FlatBuffer.TableKey))
+	BattleExcelAddLightArmor(b, fbsutils.Convert(t.LightArmor, t.FlatBuffer.TableKey))
+	BattleExcelAddLow(b, fbsutils.Convert(t.Low, t.FlatBuffer.TableKey))
+	BattleExcelAddMain(b, fbsutils.Convert(t.Main, t.FlatBuffer.TableKey))
+	BattleExcelAddMain619a7dca(b, fbsutils.Convert(t.Main619a7dca, t.FlatBuffer.TableKey))
 	BattleExcelStartNoneVector(b, len(t.None))
 	for i := range len(t.None) {
 		b.PrependInt32(fbsutils.Convert(int32(t.None[len(t.None)-i-1]), t.FlatBuffer.TableKey))
 	}
 	BattleExcelAddNone(b, b.EndVector(len(t.None)))
-	BattleExcelAddSingle(b, fbsutils.Convert(t.Single, t.FlatBuffer.TableKey))
-	BattleExcelAddGuided(b, fbsutils.Convert(t.Guided, t.FlatBuffer.TableKey))
-	BattleExcelAddBlue(b, fbsutils.Convert(t.Blue, t.FlatBuffer.TableKey))
-	BattleExcelAddCoverEnter(b, fbsutils.Convert(t.CoverEnter, t.FlatBuffer.TableKey))
 	BattleExcelStartNormalVector(b, len(t.Normal))
 	for i := range len(t.Normal) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Normal[len(t.Normal)-i-1]), t.FlatBuffer.TableKey))
 	}
 	BattleExcelAddNormal(b, b.EndVector(len(t.Normal)))
-	BattleExcelAddCrush(b, fbsutils.Convert(t.Crush, t.FlatBuffer.TableKey))
-	BattleExcelAddAble(b, fbsutils.Convert(t.Able, t.FlatBuffer.TableKey))
-	BattleExcelAddAllySelf(b, fbsutils.Convert(t.AllySelf, t.FlatBuffer.TableKey))
-	BattleExcelAddLightArmor(b, fbsutils.Convert(t.LightArmor, t.FlatBuffer.TableKey))
-	BattleExcelAddWood(b, fbsutils.Convert(t.Wood, t.FlatBuffer.TableKey))
-	BattleExcelAddAll(b, fbsutils.Convert(t.All, t.FlatBuffer.TableKey))
-	BattleExcelAddDistance(b, fbsutils.Convert(t.Distance, t.FlatBuffer.TableKey))
-	BattleExcelAddCloseToObstacle(b, fbsutils.Convert(t.CloseToObstacle, t.FlatBuffer.TableKey))
-	BattleExcelAddStudents(b, fbsutils.Convert(t.Students, t.FlatBuffer.TableKey))
-	BattleExcelAddSequence(b, fbsutils.Convert(t.Sequence, t.FlatBuffer.TableKey))
-	BattleExcelAddUseNextExSkill(b, fbsutils.Convert(t.UseNextExSkill, t.FlatBuffer.TableKey))
-	BattleExcelAddStudent(b, fbsutils.Convert(t.Student, t.FlatBuffer.TableKey))
-	BattleExcelAddSearchAndMove(b, fbsutils.Convert(t.SearchAndMove, t.FlatBuffer.TableKey))
 	BattleExcelAddPosition(b, fbsutils.Convert(t.Position, t.FlatBuffer.TableKey))
-	BattleExcelAddStreet(b, fbsutils.Convert(t.Street, t.FlatBuffer.TableKey))
-	BattleExcelAddD(b, fbsutils.Convert(t.D, t.FlatBuffer.TableKey))
-	BattleExcelAddMain(b, fbsutils.Convert(t.Main, t.FlatBuffer.TableKey))
-	BattleExcelAddRemain(b, fbsutils.Convert(t.Remain, t.FlatBuffer.TableKey))
-	BattleExcelAddLow(b, fbsutils.Convert(t.Low, t.FlatBuffer.TableKey))
-	BattleExcelAddResist(b, fbsutils.Convert(t.Resist, t.FlatBuffer.TableKey))
-	BattleExcelAddAlly(b, fbsutils.Convert(t.Ally, t.FlatBuffer.TableKey))
-	BattleExcelAddMain166405e7(b, fbsutils.Convert(t.Main166405e7, t.FlatBuffer.TableKey))
-	BattleExcelAddTargetToCaster(b, fbsutils.Convert(t.TargetToCaster, t.FlatBuffer.TableKey))
-	BattleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	BattleExcelAddPreset(b, fbsutils.Convert(t.Preset, t.FlatBuffer.TableKey))
-	BattleExcelAddFinalDamage(b, fbsutils.Convert(t.FinalDamage, t.FlatBuffer.TableKey))
+	BattleExcelAddRemain(b, fbsutils.Convert(t.Remain, t.FlatBuffer.TableKey))
+	BattleExcelAddResist(b, fbsutils.Convert(t.Resist, t.FlatBuffer.TableKey))
+	BattleExcelAddSearchAndMove(b, fbsutils.Convert(t.SearchAndMove, t.FlatBuffer.TableKey))
+	BattleExcelAddSequence(b, fbsutils.Convert(t.Sequence, t.FlatBuffer.TableKey))
+	BattleExcelAddSingle(b, fbsutils.Convert(t.Single, t.FlatBuffer.TableKey))
 	BattleExcelAddSpecialTransStat(b, fbsutils.Convert(t.SpecialTransStat, t.FlatBuffer.TableKey))
+	BattleExcelAddStreet(b, fbsutils.Convert(t.Street, t.FlatBuffer.TableKey))
+	BattleExcelAddStudent(b, fbsutils.Convert(t.Student, t.FlatBuffer.TableKey))
+	BattleExcelAddStudents(b, fbsutils.Convert(t.Students, t.FlatBuffer.TableKey))
 	BattleExcelAddTalk(b, fbsutils.Convert(t.Talk, t.FlatBuffer.TableKey))
+	BattleExcelAddTargetToCaster(b, fbsutils.Convert(t.TargetToCaster, t.FlatBuffer.TableKey))
+	BattleExcelAddUseNextExSkill(b, fbsutils.Convert(t.UseNextExSkill, t.FlatBuffer.TableKey))
+	BattleExcelAddWood(b, fbsutils.Convert(t.Wood, t.FlatBuffer.TableKey))
 	return BattleExcelEnd(b)
 }
 
@@ -109,46 +109,46 @@ func (t *BattleExcelDto) UnmarshalMessage(e *BattleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Battle"))
 	}
+	t.Able = BuffOverlap(fbsutils.Convert(int32(e.Able()), t.FlatBuffer.TableKey))
+	t.All = CoverMotionType(fbsutils.Convert(int32(e.All()), t.FlatBuffer.TableKey))
+	t.Ally = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.Ally()), t.FlatBuffer.TableKey))
+	t.AllySelf = ReArrangeTargetType(fbsutils.Convert(int32(e.AllySelf()), t.FlatBuffer.TableKey))
+	t.Blue = DamageFontColor(fbsutils.Convert(int32(e.Blue()), t.FlatBuffer.TableKey))
+	t.CloseToObstacle = PositioningType(fbsutils.Convert(int32(e.CloseToObstacle()), t.FlatBuffer.TableKey))
+	t.CoverEnter = EmoticonEvent(fbsutils.Convert(int32(e.CoverEnter()), t.FlatBuffer.TableKey))
+	t.Crush = ActionType(fbsutils.Convert(int32(e.Crush()), t.FlatBuffer.TableKey))
+	t.D = TerrainAdaptationStat(fbsutils.Convert(int32(e.D()), t.FlatBuffer.TableKey))
+	t.Distance = TargetSortBy(fbsutils.Convert(int32(e.Distance()), t.FlatBuffer.TableKey))
+	t.Duration = EndCondition(fbsutils.Convert(int32(e.Duration()), t.FlatBuffer.TableKey))
+	t.FinalDamage = BattleCalculationStat(fbsutils.Convert(int32(e.FinalDamage()), t.FlatBuffer.TableKey))
+	t.Guided = ProjectileType(fbsutils.Convert(int32(e.Guided()), t.FlatBuffer.TableKey))
+	t.LightArmor = ArmorType(fbsutils.Convert(int32(e.LightArmor()), t.FlatBuffer.TableKey))
+	t.Low = ObstacleHeightType(fbsutils.Convert(int32(e.Low()), t.FlatBuffer.TableKey))
+	t.Main = StageType(fbsutils.Convert(int32(e.Main()), t.FlatBuffer.TableKey))
+	t.Main619a7dca = ObstacleClass(fbsutils.Convert(int32(e.Main619a7dca()), t.FlatBuffer.TableKey))
 	t.None = make([]UnitType, e.NoneLength())
 	for i := range e.NoneLength() {
 		t.None[i] = UnitType(fbsutils.Convert(int32(e.None(i)), t.FlatBuffer.TableKey))
 	}
-	t.Single = AttackType(fbsutils.Convert(int32(e.Single()), t.FlatBuffer.TableKey))
-	t.Guided = ProjectileType(fbsutils.Convert(int32(e.Guided()), t.FlatBuffer.TableKey))
-	t.Blue = DamageFontColor(fbsutils.Convert(int32(e.Blue()), t.FlatBuffer.TableKey))
-	t.CoverEnter = EmoticonEvent(fbsutils.Convert(int32(e.CoverEnter()), t.FlatBuffer.TableKey))
 	t.Normal = make([]BulletType, e.NormalLength())
 	for i := range e.NormalLength() {
 		t.Normal[i] = BulletType(fbsutils.Convert(int32(e.Normal(i)), t.FlatBuffer.TableKey))
 	}
-	t.Crush = ActionType(fbsutils.Convert(int32(e.Crush()), t.FlatBuffer.TableKey))
-	t.Able = BuffOverlap(fbsutils.Convert(int32(e.Able()), t.FlatBuffer.TableKey))
-	t.AllySelf = ReArrangeTargetType(fbsutils.Convert(int32(e.AllySelf()), t.FlatBuffer.TableKey))
-	t.LightArmor = ArmorType(fbsutils.Convert(int32(e.LightArmor()), t.FlatBuffer.TableKey))
-	t.Wood = EntityMaterialType(fbsutils.Convert(int32(e.Wood()), t.FlatBuffer.TableKey))
-	t.All = CoverMotionType(fbsutils.Convert(int32(e.All()), t.FlatBuffer.TableKey))
-	t.Distance = TargetSortBy(fbsutils.Convert(int32(e.Distance()), t.FlatBuffer.TableKey))
-	t.CloseToObstacle = PositioningType(fbsutils.Convert(int32(e.CloseToObstacle()), t.FlatBuffer.TableKey))
-	t.Students = FormationLine(fbsutils.Convert(int32(e.Students()), t.FlatBuffer.TableKey))
-	t.Sequence = ExternalBTNodeType(fbsutils.Convert(int32(e.Sequence()), t.FlatBuffer.TableKey))
-	t.UseNextExSkill = ExternalBehavior(fbsutils.Convert(int32(e.UseNextExSkill()), t.FlatBuffer.TableKey))
-	t.Student = TacticEntityType(fbsutils.Convert(int32(e.Student()), t.FlatBuffer.TableKey))
-	t.SearchAndMove = EngageType(fbsutils.Convert(int32(e.SearchAndMove()), t.FlatBuffer.TableKey))
 	t.Position = HitEffectPosition(fbsutils.Convert(int32(e.Position()), t.FlatBuffer.TableKey))
-	t.Street = StageTopography(fbsutils.Convert(int32(e.Street()), t.FlatBuffer.TableKey))
-	t.D = TerrainAdaptationStat(fbsutils.Convert(int32(e.D()), t.FlatBuffer.TableKey))
-	t.Main = ObstacleClass(fbsutils.Convert(int32(e.Main()), t.FlatBuffer.TableKey))
-	t.Remain = ObstacleDestroyType(fbsutils.Convert(int32(e.Remain()), t.FlatBuffer.TableKey))
-	t.Low = ObstacleHeightType(fbsutils.Convert(int32(e.Low()), t.FlatBuffer.TableKey))
-	t.Resist = DamageAttribute(fbsutils.Convert(int32(e.Resist()), t.FlatBuffer.TableKey))
-	t.Ally = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.Ally()), t.FlatBuffer.TableKey))
-	t.Main166405e7 = StageType(fbsutils.Convert(int32(e.Main166405e7()), t.FlatBuffer.TableKey))
-	t.TargetToCaster = KnockbackDirection(fbsutils.Convert(int32(e.TargetToCaster()), t.FlatBuffer.TableKey))
-	t.Duration = EndCondition(fbsutils.Convert(int32(e.Duration()), t.FlatBuffer.TableKey))
 	t.Preset = ArenaSimulatorServer(fbsutils.Convert(int32(e.Preset()), t.FlatBuffer.TableKey))
-	t.FinalDamage = BattleCalculationStat(fbsutils.Convert(int32(e.FinalDamage()), t.FlatBuffer.TableKey))
+	t.Remain = ObstacleDestroyType(fbsutils.Convert(int32(e.Remain()), t.FlatBuffer.TableKey))
+	t.Resist = DamageAttribute(fbsutils.Convert(int32(e.Resist()), t.FlatBuffer.TableKey))
+	t.SearchAndMove = EngageType(fbsutils.Convert(int32(e.SearchAndMove()), t.FlatBuffer.TableKey))
+	t.Sequence = ExternalBTNodeType(fbsutils.Convert(int32(e.Sequence()), t.FlatBuffer.TableKey))
+	t.Single = AttackType(fbsutils.Convert(int32(e.Single()), t.FlatBuffer.TableKey))
 	t.SpecialTransStat = StatTransType(fbsutils.Convert(int32(e.SpecialTransStat()), t.FlatBuffer.TableKey))
+	t.Street = StageTopography(fbsutils.Convert(int32(e.Street()), t.FlatBuffer.TableKey))
+	t.Student = TacticEntityType(fbsutils.Convert(int32(e.Student()), t.FlatBuffer.TableKey))
+	t.Students = FormationLine(fbsutils.Convert(int32(e.Students()), t.FlatBuffer.TableKey))
 	t.Talk = BattleDialogType(fbsutils.Convert(int32(e.Talk()), t.FlatBuffer.TableKey))
+	t.TargetToCaster = KnockbackDirection(fbsutils.Convert(int32(e.TargetToCaster()), t.FlatBuffer.TableKey))
+	t.UseNextExSkill = ExternalBehavior(fbsutils.Convert(int32(e.UseNextExSkill()), t.FlatBuffer.TableKey))
+	t.Wood = EntityMaterialType(fbsutils.Convert(int32(e.Wood()), t.FlatBuffer.TableKey))
 	return nil
 }
 

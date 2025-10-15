@@ -33,7 +33,7 @@ func (rcv *AcademyFavorScheduleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AcademyFavorScheduleExcel) Id() int64 {
+func (rcv *AcademyFavorScheduleExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *AcademyFavorScheduleExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *AcademyFavorScheduleExcel) MutateId(n int64) bool {
+func (rcv *AcademyFavorScheduleExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *AcademyFavorScheduleExcel) CharacterId() int64 {
+func (rcv *AcademyFavorScheduleExcel) FavorRank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *AcademyFavorScheduleExcel) CharacterId() int64 {
 	return 0
 }
 
-func (rcv *AcademyFavorScheduleExcel) MutateCharacterId(n int64) bool {
+func (rcv *AcademyFavorScheduleExcel) MutateFavorRank(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *AcademyFavorScheduleExcel) ScheduleGroupId() int64 {
+func (rcv *AcademyFavorScheduleExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,20 +65,20 @@ func (rcv *AcademyFavorScheduleExcel) ScheduleGroupId() int64 {
 	return 0
 }
 
-func (rcv *AcademyFavorScheduleExcel) MutateScheduleGroupId(n int64) bool {
+func (rcv *AcademyFavorScheduleExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *AcademyFavorScheduleExcel) OrderInGroup() int64 {
+func (rcv *AcademyFavorScheduleExcel) LocalizeScenarioId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *AcademyFavorScheduleExcel) MutateOrderInGroup(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *AcademyFavorScheduleExcel) MutateLocalizeScenarioId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(10, n)
 }
 
 func (rcv *AcademyFavorScheduleExcel) Location() []byte {
@@ -89,108 +89,20 @@ func (rcv *AcademyFavorScheduleExcel) Location() []byte {
 	return nil
 }
 
-func (rcv *AcademyFavorScheduleExcel) LocalizeScenarioId() uint32 {
+func (rcv *AcademyFavorScheduleExcel) OrderInGroup() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) MutateLocalizeScenarioId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
-}
-
-func (rcv *AcademyFavorScheduleExcel) FavorRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *AcademyFavorScheduleExcel) MutateFavorRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *AcademyFavorScheduleExcel) SecretStoneAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) MutateSecretStoneAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *AcademyFavorScheduleExcel) ScenarioSriptGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) MutateScenarioSriptGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *AcademyFavorScheduleExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *AcademyFavorScheduleExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *AcademyFavorScheduleExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *AcademyFavorScheduleExcel) MutateOrderInGroup(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *AcademyFavorScheduleExcel) RewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -199,7 +111,7 @@ func (rcv *AcademyFavorScheduleExcel) RewardAmount(j int) int64 {
 }
 
 func (rcv *AcademyFavorScheduleExcel) RewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -207,7 +119,7 @@ func (rcv *AcademyFavorScheduleExcel) RewardAmountLength() int {
 }
 
 func (rcv *AcademyFavorScheduleExcel) MutateRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -215,53 +127,141 @@ func (rcv *AcademyFavorScheduleExcel) MutateRewardAmount(j int, n int64) bool {
 	return false
 }
 
+func (rcv *AcademyFavorScheduleExcel) RewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *AcademyFavorScheduleExcel) RewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) RewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *AcademyFavorScheduleExcel) ScenarioSriptGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) MutateScenarioSriptGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *AcademyFavorScheduleExcel) ScheduleGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) MutateScheduleGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *AcademyFavorScheduleExcel) SecretStoneAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyFavorScheduleExcel) MutateSecretStoneAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
 func AcademyFavorScheduleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func AcademyFavorScheduleExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func AcademyFavorScheduleExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(1, characterId, 0)
+	builder.PrependInt64Slot(0, characterId, 0)
 }
-func AcademyFavorScheduleExcelAddScheduleGroupId(builder *flatbuffers.Builder, scheduleGroupId int64) {
-	builder.PrependInt64Slot(2, scheduleGroupId, 0)
+func AcademyFavorScheduleExcelAddFavorRank(builder *flatbuffers.Builder, favorRank int64) {
+	builder.PrependInt64Slot(1, favorRank, 0)
 }
-func AcademyFavorScheduleExcelAddOrderInGroup(builder *flatbuffers.Builder, orderInGroup int64) {
-	builder.PrependInt64Slot(3, orderInGroup, 0)
+func AcademyFavorScheduleExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
+}
+func AcademyFavorScheduleExcelAddLocalizeScenarioId(builder *flatbuffers.Builder, localizeScenarioId uint32) {
+	builder.PrependUint32Slot(3, localizeScenarioId, 0)
 }
 func AcademyFavorScheduleExcelAddLocation(builder *flatbuffers.Builder, location flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(location), 0)
 }
-func AcademyFavorScheduleExcelAddLocalizeScenarioId(builder *flatbuffers.Builder, localizeScenarioId uint32) {
-	builder.PrependUint32Slot(5, localizeScenarioId, 0)
+func AcademyFavorScheduleExcelAddOrderInGroup(builder *flatbuffers.Builder, orderInGroup int64) {
+	builder.PrependInt64Slot(5, orderInGroup, 0)
 }
-func AcademyFavorScheduleExcelAddFavorRank(builder *flatbuffers.Builder, favorRank int64) {
-	builder.PrependInt64Slot(6, favorRank, 0)
+func AcademyFavorScheduleExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardAmount), 0)
 }
-func AcademyFavorScheduleExcelAddSecretStoneAmount(builder *flatbuffers.Builder, secretStoneAmount int64) {
-	builder.PrependInt64Slot(7, secretStoneAmount, 0)
-}
-func AcademyFavorScheduleExcelAddScenarioSriptGroupId(builder *flatbuffers.Builder, scenarioSriptGroupId int64) {
-	builder.PrependInt64Slot(8, scenarioSriptGroupId, 0)
-}
-func AcademyFavorScheduleExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func AcademyFavorScheduleExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func AcademyFavorScheduleExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func AcademyFavorScheduleExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func AcademyFavorScheduleExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func AcademyFavorScheduleExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(rewardAmount), 0)
+func AcademyFavorScheduleExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func AcademyFavorScheduleExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func AcademyFavorScheduleExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func AcademyFavorScheduleExcelAddScenarioSriptGroupId(builder *flatbuffers.Builder, scenarioSriptGroupId int64) {
+	builder.PrependInt64Slot(9, scenarioSriptGroupId, 0)
+}
+func AcademyFavorScheduleExcelAddScheduleGroupId(builder *flatbuffers.Builder, scheduleGroupId int64) {
+	builder.PrependInt64Slot(10, scheduleGroupId, 0)
+}
+func AcademyFavorScheduleExcelAddSecretStoneAmount(builder *flatbuffers.Builder, secretStoneAmount int64) {
+	builder.PrependInt64Slot(11, secretStoneAmount, 0)
 }
 func AcademyFavorScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

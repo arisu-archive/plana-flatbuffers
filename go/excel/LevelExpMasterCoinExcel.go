@@ -45,7 +45,7 @@ func (rcv *LevelExpMasterCoinExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *LevelExpMasterCoinExcel) MinLevel() int32 {
+func (rcv *LevelExpMasterCoinExcel) MaxLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *LevelExpMasterCoinExcel) MinLevel() int32 {
 	return 0
 }
 
-func (rcv *LevelExpMasterCoinExcel) MutateMinLevel(n int32) bool {
+func (rcv *LevelExpMasterCoinExcel) MutateMaxLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *LevelExpMasterCoinExcel) MaxLevel() int32 {
+func (rcv *LevelExpMasterCoinExcel) MinLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,7 +65,7 @@ func (rcv *LevelExpMasterCoinExcel) MaxLevel() int32 {
 	return 0
 }
 
-func (rcv *LevelExpMasterCoinExcel) MutateMaxLevel(n int32) bool {
+func (rcv *LevelExpMasterCoinExcel) MutateMinLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
@@ -87,11 +87,11 @@ func LevelExpMasterCoinExcelStart(builder *flatbuffers.Builder) {
 func LevelExpMasterCoinExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func LevelExpMasterCoinExcelAddMinLevel(builder *flatbuffers.Builder, minLevel int32) {
-	builder.PrependInt32Slot(1, minLevel, 0)
-}
 func LevelExpMasterCoinExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int32) {
-	builder.PrependInt32Slot(2, maxLevel, 0)
+	builder.PrependInt32Slot(1, maxLevel, 0)
+}
+func LevelExpMasterCoinExcelAddMinLevel(builder *flatbuffers.Builder, minLevel int32) {
+	builder.PrependInt32Slot(2, minLevel, 0)
 }
 func LevelExpMasterCoinExcelAddRatio(builder *flatbuffers.Builder, ratio int32) {
 	builder.PrependInt32Slot(3, ratio, 0)

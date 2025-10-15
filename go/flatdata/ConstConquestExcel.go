@@ -33,7 +33,7 @@ func (rcv *ConstConquestExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstConquestExcel) ManageUnitChange() int32 {
+func (rcv *ConstConquestExcel) AnimationUnitAmountMax() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *ConstConquestExcel) ManageUnitChange() int32 {
 	return 0
 }
 
-func (rcv *ConstConquestExcel) MutateManageUnitChange(n int32) bool {
+func (rcv *ConstConquestExcel) MutateAnimationUnitAmountMax(n int32) bool {
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ConstConquestExcel) AssistCount() int32 {
+func (rcv *ConstConquestExcel) AnimationUnitAmountMin() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,48 +53,12 @@ func (rcv *ConstConquestExcel) AssistCount() int32 {
 	return 0
 }
 
-func (rcv *ConstConquestExcel) MutateAssistCount(n int32) bool {
+func (rcv *ConstConquestExcel) MutateAnimationUnitAmountMin(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *ConstConquestExcel) PlayTimeLimitInSeconds() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstConquestExcel) MutatePlayTimeLimitInSeconds(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *ConstConquestExcel) AnimationUnitAmountMin() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstConquestExcel) MutateAnimationUnitAmountMin(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *ConstConquestExcel) AnimationUnitAmountMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstConquestExcel) MutateAnimationUnitAmountMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
 func (rcv *ConstConquestExcel) AnimationUnitDelay() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -102,29 +66,65 @@ func (rcv *ConstConquestExcel) AnimationUnitDelay() float32 {
 }
 
 func (rcv *ConstConquestExcel) MutateAnimationUnitDelay(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
+	return rcv._tab.MutateFloat32Slot(8, n)
+}
+
+func (rcv *ConstConquestExcel) AssistCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstConquestExcel) MutateAssistCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *ConstConquestExcel) ManageUnitChange() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstConquestExcel) MutateManageUnitChange(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *ConstConquestExcel) PlayTimeLimitInSeconds() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstConquestExcel) MutatePlayTimeLimitInSeconds(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
 func ConstConquestExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ConstConquestExcelAddManageUnitChange(builder *flatbuffers.Builder, manageUnitChange int32) {
-	builder.PrependInt32Slot(0, manageUnitChange, 0)
-}
-func ConstConquestExcelAddAssistCount(builder *flatbuffers.Builder, assistCount int32) {
-	builder.PrependInt32Slot(1, assistCount, 0)
-}
-func ConstConquestExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int32) {
-	builder.PrependInt32Slot(2, playTimeLimitInSeconds, 0)
+func ConstConquestExcelAddAnimationUnitAmountMax(builder *flatbuffers.Builder, animationUnitAmountMax int32) {
+	builder.PrependInt32Slot(0, animationUnitAmountMax, 0)
 }
 func ConstConquestExcelAddAnimationUnitAmountMin(builder *flatbuffers.Builder, animationUnitAmountMin int32) {
-	builder.PrependInt32Slot(3, animationUnitAmountMin, 0)
-}
-func ConstConquestExcelAddAnimationUnitAmountMax(builder *flatbuffers.Builder, animationUnitAmountMax int32) {
-	builder.PrependInt32Slot(4, animationUnitAmountMax, 0)
+	builder.PrependInt32Slot(1, animationUnitAmountMin, 0)
 }
 func ConstConquestExcelAddAnimationUnitDelay(builder *flatbuffers.Builder, animationUnitDelay float32) {
-	builder.PrependFloat32Slot(5, animationUnitDelay, 0.0)
+	builder.PrependFloat32Slot(2, animationUnitDelay, 0.0)
+}
+func ConstConquestExcelAddAssistCount(builder *flatbuffers.Builder, assistCount int32) {
+	builder.PrependInt32Slot(3, assistCount, 0)
+}
+func ConstConquestExcelAddManageUnitChange(builder *flatbuffers.Builder, manageUnitChange int32) {
+	builder.PrependInt32Slot(4, manageUnitChange, 0)
+}
+func ConstConquestExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int32) {
+	builder.PrependInt32Slot(5, playTimeLimitInSeconds, 0)
 }
 func ConstConquestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

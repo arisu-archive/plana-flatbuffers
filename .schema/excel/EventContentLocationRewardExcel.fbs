@@ -1,0 +1,29 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentLocationRewardExcel {
+    extra_favor_exp: long;
+    extra_favor_exp_prob: long;
+    extra_reward_amount: [long];
+    extra_reward_parcel_id: [long];
+    extra_reward_parcel_type: [ParcelType];
+    extra_reward_prob: [long];
+    favor_exp: long;
+    id: long;
+    is_extra_reward_displayed: [bool];
+    localize_etc_id: uint;
+    location: string;
+    location_rank: long;
+    order_in_group: long;
+    progress_texture: string;
+    reward_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    schedule_group_id: long;
+    secret_stone_amount: long;
+    secret_stone_prob: long;
+    voice_id: [uint];
+}
+
+root_type EventContentLocationRewardExcel;

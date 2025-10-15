@@ -33,16 +33,30 @@ func (rcv *FieldMasteryLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldMasteryLevelExcel) Level() int32 {
+func (rcv *FieldMasteryLevelExcel) Exp(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *FieldMasteryLevelExcel) MutateLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *FieldMasteryLevelExcel) ExpLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldMasteryLevelExcel) MutateExp(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *FieldMasteryLevelExcel) Id(j int) int64 {
@@ -71,60 +85,20 @@ func (rcv *FieldMasteryLevelExcel) MutateId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *FieldMasteryLevelExcel) Exp(j int) int64 {
+func (rcv *FieldMasteryLevelExcel) Level() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldMasteryLevelExcel) ExpLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldMasteryLevelExcel) MutateExp(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *FieldMasteryLevelExcel) TotalExp(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *FieldMasteryLevelExcel) TotalExpLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FieldMasteryLevelExcel) MutateTotalExp(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *FieldMasteryLevelExcel) MutateLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func (rcv *FieldMasteryLevelExcel) RewardId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -133,7 +107,7 @@ func (rcv *FieldMasteryLevelExcel) RewardId(j int) int64 {
 }
 
 func (rcv *FieldMasteryLevelExcel) RewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -141,6 +115,32 @@ func (rcv *FieldMasteryLevelExcel) RewardIdLength() int {
 }
 
 func (rcv *FieldMasteryLevelExcel) MutateRewardId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FieldMasteryLevelExcel) TotalExp(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *FieldMasteryLevelExcel) TotalExpLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldMasteryLevelExcel) MutateTotalExp(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -152,8 +152,11 @@ func (rcv *FieldMasteryLevelExcel) MutateRewardId(j int, n int64) bool {
 func FieldMasteryLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func FieldMasteryLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
-	builder.PrependInt32Slot(0, level, 0)
+func FieldMasteryLevelExcelAddExp(builder *flatbuffers.Builder, exp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(exp), 0)
+}
+func FieldMasteryLevelExcelStartExpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func FieldMasteryLevelExcelAddId(builder *flatbuffers.Builder, id flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(id), 0)
@@ -161,22 +164,19 @@ func FieldMasteryLevelExcelAddId(builder *flatbuffers.Builder, id flatbuffers.UO
 func FieldMasteryLevelExcelStartIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func FieldMasteryLevelExcelAddExp(builder *flatbuffers.Builder, exp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(exp), 0)
+func FieldMasteryLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
+	builder.PrependInt32Slot(2, level, 0)
 }
-func FieldMasteryLevelExcelStartExpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func FieldMasteryLevelExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardId), 0)
+}
+func FieldMasteryLevelExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func FieldMasteryLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(totalExp), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(totalExp), 0)
 }
 func FieldMasteryLevelExcelStartTotalExpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func FieldMasteryLevelExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardId), 0)
-}
-func FieldMasteryLevelExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func FieldMasteryLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

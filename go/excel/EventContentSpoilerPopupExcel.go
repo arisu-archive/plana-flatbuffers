@@ -33,7 +33,7 @@ func (rcv *EventContentSpoilerPopupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentSpoilerPopupExcel) EventContentId() int64 {
+func (rcv *EventContentSpoilerPopupExcel) ConditionScenarioModeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,28 +41,24 @@ func (rcv *EventContentSpoilerPopupExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentSpoilerPopupExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentSpoilerPopupExcel) MutateConditionScenarioModeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentSpoilerPopupExcel) SpoilerPopupTitle() []byte {
+func (rcv *EventContentSpoilerPopupExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *EventContentSpoilerPopupExcel) SpoilerPopupDescription() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *EventContentSpoilerPopupExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *EventContentSpoilerPopupExcel) IsWarningPopUp() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -70,38 +66,42 @@ func (rcv *EventContentSpoilerPopupExcel) IsWarningPopUp() bool {
 }
 
 func (rcv *EventContentSpoilerPopupExcel) MutateIsWarningPopUp(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
-func (rcv *EventContentSpoilerPopupExcel) ConditionScenarioModeId() int64 {
+func (rcv *EventContentSpoilerPopupExcel) SpoilerPopupDescription() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSpoilerPopupExcel) SpoilerPopupTitle() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *EventContentSpoilerPopupExcel) MutateConditionScenarioModeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return nil
 }
 
 func EventContentSpoilerPopupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
+func EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder *flatbuffers.Builder, conditionScenarioModeId int64) {
+	builder.PrependInt64Slot(0, conditionScenarioModeId, 0)
+}
 func EventContentSpoilerPopupExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder *flatbuffers.Builder, spoilerPopupTitle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(spoilerPopupTitle), 0)
-}
-func EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder *flatbuffers.Builder, spoilerPopupDescription flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(spoilerPopupDescription), 0)
+	builder.PrependInt64Slot(1, eventContentId, 0)
 }
 func EventContentSpoilerPopupExcelAddIsWarningPopUp(builder *flatbuffers.Builder, isWarningPopUp bool) {
-	builder.PrependBoolSlot(3, isWarningPopUp, false)
+	builder.PrependBoolSlot(2, isWarningPopUp, false)
 }
-func EventContentSpoilerPopupExcelAddConditionScenarioModeId(builder *flatbuffers.Builder, conditionScenarioModeId int64) {
-	builder.PrependInt64Slot(4, conditionScenarioModeId, 0)
+func EventContentSpoilerPopupExcelAddSpoilerPopupDescription(builder *flatbuffers.Builder, spoilerPopupDescription flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(spoilerPopupDescription), 0)
+}
+func EventContentSpoilerPopupExcelAddSpoilerPopupTitle(builder *flatbuffers.Builder, spoilerPopupTitle flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(spoilerPopupTitle), 0)
 }
 func EventContentSpoilerPopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

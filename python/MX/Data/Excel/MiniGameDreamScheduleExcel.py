@@ -25,31 +25,31 @@ class MiniGameDreamScheduleExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameDreamScheduleExcel
-    def EventContentId(self):
+    def AnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MiniGameDreamScheduleExcel
-    def DreamMakerScheduleGroupId(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamScheduleExcel
-    def DisplayOrder(self):
+    def DreamMakerScheduleGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamScheduleExcel
-    def LocalizeEtcId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamScheduleExcel
@@ -74,27 +74,27 @@ class MiniGameDreamScheduleExcel(object):
         return None
 
     # MiniGameDreamScheduleExcel
-    def AnimationName(self):
+    def LocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
 def MiniGameDreamScheduleExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return MiniGameDreamScheduleExcelStart(builder)
-def MiniGameDreamScheduleExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MiniGameDreamScheduleExcelAddEventContentId(builder, eventContentId)
-def MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId): builder.PrependInt64Slot(1, dreamMakerScheduleGroupId, 0)
-def AddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId):
-    return MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId)
-def MiniGameDreamScheduleExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
+def MiniGameDreamScheduleExcelAddAnimationName(builder, animationName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
+def AddAnimationName(builder, animationName):
+    return MiniGameDreamScheduleExcelAddAnimationName(builder, animationName)
+def MiniGameDreamScheduleExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(1, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
     return MiniGameDreamScheduleExcelAddDisplayOrder(builder, displayOrder)
-def MiniGameDreamScheduleExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
-def AddLocalizeEtcId(builder, localizeEtcId):
-    return MiniGameDreamScheduleExcelAddLocalizeEtcId(builder, localizeEtcId)
+def MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId): builder.PrependInt64Slot(2, dreamMakerScheduleGroupId, 0)
+def AddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId):
+    return MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(builder, dreamMakerScheduleGroupId)
+def MiniGameDreamScheduleExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MiniGameDreamScheduleExcelAddEventContentId(builder, eventContentId)
 def MiniGameDreamScheduleExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
     return MiniGameDreamScheduleExcelAddIconPath(builder, iconPath)
@@ -104,9 +104,9 @@ def AddLoadingResource01(builder, loadingResource01):
 def MiniGameDreamScheduleExcelAddLoadingResource02(builder, loadingResource02): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(loadingResource02), 0)
 def AddLoadingResource02(builder, loadingResource02):
     return MiniGameDreamScheduleExcelAddLoadingResource02(builder, loadingResource02)
-def MiniGameDreamScheduleExcelAddAnimationName(builder, animationName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
-def AddAnimationName(builder, animationName):
-    return MiniGameDreamScheduleExcelAddAnimationName(builder, animationName)
+def MiniGameDreamScheduleExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(7, localizeEtcId, 0)
+def AddLocalizeEtcId(builder, localizeEtcId):
+    return MiniGameDreamScheduleExcelAddLocalizeEtcId(builder, localizeEtcId)
 def MiniGameDreamScheduleExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameDreamScheduleExcelEnd(builder)

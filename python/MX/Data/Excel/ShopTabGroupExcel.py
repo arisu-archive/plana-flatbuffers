@@ -25,29 +25,22 @@ class ShopTabGroupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShopTabGroupExcel
-    def Id(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopTabGroupExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopTabGroupExcel
-    def ShopGroupType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopTabGroupExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopTabGroupExcel
     def ShopCategoryTypes(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -55,41 +48,48 @@ class ShopTabGroupExcel(object):
 
     # ShopTabGroupExcel
     def ShopCategoryTypesAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # ShopTabGroupExcel
     def ShopCategoryTypesLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ShopTabGroupExcel
     def ShopCategoryTypesIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
+
+    # ShopTabGroupExcel
+    def ShopGroupType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
 def ShopTabGroupExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return ShopTabGroupExcelStart(builder)
-def ShopTabGroupExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return ShopTabGroupExcelAddId(builder, id)
-def ShopTabGroupExcelAddShopGroupType(builder, shopGroupType): builder.PrependInt32Slot(1, shopGroupType, 0)
-def AddShopGroupType(builder, shopGroupType):
-    return ShopTabGroupExcelAddShopGroupType(builder, shopGroupType)
-def ShopTabGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
+def ShopTabGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(0, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
     return ShopTabGroupExcelAddDisplayOrder(builder, displayOrder)
-def ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategoryTypes), 0)
+def ShopTabGroupExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return ShopTabGroupExcelAddId(builder, id)
+def ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategoryTypes), 0)
 def AddShopCategoryTypes(builder, shopCategoryTypes):
     return ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes)
 def ShopTabGroupExcelStartShopCategoryTypesVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShopCategoryTypesVector(builder, numElems):
     return ShopTabGroupExcelStartShopCategoryTypesVector(builder, numElems)
+def ShopTabGroupExcelAddShopGroupType(builder, shopGroupType): builder.PrependInt32Slot(3, shopGroupType, 0)
+def AddShopGroupType(builder, shopGroupType):
+    return ShopTabGroupExcelAddShopGroupType(builder, shopGroupType)
 def ShopTabGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopTabGroupExcelEnd(builder)

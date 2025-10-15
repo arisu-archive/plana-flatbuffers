@@ -3,10 +3,10 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table ConquestCalculateExcel {
-    event_content_id: long;
+    calculate_condition_parcel_amount: long;
     calculate_condition_parcel_type: ParcelType;
     calculate_condition_parcel_unique_id: long;
-    calculate_condition_parcel_amount: long;
+    event_content_id: long;
 }
 
 root_type ConquestCalculateExcel;

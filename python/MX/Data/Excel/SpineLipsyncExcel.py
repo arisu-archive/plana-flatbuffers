@@ -25,28 +25,28 @@ class SpineLipsyncExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SpineLipsyncExcel
-    def VoiceId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # SpineLipsyncExcel
     def AnimJson(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # SpineLipsyncExcel
+    def VoiceId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
 def SpineLipsyncExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return SpineLipsyncExcelStart(builder)
-def SpineLipsyncExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(0, voiceId, 0)
-def AddVoiceId(builder, voiceId):
-    return SpineLipsyncExcelAddVoiceId(builder, voiceId)
-def SpineLipsyncExcelAddAnimJson(builder, animJson): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
+def SpineLipsyncExcelAddAnimJson(builder, animJson): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
 def AddAnimJson(builder, animJson):
     return SpineLipsyncExcelAddAnimJson(builder, animJson)
+def SpineLipsyncExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(1, voiceId, 0)
+def AddVoiceId(builder, voiceId):
+    return SpineLipsyncExcelAddVoiceId(builder, voiceId)
 def SpineLipsyncExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SpineLipsyncExcelEnd(builder)

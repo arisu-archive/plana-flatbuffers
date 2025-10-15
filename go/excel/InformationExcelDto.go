@@ -11,8 +11,8 @@ import (
 type InformationExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupId            int64    `json:"group_id"`
-	PageName           string   `json:"page_name"`
 	LocalizeCodeId     string   `json:"localize_code_id"`
+	PageName           string   `json:"page_name"`
 	TutorialParentName []string `json:"tutorial_parent_name"`
 	UiName             []string `json:"ui_name"`
 }
@@ -21,8 +21,8 @@ type InformationExcelDto struct {
 func (t *InformationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	InformationExcelStart(b)
 	InformationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	InformationExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
 	InformationExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	InformationExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
 	InformationExcelStartTutorialParentNameVector(b, len(t.TutorialParentName))
 	for i := range len(t.TutorialParentName) {
 		b.PrependUOffsetT(b.CreateString(t.TutorialParentName[len(t.TutorialParentName)-i-1]))
@@ -46,8 +46,8 @@ func (t *InformationExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *InformationExcelDto) UnmarshalMessage(e *InformationExcel) error {
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.PageName = fbsutils.Convert(string(e.PageName()), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
+	t.PageName = fbsutils.Convert(string(e.PageName()), t.FlatBuffer.TableKey)
 	t.TutorialParentName = make([]string, e.TutorialParentNameLength())
 	for i := range e.TutorialParentNameLength() {
 		t.TutorialParentName[i] = fbsutils.Convert(string(e.TutorialParentName(i)), t.FlatBuffer.TableKey)

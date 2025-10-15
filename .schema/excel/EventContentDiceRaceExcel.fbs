@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table EventContentDiceRaceExcel {
+    dice_cost_goods_id: long;
+    dice_race_event_type: [string];
+    dice_race_pawn_prefab: string;
+    event_content_id: long;
+    fixed_dice_icon: [string];
+    is_using_fixed_dice: bool;
+    skipable_lap: int;
+}
+
+root_type EventContentDiceRaceExcel;

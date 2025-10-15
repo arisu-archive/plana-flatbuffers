@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table EventContentBoxGachaManageExcel {
+    event_content_id: long;
+    goods_id: long;
+    is_loop: bool;
+    round: long;
+}
+
+root_type EventContentBoxGachaManageExcel;

@@ -10,15 +10,15 @@ import (
 // MissionEmergencyCompleteExcelDto represents a FlatBuffers table
 type MissionEmergencyCompleteExcelDto struct {
 	fbsutils.FlatBuffer
-	MissionId         int64 `json:"mission_id"`
 	EmergencyComplete bool  `json:"emergency_complete"`
+	MissionId         int64 `json:"mission_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MissionEmergencyCompleteExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MissionEmergencyCompleteExcelStart(b)
-	MissionEmergencyCompleteExcelAddMissionId(b, fbsutils.Convert(t.MissionId, t.FlatBuffer.TableKey))
 	MissionEmergencyCompleteExcelAddEmergencyComplete(b, t.EmergencyComplete)
+	MissionEmergencyCompleteExcelAddMissionId(b, fbsutils.Convert(t.MissionId, t.FlatBuffer.TableKey))
 	return MissionEmergencyCompleteExcelEnd(b)
 }
 
@@ -31,8 +31,8 @@ func (t *MissionEmergencyCompleteExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MissionEmergencyCompleteExcelDto) UnmarshalMessage(e *MissionEmergencyCompleteExcel) error {
-	t.MissionId = fbsutils.Convert(e.MissionId(), t.FlatBuffer.TableKey)
 	t.EmergencyComplete = e.EmergencyComplete()
+	t.MissionId = fbsutils.Convert(e.MissionId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

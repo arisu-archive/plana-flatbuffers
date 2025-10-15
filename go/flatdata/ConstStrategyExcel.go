@@ -33,19 +33,19 @@ func (rcv *ConstStrategyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstStrategyExcel) HexaMapBoundaryOffset() float32 {
+func (rcv *ConstStrategyExcel) AdventureEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateHexaMapBoundaryOffset(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(4, n)
+func (rcv *ConstStrategyExcel) MutateAdventureEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ConstStrategyExcel) HexaMapStartCameraOffset() float32 {
+func (rcv *ConstStrategyExcel) CameraZoomDefault() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *ConstStrategyExcel) HexaMapStartCameraOffset() float32 {
 	return 0.0
 }
 
-func (rcv *ConstStrategyExcel) MutateHexaMapStartCameraOffset(n float32) bool {
+func (rcv *ConstStrategyExcel) MutateCameraZoomDefault(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
@@ -81,32 +81,56 @@ func (rcv *ConstStrategyExcel) MutateCameraZoomMin(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *ConstStrategyExcel) CameraZoomDefault() float32 {
+func (rcv *ConstStrategyExcel) CanHealHpRate() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstStrategyExcel) MutateCameraZoomDefault(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
-}
-
-func (rcv *ConstStrategyExcel) HealCostType() CurrencyTypes {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateHealCostType(n CurrencyTypes) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+func (rcv *ConstStrategyExcel) MutateCanHealHpRate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *ConstStrategyExcel) ConquestEchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstStrategyExcel) MutateConquestEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *ConstStrategyExcel) DefaultEchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstStrategyExcel) MutateDefaultEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ConstStrategyExcel) EventContentEchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstStrategyExcel) MutateEventContentEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
 }
 
 func (rcv *ConstStrategyExcel) HealCostAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -115,7 +139,7 @@ func (rcv *ConstStrategyExcel) HealCostAmount(j int) int64 {
 }
 
 func (rcv *ConstStrategyExcel) HealCostAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,7 +147,7 @@ func (rcv *ConstStrategyExcel) HealCostAmountLength() int {
 }
 
 func (rcv *ConstStrategyExcel) MutateHealCostAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -131,67 +155,43 @@ func (rcv *ConstStrategyExcel) MutateHealCostAmount(j int, n int64) bool {
 	return false
 }
 
-func (rcv *ConstStrategyExcel) CanHealHpRate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstStrategyExcel) MutateCanHealHpRate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *ConstStrategyExcel) PlayTimeLimitInSeconds() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstStrategyExcel) MutatePlayTimeLimitInSeconds(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *ConstStrategyExcel) AdventureEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) HealCostType() CurrencyTypes {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateAdventureEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
+func (rcv *ConstStrategyExcel) MutateHealCostType(n CurrencyTypes) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
 }
 
-func (rcv *ConstStrategyExcel) RaidEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) HexaMapBoundaryOffset() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstStrategyExcel) MutateRaidEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(24, n)
+func (rcv *ConstStrategyExcel) MutateHexaMapBoundaryOffset(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(24, n)
 }
 
-func (rcv *ConstStrategyExcel) DefaultEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) HexaMapStartCameraOffset() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstStrategyExcel) MutateDefaultEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
+func (rcv *ConstStrategyExcel) MutateHexaMapStartCameraOffset(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(26, n)
 }
 
-func (rcv *ConstStrategyExcel) EventContentEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) MultiSweepPresetCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -199,11 +199,11 @@ func (rcv *ConstStrategyExcel) EventContentEchelonCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateEventContentEchelonCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateMultiSweepPresetCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(28, n)
 }
 
-func (rcv *ConstStrategyExcel) TimeAttackDungeonEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) MultiSweepPresetMaxSweepCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -211,11 +211,11 @@ func (rcv *ConstStrategyExcel) TimeAttackDungeonEchelonCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateTimeAttackDungeonEchelonCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateMultiSweepPresetMaxSweepCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(30, n)
 }
 
-func (rcv *ConstStrategyExcel) WorldRaidEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) MultiSweepPresetNameMaxLength() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -223,11 +223,11 @@ func (rcv *ConstStrategyExcel) WorldRaidEchelonCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateWorldRaidEchelonCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateMultiSweepPresetNameMaxLength(n int32) bool {
 	return rcv._tab.MutateInt32Slot(32, n)
 }
 
-func (rcv *ConstStrategyExcel) TacticSkipClearTimeSeconds() int32 {
+func (rcv *ConstStrategyExcel) MultiSweepPresetSelectParcelMaxCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -235,11 +235,11 @@ func (rcv *ConstStrategyExcel) TacticSkipClearTimeSeconds() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateTacticSkipClearTimeSeconds(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateMultiSweepPresetSelectParcelMaxCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(34, n)
 }
 
-func (rcv *ConstStrategyExcel) TacticSkipFramePerSecond() int32 {
+func (rcv *ConstStrategyExcel) MultiSweepPresetSelectStageMaxCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -247,23 +247,23 @@ func (rcv *ConstStrategyExcel) TacticSkipFramePerSecond() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateTacticSkipFramePerSecond(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateMultiSweepPresetSelectStageMaxCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(36, n)
 }
 
-func (rcv *ConstStrategyExcel) ConquestEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) PlayTimeLimitInSeconds() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateConquestEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
+func (rcv *ConstStrategyExcel) MutatePlayTimeLimitInSeconds(n int64) bool {
+	return rcv._tab.MutateInt64Slot(38, n)
 }
 
-func (rcv *ConstStrategyExcel) StoryEchelonCount() int32 {
+func (rcv *ConstStrategyExcel) RaidEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -271,11 +271,11 @@ func (rcv *ConstStrategyExcel) StoryEchelonCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateStoryEchelonCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateRaidEchelonCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(40, n)
 }
 
-func (rcv *ConstStrategyExcel) MultiSweepPresetCount() int32 {
+func (rcv *ConstStrategyExcel) StoryEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -283,11 +283,11 @@ func (rcv *ConstStrategyExcel) MultiSweepPresetCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateMultiSweepPresetCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateStoryEchelonCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(42, n)
 }
 
-func (rcv *ConstStrategyExcel) MultiSweepPresetNameMaxLength() int32 {
+func (rcv *ConstStrategyExcel) TacticSkipClearTimeSeconds() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -295,11 +295,11 @@ func (rcv *ConstStrategyExcel) MultiSweepPresetNameMaxLength() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateMultiSweepPresetNameMaxLength(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateTacticSkipClearTimeSeconds(n int32) bool {
 	return rcv._tab.MutateInt32Slot(44, n)
 }
 
-func (rcv *ConstStrategyExcel) MultiSweepPresetSelectStageMaxCount() int32 {
+func (rcv *ConstStrategyExcel) TacticSkipFramePerSecond() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -307,11 +307,11 @@ func (rcv *ConstStrategyExcel) MultiSweepPresetSelectStageMaxCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateMultiSweepPresetSelectStageMaxCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateTacticSkipFramePerSecond(n int32) bool {
 	return rcv._tab.MutateInt32Slot(46, n)
 }
 
-func (rcv *ConstStrategyExcel) MultiSweepPresetMaxSweepCount() int32 {
+func (rcv *ConstStrategyExcel) TimeAttackDungeonEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -319,11 +319,11 @@ func (rcv *ConstStrategyExcel) MultiSweepPresetMaxSweepCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateMultiSweepPresetMaxSweepCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateTimeAttackDungeonEchelonCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(48, n)
 }
 
-func (rcv *ConstStrategyExcel) MultiSweepPresetSelectParcelMaxCount() int32 {
+func (rcv *ConstStrategyExcel) WorldRaidEchelonCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -331,18 +331,18 @@ func (rcv *ConstStrategyExcel) MultiSweepPresetSelectParcelMaxCount() int32 {
 	return 0
 }
 
-func (rcv *ConstStrategyExcel) MutateMultiSweepPresetSelectParcelMaxCount(n int32) bool {
+func (rcv *ConstStrategyExcel) MutateWorldRaidEchelonCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(50, n)
 }
 
 func ConstStrategyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(24)
 }
-func ConstStrategyExcelAddHexaMapBoundaryOffset(builder *flatbuffers.Builder, hexaMapBoundaryOffset float32) {
-	builder.PrependFloat32Slot(0, hexaMapBoundaryOffset, 0.0)
+func ConstStrategyExcelAddAdventureEchelonCount(builder *flatbuffers.Builder, adventureEchelonCount int32) {
+	builder.PrependInt32Slot(0, adventureEchelonCount, 0)
 }
-func ConstStrategyExcelAddHexaMapStartCameraOffset(builder *flatbuffers.Builder, hexaMapStartCameraOffset float32) {
-	builder.PrependFloat32Slot(1, hexaMapStartCameraOffset, 0.0)
+func ConstStrategyExcelAddCameraZoomDefault(builder *flatbuffers.Builder, cameraZoomDefault float32) {
+	builder.PrependFloat32Slot(1, cameraZoomDefault, 0.0)
 }
 func ConstStrategyExcelAddCameraZoomMax(builder *flatbuffers.Builder, cameraZoomMax float32) {
 	builder.PrependFloat32Slot(2, cameraZoomMax, 0.0)
@@ -350,68 +350,68 @@ func ConstStrategyExcelAddCameraZoomMax(builder *flatbuffers.Builder, cameraZoom
 func ConstStrategyExcelAddCameraZoomMin(builder *flatbuffers.Builder, cameraZoomMin float32) {
 	builder.PrependFloat32Slot(3, cameraZoomMin, 0.0)
 }
-func ConstStrategyExcelAddCameraZoomDefault(builder *flatbuffers.Builder, cameraZoomDefault float32) {
-	builder.PrependFloat32Slot(4, cameraZoomDefault, 0.0)
+func ConstStrategyExcelAddCanHealHpRate(builder *flatbuffers.Builder, canHealHpRate int32) {
+	builder.PrependInt32Slot(4, canHealHpRate, 0)
 }
-func ConstStrategyExcelAddHealCostType(builder *flatbuffers.Builder, healCostType CurrencyTypes) {
-	builder.PrependInt32Slot(5, int32(healCostType), 0)
+func ConstStrategyExcelAddConquestEchelonCount(builder *flatbuffers.Builder, conquestEchelonCount int32) {
+	builder.PrependInt32Slot(5, conquestEchelonCount, 0)
+}
+func ConstStrategyExcelAddDefaultEchelonCount(builder *flatbuffers.Builder, defaultEchelonCount int32) {
+	builder.PrependInt32Slot(6, defaultEchelonCount, 0)
+}
+func ConstStrategyExcelAddEventContentEchelonCount(builder *flatbuffers.Builder, eventContentEchelonCount int32) {
+	builder.PrependInt32Slot(7, eventContentEchelonCount, 0)
 }
 func ConstStrategyExcelAddHealCostAmount(builder *flatbuffers.Builder, healCostAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(healCostAmount), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(healCostAmount), 0)
 }
 func ConstStrategyExcelStartHealCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ConstStrategyExcelAddCanHealHpRate(builder *flatbuffers.Builder, canHealHpRate int32) {
-	builder.PrependInt32Slot(7, canHealHpRate, 0)
+func ConstStrategyExcelAddHealCostType(builder *flatbuffers.Builder, healCostType CurrencyTypes) {
+	builder.PrependInt32Slot(9, int32(healCostType), 0)
 }
-func ConstStrategyExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int64) {
-	builder.PrependInt64Slot(8, playTimeLimitInSeconds, 0)
+func ConstStrategyExcelAddHexaMapBoundaryOffset(builder *flatbuffers.Builder, hexaMapBoundaryOffset float32) {
+	builder.PrependFloat32Slot(10, hexaMapBoundaryOffset, 0.0)
 }
-func ConstStrategyExcelAddAdventureEchelonCount(builder *flatbuffers.Builder, adventureEchelonCount int32) {
-	builder.PrependInt32Slot(9, adventureEchelonCount, 0)
-}
-func ConstStrategyExcelAddRaidEchelonCount(builder *flatbuffers.Builder, raidEchelonCount int32) {
-	builder.PrependInt32Slot(10, raidEchelonCount, 0)
-}
-func ConstStrategyExcelAddDefaultEchelonCount(builder *flatbuffers.Builder, defaultEchelonCount int32) {
-	builder.PrependInt32Slot(11, defaultEchelonCount, 0)
-}
-func ConstStrategyExcelAddEventContentEchelonCount(builder *flatbuffers.Builder, eventContentEchelonCount int32) {
-	builder.PrependInt32Slot(12, eventContentEchelonCount, 0)
-}
-func ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder *flatbuffers.Builder, timeAttackDungeonEchelonCount int32) {
-	builder.PrependInt32Slot(13, timeAttackDungeonEchelonCount, 0)
-}
-func ConstStrategyExcelAddWorldRaidEchelonCount(builder *flatbuffers.Builder, worldRaidEchelonCount int32) {
-	builder.PrependInt32Slot(14, worldRaidEchelonCount, 0)
-}
-func ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder *flatbuffers.Builder, tacticSkipClearTimeSeconds int32) {
-	builder.PrependInt32Slot(15, tacticSkipClearTimeSeconds, 0)
-}
-func ConstStrategyExcelAddTacticSkipFramePerSecond(builder *flatbuffers.Builder, tacticSkipFramePerSecond int32) {
-	builder.PrependInt32Slot(16, tacticSkipFramePerSecond, 0)
-}
-func ConstStrategyExcelAddConquestEchelonCount(builder *flatbuffers.Builder, conquestEchelonCount int32) {
-	builder.PrependInt32Slot(17, conquestEchelonCount, 0)
-}
-func ConstStrategyExcelAddStoryEchelonCount(builder *flatbuffers.Builder, storyEchelonCount int32) {
-	builder.PrependInt32Slot(18, storyEchelonCount, 0)
+func ConstStrategyExcelAddHexaMapStartCameraOffset(builder *flatbuffers.Builder, hexaMapStartCameraOffset float32) {
+	builder.PrependFloat32Slot(11, hexaMapStartCameraOffset, 0.0)
 }
 func ConstStrategyExcelAddMultiSweepPresetCount(builder *flatbuffers.Builder, multiSweepPresetCount int32) {
-	builder.PrependInt32Slot(19, multiSweepPresetCount, 0)
-}
-func ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder *flatbuffers.Builder, multiSweepPresetNameMaxLength int32) {
-	builder.PrependInt32Slot(20, multiSweepPresetNameMaxLength, 0)
-}
-func ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder *flatbuffers.Builder, multiSweepPresetSelectStageMaxCount int32) {
-	builder.PrependInt32Slot(21, multiSweepPresetSelectStageMaxCount, 0)
+	builder.PrependInt32Slot(12, multiSweepPresetCount, 0)
 }
 func ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder *flatbuffers.Builder, multiSweepPresetMaxSweepCount int32) {
-	builder.PrependInt32Slot(22, multiSweepPresetMaxSweepCount, 0)
+	builder.PrependInt32Slot(13, multiSweepPresetMaxSweepCount, 0)
+}
+func ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder *flatbuffers.Builder, multiSweepPresetNameMaxLength int32) {
+	builder.PrependInt32Slot(14, multiSweepPresetNameMaxLength, 0)
 }
 func ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder *flatbuffers.Builder, multiSweepPresetSelectParcelMaxCount int32) {
-	builder.PrependInt32Slot(23, multiSweepPresetSelectParcelMaxCount, 0)
+	builder.PrependInt32Slot(15, multiSweepPresetSelectParcelMaxCount, 0)
+}
+func ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder *flatbuffers.Builder, multiSweepPresetSelectStageMaxCount int32) {
+	builder.PrependInt32Slot(16, multiSweepPresetSelectStageMaxCount, 0)
+}
+func ConstStrategyExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int64) {
+	builder.PrependInt64Slot(17, playTimeLimitInSeconds, 0)
+}
+func ConstStrategyExcelAddRaidEchelonCount(builder *flatbuffers.Builder, raidEchelonCount int32) {
+	builder.PrependInt32Slot(18, raidEchelonCount, 0)
+}
+func ConstStrategyExcelAddStoryEchelonCount(builder *flatbuffers.Builder, storyEchelonCount int32) {
+	builder.PrependInt32Slot(19, storyEchelonCount, 0)
+}
+func ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder *flatbuffers.Builder, tacticSkipClearTimeSeconds int32) {
+	builder.PrependInt32Slot(20, tacticSkipClearTimeSeconds, 0)
+}
+func ConstStrategyExcelAddTacticSkipFramePerSecond(builder *flatbuffers.Builder, tacticSkipFramePerSecond int32) {
+	builder.PrependInt32Slot(21, tacticSkipFramePerSecond, 0)
+}
+func ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder *flatbuffers.Builder, timeAttackDungeonEchelonCount int32) {
+	builder.PrependInt32Slot(22, timeAttackDungeonEchelonCount, 0)
+}
+func ConstStrategyExcelAddWorldRaidEchelonCount(builder *flatbuffers.Builder, worldRaidEchelonCount int32) {
+	builder.PrependInt32Slot(23, worldRaidEchelonCount, 0)
 }
 func ConstStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

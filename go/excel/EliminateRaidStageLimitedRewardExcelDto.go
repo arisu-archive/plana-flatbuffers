@@ -10,15 +10,20 @@ import (
 // EliminateRaidStageLimitedRewardExcelDto represents a FlatBuffers table
 type EliminateRaidStageLimitedRewardExcelDto struct {
 	fbsutils.FlatBuffer
+	LimitedRewardAmount         []int64      `json:"limited_reward_amount"`
 	LimitedRewardId             int64        `json:"limited_reward_id"`
 	LimitedRewardParcelType     []ParcelType `json:"limited_reward_parcel_type"`
 	LimitedRewardParcelUniqueId []int64      `json:"limited_reward_parcel_unique_id"`
-	LimitedRewardAmount         []int64      `json:"limited_reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EliminateRaidStageLimitedRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EliminateRaidStageLimitedRewardExcelStart(b)
+	EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(b, len(t.LimitedRewardAmount))
+	for i := range len(t.LimitedRewardAmount) {
+		b.PrependInt64(fbsutils.Convert(t.LimitedRewardAmount[len(t.LimitedRewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(b, b.EndVector(len(t.LimitedRewardAmount)))
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(b, fbsutils.Convert(t.LimitedRewardId, t.FlatBuffer.TableKey))
 	EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(b, len(t.LimitedRewardParcelType))
 	for i := range len(t.LimitedRewardParcelType) {
@@ -30,11 +35,6 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 		b.PrependInt64(fbsutils.Convert(t.LimitedRewardParcelUniqueId[len(t.LimitedRewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(b, b.EndVector(len(t.LimitedRewardParcelUniqueId)))
-	EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(b, len(t.LimitedRewardAmount))
-	for i := range len(t.LimitedRewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.LimitedRewardAmount[len(t.LimitedRewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(b, b.EndVector(len(t.LimitedRewardAmount)))
 	return EliminateRaidStageLimitedRewardExcelEnd(b)
 }
 
@@ -47,6 +47,10 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EliminateRaidStageLimitedRewardExcelDto) UnmarshalMessage(e *EliminateRaidStageLimitedRewardExcel) error {
+	t.LimitedRewardAmount = make([]int64, e.LimitedRewardAmountLength())
+	for i := range e.LimitedRewardAmountLength() {
+		t.LimitedRewardAmount[i] = fbsutils.Convert(e.LimitedRewardAmount(i), t.FlatBuffer.TableKey)
+	}
 	t.LimitedRewardId = fbsutils.Convert(e.LimitedRewardId(), t.FlatBuffer.TableKey)
 	t.LimitedRewardParcelType = make([]ParcelType, e.LimitedRewardParcelTypeLength())
 	for i := range e.LimitedRewardParcelTypeLength() {
@@ -55,10 +59,6 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) UnmarshalMessage(e *EliminateR
 	t.LimitedRewardParcelUniqueId = make([]int64, e.LimitedRewardParcelUniqueIdLength())
 	for i := range e.LimitedRewardParcelUniqueIdLength() {
 		t.LimitedRewardParcelUniqueId[i] = fbsutils.Convert(e.LimitedRewardParcelUniqueId(i), t.FlatBuffer.TableKey)
-	}
-	t.LimitedRewardAmount = make([]int64, e.LimitedRewardAmountLength())
-	for i := range e.LimitedRewardAmountLength() {
-		t.LimitedRewardAmount[i] = fbsutils.Convert(e.LimitedRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

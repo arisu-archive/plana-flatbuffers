@@ -32,14 +32,14 @@ class InformationExcel(object):
         return 0
 
     # InformationExcel
-    def PageName(self):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # InformationExcel
-    def LocalizeCodeId(self):
+    def PageName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -91,12 +91,12 @@ def Start(builder):
 def InformationExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
     return InformationExcelAddGroupId(builder, groupId)
-def InformationExcelAddPageName(builder, pageName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(pageName), 0)
-def AddPageName(builder, pageName):
-    return InformationExcelAddPageName(builder, pageName)
-def InformationExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
+def InformationExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
 def AddLocalizeCodeId(builder, localizeCodeId):
     return InformationExcelAddLocalizeCodeId(builder, localizeCodeId)
+def InformationExcelAddPageName(builder, pageName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(pageName), 0)
+def AddPageName(builder, pageName):
+    return InformationExcelAddPageName(builder, pageName)
 def InformationExcelAddTutorialParentName(builder, tutorialParentName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialParentName), 0)
 def AddTutorialParentName(builder, tutorialParentName):
     return InformationExcelAddTutorialParentName(builder, tutorialParentName)

@@ -25,14 +25,14 @@ class BossPhaseExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BossPhaseExcel
-    def Id(self):
+    def AiPhase(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BossPhaseExcel
-    def AiPhase(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -75,12 +75,12 @@ class BossPhaseExcel(object):
 def BossPhaseExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return BossPhaseExcelStart(builder)
-def BossPhaseExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return BossPhaseExcelAddId(builder, id)
-def BossPhaseExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(1, aiPhase, 0)
+def BossPhaseExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(0, aiPhase, 0)
 def AddAiPhase(builder, aiPhase):
     return BossPhaseExcelAddAiPhase(builder, aiPhase)
+def BossPhaseExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return BossPhaseExcelAddId(builder, id)
 def BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillUniqueName), 0)
 def AddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName):
     return BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName)

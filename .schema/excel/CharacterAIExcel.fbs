@@ -1,0 +1,21 @@
+include "EngageType.fbs";
+include "PositioningType.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterAIExcel {
+    can_use_obstacle_of_kneel_motion: bool;
+    can_use_obstacle_of_stand_motion: bool;
+    check_can_use_auto_skill: bool;
+    distance_reduce_formation_path: long;
+    distance_reduce_obstacle_path: long;
+    distance_reduce_ratio_formation_path: long;
+    distance_reduce_ratio_obstacle_path: long;
+    engage_type: EngageType;
+    has_target_switching_motion: bool;
+    id: long;
+    minimum_position_gap: long;
+    positioning: PositioningType;
+}
+
+root_type CharacterAIExcel;

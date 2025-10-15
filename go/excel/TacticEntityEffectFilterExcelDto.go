@@ -10,17 +10,17 @@ import (
 // TacticEntityEffectFilterExcelDto represents a FlatBuffers table
 type TacticEntityEffectFilterExcelDto struct {
 	fbsutils.FlatBuffer
-	TargetEffectName    string `json:"target_effect_name"`
-	ShowEffectToVehicle bool   `json:"show_effect_to_vehicle"`
 	ShowEffectToBoss    bool   `json:"show_effect_to_boss"`
+	ShowEffectToVehicle bool   `json:"show_effect_to_vehicle"`
+	TargetEffectName    string `json:"target_effect_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticEntityEffectFilterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TacticEntityEffectFilterExcelStart(b)
-	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
-	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, t.ShowEffectToVehicle)
 	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, t.ShowEffectToBoss)
+	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, t.ShowEffectToVehicle)
+	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
 	return TacticEntityEffectFilterExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *TacticEntityEffectFilterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticEntityEffectFilterExcelDto) UnmarshalMessage(e *TacticEntityEffectFilterExcel) error {
-	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
-	t.ShowEffectToVehicle = e.ShowEffectToVehicle()
 	t.ShowEffectToBoss = e.ShowEffectToBoss()
+	t.ShowEffectToVehicle = e.ShowEffectToVehicle()
+	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

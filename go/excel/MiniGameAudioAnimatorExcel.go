@@ -33,27 +33,36 @@ func (rcv *MiniGameAudioAnimatorExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) ControllerNameHash() uint32 {
+func (rcv *MiniGameAudioAnimatorExcel) AudioClipPath(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) MutateControllerNameHash(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) VoiceNamePrefix() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) StateNameHash() uint32 {
+func (rcv *MiniGameAudioAnimatorExcel) AudioClipPathLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) AudioPriority() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) MutateAudioPriority(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) ControllerNameHash() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -61,16 +70,20 @@ func (rcv *MiniGameAudioAnimatorExcel) StateNameHash() uint32 {
 	return 0
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) MutateStateNameHash(n uint32) bool {
+func (rcv *MiniGameAudioAnimatorExcel) MutateControllerNameHash(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) StateName() []byte {
+func (rcv *MiniGameAudioAnimatorExcel) Delay() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0.0
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) MutateDelay(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
 func (rcv *MiniGameAudioAnimatorExcel) IgnoreInterruptDelay() bool {
@@ -97,61 +110,28 @@ func (rcv *MiniGameAudioAnimatorExcel) MutateIgnoreInterruptPlay(n bool) bool {
 	return rcv._tab.MutateBoolSlot(14, n)
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) Volume() float32 {
+func (rcv *MiniGameAudioAnimatorExcel) StateName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) MutateVolume(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) Delay() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) MutateDelay(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(18, n)
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) AudioPriority() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) MutateAudioPriority(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *MiniGameAudioAnimatorExcel) AudioClipPath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *MiniGameAudioAnimatorExcel) AudioClipPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+func (rcv *MiniGameAudioAnimatorExcel) StateNameHash() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
+func (rcv *MiniGameAudioAnimatorExcel) MutateStateNameHash(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(18, n)
+}
+
 func (rcv *MiniGameAudioAnimatorExcel) VoiceHash(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -160,7 +140,7 @@ func (rcv *MiniGameAudioAnimatorExcel) VoiceHash(j int) uint32 {
 }
 
 func (rcv *MiniGameAudioAnimatorExcel) VoiceHashLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -168,7 +148,7 @@ func (rcv *MiniGameAudioAnimatorExcel) VoiceHashLength() int {
 }
 
 func (rcv *MiniGameAudioAnimatorExcel) MutateVoiceHash(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -176,20 +156,43 @@ func (rcv *MiniGameAudioAnimatorExcel) MutateVoiceHash(j int, n uint32) bool {
 	return false
 }
 
+func (rcv *MiniGameAudioAnimatorExcel) VoiceNamePrefix() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) Volume() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *MiniGameAudioAnimatorExcel) MutateVolume(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(24, n)
+}
+
 func MiniGameAudioAnimatorExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
+func MiniGameAudioAnimatorExcelAddAudioClipPath(builder *flatbuffers.Builder, audioClipPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(audioClipPath), 0)
+}
+func MiniGameAudioAnimatorExcelStartAudioClipPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameAudioAnimatorExcelAddAudioPriority(builder *flatbuffers.Builder, audioPriority int32) {
+	builder.PrependInt32Slot(1, audioPriority, 0)
+}
 func MiniGameAudioAnimatorExcelAddControllerNameHash(builder *flatbuffers.Builder, controllerNameHash uint32) {
-	builder.PrependUint32Slot(0, controllerNameHash, 0)
+	builder.PrependUint32Slot(2, controllerNameHash, 0)
 }
-func MiniGameAudioAnimatorExcelAddVoiceNamePrefix(builder *flatbuffers.Builder, voiceNamePrefix flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(voiceNamePrefix), 0)
-}
-func MiniGameAudioAnimatorExcelAddStateNameHash(builder *flatbuffers.Builder, stateNameHash uint32) {
-	builder.PrependUint32Slot(2, stateNameHash, 0)
-}
-func MiniGameAudioAnimatorExcelAddStateName(builder *flatbuffers.Builder, stateName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(stateName), 0)
+func MiniGameAudioAnimatorExcelAddDelay(builder *flatbuffers.Builder, delay float32) {
+	builder.PrependFloat32Slot(3, delay, 0.0)
 }
 func MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(builder *flatbuffers.Builder, ignoreInterruptDelay bool) {
 	builder.PrependBoolSlot(4, ignoreInterruptDelay, false)
@@ -197,26 +200,23 @@ func MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(builder *flatbuffers.Buil
 func MiniGameAudioAnimatorExcelAddIgnoreInterruptPlay(builder *flatbuffers.Builder, ignoreInterruptPlay bool) {
 	builder.PrependBoolSlot(5, ignoreInterruptPlay, false)
 }
-func MiniGameAudioAnimatorExcelAddVolume(builder *flatbuffers.Builder, volume float32) {
-	builder.PrependFloat32Slot(6, volume, 0.0)
+func MiniGameAudioAnimatorExcelAddStateName(builder *flatbuffers.Builder, stateName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(stateName), 0)
 }
-func MiniGameAudioAnimatorExcelAddDelay(builder *flatbuffers.Builder, delay float32) {
-	builder.PrependFloat32Slot(7, delay, 0.0)
-}
-func MiniGameAudioAnimatorExcelAddAudioPriority(builder *flatbuffers.Builder, audioPriority int32) {
-	builder.PrependInt32Slot(8, audioPriority, 0)
-}
-func MiniGameAudioAnimatorExcelAddAudioClipPath(builder *flatbuffers.Builder, audioClipPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(audioClipPath), 0)
-}
-func MiniGameAudioAnimatorExcelStartAudioClipPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MiniGameAudioAnimatorExcelAddStateNameHash(builder *flatbuffers.Builder, stateNameHash uint32) {
+	builder.PrependUint32Slot(7, stateNameHash, 0)
 }
 func MiniGameAudioAnimatorExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(voiceHash), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(voiceHash), 0)
 }
 func MiniGameAudioAnimatorExcelStartVoiceHashVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameAudioAnimatorExcelAddVoiceNamePrefix(builder *flatbuffers.Builder, voiceNamePrefix flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(voiceNamePrefix), 0)
+}
+func MiniGameAudioAnimatorExcelAddVolume(builder *flatbuffers.Builder, volume float32) {
+	builder.PrependFloat32Slot(10, volume, 0.0)
 }
 func MiniGameAudioAnimatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

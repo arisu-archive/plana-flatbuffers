@@ -10,27 +10,27 @@ import (
 // WeekDungeonRewardExcelDto represents a FlatBuffers table
 type WeekDungeonRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId                 int64           `json:"group_id"`
-	DungeonType             WeekDungeonType `json:"dungeon_type"`
-	RewardParcelType        ParcelType      `json:"reward_parcel_type"`
-	RewardParcelId          int64           `json:"reward_parcel_id"`
-	RewardParcelAmount      int64           `json:"reward_parcel_amount"`
-	RewardParcelProbability int64           `json:"reward_parcel_probability"`
-	IsDisplayed             bool            `json:"is_displayed"`
 	DropItemModelPrefabPath string          `json:"drop_item_model_prefab_path"`
+	DungeonType             WeekDungeonType `json:"dungeon_type"`
+	GroupId                 int64           `json:"group_id"`
+	IsDisplayed             bool            `json:"is_displayed"`
+	RewardParcelAmount      int64           `json:"reward_parcel_amount"`
+	RewardParcelId          int64           `json:"reward_parcel_id"`
+	RewardParcelProbability int64           `json:"reward_parcel_probability"`
+	RewardParcelType        ParcelType      `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	WeekDungeonRewardExcelStart(b)
-	WeekDungeonRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
+	WeekDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	WeekDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	return WeekDungeonRewardExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *WeekDungeonRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonRewardExcelDto) UnmarshalMessage(e *WeekDungeonRewardExcel) error {
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.DungeonType = WeekDungeonType(fbsutils.Convert(int32(e.DungeonType()), t.FlatBuffer.TableKey))
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
-	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = e.IsDisplayed()
 	t.DropItemModelPrefabPath = fbsutils.Convert(string(e.DropItemModelPrefabPath()), t.FlatBuffer.TableKey)
+	t.DungeonType = WeekDungeonType(fbsutils.Convert(int32(e.DungeonType()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
+	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

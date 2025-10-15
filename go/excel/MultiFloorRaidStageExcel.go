@@ -33,40 +33,8 @@ func (rcv *MultiFloorRaidStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MultiFloorRaidStageExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) EchelonExtensionType() EchelonExtensionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *MultiFloorRaidStageExcel) BossGroupId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MultiFloorRaidStageExcel) AssistSlot() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -74,175 +42,11 @@ func (rcv *MultiFloorRaidStageExcel) AssistSlot() int32 {
 }
 
 func (rcv *MultiFloorRaidStageExcel) MutateAssistSlot(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) StageOpenCondition() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateStageOpenCondition(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) FloorListSection() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateFloorListSection(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) FloorListSectionOpenCondition() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateFloorListSectionOpenCondition(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) FloorListSectionLabel() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateFloorListSectionLabel(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(18, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) Difficulty() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateDifficulty(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) UseBossIndex() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateUseBossIndex(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) UseBossAiPhaseSync() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateUseBossAiPhaseSync(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) FloorListImgPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MultiFloorRaidStageExcel) FloorImgPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MultiFloorRaidStageExcel) RaidCharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateRaidCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) BossCharacterId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) BossCharacterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateBossCharacterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *MultiFloorRaidStageExcel) StatChangeId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) StatChangeIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateStatChangeId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
 func (rcv *MultiFloorRaidStageExcel) BattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -250,47 +54,11 @@ func (rcv *MultiFloorRaidStageExcel) BattleDuration() int64 {
 }
 
 func (rcv *MultiFloorRaidStageExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) RecommendLevel() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateRecommendLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
-}
-
-func (rcv *MultiFloorRaidStageExcel) RewardGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateRewardGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -299,41 +67,15 @@ func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePath(j int) []byte {
 }
 
 func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseStart(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseStartLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MultiFloorRaidStageExcel) MutateBattleReadyTimelinePhaseStart(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
 }
 
 func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseEnd(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -342,7 +84,7 @@ func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseEnd(j int) int32 {
 }
 
 func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseEndLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -350,7 +92,7 @@ func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseEndLength() int {
 }
 
 func (rcv *MultiFloorRaidStageExcel) MutateBattleReadyTimelinePhaseEnd(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -358,16 +100,204 @@ func (rcv *MultiFloorRaidStageExcel) MutateBattleReadyTimelinePhaseEnd(j int, n 
 	return false
 }
 
-func (rcv *MultiFloorRaidStageExcel) VictoryTimelinePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseStart(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) BattleReadyTimelinePhaseStartLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateBattleReadyTimelinePhaseStart(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) BossCharacterId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) BossCharacterIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateBossCharacterId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) BossGroupId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *MultiFloorRaidStageExcel) Difficulty() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateDifficulty(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) EchelonExtensionType() EchelonExtensionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *MultiFloorRaidStageExcel) FloorImgPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MultiFloorRaidStageExcel) FloorListImgPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MultiFloorRaidStageExcel) FloorListSection() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateFloorListSection(n bool) bool {
+	return rcv._tab.MutateBoolSlot(26, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) FloorListSectionLabel() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateFloorListSectionLabel(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(28, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) FloorListSectionOpenCondition() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateFloorListSectionOpenCondition(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) GroundId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateGroundId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) RaidCharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateRaidCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) RecommendLevel() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateRecommendLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(38, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) RewardGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateRewardGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
 func (rcv *MultiFloorRaidStageExcel) ShowSkillCard() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -375,101 +305,171 @@ func (rcv *MultiFloorRaidStageExcel) ShowSkillCard() bool {
 }
 
 func (rcv *MultiFloorRaidStageExcel) MutateShowSkillCard(n bool) bool {
-	return rcv._tab.MutateBoolSlot(52, n)
+	return rcv._tab.MutateBoolSlot(42, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) StageOpenCondition() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateStageOpenCondition(n int64) bool {
+	return rcv._tab.MutateInt64Slot(44, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) StatChangeId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) StatChangeIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateStatChangeId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) UseBossAiPhaseSync() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateUseBossAiPhaseSync(n bool) bool {
+	return rcv._tab.MutateBoolSlot(48, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) UseBossIndex() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MultiFloorRaidStageExcel) MutateUseBossIndex(n bool) bool {
+	return rcv._tab.MutateBoolSlot(50, n)
+}
+
+func (rcv *MultiFloorRaidStageExcel) VictoryTimelinePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func MultiFloorRaidStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(25)
 }
-func MultiFloorRaidStageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func MultiFloorRaidStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(1, int32(echelonExtensionType), 0)
-}
-func MultiFloorRaidStageExcelAddBossGroupId(builder *flatbuffers.Builder, bossGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(bossGroupId), 0)
-}
 func MultiFloorRaidStageExcelAddAssistSlot(builder *flatbuffers.Builder, assistSlot int32) {
-	builder.PrependInt32Slot(3, assistSlot, 0)
-}
-func MultiFloorRaidStageExcelAddStageOpenCondition(builder *flatbuffers.Builder, stageOpenCondition int64) {
-	builder.PrependInt64Slot(4, stageOpenCondition, 0)
-}
-func MultiFloorRaidStageExcelAddFloorListSection(builder *flatbuffers.Builder, floorListSection bool) {
-	builder.PrependBoolSlot(5, floorListSection, false)
-}
-func MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder *flatbuffers.Builder, floorListSectionOpenCondition int64) {
-	builder.PrependInt64Slot(6, floorListSectionOpenCondition, 0)
-}
-func MultiFloorRaidStageExcelAddFloorListSectionLabel(builder *flatbuffers.Builder, floorListSectionLabel uint32) {
-	builder.PrependUint32Slot(7, floorListSectionLabel, 0)
-}
-func MultiFloorRaidStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty int32) {
-	builder.PrependInt32Slot(8, difficulty, 0)
-}
-func MultiFloorRaidStageExcelAddUseBossIndex(builder *flatbuffers.Builder, useBossIndex bool) {
-	builder.PrependBoolSlot(9, useBossIndex, false)
-}
-func MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder *flatbuffers.Builder, useBossAiPhaseSync bool) {
-	builder.PrependBoolSlot(10, useBossAiPhaseSync, false)
-}
-func MultiFloorRaidStageExcelAddFloorListImgPath(builder *flatbuffers.Builder, floorListImgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(floorListImgPath), 0)
-}
-func MultiFloorRaidStageExcelAddFloorImgPath(builder *flatbuffers.Builder, floorImgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(floorImgPath), 0)
-}
-func MultiFloorRaidStageExcelAddRaidCharacterId(builder *flatbuffers.Builder, raidCharacterId int64) {
-	builder.PrependInt64Slot(13, raidCharacterId, 0)
-}
-func MultiFloorRaidStageExcelAddBossCharacterId(builder *flatbuffers.Builder, bossCharacterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(bossCharacterId), 0)
-}
-func MultiFloorRaidStageExcelStartBossCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func MultiFloorRaidStageExcelAddStatChangeId(builder *flatbuffers.Builder, statChangeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(statChangeId), 0)
-}
-func MultiFloorRaidStageExcelStartStatChangeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+	builder.PrependInt32Slot(0, assistSlot, 0)
 }
 func MultiFloorRaidStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(16, battleDuration, 0)
-}
-func MultiFloorRaidStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(17, groundId, 0)
-}
-func MultiFloorRaidStageExcelAddRecommendLevel(builder *flatbuffers.Builder, recommendLevel int64) {
-	builder.PrependInt64Slot(18, recommendLevel, 0)
-}
-func MultiFloorRaidStageExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
-	builder.PrependInt64Slot(19, rewardGroupId, 0)
+	builder.PrependInt64Slot(1, battleDuration, 0)
 }
 func MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder *flatbuffers.Builder, battleReadyTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
 }
 func MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder *flatbuffers.Builder, battleReadyTimelinePhaseStart flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(battleReadyTimelinePhaseStart), 0)
-}
-func MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder *flatbuffers.Builder, battleReadyTimelinePhaseEnd flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(battleReadyTimelinePhaseEnd), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(battleReadyTimelinePhaseEnd), 0)
 }
 func MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func MultiFloorRaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(victoryTimelinePath), 0)
+func MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder *flatbuffers.Builder, battleReadyTimelinePhaseStart flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(battleReadyTimelinePhaseStart), 0)
+}
+func MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MultiFloorRaidStageExcelAddBossCharacterId(builder *flatbuffers.Builder, bossCharacterId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bossCharacterId), 0)
+}
+func MultiFloorRaidStageExcelStartBossCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func MultiFloorRaidStageExcelAddBossGroupId(builder *flatbuffers.Builder, bossGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(bossGroupId), 0)
+}
+func MultiFloorRaidStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty int32) {
+	builder.PrependInt32Slot(7, difficulty, 0)
+}
+func MultiFloorRaidStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
+	builder.PrependInt32Slot(8, int32(echelonExtensionType), 0)
+}
+func MultiFloorRaidStageExcelAddFloorImgPath(builder *flatbuffers.Builder, floorImgPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(floorImgPath), 0)
+}
+func MultiFloorRaidStageExcelAddFloorListImgPath(builder *flatbuffers.Builder, floorListImgPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(floorListImgPath), 0)
+}
+func MultiFloorRaidStageExcelAddFloorListSection(builder *flatbuffers.Builder, floorListSection bool) {
+	builder.PrependBoolSlot(11, floorListSection, false)
+}
+func MultiFloorRaidStageExcelAddFloorListSectionLabel(builder *flatbuffers.Builder, floorListSectionLabel uint32) {
+	builder.PrependUint32Slot(12, floorListSectionLabel, 0)
+}
+func MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder *flatbuffers.Builder, floorListSectionOpenCondition int64) {
+	builder.PrependInt64Slot(13, floorListSectionOpenCondition, 0)
+}
+func MultiFloorRaidStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(14, groundId, 0)
+}
+func MultiFloorRaidStageExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(15, id, 0)
+}
+func MultiFloorRaidStageExcelAddRaidCharacterId(builder *flatbuffers.Builder, raidCharacterId int64) {
+	builder.PrependInt64Slot(16, raidCharacterId, 0)
+}
+func MultiFloorRaidStageExcelAddRecommendLevel(builder *flatbuffers.Builder, recommendLevel int64) {
+	builder.PrependInt64Slot(17, recommendLevel, 0)
+}
+func MultiFloorRaidStageExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
+	builder.PrependInt64Slot(18, rewardGroupId, 0)
 }
 func MultiFloorRaidStageExcelAddShowSkillCard(builder *flatbuffers.Builder, showSkillCard bool) {
-	builder.PrependBoolSlot(24, showSkillCard, false)
+	builder.PrependBoolSlot(19, showSkillCard, false)
+}
+func MultiFloorRaidStageExcelAddStageOpenCondition(builder *flatbuffers.Builder, stageOpenCondition int64) {
+	builder.PrependInt64Slot(20, stageOpenCondition, 0)
+}
+func MultiFloorRaidStageExcelAddStatChangeId(builder *flatbuffers.Builder, statChangeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(statChangeId), 0)
+}
+func MultiFloorRaidStageExcelStartStatChangeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder *flatbuffers.Builder, useBossAiPhaseSync bool) {
+	builder.PrependBoolSlot(22, useBossAiPhaseSync, false)
+}
+func MultiFloorRaidStageExcelAddUseBossIndex(builder *flatbuffers.Builder, useBossIndex bool) {
+	builder.PrependBoolSlot(23, useBossIndex, false)
+}
+func MultiFloorRaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryTimelinePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(victoryTimelinePath), 0)
 }
 func MultiFloorRaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

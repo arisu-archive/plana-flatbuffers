@@ -10,23 +10,23 @@ import (
 // CharacterVoiceSubtitleExcelDto represents a FlatBuffers table
 type CharacterVoiceSubtitleExcelDto struct {
 	fbsutils.FlatBuffer
-	LocalizeCvGroup       string `json:"localize_cv_group"`
 	CharacterVoiceGroupId int64  `json:"character_voice_group_id"`
 	Duration              int64  `json:"duration"`
-	Separate              bool   `json:"separate"`
-	LocalizeKr            string `json:"localize_kr"`
+	LocalizeCvGroup       string `json:"localize_cv_group"`
 	LocalizeJp            string `json:"localize_jp"`
+	LocalizeKr            string `json:"localize_kr"`
+	Separate              bool   `json:"separate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterVoiceSubtitleExcelStart(b)
-	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterVoiceSubtitleExcelAddSeparate(b, t.Separate)
-	CharacterVoiceSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddSeparate(b, t.Separate)
 	return CharacterVoiceSubtitleExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *CharacterVoiceSubtitleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVoiceSubtitleExcelDto) UnmarshalMessage(e *CharacterVoiceSubtitleExcel) error {
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.Separate = e.Separate()
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.Separate = e.Separate()
 	return nil
 }
 

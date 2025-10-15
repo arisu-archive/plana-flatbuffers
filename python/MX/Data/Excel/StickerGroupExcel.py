@@ -39,63 +39,63 @@ class StickerGroupExcel(object):
         return None
 
     # StickerGroupExcel
-    def UniqueLayoutPath(self):
+    def LocalizeDescription(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # StickerGroupExcel
-    def StickerGroupIconpath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # StickerGroupExcel
-    def PageCompleteSlot(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # StickerGroupExcel
-    def PageCompleteRewardParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+    def LocalizeTitle(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # StickerGroupExcel
+    def PageCompleteRewardAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # StickerGroupExcel
     def PageCompleteRewardParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StickerGroupExcel
-    def PageCompleteRewardAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+    def PageCompleteRewardParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # StickerGroupExcel
-    def LocalizeTitle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+    def PageCompleteSlot(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # StickerGroupExcel
-    def LocalizeDescription(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StickerGroupExcel
     def StickerGroupCoverpath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # StickerGroupExcel
+    def StickerGroupIconpath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # StickerGroupExcel
+    def UniqueLayoutPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -110,33 +110,33 @@ def AddId(builder, id):
 def StickerGroupExcelAddLayout(builder, layout): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(layout), 0)
 def AddLayout(builder, layout):
     return StickerGroupExcelAddLayout(builder, layout)
-def StickerGroupExcelAddUniqueLayoutPath(builder, uniqueLayoutPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(uniqueLayoutPath), 0)
-def AddUniqueLayoutPath(builder, uniqueLayoutPath):
-    return StickerGroupExcelAddUniqueLayoutPath(builder, uniqueLayoutPath)
-def StickerGroupExcelAddStickerGroupIconpath(builder, stickerGroupIconpath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(stickerGroupIconpath), 0)
-def AddStickerGroupIconpath(builder, stickerGroupIconpath):
-    return StickerGroupExcelAddStickerGroupIconpath(builder, stickerGroupIconpath)
-def StickerGroupExcelAddPageCompleteSlot(builder, pageCompleteSlot): builder.PrependInt64Slot(4, pageCompleteSlot, 0)
-def AddPageCompleteSlot(builder, pageCompleteSlot):
-    return StickerGroupExcelAddPageCompleteSlot(builder, pageCompleteSlot)
-def StickerGroupExcelAddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType): builder.PrependInt32Slot(5, pageCompleteRewardParcelType, 0)
-def AddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType):
-    return StickerGroupExcelAddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType)
-def StickerGroupExcelAddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId): builder.PrependInt64Slot(6, pageCompleteRewardParcelId, 0)
-def AddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId):
-    return StickerGroupExcelAddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId)
-def StickerGroupExcelAddPageCompleteRewardAmount(builder, pageCompleteRewardAmount): builder.PrependInt32Slot(7, pageCompleteRewardAmount, 0)
-def AddPageCompleteRewardAmount(builder, pageCompleteRewardAmount):
-    return StickerGroupExcelAddPageCompleteRewardAmount(builder, pageCompleteRewardAmount)
-def StickerGroupExcelAddLocalizeTitle(builder, localizeTitle): builder.PrependUint32Slot(8, localizeTitle, 0)
-def AddLocalizeTitle(builder, localizeTitle):
-    return StickerGroupExcelAddLocalizeTitle(builder, localizeTitle)
-def StickerGroupExcelAddLocalizeDescription(builder, localizeDescription): builder.PrependUint32Slot(9, localizeDescription, 0)
+def StickerGroupExcelAddLocalizeDescription(builder, localizeDescription): builder.PrependUint32Slot(2, localizeDescription, 0)
 def AddLocalizeDescription(builder, localizeDescription):
     return StickerGroupExcelAddLocalizeDescription(builder, localizeDescription)
-def StickerGroupExcelAddStickerGroupCoverpath(builder, stickerGroupCoverpath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(stickerGroupCoverpath), 0)
+def StickerGroupExcelAddLocalizeTitle(builder, localizeTitle): builder.PrependUint32Slot(3, localizeTitle, 0)
+def AddLocalizeTitle(builder, localizeTitle):
+    return StickerGroupExcelAddLocalizeTitle(builder, localizeTitle)
+def StickerGroupExcelAddPageCompleteRewardAmount(builder, pageCompleteRewardAmount): builder.PrependInt32Slot(4, pageCompleteRewardAmount, 0)
+def AddPageCompleteRewardAmount(builder, pageCompleteRewardAmount):
+    return StickerGroupExcelAddPageCompleteRewardAmount(builder, pageCompleteRewardAmount)
+def StickerGroupExcelAddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId): builder.PrependInt64Slot(5, pageCompleteRewardParcelId, 0)
+def AddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId):
+    return StickerGroupExcelAddPageCompleteRewardParcelId(builder, pageCompleteRewardParcelId)
+def StickerGroupExcelAddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType): builder.PrependInt32Slot(6, pageCompleteRewardParcelType, 0)
+def AddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType):
+    return StickerGroupExcelAddPageCompleteRewardParcelType(builder, pageCompleteRewardParcelType)
+def StickerGroupExcelAddPageCompleteSlot(builder, pageCompleteSlot): builder.PrependInt64Slot(7, pageCompleteSlot, 0)
+def AddPageCompleteSlot(builder, pageCompleteSlot):
+    return StickerGroupExcelAddPageCompleteSlot(builder, pageCompleteSlot)
+def StickerGroupExcelAddStickerGroupCoverpath(builder, stickerGroupCoverpath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(stickerGroupCoverpath), 0)
 def AddStickerGroupCoverpath(builder, stickerGroupCoverpath):
     return StickerGroupExcelAddStickerGroupCoverpath(builder, stickerGroupCoverpath)
+def StickerGroupExcelAddStickerGroupIconpath(builder, stickerGroupIconpath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(stickerGroupIconpath), 0)
+def AddStickerGroupIconpath(builder, stickerGroupIconpath):
+    return StickerGroupExcelAddStickerGroupIconpath(builder, stickerGroupIconpath)
+def StickerGroupExcelAddUniqueLayoutPath(builder, uniqueLayoutPath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(uniqueLayoutPath), 0)
+def AddUniqueLayoutPath(builder, uniqueLayoutPath):
+    return StickerGroupExcelAddUniqueLayoutPath(builder, uniqueLayoutPath)
 def StickerGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return StickerGroupExcelEnd(builder)

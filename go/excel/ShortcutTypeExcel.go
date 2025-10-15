@@ -33,32 +33,8 @@ func (rcv *ShortcutTypeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShortcutTypeExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShortcutTypeExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ShortcutTypeExcel) IsAscending() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ShortcutTypeExcel) MutateIsAscending(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
 func (rcv *ShortcutTypeExcel) ContentType(j int) ShortcutContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ShortcutContentType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -67,7 +43,7 @@ func (rcv *ShortcutTypeExcel) ContentType(j int) ShortcutContentType {
 }
 
 func (rcv *ShortcutTypeExcel) ContentTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -75,7 +51,7 @@ func (rcv *ShortcutTypeExcel) ContentTypeLength() int {
 }
 
 func (rcv *ShortcutTypeExcel) MutateContentType(j int, n ShortcutContentType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -83,20 +59,44 @@ func (rcv *ShortcutTypeExcel) MutateContentType(j int, n ShortcutContentType) bo
 	return false
 }
 
+func (rcv *ShortcutTypeExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShortcutTypeExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ShortcutTypeExcel) IsAscending() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ShortcutTypeExcel) MutateIsAscending(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
 func ShortcutTypeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func ShortcutTypeExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ShortcutTypeExcelAddIsAscending(builder *flatbuffers.Builder, isAscending bool) {
-	builder.PrependBoolSlot(1, isAscending, false)
-}
 func ShortcutTypeExcelAddContentType(builder *flatbuffers.Builder, contentType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(contentType), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(contentType), 0)
 }
 func ShortcutTypeExcelStartContentTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func ShortcutTypeExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
+}
+func ShortcutTypeExcelAddIsAscending(builder *flatbuffers.Builder, isAscending bool) {
+	builder.PrependBoolSlot(2, isAscending, false)
 }
 func ShortcutTypeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

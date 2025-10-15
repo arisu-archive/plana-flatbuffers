@@ -4,20 +4,20 @@ include "Nation.fbs";
 namespace MX.Data.Excel;
 
 table CharacterVoiceExcel {
-    character_voice_unique_id: long;
     character_voice_group_id: long;
-    voice_hash: uint;
-    only_one: bool;
-    priority: int;
-    display_order: long;
+    character_voice_unique_id: long;
     collection_visible: bool;
     cv_collection_type: CVCollectionType;
-    unlock_favor_rank: long;
+    delay: [float];
+    display_order: long;
     localize_cv_group: string;
     nation: [Nation];
-    volume: [float];
-    delay: [float];
+    only_one: bool;
     path: [string];
+    priority: int;
+    unlock_favor_rank: long;
+    voice_hash: uint;
+    volume: [float];
 }
 
 root_type CharacterVoiceExcel;

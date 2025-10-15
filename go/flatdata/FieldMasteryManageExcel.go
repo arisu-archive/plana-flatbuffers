@@ -45,20 +45,8 @@ func (rcv *FieldMasteryManageExcel) MutateFieldSeason(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FieldMasteryManageExcel) LocalizeEtc() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldMasteryManageExcel) MutateLocalizeEtc(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
-}
-
 func (rcv *FieldMasteryManageExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -66,7 +54,7 @@ func (rcv *FieldMasteryManageExcel) ImagePath() []byte {
 }
 
 func (rcv *FieldMasteryManageExcel) LevelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -74,7 +62,19 @@ func (rcv *FieldMasteryManageExcel) LevelId() int64 {
 }
 
 func (rcv *FieldMasteryManageExcel) MutateLevelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *FieldMasteryManageExcel) LocalizeEtc() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldMasteryManageExcel) MutateLocalizeEtc(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(10, n)
 }
 
 func FieldMasteryManageExcelStart(builder *flatbuffers.Builder) {
@@ -83,14 +83,14 @@ func FieldMasteryManageExcelStart(builder *flatbuffers.Builder) {
 func FieldMasteryManageExcelAddFieldSeason(builder *flatbuffers.Builder, fieldSeason int64) {
 	builder.PrependInt64Slot(0, fieldSeason, 0)
 }
-func FieldMasteryManageExcelAddLocalizeEtc(builder *flatbuffers.Builder, localizeEtc uint32) {
-	builder.PrependUint32Slot(1, localizeEtc, 0)
-}
 func FieldMasteryManageExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePath), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(imagePath), 0)
 }
 func FieldMasteryManageExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
-	builder.PrependInt64Slot(3, levelId, 0)
+	builder.PrependInt64Slot(2, levelId, 0)
+}
+func FieldMasteryManageExcelAddLocalizeEtc(builder *flatbuffers.Builder, localizeEtc uint32) {
+	builder.PrependUint32Slot(3, localizeEtc, 0)
 }
 func FieldMasteryManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

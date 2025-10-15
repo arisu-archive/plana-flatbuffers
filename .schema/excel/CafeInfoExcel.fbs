@@ -1,12 +1,19 @@
 include "OpenConditionContent.fbs";
+include "ParcelType.fbs";
+include "ShopCategoryType.fbs";
 
 namespace MX.Data.Excel;
 
 table CafeInfoExcel {
     cafe_id: long;
+    category_type: ShopCategoryType;
     is_default: bool;
     open_condition_cafe_id: OpenConditionContent;
     open_condition_cafe_invite: OpenConditionContent;
+    summon_parcel_amount: long;
+    summon_parcel_id: long;
+    summon_parcel_type: ParcelType;
+    summon_ticket_icon_path: string;
 }
 
 root_type CafeInfoExcel;

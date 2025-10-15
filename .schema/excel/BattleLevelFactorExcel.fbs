@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table BattleLevelFactorExcel {
+    damage_rate: long;
+    level_diff: int;
+}
+
+root_type BattleLevelFactorExcel;

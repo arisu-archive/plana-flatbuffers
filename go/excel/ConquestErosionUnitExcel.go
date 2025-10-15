@@ -33,7 +33,7 @@ func (rcv *ConquestErosionUnitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestErosionUnitExcel) TilePrefabId() int64 {
+func (rcv *ConquestErosionUnitExcel) IndividualErosionUnitId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,48 +41,12 @@ func (rcv *ConquestErosionUnitExcel) TilePrefabId() int64 {
 	return 0
 }
 
-func (rcv *ConquestErosionUnitExcel) MutateTilePrefabId(n int64) bool {
+func (rcv *ConquestErosionUnitExcel) MutateIndividualErosionUnitId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ConquestErosionUnitExcel) MassErosionUnitId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestErosionUnitExcel) MutateMassErosionUnitId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *ConquestErosionUnitExcel) MassErosionUnitRotationY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConquestErosionUnitExcel) MutateMassErosionUnitRotationY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
-}
-
-func (rcv *ConquestErosionUnitExcel) IndividualErosionUnitId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestErosionUnitExcel) MutateIndividualErosionUnitId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
 func (rcv *ConquestErosionUnitExcel) IndividualErosionUnitRotationY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -90,26 +54,62 @@ func (rcv *ConquestErosionUnitExcel) IndividualErosionUnitRotationY() float32 {
 }
 
 func (rcv *ConquestErosionUnitExcel) MutateIndividualErosionUnitRotationY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
+	return rcv._tab.MutateFloat32Slot(6, n)
+}
+
+func (rcv *ConquestErosionUnitExcel) MassErosionUnitId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestErosionUnitExcel) MutateMassErosionUnitId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *ConquestErosionUnitExcel) MassErosionUnitRotationY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConquestErosionUnitExcel) MutateMassErosionUnitRotationY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(10, n)
+}
+
+func (rcv *ConquestErosionUnitExcel) TilePrefabId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestErosionUnitExcel) MutateTilePrefabId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func ConquestErosionUnitExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ConquestErosionUnitExcelAddTilePrefabId(builder *flatbuffers.Builder, tilePrefabId int64) {
-	builder.PrependInt64Slot(0, tilePrefabId, 0)
-}
-func ConquestErosionUnitExcelAddMassErosionUnitId(builder *flatbuffers.Builder, massErosionUnitId int64) {
-	builder.PrependInt64Slot(1, massErosionUnitId, 0)
-}
-func ConquestErosionUnitExcelAddMassErosionUnitRotationY(builder *flatbuffers.Builder, massErosionUnitRotationY float32) {
-	builder.PrependFloat32Slot(2, massErosionUnitRotationY, 0.0)
-}
 func ConquestErosionUnitExcelAddIndividualErosionUnitId(builder *flatbuffers.Builder, individualErosionUnitId int64) {
-	builder.PrependInt64Slot(3, individualErosionUnitId, 0)
+	builder.PrependInt64Slot(0, individualErosionUnitId, 0)
 }
 func ConquestErosionUnitExcelAddIndividualErosionUnitRotationY(builder *flatbuffers.Builder, individualErosionUnitRotationY float32) {
-	builder.PrependFloat32Slot(4, individualErosionUnitRotationY, 0.0)
+	builder.PrependFloat32Slot(1, individualErosionUnitRotationY, 0.0)
+}
+func ConquestErosionUnitExcelAddMassErosionUnitId(builder *flatbuffers.Builder, massErosionUnitId int64) {
+	builder.PrependInt64Slot(2, massErosionUnitId, 0)
+}
+func ConquestErosionUnitExcelAddMassErosionUnitRotationY(builder *flatbuffers.Builder, massErosionUnitRotationY float32) {
+	builder.PrependFloat32Slot(3, massErosionUnitRotationY, 0.0)
+}
+func ConquestErosionUnitExcelAddTilePrefabId(builder *flatbuffers.Builder, tilePrefabId int64) {
+	builder.PrependInt64Slot(4, tilePrefabId, 0)
 }
 func ConquestErosionUnitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -25,42 +25,42 @@ class RecipeSelectionGroupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # RecipeSelectionGroupExcel
-    def RecipeSelectionGroupId(self):
+    def ParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RecipeSelectionGroupExcel
-    def RecipeSelectionGroupComponentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # RecipeSelectionGroupExcel
     def ParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # RecipeSelectionGroupExcel
-    def ParcelId(self):
+    def RecipeSelectionGroupComponentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # RecipeSelectionGroupExcel
+    def RecipeSelectionGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RecipeSelectionGroupExcel
-    def ResultAmountMin(self):
+    def ResultAmountMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RecipeSelectionGroupExcel
-    def ResultAmountMax(self):
+    def ResultAmountMin(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -69,24 +69,24 @@ class RecipeSelectionGroupExcel(object):
 def RecipeSelectionGroupExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return RecipeSelectionGroupExcelStart(builder)
-def RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId): builder.PrependInt64Slot(0, recipeSelectionGroupId, 0)
-def AddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
-    return RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
-def RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId): builder.PrependInt64Slot(1, recipeSelectionGroupComponentId, 0)
-def AddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId):
-    return RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId)
-def RecipeSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(2, parcelType, 0)
-def AddParcelType(builder, parcelType):
-    return RecipeSelectionGroupExcelAddParcelType(builder, parcelType)
-def RecipeSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(3, parcelId, 0)
+def RecipeSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(0, parcelId, 0)
 def AddParcelId(builder, parcelId):
     return RecipeSelectionGroupExcelAddParcelId(builder, parcelId)
-def RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin): builder.PrependInt64Slot(4, resultAmountMin, 0)
-def AddResultAmountMin(builder, resultAmountMin):
-    return RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin)
-def RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax): builder.PrependInt64Slot(5, resultAmountMax, 0)
+def RecipeSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(1, parcelType, 0)
+def AddParcelType(builder, parcelType):
+    return RecipeSelectionGroupExcelAddParcelType(builder, parcelType)
+def RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId): builder.PrependInt64Slot(2, recipeSelectionGroupComponentId, 0)
+def AddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId):
+    return RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId)
+def RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId): builder.PrependInt64Slot(3, recipeSelectionGroupId, 0)
+def AddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
+    return RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
+def RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax): builder.PrependInt64Slot(4, resultAmountMax, 0)
 def AddResultAmountMax(builder, resultAmountMax):
     return RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax)
+def RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin): builder.PrependInt64Slot(5, resultAmountMin, 0)
+def AddResultAmountMin(builder, resultAmountMin):
+    return RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin)
 def RecipeSelectionGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeSelectionGroupExcelEnd(builder)

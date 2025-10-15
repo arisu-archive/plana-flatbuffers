@@ -25,68 +25,78 @@ class MinigameCCGRewardItemExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGRewardItemExcel
-    def Id(self):
+    def CcgId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGRewardItemExcel
-    def CcgId(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGRewardItemExcel
-    def MinPoint(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGRewardItemExcel
-    def RewardParcelType(self):
+    def MinPoint(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGRewardItemExcel
-    def RewardParcelId(self):
+    def RewardParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGRewardItemExcel
+    def RewardParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGRewardItemExcel
-    def RewardParcelAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+    def RewardParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameCCGRewardItemExcelStart(builder): builder.StartObject(6)
+def MinigameCCGRewardItemExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return MinigameCCGRewardItemExcelStart(builder)
-def MinigameCCGRewardItemExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MinigameCCGRewardItemExcelAddId(builder, id)
-def MinigameCCGRewardItemExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(1, ccgId, 0)
+def MinigameCCGRewardItemExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(0, ccgId, 0)
 def AddCcgId(builder, ccgId):
     return MinigameCCGRewardItemExcelAddCcgId(builder, ccgId)
-def MinigameCCGRewardItemExcelAddMinPoint(builder, minPoint): builder.PrependInt32Slot(2, minPoint, 0)
+def MinigameCCGRewardItemExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(1, displayOrder, 0)
+def AddDisplayOrder(builder, displayOrder):
+    return MinigameCCGRewardItemExcelAddDisplayOrder(builder, displayOrder)
+def MinigameCCGRewardItemExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+def AddId(builder, id):
+    return MinigameCCGRewardItemExcelAddId(builder, id)
+def MinigameCCGRewardItemExcelAddMinPoint(builder, minPoint): builder.PrependInt32Slot(3, minPoint, 0)
 def AddMinPoint(builder, minPoint):
     return MinigameCCGRewardItemExcelAddMinPoint(builder, minPoint)
-def MinigameCCGRewardItemExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return MinigameCCGRewardItemExcelAddRewardParcelType(builder, rewardParcelType)
-def MinigameCCGRewardItemExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(4, rewardParcelId, 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return MinigameCCGRewardItemExcelAddRewardParcelId(builder, rewardParcelId)
-def MinigameCCGRewardItemExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt32Slot(5, rewardParcelAmount, 0)
+def MinigameCCGRewardItemExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt32Slot(4, rewardParcelAmount, 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     return MinigameCCGRewardItemExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def MinigameCCGRewardItemExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(5, rewardParcelId, 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return MinigameCCGRewardItemExcelAddRewardParcelId(builder, rewardParcelId)
+def MinigameCCGRewardItemExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(6, rewardParcelType, 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return MinigameCCGRewardItemExcelAddRewardParcelType(builder, rewardParcelType)
 def MinigameCCGRewardItemExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGRewardItemExcelEnd(builder)

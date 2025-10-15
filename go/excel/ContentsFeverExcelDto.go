@@ -11,20 +11,20 @@ import (
 type ContentsFeverExcelDto struct {
 	fbsutils.FlatBuffer
 	ConditionContent         FeverBattleType          `json:"condition_content"`
-	SkillFeverCheckCondition SkillPriorityCheckTarget `json:"skill_fever_check_condition"`
-	SkillCostFever           int64                    `json:"skill_cost_fever"`
-	FeverStartTime           int64                    `json:"fever_start_time"`
 	FeverDurationTime        int64                    `json:"fever_duration_time"`
+	FeverStartTime           int64                    `json:"fever_start_time"`
+	SkillCostFever           int64                    `json:"skill_cost_fever"`
+	SkillFeverCheckCondition SkillPriorityCheckTarget `json:"skill_fever_check_condition"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsFeverExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ContentsFeverExcelStart(b)
 	ContentsFeverExcelAddConditionContent(b, fbsutils.Convert(t.ConditionContent, t.FlatBuffer.TableKey))
-	ContentsFeverExcelAddSkillFeverCheckCondition(b, fbsutils.Convert(t.SkillFeverCheckCondition, t.FlatBuffer.TableKey))
-	ContentsFeverExcelAddSkillCostFever(b, fbsutils.Convert(t.SkillCostFever, t.FlatBuffer.TableKey))
-	ContentsFeverExcelAddFeverStartTime(b, fbsutils.Convert(t.FeverStartTime, t.FlatBuffer.TableKey))
 	ContentsFeverExcelAddFeverDurationTime(b, fbsutils.Convert(t.FeverDurationTime, t.FlatBuffer.TableKey))
+	ContentsFeverExcelAddFeverStartTime(b, fbsutils.Convert(t.FeverStartTime, t.FlatBuffer.TableKey))
+	ContentsFeverExcelAddSkillCostFever(b, fbsutils.Convert(t.SkillCostFever, t.FlatBuffer.TableKey))
+	ContentsFeverExcelAddSkillFeverCheckCondition(b, fbsutils.Convert(t.SkillFeverCheckCondition, t.FlatBuffer.TableKey))
 	return ContentsFeverExcelEnd(b)
 }
 
@@ -38,10 +38,10 @@ func (t *ContentsFeverExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsFeverExcelDto) UnmarshalMessage(e *ContentsFeverExcel) error {
 	t.ConditionContent = FeverBattleType(fbsutils.Convert(int32(e.ConditionContent()), t.FlatBuffer.TableKey))
-	t.SkillFeverCheckCondition = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.SkillFeverCheckCondition()), t.FlatBuffer.TableKey))
-	t.SkillCostFever = fbsutils.Convert(e.SkillCostFever(), t.FlatBuffer.TableKey)
-	t.FeverStartTime = fbsutils.Convert(e.FeverStartTime(), t.FlatBuffer.TableKey)
 	t.FeverDurationTime = fbsutils.Convert(e.FeverDurationTime(), t.FlatBuffer.TableKey)
+	t.FeverStartTime = fbsutils.Convert(e.FeverStartTime(), t.FlatBuffer.TableKey)
+	t.SkillCostFever = fbsutils.Convert(e.SkillCostFever(), t.FlatBuffer.TableKey)
+	t.SkillFeverCheckCondition = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.SkillFeverCheckCondition()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -10,11 +10,11 @@ import (
 // AniEventDataDto represents a FlatBuffers table
 type AniEventDataDto struct {
 	fbsutils.FlatBuffer
-	Name        string  `json:"name"`
-	Time        float32 `json:"time"`
-	IntParam    int32   `json:"int_param"`
 	FloatParam  float32 `json:"float_param"`
+	IntParam    int32   `json:"int_param"`
+	Name        string  `json:"name"`
 	StringParam string  `json:"string_param"`
+	Time        float32 `json:"time"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *AniEventDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniEventData"))
 	}
 	AniEventDataStart(b)
-	AniEventDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	AniEventDataAddTime(b, fbsutils.Convert(t.Time, t.FlatBuffer.TableKey))
-	AniEventDataAddIntParam(b, fbsutils.Convert(t.IntParam, t.FlatBuffer.TableKey))
 	AniEventDataAddFloatParam(b, fbsutils.Convert(t.FloatParam, t.FlatBuffer.TableKey))
+	AniEventDataAddIntParam(b, fbsutils.Convert(t.IntParam, t.FlatBuffer.TableKey))
+	AniEventDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	AniEventDataAddStringParam(b, b.CreateString(fbsutils.Convert(t.StringParam, t.FlatBuffer.TableKey)))
+	AniEventDataAddTime(b, fbsutils.Convert(t.Time, t.FlatBuffer.TableKey))
 	return AniEventDataEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *AniEventDataDto) UnmarshalMessage(e *AniEventData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniEventData"))
 	}
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.Time = fbsutils.Convert(e.Time(), t.FlatBuffer.TableKey)
-	t.IntParam = fbsutils.Convert(e.IntParam(), t.FlatBuffer.TableKey)
 	t.FloatParam = fbsutils.Convert(e.FloatParam(), t.FlatBuffer.TableKey)
+	t.IntParam = fbsutils.Convert(e.IntParam(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.StringParam = fbsutils.Convert(string(e.StringParam()), t.FlatBuffer.TableKey)
+	t.Time = fbsutils.Convert(e.Time(), t.FlatBuffer.TableKey)
 	return nil
 }
 

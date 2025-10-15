@@ -10,21 +10,21 @@ import (
 // CharacterWeaponExpBonusExcelDto represents a FlatBuffers table
 type CharacterWeaponExpBonusExcelDto struct {
 	fbsutils.FlatBuffer
-	WeaponType       WeaponType `json:"weapon_type"`
 	WeaponExpGrowthA int32      `json:"weapon_exp_growth_a"`
 	WeaponExpGrowthB int32      `json:"weapon_exp_growth_b"`
 	WeaponExpGrowthC int32      `json:"weapon_exp_growth_c"`
 	WeaponExpGrowthZ int32      `json:"weapon_exp_growth_z"`
+	WeaponType       WeaponType `json:"weapon_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterWeaponExpBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterWeaponExpBonusExcelStart(b)
-	CharacterWeaponExpBonusExcelAddWeaponType(b, fbsutils.Convert(t.WeaponType, t.FlatBuffer.TableKey))
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(b, fbsutils.Convert(t.WeaponExpGrowthA, t.FlatBuffer.TableKey))
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(b, fbsutils.Convert(t.WeaponExpGrowthB, t.FlatBuffer.TableKey))
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(b, fbsutils.Convert(t.WeaponExpGrowthC, t.FlatBuffer.TableKey))
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(b, fbsutils.Convert(t.WeaponExpGrowthZ, t.FlatBuffer.TableKey))
+	CharacterWeaponExpBonusExcelAddWeaponType(b, fbsutils.Convert(t.WeaponType, t.FlatBuffer.TableKey))
 	return CharacterWeaponExpBonusExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *CharacterWeaponExpBonusExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterWeaponExpBonusExcelDto) UnmarshalMessage(e *CharacterWeaponExpBonusExcel) error {
-	t.WeaponType = WeaponType(fbsutils.Convert(int32(e.WeaponType()), t.FlatBuffer.TableKey))
 	t.WeaponExpGrowthA = fbsutils.Convert(e.WeaponExpGrowthA(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthB = fbsutils.Convert(e.WeaponExpGrowthB(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthC = fbsutils.Convert(e.WeaponExpGrowthC(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthZ = fbsutils.Convert(e.WeaponExpGrowthZ(), t.FlatBuffer.TableKey)
+	t.WeaponType = WeaponType(fbsutils.Convert(int32(e.WeaponType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -10,71 +10,71 @@ import (
 // SkillExcelDto represents a FlatBuffers table
 type SkillExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                                int64      `json:"id"`
-	LocalizeSkillId                   uint32     `json:"localize_skill_id"`
-	GroupId                           string     `json:"group_id"`
-	SkillDataKey                      string     `json:"skill_data_key"`
-	VisualDataKey                     string     `json:"visual_data_key"`
-	Level                             int32      `json:"level"`
-	SkillCost                         int32      `json:"skill_cost"`
-	ExtraSkillCost                    int32      `json:"extra_skill_cost"`
-	EnemySkillCost                    int32      `json:"enemy_skill_cost"`
-	ExtraEnemySkillCost               int32      `json:"extra_enemy_skill_cost"`
-	NpcSkillCost                      int32      `json:"npc_skill_cost"`
-	ExtraNpcSkillCost                 int32      `json:"extra_npc_skill_cost"`
+	AdditionalToolTipId               int64      `json:"additional_tool_tip_id"`
 	BulletType                        BulletType `json:"bullet_type"`
-	StartCoolTime                     int32      `json:"start_cool_time"`
 	CoolTime                          int32      `json:"cool_time"`
-	EnemyStartCoolTime                int32      `json:"enemy_start_cool_time"`
 	EnemyCoolTime                     int32      `json:"enemy_cool_time"`
-	NpcStartCoolTime                  int32      `json:"npc_start_cool_time"`
-	NpcCoolTime                       int32      `json:"npc_cool_time"`
-	UseAtg                            int32      `json:"use_atg"`
-	RequireCharacterLevel             int32      `json:"require_character_level"`
-	RequireLevelUpMaterial            int64      `json:"require_level_up_material"`
+	EnemySkillCost                    int32      `json:"enemy_skill_cost"`
+	EnemyStartCoolTime                int32      `json:"enemy_start_cool_time"`
+	ExtraEnemySkillCost               int32      `json:"extra_enemy_skill_cost"`
+	ExtraNpcSkillCost                 int32      `json:"extra_npc_skill_cost"`
+	ExtraSkillCost                    int32      `json:"extra_skill_cost"`
+	GroupId                           string     `json:"group_id"`
 	IconName                          string     `json:"icon_name"`
+	Id                                int64      `json:"id"`
 	IsShowInfo                        bool       `json:"is_show_info"`
 	IsShowSpeechbubble                bool       `json:"is_show_speechbubble"`
+	Level                             int32      `json:"level"`
+	LocalizeSkillId                   uint32     `json:"localize_skill_id"`
+	NpcCoolTime                       int32      `json:"npc_cool_time"`
+	NpcSkillCost                      int32      `json:"npc_skill_cost"`
+	NpcStartCoolTime                  int32      `json:"npc_start_cool_time"`
 	PublicSpeechDuration              int32      `json:"public_speech_duration"`
-	AdditionalToolTipId               int64      `json:"additional_tool_tip_id"`
+	RequireCharacterLevel             int32      `json:"require_character_level"`
+	RequireLevelUpMaterial            int64      `json:"require_level_up_material"`
 	SelectExSkillToolTipId            int64      `json:"select_ex_skill_tool_tip_id"`
-	TextureSkillCardForFormConversion string     `json:"texture_skill_card_for_form_conversion"`
 	SkillCardLabelPath                string     `json:"skill_card_label_path"`
+	SkillCost                         int32      `json:"skill_cost"`
+	SkillDataKey                      string     `json:"skill_data_key"`
+	StartCoolTime                     int32      `json:"start_cool_time"`
+	TextureSkillCardForFormConversion string     `json:"texture_skill_card_for_form_conversion"`
+	UseAtg                            int32      `json:"use_atg"`
+	VisualDataKey                     string     `json:"visual_data_key"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	SkillExcelStart(b)
-	SkillExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	SkillExcelAddLocalizeSkillId(b, fbsutils.Convert(t.LocalizeSkillId, t.FlatBuffer.TableKey))
-	SkillExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
-	SkillExcelAddSkillDataKey(b, b.CreateString(fbsutils.Convert(t.SkillDataKey, t.FlatBuffer.TableKey)))
-	SkillExcelAddVisualDataKey(b, b.CreateString(fbsutils.Convert(t.VisualDataKey, t.FlatBuffer.TableKey)))
-	SkillExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	SkillExcelAddSkillCost(b, fbsutils.Convert(t.SkillCost, t.FlatBuffer.TableKey))
-	SkillExcelAddExtraSkillCost(b, fbsutils.Convert(t.ExtraSkillCost, t.FlatBuffer.TableKey))
-	SkillExcelAddEnemySkillCost(b, fbsutils.Convert(t.EnemySkillCost, t.FlatBuffer.TableKey))
-	SkillExcelAddExtraEnemySkillCost(b, fbsutils.Convert(t.ExtraEnemySkillCost, t.FlatBuffer.TableKey))
-	SkillExcelAddNpcSkillCost(b, fbsutils.Convert(t.NpcSkillCost, t.FlatBuffer.TableKey))
-	SkillExcelAddExtraNpcSkillCost(b, fbsutils.Convert(t.ExtraNpcSkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddAdditionalToolTipId(b, fbsutils.Convert(t.AdditionalToolTipId, t.FlatBuffer.TableKey))
 	SkillExcelAddBulletType(b, fbsutils.Convert(t.BulletType, t.FlatBuffer.TableKey))
-	SkillExcelAddStartCoolTime(b, fbsutils.Convert(t.StartCoolTime, t.FlatBuffer.TableKey))
 	SkillExcelAddCoolTime(b, fbsutils.Convert(t.CoolTime, t.FlatBuffer.TableKey))
-	SkillExcelAddEnemyStartCoolTime(b, fbsutils.Convert(t.EnemyStartCoolTime, t.FlatBuffer.TableKey))
 	SkillExcelAddEnemyCoolTime(b, fbsutils.Convert(t.EnemyCoolTime, t.FlatBuffer.TableKey))
-	SkillExcelAddNpcStartCoolTime(b, fbsutils.Convert(t.NpcStartCoolTime, t.FlatBuffer.TableKey))
-	SkillExcelAddNpcCoolTime(b, fbsutils.Convert(t.NpcCoolTime, t.FlatBuffer.TableKey))
-	SkillExcelAddUseAtg(b, fbsutils.Convert(t.UseAtg, t.FlatBuffer.TableKey))
-	SkillExcelAddRequireCharacterLevel(b, fbsutils.Convert(t.RequireCharacterLevel, t.FlatBuffer.TableKey))
-	SkillExcelAddRequireLevelUpMaterial(b, fbsutils.Convert(t.RequireLevelUpMaterial, t.FlatBuffer.TableKey))
+	SkillExcelAddEnemySkillCost(b, fbsutils.Convert(t.EnemySkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddEnemyStartCoolTime(b, fbsutils.Convert(t.EnemyStartCoolTime, t.FlatBuffer.TableKey))
+	SkillExcelAddExtraEnemySkillCost(b, fbsutils.Convert(t.ExtraEnemySkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddExtraNpcSkillCost(b, fbsutils.Convert(t.ExtraNpcSkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddExtraSkillCost(b, fbsutils.Convert(t.ExtraSkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
 	SkillExcelAddIconName(b, b.CreateString(fbsutils.Convert(t.IconName, t.FlatBuffer.TableKey)))
+	SkillExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	SkillExcelAddIsShowInfo(b, t.IsShowInfo)
 	SkillExcelAddIsShowSpeechbubble(b, t.IsShowSpeechbubble)
+	SkillExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
+	SkillExcelAddLocalizeSkillId(b, fbsutils.Convert(t.LocalizeSkillId, t.FlatBuffer.TableKey))
+	SkillExcelAddNpcCoolTime(b, fbsutils.Convert(t.NpcCoolTime, t.FlatBuffer.TableKey))
+	SkillExcelAddNpcSkillCost(b, fbsutils.Convert(t.NpcSkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddNpcStartCoolTime(b, fbsutils.Convert(t.NpcStartCoolTime, t.FlatBuffer.TableKey))
 	SkillExcelAddPublicSpeechDuration(b, fbsutils.Convert(t.PublicSpeechDuration, t.FlatBuffer.TableKey))
-	SkillExcelAddAdditionalToolTipId(b, fbsutils.Convert(t.AdditionalToolTipId, t.FlatBuffer.TableKey))
+	SkillExcelAddRequireCharacterLevel(b, fbsutils.Convert(t.RequireCharacterLevel, t.FlatBuffer.TableKey))
+	SkillExcelAddRequireLevelUpMaterial(b, fbsutils.Convert(t.RequireLevelUpMaterial, t.FlatBuffer.TableKey))
 	SkillExcelAddSelectExSkillToolTipId(b, fbsutils.Convert(t.SelectExSkillToolTipId, t.FlatBuffer.TableKey))
-	SkillExcelAddTextureSkillCardForFormConversion(b, b.CreateString(fbsutils.Convert(t.TextureSkillCardForFormConversion, t.FlatBuffer.TableKey)))
 	SkillExcelAddSkillCardLabelPath(b, b.CreateString(fbsutils.Convert(t.SkillCardLabelPath, t.FlatBuffer.TableKey)))
+	SkillExcelAddSkillCost(b, fbsutils.Convert(t.SkillCost, t.FlatBuffer.TableKey))
+	SkillExcelAddSkillDataKey(b, b.CreateString(fbsutils.Convert(t.SkillDataKey, t.FlatBuffer.TableKey)))
+	SkillExcelAddStartCoolTime(b, fbsutils.Convert(t.StartCoolTime, t.FlatBuffer.TableKey))
+	SkillExcelAddTextureSkillCardForFormConversion(b, b.CreateString(fbsutils.Convert(t.TextureSkillCardForFormConversion, t.FlatBuffer.TableKey)))
+	SkillExcelAddUseAtg(b, fbsutils.Convert(t.UseAtg, t.FlatBuffer.TableKey))
+	SkillExcelAddVisualDataKey(b, b.CreateString(fbsutils.Convert(t.VisualDataKey, t.FlatBuffer.TableKey)))
 	return SkillExcelEnd(b)
 }
 
@@ -87,36 +87,36 @@ func (t *SkillExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeSkillId = fbsutils.Convert(e.LocalizeSkillId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
-	t.SkillDataKey = fbsutils.Convert(string(e.SkillDataKey()), t.FlatBuffer.TableKey)
-	t.VisualDataKey = fbsutils.Convert(string(e.VisualDataKey()), t.FlatBuffer.TableKey)
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.SkillCost = fbsutils.Convert(e.SkillCost(), t.FlatBuffer.TableKey)
-	t.ExtraSkillCost = fbsutils.Convert(e.ExtraSkillCost(), t.FlatBuffer.TableKey)
-	t.EnemySkillCost = fbsutils.Convert(e.EnemySkillCost(), t.FlatBuffer.TableKey)
-	t.ExtraEnemySkillCost = fbsutils.Convert(e.ExtraEnemySkillCost(), t.FlatBuffer.TableKey)
-	t.NpcSkillCost = fbsutils.Convert(e.NpcSkillCost(), t.FlatBuffer.TableKey)
-	t.ExtraNpcSkillCost = fbsutils.Convert(e.ExtraNpcSkillCost(), t.FlatBuffer.TableKey)
+	t.AdditionalToolTipId = fbsutils.Convert(e.AdditionalToolTipId(), t.FlatBuffer.TableKey)
 	t.BulletType = BulletType(fbsutils.Convert(int32(e.BulletType()), t.FlatBuffer.TableKey))
-	t.StartCoolTime = fbsutils.Convert(e.StartCoolTime(), t.FlatBuffer.TableKey)
 	t.CoolTime = fbsutils.Convert(e.CoolTime(), t.FlatBuffer.TableKey)
-	t.EnemyStartCoolTime = fbsutils.Convert(e.EnemyStartCoolTime(), t.FlatBuffer.TableKey)
 	t.EnemyCoolTime = fbsutils.Convert(e.EnemyCoolTime(), t.FlatBuffer.TableKey)
-	t.NpcStartCoolTime = fbsutils.Convert(e.NpcStartCoolTime(), t.FlatBuffer.TableKey)
-	t.NpcCoolTime = fbsutils.Convert(e.NpcCoolTime(), t.FlatBuffer.TableKey)
-	t.UseAtg = fbsutils.Convert(e.UseAtg(), t.FlatBuffer.TableKey)
-	t.RequireCharacterLevel = fbsutils.Convert(e.RequireCharacterLevel(), t.FlatBuffer.TableKey)
-	t.RequireLevelUpMaterial = fbsutils.Convert(e.RequireLevelUpMaterial(), t.FlatBuffer.TableKey)
+	t.EnemySkillCost = fbsutils.Convert(e.EnemySkillCost(), t.FlatBuffer.TableKey)
+	t.EnemyStartCoolTime = fbsutils.Convert(e.EnemyStartCoolTime(), t.FlatBuffer.TableKey)
+	t.ExtraEnemySkillCost = fbsutils.Convert(e.ExtraEnemySkillCost(), t.FlatBuffer.TableKey)
+	t.ExtraNpcSkillCost = fbsutils.Convert(e.ExtraNpcSkillCost(), t.FlatBuffer.TableKey)
+	t.ExtraSkillCost = fbsutils.Convert(e.ExtraSkillCost(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
 	t.IconName = fbsutils.Convert(string(e.IconName()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsShowInfo = e.IsShowInfo()
 	t.IsShowSpeechbubble = e.IsShowSpeechbubble()
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
+	t.LocalizeSkillId = fbsutils.Convert(e.LocalizeSkillId(), t.FlatBuffer.TableKey)
+	t.NpcCoolTime = fbsutils.Convert(e.NpcCoolTime(), t.FlatBuffer.TableKey)
+	t.NpcSkillCost = fbsutils.Convert(e.NpcSkillCost(), t.FlatBuffer.TableKey)
+	t.NpcStartCoolTime = fbsutils.Convert(e.NpcStartCoolTime(), t.FlatBuffer.TableKey)
 	t.PublicSpeechDuration = fbsutils.Convert(e.PublicSpeechDuration(), t.FlatBuffer.TableKey)
-	t.AdditionalToolTipId = fbsutils.Convert(e.AdditionalToolTipId(), t.FlatBuffer.TableKey)
+	t.RequireCharacterLevel = fbsutils.Convert(e.RequireCharacterLevel(), t.FlatBuffer.TableKey)
+	t.RequireLevelUpMaterial = fbsutils.Convert(e.RequireLevelUpMaterial(), t.FlatBuffer.TableKey)
 	t.SelectExSkillToolTipId = fbsutils.Convert(e.SelectExSkillToolTipId(), t.FlatBuffer.TableKey)
-	t.TextureSkillCardForFormConversion = fbsutils.Convert(string(e.TextureSkillCardForFormConversion()), t.FlatBuffer.TableKey)
 	t.SkillCardLabelPath = fbsutils.Convert(string(e.SkillCardLabelPath()), t.FlatBuffer.TableKey)
+	t.SkillCost = fbsutils.Convert(e.SkillCost(), t.FlatBuffer.TableKey)
+	t.SkillDataKey = fbsutils.Convert(string(e.SkillDataKey()), t.FlatBuffer.TableKey)
+	t.StartCoolTime = fbsutils.Convert(e.StartCoolTime(), t.FlatBuffer.TableKey)
+	t.TextureSkillCardForFormConversion = fbsutils.Convert(string(e.TextureSkillCardForFormConversion()), t.FlatBuffer.TableKey)
+	t.UseAtg = fbsutils.Convert(e.UseAtg(), t.FlatBuffer.TableKey)
+	t.VisualDataKey = fbsutils.Convert(string(e.VisualDataKey()), t.FlatBuffer.TableKey)
 	return nil
 }
 

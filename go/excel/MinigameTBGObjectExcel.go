@@ -33,16 +33,16 @@ func (rcv *MinigameTBGObjectExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGObjectExcel) UniqueId() int64 {
+func (rcv *MinigameTBGObjectExcel) Disposable() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MinigameTBGObjectExcel) MutateDisposable(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *MinigameTBGObjectExcel) Key() []byte {
@@ -53,24 +53,28 @@ func (rcv *MinigameTBGObjectExcel) Key() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGObjectExcel) PrefabName() []byte {
+func (rcv *MinigameTBGObjectExcel) ObjectCostAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGObjectExcel) ObjectType() TBGObjectType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return TBGObjectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateObjectType(n TBGObjectType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *MinigameTBGObjectExcel) MutateObjectCostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *MinigameTBGObjectExcel) ObjectCostId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGObjectExcel) MutateObjectCostId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *MinigameTBGObjectExcel) ObjectCostType() ParcelType {
@@ -85,31 +89,27 @@ func (rcv *MinigameTBGObjectExcel) MutateObjectCostType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *MinigameTBGObjectExcel) ObjectCostId() int64 {
+func (rcv *MinigameTBGObjectExcel) ObjectType() TBGObjectType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return TBGObjectType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateObjectCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *MinigameTBGObjectExcel) MutateObjectType(n TBGObjectType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *MinigameTBGObjectExcel) ObjectCostAmount() int32 {
+func (rcv *MinigameTBGObjectExcel) PrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateObjectCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
-func (rcv *MinigameTBGObjectExcel) Disposable() bool {
+func (rcv *MinigameTBGObjectExcel) ReEncounterCost() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -117,51 +117,51 @@ func (rcv *MinigameTBGObjectExcel) Disposable() bool {
 	return false
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateDisposable(n bool) bool {
+func (rcv *MinigameTBGObjectExcel) MutateReEncounterCost(n bool) bool {
 	return rcv._tab.MutateBoolSlot(18, n)
 }
 
-func (rcv *MinigameTBGObjectExcel) ReEncounterCost() bool {
+func (rcv *MinigameTBGObjectExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *MinigameTBGObjectExcel) MutateReEncounterCost(n bool) bool {
-	return rcv._tab.MutateBoolSlot(20, n)
+func (rcv *MinigameTBGObjectExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func MinigameTBGObjectExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func MinigameTBGObjectExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func MinigameTBGObjectExcelAddDisposable(builder *flatbuffers.Builder, disposable bool) {
+	builder.PrependBoolSlot(0, disposable, false)
 }
 func MinigameTBGObjectExcelAddKey(builder *flatbuffers.Builder, key flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(key), 0)
 }
-func MinigameTBGObjectExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabName), 0)
+func MinigameTBGObjectExcelAddObjectCostAmount(builder *flatbuffers.Builder, objectCostAmount int32) {
+	builder.PrependInt32Slot(2, objectCostAmount, 0)
 }
-func MinigameTBGObjectExcelAddObjectType(builder *flatbuffers.Builder, objectType TBGObjectType) {
-	builder.PrependInt32Slot(3, int32(objectType), 0)
+func MinigameTBGObjectExcelAddObjectCostId(builder *flatbuffers.Builder, objectCostId int64) {
+	builder.PrependInt64Slot(3, objectCostId, 0)
 }
 func MinigameTBGObjectExcelAddObjectCostType(builder *flatbuffers.Builder, objectCostType ParcelType) {
 	builder.PrependInt32Slot(4, int32(objectCostType), 0)
 }
-func MinigameTBGObjectExcelAddObjectCostId(builder *flatbuffers.Builder, objectCostId int64) {
-	builder.PrependInt64Slot(5, objectCostId, 0)
+func MinigameTBGObjectExcelAddObjectType(builder *flatbuffers.Builder, objectType TBGObjectType) {
+	builder.PrependInt32Slot(5, int32(objectType), 0)
 }
-func MinigameTBGObjectExcelAddObjectCostAmount(builder *flatbuffers.Builder, objectCostAmount int32) {
-	builder.PrependInt32Slot(6, objectCostAmount, 0)
-}
-func MinigameTBGObjectExcelAddDisposable(builder *flatbuffers.Builder, disposable bool) {
-	builder.PrependBoolSlot(7, disposable, false)
+func MinigameTBGObjectExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(prefabName), 0)
 }
 func MinigameTBGObjectExcelAddReEncounterCost(builder *flatbuffers.Builder, reEncounterCost bool) {
-	builder.PrependBoolSlot(8, reEncounterCost, false)
+	builder.PrependBoolSlot(7, reEncounterCost, false)
+}
+func MinigameTBGObjectExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(8, uniqueId, 0)
 }
 func MinigameTBGObjectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

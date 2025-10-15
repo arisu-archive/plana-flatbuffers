@@ -2,9 +2,9 @@ namespace MX.Data.Excel;
 
 table BattlePassExpLimitExcel {
     battle_pass_id: long;
-    limit_start_time: string;
-    limit_end_time: string;
     exp_limit_amount: long;
+    limit_end_time: string;
+    limit_start_time: string;
 }
 
 root_type BattlePassExpLimitExcel;

@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table PersonalityExcel {
+    id: long;
+    name: string;
+}
+
+root_type PersonalityExcel;

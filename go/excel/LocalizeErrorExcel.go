@@ -33,20 +33,8 @@ func (rcv *LocalizeErrorExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeErrorExcel) Key() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LocalizeErrorExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
 func (rcv *LocalizeErrorExcel) ErrorLevel() WebAPIErrorLevel {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return WebAPIErrorLevel(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,18 +42,30 @@ func (rcv *LocalizeErrorExcel) ErrorLevel() WebAPIErrorLevel {
 }
 
 func (rcv *LocalizeErrorExcel) MutateErrorLevel(n WebAPIErrorLevel) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *LocalizeErrorExcel) Kr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *LocalizeErrorExcel) Jp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *LocalizeErrorExcel) Jp() []byte {
+func (rcv *LocalizeErrorExcel) Key() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LocalizeErrorExcel) MutateKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *LocalizeErrorExcel) Kr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -76,17 +76,17 @@ func (rcv *LocalizeErrorExcel) Jp() []byte {
 func LocalizeErrorExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func LocalizeErrorExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(0, key, 0)
-}
 func LocalizeErrorExcelAddErrorLevel(builder *flatbuffers.Builder, errorLevel WebAPIErrorLevel) {
-	builder.PrependInt32Slot(1, int32(errorLevel), 0)
-}
-func LocalizeErrorExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(kr), 0)
+	builder.PrependInt32Slot(0, int32(errorLevel), 0)
 }
 func LocalizeErrorExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(jp), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(jp), 0)
+}
+func LocalizeErrorExcelAddKey(builder *flatbuffers.Builder, key uint32) {
+	builder.PrependUint32Slot(2, key, 0)
+}
+func LocalizeErrorExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(kr), 0)
 }
 func LocalizeErrorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

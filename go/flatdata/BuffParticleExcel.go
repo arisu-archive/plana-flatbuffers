@@ -33,20 +33,8 @@ func (rcv *BuffParticleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BuffParticleExcel) UniqueId() int64 {
+func (rcv *BuffParticleExcel) BuffName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *BuffParticleExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *BuffParticleExcel) UniqueName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -54,15 +42,7 @@ func (rcv *BuffParticleExcel) UniqueName() []byte {
 }
 
 func (rcv *BuffParticleExcel) BuffType() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *BuffParticleExcel) BuffName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -70,6 +50,26 @@ func (rcv *BuffParticleExcel) BuffName() []byte {
 }
 
 func (rcv *BuffParticleExcel) ResourcePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *BuffParticleExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *BuffParticleExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *BuffParticleExcel) UniqueName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -80,20 +80,20 @@ func (rcv *BuffParticleExcel) ResourcePath() []byte {
 func BuffParticleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func BuffParticleExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func BuffParticleExcelAddUniqueName(builder *flatbuffers.Builder, uniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(uniqueName), 0)
+func BuffParticleExcelAddBuffName(builder *flatbuffers.Builder, buffName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(buffName), 0)
 }
 func BuffParticleExcelAddBuffType(builder *flatbuffers.Builder, buffType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(buffType), 0)
-}
-func BuffParticleExcelAddBuffName(builder *flatbuffers.Builder, buffName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buffName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buffType), 0)
 }
 func BuffParticleExcelAddResourcePath(builder *flatbuffers.Builder, resourcePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(resourcePath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(resourcePath), 0)
+}
+func BuffParticleExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(3, uniqueId, 0)
+}
+func BuffParticleExcelAddUniqueName(builder *flatbuffers.Builder, uniqueName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(uniqueName), 0)
 }
 func BuffParticleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

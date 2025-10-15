@@ -45,12 +45,16 @@ func (rcv *BattlePassExpLimitExcel) MutateBattlePassId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *BattlePassExpLimitExcel) LimitStartTime() []byte {
+func (rcv *BattlePassExpLimitExcel) ExpLimitAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *BattlePassExpLimitExcel) MutateExpLimitAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *BattlePassExpLimitExcel) LimitEndTime() []byte {
@@ -61,16 +65,12 @@ func (rcv *BattlePassExpLimitExcel) LimitEndTime() []byte {
 	return nil
 }
 
-func (rcv *BattlePassExpLimitExcel) ExpLimitAmount() int64 {
+func (rcv *BattlePassExpLimitExcel) LimitStartTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *BattlePassExpLimitExcel) MutateExpLimitAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return nil
 }
 
 func BattlePassExpLimitExcelStart(builder *flatbuffers.Builder) {
@@ -79,14 +79,14 @@ func BattlePassExpLimitExcelStart(builder *flatbuffers.Builder) {
 func BattlePassExpLimitExcelAddBattlePassId(builder *flatbuffers.Builder, battlePassId int64) {
 	builder.PrependInt64Slot(0, battlePassId, 0)
 }
-func BattlePassExpLimitExcelAddLimitStartTime(builder *flatbuffers.Builder, limitStartTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(limitStartTime), 0)
+func BattlePassExpLimitExcelAddExpLimitAmount(builder *flatbuffers.Builder, expLimitAmount int64) {
+	builder.PrependInt64Slot(1, expLimitAmount, 0)
 }
 func BattlePassExpLimitExcelAddLimitEndTime(builder *flatbuffers.Builder, limitEndTime flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(limitEndTime), 0)
 }
-func BattlePassExpLimitExcelAddExpLimitAmount(builder *flatbuffers.Builder, expLimitAmount int64) {
-	builder.PrependInt64Slot(3, expLimitAmount, 0)
+func BattlePassExpLimitExcelAddLimitStartTime(builder *flatbuffers.Builder, limitStartTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(limitStartTime), 0)
 }
 func BattlePassExpLimitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

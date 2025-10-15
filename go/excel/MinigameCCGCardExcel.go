@@ -33,56 +33,8 @@ func (rcv *MinigameCCGCardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGCardExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGCardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameCCGCardExcel) Type() CCGCardType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return CCGCardType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGCardExcel) MutateType(n CCGCardType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *MinigameCCGCardExcel) IsDisposal() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MinigameCCGCardExcel) MutateIsDisposal(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *MinigameCCGCardExcel) ActiveSkillId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGCardExcel) MutateActiveSkillId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
 func (rcv *MinigameCCGCardExcel) ActiveSkillCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -90,11 +42,11 @@ func (rcv *MinigameCCGCardExcel) ActiveSkillCost() int32 {
 }
 
 func (rcv *MinigameCCGCardExcel) MutateActiveSkillCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
 func (rcv *MinigameCCGCardExcel) ActiveSkilleCostVisible() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -102,11 +54,87 @@ func (rcv *MinigameCCGCardExcel) ActiveSkilleCostVisible() bool {
 }
 
 func (rcv *MinigameCCGCardExcel) MutateActiveSkilleCostVisible(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *MinigameCCGCardExcel) ActiveSkillId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGCardExcel) MutateActiveSkillId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *MinigameCCGCardExcel) Description() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameCCGCardExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGCardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *MinigameCCGCardExcel) ImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameCCGCardExcel) IsDisposal() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MinigameCCGCardExcel) MutateIsDisposal(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
+}
+
+func (rcv *MinigameCCGCardExcel) Name() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGCardExcel) MutateName(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(18, n)
+}
+
+func (rcv *MinigameCCGCardExcel) PassiveActivateCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGCardExcel) MutatePassiveActivateCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
 func (rcv *MinigameCCGCardExcel) PassiveSkillId(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -115,7 +143,7 @@ func (rcv *MinigameCCGCardExcel) PassiveSkillId(j int) int32 {
 }
 
 func (rcv *MinigameCCGCardExcel) PassiveSkillIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,7 +151,7 @@ func (rcv *MinigameCCGCardExcel) PassiveSkillIdLength() int {
 }
 
 func (rcv *MinigameCCGCardExcel) MutatePassiveSkillId(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -131,56 +159,8 @@ func (rcv *MinigameCCGCardExcel) MutatePassiveSkillId(j int, n int32) bool {
 	return false
 }
 
-func (rcv *MinigameCCGCardExcel) PassiveActivateCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGCardExcel) MutatePassiveActivateCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *MinigameCCGCardExcel) Name() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGCardExcel) MutateName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(20, n)
-}
-
-func (rcv *MinigameCCGCardExcel) Description() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameCCGCardExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameCCGCardExcel) UiImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MinigameCCGCardExcel) Tags(j int) CCGTagType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return CCGTagType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -189,7 +169,7 @@ func (rcv *MinigameCCGCardExcel) Tags(j int) CCGTagType {
 }
 
 func (rcv *MinigameCCGCardExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -197,7 +177,7 @@ func (rcv *MinigameCCGCardExcel) TagsLength() int {
 }
 
 func (rcv *MinigameCCGCardExcel) MutateTags(j int, n CCGTagType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -205,53 +185,73 @@ func (rcv *MinigameCCGCardExcel) MutateTags(j int, n CCGTagType) bool {
 	return false
 }
 
+func (rcv *MinigameCCGCardExcel) Type() CCGCardType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return CCGCardType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGCardExcel) MutateType(n CCGCardType) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *MinigameCCGCardExcel) UiImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func MinigameCCGCardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(13)
 }
-func MinigameCCGCardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func MinigameCCGCardExcelAddType(builder *flatbuffers.Builder, type_ CCGCardType) {
-	builder.PrependInt32Slot(1, int32(type_), 0)
-}
-func MinigameCCGCardExcelAddIsDisposal(builder *flatbuffers.Builder, isDisposal bool) {
-	builder.PrependBoolSlot(2, isDisposal, false)
-}
-func MinigameCCGCardExcelAddActiveSkillId(builder *flatbuffers.Builder, activeSkillId int32) {
-	builder.PrependInt32Slot(3, activeSkillId, 0)
-}
 func MinigameCCGCardExcelAddActiveSkillCost(builder *flatbuffers.Builder, activeSkillCost int32) {
-	builder.PrependInt32Slot(4, activeSkillCost, 0)
+	builder.PrependInt32Slot(0, activeSkillCost, 0)
 }
 func MinigameCCGCardExcelAddActiveSkilleCostVisible(builder *flatbuffers.Builder, activeSkilleCostVisible bool) {
-	builder.PrependBoolSlot(5, activeSkilleCostVisible, false)
+	builder.PrependBoolSlot(1, activeSkilleCostVisible, false)
+}
+func MinigameCCGCardExcelAddActiveSkillId(builder *flatbuffers.Builder, activeSkillId int32) {
+	builder.PrependInt32Slot(2, activeSkillId, 0)
+}
+func MinigameCCGCardExcelAddDescription(builder *flatbuffers.Builder, description flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(description), 0)
+}
+func MinigameCCGCardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
+}
+func MinigameCCGCardExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(imagePath), 0)
+}
+func MinigameCCGCardExcelAddIsDisposal(builder *flatbuffers.Builder, isDisposal bool) {
+	builder.PrependBoolSlot(6, isDisposal, false)
+}
+func MinigameCCGCardExcelAddName(builder *flatbuffers.Builder, name uint32) {
+	builder.PrependUint32Slot(7, name, 0)
+}
+func MinigameCCGCardExcelAddPassiveActivateCount(builder *flatbuffers.Builder, passiveActivateCount int32) {
+	builder.PrependInt32Slot(8, passiveActivateCount, 0)
 }
 func MinigameCCGCardExcelAddPassiveSkillId(builder *flatbuffers.Builder, passiveSkillId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(passiveSkillId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(passiveSkillId), 0)
 }
 func MinigameCCGCardExcelStartPassiveSkillIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func MinigameCCGCardExcelAddPassiveActivateCount(builder *flatbuffers.Builder, passiveActivateCount int32) {
-	builder.PrependInt32Slot(7, passiveActivateCount, 0)
-}
-func MinigameCCGCardExcelAddName(builder *flatbuffers.Builder, name uint32) {
-	builder.PrependUint32Slot(8, name, 0)
-}
-func MinigameCCGCardExcelAddDescription(builder *flatbuffers.Builder, description flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(description), 0)
-}
-func MinigameCCGCardExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(imagePath), 0)
-}
-func MinigameCCGCardExcelAddUiImagePath(builder *flatbuffers.Builder, uiImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(uiImagePath), 0)
-}
 func MinigameCCGCardExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(tags), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(tags), 0)
 }
 func MinigameCCGCardExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func MinigameCCGCardExcelAddType(builder *flatbuffers.Builder, type_ CCGCardType) {
+	builder.PrependInt32Slot(11, int32(type_), 0)
+}
+func MinigameCCGCardExcelAddUiImagePath(builder *flatbuffers.Builder, uiImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(uiImagePath), 0)
 }
 func MinigameCCGCardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

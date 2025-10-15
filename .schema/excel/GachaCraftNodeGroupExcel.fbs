@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table GachaCraftNodeGroupExcel {
-    node_id: long;
     gacha_group_id: long;
+    node_id: long;
     prob_weight: long;
 }
 

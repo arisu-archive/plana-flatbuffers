@@ -4,16 +4,16 @@ include "TBGItemType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameTBGItemExcel {
-    unique_id: long;
-    item_type: TBGItemType;
-    tbg_item_effect_type: TBGItemEffectType;
-    item_parameter: int;
-    localize_etc_id: string;
-    icon: string;
     buff_icon: string;
-    encounter_count: int;
-    dice_effect_ani_clip: string;
     buff_icon_hud_visible: bool;
+    dice_effect_ani_clip: string;
+    encounter_count: int;
+    icon: string;
+    item_parameter: int;
+    item_type: TBGItemType;
+    localize_etc_id: string;
+    tbg_item_effect_type: TBGItemEffectType;
+    unique_id: long;
 }
 
 root_type MinigameTBGItemExcel;

@@ -9,29 +9,29 @@ include "ProductionStep.fbs";
 namespace MX.Data.Excel;
 
 table CharacterDialogEventExcel {
+    action_name: string;
+    animation_name: string;
+    collection_visible: bool;
     costume_unique_id: long;
-    original_character_id: long;
-    display_order: long;
-    event_id: long;
-    production_step: ProductionStep;
+    cv_collection_type: CVCollectionType;
+    cv_unlock_scenario_type: CVUnlockScenarioType;
     dialog_category: DialogCategory;
     dialog_condition: DialogCondition;
     dialog_condition_detail: DialogConditionDetail;
     dialog_condition_detail_value: long;
-    group_id: long;
     dialog_type: DialogType;
-    action_name: string;
+    display_order: long;
     duration: long;
-    animation_name: string;
-    localize_kr: string;
-    localize_jp: string;
-    voice_id: [uint];
-    collection_visible: bool;
-    cv_collection_type: CVCollectionType;
-    cv_unlock_scenario_type: CVUnlockScenarioType;
-    unlock_event_season: long;
-    scenario_group_id: long;
+    event_id: long;
+    group_id: long;
     localize_cv_group: string;
+    localize_jp: string;
+    localize_kr: string;
+    original_character_id: long;
+    production_step: ProductionStep;
+    scenario_group_id: long;
+    unlock_event_season: long;
+    voice_id: [uint];
 }
 
 root_type CharacterDialogEventExcel;

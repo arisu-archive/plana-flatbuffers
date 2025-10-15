@@ -11,34 +11,34 @@ import (
 type MiniGameRoadPuzzleRailSetRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId     int64        `json:"event_content_id"`
-	UniqueId           int64        `json:"unique_id"`
 	LocalizePrefabId   string       `json:"localize_prefab_id"`
-	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
-	RewardParcelId     []int64      `json:"reward_parcel_id"`
 	RewardParcelAmount []int64      `json:"reward_parcel_amount"`
+	RewardParcelId     []int64      `json:"reward_parcel_id"`
+	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
+	UniqueId           int64        `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRoadPuzzleRailSetRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRoadPuzzleRailSetRewardExcelStart(b)
 	MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(b, b.CreateString(fbsutils.Convert(t.LocalizePrefabId, t.FlatBuffer.TableKey)))
-	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
 	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MiniGameRoadPuzzleRailSetRewardExcelEnd(b)
 }
 
@@ -52,20 +52,20 @@ func (t *MiniGameRoadPuzzleRailSetRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRoadPuzzleRailSetRewardExcelDto) UnmarshalMessage(e *MiniGameRoadPuzzleRailSetRewardExcel) error {
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.LocalizePrefabId = fbsutils.Convert(string(e.LocalizePrefabId()), t.FlatBuffer.TableKey)
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

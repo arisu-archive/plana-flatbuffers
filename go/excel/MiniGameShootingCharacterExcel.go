@@ -33,7 +33,7 @@ func (rcv *MiniGameShootingCharacterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameShootingCharacterExcel) UniqueId() int64 {
+func (rcv *MiniGameShootingCharacterExcel) AttackPower() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,16 +41,20 @@ func (rcv *MiniGameShootingCharacterExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingCharacterExcel) MutateUniqueId(n int64) bool {
+func (rcv *MiniGameShootingCharacterExcel) MutateAttackPower(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameShootingCharacterExcel) SpineResourceName() []byte {
+func (rcv *MiniGameShootingCharacterExcel) AttackRange() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateAttackRange(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *MiniGameShootingCharacterExcel) BodyRadius() float32 {
@@ -65,37 +69,40 @@ func (rcv *MiniGameShootingCharacterExcel) MutateBodyRadius(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *MiniGameShootingCharacterExcel) ModelPrefabName() []byte {
+func (rcv *MiniGameShootingCharacterExcel) CharacterVoiceGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingCharacterExcel) NormalAttackSkillData() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingCharacterExcel) PublicSkillData(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingCharacterExcel) PublicSkillDataLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateCharacterVoiceGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) CriticalDamageRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateCriticalDamageRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) CriticalRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateCriticalRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *MiniGameShootingCharacterExcel) DeathSkillData() []byte {
@@ -106,7 +113,7 @@ func (rcv *MiniGameShootingCharacterExcel) DeathSkillData() []byte {
 	return nil
 }
 
-func (rcv *MiniGameShootingCharacterExcel) MaxHp() int64 {
+func (rcv *MiniGameShootingCharacterExcel) DefensePower() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -114,120 +121,12 @@ func (rcv *MiniGameShootingCharacterExcel) MaxHp() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingCharacterExcel) MutateMaxHp(n int64) bool {
+func (rcv *MiniGameShootingCharacterExcel) MutateDefensePower(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *MiniGameShootingCharacterExcel) AttackPower() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateAttackPower(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) DefensePower() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateDefensePower(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) CriticalRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateCriticalRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) CriticalDamageRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateCriticalDamageRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) AttackRange() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateAttackRange(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MoveSpeed() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateMoveSpeed(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) ShotTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateShotTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) IsBoss() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateIsBoss(n bool) bool {
-	return rcv._tab.MutateBoolSlot(34, n)
-}
-
-func (rcv *MiniGameShootingCharacterExcel) Scale() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *MiniGameShootingCharacterExcel) MutateScale(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(36, n)
-}
-
 func (rcv *MiniGameShootingCharacterExcel) IgnoreObstacleCheck() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -235,10 +134,111 @@ func (rcv *MiniGameShootingCharacterExcel) IgnoreObstacleCheck() bool {
 }
 
 func (rcv *MiniGameShootingCharacterExcel) MutateIgnoreObstacleCheck(n bool) bool {
-	return rcv._tab.MutateBoolSlot(38, n)
+	return rcv._tab.MutateBoolSlot(20, n)
 }
 
-func (rcv *MiniGameShootingCharacterExcel) CharacterVoiceGroupId() int64 {
+func (rcv *MiniGameShootingCharacterExcel) IsBoss() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateIsBoss(n bool) bool {
+	return rcv._tab.MutateBoolSlot(22, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MaxHp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateMaxHp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) ModelPrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MoveSpeed() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateMoveSpeed(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) NormalAttackSkillData() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingCharacterExcel) PublicSkillData(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingCharacterExcel) PublicSkillDataLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) Scale() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateScale(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(34, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) ShotTime() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingCharacterExcel) MutateShotTime(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *MiniGameShootingCharacterExcel) SpineResourceName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingCharacterExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -246,72 +246,72 @@ func (rcv *MiniGameShootingCharacterExcel) CharacterVoiceGroupId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingCharacterExcel) MutateCharacterVoiceGroupId(n int64) bool {
+func (rcv *MiniGameShootingCharacterExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(40, n)
 }
 
 func MiniGameShootingCharacterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(19)
 }
-func MiniGameShootingCharacterExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func MiniGameShootingCharacterExcelAddAttackPower(builder *flatbuffers.Builder, attackPower int64) {
+	builder.PrependInt64Slot(0, attackPower, 0)
 }
-func MiniGameShootingCharacterExcelAddSpineResourceName(builder *flatbuffers.Builder, spineResourceName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(spineResourceName), 0)
+func MiniGameShootingCharacterExcelAddAttackRange(builder *flatbuffers.Builder, attackRange int64) {
+	builder.PrependInt64Slot(1, attackRange, 0)
 }
 func MiniGameShootingCharacterExcelAddBodyRadius(builder *flatbuffers.Builder, bodyRadius float32) {
 	builder.PrependFloat32Slot(2, bodyRadius, 0.0)
 }
-func MiniGameShootingCharacterExcelAddModelPrefabName(builder *flatbuffers.Builder, modelPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(modelPrefabName), 0)
+func MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
+	builder.PrependInt64Slot(3, characterVoiceGroupId, 0)
 }
-func MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder *flatbuffers.Builder, normalAttackSkillData flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(normalAttackSkillData), 0)
+func MiniGameShootingCharacterExcelAddCriticalDamageRate(builder *flatbuffers.Builder, criticalDamageRate int64) {
+	builder.PrependInt64Slot(4, criticalDamageRate, 0)
 }
-func MiniGameShootingCharacterExcelAddPublicSkillData(builder *flatbuffers.Builder, publicSkillData flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(publicSkillData), 0)
-}
-func MiniGameShootingCharacterExcelStartPublicSkillDataVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MiniGameShootingCharacterExcelAddCriticalRate(builder *flatbuffers.Builder, criticalRate int64) {
+	builder.PrependInt64Slot(5, criticalRate, 0)
 }
 func MiniGameShootingCharacterExcelAddDeathSkillData(builder *flatbuffers.Builder, deathSkillData flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(deathSkillData), 0)
 }
-func MiniGameShootingCharacterExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
-	builder.PrependInt64Slot(7, maxHp, 0)
-}
-func MiniGameShootingCharacterExcelAddAttackPower(builder *flatbuffers.Builder, attackPower int64) {
-	builder.PrependInt64Slot(8, attackPower, 0)
-}
 func MiniGameShootingCharacterExcelAddDefensePower(builder *flatbuffers.Builder, defensePower int64) {
-	builder.PrependInt64Slot(9, defensePower, 0)
-}
-func MiniGameShootingCharacterExcelAddCriticalRate(builder *flatbuffers.Builder, criticalRate int64) {
-	builder.PrependInt64Slot(10, criticalRate, 0)
-}
-func MiniGameShootingCharacterExcelAddCriticalDamageRate(builder *flatbuffers.Builder, criticalDamageRate int64) {
-	builder.PrependInt64Slot(11, criticalDamageRate, 0)
-}
-func MiniGameShootingCharacterExcelAddAttackRange(builder *flatbuffers.Builder, attackRange int64) {
-	builder.PrependInt64Slot(12, attackRange, 0)
-}
-func MiniGameShootingCharacterExcelAddMoveSpeed(builder *flatbuffers.Builder, moveSpeed int64) {
-	builder.PrependInt64Slot(13, moveSpeed, 0)
-}
-func MiniGameShootingCharacterExcelAddShotTime(builder *flatbuffers.Builder, shotTime int64) {
-	builder.PrependInt64Slot(14, shotTime, 0)
-}
-func MiniGameShootingCharacterExcelAddIsBoss(builder *flatbuffers.Builder, isBoss bool) {
-	builder.PrependBoolSlot(15, isBoss, false)
-}
-func MiniGameShootingCharacterExcelAddScale(builder *flatbuffers.Builder, scale float32) {
-	builder.PrependFloat32Slot(16, scale, 0.0)
+	builder.PrependInt64Slot(7, defensePower, 0)
 }
 func MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder *flatbuffers.Builder, ignoreObstacleCheck bool) {
-	builder.PrependBoolSlot(17, ignoreObstacleCheck, false)
+	builder.PrependBoolSlot(8, ignoreObstacleCheck, false)
 }
-func MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
-	builder.PrependInt64Slot(18, characterVoiceGroupId, 0)
+func MiniGameShootingCharacterExcelAddIsBoss(builder *flatbuffers.Builder, isBoss bool) {
+	builder.PrependBoolSlot(9, isBoss, false)
+}
+func MiniGameShootingCharacterExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
+	builder.PrependInt64Slot(10, maxHp, 0)
+}
+func MiniGameShootingCharacterExcelAddModelPrefabName(builder *flatbuffers.Builder, modelPrefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(modelPrefabName), 0)
+}
+func MiniGameShootingCharacterExcelAddMoveSpeed(builder *flatbuffers.Builder, moveSpeed int64) {
+	builder.PrependInt64Slot(12, moveSpeed, 0)
+}
+func MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder *flatbuffers.Builder, normalAttackSkillData flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(normalAttackSkillData), 0)
+}
+func MiniGameShootingCharacterExcelAddPublicSkillData(builder *flatbuffers.Builder, publicSkillData flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(publicSkillData), 0)
+}
+func MiniGameShootingCharacterExcelStartPublicSkillDataVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameShootingCharacterExcelAddScale(builder *flatbuffers.Builder, scale float32) {
+	builder.PrependFloat32Slot(15, scale, 0.0)
+}
+func MiniGameShootingCharacterExcelAddShotTime(builder *flatbuffers.Builder, shotTime int64) {
+	builder.PrependInt64Slot(16, shotTime, 0)
+}
+func MiniGameShootingCharacterExcelAddSpineResourceName(builder *flatbuffers.Builder, spineResourceName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(spineResourceName), 0)
+}
+func MiniGameShootingCharacterExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(18, uniqueId, 0)
 }
 func MiniGameShootingCharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

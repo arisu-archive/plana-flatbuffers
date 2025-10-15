@@ -1,0 +1,50 @@
+include "EventContentReleaseType.fbs";
+include "EventContentType.fbs";
+include "OpenConditionContent.fbs";
+include "RewardTag.fbs";
+include "SubEventType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentSeasonExcel {
+    beforehand_bg_image_path: string;
+    beforehand_exposed_time: string;
+    beforehand_scenario_group_id: [long];
+    card_bg_image_path: string;
+    event_assist: bool;
+    event_change_open_condition: long;
+    event_content_close_note_time: string;
+    event_content_close_time: string;
+    event_content_id: long;
+    event_content_open_time: string;
+    event_content_release_type: EventContentReleaseType;
+    event_content_stage_reward_id_permanent: long;
+    event_content_type: EventContentType;
+    event_display: bool;
+    event_item_id: long;
+    extension_time: string;
+    icon_order: int;
+    is_return: bool;
+    main_banner_image_path: string;
+    main_bg_image_path: string;
+    main_event_id: long;
+    main_icon_parcel_path: string;
+    mini_event_short_cut_scenario_mode_id: long;
+    minigame_lobby_prefab_name: string;
+    minigame_mission_bg_image_path: string;
+    minigame_mission_bg_prefab_name: string;
+    minigame_prolog_scenario_group_id: long;
+    minigame_victory_prefab_name: string;
+    name: string;
+    open_condition_content: OpenConditionContent;
+    original_event_content_id: long;
+    reward_tag_permanent: RewardTag;
+    scenario_content_collection_group_id: long;
+    shift_main_bg_image_path: string;
+    shift_trigger_stage_id: long;
+    sub_event: bool;
+    sub_event_type: SubEventType;
+    sub_icon_parcel_path: string;
+}
+
+root_type EventContentSeasonExcel;

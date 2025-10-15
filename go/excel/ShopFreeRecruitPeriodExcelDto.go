@@ -10,19 +10,19 @@ import (
 // ShopFreeRecruitPeriodExcelDto represents a FlatBuffers table
 type ShopFreeRecruitPeriodExcelDto struct {
 	fbsutils.FlatBuffer
+	FreeRecruitCount          int32  `json:"free_recruit_count"`
+	IntervalDate              string `json:"interval_date"`
 	ShopFreeRecruitId         int64  `json:"shop_free_recruit_id"`
 	ShopFreeRecruitIntervalId int64  `json:"shop_free_recruit_interval_id"`
-	IntervalDate              string `json:"interval_date"`
-	FreeRecruitCount          int32  `json:"free_recruit_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopFreeRecruitPeriodExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopFreeRecruitPeriodExcelStart(b)
+	ShopFreeRecruitPeriodExcelAddFreeRecruitCount(b, fbsutils.Convert(t.FreeRecruitCount, t.FlatBuffer.TableKey))
+	ShopFreeRecruitPeriodExcelAddIntervalDate(b, b.CreateString(fbsutils.Convert(t.IntervalDate, t.FlatBuffer.TableKey)))
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(b, fbsutils.Convert(t.ShopFreeRecruitId, t.FlatBuffer.TableKey))
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(b, fbsutils.Convert(t.ShopFreeRecruitIntervalId, t.FlatBuffer.TableKey))
-	ShopFreeRecruitPeriodExcelAddIntervalDate(b, b.CreateString(fbsutils.Convert(t.IntervalDate, t.FlatBuffer.TableKey)))
-	ShopFreeRecruitPeriodExcelAddFreeRecruitCount(b, fbsutils.Convert(t.FreeRecruitCount, t.FlatBuffer.TableKey))
 	return ShopFreeRecruitPeriodExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *ShopFreeRecruitPeriodExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopFreeRecruitPeriodExcelDto) UnmarshalMessage(e *ShopFreeRecruitPeriodExcel) error {
+	t.FreeRecruitCount = fbsutils.Convert(e.FreeRecruitCount(), t.FlatBuffer.TableKey)
+	t.IntervalDate = fbsutils.Convert(string(e.IntervalDate()), t.FlatBuffer.TableKey)
 	t.ShopFreeRecruitId = fbsutils.Convert(e.ShopFreeRecruitId(), t.FlatBuffer.TableKey)
 	t.ShopFreeRecruitIntervalId = fbsutils.Convert(e.ShopFreeRecruitIntervalId(), t.FlatBuffer.TableKey)
-	t.IntervalDate = fbsutils.Convert(string(e.IntervalDate()), t.FlatBuffer.TableKey)
-	t.FreeRecruitCount = fbsutils.Convert(e.FreeRecruitCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

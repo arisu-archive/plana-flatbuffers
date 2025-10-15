@@ -32,29 +32,36 @@ class AcademyZoneExcel(object):
         return 0
 
     # AcademyZoneExcel
-    def LocationId(self):
+    def LocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # AcademyZoneExcel
-    def LocationRankForUnlock(self):
+    def LocationId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AcademyZoneExcel
-    def LocalizeEtcId(self):
+    def LocationRankForUnlock(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AcademyZoneExcel
+    def RewardGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AcademyZoneExcel
     def StudentVisitProb(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -62,29 +69,22 @@ class AcademyZoneExcel(object):
 
     # AcademyZoneExcel
     def StudentVisitProbAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # AcademyZoneExcel
     def StudentVisitProbLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # AcademyZoneExcel
     def StudentVisitProbIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # AcademyZoneExcel
-    def RewardGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # AcademyZoneExcel
     def Tags(self, j):
@@ -119,24 +119,24 @@ def Start(builder):
 def AcademyZoneExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return AcademyZoneExcelAddId(builder, id)
-def AcademyZoneExcelAddLocationId(builder, locationId): builder.PrependInt64Slot(1, locationId, 0)
-def AddLocationId(builder, locationId):
-    return AcademyZoneExcelAddLocationId(builder, locationId)
-def AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock): builder.PrependInt64Slot(2, locationRankForUnlock, 0)
-def AddLocationRankForUnlock(builder, locationRankForUnlock):
-    return AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock)
-def AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
+def AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(1, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
     return AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId)
-def AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
+def AcademyZoneExcelAddLocationId(builder, locationId): builder.PrependInt64Slot(2, locationId, 0)
+def AddLocationId(builder, locationId):
+    return AcademyZoneExcelAddLocationId(builder, locationId)
+def AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock): builder.PrependInt64Slot(3, locationRankForUnlock, 0)
+def AddLocationRankForUnlock(builder, locationRankForUnlock):
+    return AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock)
+def AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(4, rewardGroupId, 0)
+def AddRewardGroupId(builder, rewardGroupId):
+    return AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId)
+def AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
 def AddStudentVisitProb(builder, studentVisitProb):
     return AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb)
 def AcademyZoneExcelStartStudentVisitProbVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStudentVisitProbVector(builder, numElems):
     return AcademyZoneExcelStartStudentVisitProbVector(builder, numElems)
-def AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(5, rewardGroupId, 0)
-def AddRewardGroupId(builder, rewardGroupId):
-    return AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId)
 def AcademyZoneExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
     return AcademyZoneExcelAddTags(builder, tags)

@@ -5,12 +5,12 @@ include "ShopFilterType.fbs";
 namespace MX.Data.Excel;
 
 table ShopFilterClassifiedExcel {
-    id: long;
     category_type: ShopCategoryType;
-    consume_parcel_type: ParcelType;
     consume_parcel_id: long;
-    shop_filter_type: ShopFilterType;
+    consume_parcel_type: ParcelType;
     goods_id: long;
+    id: long;
+    shop_filter_type: ShopFilterType;
 }
 
 root_type ShopFilterClassifiedExcel;

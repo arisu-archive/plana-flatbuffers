@@ -25,76 +25,22 @@ class WorldRaidConditionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WorldRaidConditionExcel
-    def Id(self):
+    def AccountLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # WorldRaidConditionExcel
-    def LockUi(self, j):
+    def AfterWhenDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # WorldRaidConditionExcel
-    def LockUiLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # WorldRaidConditionExcel
-    def LockUiIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # WorldRaidConditionExcel
-    def HideWhenLocked(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # WorldRaidConditionExcel
-    def AccountLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # WorldRaidConditionExcel
-    def ScenarioModeId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # WorldRaidConditionExcel
-    def ScenarioModeIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # WorldRaidConditionExcel
-    def ScenarioModeIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # WorldRaidConditionExcel
-    def ScenarioModeIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # WorldRaidConditionExcel
     def CampaignStageId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -102,20 +48,54 @@ class WorldRaidConditionExcel(object):
 
     # WorldRaidConditionExcel
     def CampaignStageIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # WorldRaidConditionExcel
     def CampaignStageIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # WorldRaidConditionExcel
     def CampaignStageIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # WorldRaidConditionExcel
+    def HideWhenLocked(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # WorldRaidConditionExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # WorldRaidConditionExcel
+    def LockUi(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # WorldRaidConditionExcel
+    def LockUiLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # WorldRaidConditionExcel
+    def LockUiIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
@@ -127,11 +107,31 @@ class WorldRaidConditionExcel(object):
         return 0
 
     # WorldRaidConditionExcel
-    def AfterWhenDate(self):
+    def ScenarioModeId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # WorldRaidConditionExcel
+    def ScenarioModeIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # WorldRaidConditionExcel
+    def ScenarioModeIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # WorldRaidConditionExcel
+    def ScenarioModeIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
 
     # WorldRaidConditionExcel
     def WorldRaidBossKill(self, j):
@@ -163,39 +163,39 @@ class WorldRaidConditionExcel(object):
 def WorldRaidConditionExcelStart(builder): builder.StartObject(9)
 def Start(builder):
     return WorldRaidConditionExcelStart(builder)
-def WorldRaidConditionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return WorldRaidConditionExcelAddId(builder, id)
-def WorldRaidConditionExcelAddLockUi(builder, lockUi): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
-def AddLockUi(builder, lockUi):
-    return WorldRaidConditionExcelAddLockUi(builder, lockUi)
-def WorldRaidConditionExcelStartLockUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartLockUiVector(builder, numElems):
-    return WorldRaidConditionExcelStartLockUiVector(builder, numElems)
-def WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked): builder.PrependBoolSlot(2, hideWhenLocked, 0)
-def AddHideWhenLocked(builder, hideWhenLocked):
-    return WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
-def WorldRaidConditionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(3, accountLevel, 0)
+def WorldRaidConditionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(0, accountLevel, 0)
 def AddAccountLevel(builder, accountLevel):
     return WorldRaidConditionExcelAddAccountLevel(builder, accountLevel)
-def WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioModeId), 0)
-def AddScenarioModeId(builder, scenarioModeId):
-    return WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId)
-def WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartScenarioModeIdVector(builder, numElems):
-    return WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems)
-def WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(campaignStageId), 0)
+def WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(afterWhenDate), 0)
+def AddAfterWhenDate(builder, afterWhenDate):
+    return WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate)
+def WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(campaignStageId), 0)
 def AddCampaignStageId(builder, campaignStageId):
     return WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId)
 def WorldRaidConditionExcelStartCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCampaignStageIdVector(builder, numElems):
     return WorldRaidConditionExcelStartCampaignStageIdVector(builder, numElems)
+def WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked): builder.PrependBoolSlot(3, hideWhenLocked, 0)
+def AddHideWhenLocked(builder, hideWhenLocked):
+    return WorldRaidConditionExcelAddHideWhenLocked(builder, hideWhenLocked)
+def WorldRaidConditionExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+def AddId(builder, id):
+    return WorldRaidConditionExcelAddId(builder, id)
+def WorldRaidConditionExcelAddLockUi(builder, lockUi): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(lockUi), 0)
+def AddLockUi(builder, lockUi):
+    return WorldRaidConditionExcelAddLockUi(builder, lockUi)
+def WorldRaidConditionExcelStartLockUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartLockUiVector(builder, numElems):
+    return WorldRaidConditionExcelStartLockUiVector(builder, numElems)
 def WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType): builder.PrependInt32Slot(6, multipleConditionCheckType, 0)
 def AddMultipleConditionCheckType(builder, multipleConditionCheckType):
     return WorldRaidConditionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
-def WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(afterWhenDate), 0)
-def AddAfterWhenDate(builder, afterWhenDate):
-    return WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate)
+def WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioModeId), 0)
+def AddScenarioModeId(builder, scenarioModeId):
+    return WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId)
+def WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartScenarioModeIdVector(builder, numElems):
+    return WorldRaidConditionExcelStartScenarioModeIdVector(builder, numElems)
 def WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(worldRaidBossKill), 0)
 def AddWorldRaidBossKill(builder, worldRaidBossKill):
     return WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill)

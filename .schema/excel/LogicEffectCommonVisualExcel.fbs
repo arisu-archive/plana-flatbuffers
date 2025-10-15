@@ -3,19 +3,19 @@ include "EffectBone.fbs";
 namespace MX.Data.Excel;
 
 table LogicEffectCommonVisualExcel {
-    string_id: uint;
-    icon_sprite_name: string;
     icon_dispel_color: [float];
+    icon_sprite_name: string;
+    particle_apply_path: string;
+    particle_apply_socket: EffectBone;
+    particle_end_path: string;
+    particle_end_socket: EffectBone;
     particle_enter_path: string;
     particle_enter_socket: EffectBone;
     particle_loop_path: string;
     particle_loop_socket: EffectBone;
-    particle_end_path: string;
-    particle_end_socket: EffectBone;
-    particle_apply_path: string;
-    particle_apply_socket: EffectBone;
     particle_removed_path: string;
     particle_removed_socket: EffectBone;
+    string_id: uint;
 }
 
 root_type LogicEffectCommonVisualExcel;

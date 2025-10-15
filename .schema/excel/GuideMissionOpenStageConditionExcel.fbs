@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table GuideMissionOpenStageConditionExcel {
-    season_id: long;
-    order_number: long;
-    tab_localize_code: string;
     clear_scenario_mode_id: long;
-    lock_scenario_text_locailze_code: string;
-    shortcut_scenario_ui: string;
     clear_stage_id: long;
+    lock_scenario_text_locailze_code: string;
     lock_stage_text_locailze_code: string;
+    order_number: long;
+    season_id: long;
+    shortcut_scenario_ui: string;
     shortcut_stage_ui: string;
+    tab_localize_code: string;
 }
 
 root_type GuideMissionOpenStageConditionExcel;

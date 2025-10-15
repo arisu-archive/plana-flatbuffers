@@ -1,10 +1,10 @@
 namespace MX.Data.Excel;
 
 table FormationLocationExcel {
-    id: long;
     group_id: long;
-    slot_z: [float];
+    id: long;
     slot_x: [float];
+    slot_z: [float];
 }
 
 root_type FormationLocationExcel;

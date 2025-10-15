@@ -1,10 +1,10 @@
 namespace FlatData;
 
 table ConstNewbieContentExcel {
-    newbie_gacha_release_date: string;
-    newbie_gacha_check_days: int;
-    newbie_gacha_token_grace_time: int;
+    newbie_attendance_end_day: int;
     newbie_attendance_release_date: string;
     newbie_attendance_startable_end_day: int;
-    newbie_attendance_end_day: int;
+    newbie_gacha_check_days: int;
+    newbie_gacha_release_date: string;
+    newbie_gacha_token_grace_time: int;
 }

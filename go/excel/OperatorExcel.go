@@ -33,16 +33,16 @@ func (rcv *OperatorExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *OperatorExcel) UniqueId() int64 {
+func (rcv *OperatorExcel) Duration() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *OperatorExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *OperatorExcel) MutateDuration(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
 func (rcv *OperatorExcel) GroupId() []byte {
@@ -65,7 +65,7 @@ func (rcv *OperatorExcel) MutateOperatorCondition(n OperatorCondition) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *OperatorExcel) OutputSequence() int32 {
+func (rcv *OperatorExcel) OperatorOutputPriority() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -73,20 +73,20 @@ func (rcv *OperatorExcel) OutputSequence() int32 {
 	return 0
 }
 
-func (rcv *OperatorExcel) MutateOutputSequence(n int32) bool {
+func (rcv *OperatorExcel) MutateOperatorOutputPriority(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *OperatorExcel) RandomWeight() int32 {
+func (rcv *OperatorExcel) OperatorWaitQueue() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *OperatorExcel) MutateRandomWeight(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+func (rcv *OperatorExcel) MutateOperatorWaitQueue(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
 }
 
 func (rcv *OperatorExcel) OutputDelay() int32 {
@@ -101,7 +101,7 @@ func (rcv *OperatorExcel) MutateOutputDelay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *OperatorExcel) Duration() int32 {
+func (rcv *OperatorExcel) OutputSequence() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -109,28 +109,28 @@ func (rcv *OperatorExcel) Duration() int32 {
 	return 0
 }
 
-func (rcv *OperatorExcel) MutateDuration(n int32) bool {
+func (rcv *OperatorExcel) MutateOutputSequence(n int32) bool {
 	return rcv._tab.MutateInt32Slot(16, n)
 }
 
-func (rcv *OperatorExcel) OperatorOutputPriority() int32 {
+func (rcv *OperatorExcel) PortraitPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *OperatorExcel) RandomWeight() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *OperatorExcel) MutateOperatorOutputPriority(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *OperatorExcel) PortraitPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *OperatorExcel) MutateRandomWeight(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
 func (rcv *OperatorExcel) TextLocalizeKey() []byte {
@@ -141,8 +141,20 @@ func (rcv *OperatorExcel) TextLocalizeKey() []byte {
 	return nil
 }
 
-func (rcv *OperatorExcel) VoiceId(j int) uint32 {
+func (rcv *OperatorExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *OperatorExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *OperatorExcel) VoiceId(j int) uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -151,7 +163,7 @@ func (rcv *OperatorExcel) VoiceId(j int) uint32 {
 }
 
 func (rcv *OperatorExcel) VoiceIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -159,7 +171,7 @@ func (rcv *OperatorExcel) VoiceIdLength() int {
 }
 
 func (rcv *OperatorExcel) MutateVoiceId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -167,23 +179,11 @@ func (rcv *OperatorExcel) MutateVoiceId(j int, n uint32) bool {
 	return false
 }
 
-func (rcv *OperatorExcel) OperatorWaitQueue() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *OperatorExcel) MutateOperatorWaitQueue(n bool) bool {
-	return rcv._tab.MutateBoolSlot(26, n)
-}
-
 func OperatorExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func OperatorExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func OperatorExcelAddDuration(builder *flatbuffers.Builder, duration int32) {
+	builder.PrependInt32Slot(0, duration, 0)
 }
 func OperatorExcelAddGroupId(builder *flatbuffers.Builder, groupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(groupId), 0)
@@ -191,35 +191,35 @@ func OperatorExcelAddGroupId(builder *flatbuffers.Builder, groupId flatbuffers.U
 func OperatorExcelAddOperatorCondition(builder *flatbuffers.Builder, operatorCondition OperatorCondition) {
 	builder.PrependInt32Slot(2, int32(operatorCondition), 0)
 }
-func OperatorExcelAddOutputSequence(builder *flatbuffers.Builder, outputSequence int32) {
-	builder.PrependInt32Slot(3, outputSequence, 0)
+func OperatorExcelAddOperatorOutputPriority(builder *flatbuffers.Builder, operatorOutputPriority int32) {
+	builder.PrependInt32Slot(3, operatorOutputPriority, 0)
 }
-func OperatorExcelAddRandomWeight(builder *flatbuffers.Builder, randomWeight int32) {
-	builder.PrependInt32Slot(4, randomWeight, 0)
+func OperatorExcelAddOperatorWaitQueue(builder *flatbuffers.Builder, operatorWaitQueue bool) {
+	builder.PrependBoolSlot(4, operatorWaitQueue, false)
 }
 func OperatorExcelAddOutputDelay(builder *flatbuffers.Builder, outputDelay int32) {
 	builder.PrependInt32Slot(5, outputDelay, 0)
 }
-func OperatorExcelAddDuration(builder *flatbuffers.Builder, duration int32) {
-	builder.PrependInt32Slot(6, duration, 0)
-}
-func OperatorExcelAddOperatorOutputPriority(builder *flatbuffers.Builder, operatorOutputPriority int32) {
-	builder.PrependInt32Slot(7, operatorOutputPriority, 0)
+func OperatorExcelAddOutputSequence(builder *flatbuffers.Builder, outputSequence int32) {
+	builder.PrependInt32Slot(6, outputSequence, 0)
 }
 func OperatorExcelAddPortraitPath(builder *flatbuffers.Builder, portraitPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(portraitPath), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(portraitPath), 0)
+}
+func OperatorExcelAddRandomWeight(builder *flatbuffers.Builder, randomWeight int32) {
+	builder.PrependInt32Slot(8, randomWeight, 0)
 }
 func OperatorExcelAddTextLocalizeKey(builder *flatbuffers.Builder, textLocalizeKey flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(textLocalizeKey), 0)
 }
+func OperatorExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(10, uniqueId, 0)
+}
 func OperatorExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(voiceId), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(voiceId), 0)
 }
 func OperatorExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func OperatorExcelAddOperatorWaitQueue(builder *flatbuffers.Builder, operatorWaitQueue bool) {
-	builder.PrependBoolSlot(11, operatorWaitQueue, false)
 }
 func OperatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

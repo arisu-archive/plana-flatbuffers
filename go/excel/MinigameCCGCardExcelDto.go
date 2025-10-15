@@ -10,45 +10,45 @@ import (
 // MinigameCCGCardExcelDto represents a FlatBuffers table
 type MinigameCCGCardExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                      int64        `json:"id"`
-	Type                    CCGCardType  `json:"type"`
-	IsDisposal              bool         `json:"is_disposal"`
-	ActiveSkillId           int32        `json:"active_skill_id"`
 	ActiveSkillCost         int32        `json:"active_skill_cost"`
 	ActiveSkilleCostVisible bool         `json:"active_skille_cost_visible"`
-	PassiveSkillId          []int32      `json:"passive_skill_id"`
-	PassiveActivateCount    int32        `json:"passive_activate_count"`
-	Name                    uint32       `json:"name"`
+	ActiveSkillId           int32        `json:"active_skill_id"`
 	Description             string       `json:"description"`
+	Id                      int64        `json:"id"`
 	ImagePath               string       `json:"image_path"`
-	UiImagePath             string       `json:"ui_image_path"`
+	IsDisposal              bool         `json:"is_disposal"`
+	Name                    uint32       `json:"name"`
+	PassiveActivateCount    int32        `json:"passive_activate_count"`
+	PassiveSkillId          []int32      `json:"passive_skill_id"`
 	Tags                    []CCGTagType `json:"tags"`
+	Type                    CCGCardType  `json:"type"`
+	UiImagePath             string       `json:"ui_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGCardExcelStart(b)
-	MinigameCCGCardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGCardExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
-	MinigameCCGCardExcelAddIsDisposal(b, t.IsDisposal)
-	MinigameCCGCardExcelAddActiveSkillId(b, fbsutils.Convert(t.ActiveSkillId, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelAddActiveSkillCost(b, fbsutils.Convert(t.ActiveSkillCost, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelAddActiveSkilleCostVisible(b, t.ActiveSkilleCostVisible)
+	MinigameCCGCardExcelAddActiveSkillId(b, fbsutils.Convert(t.ActiveSkillId, t.FlatBuffer.TableKey))
+	MinigameCCGCardExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
+	MinigameCCGCardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MinigameCCGCardExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	MinigameCCGCardExcelAddIsDisposal(b, t.IsDisposal)
+	MinigameCCGCardExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	MinigameCCGCardExcelAddPassiveActivateCount(b, fbsutils.Convert(t.PassiveActivateCount, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelStartPassiveSkillIdVector(b, len(t.PassiveSkillId))
 	for i := range len(t.PassiveSkillId) {
 		b.PrependInt32(fbsutils.Convert(t.PassiveSkillId[len(t.PassiveSkillId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameCCGCardExcelAddPassiveSkillId(b, b.EndVector(len(t.PassiveSkillId)))
-	MinigameCCGCardExcelAddPassiveActivateCount(b, fbsutils.Convert(t.PassiveActivateCount, t.FlatBuffer.TableKey))
-	MinigameCCGCardExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	MinigameCCGCardExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
-	MinigameCCGCardExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	MinigameCCGCardExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
 	MinigameCCGCardExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameCCGCardExcelAddTags(b, b.EndVector(len(t.Tags)))
+	MinigameCCGCardExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	MinigameCCGCardExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
 	return MinigameCCGCardExcelEnd(b)
 }
 
@@ -61,25 +61,25 @@ func (t *MinigameCCGCardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGCardExcelDto) UnmarshalMessage(e *MinigameCCGCardExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Type = CCGCardType(fbsutils.Convert(int32(e.Type()), t.FlatBuffer.TableKey))
-	t.IsDisposal = e.IsDisposal()
-	t.ActiveSkillId = fbsutils.Convert(e.ActiveSkillId(), t.FlatBuffer.TableKey)
 	t.ActiveSkillCost = fbsutils.Convert(e.ActiveSkillCost(), t.FlatBuffer.TableKey)
 	t.ActiveSkilleCostVisible = e.ActiveSkilleCostVisible()
+	t.ActiveSkillId = fbsutils.Convert(e.ActiveSkillId(), t.FlatBuffer.TableKey)
+	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.IsDisposal = e.IsDisposal()
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
+	t.PassiveActivateCount = fbsutils.Convert(e.PassiveActivateCount(), t.FlatBuffer.TableKey)
 	t.PassiveSkillId = make([]int32, e.PassiveSkillIdLength())
 	for i := range e.PassiveSkillIdLength() {
 		t.PassiveSkillId[i] = fbsutils.Convert(e.PassiveSkillId(i), t.FlatBuffer.TableKey)
 	}
-	t.PassiveActivateCount = fbsutils.Convert(e.PassiveActivateCount(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.UiImagePath = fbsutils.Convert(string(e.UiImagePath()), t.FlatBuffer.TableKey)
 	t.Tags = make([]CCGTagType, e.TagsLength())
 	for i := range e.TagsLength() {
 		t.Tags[i] = CCGTagType(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.Type = CCGCardType(fbsutils.Convert(int32(e.Type()), t.FlatBuffer.TableKey))
+	t.UiImagePath = fbsutils.Convert(string(e.UiImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

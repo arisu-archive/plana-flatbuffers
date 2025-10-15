@@ -3,11 +3,11 @@ include "WeaponType.fbs";
 namespace MX.Data.Excel;
 
 table CharacterWeaponExpBonusExcel {
-    weapon_type: WeaponType;
     weapon_exp_growth_a: int;
     weapon_exp_growth_b: int;
     weapon_exp_growth_c: int;
     weapon_exp_growth_z: int;
+    weapon_type: WeaponType;
 }
 
 root_type CharacterWeaponExpBonusExcel;

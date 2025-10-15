@@ -5,15 +5,15 @@ namespace MX.Data.Excel;
 table StickerGroupExcel {
     id: long;
     layout: string;
-    unique_layout_path: string;
-    sticker_group_iconpath: string;
-    page_complete_slot: long;
-    page_complete_reward_parcel_type: ParcelType;
-    page_complete_reward_parcel_id: long;
-    page_complete_reward_amount: int;
-    localize_title: uint;
     localize_description: uint;
+    localize_title: uint;
+    page_complete_reward_amount: int;
+    page_complete_reward_parcel_id: long;
+    page_complete_reward_parcel_type: ParcelType;
+    page_complete_slot: long;
     sticker_group_coverpath: string;
+    sticker_group_iconpath: string;
+    unique_layout_path: string;
 }
 
 root_type StickerGroupExcel;

@@ -3,14 +3,14 @@ include "TBGProbModifyCondition.fbs";
 namespace MX.Data.Excel;
 
 table MinigameTBGDiceExcel {
-    event_content_id: long;
-    unique_id: long;
     dice_group: int;
     dice_result: int;
+    event_content_id: long;
     prob: int;
     prob_modify_condition: [TBGProbModifyCondition];
-    prob_modify_value: [int];
     prob_modify_limit: [int];
+    prob_modify_value: [int];
+    unique_id: long;
 }
 
 root_type MinigameTBGDiceExcel;

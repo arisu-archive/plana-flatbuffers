@@ -25,11 +25,11 @@ class NormalSkillTemplateExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # NormalSkillTemplateExcel
-    def Index(self):
+    def CoolTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # NormalSkillTemplateExcel
     def FirstCoolTime(self):
@@ -39,11 +39,11 @@ class NormalSkillTemplateExcel(object):
         return 0.0
 
     # NormalSkillTemplateExcel
-    def CoolTime(self):
+    def Index(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # NormalSkillTemplateExcel
     def MultiAni(self):
@@ -55,15 +55,15 @@ class NormalSkillTemplateExcel(object):
 def NormalSkillTemplateExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return NormalSkillTemplateExcelStart(builder)
-def NormalSkillTemplateExcelAddIndex(builder, index): builder.PrependInt64Slot(0, index, 0)
-def AddIndex(builder, index):
-    return NormalSkillTemplateExcelAddIndex(builder, index)
+def NormalSkillTemplateExcelAddCoolTime(builder, coolTime): builder.PrependFloat32Slot(0, coolTime, 0.0)
+def AddCoolTime(builder, coolTime):
+    return NormalSkillTemplateExcelAddCoolTime(builder, coolTime)
 def NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime): builder.PrependFloat32Slot(1, firstCoolTime, 0.0)
 def AddFirstCoolTime(builder, firstCoolTime):
     return NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime)
-def NormalSkillTemplateExcelAddCoolTime(builder, coolTime): builder.PrependFloat32Slot(2, coolTime, 0.0)
-def AddCoolTime(builder, coolTime):
-    return NormalSkillTemplateExcelAddCoolTime(builder, coolTime)
+def NormalSkillTemplateExcelAddIndex(builder, index): builder.PrependInt64Slot(2, index, 0)
+def AddIndex(builder, index):
+    return NormalSkillTemplateExcelAddIndex(builder, index)
 def NormalSkillTemplateExcelAddMultiAni(builder, multiAni): builder.PrependBoolSlot(3, multiAni, 0)
 def AddMultiAni(builder, multiAni):
     return NormalSkillTemplateExcelAddMultiAni(builder, multiAni)

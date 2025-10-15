@@ -45,44 +45,8 @@ func (rcv *ContentsFeverExcel) MutateConditionContent(n FeverBattleType) bool {
 	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *ContentsFeverExcel) SkillFeverCheckCondition() SkillPriorityCheckTarget {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return SkillPriorityCheckTarget(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ContentsFeverExcel) MutateSkillFeverCheckCondition(n SkillPriorityCheckTarget) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *ContentsFeverExcel) SkillCostFever() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ContentsFeverExcel) MutateSkillCostFever(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ContentsFeverExcel) FeverStartTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ContentsFeverExcel) MutateFeverStartTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
 func (rcv *ContentsFeverExcel) FeverDurationTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,7 +54,43 @@ func (rcv *ContentsFeverExcel) FeverDurationTime() int64 {
 }
 
 func (rcv *ContentsFeverExcel) MutateFeverDurationTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ContentsFeverExcel) FeverStartTime() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ContentsFeverExcel) MutateFeverStartTime(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *ContentsFeverExcel) SkillCostFever() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ContentsFeverExcel) MutateSkillCostFever(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *ContentsFeverExcel) SkillFeverCheckCondition() SkillPriorityCheckTarget {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return SkillPriorityCheckTarget(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ContentsFeverExcel) MutateSkillFeverCheckCondition(n SkillPriorityCheckTarget) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func ContentsFeverExcelStart(builder *flatbuffers.Builder) {
@@ -99,17 +99,17 @@ func ContentsFeverExcelStart(builder *flatbuffers.Builder) {
 func ContentsFeverExcelAddConditionContent(builder *flatbuffers.Builder, conditionContent FeverBattleType) {
 	builder.PrependInt32Slot(0, int32(conditionContent), 0)
 }
-func ContentsFeverExcelAddSkillFeverCheckCondition(builder *flatbuffers.Builder, skillFeverCheckCondition SkillPriorityCheckTarget) {
-	builder.PrependInt32Slot(1, int32(skillFeverCheckCondition), 0)
-}
-func ContentsFeverExcelAddSkillCostFever(builder *flatbuffers.Builder, skillCostFever int64) {
-	builder.PrependInt64Slot(2, skillCostFever, 0)
+func ContentsFeverExcelAddFeverDurationTime(builder *flatbuffers.Builder, feverDurationTime int64) {
+	builder.PrependInt64Slot(1, feverDurationTime, 0)
 }
 func ContentsFeverExcelAddFeverStartTime(builder *flatbuffers.Builder, feverStartTime int64) {
-	builder.PrependInt64Slot(3, feverStartTime, 0)
+	builder.PrependInt64Slot(2, feverStartTime, 0)
 }
-func ContentsFeverExcelAddFeverDurationTime(builder *flatbuffers.Builder, feverDurationTime int64) {
-	builder.PrependInt64Slot(4, feverDurationTime, 0)
+func ContentsFeverExcelAddSkillCostFever(builder *flatbuffers.Builder, skillCostFever int64) {
+	builder.PrependInt64Slot(3, skillCostFever, 0)
+}
+func ContentsFeverExcelAddSkillFeverCheckCondition(builder *flatbuffers.Builder, skillFeverCheckCondition SkillPriorityCheckTarget) {
+	builder.PrependInt32Slot(4, int32(skillFeverCheckCondition), 0)
 }
 func ContentsFeverExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

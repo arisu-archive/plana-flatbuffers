@@ -10,73 +10,73 @@ import (
 // WeekDungeonExcelDto represents a FlatBuffers table
 type WeekDungeonExcelDto struct {
 	fbsutils.FlatBuffer
-	StageId                int64                `json:"stage_id"`
-	WeekDungeonType        WeekDungeonType      `json:"week_dungeon_type"`
-	Difficulty             int32                `json:"difficulty"`
 	BattleDuration         int64                `json:"battle_duration"`
-	PrevStageId            int64                `json:"prev_stage_id"`
-	StageEnterCostType     []ParcelType         `json:"stage_enter_cost_type"`
-	StageEnterCostId       []int64              `json:"stage_enter_cost_id"`
-	StageEnterCostAmount   []int32              `json:"stage_enter_cost_amount"`
-	GroundId               int32                `json:"ground_id"`
-	StarGoal               []StarGoalType       `json:"star_goal"`
-	StarGoalAmount         []int32              `json:"star_goal_amount"`
-	StageTopography        StageTopography      `json:"stage_topography"`
-	RecommandLevel         int64                `json:"recommand_level"`
-	StageRewardId          int64                `json:"stage_reward_id"`
-	PlayTimeLimitInSeconds int64                `json:"play_time_limit_in_seconds"`
 	BattleRewardExp        int64                `json:"battle_reward_exp"`
 	BattleRewardPlayerExp  int64                `json:"battle_reward_player_exp"`
-	GroupBuffId            []int64              `json:"group_buff_id"`
+	Difficulty             int32                `json:"difficulty"`
 	EchelonExtensionType   EchelonExtensionType `json:"echelon_extension_type"`
+	GroundId               int32                `json:"ground_id"`
+	GroupBuffId            []int64              `json:"group_buff_id"`
+	PlayTimeLimitInSeconds int64                `json:"play_time_limit_in_seconds"`
+	PrevStageId            int64                `json:"prev_stage_id"`
+	RecommandLevel         int64                `json:"recommand_level"`
+	StageEnterCostAmount   []int32              `json:"stage_enter_cost_amount"`
+	StageEnterCostId       []int64              `json:"stage_enter_cost_id"`
+	StageEnterCostType     []ParcelType         `json:"stage_enter_cost_type"`
+	StageId                int64                `json:"stage_id"`
+	StageRewardId          int64                `json:"stage_reward_id"`
+	StageTopography        StageTopography      `json:"stage_topography"`
+	StarGoalAmount         []int32              `json:"star_goal_amount"`
+	StarGoal               []StarGoalType       `json:"star_goal"`
+	WeekDungeonType        WeekDungeonType      `json:"week_dungeon_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	WeekDungeonExcelStart(b)
-	WeekDungeonExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddWeekDungeonType(b, fbsutils.Convert(t.WeekDungeonType, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
 	WeekDungeonExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
-	WeekDungeonExcelStartStageEnterCostTypeVector(b, len(t.StageEnterCostType))
-	for i := range len(t.StageEnterCostType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.StageEnterCostType[len(t.StageEnterCostType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	WeekDungeonExcelAddStageEnterCostType(b, b.EndVector(len(t.StageEnterCostType)))
-	WeekDungeonExcelStartStageEnterCostIdVector(b, len(t.StageEnterCostId))
-	for i := range len(t.StageEnterCostId) {
-		b.PrependInt64(fbsutils.Convert(t.StageEnterCostId[len(t.StageEnterCostId)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonExcelAddStageEnterCostId(b, b.EndVector(len(t.StageEnterCostId)))
-	WeekDungeonExcelStartStageEnterCostAmountVector(b, len(t.StageEnterCostAmount))
-	for i := range len(t.StageEnterCostAmount) {
-		b.PrependInt32(fbsutils.Convert(t.StageEnterCostAmount[len(t.StageEnterCostAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonExcelAddStageEnterCostAmount(b, b.EndVector(len(t.StageEnterCostAmount)))
-	WeekDungeonExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	WeekDungeonExcelStartStarGoalVector(b, len(t.StarGoal))
-	for i := range len(t.StarGoal) {
-		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
-	}
-	WeekDungeonExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
-	WeekDungeonExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))
-	for i := range len(t.StarGoalAmount) {
-		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[len(t.StarGoalAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonExcelAddStarGoalAmount(b, b.EndVector(len(t.StarGoalAmount)))
-	WeekDungeonExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
-	WeekDungeonExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
 	WeekDungeonExcelAddBattleRewardExp(b, fbsutils.Convert(t.BattleRewardExp, t.FlatBuffer.TableKey))
 	WeekDungeonExcelAddBattleRewardPlayerExp(b, fbsutils.Convert(t.BattleRewardPlayerExp, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	WeekDungeonExcelStartGroupBuffIdVector(b, len(t.GroupBuffId))
 	for i := range len(t.GroupBuffId) {
 		b.PrependInt64(fbsutils.Convert(t.GroupBuffId[len(t.GroupBuffId)-i-1], t.FlatBuffer.TableKey))
 	}
 	WeekDungeonExcelAddGroupBuffId(b, b.EndVector(len(t.GroupBuffId)))
-	WeekDungeonExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	WeekDungeonExcelStartStageEnterCostAmountVector(b, len(t.StageEnterCostAmount))
+	for i := range len(t.StageEnterCostAmount) {
+		b.PrependInt32(fbsutils.Convert(t.StageEnterCostAmount[len(t.StageEnterCostAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonExcelAddStageEnterCostAmount(b, b.EndVector(len(t.StageEnterCostAmount)))
+	WeekDungeonExcelStartStageEnterCostIdVector(b, len(t.StageEnterCostId))
+	for i := range len(t.StageEnterCostId) {
+		b.PrependInt64(fbsutils.Convert(t.StageEnterCostId[len(t.StageEnterCostId)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonExcelAddStageEnterCostId(b, b.EndVector(len(t.StageEnterCostId)))
+	WeekDungeonExcelStartStageEnterCostTypeVector(b, len(t.StageEnterCostType))
+	for i := range len(t.StageEnterCostType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StageEnterCostType[len(t.StageEnterCostType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	WeekDungeonExcelAddStageEnterCostType(b, b.EndVector(len(t.StageEnterCostType)))
+	WeekDungeonExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
+	WeekDungeonExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	WeekDungeonExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))
+	for i := range len(t.StarGoalAmount) {
+		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[len(t.StarGoalAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonExcelAddStarGoalAmount(b, b.EndVector(len(t.StarGoalAmount)))
+	WeekDungeonExcelStartStarGoalVector(b, len(t.StarGoal))
+	for i := range len(t.StarGoal) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
+	}
+	WeekDungeonExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
+	WeekDungeonExcelAddWeekDungeonType(b, fbsutils.Convert(t.WeekDungeonType, t.FlatBuffer.TableKey))
 	return WeekDungeonExcelEnd(b)
 }
 
@@ -89,43 +89,43 @@ func (t *WeekDungeonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
-	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
-	t.WeekDungeonType = WeekDungeonType(fbsutils.Convert(int32(e.WeekDungeonType()), t.FlatBuffer.TableKey))
-	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.BattleRewardExp = fbsutils.Convert(e.BattleRewardExp(), t.FlatBuffer.TableKey)
+	t.BattleRewardPlayerExp = fbsutils.Convert(e.BattleRewardPlayerExp(), t.FlatBuffer.TableKey)
+	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.GroupBuffId = make([]int64, e.GroupBuffIdLength())
+	for i := range e.GroupBuffIdLength() {
+		t.GroupBuffId[i] = fbsutils.Convert(e.GroupBuffId(i), t.FlatBuffer.TableKey)
+	}
+	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
 	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = make([]ParcelType, e.StageEnterCostTypeLength())
-	for i := range e.StageEnterCostTypeLength() {
-		t.StageEnterCostType[i] = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType(i)), t.FlatBuffer.TableKey))
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = make([]int32, e.StageEnterCostAmountLength())
+	for i := range e.StageEnterCostAmountLength() {
+		t.StageEnterCostAmount[i] = fbsutils.Convert(e.StageEnterCostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.StageEnterCostId = make([]int64, e.StageEnterCostIdLength())
 	for i := range e.StageEnterCostIdLength() {
 		t.StageEnterCostId[i] = fbsutils.Convert(e.StageEnterCostId(i), t.FlatBuffer.TableKey)
 	}
-	t.StageEnterCostAmount = make([]int32, e.StageEnterCostAmountLength())
-	for i := range e.StageEnterCostAmountLength() {
-		t.StageEnterCostAmount[i] = fbsutils.Convert(e.StageEnterCostAmount(i), t.FlatBuffer.TableKey)
+	t.StageEnterCostType = make([]ParcelType, e.StageEnterCostTypeLength())
+	for i := range e.StageEnterCostTypeLength() {
+		t.StageEnterCostType[i] = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType(i)), t.FlatBuffer.TableKey))
 	}
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
-	for i := range e.StarGoalLength() {
-		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
-	}
+	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
+	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
 		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
-	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.BattleRewardExp = fbsutils.Convert(e.BattleRewardExp(), t.FlatBuffer.TableKey)
-	t.BattleRewardPlayerExp = fbsutils.Convert(e.BattleRewardPlayerExp(), t.FlatBuffer.TableKey)
-	t.GroupBuffId = make([]int64, e.GroupBuffIdLength())
-	for i := range e.GroupBuffIdLength() {
-		t.GroupBuffId[i] = fbsutils.Convert(e.GroupBuffId(i), t.FlatBuffer.TableKey)
+	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
+	for i := range e.StarGoalLength() {
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
 	}
-	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.WeekDungeonType = WeekDungeonType(fbsutils.Convert(int32(e.WeekDungeonType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

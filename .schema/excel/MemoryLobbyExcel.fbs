@@ -4,17 +4,17 @@ include "ProductionStep.fbs";
 namespace MX.Data.Excel;
 
 table MemoryLobbyExcel {
-    id: long;
-    production_step: ProductionStep;
-    localize_etc_id: uint;
-    character_id: long;
-    prefab_name: string;
-    memory_lobby_category: MemoryLobbyCategory;
-    slot_texture_name: string;
-    reward_texture_name: string;
-    bgm_id: long;
     audio_clip_jp: string;
     audio_clip_kr: string;
+    bgm_id: long;
+    character_id: long;
+    id: long;
+    localize_etc_id: uint;
+    memory_lobby_category: MemoryLobbyCategory;
+    prefab_name: string;
+    production_step: ProductionStep;
+    reward_texture_name: string;
+    slot_texture_name: string;
 }
 
 root_type MemoryLobbyExcel;

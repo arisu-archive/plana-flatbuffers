@@ -4,14 +4,14 @@ include "Rarity.fbs";
 namespace MX.Data.Excel;
 
 table GachaElementExcel {
-    id: long;
     gacha_group_id: long;
-    parcel_type: ParcelType;
-    parcel_id: long;
-    rarity: Rarity;
-    parcel_amount_min: int;
+    id: long;
     parcel_amount_max: int;
+    parcel_amount_min: int;
+    parcel_id: long;
+    parcel_type: ParcelType;
     prob: int;
+    rarity: Rarity;
     state: int;
 }
 

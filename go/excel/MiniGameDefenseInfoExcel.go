@@ -33,7 +33,7 @@ func (rcv *MiniGameDefenseInfoExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDefenseInfoExcel) EventContentId() int64 {
+func (rcv *MiniGameDefenseInfoExcel) DefenseBattleMultiplierMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,24 +41,12 @@ func (rcv *MiniGameDefenseInfoExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDefenseInfoExcel) MutateEventContentId(n int64) bool {
+func (rcv *MiniGameDefenseInfoExcel) MutateDefenseBattleMultiplierMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameDefenseInfoExcel) DefenseBattleParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MiniGameDefenseInfoExcel) MutateDefenseBattleParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
 func (rcv *MiniGameDefenseInfoExcel) DefenseBattleParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,23 +54,23 @@ func (rcv *MiniGameDefenseInfoExcel) DefenseBattleParcelId() int64 {
 }
 
 func (rcv *MiniGameDefenseInfoExcel) MutateDefenseBattleParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameDefenseInfoExcel) DefenseBattleMultiplierMax() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *MiniGameDefenseInfoExcel) DefenseBattleParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MiniGameDefenseInfoExcel) MutateDefenseBattleMultiplierMax(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *MiniGameDefenseInfoExcel) MutateDefenseBattleParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *MiniGameDefenseInfoExcel) DisableRootMotion() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -90,26 +78,38 @@ func (rcv *MiniGameDefenseInfoExcel) DisableRootMotion() bool {
 }
 
 func (rcv *MiniGameDefenseInfoExcel) MutateDisableRootMotion(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *MiniGameDefenseInfoExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDefenseInfoExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MiniGameDefenseInfoExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MiniGameDefenseInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder *flatbuffers.Builder, defenseBattleParcelType ParcelType) {
-	builder.PrependInt32Slot(1, int32(defenseBattleParcelType), 0)
+func MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder *flatbuffers.Builder, defenseBattleMultiplierMax int64) {
+	builder.PrependInt64Slot(0, defenseBattleMultiplierMax, 0)
 }
 func MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder *flatbuffers.Builder, defenseBattleParcelId int64) {
-	builder.PrependInt64Slot(2, defenseBattleParcelId, 0)
+	builder.PrependInt64Slot(1, defenseBattleParcelId, 0)
 }
-func MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder *flatbuffers.Builder, defenseBattleMultiplierMax int64) {
-	builder.PrependInt64Slot(3, defenseBattleMultiplierMax, 0)
+func MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder *flatbuffers.Builder, defenseBattleParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(defenseBattleParcelType), 0)
 }
 func MiniGameDefenseInfoExcelAddDisableRootMotion(builder *flatbuffers.Builder, disableRootMotion bool) {
-	builder.PrependBoolSlot(4, disableRootMotion, false)
+	builder.PrependBoolSlot(3, disableRootMotion, false)
+}
+func MiniGameDefenseInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
 }
 func MiniGameDefenseInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

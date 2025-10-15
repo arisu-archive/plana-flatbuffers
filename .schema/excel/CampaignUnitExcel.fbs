@@ -5,20 +5,20 @@ include "TacticEnvironment.fbs";
 namespace MX.Data.Excel;
 
 table CampaignUnitExcel {
+    ai_move_type: StrategyAIType;
+    clear_scenario_group_id: [long];
+    enter_scenario_group_id: [long];
+    environment_type: TacticEnvironment;
+    grade: HexaUnitGrade;
+    ground_id: long;
     id: long;
+    is_tactic_skip: bool;
     key: uint;
+    move_range: int;
     name: string;
     prefab_name: string;
-    strategy_prefab_name: string;
-    enter_scenario_group_id: [long];
-    clear_scenario_group_id: [long];
-    ground_id: long;
-    move_range: int;
-    ai_move_type: StrategyAIType;
-    grade: HexaUnitGrade;
-    environment_type: TacticEnvironment;
     scale: float;
-    is_tactic_skip: bool;
+    strategy_prefab_name: string;
 }
 
 root_type CampaignUnitExcel;

@@ -8,31 +8,31 @@ include "ProductionStep.fbs";
 namespace MX.Data.Excel;
 
 table CharacterDialogExcel {
+    action_name: string;
+    animation_name: string;
+    anniversary: Anniversary;
+    apply_position: bool;
     character_id: long;
+    collection_visible: bool;
     costume_unique_id: long;
-    display_order: long;
-    production_step: ProductionStep;
+    cv_collection_type: CVCollectionType;
     dialog_category: DialogCategory;
     dialog_condition: DialogCondition;
-    anniversary: Anniversary;
-    start_date: string;
+    dialog_type: DialogType;
+    display_order: long;
+    duration: long;
     end_date: string;
     group_id: long;
-    dialog_type: DialogType;
-    action_name: string;
-    duration: long;
-    animation_name: string;
-    localize_kr: string;
+    localize_cv_group: string;
     localize_jp: string;
-    voice_id: [uint];
-    apply_position: bool;
+    localize_kr: string;
     pos_x: float;
     pos_y: float;
-    collection_visible: bool;
-    cv_collection_type: CVCollectionType;
-    unlock_favor_rank: long;
+    production_step: ProductionStep;
+    start_date: string;
     unlock_equip_weapon: bool;
-    localize_cv_group: string;
+    unlock_favor_rank: long;
+    voice_id: [uint];
 }
 
 root_type CharacterDialogExcel;

@@ -1,16 +1,16 @@
 namespace MX.Data.Excel;
 
 table MinigameRoadPuzzleRoadRoundExcel {
-    event_content_id: long;
-    unique_id: long;
-    round: int;
-    is_loop: bool;
-    enter_scenario_group_id: long;
-    end_scenario_group_id: long;
-    map_group_id: long;
-    round_reward: long;
-    additional_reward_id: [long];
     additional_reward_amount: [int];
+    additional_reward_id: [long];
+    end_scenario_group_id: long;
+    enter_scenario_group_id: long;
+    event_content_id: long;
+    is_loop: bool;
+    map_group_id: long;
+    round: int;
+    round_reward: long;
+    unique_id: long;
 }
 
 root_type MinigameRoadPuzzleRoadRoundExcel;

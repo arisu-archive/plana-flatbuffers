@@ -45,116 +45,8 @@ func (rcv *DefaultCharacterExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *DefaultCharacterExcel) FavoriteCharacter() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *DefaultCharacterExcel) MutateFavoriteCharacter(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
-func (rcv *DefaultCharacterExcel) Level() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *DefaultCharacterExcel) Exp() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateExp(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *DefaultCharacterExcel) FavorExp() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateFavorExp(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *DefaultCharacterExcel) FavorRank() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateFavorRank(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
-func (rcv *DefaultCharacterExcel) StarGrade() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateStarGrade(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
-func (rcv *DefaultCharacterExcel) ExSkillLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateExSkillLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *DefaultCharacterExcel) PassiveSkillLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutatePassiveSkillLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *DefaultCharacterExcel) ExtraPassiveSkillLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *DefaultCharacterExcel) MutateExtraPassiveSkillLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
-}
-
 func (rcv *DefaultCharacterExcel) CommonSkillLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -162,11 +54,83 @@ func (rcv *DefaultCharacterExcel) CommonSkillLevel() int32 {
 }
 
 func (rcv *DefaultCharacterExcel) MutateCommonSkillLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(24, n)
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *DefaultCharacterExcel) Exp() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateExp(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *DefaultCharacterExcel) ExSkillLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateExSkillLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *DefaultCharacterExcel) ExtraPassiveSkillLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateExtraPassiveSkillLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *DefaultCharacterExcel) FavorExp() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateFavorExp(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *DefaultCharacterExcel) FavoriteCharacter() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *DefaultCharacterExcel) MutateFavoriteCharacter(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
+}
+
+func (rcv *DefaultCharacterExcel) FavorRank() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateFavorRank(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
 }
 
 func (rcv *DefaultCharacterExcel) LeaderSkillLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -174,6 +138,42 @@ func (rcv *DefaultCharacterExcel) LeaderSkillLevel() int32 {
 }
 
 func (rcv *DefaultCharacterExcel) MutateLeaderSkillLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *DefaultCharacterExcel) Level() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
+func (rcv *DefaultCharacterExcel) PassiveSkillLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutatePassiveSkillLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *DefaultCharacterExcel) StarGrade() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *DefaultCharacterExcel) MutateStarGrade(n int32) bool {
 	return rcv._tab.MutateInt32Slot(26, n)
 }
 
@@ -183,38 +183,38 @@ func DefaultCharacterExcelStart(builder *flatbuffers.Builder) {
 func DefaultCharacterExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(0, characterId, 0)
 }
-func DefaultCharacterExcelAddFavoriteCharacter(builder *flatbuffers.Builder, favoriteCharacter bool) {
-	builder.PrependBoolSlot(1, favoriteCharacter, false)
-}
-func DefaultCharacterExcelAddLevel(builder *flatbuffers.Builder, level int32) {
-	builder.PrependInt32Slot(2, level, 0)
+func DefaultCharacterExcelAddCommonSkillLevel(builder *flatbuffers.Builder, commonSkillLevel int32) {
+	builder.PrependInt32Slot(1, commonSkillLevel, 0)
 }
 func DefaultCharacterExcelAddExp(builder *flatbuffers.Builder, exp int32) {
-	builder.PrependInt32Slot(3, exp, 0)
-}
-func DefaultCharacterExcelAddFavorExp(builder *flatbuffers.Builder, favorExp int32) {
-	builder.PrependInt32Slot(4, favorExp, 0)
-}
-func DefaultCharacterExcelAddFavorRank(builder *flatbuffers.Builder, favorRank int32) {
-	builder.PrependInt32Slot(5, favorRank, 0)
-}
-func DefaultCharacterExcelAddStarGrade(builder *flatbuffers.Builder, starGrade int32) {
-	builder.PrependInt32Slot(6, starGrade, 0)
+	builder.PrependInt32Slot(2, exp, 0)
 }
 func DefaultCharacterExcelAddExSkillLevel(builder *flatbuffers.Builder, exSkillLevel int32) {
-	builder.PrependInt32Slot(7, exSkillLevel, 0)
-}
-func DefaultCharacterExcelAddPassiveSkillLevel(builder *flatbuffers.Builder, passiveSkillLevel int32) {
-	builder.PrependInt32Slot(8, passiveSkillLevel, 0)
+	builder.PrependInt32Slot(3, exSkillLevel, 0)
 }
 func DefaultCharacterExcelAddExtraPassiveSkillLevel(builder *flatbuffers.Builder, extraPassiveSkillLevel int32) {
-	builder.PrependInt32Slot(9, extraPassiveSkillLevel, 0)
+	builder.PrependInt32Slot(4, extraPassiveSkillLevel, 0)
 }
-func DefaultCharacterExcelAddCommonSkillLevel(builder *flatbuffers.Builder, commonSkillLevel int32) {
-	builder.PrependInt32Slot(10, commonSkillLevel, 0)
+func DefaultCharacterExcelAddFavorExp(builder *flatbuffers.Builder, favorExp int32) {
+	builder.PrependInt32Slot(5, favorExp, 0)
+}
+func DefaultCharacterExcelAddFavoriteCharacter(builder *flatbuffers.Builder, favoriteCharacter bool) {
+	builder.PrependBoolSlot(6, favoriteCharacter, false)
+}
+func DefaultCharacterExcelAddFavorRank(builder *flatbuffers.Builder, favorRank int32) {
+	builder.PrependInt32Slot(7, favorRank, 0)
 }
 func DefaultCharacterExcelAddLeaderSkillLevel(builder *flatbuffers.Builder, leaderSkillLevel int32) {
-	builder.PrependInt32Slot(11, leaderSkillLevel, 0)
+	builder.PrependInt32Slot(8, leaderSkillLevel, 0)
+}
+func DefaultCharacterExcelAddLevel(builder *flatbuffers.Builder, level int32) {
+	builder.PrependInt32Slot(9, level, 0)
+}
+func DefaultCharacterExcelAddPassiveSkillLevel(builder *flatbuffers.Builder, passiveSkillLevel int32) {
+	builder.PrependInt32Slot(10, passiveSkillLevel, 0)
+}
+func DefaultCharacterExcelAddStarGrade(builder *flatbuffers.Builder, starGrade int32) {
+	builder.PrependInt32Slot(11, starGrade, 0)
 }
 func DefaultCharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

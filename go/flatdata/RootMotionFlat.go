@@ -33,28 +33,8 @@ func (rcv *RootMotionFlat) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RootMotionFlat) Forms(obj *Form, j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		x := rcv._tab.Vector(o)
-		x += flatbuffers.UOffsetT(j) * 4
-		x = rcv._tab.Indirect(x)
-		obj.Init(rcv._tab.Bytes, x)
-		return true
-	}
-	return false
-}
-
-func (rcv *RootMotionFlat) FormsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *RootMotionFlat) ExSkills(obj *Motion, j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		x := rcv._tab.Vector(o)
 		x += flatbuffers.UOffsetT(j) * 4
@@ -66,6 +46,26 @@ func (rcv *RootMotionFlat) ExSkills(obj *Motion, j int) bool {
 }
 
 func (rcv *RootMotionFlat) ExSkillsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RootMotionFlat) Forms(obj *Form, j int) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		x := rcv._tab.Vector(o)
+		x += flatbuffers.UOffsetT(j) * 4
+		x = rcv._tab.Indirect(x)
+		obj.Init(rcv._tab.Bytes, x)
+		return true
+	}
+	return false
+}
+
+func (rcv *RootMotionFlat) FormsLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -102,16 +102,16 @@ func (rcv *RootMotionFlat) MoveRight(obj *Motion) *Motion {
 func RootMotionFlatStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func RootMotionFlatAddForms(builder *flatbuffers.Builder, forms flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(forms), 0)
-}
-func RootMotionFlatStartFormsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func RootMotionFlatAddExSkills(builder *flatbuffers.Builder, exSkills flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(exSkills), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(exSkills), 0)
 }
 func RootMotionFlatStartExSkillsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func RootMotionFlatAddForms(builder *flatbuffers.Builder, forms flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(forms), 0)
+}
+func RootMotionFlatStartFormsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func RootMotionFlatAddMoveLeft(builder *flatbuffers.Builder, moveLeft flatbuffers.UOffsetT) {

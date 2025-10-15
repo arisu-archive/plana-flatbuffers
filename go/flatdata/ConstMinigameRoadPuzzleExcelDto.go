@@ -10,20 +10,20 @@ import (
 // ConstMinigameRoadPuzzleExcelDto represents a FlatBuffers table
 type ConstMinigameRoadPuzzleExcelDto struct {
 	fbsutils.FlatBuffer
+	CameraAngle                       float32 `json:"camera_angle"`
+	CameraZoomDefault                 float32 `json:"camera_zoom_default"`
+	CameraZoomMax                     float32 `json:"camera_zoom_max"`
+	CameraZoomMin                     float32 `json:"camera_zoom_min"`
+	LoopStageIndex                    int32   `json:"loop_stage_index"`
+	RoadPuzzleMapBoundaryOffsetBottom float32 `json:"road_puzzle_map_boundary_offset_bottom"`
 	RoadPuzzleMapBoundaryOffsetLeft   float32 `json:"road_puzzle_map_boundary_offset_left"`
 	RoadPuzzleMapBoundaryOffsetRight  float32 `json:"road_puzzle_map_boundary_offset_right"`
 	RoadPuzzleMapBoundaryOffsetTop    float32 `json:"road_puzzle_map_boundary_offset_top"`
-	RoadPuzzleMapBoundaryOffsetBottom float32 `json:"road_puzzle_map_boundary_offset_bottom"`
 	RoadPuzzleMapCenterOffsetX        float32 `json:"road_puzzle_map_center_offset_x"`
 	RoadPuzzleMapCenterOffsetY        float32 `json:"road_puzzle_map_center_offset_y"`
-	CameraAngle                       float32 `json:"camera_angle"`
-	CameraZoomMax                     float32 `json:"camera_zoom_max"`
-	CameraZoomMin                     float32 `json:"camera_zoom_min"`
-	CameraZoomDefault                 float32 `json:"camera_zoom_default"`
 	StageLoadingProgressTime          float32 `json:"stage_loading_progress_time"`
-	TileRotationDegree                int32   `json:"tile_rotation_degree"`
 	StartStageIndex                   int32   `json:"start_stage_index"`
-	LoopStageIndex                    int32   `json:"loop_stage_index"`
+	TileRotationDegree                int32   `json:"tile_rotation_degree"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,20 +32,20 @@ func (t *ConstMinigameRoadPuzzleExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameRoadPuzzle"))
 	}
 	ConstMinigameRoadPuzzleExcelStart(b)
+	ConstMinigameRoadPuzzleExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddLoopStageIndex(b, fbsutils.Convert(t.LoopStageIndex, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapBoundaryOffsetBottom(b, fbsutils.Convert(t.RoadPuzzleMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapBoundaryOffsetLeft(b, fbsutils.Convert(t.RoadPuzzleMapBoundaryOffsetLeft, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapBoundaryOffsetRight(b, fbsutils.Convert(t.RoadPuzzleMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapBoundaryOffsetTop(b, fbsutils.Convert(t.RoadPuzzleMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapBoundaryOffsetBottom(b, fbsutils.Convert(t.RoadPuzzleMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapCenterOffsetX(b, fbsutils.Convert(t.RoadPuzzleMapCenterOffsetX, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddRoadPuzzleMapCenterOffsetY(b, fbsutils.Convert(t.RoadPuzzleMapCenterOffsetY, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddStageLoadingProgressTime(b, fbsutils.Convert(t.StageLoadingProgressTime, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddTileRotationDegree(b, fbsutils.Convert(t.TileRotationDegree, t.FlatBuffer.TableKey))
 	ConstMinigameRoadPuzzleExcelAddStartStageIndex(b, fbsutils.Convert(t.StartStageIndex, t.FlatBuffer.TableKey))
-	ConstMinigameRoadPuzzleExcelAddLoopStageIndex(b, fbsutils.Convert(t.LoopStageIndex, t.FlatBuffer.TableKey))
+	ConstMinigameRoadPuzzleExcelAddTileRotationDegree(b, fbsutils.Convert(t.TileRotationDegree, t.FlatBuffer.TableKey))
 	return ConstMinigameRoadPuzzleExcelEnd(b)
 }
 
@@ -61,20 +61,20 @@ func (t *ConstMinigameRoadPuzzleExcelDto) UnmarshalMessage(e *ConstMinigameRoadP
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameRoadPuzzle"))
 	}
+	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
+	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
+	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
+	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
+	t.LoopStageIndex = fbsutils.Convert(e.LoopStageIndex(), t.FlatBuffer.TableKey)
+	t.RoadPuzzleMapBoundaryOffsetBottom = fbsutils.Convert(e.RoadPuzzleMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
 	t.RoadPuzzleMapBoundaryOffsetLeft = fbsutils.Convert(e.RoadPuzzleMapBoundaryOffsetLeft(), t.FlatBuffer.TableKey)
 	t.RoadPuzzleMapBoundaryOffsetRight = fbsutils.Convert(e.RoadPuzzleMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
 	t.RoadPuzzleMapBoundaryOffsetTop = fbsutils.Convert(e.RoadPuzzleMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
-	t.RoadPuzzleMapBoundaryOffsetBottom = fbsutils.Convert(e.RoadPuzzleMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
 	t.RoadPuzzleMapCenterOffsetX = fbsutils.Convert(e.RoadPuzzleMapCenterOffsetX(), t.FlatBuffer.TableKey)
 	t.RoadPuzzleMapCenterOffsetY = fbsutils.Convert(e.RoadPuzzleMapCenterOffsetY(), t.FlatBuffer.TableKey)
-	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
-	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
-	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
-	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
 	t.StageLoadingProgressTime = fbsutils.Convert(e.StageLoadingProgressTime(), t.FlatBuffer.TableKey)
-	t.TileRotationDegree = fbsutils.Convert(e.TileRotationDegree(), t.FlatBuffer.TableKey)
 	t.StartStageIndex = fbsutils.Convert(e.StartStageIndex(), t.FlatBuffer.TableKey)
-	t.LoopStageIndex = fbsutils.Convert(e.LoopStageIndex(), t.FlatBuffer.TableKey)
+	t.TileRotationDegree = fbsutils.Convert(e.TileRotationDegree(), t.FlatBuffer.TableKey)
 	return nil
 }
 

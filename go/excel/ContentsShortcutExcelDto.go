@@ -10,41 +10,41 @@ import (
 // ContentsShortcutExcelDto represents a FlatBuffers table
 type ContentsShortcutExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId              int64           `json:"unique_id"`
-	ContentType           ContentType     `json:"content_type"`
-	EventContentId        int64           `json:"event_content_id"`
-	ScenarioModeVolume    int64           `json:"scenario_mode_volume"`
-	ScenarioModeChapter   int64           `json:"scenario_mode_chapter"`
-	ShortcutOpenTime      string          `json:"shortcut_open_time"`
-	ShortcutCloseTime     string          `json:"shortcut_close_time"`
 	ConditionContentId    int64           `json:"condition_content_id"`
 	ConquestMapDifficulty StageDifficulty `json:"conquest_map_difficulty"`
 	ConquestStepIndex     int32           `json:"conquest_step_index"`
-	ShortcutContentId     int64           `json:"shortcut_content_id"`
-	ShortcutUiName        []string        `json:"shortcut_ui_name"`
+	ContentType           ContentType     `json:"content_type"`
+	EventContentId        int64           `json:"event_content_id"`
 	Localize              string          `json:"localize"`
+	ScenarioModeChapter   int64           `json:"scenario_mode_chapter"`
+	ScenarioModeVolume    int64           `json:"scenario_mode_volume"`
+	ShortcutCloseTime     string          `json:"shortcut_close_time"`
+	ShortcutContentId     int64           `json:"shortcut_content_id"`
+	ShortcutOpenTime      string          `json:"shortcut_open_time"`
+	ShortcutUiName        []string        `json:"shortcut_ui_name"`
+	UniqueId              int64           `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsShortcutExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ContentsShortcutExcelStart(b)
-	ContentsShortcutExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddScenarioModeVolume(b, fbsutils.Convert(t.ScenarioModeVolume, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddScenarioModeChapter(b, fbsutils.Convert(t.ScenarioModeChapter, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddShortcutOpenTime(b, b.CreateString(fbsutils.Convert(t.ShortcutOpenTime, t.FlatBuffer.TableKey)))
-	ContentsShortcutExcelAddShortcutCloseTime(b, b.CreateString(fbsutils.Convert(t.ShortcutCloseTime, t.FlatBuffer.TableKey)))
 	ContentsShortcutExcelAddConditionContentId(b, fbsutils.Convert(t.ConditionContentId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddConquestMapDifficulty(b, fbsutils.Convert(t.ConquestMapDifficulty, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddConquestStepIndex(b, fbsutils.Convert(t.ConquestStepIndex, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddLocalize(b, b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey)))
+	ContentsShortcutExcelAddScenarioModeChapter(b, fbsutils.Convert(t.ScenarioModeChapter, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddScenarioModeVolume(b, fbsutils.Convert(t.ScenarioModeVolume, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddShortcutCloseTime(b, b.CreateString(fbsutils.Convert(t.ShortcutCloseTime, t.FlatBuffer.TableKey)))
 	ContentsShortcutExcelAddShortcutContentId(b, fbsutils.Convert(t.ShortcutContentId, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddShortcutOpenTime(b, b.CreateString(fbsutils.Convert(t.ShortcutOpenTime, t.FlatBuffer.TableKey)))
 	ContentsShortcutExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
 	for i := range len(t.ShortcutUiName) {
 		b.PrependUOffsetT(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]))
 	}
 	ContentsShortcutExcelAddShortcutUiName(b, b.EndVector(len(t.ShortcutUiName)))
-	ContentsShortcutExcelAddLocalize(b, b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey)))
+	ContentsShortcutExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return ContentsShortcutExcelEnd(b)
 }
 
@@ -57,22 +57,22 @@ func (t *ContentsShortcutExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsShortcutExcelDto) UnmarshalMessage(e *ContentsShortcutExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ScenarioModeVolume = fbsutils.Convert(e.ScenarioModeVolume(), t.FlatBuffer.TableKey)
-	t.ScenarioModeChapter = fbsutils.Convert(e.ScenarioModeChapter(), t.FlatBuffer.TableKey)
-	t.ShortcutOpenTime = fbsutils.Convert(string(e.ShortcutOpenTime()), t.FlatBuffer.TableKey)
-	t.ShortcutCloseTime = fbsutils.Convert(string(e.ShortcutCloseTime()), t.FlatBuffer.TableKey)
 	t.ConditionContentId = fbsutils.Convert(e.ConditionContentId(), t.FlatBuffer.TableKey)
 	t.ConquestMapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.ConquestMapDifficulty()), t.FlatBuffer.TableKey))
 	t.ConquestStepIndex = fbsutils.Convert(e.ConquestStepIndex(), t.FlatBuffer.TableKey)
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.Localize = fbsutils.Convert(string(e.Localize()), t.FlatBuffer.TableKey)
+	t.ScenarioModeChapter = fbsutils.Convert(e.ScenarioModeChapter(), t.FlatBuffer.TableKey)
+	t.ScenarioModeVolume = fbsutils.Convert(e.ScenarioModeVolume(), t.FlatBuffer.TableKey)
+	t.ShortcutCloseTime = fbsutils.Convert(string(e.ShortcutCloseTime()), t.FlatBuffer.TableKey)
 	t.ShortcutContentId = fbsutils.Convert(e.ShortcutContentId(), t.FlatBuffer.TableKey)
+	t.ShortcutOpenTime = fbsutils.Convert(string(e.ShortcutOpenTime()), t.FlatBuffer.TableKey)
 	t.ShortcutUiName = make([]string, e.ShortcutUiNameLength())
 	for i := range e.ShortcutUiNameLength() {
 		t.ShortcutUiName[i] = fbsutils.Convert(string(e.ShortcutUiName(i)), t.FlatBuffer.TableKey)
 	}
-	t.Localize = fbsutils.Convert(string(e.Localize()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

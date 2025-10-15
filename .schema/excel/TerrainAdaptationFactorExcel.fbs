@@ -1,0 +1,16 @@
+include "StageTopography.fbs";
+include "TerrainAdaptationStat.fbs";
+
+namespace MX.Data.Excel;
+
+table TerrainAdaptationFactorExcel {
+    accuracy_factor: long;
+    attack_power_factor: long;
+    block_factor: long;
+    dodge_factor: long;
+    shot_factor: long;
+    terrain_adaptation: StageTopography;
+    terrain_adaptation_stat: TerrainAdaptationStat;
+}
+
+root_type TerrainAdaptationFactorExcel;

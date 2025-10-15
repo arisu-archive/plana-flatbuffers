@@ -1,0 +1,23 @@
+include "PurchaseCountResetType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentShopExcel {
+    buy_report_event_name: string;
+    category_type: ShopCategoryType;
+    display_order: long;
+    event_content_id: long;
+    goods_id: [long];
+    id: long;
+    is_legacy: bool;
+    localize_etc_id: uint;
+    purchase_cooltime_min: long;
+    purchase_count_limit: long;
+    purchase_count_reset_type: PurchaseCountResetType;
+    restrict_buy_when_inventory_full: bool;
+    sale_period_from: string;
+    sale_period_to: string;
+}
+
+root_type EventContentShopExcel;

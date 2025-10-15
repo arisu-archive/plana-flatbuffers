@@ -10,16 +10,16 @@ import (
 // GachaCraftNodeGroupExcelDto represents a FlatBuffers table
 type GachaCraftNodeGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	NodeId       int64 `json:"node_id"`
 	GachaGroupId int64 `json:"gacha_group_id"`
+	NodeId       int64 `json:"node_id"`
 	ProbWeight   int64 `json:"prob_weight"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftNodeGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GachaCraftNodeGroupExcelStart(b)
-	GachaCraftNodeGroupExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
 	GachaCraftNodeGroupExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
+	GachaCraftNodeGroupExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
 	GachaCraftNodeGroupExcelAddProbWeight(b, fbsutils.Convert(t.ProbWeight, t.FlatBuffer.TableKey))
 	return GachaCraftNodeGroupExcelEnd(b)
 }
@@ -33,8 +33,8 @@ func (t *GachaCraftNodeGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaCraftNodeGroupExcelDto) UnmarshalMessage(e *GachaCraftNodeGroupExcel) error {
-	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
 	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
+	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
 	t.ProbWeight = fbsutils.Convert(e.ProbWeight(), t.FlatBuffer.TableKey)
 	return nil
 }

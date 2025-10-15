@@ -3,7 +3,7 @@ include "AniStateData.fbs";
 namespace FlatData;
 
 table AnimatorData {
+    data_list: [AniStateData];
     default_state_name: string;
     name: string;
-    data_list: [AniStateData];
 }

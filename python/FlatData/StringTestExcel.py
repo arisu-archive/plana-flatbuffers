@@ -25,24 +25,11 @@ class StringTestExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # StringTestExcel
-    def String(self, j):
+    def Script(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # StringTestExcel
-    def StringLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # StringTestExcel
-    def StringIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # StringTestExcel
     def Sentence1(self):
@@ -52,27 +39,40 @@ class StringTestExcel(object):
         return None
 
     # StringTestExcel
-    def Script(self):
+    def String(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # StringTestExcel
+    def StringLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # StringTestExcel
+    def StringIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
 
 def StringTestExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return StringTestExcelStart(builder)
-def StringTestExcelAddString(builder, string): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
+def StringTestExcelAddScript(builder, script): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
+def AddScript(builder, script):
+    return StringTestExcelAddScript(builder, script)
+def StringTestExcelAddSentence1(builder, sentence1): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
+def AddSentence1(builder, sentence1):
+    return StringTestExcelAddSentence1(builder, sentence1)
+def StringTestExcelAddString(builder, string): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
 def AddString(builder, string):
     return StringTestExcelAddString(builder, string)
 def StringTestExcelStartStringVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStringVector(builder, numElems):
     return StringTestExcelStartStringVector(builder, numElems)
-def StringTestExcelAddSentence1(builder, sentence1): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
-def AddSentence1(builder, sentence1):
-    return StringTestExcelAddSentence1(builder, sentence1)
-def StringTestExcelAddScript(builder, script): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
-def AddScript(builder, script):
-    return StringTestExcelAddScript(builder, script)
 def StringTestExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return StringTestExcelEnd(builder)

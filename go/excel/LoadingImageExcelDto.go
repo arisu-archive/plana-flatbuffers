@@ -10,19 +10,19 @@ import (
 // LoadingImageExcelDto represents a FlatBuffers table
 type LoadingImageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id            int64  `json:"id"`
-	ImagePathKr   string `json:"image_path_kr"`
-	ImagePathJp   string `json:"image_path_jp"`
 	DisplayWeight int32  `json:"display_weight"`
+	Id            int64  `json:"id"`
+	ImagePathJp   string `json:"image_path_jp"`
+	ImagePathKr   string `json:"image_path_kr"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LoadingImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LoadingImageExcelStart(b)
-	LoadingImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LoadingImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	LoadingImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
 	LoadingImageExcelAddDisplayWeight(b, fbsutils.Convert(t.DisplayWeight, t.FlatBuffer.TableKey))
+	LoadingImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	LoadingImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	LoadingImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
 	return LoadingImageExcelEnd(b)
 }
 
@@ -35,10 +35,10 @@ func (t *LoadingImageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LoadingImageExcelDto) UnmarshalMessage(e *LoadingImageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
-	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
 	t.DisplayWeight = fbsutils.Convert(e.DisplayWeight(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
 	return nil
 }
 

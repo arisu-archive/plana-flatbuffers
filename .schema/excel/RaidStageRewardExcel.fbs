@@ -3,13 +3,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table RaidStageRewardExcel {
-    group_id: long;
-    is_clear_stage_reward_hide_info: bool;
-    clear_stage_reward_prob: long;
+    clear_stage_reward_amount: long;
     clear_stage_reward_parcel_type: ParcelType;
     clear_stage_reward_parcel_unique_id: long;
-    clear_stage_reward_parcel_unique_name: string;
-    clear_stage_reward_amount: long;
+    clear_stage_reward_prob: long;
+    group_id: long;
+    is_clear_stage_reward_hide_info: bool;
 }
 
 root_type RaidStageRewardExcel;

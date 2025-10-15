@@ -1,13 +1,13 @@
 namespace MX.Data.Excel;
 
 table CharacterDialogEmojiExcel {
-    group_id: long;
-    target_index: int;
     dialog_type: string;
     duration: long;
+    group_id: long;
     hide_ui: bool;
-    localize_kr: string;
     localize_jp: string;
+    localize_kr: string;
+    target_index: int;
 }
 
 root_type CharacterDialogEmojiExcel;

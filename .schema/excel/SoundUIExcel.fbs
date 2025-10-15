@@ -2,8 +2,8 @@ namespace MX.Data.Excel;
 
 table SoundUIExcel {
     id: long;
-    sound_unique_id: string;
     path: string;
+    sound_unique_id: string;
 }
 
 root_type SoundUIExcel;

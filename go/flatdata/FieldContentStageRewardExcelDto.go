@@ -11,12 +11,12 @@ import (
 type FieldContentStageRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupId          int64      `json:"group_id"`
-	RewardTag        RewardTag  `json:"reward_tag"`
-	RewardProb       int32      `json:"reward_prob"`
-	RewardParcelType ParcelType `json:"reward_parcel_type"`
-	RewardId         int64      `json:"reward_id"`
-	RewardAmount     int32      `json:"reward_amount"`
 	IsDisplayed      bool       `json:"is_displayed"`
+	RewardAmount     int32      `json:"reward_amount"`
+	RewardId         int64      `json:"reward_id"`
+	RewardParcelType ParcelType `json:"reward_parcel_type"`
+	RewardProb       int32      `json:"reward_prob"`
+	RewardTag        RewardTag  `json:"reward_tag"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,12 +26,12 @@ func (t *FieldContentStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	}
 	FieldContentStageRewardExcelStart(b)
 	FieldContentStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
 	FieldContentStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	FieldContentStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
 	return FieldContentStageRewardExcelEnd(b)
 }
 
@@ -48,12 +48,12 @@ func (t *FieldContentStageRewardExcelDto) UnmarshalMessage(e *FieldContentStageR
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = e.IsDisplayed()
+	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
 	return nil
 }
 

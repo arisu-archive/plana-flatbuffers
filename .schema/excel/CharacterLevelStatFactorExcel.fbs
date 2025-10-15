@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table CharacterLevelStatFactorExcel {
+    accuracy_factor: long;
+    critical_factor: long;
+    defence_factor: long;
+    level: long;
+    stability_factor: long;
+}
+
+root_type CharacterLevelStatFactorExcel;

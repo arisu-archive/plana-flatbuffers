@@ -1,28 +1,28 @@
 namespace FlatData;
 
 table ConstMinigameCCGExcel {
-    turn_draw_count: int;
-    conquest_map_boundary_offset_right: float;
-    conquest_map_boundary_offset_top: float;
-    conquest_map_boundary_offset_bottom: float;
-    conquest_map_center_offset_x: float;
-    conquest_map_center_offset_y: float;
+    alternative_card_image_path: string;
+    ani_ally_battle_attack: string;
+    base_reward_reroll_point: int;
     camera_angle: float;
+    camera_zoom_default: float;
     camera_zoom_max: float;
     camera_zoom_min: float;
-    camera_zoom_default: float;
-    thema_loading_progress_time: float;
-    map_ally_rotation: float;
-    ani_ally_battle_attack: string;
-    max_hand_count: int;
-    max_cost: int;
-    start_cost: int;
-    turn_cost: int;
-    striker_swap_front_cost: int;
-    striker_max_equip_count: int;
-    start_draw_count: int;
     camp_revive_health_rate: int;
-    base_reward_reroll_point: int;
+    conquest_map_boundary_offset_bottom: float;
+    conquest_map_boundary_offset_right: float;
+    conquest_map_boundary_offset_top: float;
+    conquest_map_center_offset_x: float;
+    conquest_map_center_offset_y: float;
+    map_ally_rotation: float;
+    max_cost: int;
+    max_hand_count: int;
     select_reward_option_count: int;
-    alternative_card_image_path: string;
+    start_cost: int;
+    start_draw_count: int;
+    striker_max_equip_count: int;
+    striker_swap_front_cost: int;
+    thema_loading_progress_time: float;
+    turn_cost: int;
+    turn_draw_count: int;
 }

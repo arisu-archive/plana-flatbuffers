@@ -33,16 +33,16 @@ func (rcv *MiniGamePlayGuideExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGamePlayGuideExcel) Id() int64 {
+func (rcv *MiniGamePlayGuideExcel) DisplayOrder() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGamePlayGuideExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MiniGamePlayGuideExcel) MutateDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
 func (rcv *MiniGamePlayGuideExcel) EventContentId() int64 {
@@ -57,28 +57,8 @@ func (rcv *MiniGamePlayGuideExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGamePlayGuideExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGamePlayGuideExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *MiniGamePlayGuideExcel) GuideTitle() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MiniGamePlayGuideExcel) GuideImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -86,33 +66,53 @@ func (rcv *MiniGamePlayGuideExcel) GuideImagePath() []byte {
 }
 
 func (rcv *MiniGamePlayGuideExcel) GuideText() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *MiniGamePlayGuideExcel) GuideTitle() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGamePlayGuideExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGamePlayGuideExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func MiniGamePlayGuideExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MiniGamePlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func MiniGamePlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
+	builder.PrependInt32Slot(0, displayOrder, 0)
 }
 func MiniGamePlayGuideExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(1, eventContentId, 0)
 }
-func MiniGamePlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(2, displayOrder, 0)
-}
-func MiniGamePlayGuideExcelAddGuideTitle(builder *flatbuffers.Builder, guideTitle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(guideTitle), 0)
-}
 func MiniGamePlayGuideExcelAddGuideImagePath(builder *flatbuffers.Builder, guideImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideImagePath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(guideImagePath), 0)
 }
 func MiniGamePlayGuideExcelAddGuideText(builder *flatbuffers.Builder, guideText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(guideText), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(guideText), 0)
+}
+func MiniGamePlayGuideExcelAddGuideTitle(builder *flatbuffers.Builder, guideTitle flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideTitle), 0)
+}
+func MiniGamePlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func MiniGamePlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

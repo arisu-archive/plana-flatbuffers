@@ -25,53 +25,126 @@ class EliminateRaidStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EliminateRaidStageExcel
-    def Id(self):
+    def BattleDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def UseBossIndex(self):
+    def BattleReadyTimelinePath(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
 
     # EliminateRaidStageExcel
-    def UseBossAiPhaseSync(self):
+    def BattleReadyTimelinePathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseEnd(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
 
     # EliminateRaidStageExcel
-    def RaidBossGroup(self):
+    def BattleReadyTimelinePhaseEndAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseEndLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseEndIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseStart(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseStartAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseStartLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BattleReadyTimelinePhaseStartIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # EliminateRaidStageExcel
+    def BgPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # EliminateRaidStageExcel
-    def RaidEnterCostType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EliminateRaidStageExcel
-    def RaidEnterCostId(self):
+    def BossBgInfoKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def RaidEnterCostAmount(self):
+    def BossCharacterId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # EliminateRaidStageExcel
+    def BossCharacterIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BossCharacterIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EliminateRaidStageExcel
+    def BossCharacterIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
 
     # EliminateRaidStageExcel
     def BossSpinePath(self):
@@ -81,125 +154,105 @@ class EliminateRaidStageExcel(object):
         return None
 
     # EliminateRaidStageExcel
-    def PortraitPath(self):
+    def ClearScenarioKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # EliminateRaidStageExcel
-    def BgPath(self):
+    def DefaultClearScore(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EliminateRaidStageExcel
-    def RaidCharacterId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # EliminateRaidStageExcel
-    def BossCharacterId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # EliminateRaidStageExcel
-    def BossCharacterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BossCharacterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BossCharacterIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        return o == 0
 
     # EliminateRaidStageExcel
     def Difficulty(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def IsOpen(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+    def EchelonExtensionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # EliminateRaidStageExcel
-    def MaxPlayerCount(self):
+    def EnterScenarioKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def EnterTimeLine(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EliminateRaidStageExcel
+    def GroundDevName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EliminateRaidStageExcel
+    def GroundId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def RaidRoomLifeTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleDuration(self):
+    def HpPercentScore(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def GroundId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def GroundDevName(self):
+    def IsOpen(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EliminateRaidStageExcel
-    def EnterTimeLine(self):
+    def MaximumAcquisitionScore(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EliminateRaidStageExcel
-    def TacticEnvironment(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EliminateRaidStageExcel
-    def DefaultClearScore(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
     def MaximumScore(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def MaxPlayerCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def MinimumAcquisitionScore(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -213,295 +266,242 @@ class EliminateRaidStageExcel(object):
         return 0
 
     # EliminateRaidStageExcel
-    def HpPercentScore(self):
+    def PhaseChangeTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EliminateRaidStageExcel
-    def MinimumAcquisitionScore(self):
+    def PortraitPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EliminateRaidStageExcel
-    def MaximumAcquisitionScore(self):
+    def RaidBossGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EliminateRaidStageExcel
-    def RaidRewardGroupId(self):
+    def RaidCharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def BattleReadyTimelinePath(self, j):
+    def RaidEnterCostAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def BattleReadyTimelinePathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        return o == 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseStart(self, j):
+    def RaidEnterCostId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseStartAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseStartLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseStartIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        return o == 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseEnd(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseEndAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseEndLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EliminateRaidStageExcel
-    def BattleReadyTimelinePhaseEndIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
-        return o == 0
-
-    # EliminateRaidStageExcel
-    def VictoryTimelinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EliminateRaidStageExcel
-    def PhaseChangeTimelinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EliminateRaidStageExcel
-    def TimeLinePhase(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def EnterScenarioKey(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+    def RaidEnterCostType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
-    def ClearScenarioKey(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+    def RaidRewardGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def RaidRoomLifeTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageExcel
     def ShowSkillCard(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # EliminateRaidStageExcel
+    def TacticEnvironment(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def TimeLinePhase(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EliminateRaidStageExcel
+    def UseBossAiPhaseSync(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # EliminateRaidStageExcel
-    def BossBgInfoKey(self):
+    def UseBossIndex(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EliminateRaidStageExcel
-    def EchelonExtensionType(self):
+    def VictoryTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def EliminateRaidStageExcelStart(builder): builder.StartObject(39)
 def Start(builder):
     return EliminateRaidStageExcelStart(builder)
-def EliminateRaidStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return EliminateRaidStageExcelAddId(builder, id)
-def EliminateRaidStageExcelAddUseBossIndex(builder, useBossIndex): builder.PrependBoolSlot(1, useBossIndex, 0)
-def AddUseBossIndex(builder, useBossIndex):
-    return EliminateRaidStageExcelAddUseBossIndex(builder, useBossIndex)
-def EliminateRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync): builder.PrependBoolSlot(2, useBossAiPhaseSync, 0)
-def AddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
-    return EliminateRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
-def EliminateRaidStageExcelAddRaidBossGroup(builder, raidBossGroup): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(raidBossGroup), 0)
-def AddRaidBossGroup(builder, raidBossGroup):
-    return EliminateRaidStageExcelAddRaidBossGroup(builder, raidBossGroup)
-def EliminateRaidStageExcelAddRaidEnterCostType(builder, raidEnterCostType): builder.PrependInt32Slot(4, raidEnterCostType, 0)
-def AddRaidEnterCostType(builder, raidEnterCostType):
-    return EliminateRaidStageExcelAddRaidEnterCostType(builder, raidEnterCostType)
-def EliminateRaidStageExcelAddRaidEnterCostId(builder, raidEnterCostId): builder.PrependInt64Slot(5, raidEnterCostId, 0)
-def AddRaidEnterCostId(builder, raidEnterCostId):
-    return EliminateRaidStageExcelAddRaidEnterCostId(builder, raidEnterCostId)
-def EliminateRaidStageExcelAddRaidEnterCostAmount(builder, raidEnterCostAmount): builder.PrependInt32Slot(6, raidEnterCostAmount, 0)
-def AddRaidEnterCostAmount(builder, raidEnterCostAmount):
-    return EliminateRaidStageExcelAddRaidEnterCostAmount(builder, raidEnterCostAmount)
-def EliminateRaidStageExcelAddBossSpinePath(builder, bossSpinePath): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(bossSpinePath), 0)
-def AddBossSpinePath(builder, bossSpinePath):
-    return EliminateRaidStageExcelAddBossSpinePath(builder, bossSpinePath)
-def EliminateRaidStageExcelAddPortraitPath(builder, portraitPath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(portraitPath), 0)
-def AddPortraitPath(builder, portraitPath):
-    return EliminateRaidStageExcelAddPortraitPath(builder, portraitPath)
-def EliminateRaidStageExcelAddBgPath(builder, bgPath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
-def AddBgPath(builder, bgPath):
-    return EliminateRaidStageExcelAddBgPath(builder, bgPath)
-def EliminateRaidStageExcelAddRaidCharacterId(builder, raidCharacterId): builder.PrependInt64Slot(10, raidCharacterId, 0)
-def AddRaidCharacterId(builder, raidCharacterId):
-    return EliminateRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
-def EliminateRaidStageExcelAddBossCharacterId(builder, bossCharacterId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
-def AddBossCharacterId(builder, bossCharacterId):
-    return EliminateRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
-def EliminateRaidStageExcelStartBossCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartBossCharacterIdVector(builder, numElems):
-    return EliminateRaidStageExcelStartBossCharacterIdVector(builder, numElems)
-def EliminateRaidStageExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(12, difficulty, 0)
-def AddDifficulty(builder, difficulty):
-    return EliminateRaidStageExcelAddDifficulty(builder, difficulty)
-def EliminateRaidStageExcelAddIsOpen(builder, isOpen): builder.PrependBoolSlot(13, isOpen, 0)
-def AddIsOpen(builder, isOpen):
-    return EliminateRaidStageExcelAddIsOpen(builder, isOpen)
-def EliminateRaidStageExcelAddMaxPlayerCount(builder, maxPlayerCount): builder.PrependInt64Slot(14, maxPlayerCount, 0)
-def AddMaxPlayerCount(builder, maxPlayerCount):
-    return EliminateRaidStageExcelAddMaxPlayerCount(builder, maxPlayerCount)
-def EliminateRaidStageExcelAddRaidRoomLifeTime(builder, raidRoomLifeTime): builder.PrependInt32Slot(15, raidRoomLifeTime, 0)
-def AddRaidRoomLifeTime(builder, raidRoomLifeTime):
-    return EliminateRaidStageExcelAddRaidRoomLifeTime(builder, raidRoomLifeTime)
-def EliminateRaidStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(16, battleDuration, 0)
+def EliminateRaidStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(0, battleDuration, 0)
 def AddBattleDuration(builder, battleDuration):
     return EliminateRaidStageExcelAddBattleDuration(builder, battleDuration)
-def EliminateRaidStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(17, groundId, 0)
-def AddGroundId(builder, groundId):
-    return EliminateRaidStageExcelAddGroundId(builder, groundId)
-def EliminateRaidStageExcelAddGroundDevName(builder, groundDevName): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(groundDevName), 0)
-def AddGroundDevName(builder, groundDevName):
-    return EliminateRaidStageExcelAddGroundDevName(builder, groundDevName)
-def EliminateRaidStageExcelAddEnterTimeLine(builder, enterTimeLine): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(enterTimeLine), 0)
-def AddEnterTimeLine(builder, enterTimeLine):
-    return EliminateRaidStageExcelAddEnterTimeLine(builder, enterTimeLine)
-def EliminateRaidStageExcelAddTacticEnvironment(builder, tacticEnvironment): builder.PrependInt32Slot(20, tacticEnvironment, 0)
-def AddTacticEnvironment(builder, tacticEnvironment):
-    return EliminateRaidStageExcelAddTacticEnvironment(builder, tacticEnvironment)
-def EliminateRaidStageExcelAddDefaultClearScore(builder, defaultClearScore): builder.PrependInt64Slot(21, defaultClearScore, 0)
-def AddDefaultClearScore(builder, defaultClearScore):
-    return EliminateRaidStageExcelAddDefaultClearScore(builder, defaultClearScore)
-def EliminateRaidStageExcelAddMaximumScore(builder, maximumScore): builder.PrependInt64Slot(22, maximumScore, 0)
-def AddMaximumScore(builder, maximumScore):
-    return EliminateRaidStageExcelAddMaximumScore(builder, maximumScore)
-def EliminateRaidStageExcelAddPerSecondMinusScore(builder, perSecondMinusScore): builder.PrependInt64Slot(23, perSecondMinusScore, 0)
-def AddPerSecondMinusScore(builder, perSecondMinusScore):
-    return EliminateRaidStageExcelAddPerSecondMinusScore(builder, perSecondMinusScore)
-def EliminateRaidStageExcelAddHpPercentScore(builder, hpPercentScore): builder.PrependInt64Slot(24, hpPercentScore, 0)
-def AddHpPercentScore(builder, hpPercentScore):
-    return EliminateRaidStageExcelAddHpPercentScore(builder, hpPercentScore)
-def EliminateRaidStageExcelAddMinimumAcquisitionScore(builder, minimumAcquisitionScore): builder.PrependInt64Slot(25, minimumAcquisitionScore, 0)
-def AddMinimumAcquisitionScore(builder, minimumAcquisitionScore):
-    return EliminateRaidStageExcelAddMinimumAcquisitionScore(builder, minimumAcquisitionScore)
-def EliminateRaidStageExcelAddMaximumAcquisitionScore(builder, maximumAcquisitionScore): builder.PrependInt64Slot(26, maximumAcquisitionScore, 0)
-def AddMaximumAcquisitionScore(builder, maximumAcquisitionScore):
-    return EliminateRaidStageExcelAddMaximumAcquisitionScore(builder, maximumAcquisitionScore)
-def EliminateRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId): builder.PrependInt64Slot(27, raidRewardGroupId, 0)
-def AddRaidRewardGroupId(builder, raidRewardGroupId):
-    return EliminateRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId)
-def EliminateRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
+def EliminateRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
 def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
     return EliminateRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
 def EliminateRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartBattleReadyTimelinePathVector(builder, numElems):
     return EliminateRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems)
-def EliminateRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
-def AddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
-    return EliminateRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
-def EliminateRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartBattleReadyTimelinePhaseStartVector(builder, numElems):
-    return EliminateRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems)
-def EliminateRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd): builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
+def EliminateRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
 def AddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd):
     return EliminateRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
 def EliminateRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartBattleReadyTimelinePhaseEndVector(builder, numElems):
     return EliminateRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems)
-def EliminateRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath): builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
-def AddVictoryTimelinePath(builder, victoryTimelinePath):
-    return EliminateRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
-def EliminateRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath): builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(phaseChangeTimelinePath), 0)
-def AddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath):
-    return EliminateRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
-def EliminateRaidStageExcelAddTimeLinePhase(builder, timeLinePhase): builder.PrependInt64Slot(33, timeLinePhase, 0)
-def AddTimeLinePhase(builder, timeLinePhase):
-    return EliminateRaidStageExcelAddTimeLinePhase(builder, timeLinePhase)
-def EliminateRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey): builder.PrependUint32Slot(34, enterScenarioKey, 0)
-def AddEnterScenarioKey(builder, enterScenarioKey):
-    return EliminateRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey)
-def EliminateRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey): builder.PrependUint32Slot(35, clearScenarioKey, 0)
-def AddClearScenarioKey(builder, clearScenarioKey):
-    return EliminateRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey)
-def EliminateRaidStageExcelAddShowSkillCard(builder, showSkillCard): builder.PrependBoolSlot(36, showSkillCard, 0)
-def AddShowSkillCard(builder, showSkillCard):
-    return EliminateRaidStageExcelAddShowSkillCard(builder, showSkillCard)
-def EliminateRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey): builder.PrependUint32Slot(37, bossBgInfoKey, 0)
+def EliminateRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
+def AddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
+    return EliminateRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+def EliminateRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartBattleReadyTimelinePhaseStartVector(builder, numElems):
+    return EliminateRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems)
+def EliminateRaidStageExcelAddBgPath(builder, bgPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+def AddBgPath(builder, bgPath):
+    return EliminateRaidStageExcelAddBgPath(builder, bgPath)
+def EliminateRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey): builder.PrependUint32Slot(5, bossBgInfoKey, 0)
 def AddBossBgInfoKey(builder, bossBgInfoKey):
     return EliminateRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey)
-def EliminateRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(38, echelonExtensionType, 0)
+def EliminateRaidStageExcelAddBossCharacterId(builder, bossCharacterId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
+def AddBossCharacterId(builder, bossCharacterId):
+    return EliminateRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+def EliminateRaidStageExcelStartBossCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartBossCharacterIdVector(builder, numElems):
+    return EliminateRaidStageExcelStartBossCharacterIdVector(builder, numElems)
+def EliminateRaidStageExcelAddBossSpinePath(builder, bossSpinePath): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(bossSpinePath), 0)
+def AddBossSpinePath(builder, bossSpinePath):
+    return EliminateRaidStageExcelAddBossSpinePath(builder, bossSpinePath)
+def EliminateRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey): builder.PrependUint32Slot(8, clearScenarioKey, 0)
+def AddClearScenarioKey(builder, clearScenarioKey):
+    return EliminateRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey)
+def EliminateRaidStageExcelAddDefaultClearScore(builder, defaultClearScore): builder.PrependInt64Slot(9, defaultClearScore, 0)
+def AddDefaultClearScore(builder, defaultClearScore):
+    return EliminateRaidStageExcelAddDefaultClearScore(builder, defaultClearScore)
+def EliminateRaidStageExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(10, difficulty, 0)
+def AddDifficulty(builder, difficulty):
+    return EliminateRaidStageExcelAddDifficulty(builder, difficulty)
+def EliminateRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(11, echelonExtensionType, 0)
 def AddEchelonExtensionType(builder, echelonExtensionType):
     return EliminateRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def EliminateRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey): builder.PrependUint32Slot(12, enterScenarioKey, 0)
+def AddEnterScenarioKey(builder, enterScenarioKey):
+    return EliminateRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey)
+def EliminateRaidStageExcelAddEnterTimeLine(builder, enterTimeLine): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(enterTimeLine), 0)
+def AddEnterTimeLine(builder, enterTimeLine):
+    return EliminateRaidStageExcelAddEnterTimeLine(builder, enterTimeLine)
+def EliminateRaidStageExcelAddGroundDevName(builder, groundDevName): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(groundDevName), 0)
+def AddGroundDevName(builder, groundDevName):
+    return EliminateRaidStageExcelAddGroundDevName(builder, groundDevName)
+def EliminateRaidStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(15, groundId, 0)
+def AddGroundId(builder, groundId):
+    return EliminateRaidStageExcelAddGroundId(builder, groundId)
+def EliminateRaidStageExcelAddHpPercentScore(builder, hpPercentScore): builder.PrependInt64Slot(16, hpPercentScore, 0)
+def AddHpPercentScore(builder, hpPercentScore):
+    return EliminateRaidStageExcelAddHpPercentScore(builder, hpPercentScore)
+def EliminateRaidStageExcelAddId(builder, id): builder.PrependInt64Slot(17, id, 0)
+def AddId(builder, id):
+    return EliminateRaidStageExcelAddId(builder, id)
+def EliminateRaidStageExcelAddIsOpen(builder, isOpen): builder.PrependBoolSlot(18, isOpen, 0)
+def AddIsOpen(builder, isOpen):
+    return EliminateRaidStageExcelAddIsOpen(builder, isOpen)
+def EliminateRaidStageExcelAddMaximumAcquisitionScore(builder, maximumAcquisitionScore): builder.PrependInt64Slot(19, maximumAcquisitionScore, 0)
+def AddMaximumAcquisitionScore(builder, maximumAcquisitionScore):
+    return EliminateRaidStageExcelAddMaximumAcquisitionScore(builder, maximumAcquisitionScore)
+def EliminateRaidStageExcelAddMaximumScore(builder, maximumScore): builder.PrependInt64Slot(20, maximumScore, 0)
+def AddMaximumScore(builder, maximumScore):
+    return EliminateRaidStageExcelAddMaximumScore(builder, maximumScore)
+def EliminateRaidStageExcelAddMaxPlayerCount(builder, maxPlayerCount): builder.PrependInt64Slot(21, maxPlayerCount, 0)
+def AddMaxPlayerCount(builder, maxPlayerCount):
+    return EliminateRaidStageExcelAddMaxPlayerCount(builder, maxPlayerCount)
+def EliminateRaidStageExcelAddMinimumAcquisitionScore(builder, minimumAcquisitionScore): builder.PrependInt64Slot(22, minimumAcquisitionScore, 0)
+def AddMinimumAcquisitionScore(builder, minimumAcquisitionScore):
+    return EliminateRaidStageExcelAddMinimumAcquisitionScore(builder, minimumAcquisitionScore)
+def EliminateRaidStageExcelAddPerSecondMinusScore(builder, perSecondMinusScore): builder.PrependInt64Slot(23, perSecondMinusScore, 0)
+def AddPerSecondMinusScore(builder, perSecondMinusScore):
+    return EliminateRaidStageExcelAddPerSecondMinusScore(builder, perSecondMinusScore)
+def EliminateRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(phaseChangeTimelinePath), 0)
+def AddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath):
+    return EliminateRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
+def EliminateRaidStageExcelAddPortraitPath(builder, portraitPath): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(portraitPath), 0)
+def AddPortraitPath(builder, portraitPath):
+    return EliminateRaidStageExcelAddPortraitPath(builder, portraitPath)
+def EliminateRaidStageExcelAddRaidBossGroup(builder, raidBossGroup): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(raidBossGroup), 0)
+def AddRaidBossGroup(builder, raidBossGroup):
+    return EliminateRaidStageExcelAddRaidBossGroup(builder, raidBossGroup)
+def EliminateRaidStageExcelAddRaidCharacterId(builder, raidCharacterId): builder.PrependInt64Slot(27, raidCharacterId, 0)
+def AddRaidCharacterId(builder, raidCharacterId):
+    return EliminateRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
+def EliminateRaidStageExcelAddRaidEnterCostAmount(builder, raidEnterCostAmount): builder.PrependInt32Slot(28, raidEnterCostAmount, 0)
+def AddRaidEnterCostAmount(builder, raidEnterCostAmount):
+    return EliminateRaidStageExcelAddRaidEnterCostAmount(builder, raidEnterCostAmount)
+def EliminateRaidStageExcelAddRaidEnterCostId(builder, raidEnterCostId): builder.PrependInt64Slot(29, raidEnterCostId, 0)
+def AddRaidEnterCostId(builder, raidEnterCostId):
+    return EliminateRaidStageExcelAddRaidEnterCostId(builder, raidEnterCostId)
+def EliminateRaidStageExcelAddRaidEnterCostType(builder, raidEnterCostType): builder.PrependInt32Slot(30, raidEnterCostType, 0)
+def AddRaidEnterCostType(builder, raidEnterCostType):
+    return EliminateRaidStageExcelAddRaidEnterCostType(builder, raidEnterCostType)
+def EliminateRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId): builder.PrependInt64Slot(31, raidRewardGroupId, 0)
+def AddRaidRewardGroupId(builder, raidRewardGroupId):
+    return EliminateRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId)
+def EliminateRaidStageExcelAddRaidRoomLifeTime(builder, raidRoomLifeTime): builder.PrependInt32Slot(32, raidRoomLifeTime, 0)
+def AddRaidRoomLifeTime(builder, raidRoomLifeTime):
+    return EliminateRaidStageExcelAddRaidRoomLifeTime(builder, raidRoomLifeTime)
+def EliminateRaidStageExcelAddShowSkillCard(builder, showSkillCard): builder.PrependBoolSlot(33, showSkillCard, 0)
+def AddShowSkillCard(builder, showSkillCard):
+    return EliminateRaidStageExcelAddShowSkillCard(builder, showSkillCard)
+def EliminateRaidStageExcelAddTacticEnvironment(builder, tacticEnvironment): builder.PrependInt32Slot(34, tacticEnvironment, 0)
+def AddTacticEnvironment(builder, tacticEnvironment):
+    return EliminateRaidStageExcelAddTacticEnvironment(builder, tacticEnvironment)
+def EliminateRaidStageExcelAddTimeLinePhase(builder, timeLinePhase): builder.PrependInt64Slot(35, timeLinePhase, 0)
+def AddTimeLinePhase(builder, timeLinePhase):
+    return EliminateRaidStageExcelAddTimeLinePhase(builder, timeLinePhase)
+def EliminateRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync): builder.PrependBoolSlot(36, useBossAiPhaseSync, 0)
+def AddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
+    return EliminateRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
+def EliminateRaidStageExcelAddUseBossIndex(builder, useBossIndex): builder.PrependBoolSlot(37, useBossIndex, 0)
+def AddUseBossIndex(builder, useBossIndex):
+    return EliminateRaidStageExcelAddUseBossIndex(builder, useBossIndex)
+def EliminateRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
+def AddVictoryTimelinePath(builder, victoryTimelinePath):
+    return EliminateRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
 def EliminateRaidStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EliminateRaidStageExcelEnd(builder)

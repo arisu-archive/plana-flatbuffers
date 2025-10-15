@@ -1,9 +1,9 @@
 namespace MX.Data.Excel;
 
 table LocalizeCharProfileChangeExcel {
+    change_character_id: long;
     character_id: long;
     scenario_mode_id: long;
-    change_character_id: long;
 }
 
 root_type LocalizeCharProfileChangeExcel;

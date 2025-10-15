@@ -11,28 +11,28 @@ import (
 type ScenarioCharacterNameExcelDto struct {
 	fbsutils.FlatBuffer
 	CharacterName   uint32                  `json:"character_name"`
-	ProductionStep  ProductionStep          `json:"production_step"`
-	NameKr          string                  `json:"name_kr"`
-	NicknameKr      string                  `json:"nickname_kr"`
 	NameJp          string                  `json:"name_jp"`
+	NameKr          string                  `json:"name_kr"`
 	NicknameJp      string                  `json:"nickname_jp"`
+	NicknameKr      string                  `json:"nickname_kr"`
+	ProductionStep  ProductionStep          `json:"production_step"`
 	Shape           ScenarioCharacterShapes `json:"shape"`
-	SpinePrefabName string                  `json:"spine_prefab_name"`
 	SmallPortrait   string                  `json:"small_portrait"`
+	SpinePrefabName string                  `json:"spine_prefab_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioCharacterNameExcelStart(b)
 	ScenarioCharacterNameExcelAddCharacterName(b, fbsutils.Convert(t.CharacterName, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	ScenarioCharacterNameExcelAddNicknameKr(b, b.CreateString(fbsutils.Convert(t.NicknameKr, t.FlatBuffer.TableKey)))
 	ScenarioCharacterNameExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
 	ScenarioCharacterNameExcelAddNicknameJp(b, b.CreateString(fbsutils.Convert(t.NicknameJp, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddNicknameKr(b, b.CreateString(fbsutils.Convert(t.NicknameKr, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddShape(b, fbsutils.Convert(t.Shape, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddSpinePrefabName(b, b.CreateString(fbsutils.Convert(t.SpinePrefabName, t.FlatBuffer.TableKey)))
 	ScenarioCharacterNameExcelAddSmallPortrait(b, b.CreateString(fbsutils.Convert(t.SmallPortrait, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddSpinePrefabName(b, b.CreateString(fbsutils.Convert(t.SpinePrefabName, t.FlatBuffer.TableKey)))
 	return ScenarioCharacterNameExcelEnd(b)
 }
 
@@ -46,14 +46,14 @@ func (t *ScenarioCharacterNameExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioCharacterNameExcelDto) UnmarshalMessage(e *ScenarioCharacterNameExcel) error {
 	t.CharacterName = fbsutils.Convert(e.CharacterName(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
-	t.NicknameKr = fbsutils.Convert(string(e.NicknameKr()), t.FlatBuffer.TableKey)
 	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
+	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
 	t.NicknameJp = fbsutils.Convert(string(e.NicknameJp()), t.FlatBuffer.TableKey)
+	t.NicknameKr = fbsutils.Convert(string(e.NicknameKr()), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.Shape = ScenarioCharacterShapes(fbsutils.Convert(int32(e.Shape()), t.FlatBuffer.TableKey))
-	t.SpinePrefabName = fbsutils.Convert(string(e.SpinePrefabName()), t.FlatBuffer.TableKey)
 	t.SmallPortrait = fbsutils.Convert(string(e.SmallPortrait()), t.FlatBuffer.TableKey)
+	t.SpinePrefabName = fbsutils.Convert(string(e.SpinePrefabName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,0 +1,18 @@
+include "ArmorType.fbs";
+include "BulletType.fbs";
+include "DamageAttribute.fbs";
+
+namespace MX.Data.Excel;
+
+table BulletArmorDamageFactorExcel {
+    armor_type: ArmorType;
+    bullet_type: BulletType;
+    damage_attribute: DamageAttribute;
+    damage_factor_group_id: string;
+    damage_rate: long;
+    max_damage_rate: long;
+    min_damage_rate: long;
+    show_highlight_floater: bool;
+}
+
+root_type BulletArmorDamageFactorExcel;

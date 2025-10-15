@@ -10,23 +10,25 @@ import (
 // MinigameCCGRewardItemExcelDto represents a FlatBuffers table
 type MinigameCCGRewardItemExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                 int64      `json:"id"`
 	CcgId              int64      `json:"ccg_id"`
+	DisplayOrder       int64      `json:"display_order"`
+	Id                 int64      `json:"id"`
 	MinPoint           int32      `json:"min_point"`
-	RewardParcelType   ParcelType `json:"reward_parcel_type"`
-	RewardParcelId     int64      `json:"reward_parcel_id"`
 	RewardParcelAmount int32      `json:"reward_parcel_amount"`
+	RewardParcelId     int64      `json:"reward_parcel_id"`
+	RewardParcelType   ParcelType `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGRewardItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGRewardItemExcelStart(b)
-	MinigameCCGRewardItemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGRewardItemExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
+	MinigameCCGRewardItemExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	MinigameCCGRewardItemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGRewardItemExcelAddMinPoint(b, fbsutils.Convert(t.MinPoint, t.FlatBuffer.TableKey))
-	MinigameCCGRewardItemExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	MinigameCCGRewardItemExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	MinigameCCGRewardItemExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	MinigameCCGRewardItemExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	MinigameCCGRewardItemExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	return MinigameCCGRewardItemExcelEnd(b)
 }
 
@@ -39,12 +41,13 @@ func (t *MinigameCCGRewardItemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGRewardItemExcelDto) UnmarshalMessage(e *MinigameCCGRewardItemExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.MinPoint = fbsutils.Convert(e.MinPoint(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -45,16 +45,30 @@ func (rcv *MinigameCCGLevelNodeExcel) MutateLevelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) NodeId() int64 {
+func (rcv *MinigameCCGLevelNodeExcel) NextNodeId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) MutateNodeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *MinigameCCGLevelNodeExcel) NextNodeIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGLevelNodeExcel) MutateNextNodeId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *MinigameCCGLevelNodeExcel) NodeIcon() CCGLevelNodeIcon {
@@ -69,7 +83,7 @@ func (rcv *MinigameCCGLevelNodeExcel) MutateNodeIcon(n CCGLevelNodeIcon) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) StageGroupId() int64 {
+func (rcv *MinigameCCGLevelNodeExcel) NodeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,34 +91,20 @@ func (rcv *MinigameCCGLevelNodeExcel) StageGroupId() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) MutateStageGroupId(n int64) bool {
+func (rcv *MinigameCCGLevelNodeExcel) MutateNodeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) NextNodeId(j int) int64 {
+func (rcv *MinigameCCGLevelNodeExcel) StageGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameCCGLevelNodeExcel) NextNodeIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGLevelNodeExcel) MutateNextNodeId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *MinigameCCGLevelNodeExcel) MutateStageGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func MinigameCCGLevelNodeExcelStart(builder *flatbuffers.Builder) {
@@ -113,20 +113,20 @@ func MinigameCCGLevelNodeExcelStart(builder *flatbuffers.Builder) {
 func MinigameCCGLevelNodeExcelAddLevelId(builder *flatbuffers.Builder, levelId int64) {
 	builder.PrependInt64Slot(0, levelId, 0)
 }
-func MinigameCCGLevelNodeExcelAddNodeId(builder *flatbuffers.Builder, nodeId int64) {
-	builder.PrependInt64Slot(1, nodeId, 0)
+func MinigameCCGLevelNodeExcelAddNextNodeId(builder *flatbuffers.Builder, nextNodeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(nextNodeId), 0)
+}
+func MinigameCCGLevelNodeExcelStartNextNodeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func MinigameCCGLevelNodeExcelAddNodeIcon(builder *flatbuffers.Builder, nodeIcon CCGLevelNodeIcon) {
 	builder.PrependInt32Slot(2, int32(nodeIcon), 0)
 }
+func MinigameCCGLevelNodeExcelAddNodeId(builder *flatbuffers.Builder, nodeId int64) {
+	builder.PrependInt64Slot(3, nodeId, 0)
+}
 func MinigameCCGLevelNodeExcelAddStageGroupId(builder *flatbuffers.Builder, stageGroupId int64) {
-	builder.PrependInt64Slot(3, stageGroupId, 0)
-}
-func MinigameCCGLevelNodeExcelAddNextNodeId(builder *flatbuffers.Builder, nextNodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(nextNodeId), 0)
-}
-func MinigameCCGLevelNodeExcelStartNextNodeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+	builder.PrependInt64Slot(4, stageGroupId, 0)
 }
 func MinigameCCGLevelNodeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

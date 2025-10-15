@@ -5,14 +5,14 @@ namespace MX.Data.Excel;
 
 table ScenarioCharacterNameExcel {
     character_name: uint;
-    production_step: ProductionStep;
-    name_kr: string;
-    nickname_kr: string;
     name_jp: string;
+    name_kr: string;
     nickname_jp: string;
+    nickname_kr: string;
+    production_step: ProductionStep;
     shape: ScenarioCharacterShapes;
-    spine_prefab_name: string;
     small_portrait: string;
+    spine_prefab_name: string;
 }
 
 root_type ScenarioCharacterNameExcel;

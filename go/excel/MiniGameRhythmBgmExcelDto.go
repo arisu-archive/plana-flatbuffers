@@ -10,31 +10,31 @@ import (
 // MiniGameRhythmBgmExcelDto represents a FlatBuffers table
 type MiniGameRhythmBgmExcelDto struct {
 	fbsutils.FlatBuffer
-	RhythmBgmId          int64  `json:"rhythm_bgm_id"`
-	EventContentId       int64  `json:"event_content_id"`
-	StageSelectImagePath string `json:"stage_select_image_path"`
-	Bpm                  int64  `json:"bpm"`
 	Bgm                  int64  `json:"bgm"`
-	BgmNameText          string `json:"bgm_name_text"`
 	BgmArtistText        string `json:"bgm_artist_text"`
-	HasLyricist          bool   `json:"has_lyricist"`
 	BgmComposerText      string `json:"bgm_composer_text"`
 	BgmLength            int32  `json:"bgm_length"`
+	BgmNameText          string `json:"bgm_name_text"`
+	Bpm                  int64  `json:"bpm"`
+	EventContentId       int64  `json:"event_content_id"`
+	HasLyricist          bool   `json:"has_lyricist"`
+	RhythmBgmId          int64  `json:"rhythm_bgm_id"`
+	StageSelectImagePath string `json:"stage_select_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmBgmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRhythmBgmExcelStart(b)
-	MiniGameRhythmBgmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
-	MiniGameRhythmBgmExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRhythmBgmExcelAddStageSelectImagePath(b, b.CreateString(fbsutils.Convert(t.StageSelectImagePath, t.FlatBuffer.TableKey)))
-	MiniGameRhythmBgmExcelAddBpm(b, fbsutils.Convert(t.Bpm, t.FlatBuffer.TableKey))
 	MiniGameRhythmBgmExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
-	MiniGameRhythmBgmExcelAddBgmNameText(b, b.CreateString(fbsutils.Convert(t.BgmNameText, t.FlatBuffer.TableKey)))
 	MiniGameRhythmBgmExcelAddBgmArtistText(b, b.CreateString(fbsutils.Convert(t.BgmArtistText, t.FlatBuffer.TableKey)))
-	MiniGameRhythmBgmExcelAddHasLyricist(b, t.HasLyricist)
 	MiniGameRhythmBgmExcelAddBgmComposerText(b, b.CreateString(fbsutils.Convert(t.BgmComposerText, t.FlatBuffer.TableKey)))
 	MiniGameRhythmBgmExcelAddBgmLength(b, fbsutils.Convert(t.BgmLength, t.FlatBuffer.TableKey))
+	MiniGameRhythmBgmExcelAddBgmNameText(b, b.CreateString(fbsutils.Convert(t.BgmNameText, t.FlatBuffer.TableKey)))
+	MiniGameRhythmBgmExcelAddBpm(b, fbsutils.Convert(t.Bpm, t.FlatBuffer.TableKey))
+	MiniGameRhythmBgmExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameRhythmBgmExcelAddHasLyricist(b, t.HasLyricist)
+	MiniGameRhythmBgmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
+	MiniGameRhythmBgmExcelAddStageSelectImagePath(b, b.CreateString(fbsutils.Convert(t.StageSelectImagePath, t.FlatBuffer.TableKey)))
 	return MiniGameRhythmBgmExcelEnd(b)
 }
 
@@ -47,16 +47,16 @@ func (t *MiniGameRhythmBgmExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRhythmBgmExcelDto) UnmarshalMessage(e *MiniGameRhythmBgmExcel) error {
-	t.RhythmBgmId = fbsutils.Convert(e.RhythmBgmId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.StageSelectImagePath = fbsutils.Convert(string(e.StageSelectImagePath()), t.FlatBuffer.TableKey)
-	t.Bpm = fbsutils.Convert(e.Bpm(), t.FlatBuffer.TableKey)
 	t.Bgm = fbsutils.Convert(e.Bgm(), t.FlatBuffer.TableKey)
-	t.BgmNameText = fbsutils.Convert(string(e.BgmNameText()), t.FlatBuffer.TableKey)
 	t.BgmArtistText = fbsutils.Convert(string(e.BgmArtistText()), t.FlatBuffer.TableKey)
-	t.HasLyricist = e.HasLyricist()
 	t.BgmComposerText = fbsutils.Convert(string(e.BgmComposerText()), t.FlatBuffer.TableKey)
 	t.BgmLength = fbsutils.Convert(e.BgmLength(), t.FlatBuffer.TableKey)
+	t.BgmNameText = fbsutils.Convert(string(e.BgmNameText()), t.FlatBuffer.TableKey)
+	t.Bpm = fbsutils.Convert(e.Bpm(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.HasLyricist = e.HasLyricist()
+	t.RhythmBgmId = fbsutils.Convert(e.RhythmBgmId(), t.FlatBuffer.TableKey)
+	t.StageSelectImagePath = fbsutils.Convert(string(e.StageSelectImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

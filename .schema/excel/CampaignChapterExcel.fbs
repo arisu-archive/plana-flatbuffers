@@ -1,20 +1,20 @@
 namespace MX.Data.Excel;
 
 table CampaignChapterExcel {
-    id: long;
-    name: string;
-    normal_image_path: string;
-    hard_image_path: string;
-    order: long;
-    pre_chapter_id: [long];
-    chapter_reward_id: long;
     chapter_hard_reward_id: long;
+    chapter_reward_id: long;
     chapter_very_hard_reward_id: long;
+    hard_campaign_stage_id: [long];
+    hard_image_path: string;
+    id: long;
+    is_tactic_skip: bool;
+    name: string;
     normal_campaign_stage_id: [long];
     normal_extra_stage_id: [long];
-    hard_campaign_stage_id: [long];
+    normal_image_path: string;
+    order: long;
+    pre_chapter_id: [long];
     very_hard_campaign_stage_id: [long];
-    is_tactic_skip: bool;
 }
 
 root_type CampaignChapterExcel;

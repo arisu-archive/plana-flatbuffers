@@ -33,31 +33,27 @@ func (rcv *MinigameTBGEncounterOptionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionGroupId() int64 {
+func (rcv *MinigameTBGEncounterOptionExcel) OptionFailLessDiceCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionFailLessDiceCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) UniqueId() int64 {
+func (rcv *MinigameTBGEncounterOptionExcel) OptionFailLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameTBGEncounterOptionExcel) SlotIndex() int32 {
+func (rcv *MinigameTBGEncounterOptionExcel) OptionGreatSuccessOrHigherDiceCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,16 +61,20 @@ func (rcv *MinigameTBGEncounterOptionExcel) SlotIndex() int32 {
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) MutateSlotIndex(n int32) bool {
+func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionGreatSuccessOrHigherDiceCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionTitleLocalize() []byte {
+func (rcv *MinigameTBGEncounterOptionExcel) OptionGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessLocalize() []byte {
@@ -85,20 +85,8 @@ func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessLocalize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessRewardGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionSuccessRewardGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
 func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessOrHigherDiceCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -106,55 +94,31 @@ func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessOrHigherDiceCount() int
 }
 
 func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionSuccessOrHigherDiceCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionGreatSuccessOrHigherDiceCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *MinigameTBGEncounterOptionExcel) OptionSuccessRewardGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionGreatSuccessOrHigherDiceCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionSuccessRewardGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionFailLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *MinigameTBGEncounterOptionExcel) OptionTitleLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *MinigameTBGEncounterOptionExcel) OptionFailLessDiceCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterOptionExcel) MutateOptionFailLessDiceCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
-}
-
-func (rcv *MinigameTBGEncounterOptionExcel) RunawayOrHigherDiceCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterOptionExcel) MutateRunawayOrHigherDiceCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(24, n)
-}
-
 func (rcv *MinigameTBGEncounterOptionExcel) RewardHide() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -162,47 +126,83 @@ func (rcv *MinigameTBGEncounterOptionExcel) RewardHide() bool {
 }
 
 func (rcv *MinigameTBGEncounterOptionExcel) MutateRewardHide(n bool) bool {
-	return rcv._tab.MutateBoolSlot(26, n)
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) RunawayOrHigherDiceCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) MutateRunawayOrHigherDiceCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) SlotIndex() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) MutateSlotIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterOptionExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
 }
 
 func MinigameTBGEncounterOptionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
+func MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder *flatbuffers.Builder, optionFailLessDiceCount int32) {
+	builder.PrependInt32Slot(0, optionFailLessDiceCount, 0)
+}
+func MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder *flatbuffers.Builder, optionFailLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(optionFailLocalize), 0)
+}
+func MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder *flatbuffers.Builder, optionGreatSuccessOrHigherDiceCount int32) {
+	builder.PrependInt32Slot(2, optionGreatSuccessOrHigherDiceCount, 0)
+}
 func MinigameTBGEncounterOptionExcelAddOptionGroupId(builder *flatbuffers.Builder, optionGroupId int64) {
-	builder.PrependInt64Slot(0, optionGroupId, 0)
-}
-func MinigameTBGEncounterOptionExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameTBGEncounterOptionExcelAddSlotIndex(builder *flatbuffers.Builder, slotIndex int32) {
-	builder.PrependInt32Slot(2, slotIndex, 0)
-}
-func MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder *flatbuffers.Builder, optionTitleLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(optionTitleLocalize), 0)
+	builder.PrependInt64Slot(3, optionGroupId, 0)
 }
 func MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder *flatbuffers.Builder, optionSuccessLocalize flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(optionSuccessLocalize), 0)
 }
-func MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder *flatbuffers.Builder, optionSuccessRewardGroupId int64) {
-	builder.PrependInt64Slot(5, optionSuccessRewardGroupId, 0)
-}
 func MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder *flatbuffers.Builder, optionSuccessOrHigherDiceCount int32) {
-	builder.PrependInt32Slot(6, optionSuccessOrHigherDiceCount, 0)
+	builder.PrependInt32Slot(5, optionSuccessOrHigherDiceCount, 0)
 }
-func MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder *flatbuffers.Builder, optionGreatSuccessOrHigherDiceCount int32) {
-	builder.PrependInt32Slot(7, optionGreatSuccessOrHigherDiceCount, 0)
+func MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder *flatbuffers.Builder, optionSuccessRewardGroupId int64) {
+	builder.PrependInt64Slot(6, optionSuccessRewardGroupId, 0)
 }
-func MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder *flatbuffers.Builder, optionFailLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(optionFailLocalize), 0)
-}
-func MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder *flatbuffers.Builder, optionFailLessDiceCount int32) {
-	builder.PrependInt32Slot(9, optionFailLessDiceCount, 0)
-}
-func MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder *flatbuffers.Builder, runawayOrHigherDiceCount int32) {
-	builder.PrependInt32Slot(10, runawayOrHigherDiceCount, 0)
+func MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder *flatbuffers.Builder, optionTitleLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(optionTitleLocalize), 0)
 }
 func MinigameTBGEncounterOptionExcelAddRewardHide(builder *flatbuffers.Builder, rewardHide bool) {
-	builder.PrependBoolSlot(11, rewardHide, false)
+	builder.PrependBoolSlot(8, rewardHide, false)
+}
+func MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder *flatbuffers.Builder, runawayOrHigherDiceCount int32) {
+	builder.PrependInt32Slot(9, runawayOrHigherDiceCount, 0)
+}
+func MinigameTBGEncounterOptionExcelAddSlotIndex(builder *flatbuffers.Builder, slotIndex int32) {
+	builder.PrependInt32Slot(10, slotIndex, 0)
+}
+func MinigameTBGEncounterOptionExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(11, uniqueId, 0)
 }
 func MinigameTBGEncounterOptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

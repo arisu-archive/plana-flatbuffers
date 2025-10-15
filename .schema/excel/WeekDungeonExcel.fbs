@@ -7,25 +7,25 @@ include "WeekDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table WeekDungeonExcel {
-    stage_id: long;
-    week_dungeon_type: WeekDungeonType;
-    difficulty: int;
     battle_duration: long;
-    prev_stage_id: long;
-    stage_enter_cost_type: [ParcelType];
-    stage_enter_cost_id: [long];
-    stage_enter_cost_amount: [int];
-    ground_id: int;
-    star_goal: [StarGoalType];
-    star_goal_amount: [int];
-    stage_topography: StageTopography;
-    recommand_level: long;
-    stage_reward_id: long;
-    play_time_limit_in_seconds: long;
     battle_reward_exp: long;
     battle_reward_player_exp: long;
-    group_buff_id: [long];
+    difficulty: int;
     echelon_extension_type: EchelonExtensionType;
+    ground_id: int;
+    group_buff_id: [long];
+    play_time_limit_in_seconds: long;
+    prev_stage_id: long;
+    recommand_level: long;
+    stage_enter_cost_amount: [int];
+    stage_enter_cost_id: [long];
+    stage_enter_cost_type: [ParcelType];
+    stage_id: long;
+    stage_reward_id: long;
+    stage_topography: StageTopography;
+    star_goal_amount: [int];
+    star_goal: [StarGoalType];
+    week_dungeon_type: WeekDungeonType;
 }
 
 root_type WeekDungeonExcel;

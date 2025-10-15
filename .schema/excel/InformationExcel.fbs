@@ -2,8 +2,8 @@ namespace MX.Data.Excel;
 
 table InformationExcel {
     group_id: long;
-    page_name: string;
     localize_code_id: string;
+    page_name: string;
     tutorial_parent_name: [string];
     ui_name: [string];
 }

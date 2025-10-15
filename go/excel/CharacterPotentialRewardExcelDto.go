@@ -11,30 +11,30 @@ import (
 type CharacterPotentialRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                        int64                        `json:"id"`
-	RequirePotentialStatType  []PotentialStatBonusRateType `json:"require_potential_stat_type"`
 	RequirePotentialStatLevel []int64                      `json:"require_potential_stat_level"`
-	RewardParcelType          ParcelType                   `json:"reward_parcel_type"`
-	RewardId                  int64                        `json:"reward_id"`
+	RequirePotentialStatType  []PotentialStatBonusRateType `json:"require_potential_stat_type"`
 	RewardAmount              int32                        `json:"reward_amount"`
+	RewardId                  int64                        `json:"reward_id"`
+	RewardParcelType          ParcelType                   `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterPotentialRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterPotentialRewardExcelStart(b)
 	CharacterPotentialRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(b, len(t.RequirePotentialStatType))
-	for i := range len(t.RequirePotentialStatType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RequirePotentialStatType[len(t.RequirePotentialStatType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	CharacterPotentialRewardExcelAddRequirePotentialStatType(b, b.EndVector(len(t.RequirePotentialStatType)))
 	CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(b, len(t.RequirePotentialStatLevel))
 	for i := range len(t.RequirePotentialStatLevel) {
 		b.PrependInt64(fbsutils.Convert(t.RequirePotentialStatLevel[len(t.RequirePotentialStatLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterPotentialRewardExcelAddRequirePotentialStatLevel(b, b.EndVector(len(t.RequirePotentialStatLevel)))
-	CharacterPotentialRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	CharacterPotentialRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(b, len(t.RequirePotentialStatType))
+	for i := range len(t.RequirePotentialStatType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RequirePotentialStatType[len(t.RequirePotentialStatType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	CharacterPotentialRewardExcelAddRequirePotentialStatType(b, b.EndVector(len(t.RequirePotentialStatType)))
 	CharacterPotentialRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	CharacterPotentialRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	CharacterPotentialRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	return CharacterPotentialRewardExcelEnd(b)
 }
 
@@ -48,17 +48,17 @@ func (t *CharacterPotentialRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterPotentialRewardExcelDto) UnmarshalMessage(e *CharacterPotentialRewardExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RequirePotentialStatType = make([]PotentialStatBonusRateType, e.RequirePotentialStatTypeLength())
-	for i := range e.RequirePotentialStatTypeLength() {
-		t.RequirePotentialStatType[i] = PotentialStatBonusRateType(fbsutils.Convert(int32(e.RequirePotentialStatType(i)), t.FlatBuffer.TableKey))
-	}
 	t.RequirePotentialStatLevel = make([]int64, e.RequirePotentialStatLevelLength())
 	for i := range e.RequirePotentialStatLevelLength() {
 		t.RequirePotentialStatLevel[i] = fbsutils.Convert(e.RequirePotentialStatLevel(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RequirePotentialStatType = make([]PotentialStatBonusRateType, e.RequirePotentialStatTypeLength())
+	for i := range e.RequirePotentialStatTypeLength() {
+		t.RequirePotentialStatType[i] = PotentialStatBonusRateType(fbsutils.Convert(int32(e.RequirePotentialStatType(i)), t.FlatBuffer.TableKey))
+	}
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

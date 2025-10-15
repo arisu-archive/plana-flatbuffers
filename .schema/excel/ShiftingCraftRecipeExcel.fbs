@@ -4,17 +4,17 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table ShiftingCraftRecipeExcel {
-    id: long;
     display_order: long;
-    notification_id: int;
-    result_parcel: ParcelType;
-    result_id: long;
-    result_amount: long;
-    require_item_id: long;
-    require_item_amount: long;
-    require_gold: long;
-    ingredient_tag: [Tag];
+    id: long;
     ingredient_exp: long;
+    ingredient_tag: [Tag];
+    notification_id: int;
+    require_gold: long;
+    require_item_amount: long;
+    require_item_id: long;
+    result_amount: long;
+    result_id: long;
+    result_parcel: ParcelType;
 }
 
 root_type ShiftingCraftRecipeExcel;

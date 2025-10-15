@@ -33,7 +33,7 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDreamCollectionScenarioExcel) Id() int64 {
+func (rcv *MiniGameDreamCollectionScenarioExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,12 +41,24 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *MiniGameDreamCollectionScenarioExcel) MutateId(n int64) bool {
+func (rcv *MiniGameDreamCollectionScenarioExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameDreamCollectionScenarioExcel) IsSkip() bool {
+func (rcv *MiniGameDreamCollectionScenarioExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamCollectionScenarioExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *MiniGameDreamCollectionScenarioExcel) IsSkip() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -54,49 +66,11 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) IsSkip() bool {
 }
 
 func (rcv *MiniGameDreamCollectionScenarioExcel) MutateIsSkip(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
-func (rcv *MiniGameDreamCollectionScenarioExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamCollectionScenarioExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *MiniGameDreamCollectionScenarioExcel) Parameter(j int) DreamMakerParameterType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return DreamMakerParameterType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamCollectionScenarioExcel) MutateParameter(j int, n DreamMakerParameterType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -105,7 +79,7 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterAmount(j int) int64 {
 }
 
 func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -113,10 +87,36 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterAmountLength() int {
 }
 
 func (rcv *MiniGameDreamCollectionScenarioExcel) MutateParameterAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameDreamCollectionScenarioExcel) Parameter(j int) DreamMakerParameterType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return DreamMakerParameterType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamCollectionScenarioExcel) ParameterLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamCollectionScenarioExcel) MutateParameter(j int, n DreamMakerParameterType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -136,26 +136,26 @@ func (rcv *MiniGameDreamCollectionScenarioExcel) MutateScenarioGroupId(n int64) 
 func MiniGameDreamCollectionScenarioExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
+func MiniGameDreamCollectionScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
+}
 func MiniGameDreamCollectionScenarioExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+	builder.PrependInt64Slot(1, id, 0)
 }
 func MiniGameDreamCollectionScenarioExcelAddIsSkip(builder *flatbuffers.Builder, isSkip bool) {
-	builder.PrependBoolSlot(1, isSkip, false)
-}
-func MiniGameDreamCollectionScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
-}
-func MiniGameDreamCollectionScenarioExcelAddParameter(builder *flatbuffers.Builder, parameter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(parameter), 0)
-}
-func MiniGameDreamCollectionScenarioExcelStartParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+	builder.PrependBoolSlot(2, isSkip, false)
 }
 func MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder *flatbuffers.Builder, parameterAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(parameterAmount), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(parameterAmount), 0)
 }
 func MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func MiniGameDreamCollectionScenarioExcelAddParameter(builder *flatbuffers.Builder, parameter flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(parameter), 0)
+}
+func MiniGameDreamCollectionScenarioExcelStartParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
 	builder.PrependInt64Slot(5, scenarioGroupId, 0)

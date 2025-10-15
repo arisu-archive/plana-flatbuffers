@@ -25,35 +25,35 @@ class CharacterWeaponExpBonusExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterWeaponExpBonusExcel
-    def WeaponType(self):
+    def WeaponExpGrowthA(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterWeaponExpBonusExcel
-    def WeaponExpGrowthA(self):
+    def WeaponExpGrowthB(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterWeaponExpBonusExcel
-    def WeaponExpGrowthB(self):
+    def WeaponExpGrowthC(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterWeaponExpBonusExcel
-    def WeaponExpGrowthC(self):
+    def WeaponExpGrowthZ(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterWeaponExpBonusExcel
-    def WeaponExpGrowthZ(self):
+    def WeaponType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class CharacterWeaponExpBonusExcel(object):
 def CharacterWeaponExpBonusExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return CharacterWeaponExpBonusExcelStart(builder)
-def CharacterWeaponExpBonusExcelAddWeaponType(builder, weaponType): builder.PrependInt32Slot(0, weaponType, 0)
-def AddWeaponType(builder, weaponType):
-    return CharacterWeaponExpBonusExcelAddWeaponType(builder, weaponType)
-def CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder, weaponExpGrowthA): builder.PrependInt32Slot(1, weaponExpGrowthA, 0)
+def CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder, weaponExpGrowthA): builder.PrependInt32Slot(0, weaponExpGrowthA, 0)
 def AddWeaponExpGrowthA(builder, weaponExpGrowthA):
     return CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder, weaponExpGrowthA)
-def CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(builder, weaponExpGrowthB): builder.PrependInt32Slot(2, weaponExpGrowthB, 0)
+def CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(builder, weaponExpGrowthB): builder.PrependInt32Slot(1, weaponExpGrowthB, 0)
 def AddWeaponExpGrowthB(builder, weaponExpGrowthB):
     return CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(builder, weaponExpGrowthB)
-def CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder, weaponExpGrowthC): builder.PrependInt32Slot(3, weaponExpGrowthC, 0)
+def CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder, weaponExpGrowthC): builder.PrependInt32Slot(2, weaponExpGrowthC, 0)
 def AddWeaponExpGrowthC(builder, weaponExpGrowthC):
     return CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder, weaponExpGrowthC)
-def CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder, weaponExpGrowthZ): builder.PrependInt32Slot(4, weaponExpGrowthZ, 0)
+def CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder, weaponExpGrowthZ): builder.PrependInt32Slot(3, weaponExpGrowthZ, 0)
 def AddWeaponExpGrowthZ(builder, weaponExpGrowthZ):
     return CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder, weaponExpGrowthZ)
+def CharacterWeaponExpBonusExcelAddWeaponType(builder, weaponType): builder.PrependInt32Slot(4, weaponType, 0)
+def AddWeaponType(builder, weaponType):
+    return CharacterWeaponExpBonusExcelAddWeaponType(builder, weaponType)
 def CharacterWeaponExpBonusExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterWeaponExpBonusExcelEnd(builder)

@@ -3,9 +3,9 @@ include "GrowthFactor.fbs";
 namespace MX.Data.Excel;
 
 table GrowthScoreCalculationExcel {
+    conversion_coefficient: long;
     id: long;
     include_growth_factor: GrowthFactor;
-    conversion_coefficient: long;
 }
 
 root_type GrowthScoreCalculationExcel;

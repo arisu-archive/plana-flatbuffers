@@ -1,0 +1,33 @@
+namespace MX.Data.Excel;
+
+table TacticalSupportSystemExcel {
+    can_cover: bool;
+    can_targeting: bool;
+    character_interaction_start_delay: long;
+    crash_obstacle_obb_height: long;
+    crash_obstacle_obb_width: long;
+    default_personality_id: long;
+    destroy_frame: int;
+    get_on_end_effect_path: string;
+    get_on_start_effect_path: string;
+    id: long;
+    interaction_char: long;
+    interaction_frame: int;
+    interaction_skill_card_texture: string;
+    interaction_skill_spine: string;
+    interaction_student_ex_skill_group_id: string;
+    inventory_offset_x: float;
+    inventory_offset_y: float;
+    inventory_offset_z: float;
+    is_tss_blocked_node_check: bool;
+    number_of_uses: int;
+    obstacle_cover_range: long;
+    obstacle_unique_name: string;
+    retreat_frame: int;
+    summoned_time: long;
+    summoner_character_id: long;
+    summon_skilll_group_id: string;
+    tsa_interaction_add_duration: long;
+}
+
+root_type TacticalSupportSystemExcel;

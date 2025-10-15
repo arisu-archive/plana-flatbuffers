@@ -10,35 +10,35 @@ import (
 // MinigameTBGEncounterOptionExcelDto represents a FlatBuffers table
 type MinigameTBGEncounterOptionExcelDto struct {
 	fbsutils.FlatBuffer
-	OptionGroupId                       int64  `json:"option_group_id"`
-	UniqueId                            int64  `json:"unique_id"`
-	SlotIndex                           int32  `json:"slot_index"`
-	OptionTitleLocalize                 string `json:"option_title_localize"`
-	OptionSuccessLocalize               string `json:"option_success_localize"`
-	OptionSuccessRewardGroupId          int64  `json:"option_success_reward_group_id"`
-	OptionSuccessOrHigherDiceCount      int32  `json:"option_success_or_higher_dice_count"`
-	OptionGreatSuccessOrHigherDiceCount int32  `json:"option_great_success_or_higher_dice_count"`
-	OptionFailLocalize                  string `json:"option_fail_localize"`
 	OptionFailLessDiceCount             int32  `json:"option_fail_less_dice_count"`
-	RunawayOrHigherDiceCount            int32  `json:"runaway_or_higher_dice_count"`
+	OptionFailLocalize                  string `json:"option_fail_localize"`
+	OptionGreatSuccessOrHigherDiceCount int32  `json:"option_great_success_or_higher_dice_count"`
+	OptionGroupId                       int64  `json:"option_group_id"`
+	OptionSuccessLocalize               string `json:"option_success_localize"`
+	OptionSuccessOrHigherDiceCount      int32  `json:"option_success_or_higher_dice_count"`
+	OptionSuccessRewardGroupId          int64  `json:"option_success_reward_group_id"`
+	OptionTitleLocalize                 string `json:"option_title_localize"`
 	RewardHide                          bool   `json:"reward_hide"`
+	RunawayOrHigherDiceCount            int32  `json:"runaway_or_higher_dice_count"`
+	SlotIndex                           int32  `json:"slot_index"`
+	UniqueId                            int64  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGEncounterOptionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameTBGEncounterOptionExcelStart(b)
-	MinigameTBGEncounterOptionExcelAddOptionGroupId(b, fbsutils.Convert(t.OptionGroupId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddSlotIndex(b, fbsutils.Convert(t.SlotIndex, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(b, b.CreateString(fbsutils.Convert(t.OptionTitleLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(b, b.CreateString(fbsutils.Convert(t.OptionSuccessLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(b, fbsutils.Convert(t.OptionSuccessRewardGroupId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionGreatSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionFailLocalize(b, b.CreateString(fbsutils.Convert(t.OptionFailLocalize, t.FlatBuffer.TableKey)))
 	MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(b, fbsutils.Convert(t.OptionFailLessDiceCount, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(b, fbsutils.Convert(t.RunawayOrHigherDiceCount, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionFailLocalize(b, b.CreateString(fbsutils.Convert(t.OptionFailLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionGreatSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionGroupId(b, fbsutils.Convert(t.OptionGroupId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(b, b.CreateString(fbsutils.Convert(t.OptionSuccessLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(b, fbsutils.Convert(t.OptionSuccessRewardGroupId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(b, b.CreateString(fbsutils.Convert(t.OptionTitleLocalize, t.FlatBuffer.TableKey)))
 	MinigameTBGEncounterOptionExcelAddRewardHide(b, t.RewardHide)
+	MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(b, fbsutils.Convert(t.RunawayOrHigherDiceCount, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddSlotIndex(b, fbsutils.Convert(t.SlotIndex, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MinigameTBGEncounterOptionExcelEnd(b)
 }
 
@@ -51,18 +51,18 @@ func (t *MinigameTBGEncounterOptionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGEncounterOptionExcelDto) UnmarshalMessage(e *MinigameTBGEncounterOptionExcel) error {
-	t.OptionGroupId = fbsutils.Convert(e.OptionGroupId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SlotIndex = fbsutils.Convert(e.SlotIndex(), t.FlatBuffer.TableKey)
-	t.OptionTitleLocalize = fbsutils.Convert(string(e.OptionTitleLocalize()), t.FlatBuffer.TableKey)
-	t.OptionSuccessLocalize = fbsutils.Convert(string(e.OptionSuccessLocalize()), t.FlatBuffer.TableKey)
-	t.OptionSuccessRewardGroupId = fbsutils.Convert(e.OptionSuccessRewardGroupId(), t.FlatBuffer.TableKey)
-	t.OptionSuccessOrHigherDiceCount = fbsutils.Convert(e.OptionSuccessOrHigherDiceCount(), t.FlatBuffer.TableKey)
-	t.OptionGreatSuccessOrHigherDiceCount = fbsutils.Convert(e.OptionGreatSuccessOrHigherDiceCount(), t.FlatBuffer.TableKey)
-	t.OptionFailLocalize = fbsutils.Convert(string(e.OptionFailLocalize()), t.FlatBuffer.TableKey)
 	t.OptionFailLessDiceCount = fbsutils.Convert(e.OptionFailLessDiceCount(), t.FlatBuffer.TableKey)
-	t.RunawayOrHigherDiceCount = fbsutils.Convert(e.RunawayOrHigherDiceCount(), t.FlatBuffer.TableKey)
+	t.OptionFailLocalize = fbsutils.Convert(string(e.OptionFailLocalize()), t.FlatBuffer.TableKey)
+	t.OptionGreatSuccessOrHigherDiceCount = fbsutils.Convert(e.OptionGreatSuccessOrHigherDiceCount(), t.FlatBuffer.TableKey)
+	t.OptionGroupId = fbsutils.Convert(e.OptionGroupId(), t.FlatBuffer.TableKey)
+	t.OptionSuccessLocalize = fbsutils.Convert(string(e.OptionSuccessLocalize()), t.FlatBuffer.TableKey)
+	t.OptionSuccessOrHigherDiceCount = fbsutils.Convert(e.OptionSuccessOrHigherDiceCount(), t.FlatBuffer.TableKey)
+	t.OptionSuccessRewardGroupId = fbsutils.Convert(e.OptionSuccessRewardGroupId(), t.FlatBuffer.TableKey)
+	t.OptionTitleLocalize = fbsutils.Convert(string(e.OptionTitleLocalize()), t.FlatBuffer.TableKey)
 	t.RewardHide = e.RewardHide()
+	t.RunawayOrHigherDiceCount = fbsutils.Convert(e.RunawayOrHigherDiceCount(), t.FlatBuffer.TableKey)
+	t.SlotIndex = fbsutils.Convert(e.SlotIndex(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,0 +1,18 @@
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentZoneExcel {
+    event_point_for_location_rank: long;
+    id: long;
+    localize_etc_id: uint;
+    location_id: long;
+    location_rank: long;
+    original_zone_id: long;
+    reward_group_id: long;
+    student_visit_prob: [long];
+    tags: [Tag];
+    white_list_tags: [Tag];
+}
+
+root_type EventContentZoneExcel;

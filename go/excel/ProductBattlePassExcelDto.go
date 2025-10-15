@@ -10,41 +10,41 @@ import (
 // ProductBattlePassExcelDto represents a FlatBuffers table
 type ProductBattlePassExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                       int64        `json:"id"`
-	ProductId                string       `json:"product_id"`
-	StoreType                StoreType    `json:"store_type"`
-	Price                    int64        `json:"price"`
-	PurchaseCountLimit       int64        `json:"purchase_count_limit"`
 	BattlePassProductGroupId int64        `json:"battle_pass_product_group_id"`
-	ParcelType               []ParcelType `json:"parcel_type"`
-	ParcelId                 []int64      `json:"parcel_id"`
+	Id                       int64        `json:"id"`
 	ParcelAmount             []int64      `json:"parcel_amount"`
+	ParcelId                 []int64      `json:"parcel_id"`
+	ParcelType               []ParcelType `json:"parcel_type"`
+	Price                    int64        `json:"price"`
+	ProductId                string       `json:"product_id"`
+	PurchaseCountLimit       int64        `json:"purchase_count_limit"`
+	StoreType                StoreType    `json:"store_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductBattlePassExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ProductBattlePassExcelStart(b)
-	ProductBattlePassExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductBattlePassExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
-	ProductBattlePassExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
-	ProductBattlePassExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
-	ProductBattlePassExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ProductBattlePassExcelAddBattlePassProductGroupId(b, fbsutils.Convert(t.BattlePassProductGroupId, t.FlatBuffer.TableKey))
-	ProductBattlePassExcelStartParcelTypeVector(b, len(t.ParcelType))
-	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	ProductBattlePassExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
-	ProductBattlePassExcelStartParcelIdVector(b, len(t.ParcelId))
-	for i := range len(t.ParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ProductBattlePassExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
+	ProductBattlePassExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ProductBattlePassExcelStartParcelAmountVector(b, len(t.ParcelAmount))
 	for i := range len(t.ParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.ParcelAmount[len(t.ParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	ProductBattlePassExcelAddParcelAmount(b, b.EndVector(len(t.ParcelAmount)))
+	ProductBattlePassExcelStartParcelIdVector(b, len(t.ParcelId))
+	for i := range len(t.ParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ProductBattlePassExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
+	ProductBattlePassExcelStartParcelTypeVector(b, len(t.ParcelType))
+	for i := range len(t.ParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	ProductBattlePassExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
+	ProductBattlePassExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
+	ProductBattlePassExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductBattlePassExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
+	ProductBattlePassExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	return ProductBattlePassExcelEnd(b)
 }
 
@@ -57,24 +57,24 @@ func (t *ProductBattlePassExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProductBattlePassExcelDto) UnmarshalMessage(e *ProductBattlePassExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
-	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
-	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)
-	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
 	t.BattlePassProductGroupId = fbsutils.Convert(e.BattlePassProductGroupId(), t.FlatBuffer.TableKey)
-	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
-	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
+	for i := range e.ParcelAmountLength() {
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
 		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
-	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
+	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
+	for i := range e.ParcelTypeLength() {
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
+	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)
+	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
+	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
+	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

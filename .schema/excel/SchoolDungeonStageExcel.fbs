@@ -7,23 +7,23 @@ include "StarGoalType.fbs";
 namespace MX.Data.Excel;
 
 table SchoolDungeonStageExcel {
-    stage_id: long;
-    dungeon_type: SchoolDungeonType;
-    difficulty: int;
     battle_duration: long;
-    prev_stage_id: long;
-    stage_enter_cost_type: [ParcelType];
-    stage_enter_cost_id: [long];
-    stage_enter_cost_amount: [long];
-    stage_enter_cost_minimum_amount: [long];
-    ground_id: int;
-    star_goal: [StarGoalType];
-    star_goal_amount: [int];
-    stage_topography: StageTopography;
-    recommand_level: long;
-    stage_reward_id: long;
-    play_time_limit_in_seconds: long;
+    difficulty: int;
+    dungeon_type: SchoolDungeonType;
     echelon_extension_type: EchelonExtensionType;
+    ground_id: int;
+    play_time_limit_in_seconds: long;
+    prev_stage_id: long;
+    recommand_level: long;
+    stage_enter_cost_amount: [long];
+    stage_enter_cost_id: [long];
+    stage_enter_cost_minimum_amount: [long];
+    stage_enter_cost_type: [ParcelType];
+    stage_id: long;
+    stage_reward_id: long;
+    stage_topography: StageTopography;
+    star_goal_amount: [int];
+    star_goal: [StarGoalType];
 }
 
 root_type SchoolDungeonStageExcel;

@@ -10,27 +10,27 @@ import (
 // MinigameCCGInfoExcelDto represents a FlatBuffers table
 type MinigameCCGInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId     int64      `json:"event_content_id"`
-	CcgId              int64      `json:"ccg_id"`
-	CostParcelType     ParcelType `json:"cost_parcel_type"`
-	CostParcelId       int64      `json:"cost_parcel_id"`
-	CostParcelAmount   int32      `json:"cost_parcel_amount"`
 	CardBackPath       string     `json:"card_back_path"`
-	PerkCostParcelType ParcelType `json:"perk_cost_parcel_type"`
+	CcgId              int64      `json:"ccg_id"`
+	CostParcelAmount   int32      `json:"cost_parcel_amount"`
+	CostParcelId       int64      `json:"cost_parcel_id"`
+	CostParcelType     ParcelType `json:"cost_parcel_type"`
+	EventContentId     int64      `json:"event_content_id"`
 	PerkCostParcelId   int64      `json:"perk_cost_parcel_id"`
+	PerkCostParcelType ParcelType `json:"perk_cost_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGInfoExcelStart(b)
-	MinigameCCGInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameCCGInfoExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
-	MinigameCCGInfoExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
-	MinigameCCGInfoExcelAddCostParcelId(b, fbsutils.Convert(t.CostParcelId, t.FlatBuffer.TableKey))
-	MinigameCCGInfoExcelAddCostParcelAmount(b, fbsutils.Convert(t.CostParcelAmount, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddCardBackPath(b, b.CreateString(fbsutils.Convert(t.CardBackPath, t.FlatBuffer.TableKey)))
-	MinigameCCGInfoExcelAddPerkCostParcelType(b, fbsutils.Convert(t.PerkCostParcelType, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddCostParcelAmount(b, fbsutils.Convert(t.CostParcelAmount, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddCostParcelId(b, fbsutils.Convert(t.CostParcelId, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddPerkCostParcelId(b, fbsutils.Convert(t.PerkCostParcelId, t.FlatBuffer.TableKey))
+	MinigameCCGInfoExcelAddPerkCostParcelType(b, fbsutils.Convert(t.PerkCostParcelType, t.FlatBuffer.TableKey))
 	return MinigameCCGInfoExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *MinigameCCGInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGInfoExcelDto) UnmarshalMessage(e *MinigameCCGInfoExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
-	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
-	t.CostParcelId = fbsutils.Convert(e.CostParcelId(), t.FlatBuffer.TableKey)
-	t.CostParcelAmount = fbsutils.Convert(e.CostParcelAmount(), t.FlatBuffer.TableKey)
 	t.CardBackPath = fbsutils.Convert(string(e.CardBackPath()), t.FlatBuffer.TableKey)
-	t.PerkCostParcelType = ParcelType(fbsutils.Convert(int32(e.PerkCostParcelType()), t.FlatBuffer.TableKey))
+	t.CcgId = fbsutils.Convert(e.CcgId(), t.FlatBuffer.TableKey)
+	t.CostParcelAmount = fbsutils.Convert(e.CostParcelAmount(), t.FlatBuffer.TableKey)
+	t.CostParcelId = fbsutils.Convert(e.CostParcelId(), t.FlatBuffer.TableKey)
+	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.PerkCostParcelId = fbsutils.Convert(e.PerkCostParcelId(), t.FlatBuffer.TableKey)
+	t.PerkCostParcelType = ParcelType(fbsutils.Convert(int32(e.PerkCostParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

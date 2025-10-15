@@ -10,23 +10,23 @@ import (
 // MiniGameDreamDailyPointExcelDto represents a FlatBuffers table
 type MiniGameDreamDailyPointExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                  int64 `json:"unique_id"`
-	EventContentId            int64 `json:"event_content_id"`
-	TotalParameterMin         int64 `json:"total_parameter_min"`
-	TotalParameterMax         int64 `json:"total_parameter_max"`
 	DailyPointCoefficient     int64 `json:"daily_point_coefficient"`
 	DailyPointCorrectionValue int64 `json:"daily_point_correction_value"`
+	EventContentId            int64 `json:"event_content_id"`
+	TotalParameterMax         int64 `json:"total_parameter_max"`
+	TotalParameterMin         int64 `json:"total_parameter_min"`
+	UniqueId                  int64 `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamDailyPointExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamDailyPointExcelStart(b)
-	MiniGameDreamDailyPointExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameDreamDailyPointExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamDailyPointExcelAddTotalParameterMin(b, fbsutils.Convert(t.TotalParameterMin, t.FlatBuffer.TableKey))
-	MiniGameDreamDailyPointExcelAddTotalParameterMax(b, fbsutils.Convert(t.TotalParameterMax, t.FlatBuffer.TableKey))
 	MiniGameDreamDailyPointExcelAddDailyPointCoefficient(b, fbsutils.Convert(t.DailyPointCoefficient, t.FlatBuffer.TableKey))
 	MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(b, fbsutils.Convert(t.DailyPointCorrectionValue, t.FlatBuffer.TableKey))
+	MiniGameDreamDailyPointExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamDailyPointExcelAddTotalParameterMax(b, fbsutils.Convert(t.TotalParameterMax, t.FlatBuffer.TableKey))
+	MiniGameDreamDailyPointExcelAddTotalParameterMin(b, fbsutils.Convert(t.TotalParameterMin, t.FlatBuffer.TableKey))
+	MiniGameDreamDailyPointExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MiniGameDreamDailyPointExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *MiniGameDreamDailyPointExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamDailyPointExcelDto) UnmarshalMessage(e *MiniGameDreamDailyPointExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.TotalParameterMin = fbsutils.Convert(e.TotalParameterMin(), t.FlatBuffer.TableKey)
-	t.TotalParameterMax = fbsutils.Convert(e.TotalParameterMax(), t.FlatBuffer.TableKey)
 	t.DailyPointCoefficient = fbsutils.Convert(e.DailyPointCoefficient(), t.FlatBuffer.TableKey)
 	t.DailyPointCorrectionValue = fbsutils.Convert(e.DailyPointCorrectionValue(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.TotalParameterMax = fbsutils.Convert(e.TotalParameterMax(), t.FlatBuffer.TableKey)
+	t.TotalParameterMin = fbsutils.Convert(e.TotalParameterMin(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

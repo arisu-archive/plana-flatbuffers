@@ -4,9 +4,9 @@ namespace MX.Data.Excel;
 
 table CharacterPotentialExcel {
     id: long;
-    potential_stat_group_id: long;
-    potential_stat_bonus_rate_type: PotentialStatBonusRateType;
     is_unnecessary_stat: bool;
+    potential_stat_bonus_rate_type: PotentialStatBonusRateType;
+    potential_stat_group_id: long;
 }
 
 root_type CharacterPotentialExcel;

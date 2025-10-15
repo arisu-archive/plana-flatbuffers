@@ -33,7 +33,7 @@ func (rcv *GachaSelectPickupGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaSelectPickupGroupExcel) Id() int64 {
+func (rcv *GachaSelectPickupGroupExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *GachaSelectPickupGroupExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *GachaSelectPickupGroupExcel) MutateId(n int64) bool {
+func (rcv *GachaSelectPickupGroupExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,7 +57,7 @@ func (rcv *GachaSelectPickupGroupExcel) MutateGachaGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *GachaSelectPickupGroupExcel) CharacterId() int64 {
+func (rcv *GachaSelectPickupGroupExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,21 +65,21 @@ func (rcv *GachaSelectPickupGroupExcel) CharacterId() int64 {
 	return 0
 }
 
-func (rcv *GachaSelectPickupGroupExcel) MutateCharacterId(n int64) bool {
+func (rcv *GachaSelectPickupGroupExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func GachaSelectPickupGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func GachaSelectPickupGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func GachaSelectPickupGroupExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(0, characterId, 0)
 }
 func GachaSelectPickupGroupExcelAddGachaGroupId(builder *flatbuffers.Builder, gachaGroupId int64) {
 	builder.PrependInt64Slot(1, gachaGroupId, 0)
 }
-func GachaSelectPickupGroupExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(2, characterId, 0)
+func GachaSelectPickupGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
 }
 func GachaSelectPickupGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

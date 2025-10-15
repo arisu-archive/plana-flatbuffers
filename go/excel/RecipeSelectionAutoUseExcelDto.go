@@ -12,8 +12,8 @@ type RecipeSelectionAutoUseExcelDto struct {
 	fbsutils.FlatBuffer
 	Id           int64      `json:"id"`
 	ParcelType   ParcelType `json:"parcel_type"`
-	TargetItemId int64      `json:"target_item_id"`
 	Priority     []int64    `json:"priority"`
+	TargetItemId int64      `json:"target_item_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,12 +21,12 @@ func (t *RecipeSelectionAutoUseExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	RecipeSelectionAutoUseExcelStart(b)
 	RecipeSelectionAutoUseExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RecipeSelectionAutoUseExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	RecipeSelectionAutoUseExcelAddTargetItemId(b, fbsutils.Convert(t.TargetItemId, t.FlatBuffer.TableKey))
 	RecipeSelectionAutoUseExcelStartPriorityVector(b, len(t.Priority))
 	for i := range len(t.Priority) {
 		b.PrependInt64(fbsutils.Convert(t.Priority[len(t.Priority)-i-1], t.FlatBuffer.TableKey))
 	}
 	RecipeSelectionAutoUseExcelAddPriority(b, b.EndVector(len(t.Priority)))
+	RecipeSelectionAutoUseExcelAddTargetItemId(b, fbsutils.Convert(t.TargetItemId, t.FlatBuffer.TableKey))
 	return RecipeSelectionAutoUseExcelEnd(b)
 }
 
@@ -41,11 +41,11 @@ func (t *RecipeSelectionAutoUseExcelDto) Marshal() ([]byte, error) {
 func (t *RecipeSelectionAutoUseExcelDto) UnmarshalMessage(e *RecipeSelectionAutoUseExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.TargetItemId = fbsutils.Convert(e.TargetItemId(), t.FlatBuffer.TableKey)
 	t.Priority = make([]int64, e.PriorityLength())
 	for i := range e.PriorityLength() {
 		t.Priority[i] = fbsutils.Convert(e.Priority(i), t.FlatBuffer.TableKey)
 	}
+	t.TargetItemId = fbsutils.Convert(e.TargetItemId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

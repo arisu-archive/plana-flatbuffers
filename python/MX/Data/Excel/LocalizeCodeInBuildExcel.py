@@ -25,21 +25,21 @@ class LocalizeCodeInBuildExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeCodeInBuildExcel
-    def Key(self):
+    def Jp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LocalizeCodeInBuildExcel
+    def Key(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # LocalizeCodeInBuildExcel
     def Kr(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LocalizeCodeInBuildExcel
-    def Jp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -48,15 +48,15 @@ class LocalizeCodeInBuildExcel(object):
 def LocalizeCodeInBuildExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return LocalizeCodeInBuildExcelStart(builder)
-def LocalizeCodeInBuildExcelAddKey(builder, key): builder.PrependUint32Slot(0, key, 0)
-def AddKey(builder, key):
-    return LocalizeCodeInBuildExcelAddKey(builder, key)
-def LocalizeCodeInBuildExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
-def AddKr(builder, kr):
-    return LocalizeCodeInBuildExcelAddKr(builder, kr)
-def LocalizeCodeInBuildExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+def LocalizeCodeInBuildExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
 def AddJp(builder, jp):
     return LocalizeCodeInBuildExcelAddJp(builder, jp)
+def LocalizeCodeInBuildExcelAddKey(builder, key): builder.PrependUint32Slot(1, key, 0)
+def AddKey(builder, key):
+    return LocalizeCodeInBuildExcelAddKey(builder, key)
+def LocalizeCodeInBuildExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+def AddKr(builder, kr):
+    return LocalizeCodeInBuildExcelAddKr(builder, kr)
 def LocalizeCodeInBuildExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeCodeInBuildExcelEnd(builder)

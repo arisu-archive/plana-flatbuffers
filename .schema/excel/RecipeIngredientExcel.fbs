@@ -4,15 +4,15 @@ include "RecipeType.fbs";
 namespace MX.Data.Excel;
 
 table RecipeIngredientExcel {
-    id: long;
-    recipe_type: RecipeType;
-    cost_parcel_type: [ParcelType];
-    cost_id: [long];
     cost_amount: [long];
-    ingredient_parcel_type: [ParcelType];
-    ingredient_id: [long];
-    ingredient_amount: [long];
+    cost_id: [long];
+    cost_parcel_type: [ParcelType];
     cost_time_in_second: long;
+    id: long;
+    ingredient_amount: [long];
+    ingredient_id: [long];
+    ingredient_parcel_type: [ParcelType];
+    recipe_type: RecipeType;
 }
 
 root_type RecipeIngredientExcel;

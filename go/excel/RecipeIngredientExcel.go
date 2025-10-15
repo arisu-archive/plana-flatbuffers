@@ -33,28 +33,56 @@ func (rcv *RecipeIngredientExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RecipeIngredientExcel) Id() int64 {
+func (rcv *RecipeIngredientExcel) CostAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *RecipeIngredientExcel) CostAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *RecipeIngredientExcel) RecipeType() RecipeType {
+func (rcv *RecipeIngredientExcel) MutateCostAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *RecipeIngredientExcel) CostId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return RecipeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) MutateRecipeType(n RecipeType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *RecipeIngredientExcel) CostIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RecipeIngredientExcel) MutateCostId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *RecipeIngredientExcel) CostParcelType(j int) ParcelType {
@@ -83,8 +111,32 @@ func (rcv *RecipeIngredientExcel) MutateCostParcelType(j int, n ParcelType) bool
 	return false
 }
 
-func (rcv *RecipeIngredientExcel) CostId(j int) int64 {
+func (rcv *RecipeIngredientExcel) CostTimeInSecond() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RecipeIngredientExcel) MutateCostTimeInSecond(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *RecipeIngredientExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RecipeIngredientExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *RecipeIngredientExcel) IngredientAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -92,71 +144,19 @@ func (rcv *RecipeIngredientExcel) CostId(j int) int64 {
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) CostIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *RecipeIngredientExcel) IngredientAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) MutateCostId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *RecipeIngredientExcel) MutateIngredientAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *RecipeIngredientExcel) CostAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *RecipeIngredientExcel) CostAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RecipeIngredientExcel) MutateCostAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *RecipeIngredientExcel) IngredientParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *RecipeIngredientExcel) IngredientParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RecipeIngredientExcel) MutateIngredientParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -187,16 +187,16 @@ func (rcv *RecipeIngredientExcel) MutateIngredientId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *RecipeIngredientExcel) IngredientAmount(j int) int64 {
+func (rcv *RecipeIngredientExcel) IngredientParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) IngredientAmountLength() int {
+func (rcv *RecipeIngredientExcel) IngredientParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -204,35 +204,41 @@ func (rcv *RecipeIngredientExcel) IngredientAmountLength() int {
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) MutateIngredientAmount(j int, n int64) bool {
+func (rcv *RecipeIngredientExcel) MutateIngredientParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
 
-func (rcv *RecipeIngredientExcel) CostTimeInSecond() int64 {
+func (rcv *RecipeIngredientExcel) RecipeType() RecipeType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return RecipeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *RecipeIngredientExcel) MutateCostTimeInSecond(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+func (rcv *RecipeIngredientExcel) MutateRecipeType(n RecipeType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
 }
 
 func RecipeIngredientExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func RecipeIngredientExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func RecipeIngredientExcelAddCostAmount(builder *flatbuffers.Builder, costAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(costAmount), 0)
 }
-func RecipeIngredientExcelAddRecipeType(builder *flatbuffers.Builder, recipeType RecipeType) {
-	builder.PrependInt32Slot(1, int32(recipeType), 0)
+func RecipeIngredientExcelStartCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func RecipeIngredientExcelAddCostId(builder *flatbuffers.Builder, costId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(costId), 0)
+}
+func RecipeIngredientExcelStartCostIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func RecipeIngredientExcelAddCostParcelType(builder *flatbuffers.Builder, costParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(costParcelType), 0)
@@ -240,23 +246,17 @@ func RecipeIngredientExcelAddCostParcelType(builder *flatbuffers.Builder, costPa
 func RecipeIngredientExcelStartCostParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func RecipeIngredientExcelAddCostId(builder *flatbuffers.Builder, costId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(costId), 0)
+func RecipeIngredientExcelAddCostTimeInSecond(builder *flatbuffers.Builder, costTimeInSecond int64) {
+	builder.PrependInt64Slot(3, costTimeInSecond, 0)
 }
-func RecipeIngredientExcelStartCostIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func RecipeIngredientExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
+}
+func RecipeIngredientExcelAddIngredientAmount(builder *flatbuffers.Builder, ingredientAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(ingredientAmount), 0)
+}
+func RecipeIngredientExcelStartIngredientAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
-}
-func RecipeIngredientExcelAddCostAmount(builder *flatbuffers.Builder, costAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(costAmount), 0)
-}
-func RecipeIngredientExcelStartCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func RecipeIngredientExcelAddIngredientParcelType(builder *flatbuffers.Builder, ingredientParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(ingredientParcelType), 0)
-}
-func RecipeIngredientExcelStartIngredientParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
 }
 func RecipeIngredientExcelAddIngredientId(builder *flatbuffers.Builder, ingredientId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(ingredientId), 0)
@@ -264,14 +264,14 @@ func RecipeIngredientExcelAddIngredientId(builder *flatbuffers.Builder, ingredie
 func RecipeIngredientExcelStartIngredientIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func RecipeIngredientExcelAddIngredientAmount(builder *flatbuffers.Builder, ingredientAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(ingredientAmount), 0)
+func RecipeIngredientExcelAddIngredientParcelType(builder *flatbuffers.Builder, ingredientParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(ingredientParcelType), 0)
 }
-func RecipeIngredientExcelStartIngredientAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func RecipeIngredientExcelStartIngredientParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func RecipeIngredientExcelAddCostTimeInSecond(builder *flatbuffers.Builder, costTimeInSecond int64) {
-	builder.PrependInt64Slot(8, costTimeInSecond, 0)
+func RecipeIngredientExcelAddRecipeType(builder *flatbuffers.Builder, recipeType RecipeType) {
+	builder.PrependInt32Slot(8, int32(recipeType), 0)
 }
 func RecipeIngredientExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

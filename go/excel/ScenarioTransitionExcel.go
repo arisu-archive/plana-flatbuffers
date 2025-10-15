@@ -45,7 +45,7 @@ func (rcv *ScenarioTransitionExcel) MutateName(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionOut() []byte {
+func (rcv *ScenarioTransitionExcel) TransitionIn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *ScenarioTransitionExcel) TransitionOut() []byte {
 	return nil
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionOutDuration() int64 {
+func (rcv *ScenarioTransitionExcel) TransitionInDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -61,11 +61,11 @@ func (rcv *ScenarioTransitionExcel) TransitionOutDuration() int64 {
 	return 0
 }
 
-func (rcv *ScenarioTransitionExcel) MutateTransitionOutDuration(n int64) bool {
+func (rcv *ScenarioTransitionExcel) MutateTransitionInDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionOutResource() []byte {
+func (rcv *ScenarioTransitionExcel) TransitionInResource() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,7 +73,7 @@ func (rcv *ScenarioTransitionExcel) TransitionOutResource() []byte {
 	return nil
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionIn() []byte {
+func (rcv *ScenarioTransitionExcel) TransitionOut() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,7 +81,7 @@ func (rcv *ScenarioTransitionExcel) TransitionIn() []byte {
 	return nil
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionInDuration() int64 {
+func (rcv *ScenarioTransitionExcel) TransitionOutDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *ScenarioTransitionExcel) TransitionInDuration() int64 {
 	return 0
 }
 
-func (rcv *ScenarioTransitionExcel) MutateTransitionInDuration(n int64) bool {
+func (rcv *ScenarioTransitionExcel) MutateTransitionOutDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *ScenarioTransitionExcel) TransitionInResource() []byte {
+func (rcv *ScenarioTransitionExcel) TransitionOutResource() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -107,23 +107,23 @@ func ScenarioTransitionExcelStart(builder *flatbuffers.Builder) {
 func ScenarioTransitionExcelAddName(builder *flatbuffers.Builder, name uint32) {
 	builder.PrependUint32Slot(0, name, 0)
 }
-func ScenarioTransitionExcelAddTransitionOut(builder *flatbuffers.Builder, transitionOut flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(transitionOut), 0)
-}
-func ScenarioTransitionExcelAddTransitionOutDuration(builder *flatbuffers.Builder, transitionOutDuration int64) {
-	builder.PrependInt64Slot(2, transitionOutDuration, 0)
-}
-func ScenarioTransitionExcelAddTransitionOutResource(builder *flatbuffers.Builder, transitionOutResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(transitionOutResource), 0)
-}
 func ScenarioTransitionExcelAddTransitionIn(builder *flatbuffers.Builder, transitionIn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(transitionIn), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(transitionIn), 0)
 }
 func ScenarioTransitionExcelAddTransitionInDuration(builder *flatbuffers.Builder, transitionInDuration int64) {
-	builder.PrependInt64Slot(5, transitionInDuration, 0)
+	builder.PrependInt64Slot(2, transitionInDuration, 0)
 }
 func ScenarioTransitionExcelAddTransitionInResource(builder *flatbuffers.Builder, transitionInResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(transitionInResource), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(transitionInResource), 0)
+}
+func ScenarioTransitionExcelAddTransitionOut(builder *flatbuffers.Builder, transitionOut flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(transitionOut), 0)
+}
+func ScenarioTransitionExcelAddTransitionOutDuration(builder *flatbuffers.Builder, transitionOutDuration int64) {
+	builder.PrependInt64Slot(5, transitionOutDuration, 0)
+}
+func ScenarioTransitionExcelAddTransitionOutResource(builder *flatbuffers.Builder, transitionOutResource flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(transitionOutResource), 0)
 }
 func ScenarioTransitionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

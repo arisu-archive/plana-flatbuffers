@@ -6,10 +6,10 @@ namespace FlatData;
 table DefaultMailExcel {
     id: long;
     localize_code_id: uint;
-    mail_type: MailType;
     mail_send_period_from: string;
     mail_send_period_to: string;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
+    mail_type: MailType;
     reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
 }

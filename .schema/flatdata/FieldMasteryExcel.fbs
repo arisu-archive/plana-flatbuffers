@@ -4,13 +4,13 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table FieldMasteryExcel {
-    unique_id: long;
-    season_id: long;
-    order: int;
+    accomplishment_condition_id: long;
+    accomplishment_condition_type: FieldConditionType;
     exp_amount: long;
-    token_type: ParcelType;
+    order: int;
+    season_id: long;
     token_id: long;
     token_requirement: long;
-    accomplishment_condition_type: FieldConditionType;
-    accomplishment_condition_id: long;
+    token_type: ParcelType;
+    unique_id: long;
 }

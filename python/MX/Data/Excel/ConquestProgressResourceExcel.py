@@ -25,36 +25,43 @@ class ConquestProgressResourceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ConquestProgressResourceExcel
-    def Id(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestProgressResourceExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestProgressResourceExcel
     def Group(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConquestProgressResourceExcel
-    def ProgressResource(self):
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestProgressResourceExcel
+    def ProgressLocalizeCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConquestProgressResourceExcel
-    def VoiceId(self, j):
+    def ProgressResource(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ConquestProgressResourceExcel
+    def VoiceId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -62,54 +69,47 @@ class ConquestProgressResourceExcel(object):
 
     # ConquestProgressResourceExcel
     def VoiceIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
         return 0
 
     # ConquestProgressResourceExcel
     def VoiceIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ConquestProgressResourceExcel
     def VoiceIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # ConquestProgressResourceExcel
-    def ProgressLocalizeCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+        return o == 0
 
 def ConquestProgressResourceExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return ConquestProgressResourceExcelStart(builder)
-def ConquestProgressResourceExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return ConquestProgressResourceExcelAddId(builder, id)
-def ConquestProgressResourceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+def ConquestProgressResourceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
     return ConquestProgressResourceExcelAddEventContentId(builder, eventContentId)
-def ConquestProgressResourceExcelAddGroup(builder, group): builder.PrependInt32Slot(2, group, 0)
+def ConquestProgressResourceExcelAddGroup(builder, group): builder.PrependInt32Slot(1, group, 0)
 def AddGroup(builder, group):
     return ConquestProgressResourceExcelAddGroup(builder, group)
-def ConquestProgressResourceExcelAddProgressResource(builder, progressResource): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(progressResource), 0)
+def ConquestProgressResourceExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+def AddId(builder, id):
+    return ConquestProgressResourceExcelAddId(builder, id)
+def ConquestProgressResourceExcelAddProgressLocalizeCode(builder, progressLocalizeCode): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(progressLocalizeCode), 0)
+def AddProgressLocalizeCode(builder, progressLocalizeCode):
+    return ConquestProgressResourceExcelAddProgressLocalizeCode(builder, progressLocalizeCode)
+def ConquestProgressResourceExcelAddProgressResource(builder, progressResource): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(progressResource), 0)
 def AddProgressResource(builder, progressResource):
     return ConquestProgressResourceExcelAddProgressResource(builder, progressResource)
-def ConquestProgressResourceExcelAddVoiceId(builder, voiceId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
+def ConquestProgressResourceExcelAddVoiceId(builder, voiceId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
 def AddVoiceId(builder, voiceId):
     return ConquestProgressResourceExcelAddVoiceId(builder, voiceId)
 def ConquestProgressResourceExcelStartVoiceIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartVoiceIdVector(builder, numElems):
     return ConquestProgressResourceExcelStartVoiceIdVector(builder, numElems)
-def ConquestProgressResourceExcelAddProgressLocalizeCode(builder, progressLocalizeCode): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(progressLocalizeCode), 0)
-def AddProgressLocalizeCode(builder, progressLocalizeCode):
-    return ConquestProgressResourceExcelAddProgressLocalizeCode(builder, progressLocalizeCode)
 def ConquestProgressResourceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestProgressResourceExcelEnd(builder)

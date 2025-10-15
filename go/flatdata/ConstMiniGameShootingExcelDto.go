@@ -10,18 +10,18 @@ import (
 // ConstMiniGameShootingExcelDto represents a FlatBuffers table
 type ConstMiniGameShootingExcelDto struct {
 	fbsutils.FlatBuffer
-	NormalStageId           int64   `json:"normal_stage_id"`
-	NormalSectionCount      int32   `json:"normal_section_count"`
-	HardStageId             int64   `json:"hard_stage_id"`
-	HardSectionCount        int32   `json:"hard_section_count"`
-	FreeStageId             int64   `json:"free_stage_id"`
-	FreeSectionCount        int32   `json:"free_section_count"`
-	PlayerCharacterId       []int64 `json:"player_character_id"`
-	HiddenPlayerCharacterId int64   `json:"hidden_player_character_id"`
 	CameraSmoothTime        float32 `json:"camera_smooth_time"`
+	FreeGearInterval        int32   `json:"free_gear_interval"`
+	FreeSectionCount        int32   `json:"free_section_count"`
+	FreeStageId             int64   `json:"free_stage_id"`
+	HardSectionCount        int32   `json:"hard_section_count"`
+	HardStageId             int64   `json:"hard_stage_id"`
+	HiddenPlayerCharacterId int64   `json:"hidden_player_character_id"`
+	NormalSectionCount      int32   `json:"normal_section_count"`
+	NormalStageId           int64   `json:"normal_stage_id"`
+	PlayerCharacterId       []int64 `json:"player_character_id"`
 	SpawnEffectPath         string  `json:"spawn_effect_path"`
 	WaitTimeAfterSpawn      float32 `json:"wait_time_after_spawn"`
-	FreeGearInterval        int32   `json:"free_gear_interval"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,22 +30,22 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
 	ConstMiniGameShootingExcelStart(b)
-	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Convert(t.NormalStageId, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Convert(t.NormalSectionCount, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddHardStageId(b, fbsutils.Convert(t.HardStageId, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddHardSectionCount(b, fbsutils.Convert(t.HardSectionCount, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddFreeStageId(b, fbsutils.Convert(t.FreeStageId, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Convert(t.FreeGearInterval, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddFreeSectionCount(b, fbsutils.Convert(t.FreeSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddFreeStageId(b, fbsutils.Convert(t.FreeStageId, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHardSectionCount(b, fbsutils.Convert(t.HardSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHardStageId(b, fbsutils.Convert(t.HardStageId, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Convert(t.HiddenPlayerCharacterId, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Convert(t.NormalSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Convert(t.NormalStageId, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelStartPlayerCharacterIdVector(b, len(t.PlayerCharacterId))
 	for i := range len(t.PlayerCharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.PlayerCharacterId[len(t.PlayerCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConstMiniGameShootingExcelAddPlayerCharacterId(b, b.EndVector(len(t.PlayerCharacterId)))
-	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Convert(t.HiddenPlayerCharacterId, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddSpawnEffectPath(b, b.CreateString(fbsutils.Convert(t.SpawnEffectPath, t.FlatBuffer.TableKey)))
 	ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(b, fbsutils.Convert(t.WaitTimeAfterSpawn, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Convert(t.FreeGearInterval, t.FlatBuffer.TableKey))
 	return ConstMiniGameShootingExcelEnd(b)
 }
 
@@ -61,21 +61,21 @@ func (t *ConstMiniGameShootingExcelDto) UnmarshalMessage(e *ConstMiniGameShootin
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
-	t.NormalStageId = fbsutils.Convert(e.NormalStageId(), t.FlatBuffer.TableKey)
-	t.NormalSectionCount = fbsutils.Convert(e.NormalSectionCount(), t.FlatBuffer.TableKey)
-	t.HardStageId = fbsutils.Convert(e.HardStageId(), t.FlatBuffer.TableKey)
-	t.HardSectionCount = fbsutils.Convert(e.HardSectionCount(), t.FlatBuffer.TableKey)
-	t.FreeStageId = fbsutils.Convert(e.FreeStageId(), t.FlatBuffer.TableKey)
+	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)
+	t.FreeGearInterval = fbsutils.Convert(e.FreeGearInterval(), t.FlatBuffer.TableKey)
 	t.FreeSectionCount = fbsutils.Convert(e.FreeSectionCount(), t.FlatBuffer.TableKey)
+	t.FreeStageId = fbsutils.Convert(e.FreeStageId(), t.FlatBuffer.TableKey)
+	t.HardSectionCount = fbsutils.Convert(e.HardSectionCount(), t.FlatBuffer.TableKey)
+	t.HardStageId = fbsutils.Convert(e.HardStageId(), t.FlatBuffer.TableKey)
+	t.HiddenPlayerCharacterId = fbsutils.Convert(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
+	t.NormalSectionCount = fbsutils.Convert(e.NormalSectionCount(), t.FlatBuffer.TableKey)
+	t.NormalStageId = fbsutils.Convert(e.NormalStageId(), t.FlatBuffer.TableKey)
 	t.PlayerCharacterId = make([]int64, e.PlayerCharacterIdLength())
 	for i := range e.PlayerCharacterIdLength() {
 		t.PlayerCharacterId[i] = fbsutils.Convert(e.PlayerCharacterId(i), t.FlatBuffer.TableKey)
 	}
-	t.HiddenPlayerCharacterId = fbsutils.Convert(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
-	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)
 	t.SpawnEffectPath = fbsutils.Convert(string(e.SpawnEffectPath()), t.FlatBuffer.TableKey)
 	t.WaitTimeAfterSpawn = fbsutils.Convert(e.WaitTimeAfterSpawn(), t.FlatBuffer.TableKey)
-	t.FreeGearInterval = fbsutils.Convert(e.FreeGearInterval(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,9 +10,9 @@ import (
 // LocalizeCCGExcelDto represents a FlatBuffers table
 type LocalizeCCGExcelDto struct {
 	fbsutils.FlatBuffer
+	Jp  string `json:"jp"`
 	Key uint32 `json:"key"`
 	Kr  string `json:"kr"`
-	Jp  string `json:"jp"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *LocalizeCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCCG"))
 	}
 	LocalizeCCGExcelStart(b)
+	LocalizeCCGExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	LocalizeCCGExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	LocalizeCCGExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeCCGExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	return LocalizeCCGExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *LocalizeCCGExcelDto) UnmarshalMessage(e *LocalizeCCGExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCCG"))
 	}
+	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
-	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	return nil
 }
 

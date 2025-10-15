@@ -25,17 +25,17 @@ class CharacterPotentialStatExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterPotentialStatExcel
-    def PotentialStatGroupId(self):
+    def PotentialLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterPotentialStatExcel
-    def PotentialLevel(self):
+    def PotentialStatGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterPotentialStatExcel
@@ -55,12 +55,12 @@ class CharacterPotentialStatExcel(object):
 def CharacterPotentialStatExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return CharacterPotentialStatExcelStart(builder)
-def CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId): builder.PrependInt64Slot(0, potentialStatGroupId, 0)
-def AddPotentialStatGroupId(builder, potentialStatGroupId):
-    return CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
-def CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel): builder.PrependInt32Slot(1, potentialLevel, 0)
+def CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel): builder.PrependInt32Slot(0, potentialLevel, 0)
 def AddPotentialLevel(builder, potentialLevel):
     return CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel)
+def CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId): builder.PrependInt64Slot(1, potentialStatGroupId, 0)
+def AddPotentialStatGroupId(builder, potentialStatGroupId):
+    return CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
 def CharacterPotentialStatExcelAddRecipeId(builder, recipeId): builder.PrependInt64Slot(2, recipeId, 0)
 def AddRecipeId(builder, recipeId):
     return CharacterPotentialStatExcelAddRecipeId(builder, recipeId)

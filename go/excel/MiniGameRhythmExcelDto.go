@@ -10,51 +10,51 @@ import (
 // MiniGameRhythmExcelDto represents a FlatBuffers table
 type MiniGameRhythmExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId               int64      `json:"unique_id"`
-	RhythmBgmId            int64      `json:"rhythm_bgm_id"`
-	PresetName             string     `json:"preset_name"`
-	StageDifficulty        Difficulty `json:"stage_difficulty"`
-	IsSpecial              bool       `json:"is_special"`
-	OpenStageScoreAmount   int64      `json:"open_stage_score_amount"`
-	MaxHp                  int64      `json:"max_hp"`
-	MissDamage             int64      `json:"miss_damage"`
-	CriticalHpRestoreValue int64      `json:"critical_hp_restore_value"`
-	MaxScore               int64      `json:"max_score"`
-	FeverScoreRate         int64      `json:"fever_score_rate"`
-	NoteScoreRate          int64      `json:"note_score_rate"`
-	ComboScoreRate         int64      `json:"combo_score_rate"`
-	AttackScoreRate        int64      `json:"attack_score_rate"`
-	FeverCriticalRate      float32    `json:"fever_critical_rate"`
-	FeverAttackRate        float32    `json:"fever_attack_rate"`
-	MaxHpScore             int64      `json:"max_hp_score"`
-	RhythmFileName         string     `json:"rhythm_file_name"`
 	ArtLevelSceneName      string     `json:"art_level_scene_name"`
+	AttackScoreRate        int64      `json:"attack_score_rate"`
 	ComboImagePath         string     `json:"combo_image_path"`
+	ComboScoreRate         int64      `json:"combo_score_rate"`
+	CriticalHpRestoreValue int64      `json:"critical_hp_restore_value"`
+	FeverAttackRate        float32    `json:"fever_attack_rate"`
+	FeverCriticalRate      float32    `json:"fever_critical_rate"`
+	FeverScoreRate         int64      `json:"fever_score_rate"`
+	IsSpecial              bool       `json:"is_special"`
+	MaxHp                  int64      `json:"max_hp"`
+	MaxHpScore             int64      `json:"max_hp_score"`
+	MaxScore               int64      `json:"max_score"`
+	MissDamage             int64      `json:"miss_damage"`
+	NoteScoreRate          int64      `json:"note_score_rate"`
+	OpenStageScoreAmount   int64      `json:"open_stage_score_amount"`
+	PresetName             string     `json:"preset_name"`
+	RhythmBgmId            int64      `json:"rhythm_bgm_id"`
+	RhythmFileName         string     `json:"rhythm_file_name"`
+	StageDifficulty        Difficulty `json:"stage_difficulty"`
+	UniqueId               int64      `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameRhythmExcelStart(b)
-	MiniGameRhythmExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddPresetName(b, b.CreateString(fbsutils.Convert(t.PresetName, t.FlatBuffer.TableKey)))
-	MiniGameRhythmExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddIsSpecial(b, t.IsSpecial)
-	MiniGameRhythmExcelAddOpenStageScoreAmount(b, fbsutils.Convert(t.OpenStageScoreAmount, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddMissDamage(b, fbsutils.Convert(t.MissDamage, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddCriticalHpRestoreValue(b, fbsutils.Convert(t.CriticalHpRestoreValue, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddMaxScore(b, fbsutils.Convert(t.MaxScore, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddFeverScoreRate(b, fbsutils.Convert(t.FeverScoreRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddNoteScoreRate(b, fbsutils.Convert(t.NoteScoreRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddComboScoreRate(b, fbsutils.Convert(t.ComboScoreRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddAttackScoreRate(b, fbsutils.Convert(t.AttackScoreRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddFeverCriticalRate(b, fbsutils.Convert(t.FeverCriticalRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddFeverAttackRate(b, fbsutils.Convert(t.FeverAttackRate, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddMaxHpScore(b, fbsutils.Convert(t.MaxHpScore, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddRhythmFileName(b, b.CreateString(fbsutils.Convert(t.RhythmFileName, t.FlatBuffer.TableKey)))
 	MiniGameRhythmExcelAddArtLevelSceneName(b, b.CreateString(fbsutils.Convert(t.ArtLevelSceneName, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddAttackScoreRate(b, fbsutils.Convert(t.AttackScoreRate, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddComboImagePath(b, b.CreateString(fbsutils.Convert(t.ComboImagePath, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddComboScoreRate(b, fbsutils.Convert(t.ComboScoreRate, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddCriticalHpRestoreValue(b, fbsutils.Convert(t.CriticalHpRestoreValue, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddFeverAttackRate(b, fbsutils.Convert(t.FeverAttackRate, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddFeverCriticalRate(b, fbsutils.Convert(t.FeverCriticalRate, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddFeverScoreRate(b, fbsutils.Convert(t.FeverScoreRate, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddIsSpecial(b, t.IsSpecial)
+	MiniGameRhythmExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddMaxHpScore(b, fbsutils.Convert(t.MaxHpScore, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddMaxScore(b, fbsutils.Convert(t.MaxScore, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddMissDamage(b, fbsutils.Convert(t.MissDamage, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddNoteScoreRate(b, fbsutils.Convert(t.NoteScoreRate, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddOpenStageScoreAmount(b, fbsutils.Convert(t.OpenStageScoreAmount, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddPresetName(b, b.CreateString(fbsutils.Convert(t.PresetName, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddRhythmFileName(b, b.CreateString(fbsutils.Convert(t.RhythmFileName, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
+	MiniGameRhythmExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MiniGameRhythmExcelEnd(b)
 }
 
@@ -67,26 +67,26 @@ func (t *MiniGameRhythmExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRhythmExcelDto) UnmarshalMessage(e *MiniGameRhythmExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.RhythmBgmId = fbsutils.Convert(e.RhythmBgmId(), t.FlatBuffer.TableKey)
-	t.PresetName = fbsutils.Convert(string(e.PresetName()), t.FlatBuffer.TableKey)
-	t.StageDifficulty = Difficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
-	t.IsSpecial = e.IsSpecial()
-	t.OpenStageScoreAmount = fbsutils.Convert(e.OpenStageScoreAmount(), t.FlatBuffer.TableKey)
-	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
-	t.MissDamage = fbsutils.Convert(e.MissDamage(), t.FlatBuffer.TableKey)
-	t.CriticalHpRestoreValue = fbsutils.Convert(e.CriticalHpRestoreValue(), t.FlatBuffer.TableKey)
-	t.MaxScore = fbsutils.Convert(e.MaxScore(), t.FlatBuffer.TableKey)
-	t.FeverScoreRate = fbsutils.Convert(e.FeverScoreRate(), t.FlatBuffer.TableKey)
-	t.NoteScoreRate = fbsutils.Convert(e.NoteScoreRate(), t.FlatBuffer.TableKey)
-	t.ComboScoreRate = fbsutils.Convert(e.ComboScoreRate(), t.FlatBuffer.TableKey)
-	t.AttackScoreRate = fbsutils.Convert(e.AttackScoreRate(), t.FlatBuffer.TableKey)
-	t.FeverCriticalRate = fbsutils.Convert(e.FeverCriticalRate(), t.FlatBuffer.TableKey)
-	t.FeverAttackRate = fbsutils.Convert(e.FeverAttackRate(), t.FlatBuffer.TableKey)
-	t.MaxHpScore = fbsutils.Convert(e.MaxHpScore(), t.FlatBuffer.TableKey)
-	t.RhythmFileName = fbsutils.Convert(string(e.RhythmFileName()), t.FlatBuffer.TableKey)
 	t.ArtLevelSceneName = fbsutils.Convert(string(e.ArtLevelSceneName()), t.FlatBuffer.TableKey)
+	t.AttackScoreRate = fbsutils.Convert(e.AttackScoreRate(), t.FlatBuffer.TableKey)
 	t.ComboImagePath = fbsutils.Convert(string(e.ComboImagePath()), t.FlatBuffer.TableKey)
+	t.ComboScoreRate = fbsutils.Convert(e.ComboScoreRate(), t.FlatBuffer.TableKey)
+	t.CriticalHpRestoreValue = fbsutils.Convert(e.CriticalHpRestoreValue(), t.FlatBuffer.TableKey)
+	t.FeverAttackRate = fbsutils.Convert(e.FeverAttackRate(), t.FlatBuffer.TableKey)
+	t.FeverCriticalRate = fbsutils.Convert(e.FeverCriticalRate(), t.FlatBuffer.TableKey)
+	t.FeverScoreRate = fbsutils.Convert(e.FeverScoreRate(), t.FlatBuffer.TableKey)
+	t.IsSpecial = e.IsSpecial()
+	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
+	t.MaxHpScore = fbsutils.Convert(e.MaxHpScore(), t.FlatBuffer.TableKey)
+	t.MaxScore = fbsutils.Convert(e.MaxScore(), t.FlatBuffer.TableKey)
+	t.MissDamage = fbsutils.Convert(e.MissDamage(), t.FlatBuffer.TableKey)
+	t.NoteScoreRate = fbsutils.Convert(e.NoteScoreRate(), t.FlatBuffer.TableKey)
+	t.OpenStageScoreAmount = fbsutils.Convert(e.OpenStageScoreAmount(), t.FlatBuffer.TableKey)
+	t.PresetName = fbsutils.Convert(string(e.PresetName()), t.FlatBuffer.TableKey)
+	t.RhythmBgmId = fbsutils.Convert(e.RhythmBgmId(), t.FlatBuffer.TableKey)
+	t.RhythmFileName = fbsutils.Convert(string(e.RhythmFileName()), t.FlatBuffer.TableKey)
+	t.StageDifficulty = Difficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

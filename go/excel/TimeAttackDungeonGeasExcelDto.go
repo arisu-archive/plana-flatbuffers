@@ -10,37 +10,27 @@ import (
 // TimeAttackDungeonGeasExcelDto represents a FlatBuffers table
 type TimeAttackDungeonGeasExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                     int64                 `json:"id"`
-	TimeAttackDungeonType  TimeAttackDungeonType `json:"time_attack_dungeon_type"`
-	LocalizeEtcKey         uint32                `json:"localize_etc_key"`
+	AllyPassiveSkillId     []string              `json:"ally_passive_skill_id"`
+	AllyPassiveSkillLevel  []int32               `json:"ally_passive_skill_level"`
 	BattleDuration         int64                 `json:"battle_duration"`
 	ClearDefaultPoint      int64                 `json:"clear_default_point"`
 	ClearTimeWeightPoint   int64                 `json:"clear_time_weight_point"`
-	TimeWeightConst        int64                 `json:"time_weight_const"`
 	Difficulty             int32                 `json:"difficulty"`
-	RecommandLevel         int32                 `json:"recommand_level"`
-	GroundId               int64                 `json:"ground_id"`
-	AllyPassiveSkillId     []string              `json:"ally_passive_skill_id"`
-	AllyPassiveSkillLevel  []int32               `json:"ally_passive_skill_level"`
 	EnemyPassiveSkillId    []string              `json:"enemy_passive_skill_id"`
 	EnemyPassiveSkillLevel []int32               `json:"enemy_passive_skill_level"`
 	GeasIconPath           []string              `json:"geas_icon_path"`
 	GeasLocalizeEtcKey     []uint32              `json:"geas_localize_etc_key"`
+	GroundId               int64                 `json:"ground_id"`
+	Id                     int64                 `json:"id"`
+	LocalizeEtcKey         uint32                `json:"localize_etc_key"`
+	RecommandLevel         int32                 `json:"recommand_level"`
+	TimeAttackDungeonType  TimeAttackDungeonType `json:"time_attack_dungeon_type"`
+	TimeWeightConst        int64                 `json:"time_weight_const"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TimeAttackDungeonGeasExcelStart(b)
-	TimeAttackDungeonGeasExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddLocalizeEtcKey(b, fbsutils.Convert(t.LocalizeEtcKey, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddClearDefaultPoint(b, fbsutils.Convert(t.ClearDefaultPoint, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddClearTimeWeightPoint(b, fbsutils.Convert(t.ClearTimeWeightPoint, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddTimeWeightConst(b, fbsutils.Convert(t.TimeWeightConst, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
 	for i := range len(t.AllyPassiveSkillId) {
 		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkillId[len(t.AllyPassiveSkillId)-i-1]))
@@ -51,6 +41,10 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependInt32(fbsutils.Convert(t.AllyPassiveSkillLevel[len(t.AllyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonGeasExcelAddAllyPassiveSkillLevel(b, b.EndVector(len(t.AllyPassiveSkillLevel)))
+	TimeAttackDungeonGeasExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddClearDefaultPoint(b, fbsutils.Convert(t.ClearDefaultPoint, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddClearTimeWeightPoint(b, fbsutils.Convert(t.ClearTimeWeightPoint, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
 	for i := range len(t.EnemyPassiveSkillId) {
 		b.PrependUOffsetT(b.CreateString(t.EnemyPassiveSkillId[len(t.EnemyPassiveSkillId)-i-1]))
@@ -71,6 +65,12 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependUint32(fbsutils.Convert(t.GeasLocalizeEtcKey[len(t.GeasLocalizeEtcKey)-i-1], t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonGeasExcelAddGeasLocalizeEtcKey(b, b.EndVector(len(t.GeasLocalizeEtcKey)))
+	TimeAttackDungeonGeasExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddLocalizeEtcKey(b, fbsutils.Convert(t.LocalizeEtcKey, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
+	TimeAttackDungeonGeasExcelAddTimeWeightConst(b, fbsutils.Convert(t.TimeWeightConst, t.FlatBuffer.TableKey))
 	return TimeAttackDungeonGeasExcelEnd(b)
 }
 
@@ -83,16 +83,6 @@ func (t *TimeAttackDungeonGeasExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonGeasExcelDto) UnmarshalMessage(e *TimeAttackDungeonGeasExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.ClearDefaultPoint = fbsutils.Convert(e.ClearDefaultPoint(), t.FlatBuffer.TableKey)
-	t.ClearTimeWeightPoint = fbsutils.Convert(e.ClearTimeWeightPoint(), t.FlatBuffer.TableKey)
-	t.TimeWeightConst = fbsutils.Convert(e.TimeWeightConst(), t.FlatBuffer.TableKey)
-	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {
 		t.AllyPassiveSkillId[i] = fbsutils.Convert(string(e.AllyPassiveSkillId(i)), t.FlatBuffer.TableKey)
@@ -101,6 +91,10 @@ func (t *TimeAttackDungeonGeasExcelDto) UnmarshalMessage(e *TimeAttackDungeonGea
 	for i := range e.AllyPassiveSkillLevelLength() {
 		t.AllyPassiveSkillLevel[i] = fbsutils.Convert(e.AllyPassiveSkillLevel(i), t.FlatBuffer.TableKey)
 	}
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.ClearDefaultPoint = fbsutils.Convert(e.ClearDefaultPoint(), t.FlatBuffer.TableKey)
+	t.ClearTimeWeightPoint = fbsutils.Convert(e.ClearTimeWeightPoint(), t.FlatBuffer.TableKey)
+	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
 	t.EnemyPassiveSkillId = make([]string, e.EnemyPassiveSkillIdLength())
 	for i := range e.EnemyPassiveSkillIdLength() {
 		t.EnemyPassiveSkillId[i] = fbsutils.Convert(string(e.EnemyPassiveSkillId(i)), t.FlatBuffer.TableKey)
@@ -117,6 +111,12 @@ func (t *TimeAttackDungeonGeasExcelDto) UnmarshalMessage(e *TimeAttackDungeonGea
 	for i := range e.GeasLocalizeEtcKeyLength() {
 		t.GeasLocalizeEtcKey[i] = fbsutils.Convert(e.GeasLocalizeEtcKey(i), t.FlatBuffer.TableKey)
 	}
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
+	t.TimeWeightConst = fbsutils.Convert(e.TimeWeightConst(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -32,11 +32,11 @@ class BattlePassExpLimitExcel(object):
         return 0
 
     # BattlePassExpLimitExcel
-    def LimitStartTime(self):
+    def ExpLimitAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # BattlePassExpLimitExcel
     def LimitEndTime(self):
@@ -46,11 +46,11 @@ class BattlePassExpLimitExcel(object):
         return None
 
     # BattlePassExpLimitExcel
-    def ExpLimitAmount(self):
+    def LimitStartTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def BattlePassExpLimitExcelStart(builder): builder.StartObject(4)
 def Start(builder):
@@ -58,15 +58,15 @@ def Start(builder):
 def BattlePassExpLimitExcelAddBattlePassId(builder, battlePassId): builder.PrependInt64Slot(0, battlePassId, 0)
 def AddBattlePassId(builder, battlePassId):
     return BattlePassExpLimitExcelAddBattlePassId(builder, battlePassId)
-def BattlePassExpLimitExcelAddLimitStartTime(builder, limitStartTime): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(limitStartTime), 0)
-def AddLimitStartTime(builder, limitStartTime):
-    return BattlePassExpLimitExcelAddLimitStartTime(builder, limitStartTime)
+def BattlePassExpLimitExcelAddExpLimitAmount(builder, expLimitAmount): builder.PrependInt64Slot(1, expLimitAmount, 0)
+def AddExpLimitAmount(builder, expLimitAmount):
+    return BattlePassExpLimitExcelAddExpLimitAmount(builder, expLimitAmount)
 def BattlePassExpLimitExcelAddLimitEndTime(builder, limitEndTime): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(limitEndTime), 0)
 def AddLimitEndTime(builder, limitEndTime):
     return BattlePassExpLimitExcelAddLimitEndTime(builder, limitEndTime)
-def BattlePassExpLimitExcelAddExpLimitAmount(builder, expLimitAmount): builder.PrependInt64Slot(3, expLimitAmount, 0)
-def AddExpLimitAmount(builder, expLimitAmount):
-    return BattlePassExpLimitExcelAddExpLimitAmount(builder, expLimitAmount)
+def BattlePassExpLimitExcelAddLimitStartTime(builder, limitStartTime): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(limitStartTime), 0)
+def AddLimitStartTime(builder, limitStartTime):
+    return BattlePassExpLimitExcelAddLimitStartTime(builder, limitStartTime)
 def BattlePassExpLimitExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattlePassExpLimitExcelEnd(builder)

@@ -33,7 +33,7 @@ func (rcv *CharacterWeaponExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterWeaponExcel) Id() int64 {
+func (rcv *CharacterWeaponExcel) AttackPower() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,56 +41,12 @@ func (rcv *CharacterWeaponExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *CharacterWeaponExcel) MutateId(n int64) bool {
+func (rcv *CharacterWeaponExcel) MutateAttackPower(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CharacterWeaponExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterWeaponExcel) SetRecipe() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateSetRecipe(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *CharacterWeaponExcel) StatLevelUpType() StatLevelUpType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *CharacterWeaponExcel) AttackPower() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateAttackPower(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
 func (rcv *CharacterWeaponExcel) AttackPower100() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -98,35 +54,11 @@ func (rcv *CharacterWeaponExcel) AttackPower100() int64 {
 }
 
 func (rcv *CharacterWeaponExcel) MutateAttackPower100(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *CharacterWeaponExcel) MaxHp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateMaxHp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *CharacterWeaponExcel) MaxHp100() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateMaxHp100(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *CharacterWeaponExcel) HealPower() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -134,11 +66,11 @@ func (rcv *CharacterWeaponExcel) HealPower() int64 {
 }
 
 func (rcv *CharacterWeaponExcel) MutateHealPower(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *CharacterWeaponExcel) HealPower100() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -146,89 +78,31 @@ func (rcv *CharacterWeaponExcel) HealPower100() int64 {
 }
 
 func (rcv *CharacterWeaponExcel) MutateHealPower100(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CharacterWeaponExcel) Unlock(j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+func (rcv *CharacterWeaponExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
-	}
-	return false
-}
-
-func (rcv *CharacterWeaponExcel) UnlockLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterWeaponExcel) MutateUnlock(j int, n bool) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
-	}
-	return false
+func (rcv *CharacterWeaponExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *CharacterWeaponExcel) RecipeId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+func (rcv *CharacterWeaponExcel) ImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) RecipeIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateRecipeId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *CharacterWeaponExcel) MaxLevel(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MaxLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterWeaponExcel) MutateMaxLevel(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
+	return nil
 }
 
 func (rcv *CharacterWeaponExcel) LearnSkillSlot(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -237,15 +111,115 @@ func (rcv *CharacterWeaponExcel) LearnSkillSlot(j int) []byte {
 }
 
 func (rcv *CharacterWeaponExcel) LearnSkillSlotLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *CharacterWeaponExcel) MaxHp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateMaxHp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *CharacterWeaponExcel) MaxHp100() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateMaxHp100(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *CharacterWeaponExcel) MaxLevel(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MaxLevelLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateMaxLevel(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *CharacterWeaponExcel) RecipeId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) RecipeIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateRecipeId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CharacterWeaponExcel) SetRecipe() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateSetRecipe(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *CharacterWeaponExcel) StatLevelUpType() StatLevelUpType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return StatLevelUpType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateStatLevelUpType(n StatLevelUpType) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
+}
+
 func (rcv *CharacterWeaponExcel) StatType(j int) EquipmentOptionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -254,7 +228,7 @@ func (rcv *CharacterWeaponExcel) StatType(j int) EquipmentOptionType {
 }
 
 func (rcv *CharacterWeaponExcel) StatTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -262,7 +236,7 @@ func (rcv *CharacterWeaponExcel) StatTypeLength() int {
 }
 
 func (rcv *CharacterWeaponExcel) MutateStatType(j int, n EquipmentOptionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -271,7 +245,7 @@ func (rcv *CharacterWeaponExcel) MutateStatType(j int, n EquipmentOptionType) bo
 }
 
 func (rcv *CharacterWeaponExcel) StatValue(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -280,7 +254,7 @@ func (rcv *CharacterWeaponExcel) StatValue(j int) int64 {
 }
 
 func (rcv *CharacterWeaponExcel) StatValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -288,7 +262,7 @@ func (rcv *CharacterWeaponExcel) StatValueLength() int {
 }
 
 func (rcv *CharacterWeaponExcel) MutateStatValue(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -296,74 +270,100 @@ func (rcv *CharacterWeaponExcel) MutateStatValue(j int, n int64) bool {
 	return false
 }
 
+func (rcv *CharacterWeaponExcel) Unlock(j int) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
+	}
+	return false
+}
+
+func (rcv *CharacterWeaponExcel) UnlockLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterWeaponExcel) MutateUnlock(j int, n bool) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
+	}
+	return false
+}
+
 func CharacterWeaponExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(16)
 }
-func CharacterWeaponExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func CharacterWeaponExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(imagePath), 0)
-}
-func CharacterWeaponExcelAddSetRecipe(builder *flatbuffers.Builder, setRecipe int64) {
-	builder.PrependInt64Slot(2, setRecipe, 0)
-}
-func CharacterWeaponExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
-	builder.PrependInt32Slot(3, int32(statLevelUpType), 0)
-}
 func CharacterWeaponExcelAddAttackPower(builder *flatbuffers.Builder, attackPower int64) {
-	builder.PrependInt64Slot(4, attackPower, 0)
+	builder.PrependInt64Slot(0, attackPower, 0)
 }
 func CharacterWeaponExcelAddAttackPower100(builder *flatbuffers.Builder, attackPower100 int64) {
-	builder.PrependInt64Slot(5, attackPower100, 0)
-}
-func CharacterWeaponExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
-	builder.PrependInt64Slot(6, maxHp, 0)
-}
-func CharacterWeaponExcelAddMaxHp100(builder *flatbuffers.Builder, maxHp100 int64) {
-	builder.PrependInt64Slot(7, maxHp100, 0)
+	builder.PrependInt64Slot(1, attackPower100, 0)
 }
 func CharacterWeaponExcelAddHealPower(builder *flatbuffers.Builder, healPower int64) {
-	builder.PrependInt64Slot(8, healPower, 0)
+	builder.PrependInt64Slot(2, healPower, 0)
 }
 func CharacterWeaponExcelAddHealPower100(builder *flatbuffers.Builder, healPower100 int64) {
-	builder.PrependInt64Slot(9, healPower100, 0)
+	builder.PrependInt64Slot(3, healPower100, 0)
 }
-func CharacterWeaponExcelAddUnlock(builder *flatbuffers.Builder, unlock flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(unlock), 0)
+func CharacterWeaponExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(4, id, 0)
 }
-func CharacterWeaponExcelStartUnlockVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(1, numElems, 1)
-}
-func CharacterWeaponExcelAddRecipeId(builder *flatbuffers.Builder, recipeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(recipeId), 0)
-}
-func CharacterWeaponExcelStartRecipeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func CharacterWeaponExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(maxLevel), 0)
-}
-func CharacterWeaponExcelStartMaxLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func CharacterWeaponExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(imagePath), 0)
 }
 func CharacterWeaponExcelAddLearnSkillSlot(builder *flatbuffers.Builder, learnSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(learnSkillSlot), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(learnSkillSlot), 0)
 }
 func CharacterWeaponExcelStartLearnSkillSlotVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func CharacterWeaponExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int64) {
+	builder.PrependInt64Slot(7, maxHp, 0)
+}
+func CharacterWeaponExcelAddMaxHp100(builder *flatbuffers.Builder, maxHp100 int64) {
+	builder.PrependInt64Slot(8, maxHp100, 0)
+}
+func CharacterWeaponExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(maxLevel), 0)
+}
+func CharacterWeaponExcelStartMaxLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func CharacterWeaponExcelAddRecipeId(builder *flatbuffers.Builder, recipeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(recipeId), 0)
+}
+func CharacterWeaponExcelStartRecipeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func CharacterWeaponExcelAddSetRecipe(builder *flatbuffers.Builder, setRecipe int64) {
+	builder.PrependInt64Slot(11, setRecipe, 0)
+}
+func CharacterWeaponExcelAddStatLevelUpType(builder *flatbuffers.Builder, statLevelUpType StatLevelUpType) {
+	builder.PrependInt32Slot(12, int32(statLevelUpType), 0)
+}
 func CharacterWeaponExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(statType), 0)
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(statType), 0)
 }
 func CharacterWeaponExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterWeaponExcelAddStatValue(builder *flatbuffers.Builder, statValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(statValue), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(statValue), 0)
 }
 func CharacterWeaponExcelStartStatValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func CharacterWeaponExcelAddUnlock(builder *flatbuffers.Builder, unlock flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(unlock), 0)
+}
+func CharacterWeaponExcelStartUnlockVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(1, numElems, 1)
 }
 func CharacterWeaponExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

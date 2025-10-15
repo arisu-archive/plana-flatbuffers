@@ -2,12 +2,12 @@ namespace MX.Data.Excel;
 
 table ScenarioTransitionExcel {
     name: uint;
-    transition_out: string;
-    transition_out_duration: long;
-    transition_out_resource: string;
     transition_in: string;
     transition_in_duration: long;
     transition_in_resource: string;
+    transition_out: string;
+    transition_out_duration: long;
+    transition_out_resource: string;
 }
 
 root_type ScenarioTransitionExcel;

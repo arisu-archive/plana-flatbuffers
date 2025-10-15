@@ -1,11 +1,11 @@
 namespace MX.Data.Excel;
 
 table MinigameCCGEnemyGroupExcel {
-    group_id: long;
     enemy_ai: string;
     enemy_bgm: long;
-    localize_enemy_group_name: uint;
+    group_id: long;
     localize_enemy_group_desc: uint;
+    localize_enemy_group_name: uint;
 }
 
 root_type MinigameCCGEnemyGroupExcel;

@@ -10,57 +10,57 @@ import (
 // CharacterGearExcelDto represents a FlatBuffers table
 type CharacterGearExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64                 `json:"id"`
 	CharacterId       int64                 `json:"character_id"`
-	StatLevelUpType   StatLevelUpType       `json:"stat_level_up_type"`
-	Tier              int64                 `json:"tier"`
-	NextTierEquipment int64                 `json:"next_tier_equipment"`
-	RecipeId          int64                 `json:"recipe_id"`
-	OpenFavorLevel    int64                 `json:"open_favor_level"`
-	MaxLevel          int64                 `json:"max_level"`
-	LearnSkillSlot    string                `json:"learn_skill_slot"`
-	StatType          []EquipmentOptionType `json:"stat_type"`
-	MinStatValue      []int64               `json:"min_stat_value"`
-	MaxStatValue      []int64               `json:"max_stat_value"`
 	Icon              string                `json:"icon"`
+	Id                int64                 `json:"id"`
+	LearnSkillSlot    string                `json:"learn_skill_slot"`
 	LocalizeEtcId     uint32                `json:"localize_etc_id"`
+	MaxLevel          int64                 `json:"max_level"`
+	MaxStatValue      []int64               `json:"max_stat_value"`
+	MinStatValue      []int64               `json:"min_stat_value"`
+	NextTierEquipment int64                 `json:"next_tier_equipment"`
+	OpenFavorLevel    int64                 `json:"open_favor_level"`
+	RecipeId          int64                 `json:"recipe_id"`
+	StatLevelUpType   StatLevelUpType       `json:"stat_level_up_type"`
+	StatType          []EquipmentOptionType `json:"stat_type"`
 	Tags              []Tag                 `json:"tags"`
+	Tier              int64                 `json:"tier"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterGearExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterGearExcelStart(b)
-	CharacterGearExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterGearExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddNextTierEquipment(b, fbsutils.Convert(t.NextTierEquipment, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddOpenFavorLevel(b, fbsutils.Convert(t.OpenFavorLevel, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
+	CharacterGearExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	CharacterGearExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterGearExcelAddLearnSkillSlot(b, b.CreateString(fbsutils.Convert(t.LearnSkillSlot, t.FlatBuffer.TableKey)))
-	CharacterGearExcelStartStatTypeVector(b, len(t.StatType))
-	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	CharacterGearExcelAddStatType(b, b.EndVector(len(t.StatType)))
-	CharacterGearExcelStartMinStatValueVector(b, len(t.MinStatValue))
-	for i := range len(t.MinStatValue) {
-		b.PrependInt64(fbsutils.Convert(t.MinStatValue[len(t.MinStatValue)-i-1], t.FlatBuffer.TableKey))
-	}
-	CharacterGearExcelAddMinStatValue(b, b.EndVector(len(t.MinStatValue)))
+	CharacterGearExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	CharacterGearExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
 	CharacterGearExcelStartMaxStatValueVector(b, len(t.MaxStatValue))
 	for i := range len(t.MaxStatValue) {
 		b.PrependInt64(fbsutils.Convert(t.MaxStatValue[len(t.MaxStatValue)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterGearExcelAddMaxStatValue(b, b.EndVector(len(t.MaxStatValue)))
-	CharacterGearExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	CharacterGearExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	CharacterGearExcelStartMinStatValueVector(b, len(t.MinStatValue))
+	for i := range len(t.MinStatValue) {
+		b.PrependInt64(fbsutils.Convert(t.MinStatValue[len(t.MinStatValue)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterGearExcelAddMinStatValue(b, b.EndVector(len(t.MinStatValue)))
+	CharacterGearExcelAddNextTierEquipment(b, fbsutils.Convert(t.NextTierEquipment, t.FlatBuffer.TableKey))
+	CharacterGearExcelAddOpenFavorLevel(b, fbsutils.Convert(t.OpenFavorLevel, t.FlatBuffer.TableKey))
+	CharacterGearExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
+	CharacterGearExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
+	CharacterGearExcelStartStatTypeVector(b, len(t.StatType))
+	for i := range len(t.StatType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	CharacterGearExcelAddStatType(b, b.EndVector(len(t.StatType)))
 	CharacterGearExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterGearExcelAddTags(b, b.EndVector(len(t.Tags)))
+	CharacterGearExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	return CharacterGearExcelEnd(b)
 }
 
@@ -73,33 +73,33 @@ func (t *CharacterGearExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.StatLevelUpType = StatLevelUpType(fbsutils.Convert(int32(e.StatLevelUpType()), t.FlatBuffer.TableKey))
-	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
-	t.NextTierEquipment = fbsutils.Convert(e.NextTierEquipment(), t.FlatBuffer.TableKey)
-	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
-	t.OpenFavorLevel = fbsutils.Convert(e.OpenFavorLevel(), t.FlatBuffer.TableKey)
-	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LearnSkillSlot = fbsutils.Convert(string(e.LearnSkillSlot()), t.FlatBuffer.TableKey)
-	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
-	for i := range e.StatTypeLength() {
-		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
+	t.MaxStatValue = make([]int64, e.MaxStatValueLength())
+	for i := range e.MaxStatValueLength() {
+		t.MaxStatValue[i] = fbsutils.Convert(e.MaxStatValue(i), t.FlatBuffer.TableKey)
 	}
 	t.MinStatValue = make([]int64, e.MinStatValueLength())
 	for i := range e.MinStatValueLength() {
 		t.MinStatValue[i] = fbsutils.Convert(e.MinStatValue(i), t.FlatBuffer.TableKey)
 	}
-	t.MaxStatValue = make([]int64, e.MaxStatValueLength())
-	for i := range e.MaxStatValueLength() {
-		t.MaxStatValue[i] = fbsutils.Convert(e.MaxStatValue(i), t.FlatBuffer.TableKey)
+	t.NextTierEquipment = fbsutils.Convert(e.NextTierEquipment(), t.FlatBuffer.TableKey)
+	t.OpenFavorLevel = fbsutils.Convert(e.OpenFavorLevel(), t.FlatBuffer.TableKey)
+	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
+	t.StatLevelUpType = StatLevelUpType(fbsutils.Convert(int32(e.StatLevelUpType()), t.FlatBuffer.TableKey))
+	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
+	for i := range e.StatTypeLength() {
+		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
 		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
 	return nil
 }
 

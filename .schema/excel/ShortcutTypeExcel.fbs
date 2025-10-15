@@ -3,9 +3,9 @@ include "ShortcutContentType.fbs";
 namespace MX.Data.Excel;
 
 table ShortcutTypeExcel {
+    content_type: [ShortcutContentType];
     id: long;
     is_ascending: bool;
-    content_type: [ShortcutContentType];
 }
 
 root_type ShortcutTypeExcel;

@@ -32,8 +32,15 @@ class ConquestGroupBuffExcel(object):
         return 0
 
     # ConquestGroupBuffExcel
-    def School(self, j):
+    def RecommandLocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestGroupBuffExcel
+    def School(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -41,29 +48,22 @@ class ConquestGroupBuffExcel(object):
 
     # ConquestGroupBuffExcel
     def SchoolAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # ConquestGroupBuffExcel
     def SchoolLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ConquestGroupBuffExcel
     def SchoolIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # ConquestGroupBuffExcel
-    def RecommandLocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # ConquestGroupBuffExcel
     def SkillGroupId(self):
@@ -78,15 +78,15 @@ def Start(builder):
 def ConquestGroupBuffExcelAddConquestBuffId(builder, conquestBuffId): builder.PrependInt64Slot(0, conquestBuffId, 0)
 def AddConquestBuffId(builder, conquestBuffId):
     return ConquestGroupBuffExcelAddConquestBuffId(builder, conquestBuffId)
-def ConquestGroupBuffExcelAddSchool(builder, school): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(school), 0)
+def ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId): builder.PrependUint32Slot(1, recommandLocalizeEtcId, 0)
+def AddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId):
+    return ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId)
+def ConquestGroupBuffExcelAddSchool(builder, school): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(school), 0)
 def AddSchool(builder, school):
     return ConquestGroupBuffExcelAddSchool(builder, school)
 def ConquestGroupBuffExcelStartSchoolVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartSchoolVector(builder, numElems):
     return ConquestGroupBuffExcelStartSchoolVector(builder, numElems)
-def ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId): builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
-def AddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId):
-    return ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId)
 def ConquestGroupBuffExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
 def AddSkillGroupId(builder, skillGroupId):
     return ConquestGroupBuffExcelAddSkillGroupId(builder, skillGroupId)

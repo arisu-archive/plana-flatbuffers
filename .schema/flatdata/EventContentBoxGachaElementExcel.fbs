@@ -2,7 +2,7 @@ namespace FlatData;
 
 table EventContentBoxGachaElementExcel {
     event_content_id: long;
+    group_id: long;
     id: long;
     round: long;
-    group_id: long;
 }

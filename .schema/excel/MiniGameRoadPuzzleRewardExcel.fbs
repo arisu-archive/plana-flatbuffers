@@ -4,10 +4,10 @@ namespace MX.Data.Excel;
 
 table MiniGameRoadPuzzleRewardExcel {
     event_content_id: long;
-    unique_id: long;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
     reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    unique_id: long;
 }
 
 root_type MiniGameRoadPuzzleRewardExcel;

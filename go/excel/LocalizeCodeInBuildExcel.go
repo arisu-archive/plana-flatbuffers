@@ -33,8 +33,16 @@ func (rcv *LocalizeCodeInBuildExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeCodeInBuildExcel) Key() uint32 {
+func (rcv *LocalizeCodeInBuildExcel) Jp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCodeInBuildExcel) Key() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -42,18 +50,10 @@ func (rcv *LocalizeCodeInBuildExcel) Key() uint32 {
 }
 
 func (rcv *LocalizeCodeInBuildExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *LocalizeCodeInBuildExcel) Kr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeCodeInBuildExcel) Jp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -64,14 +64,14 @@ func (rcv *LocalizeCodeInBuildExcel) Jp() []byte {
 func LocalizeCodeInBuildExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
+func LocalizeCodeInBuildExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(jp), 0)
+}
 func LocalizeCodeInBuildExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(0, key, 0)
+	builder.PrependUint32Slot(1, key, 0)
 }
 func LocalizeCodeInBuildExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(kr), 0)
-}
-func LocalizeCodeInBuildExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(jp), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(kr), 0)
 }
 func LocalizeCodeInBuildExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

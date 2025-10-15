@@ -11,17 +11,17 @@ import (
 type DefaultCharacterExcelDto struct {
 	fbsutils.FlatBuffer
 	CharacterId            int64 `json:"character_id"`
-	FavoriteCharacter      bool  `json:"favorite_character"`
-	Level                  int32 `json:"level"`
-	Exp                    int32 `json:"exp"`
-	FavorExp               int32 `json:"favor_exp"`
-	FavorRank              int32 `json:"favor_rank"`
-	StarGrade              int32 `json:"star_grade"`
-	ExSkillLevel           int32 `json:"ex_skill_level"`
-	PassiveSkillLevel      int32 `json:"passive_skill_level"`
-	ExtraPassiveSkillLevel int32 `json:"extra_passive_skill_level"`
 	CommonSkillLevel       int32 `json:"common_skill_level"`
+	Exp                    int32 `json:"exp"`
+	ExSkillLevel           int32 `json:"ex_skill_level"`
+	ExtraPassiveSkillLevel int32 `json:"extra_passive_skill_level"`
+	FavorExp               int32 `json:"favor_exp"`
+	FavoriteCharacter      bool  `json:"favorite_character"`
+	FavorRank              int32 `json:"favor_rank"`
 	LeaderSkillLevel       int32 `json:"leader_skill_level"`
+	Level                  int32 `json:"level"`
+	PassiveSkillLevel      int32 `json:"passive_skill_level"`
+	StarGrade              int32 `json:"star_grade"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,17 +31,17 @@ func (t *DefaultCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	}
 	DefaultCharacterExcelStart(b)
 	DefaultCharacterExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddFavoriteCharacter(b, t.FavoriteCharacter)
-	DefaultCharacterExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddFavorRank(b, fbsutils.Convert(t.FavorRank, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddStarGrade(b, fbsutils.Convert(t.StarGrade, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddExSkillLevel(b, fbsutils.Convert(t.ExSkillLevel, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddPassiveSkillLevel(b, fbsutils.Convert(t.PassiveSkillLevel, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddExtraPassiveSkillLevel(b, fbsutils.Convert(t.ExtraPassiveSkillLevel, t.FlatBuffer.TableKey))
 	DefaultCharacterExcelAddCommonSkillLevel(b, fbsutils.Convert(t.CommonSkillLevel, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddExSkillLevel(b, fbsutils.Convert(t.ExSkillLevel, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddExtraPassiveSkillLevel(b, fbsutils.Convert(t.ExtraPassiveSkillLevel, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddFavoriteCharacter(b, t.FavoriteCharacter)
+	DefaultCharacterExcelAddFavorRank(b, fbsutils.Convert(t.FavorRank, t.FlatBuffer.TableKey))
 	DefaultCharacterExcelAddLeaderSkillLevel(b, fbsutils.Convert(t.LeaderSkillLevel, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddPassiveSkillLevel(b, fbsutils.Convert(t.PassiveSkillLevel, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddStarGrade(b, fbsutils.Convert(t.StarGrade, t.FlatBuffer.TableKey))
 	return DefaultCharacterExcelEnd(b)
 }
 
@@ -58,17 +58,17 @@ func (t *DefaultCharacterExcelDto) UnmarshalMessage(e *DefaultCharacterExcel) er
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultCharacter"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.FavoriteCharacter = e.FavoriteCharacter()
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
-	t.FavorExp = fbsutils.Convert(e.FavorExp(), t.FlatBuffer.TableKey)
-	t.FavorRank = fbsutils.Convert(e.FavorRank(), t.FlatBuffer.TableKey)
-	t.StarGrade = fbsutils.Convert(e.StarGrade(), t.FlatBuffer.TableKey)
-	t.ExSkillLevel = fbsutils.Convert(e.ExSkillLevel(), t.FlatBuffer.TableKey)
-	t.PassiveSkillLevel = fbsutils.Convert(e.PassiveSkillLevel(), t.FlatBuffer.TableKey)
-	t.ExtraPassiveSkillLevel = fbsutils.Convert(e.ExtraPassiveSkillLevel(), t.FlatBuffer.TableKey)
 	t.CommonSkillLevel = fbsutils.Convert(e.CommonSkillLevel(), t.FlatBuffer.TableKey)
+	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
+	t.ExSkillLevel = fbsutils.Convert(e.ExSkillLevel(), t.FlatBuffer.TableKey)
+	t.ExtraPassiveSkillLevel = fbsutils.Convert(e.ExtraPassiveSkillLevel(), t.FlatBuffer.TableKey)
+	t.FavorExp = fbsutils.Convert(e.FavorExp(), t.FlatBuffer.TableKey)
+	t.FavoriteCharacter = e.FavoriteCharacter()
+	t.FavorRank = fbsutils.Convert(e.FavorRank(), t.FlatBuffer.TableKey)
 	t.LeaderSkillLevel = fbsutils.Convert(e.LeaderSkillLevel(), t.FlatBuffer.TableKey)
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
+	t.PassiveSkillLevel = fbsutils.Convert(e.PassiveSkillLevel(), t.FlatBuffer.TableKey)
+	t.StarGrade = fbsutils.Convert(e.StarGrade(), t.FlatBuffer.TableKey)
 	return nil
 }
 

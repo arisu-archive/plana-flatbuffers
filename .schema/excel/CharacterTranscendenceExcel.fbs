@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+table CharacterTranscendenceExcel {
+    character_id: long;
+    max_favor_level: [int];
+    maxlevel_star: [int];
+    recipe_id: [long];
+    skill_slot_a: [string];
+    skill_slot_b: [string];
+    skill_slot_c: [string];
+    stat_bonus_rate_attack: [long];
+    stat_bonus_rate_heal: [long];
+    stat_bonus_rate_hp: [long];
+}
+
+root_type CharacterTranscendenceExcel;

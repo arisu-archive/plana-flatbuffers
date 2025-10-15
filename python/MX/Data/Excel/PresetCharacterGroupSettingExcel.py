@@ -25,18 +25,18 @@ class PresetCharacterGroupSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # PresetCharacterGroupSettingExcel
-    def CharacterId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # PresetCharacterGroupSettingExcel
     def ArenaSimulatorFixed(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # PresetCharacterGroupSettingExcel
+    def CharacterId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # PresetCharacterGroupSettingExcel
     def PresetType(self, j):
@@ -61,12 +61,12 @@ class PresetCharacterGroupSettingExcel(object):
 def PresetCharacterGroupSettingExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return PresetCharacterGroupSettingExcelStart(builder)
-def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
-def AddCharacterId(builder, characterId):
-    return PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
-def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed): builder.PrependBoolSlot(1, arenaSimulatorFixed, 0)
+def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed): builder.PrependBoolSlot(0, arenaSimulatorFixed, 0)
 def AddArenaSimulatorFixed(builder, arenaSimulatorFixed):
     return PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed)
+def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
+def AddCharacterId(builder, characterId):
+    return PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
 def PresetCharacterGroupSettingExcelAddPresetType(builder, presetType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(presetType), 0)
 def AddPresetType(builder, presetType):
     return PresetCharacterGroupSettingExcelAddPresetType(builder, presetType)

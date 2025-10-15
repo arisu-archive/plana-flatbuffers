@@ -33,32 +33,8 @@ func (rcv *ShopTabGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopTabGroupExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopTabGroupExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ShopTabGroupExcel) ShopGroupType() ShopGroupType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ShopGroupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopTabGroupExcel) MutateShopGroupType(n ShopGroupType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
 func (rcv *ShopTabGroupExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -66,11 +42,23 @@ func (rcv *ShopTabGroupExcel) DisplayOrder() int32 {
 }
 
 func (rcv *ShopTabGroupExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *ShopTabGroupExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopTabGroupExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *ShopTabGroupExcel) ShopCategoryTypes(j int) ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ShopCategoryType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -79,7 +67,7 @@ func (rcv *ShopTabGroupExcel) ShopCategoryTypes(j int) ShopCategoryType {
 }
 
 func (rcv *ShopTabGroupExcel) ShopCategoryTypesLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -87,7 +75,7 @@ func (rcv *ShopTabGroupExcel) ShopCategoryTypesLength() int {
 }
 
 func (rcv *ShopTabGroupExcel) MutateShopCategoryTypes(j int, n ShopCategoryType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -95,23 +83,35 @@ func (rcv *ShopTabGroupExcel) MutateShopCategoryTypes(j int, n ShopCategoryType)
 	return false
 }
 
+func (rcv *ShopTabGroupExcel) ShopGroupType() ShopGroupType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ShopGroupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopTabGroupExcel) MutateShopGroupType(n ShopGroupType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
 func ShopTabGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func ShopTabGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ShopTabGroupExcelAddShopGroupType(builder *flatbuffers.Builder, shopGroupType ShopGroupType) {
-	builder.PrependInt32Slot(1, int32(shopGroupType), 0)
-}
 func ShopTabGroupExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(2, displayOrder, 0)
+	builder.PrependInt32Slot(0, displayOrder, 0)
+}
+func ShopTabGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
 }
 func ShopTabGroupExcelAddShopCategoryTypes(builder *flatbuffers.Builder, shopCategoryTypes flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(shopCategoryTypes), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(shopCategoryTypes), 0)
 }
 func ShopTabGroupExcelStartShopCategoryTypesVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func ShopTabGroupExcelAddShopGroupType(builder *flatbuffers.Builder, shopGroupType ShopGroupType) {
+	builder.PrependInt32Slot(3, int32(shopGroupType), 0)
 }
 func ShopTabGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

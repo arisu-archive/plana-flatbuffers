@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table CharacterPotentialStatExcel {
-    potential_stat_group_id: long;
     potential_level: int;
+    potential_stat_group_id: long;
     recipe_id: long;
     stat_bonus_rate: long;
 }

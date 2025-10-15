@@ -6,15 +6,15 @@ namespace MX.Data.Excel;
 
 table ProductExcel {
     id: long;
-    product_id: string;
-    store_type: StoreType;
+    parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
     price: long;
     price_reference: string;
-    purchase_period_type: PurchasePeriodType;
+    product_id: string;
     purchase_period_limit: long;
-    parcel_type: [ParcelType];
-    parcel_id: [long];
-    parcel_amount: [long];
+    purchase_period_type: PurchasePeriodType;
+    store_type: StoreType;
 }
 
 root_type ProductExcel;

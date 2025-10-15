@@ -32,10 +32,10 @@ class ToastExcel(object):
         return 0
 
     # ToastExcel
-    def ToastType(self):
+    def LifeTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ToastExcel
@@ -53,10 +53,10 @@ class ToastExcel(object):
         return 0
 
     # ToastExcel
-    def LifeTime(self):
+    def ToastType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def ToastExcelStart(builder): builder.StartObject(5)
@@ -65,18 +65,18 @@ def Start(builder):
 def ToastExcelAddId(builder, id): builder.PrependUint32Slot(0, id, 0)
 def AddId(builder, id):
     return ToastExcelAddId(builder, id)
-def ToastExcelAddToastType(builder, toastType): builder.PrependInt32Slot(1, toastType, 0)
-def AddToastType(builder, toastType):
-    return ToastExcelAddToastType(builder, toastType)
+def ToastExcelAddLifeTime(builder, lifeTime): builder.PrependInt64Slot(1, lifeTime, 0)
+def AddLifeTime(builder, lifeTime):
+    return ToastExcelAddLifeTime(builder, lifeTime)
 def ToastExcelAddMissionId(builder, missionId): builder.PrependUint32Slot(2, missionId, 0)
 def AddMissionId(builder, missionId):
     return ToastExcelAddMissionId(builder, missionId)
 def ToastExcelAddTextId(builder, textId): builder.PrependUint32Slot(3, textId, 0)
 def AddTextId(builder, textId):
     return ToastExcelAddTextId(builder, textId)
-def ToastExcelAddLifeTime(builder, lifeTime): builder.PrependInt64Slot(4, lifeTime, 0)
-def AddLifeTime(builder, lifeTime):
-    return ToastExcelAddLifeTime(builder, lifeTime)
+def ToastExcelAddToastType(builder, toastType): builder.PrependInt32Slot(4, toastType, 0)
+def AddToastType(builder, toastType):
+    return ToastExcelAddToastType(builder, toastType)
 def ToastExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ToastExcelEnd(builder)

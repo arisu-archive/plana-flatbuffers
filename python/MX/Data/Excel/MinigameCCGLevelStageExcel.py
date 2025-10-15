@@ -25,22 +25,36 @@ class MinigameCCGLevelStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameCCGLevelStageExcel
-    def Id(self):
+    def CampBackgroundPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MinigameCCGLevelStageExcel
+    def CampDiscardCardCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGLevelStageExcel
-    def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def CampSprPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MinigameCCGLevelStageExcel
+    def CardRarityGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGLevelStageExcel
     def EnemyGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -48,158 +62,144 @@ class MinigameCCGLevelStageExcel(object):
 
     # MinigameCCGLevelStageExcel
     def EnemyGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # MinigameCCGLevelStageExcel
     def EnemyGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MinigameCCGLevelStageExcel
     def EnemyGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
     # MinigameCCGLevelStageExcel
-    def StageType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelStageExcel
-    def CampDiscardCardCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelStageExcel
-    def CampSprPath(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameCCGLevelStageExcel
-    def CampBackgroundPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameCCGLevelStageExcel
-    def RewardType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelStageExcel
-    def RewardCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelStageExcel
-    def RewardCardGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGLevelStageExcel
-    def CardRarityGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelStageExcel
+    def IntroScenarioGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameCCGLevelStageExcel
     def IsSkipIntroScenario(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # MinigameCCGLevelStageExcel
-    def IntroScenarioGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameCCGLevelStageExcel
     def IsSkipOutroScenario(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # MinigameCCGLevelStageExcel
     def OutroScenarioGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelStageExcel
+    def RewardCardGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelStageExcel
+    def RewardCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelStageExcel
+    def RewardType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGLevelStageExcel
+    def StageType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def MinigameCCGLevelStageExcelStart(builder): builder.StartObject(15)
 def Start(builder):
     return MinigameCCGLevelStageExcelStart(builder)
-def MinigameCCGLevelStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return MinigameCCGLevelStageExcelAddId(builder, id)
-def MinigameCCGLevelStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
-def AddGroupId(builder, groupId):
-    return MinigameCCGLevelStageExcelAddGroupId(builder, groupId)
-def MinigameCCGLevelStageExcelAddEnemyGroupId(builder, enemyGroupId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(enemyGroupId), 0)
+def MinigameCCGLevelStageExcelAddCampBackgroundPath(builder, campBackgroundPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(campBackgroundPath), 0)
+def AddCampBackgroundPath(builder, campBackgroundPath):
+    return MinigameCCGLevelStageExcelAddCampBackgroundPath(builder, campBackgroundPath)
+def MinigameCCGLevelStageExcelAddCampDiscardCardCount(builder, campDiscardCardCount): builder.PrependInt32Slot(1, campDiscardCardCount, 0)
+def AddCampDiscardCardCount(builder, campDiscardCardCount):
+    return MinigameCCGLevelStageExcelAddCampDiscardCardCount(builder, campDiscardCardCount)
+def MinigameCCGLevelStageExcelAddCampSprPath(builder, campSprPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(campSprPath), 0)
+def AddCampSprPath(builder, campSprPath):
+    return MinigameCCGLevelStageExcelAddCampSprPath(builder, campSprPath)
+def MinigameCCGLevelStageExcelAddCardRarityGroupId(builder, cardRarityGroupId): builder.PrependInt64Slot(3, cardRarityGroupId, 0)
+def AddCardRarityGroupId(builder, cardRarityGroupId):
+    return MinigameCCGLevelStageExcelAddCardRarityGroupId(builder, cardRarityGroupId)
+def MinigameCCGLevelStageExcelAddEnemyGroupId(builder, enemyGroupId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(enemyGroupId), 0)
 def AddEnemyGroupId(builder, enemyGroupId):
     return MinigameCCGLevelStageExcelAddEnemyGroupId(builder, enemyGroupId)
 def MinigameCCGLevelStageExcelStartEnemyGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartEnemyGroupIdVector(builder, numElems):
     return MinigameCCGLevelStageExcelStartEnemyGroupIdVector(builder, numElems)
-def MinigameCCGLevelStageExcelAddStageType(builder, stageType): builder.PrependInt32Slot(3, stageType, 0)
-def AddStageType(builder, stageType):
-    return MinigameCCGLevelStageExcelAddStageType(builder, stageType)
-def MinigameCCGLevelStageExcelAddCampDiscardCardCount(builder, campDiscardCardCount): builder.PrependInt32Slot(4, campDiscardCardCount, 0)
-def AddCampDiscardCardCount(builder, campDiscardCardCount):
-    return MinigameCCGLevelStageExcelAddCampDiscardCardCount(builder, campDiscardCardCount)
-def MinigameCCGLevelStageExcelAddCampSprPath(builder, campSprPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(campSprPath), 0)
-def AddCampSprPath(builder, campSprPath):
-    return MinigameCCGLevelStageExcelAddCampSprPath(builder, campSprPath)
-def MinigameCCGLevelStageExcelAddCampBackgroundPath(builder, campBackgroundPath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(campBackgroundPath), 0)
-def AddCampBackgroundPath(builder, campBackgroundPath):
-    return MinigameCCGLevelStageExcelAddCampBackgroundPath(builder, campBackgroundPath)
-def MinigameCCGLevelStageExcelAddRewardType(builder, rewardType): builder.PrependInt32Slot(7, rewardType, 0)
-def AddRewardType(builder, rewardType):
-    return MinigameCCGLevelStageExcelAddRewardType(builder, rewardType)
-def MinigameCCGLevelStageExcelAddRewardCount(builder, rewardCount): builder.PrependInt32Slot(8, rewardCount, 0)
-def AddRewardCount(builder, rewardCount):
-    return MinigameCCGLevelStageExcelAddRewardCount(builder, rewardCount)
-def MinigameCCGLevelStageExcelAddRewardCardGroupId(builder, rewardCardGroupId): builder.PrependInt64Slot(9, rewardCardGroupId, 0)
-def AddRewardCardGroupId(builder, rewardCardGroupId):
-    return MinigameCCGLevelStageExcelAddRewardCardGroupId(builder, rewardCardGroupId)
-def MinigameCCGLevelStageExcelAddCardRarityGroupId(builder, cardRarityGroupId): builder.PrependInt64Slot(10, cardRarityGroupId, 0)
-def AddCardRarityGroupId(builder, cardRarityGroupId):
-    return MinigameCCGLevelStageExcelAddCardRarityGroupId(builder, cardRarityGroupId)
-def MinigameCCGLevelStageExcelAddIsSkipIntroScenario(builder, isSkipIntroScenario): builder.PrependBoolSlot(11, isSkipIntroScenario, 0)
-def AddIsSkipIntroScenario(builder, isSkipIntroScenario):
-    return MinigameCCGLevelStageExcelAddIsSkipIntroScenario(builder, isSkipIntroScenario)
-def MinigameCCGLevelStageExcelAddIntroScenarioGroupId(builder, introScenarioGroupId): builder.PrependInt64Slot(12, introScenarioGroupId, 0)
+def MinigameCCGLevelStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(5, groupId, 0)
+def AddGroupId(builder, groupId):
+    return MinigameCCGLevelStageExcelAddGroupId(builder, groupId)
+def MinigameCCGLevelStageExcelAddId(builder, id): builder.PrependInt64Slot(6, id, 0)
+def AddId(builder, id):
+    return MinigameCCGLevelStageExcelAddId(builder, id)
+def MinigameCCGLevelStageExcelAddIntroScenarioGroupId(builder, introScenarioGroupId): builder.PrependInt64Slot(7, introScenarioGroupId, 0)
 def AddIntroScenarioGroupId(builder, introScenarioGroupId):
     return MinigameCCGLevelStageExcelAddIntroScenarioGroupId(builder, introScenarioGroupId)
-def MinigameCCGLevelStageExcelAddIsSkipOutroScenario(builder, isSkipOutroScenario): builder.PrependBoolSlot(13, isSkipOutroScenario, 0)
+def MinigameCCGLevelStageExcelAddIsSkipIntroScenario(builder, isSkipIntroScenario): builder.PrependBoolSlot(8, isSkipIntroScenario, 0)
+def AddIsSkipIntroScenario(builder, isSkipIntroScenario):
+    return MinigameCCGLevelStageExcelAddIsSkipIntroScenario(builder, isSkipIntroScenario)
+def MinigameCCGLevelStageExcelAddIsSkipOutroScenario(builder, isSkipOutroScenario): builder.PrependBoolSlot(9, isSkipOutroScenario, 0)
 def AddIsSkipOutroScenario(builder, isSkipOutroScenario):
     return MinigameCCGLevelStageExcelAddIsSkipOutroScenario(builder, isSkipOutroScenario)
-def MinigameCCGLevelStageExcelAddOutroScenarioGroupId(builder, outroScenarioGroupId): builder.PrependInt64Slot(14, outroScenarioGroupId, 0)
+def MinigameCCGLevelStageExcelAddOutroScenarioGroupId(builder, outroScenarioGroupId): builder.PrependInt64Slot(10, outroScenarioGroupId, 0)
 def AddOutroScenarioGroupId(builder, outroScenarioGroupId):
     return MinigameCCGLevelStageExcelAddOutroScenarioGroupId(builder, outroScenarioGroupId)
+def MinigameCCGLevelStageExcelAddRewardCardGroupId(builder, rewardCardGroupId): builder.PrependInt64Slot(11, rewardCardGroupId, 0)
+def AddRewardCardGroupId(builder, rewardCardGroupId):
+    return MinigameCCGLevelStageExcelAddRewardCardGroupId(builder, rewardCardGroupId)
+def MinigameCCGLevelStageExcelAddRewardCount(builder, rewardCount): builder.PrependInt32Slot(12, rewardCount, 0)
+def AddRewardCount(builder, rewardCount):
+    return MinigameCCGLevelStageExcelAddRewardCount(builder, rewardCount)
+def MinigameCCGLevelStageExcelAddRewardType(builder, rewardType): builder.PrependInt32Slot(13, rewardType, 0)
+def AddRewardType(builder, rewardType):
+    return MinigameCCGLevelStageExcelAddRewardType(builder, rewardType)
+def MinigameCCGLevelStageExcelAddStageType(builder, stageType): builder.PrependInt32Slot(14, stageType, 0)
+def AddStageType(builder, stageType):
+    return MinigameCCGLevelStageExcelAddStageType(builder, stageType)
 def MinigameCCGLevelStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameCCGLevelStageExcelEnd(builder)

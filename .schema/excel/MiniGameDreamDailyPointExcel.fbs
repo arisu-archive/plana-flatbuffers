@@ -1,12 +1,12 @@
 namespace MX.Data.Excel;
 
 table MiniGameDreamDailyPointExcel {
-    unique_id: long;
-    event_content_id: long;
-    total_parameter_min: long;
-    total_parameter_max: long;
     daily_point_coefficient: long;
     daily_point_correction_value: long;
+    event_content_id: long;
+    total_parameter_max: long;
+    total_parameter_min: long;
+    unique_id: long;
 }
 
 root_type MiniGameDreamDailyPointExcel;

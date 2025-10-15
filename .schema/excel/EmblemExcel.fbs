@@ -6,28 +6,28 @@ include "Rarity.fbs";
 namespace MX.Data.Excel;
 
 table EmblemExcel {
-    id: long;
     category: EmblemCategory;
-    rarity: Rarity;
+    check_pass_count: long;
+    check_pass_type: EmblemCheckPassType;
+    dislpay_favor_level: int;
+    display_end_date: string;
     display_order: long;
-    localize_etc_id: uint;
-    localize_code_id: uint;
-    use_at_localize_id: long;
-    emblem_text_visible: bool;
-    icon_path: string;
-    emblem_icon_path: string;
-    emblem_icon_num_control: int;
-    emblem_icon_bg_path: string;
+    display_start_date: string;
+    display_type: EmblemDisplayType;
     emblem_bg_path_jp: string;
     emblem_bg_path_kr: string;
     emblem_effect_path: string;
-    display_type: EmblemDisplayType;
-    display_start_date: string;
-    display_end_date: string;
-    dislpay_favor_level: int;
-    check_pass_type: EmblemCheckPassType;
+    emblem_icon_bg_path: string;
+    emblem_icon_num_control: int;
+    emblem_icon_path: string;
     emblem_parameter: long;
-    check_pass_count: long;
+    emblem_text_visible: bool;
+    icon_path: string;
+    id: long;
+    localize_code_id: uint;
+    localize_etc_id: uint;
+    rarity: Rarity;
+    use_at_localize_id: long;
 }
 
 root_type EmblemExcel;

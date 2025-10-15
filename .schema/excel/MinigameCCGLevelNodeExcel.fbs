@@ -4,10 +4,10 @@ namespace MX.Data.Excel;
 
 table MinigameCCGLevelNodeExcel {
     level_id: long;
-    node_id: long;
-    node_icon: CCGLevelNodeIcon;
-    stage_group_id: long;
     next_node_id: [long];
+    node_icon: CCGLevelNodeIcon;
+    node_id: long;
+    stage_group_id: long;
 }
 
 root_type MinigameCCGLevelNodeExcel;

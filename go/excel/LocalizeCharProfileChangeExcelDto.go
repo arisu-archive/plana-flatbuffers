@@ -10,17 +10,17 @@ import (
 // LocalizeCharProfileChangeExcelDto represents a FlatBuffers table
 type LocalizeCharProfileChangeExcelDto struct {
 	fbsutils.FlatBuffer
+	ChangeCharacterId int64 `json:"change_character_id"`
 	CharacterId       int64 `json:"character_id"`
 	ScenarioModeId    int64 `json:"scenario_mode_id"`
-	ChangeCharacterId int64 `json:"change_character_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCharProfileChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeCharProfileChangeExcelStart(b)
+	LocalizeCharProfileChangeExcelAddChangeCharacterId(b, fbsutils.Convert(t.ChangeCharacterId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileChangeExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileChangeExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
-	LocalizeCharProfileChangeExcelAddChangeCharacterId(b, fbsutils.Convert(t.ChangeCharacterId, t.FlatBuffer.TableKey))
 	return LocalizeCharProfileChangeExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *LocalizeCharProfileChangeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeCharProfileChangeExcelDto) UnmarshalMessage(e *LocalizeCharProfileChangeExcel) error {
+	t.ChangeCharacterId = fbsutils.Convert(e.ChangeCharacterId(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
-	t.ChangeCharacterId = fbsutils.Convert(e.ChangeCharacterId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -13,15 +13,15 @@ type ConquestStepExcelDto struct {
 	EventContentId              int64           `json:"event_content_id"`
 	MapDifficulty               StageDifficulty `json:"map_difficulty"`
 	Step                        int32           `json:"step"`
-	StepGoalLocalize            string          `json:"step_goal_localize"`
-	StepEnterScenarioGroupId    int64           `json:"step_enter_scenario_group_id"`
+	StepEnterItemAmount         int64           `json:"step_enter_item_amount"`
 	StepEnterItemType           ParcelType      `json:"step_enter_item_type"`
 	StepEnterItemUniqueId       int64           `json:"step_enter_item_unique_id"`
-	StepEnterItemAmount         int64           `json:"step_enter_item_amount"`
-	UnexpectedEventUnitId       []int64         `json:"unexpected_event_unit_id"`
-	UnexpectedEventPrefab       string          `json:"unexpected_event_prefab"`
-	TreasureBoxObjectId         int64           `json:"treasure_box_object_id"`
+	StepEnterScenarioGroupId    int64           `json:"step_enter_scenario_group_id"`
+	StepGoalLocalize            string          `json:"step_goal_localize"`
 	TreasureBoxCountPerStepOpen int32           `json:"treasure_box_count_per_step_open"`
+	TreasureBoxObjectId         int64           `json:"treasure_box_object_id"`
+	UnexpectedEventPrefab       string          `json:"unexpected_event_prefab"`
+	UnexpectedEventUnitId       []int64         `json:"unexpected_event_unit_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,19 +33,19 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepGoalLocalize(b, b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey)))
-	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepEnterItemAmount(b, fbsutils.Convert(t.StepEnterItemAmount, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemType(b, fbsutils.Convert(t.StepEnterItemType, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemUniqueId(b, fbsutils.Convert(t.StepEnterItemUniqueId, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepEnterItemAmount(b, fbsutils.Convert(t.StepEnterItemAmount, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepGoalLocalize(b, b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey)))
+	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Convert(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Convert(t.TreasureBoxObjectId, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddUnexpectedEventPrefab(b, b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey)))
 	ConquestStepExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitId))
 	for i := range len(t.UnexpectedEventUnitId) {
 		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitId[len(t.UnexpectedEventUnitId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestStepExcelAddUnexpectedEventUnitId(b, b.EndVector(len(t.UnexpectedEventUnitId)))
-	ConquestStepExcelAddUnexpectedEventPrefab(b, b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey)))
-	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Convert(t.TreasureBoxObjectId, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Convert(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
 	return ConquestStepExcelEnd(b)
 }
 
@@ -64,18 +64,18 @@ func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
 	t.Step = fbsutils.Convert(e.Step(), t.FlatBuffer.TableKey)
-	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
-	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
 	t.StepEnterItemType = ParcelType(fbsutils.Convert(int32(e.StepEnterItemType()), t.FlatBuffer.TableKey))
 	t.StepEnterItemUniqueId = fbsutils.Convert(e.StepEnterItemUniqueId(), t.FlatBuffer.TableKey)
-	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
+	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
+	t.TreasureBoxCountPerStepOpen = fbsutils.Convert(e.TreasureBoxCountPerStepOpen(), t.FlatBuffer.TableKey)
+	t.TreasureBoxObjectId = fbsutils.Convert(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)
+	t.UnexpectedEventPrefab = fbsutils.Convert(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {
 		t.UnexpectedEventUnitId[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
-	t.UnexpectedEventPrefab = fbsutils.Convert(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
-	t.TreasureBoxObjectId = fbsutils.Convert(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)
-	t.TreasureBoxCountPerStepOpen = fbsutils.Convert(e.TreasureBoxCountPerStepOpen(), t.FlatBuffer.TableKey)
 	return nil
 }
 

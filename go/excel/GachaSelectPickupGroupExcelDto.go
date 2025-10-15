@@ -10,17 +10,17 @@ import (
 // GachaSelectPickupGroupExcelDto represents a FlatBuffers table
 type GachaSelectPickupGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	Id           int64 `json:"id"`
-	GachaGroupId int64 `json:"gacha_group_id"`
 	CharacterId  int64 `json:"character_id"`
+	GachaGroupId int64 `json:"gacha_group_id"`
+	Id           int64 `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaSelectPickupGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	GachaSelectPickupGroupExcelStart(b)
-	GachaSelectPickupGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaSelectPickupGroupExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
 	GachaSelectPickupGroupExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	GachaSelectPickupGroupExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
+	GachaSelectPickupGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return GachaSelectPickupGroupExcelEnd(b)
 }
 
@@ -33,9 +33,9 @@ func (t *GachaSelectPickupGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaSelectPickupGroupExcelDto) UnmarshalMessage(e *GachaSelectPickupGroupExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

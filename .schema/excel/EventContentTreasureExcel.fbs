@@ -2,10 +2,10 @@ namespace MX.Data.Excel;
 
 table EventContentTreasureExcel {
     event_content_id: long;
-    title_localize: string;
     loop_round: int;
-    use_prefab_name: string;
+    title_localize: string;
     treasure_bg_image_path: string;
+    use_prefab_name: string;
 }
 
 root_type EventContentTreasureExcel;

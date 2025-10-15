@@ -10,41 +10,41 @@ import (
 // EventContentTreasureRoundExcelDto represents a FlatBuffers table
 type EventContentTreasureRoundExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId           int64   `json:"event_content_id"`
-	TreasureRound            int32   `json:"treasure_round"`
-	TreasureRoundSize        []int32 `json:"treasure_round_size"`
-	CellVisualSortUnstructed bool    `json:"cell_visual_sort_unstructed"`
 	CellCheckGoodsId         int64   `json:"cell_check_goods_id"`
 	CellRewardId             int64   `json:"cell_reward_id"`
-	RewardId                 []int64 `json:"reward_id"`
+	CellVisualSortUnstructed bool    `json:"cell_visual_sort_unstructed"`
+	EventContentId           int64   `json:"event_content_id"`
 	RewardAmount             []int32 `json:"reward_amount"`
+	RewardId                 []int64 `json:"reward_id"`
 	TreasureCellImagePath    string  `json:"treasure_cell_image_path"`
+	TreasureRound            int32   `json:"treasure_round"`
+	TreasureRoundSize        []int32 `json:"treasure_round_size"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureRoundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EventContentTreasureRoundExcelStart(b)
+	EventContentTreasureRoundExcelAddCellCheckGoodsId(b, fbsutils.Convert(t.CellCheckGoodsId, t.FlatBuffer.TableKey))
+	EventContentTreasureRoundExcelAddCellRewardId(b, fbsutils.Convert(t.CellRewardId, t.FlatBuffer.TableKey))
+	EventContentTreasureRoundExcelAddCellVisualSortUnstructed(b, t.CellVisualSortUnstructed)
 	EventContentTreasureRoundExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentTreasureRoundExcelStartRewardAmountVector(b, len(t.RewardAmount))
+	for i := range len(t.RewardAmount) {
+		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureRoundExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
+	EventContentTreasureRoundExcelStartRewardIdVector(b, len(t.RewardId))
+	for i := range len(t.RewardId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureRoundExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
+	EventContentTreasureRoundExcelAddTreasureCellImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureCellImagePath, t.FlatBuffer.TableKey)))
 	EventContentTreasureRoundExcelAddTreasureRound(b, fbsutils.Convert(t.TreasureRound, t.FlatBuffer.TableKey))
 	EventContentTreasureRoundExcelStartTreasureRoundSizeVector(b, len(t.TreasureRoundSize))
 	for i := range len(t.TreasureRoundSize) {
 		b.PrependInt32(fbsutils.Convert(t.TreasureRoundSize[len(t.TreasureRoundSize)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentTreasureRoundExcelAddTreasureRoundSize(b, b.EndVector(len(t.TreasureRoundSize)))
-	EventContentTreasureRoundExcelAddCellVisualSortUnstructed(b, t.CellVisualSortUnstructed)
-	EventContentTreasureRoundExcelAddCellCheckGoodsId(b, fbsutils.Convert(t.CellCheckGoodsId, t.FlatBuffer.TableKey))
-	EventContentTreasureRoundExcelAddCellRewardId(b, fbsutils.Convert(t.CellRewardId, t.FlatBuffer.TableKey))
-	EventContentTreasureRoundExcelStartRewardIdVector(b, len(t.RewardId))
-	for i := range len(t.RewardId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureRoundExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
-	EventContentTreasureRoundExcelStartRewardAmountVector(b, len(t.RewardAmount))
-	for i := range len(t.RewardAmount) {
-		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureRoundExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
-	EventContentTreasureRoundExcelAddTreasureCellImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureCellImagePath, t.FlatBuffer.TableKey)))
 	return EventContentTreasureRoundExcelEnd(b)
 }
 
@@ -57,24 +57,24 @@ func (t *EventContentTreasureRoundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentTreasureRoundExcelDto) UnmarshalMessage(e *EventContentTreasureRoundExcel) error {
+	t.CellCheckGoodsId = fbsutils.Convert(e.CellCheckGoodsId(), t.FlatBuffer.TableKey)
+	t.CellRewardId = fbsutils.Convert(e.CellRewardId(), t.FlatBuffer.TableKey)
+	t.CellVisualSortUnstructed = e.CellVisualSortUnstructed()
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.RewardAmount = make([]int32, e.RewardAmountLength())
+	for i := range e.RewardAmountLength() {
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.RewardId = make([]int64, e.RewardIdLength())
+	for i := range e.RewardIdLength() {
+		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
+	}
+	t.TreasureCellImagePath = fbsutils.Convert(string(e.TreasureCellImagePath()), t.FlatBuffer.TableKey)
 	t.TreasureRound = fbsutils.Convert(e.TreasureRound(), t.FlatBuffer.TableKey)
 	t.TreasureRoundSize = make([]int32, e.TreasureRoundSizeLength())
 	for i := range e.TreasureRoundSizeLength() {
 		t.TreasureRoundSize[i] = fbsutils.Convert(e.TreasureRoundSize(i), t.FlatBuffer.TableKey)
 	}
-	t.CellVisualSortUnstructed = e.CellVisualSortUnstructed()
-	t.CellCheckGoodsId = fbsutils.Convert(e.CellCheckGoodsId(), t.FlatBuffer.TableKey)
-	t.CellRewardId = fbsutils.Convert(e.CellRewardId(), t.FlatBuffer.TableKey)
-	t.RewardId = make([]int64, e.RewardIdLength())
-	for i := range e.RewardIdLength() {
-		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardAmount = make([]int32, e.RewardAmountLength())
-	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
-	}
-	t.TreasureCellImagePath = fbsutils.Convert(string(e.TreasureCellImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

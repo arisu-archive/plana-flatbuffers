@@ -10,40 +10,46 @@ import (
 // BattlePassInfoExcelDto represents a FlatBuffers table
 type BattlePassInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                            int64   `json:"id"`
-	FreeRewardGroupId             int64   `json:"free_reward_group_id"`
-	PurchaseRewardGroupId         int64   `json:"purchase_reward_group_id"`
-	NormalProductGroupId          int64   `json:"normal_product_group_id"`
-	PremiumProductGroupId         int64   `json:"premium_product_group_id"`
-	DiscountPremiumProductGroupId int64   `json:"discount_premium_product_group_id"`
-	NextLvNeedExp                 int32   `json:"next_lv_need_exp"`
-	PassLvUpGoodsId               int64   `json:"pass_lv_up_goods_id"`
 	BuyPremiumLvUpAmount          int32   `json:"buy_premium_lv_up_amount"`
+	DiscountPremiumProductGroupId int64   `json:"discount_premium_product_group_id"`
+	ExclusiveEmblemId             int64   `json:"exclusive_emblem_id"`
+	ExclusiveRewardId             int64   `json:"exclusive_reward_id"`
+	FlavorTextGroupId             int64   `json:"flavor_text_group_id"`
+	FreeRewardGroupId             int64   `json:"free_reward_group_id"`
+	Id                            int64   `json:"id"`
+	LobbyBannerPath               string  `json:"lobby_banner_path"`
+	MainIconParcelPath            string  `json:"main_icon_parcel_path"`
+	NextLvNeedExp                 int32   `json:"next_lv_need_exp"`
+	NormalProductGroupId          int64   `json:"normal_product_group_id"`
+	PassExpLocalizeEtcId          uint32  `json:"pass_exp_localize_etc_id"`
+	PassLvUpGoodsId               int64   `json:"pass_lv_up_goods_id"`
+	PremiumProductGroupId         int64   `json:"premium_product_group_id"`
+	PurchaseRewardGroupId         int64   `json:"purchase_reward_group_id"`
+	PurchaseStepProductImagePath  string  `json:"purchase_step_product_image_path"`
 	SalePeriodFrom                string  `json:"sale_period_from"`
 	SalePeriodTo                  string  `json:"sale_period_to"`
 	VideoId                       []int64 `json:"video_id"`
-	FlavorTextGroupId             int64   `json:"flavor_text_group_id"`
-	ExclusiveRewardId             int64   `json:"exclusive_reward_id"`
-	ExclusiveEmblemId             int64   `json:"exclusive_emblem_id"`
-	PassExpLocalizeEtcId          uint32  `json:"pass_exp_localize_etc_id"`
-	LobbyBannerPath               string  `json:"lobby_banner_path"`
-	MainIconParcelPath            string  `json:"main_icon_parcel_path"`
-	PurchaseStepProductImagePath  string  `json:"purchase_step_product_image_path"`
-	PurchaseStepBgImagePath       string  `json:"purchase_step_bg_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BattlePassInfoExcelStart(b)
-	BattlePassInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddFreeRewardGroupId(b, fbsutils.Convert(t.FreeRewardGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddPurchaseRewardGroupId(b, fbsutils.Convert(t.PurchaseRewardGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddNormalProductGroupId(b, fbsutils.Convert(t.NormalProductGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddPremiumProductGroupId(b, fbsutils.Convert(t.PremiumProductGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddDiscountPremiumProductGroupId(b, fbsutils.Convert(t.DiscountPremiumProductGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddNextLvNeedExp(b, fbsutils.Convert(t.NextLvNeedExp, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddPassLvUpGoodsId(b, fbsutils.Convert(t.PassLvUpGoodsId, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddBuyPremiumLvUpAmount(b, fbsutils.Convert(t.BuyPremiumLvUpAmount, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddDiscountPremiumProductGroupId(b, fbsutils.Convert(t.DiscountPremiumProductGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddExclusiveEmblemId(b, fbsutils.Convert(t.ExclusiveEmblemId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddExclusiveRewardId(b, fbsutils.Convert(t.ExclusiveRewardId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddFlavorTextGroupId(b, fbsutils.Convert(t.FlavorTextGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddFreeRewardGroupId(b, fbsutils.Convert(t.FreeRewardGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddLobbyBannerPath(b, b.CreateString(fbsutils.Convert(t.LobbyBannerPath, t.FlatBuffer.TableKey)))
+	BattlePassInfoExcelAddMainIconParcelPath(b, b.CreateString(fbsutils.Convert(t.MainIconParcelPath, t.FlatBuffer.TableKey)))
+	BattlePassInfoExcelAddNextLvNeedExp(b, fbsutils.Convert(t.NextLvNeedExp, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddNormalProductGroupId(b, fbsutils.Convert(t.NormalProductGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddPassExpLocalizeEtcId(b, fbsutils.Convert(t.PassExpLocalizeEtcId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddPassLvUpGoodsId(b, fbsutils.Convert(t.PassLvUpGoodsId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddPremiumProductGroupId(b, fbsutils.Convert(t.PremiumProductGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddPurchaseRewardGroupId(b, fbsutils.Convert(t.PurchaseRewardGroupId, t.FlatBuffer.TableKey))
+	BattlePassInfoExcelAddPurchaseStepProductImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepProductImagePath, t.FlatBuffer.TableKey)))
 	BattlePassInfoExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
 	BattlePassInfoExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
 	BattlePassInfoExcelStartVideoIdVector(b, len(t.VideoId))
@@ -51,14 +57,6 @@ func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependInt64(fbsutils.Convert(t.VideoId[len(t.VideoId)-i-1], t.FlatBuffer.TableKey))
 	}
 	BattlePassInfoExcelAddVideoId(b, b.EndVector(len(t.VideoId)))
-	BattlePassInfoExcelAddFlavorTextGroupId(b, fbsutils.Convert(t.FlavorTextGroupId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddExclusiveRewardId(b, fbsutils.Convert(t.ExclusiveRewardId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddExclusiveEmblemId(b, fbsutils.Convert(t.ExclusiveEmblemId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddPassExpLocalizeEtcId(b, fbsutils.Convert(t.PassExpLocalizeEtcId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddLobbyBannerPath(b, b.CreateString(fbsutils.Convert(t.LobbyBannerPath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddMainIconParcelPath(b, b.CreateString(fbsutils.Convert(t.MainIconParcelPath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddPurchaseStepProductImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepProductImagePath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddPurchaseStepBgImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepBgImagePath, t.FlatBuffer.TableKey)))
 	return BattlePassInfoExcelEnd(b)
 }
 
@@ -71,29 +69,28 @@ func (t *BattlePassInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattlePassInfoExcelDto) UnmarshalMessage(e *BattlePassInfoExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.FreeRewardGroupId = fbsutils.Convert(e.FreeRewardGroupId(), t.FlatBuffer.TableKey)
-	t.PurchaseRewardGroupId = fbsutils.Convert(e.PurchaseRewardGroupId(), t.FlatBuffer.TableKey)
-	t.NormalProductGroupId = fbsutils.Convert(e.NormalProductGroupId(), t.FlatBuffer.TableKey)
-	t.PremiumProductGroupId = fbsutils.Convert(e.PremiumProductGroupId(), t.FlatBuffer.TableKey)
-	t.DiscountPremiumProductGroupId = fbsutils.Convert(e.DiscountPremiumProductGroupId(), t.FlatBuffer.TableKey)
-	t.NextLvNeedExp = fbsutils.Convert(e.NextLvNeedExp(), t.FlatBuffer.TableKey)
-	t.PassLvUpGoodsId = fbsutils.Convert(e.PassLvUpGoodsId(), t.FlatBuffer.TableKey)
 	t.BuyPremiumLvUpAmount = fbsutils.Convert(e.BuyPremiumLvUpAmount(), t.FlatBuffer.TableKey)
+	t.DiscountPremiumProductGroupId = fbsutils.Convert(e.DiscountPremiumProductGroupId(), t.FlatBuffer.TableKey)
+	t.ExclusiveEmblemId = fbsutils.Convert(e.ExclusiveEmblemId(), t.FlatBuffer.TableKey)
+	t.ExclusiveRewardId = fbsutils.Convert(e.ExclusiveRewardId(), t.FlatBuffer.TableKey)
+	t.FlavorTextGroupId = fbsutils.Convert(e.FlavorTextGroupId(), t.FlatBuffer.TableKey)
+	t.FreeRewardGroupId = fbsutils.Convert(e.FreeRewardGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LobbyBannerPath = fbsutils.Convert(string(e.LobbyBannerPath()), t.FlatBuffer.TableKey)
+	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
+	t.NextLvNeedExp = fbsutils.Convert(e.NextLvNeedExp(), t.FlatBuffer.TableKey)
+	t.NormalProductGroupId = fbsutils.Convert(e.NormalProductGroupId(), t.FlatBuffer.TableKey)
+	t.PassExpLocalizeEtcId = fbsutils.Convert(e.PassExpLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.PassLvUpGoodsId = fbsutils.Convert(e.PassLvUpGoodsId(), t.FlatBuffer.TableKey)
+	t.PremiumProductGroupId = fbsutils.Convert(e.PremiumProductGroupId(), t.FlatBuffer.TableKey)
+	t.PurchaseRewardGroupId = fbsutils.Convert(e.PurchaseRewardGroupId(), t.FlatBuffer.TableKey)
+	t.PurchaseStepProductImagePath = fbsutils.Convert(string(e.PurchaseStepProductImagePath()), t.FlatBuffer.TableKey)
 	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
 	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
 	t.VideoId = make([]int64, e.VideoIdLength())
 	for i := range e.VideoIdLength() {
 		t.VideoId[i] = fbsutils.Convert(e.VideoId(i), t.FlatBuffer.TableKey)
 	}
-	t.FlavorTextGroupId = fbsutils.Convert(e.FlavorTextGroupId(), t.FlatBuffer.TableKey)
-	t.ExclusiveRewardId = fbsutils.Convert(e.ExclusiveRewardId(), t.FlatBuffer.TableKey)
-	t.ExclusiveEmblemId = fbsutils.Convert(e.ExclusiveEmblemId(), t.FlatBuffer.TableKey)
-	t.PassExpLocalizeEtcId = fbsutils.Convert(e.PassExpLocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.LobbyBannerPath = fbsutils.Convert(string(e.LobbyBannerPath()), t.FlatBuffer.TableKey)
-	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
-	t.PurchaseStepProductImagePath = fbsutils.Convert(string(e.PurchaseStepProductImagePath()), t.FlatBuffer.TableKey)
-	t.PurchaseStepBgImagePath = fbsutils.Convert(string(e.PurchaseStepBgImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

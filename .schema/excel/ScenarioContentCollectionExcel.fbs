@@ -4,19 +4,19 @@ include "MultipleConditionCheckType.fbs";
 namespace MX.Data.Excel;
 
 table ScenarioContentCollectionExcel {
-    id: long;
-    group_id: long;
-    unlock_condition_type: CollectionUnlockType;
-    unlock_condition_parameter: [long];
-    multiple_condition_check_type: MultipleConditionCheckType;
-    unlock_condition_count: long;
-    is_object: bool;
-    is_horizon: bool;
     emblem_resource: string;
-    thumb_resource: string;
     full_resource: string;
+    group_id: long;
+    id: long;
+    is_horizon: bool;
+    is_object: bool;
     localize_etc_id: uint;
+    multiple_condition_check_type: MultipleConditionCheckType;
     sub_name_localize_code_id: string;
+    thumb_resource: string;
+    unlock_condition_count: long;
+    unlock_condition_parameter: [long];
+    unlock_condition_type: CollectionUnlockType;
 }
 
 root_type ScenarioContentCollectionExcel;

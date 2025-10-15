@@ -11,9 +11,9 @@ import (
 type FieldMasteryManageExcelDto struct {
 	fbsutils.FlatBuffer
 	FieldSeason int64  `json:"field_season"`
-	LocalizeEtc uint32 `json:"localize_etc"`
 	ImagePath   string `json:"image_path"`
 	LevelId     int64  `json:"level_id"`
+	LocalizeEtc uint32 `json:"localize_etc"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,9 +23,9 @@ func (t *FieldMasteryManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	FieldMasteryManageExcelStart(b)
 	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
-	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
 	FieldMasteryManageExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	FieldMasteryManageExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
 	return FieldMasteryManageExcelEnd(b)
 }
 
@@ -42,9 +42,9 @@ func (t *FieldMasteryManageExcelDto) UnmarshalMessage(e *FieldMasteryManageExcel
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManage"))
 	}
 	t.FieldSeason = fbsutils.Convert(e.FieldSeason(), t.FlatBuffer.TableKey)
-	t.LocalizeEtc = fbsutils.Convert(e.LocalizeEtc(), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
+	t.LocalizeEtc = fbsutils.Convert(e.LocalizeEtc(), t.FlatBuffer.TableKey)
 	return nil
 }
 

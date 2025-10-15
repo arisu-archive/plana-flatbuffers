@@ -4,20 +4,20 @@ include "AcademyMessageTypes.fbs";
 namespace MX.Data.Excel;
 
 table AcademyMessangerExcel {
-    message_group_id: long;
-    id: long;
     character_id: long;
-    message_condition: AcademyMessageConditions;
     condition_value: long;
-    pre_condition_group_id: long;
-    pre_condition_favor_schedule_id: long;
     favor_schedule_id: long;
-    next_group_id: long;
     feedback_time_millisec: long;
-    message_type: AcademyMessageTypes;
+    id: long;
     image_path: string;
-    message_kr: string;
+    message_condition: AcademyMessageConditions;
+    message_group_id: long;
     message_jp: string;
+    message_kr: string;
+    message_type: AcademyMessageTypes;
+    next_group_id: long;
+    pre_condition_favor_schedule_id: long;
+    pre_condition_group_id: long;
 }
 
 root_type AcademyMessangerExcel;

@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table TimeAttackDungeonSeasonManageExcel {
-    id: long;
-    start_date: string;
-    end_note_label_start_date: string;
-    end_date: string;
-    ui_slot: long;
-    dungeon_id: long;
     difficulty_geas: [long];
-    time_attack_dungeon_reward_id: long;
+    dungeon_id: long;
+    end_date: string;
+    end_note_label_start_date: string;
+    id: long;
     room_life_time_in_seconds: long;
+    start_date: string;
+    time_attack_dungeon_reward_id: long;
+    ui_slot: long;
 }
 
 root_type TimeAttackDungeonSeasonManageExcel;

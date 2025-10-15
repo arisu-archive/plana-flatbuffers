@@ -33,20 +33,8 @@ func (rcv *TutorialFailureImageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TutorialFailureImageExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TutorialFailureImageExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *TutorialFailureImageExcel) Contents() TutorialFailureContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return TutorialFailureContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,10 +42,22 @@ func (rcv *TutorialFailureImageExcel) Contents() TutorialFailureContentType {
 }
 
 func (rcv *TutorialFailureImageExcel) MutateContents(n TutorialFailureContentType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *TutorialFailureImageExcel) Type() []byte {
+func (rcv *TutorialFailureImageExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TutorialFailureImageExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *TutorialFailureImageExcel) ImagePathJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,7 +73,7 @@ func (rcv *TutorialFailureImageExcel) ImagePathKr() []byte {
 	return nil
 }
 
-func (rcv *TutorialFailureImageExcel) ImagePathJp() []byte {
+func (rcv *TutorialFailureImageExcel) Type() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -84,20 +84,20 @@ func (rcv *TutorialFailureImageExcel) ImagePathJp() []byte {
 func TutorialFailureImageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func TutorialFailureImageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func TutorialFailureImageExcelAddContents(builder *flatbuffers.Builder, contents TutorialFailureContentType) {
-	builder.PrependInt32Slot(1, int32(contents), 0)
+	builder.PrependInt32Slot(0, int32(contents), 0)
 }
-func TutorialFailureImageExcelAddType(builder *flatbuffers.Builder, type_ flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(type_), 0)
+func TutorialFailureImageExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
+}
+func TutorialFailureImageExcelAddImagePathJp(builder *flatbuffers.Builder, imagePathJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePathJp), 0)
 }
 func TutorialFailureImageExcelAddImagePathKr(builder *flatbuffers.Builder, imagePathKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(imagePathKr), 0)
 }
-func TutorialFailureImageExcelAddImagePathJp(builder *flatbuffers.Builder, imagePathJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(imagePathJp), 0)
+func TutorialFailureImageExcelAddType(builder *flatbuffers.Builder, type_ flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(type_), 0)
 }
 func TutorialFailureImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

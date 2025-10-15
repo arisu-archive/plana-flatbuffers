@@ -33,20 +33,8 @@ func (rcv *CharacterPotentialStatExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterPotentialStatExcel) PotentialStatGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterPotentialStatExcel) MutatePotentialStatGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *CharacterPotentialStatExcel) PotentialLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,19 @@ func (rcv *CharacterPotentialStatExcel) PotentialLevel() int32 {
 }
 
 func (rcv *CharacterPotentialStatExcel) MutatePotentialLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *CharacterPotentialStatExcel) PotentialStatGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterPotentialStatExcel) MutatePotentialStatGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *CharacterPotentialStatExcel) RecipeId() int64 {
@@ -84,11 +84,11 @@ func (rcv *CharacterPotentialStatExcel) MutateStatBonusRate(n int64) bool {
 func CharacterPotentialStatExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func CharacterPotentialStatExcelAddPotentialStatGroupId(builder *flatbuffers.Builder, potentialStatGroupId int64) {
-	builder.PrependInt64Slot(0, potentialStatGroupId, 0)
-}
 func CharacterPotentialStatExcelAddPotentialLevel(builder *flatbuffers.Builder, potentialLevel int32) {
-	builder.PrependInt32Slot(1, potentialLevel, 0)
+	builder.PrependInt32Slot(0, potentialLevel, 0)
+}
+func CharacterPotentialStatExcelAddPotentialStatGroupId(builder *flatbuffers.Builder, potentialStatGroupId int64) {
+	builder.PrependInt64Slot(1, potentialStatGroupId, 0)
 }
 func CharacterPotentialStatExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int64) {
 	builder.PrependInt64Slot(2, recipeId, 0)

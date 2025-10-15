@@ -1,0 +1,14 @@
+include "EventContentDiceRaceResultType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentDiceRaceProbExcel {
+    cost_item_amount: int;
+    cost_item_id: long;
+    dice_result: int;
+    event_content_dice_race_result_type: EventContentDiceRaceResultType;
+    event_content_id: long;
+    prob: int;
+}
+
+root_type EventContentDiceRaceProbExcel;

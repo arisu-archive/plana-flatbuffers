@@ -10,53 +10,53 @@ import (
 // MiniGameShootingCharacterExcelDto represents a FlatBuffers table
 type MiniGameShootingCharacterExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId              int64    `json:"unique_id"`
-	SpineResourceName     string   `json:"spine_resource_name"`
+	AttackPower           int64    `json:"attack_power"`
+	AttackRange           int64    `json:"attack_range"`
 	BodyRadius            float32  `json:"body_radius"`
+	CharacterVoiceGroupId int64    `json:"character_voice_group_id"`
+	CriticalDamageRate    int64    `json:"critical_damage_rate"`
+	CriticalRate          int64    `json:"critical_rate"`
+	DeathSkillData        string   `json:"death_skill_data"`
+	DefensePower          int64    `json:"defense_power"`
+	IgnoreObstacleCheck   bool     `json:"ignore_obstacle_check"`
+	IsBoss                bool     `json:"is_boss"`
+	MaxHp                 int64    `json:"max_hp"`
 	ModelPrefabName       string   `json:"model_prefab_name"`
+	MoveSpeed             int64    `json:"move_speed"`
 	NormalAttackSkillData string   `json:"normal_attack_skill_data"`
 	PublicSkillData       []string `json:"public_skill_data"`
-	DeathSkillData        string   `json:"death_skill_data"`
-	MaxHp                 int64    `json:"max_hp"`
-	AttackPower           int64    `json:"attack_power"`
-	DefensePower          int64    `json:"defense_power"`
-	CriticalRate          int64    `json:"critical_rate"`
-	CriticalDamageRate    int64    `json:"critical_damage_rate"`
-	AttackRange           int64    `json:"attack_range"`
-	MoveSpeed             int64    `json:"move_speed"`
-	ShotTime              int64    `json:"shot_time"`
-	IsBoss                bool     `json:"is_boss"`
 	Scale                 float32  `json:"scale"`
-	IgnoreObstacleCheck   bool     `json:"ignore_obstacle_check"`
-	CharacterVoiceGroupId int64    `json:"character_voice_group_id"`
+	ShotTime              int64    `json:"shot_time"`
+	SpineResourceName     string   `json:"spine_resource_name"`
+	UniqueId              int64    `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameShootingCharacterExcelStart(b)
-	MiniGameShootingCharacterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddSpineResourceName(b, b.CreateString(fbsutils.Convert(t.SpineResourceName, t.FlatBuffer.TableKey)))
+	MiniGameShootingCharacterExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddAttackRange(b, fbsutils.Convert(t.AttackRange, t.FlatBuffer.TableKey))
 	MiniGameShootingCharacterExcelAddBodyRadius(b, fbsutils.Convert(t.BodyRadius, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddCriticalDamageRate(b, fbsutils.Convert(t.CriticalDamageRate, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddCriticalRate(b, fbsutils.Convert(t.CriticalRate, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddDeathSkillData(b, b.CreateString(fbsutils.Convert(t.DeathSkillData, t.FlatBuffer.TableKey)))
+	MiniGameShootingCharacterExcelAddDefensePower(b, fbsutils.Convert(t.DefensePower, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(b, t.IgnoreObstacleCheck)
+	MiniGameShootingCharacterExcelAddIsBoss(b, t.IsBoss)
+	MiniGameShootingCharacterExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
 	MiniGameShootingCharacterExcelAddModelPrefabName(b, b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey)))
+	MiniGameShootingCharacterExcelAddMoveSpeed(b, fbsutils.Convert(t.MoveSpeed, t.FlatBuffer.TableKey))
 	MiniGameShootingCharacterExcelAddNormalAttackSkillData(b, b.CreateString(fbsutils.Convert(t.NormalAttackSkillData, t.FlatBuffer.TableKey)))
 	MiniGameShootingCharacterExcelStartPublicSkillDataVector(b, len(t.PublicSkillData))
 	for i := range len(t.PublicSkillData) {
 		b.PrependUOffsetT(b.CreateString(t.PublicSkillData[len(t.PublicSkillData)-i-1]))
 	}
 	MiniGameShootingCharacterExcelAddPublicSkillData(b, b.EndVector(len(t.PublicSkillData)))
-	MiniGameShootingCharacterExcelAddDeathSkillData(b, b.CreateString(fbsutils.Convert(t.DeathSkillData, t.FlatBuffer.TableKey)))
-	MiniGameShootingCharacterExcelAddMaxHp(b, fbsutils.Convert(t.MaxHp, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddDefensePower(b, fbsutils.Convert(t.DefensePower, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddCriticalRate(b, fbsutils.Convert(t.CriticalRate, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddCriticalDamageRate(b, fbsutils.Convert(t.CriticalDamageRate, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddAttackRange(b, fbsutils.Convert(t.AttackRange, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddMoveSpeed(b, fbsutils.Convert(t.MoveSpeed, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddShotTime(b, fbsutils.Convert(t.ShotTime, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddIsBoss(b, t.IsBoss)
 	MiniGameShootingCharacterExcelAddScale(b, fbsutils.Convert(t.Scale, t.FlatBuffer.TableKey))
-	MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(b, t.IgnoreObstacleCheck)
-	MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddShotTime(b, fbsutils.Convert(t.ShotTime, t.FlatBuffer.TableKey))
+	MiniGameShootingCharacterExcelAddSpineResourceName(b, b.CreateString(fbsutils.Convert(t.SpineResourceName, t.FlatBuffer.TableKey)))
+	MiniGameShootingCharacterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MiniGameShootingCharacterExcelEnd(b)
 }
 
@@ -69,28 +69,28 @@ func (t *MiniGameShootingCharacterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingCharacterExcelDto) UnmarshalMessage(e *MiniGameShootingCharacterExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SpineResourceName = fbsutils.Convert(string(e.SpineResourceName()), t.FlatBuffer.TableKey)
+	t.AttackPower = fbsutils.Convert(e.AttackPower(), t.FlatBuffer.TableKey)
+	t.AttackRange = fbsutils.Convert(e.AttackRange(), t.FlatBuffer.TableKey)
 	t.BodyRadius = fbsutils.Convert(e.BodyRadius(), t.FlatBuffer.TableKey)
+	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
+	t.CriticalDamageRate = fbsutils.Convert(e.CriticalDamageRate(), t.FlatBuffer.TableKey)
+	t.CriticalRate = fbsutils.Convert(e.CriticalRate(), t.FlatBuffer.TableKey)
+	t.DeathSkillData = fbsutils.Convert(string(e.DeathSkillData()), t.FlatBuffer.TableKey)
+	t.DefensePower = fbsutils.Convert(e.DefensePower(), t.FlatBuffer.TableKey)
+	t.IgnoreObstacleCheck = e.IgnoreObstacleCheck()
+	t.IsBoss = e.IsBoss()
+	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
 	t.ModelPrefabName = fbsutils.Convert(string(e.ModelPrefabName()), t.FlatBuffer.TableKey)
+	t.MoveSpeed = fbsutils.Convert(e.MoveSpeed(), t.FlatBuffer.TableKey)
 	t.NormalAttackSkillData = fbsutils.Convert(string(e.NormalAttackSkillData()), t.FlatBuffer.TableKey)
 	t.PublicSkillData = make([]string, e.PublicSkillDataLength())
 	for i := range e.PublicSkillDataLength() {
 		t.PublicSkillData[i] = fbsutils.Convert(string(e.PublicSkillData(i)), t.FlatBuffer.TableKey)
 	}
-	t.DeathSkillData = fbsutils.Convert(string(e.DeathSkillData()), t.FlatBuffer.TableKey)
-	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
-	t.AttackPower = fbsutils.Convert(e.AttackPower(), t.FlatBuffer.TableKey)
-	t.DefensePower = fbsutils.Convert(e.DefensePower(), t.FlatBuffer.TableKey)
-	t.CriticalRate = fbsutils.Convert(e.CriticalRate(), t.FlatBuffer.TableKey)
-	t.CriticalDamageRate = fbsutils.Convert(e.CriticalDamageRate(), t.FlatBuffer.TableKey)
-	t.AttackRange = fbsutils.Convert(e.AttackRange(), t.FlatBuffer.TableKey)
-	t.MoveSpeed = fbsutils.Convert(e.MoveSpeed(), t.FlatBuffer.TableKey)
-	t.ShotTime = fbsutils.Convert(e.ShotTime(), t.FlatBuffer.TableKey)
-	t.IsBoss = e.IsBoss()
 	t.Scale = fbsutils.Convert(e.Scale(), t.FlatBuffer.TableKey)
-	t.IgnoreObstacleCheck = e.IgnoreObstacleCheck()
-	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
+	t.ShotTime = fbsutils.Convert(e.ShotTime(), t.FlatBuffer.TableKey)
+	t.SpineResourceName = fbsutils.Convert(string(e.SpineResourceName()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

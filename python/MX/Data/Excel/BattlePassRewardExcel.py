@@ -32,35 +32,35 @@ class BattlePassRewardExcel(object):
         return 0
 
     # BattlePassRewardExcel
-    def RewardGroupId(self):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BattlePassRewardExcel
-    def Level(self):
+    def RewardGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BattlePassRewardExcel
-    def RewardParcelType(self):
+    def RewardParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # BattlePassRewardExcel
+    def RewardParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # BattlePassRewardExcel
     def RewardParcelUniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # BattlePassRewardExcel
-    def RewardParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -72,21 +72,21 @@ def Start(builder):
 def BattlePassRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return BattlePassRewardExcelAddId(builder, id)
-def BattlePassRewardExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(1, rewardGroupId, 0)
-def AddRewardGroupId(builder, rewardGroupId):
-    return BattlePassRewardExcelAddRewardGroupId(builder, rewardGroupId)
-def BattlePassRewardExcelAddLevel(builder, level): builder.PrependInt64Slot(2, level, 0)
+def BattlePassRewardExcelAddLevel(builder, level): builder.PrependInt64Slot(1, level, 0)
 def AddLevel(builder, level):
     return BattlePassRewardExcelAddLevel(builder, level)
-def BattlePassRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return BattlePassRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def BattlePassRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId): builder.PrependInt64Slot(4, rewardParcelUniqueId, 0)
-def AddRewardParcelUniqueId(builder, rewardParcelUniqueId):
-    return BattlePassRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
-def BattlePassRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(5, rewardParcelAmount, 0)
+def BattlePassRewardExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(2, rewardGroupId, 0)
+def AddRewardGroupId(builder, rewardGroupId):
+    return BattlePassRewardExcelAddRewardGroupId(builder, rewardGroupId)
+def BattlePassRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(3, rewardParcelAmount, 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     return BattlePassRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def BattlePassRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(4, rewardParcelType, 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return BattlePassRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def BattlePassRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId): builder.PrependInt64Slot(5, rewardParcelUniqueId, 0)
+def AddRewardParcelUniqueId(builder, rewardParcelUniqueId):
+    return BattlePassRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
 def BattlePassRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BattlePassRewardExcelEnd(builder)

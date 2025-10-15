@@ -2,8 +2,8 @@ namespace MX.Data.Excel;
 
 table LevelExpMasterCoinExcel {
     id: long;
-    min_level: int;
     max_level: int;
+    min_level: int;
     ratio: int;
 }
 

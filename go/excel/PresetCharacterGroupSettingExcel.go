@@ -33,20 +33,8 @@ func (rcv *PresetCharacterGroupSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *PresetCharacterGroupSettingExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *PresetCharacterGroupSettingExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *PresetCharacterGroupSettingExcel) ArenaSimulatorFixed() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,19 @@ func (rcv *PresetCharacterGroupSettingExcel) ArenaSimulatorFixed() bool {
 }
 
 func (rcv *PresetCharacterGroupSettingExcel) MutateArenaSimulatorFixed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *PresetCharacterGroupSettingExcel) CharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PresetCharacterGroupSettingExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *PresetCharacterGroupSettingExcel) PresetType(j int) []byte {
@@ -77,11 +77,11 @@ func (rcv *PresetCharacterGroupSettingExcel) PresetTypeLength() int {
 func PresetCharacterGroupSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func PresetCharacterGroupSettingExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(0, characterId, 0)
-}
 func PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder *flatbuffers.Builder, arenaSimulatorFixed bool) {
-	builder.PrependBoolSlot(1, arenaSimulatorFixed, false)
+	builder.PrependBoolSlot(0, arenaSimulatorFixed, false)
+}
+func PresetCharacterGroupSettingExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(1, characterId, 0)
 }
 func PresetCharacterGroupSettingExcelAddPresetType(builder *flatbuffers.Builder, presetType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(presetType), 0)

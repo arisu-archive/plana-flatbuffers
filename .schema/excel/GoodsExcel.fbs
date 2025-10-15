@@ -6,24 +6,24 @@ include "Rarity.fbs";
 namespace MX.Data.Excel;
 
 table GoodsExcel {
-    id: long;
-    type: int;
-    rarity: Rarity;
-    icon_path: string;
-    consume_parcel_type: [ParcelType];
-    consume_parcel_id: [long];
-    consume_parcel_amount: [long];
     consume_condition: [ConsumeCondition];
-    consume_gacha_ticket_type: [GachaTicketType];
+    consume_extra_amount: [long];
+    consume_extra_step: [long];
     consume_gacha_ticket_type_amount: [long];
+    consume_gacha_ticket_type: [GachaTicketType];
+    consume_parcel_amount: [long];
+    consume_parcel_id: [long];
+    consume_parcel_type: [ParcelType];
+    icon_path: string;
+    id: long;
+    parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
     product_id_aos: long;
     product_idi_os: long;
-    consume_extra_step: [long];
-    consume_extra_amount: [long];
+    rarity: Rarity;
     state: int;
-    parcel_type: [ParcelType];
-    parcel_id: [long];
-    parcel_amount: [long];
+    type: int;
 }
 
 root_type GoodsExcel;

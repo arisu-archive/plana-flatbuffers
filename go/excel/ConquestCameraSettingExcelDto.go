@@ -10,33 +10,33 @@ import (
 // ConquestCameraSettingExcelDto represents a FlatBuffers table
 type ConquestCameraSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                              int64   `json:"id"`
+	CameraAngle                     float32 `json:"camera_angle"`
+	CameraZoomDefault               float32 `json:"camera_zoom_default"`
+	CameraZoomMax                   float32 `json:"camera_zoom_max"`
+	CameraZoomMin                   float32 `json:"camera_zoom_min"`
+	ConquestMapBoundaryOffsetBottom float32 `json:"conquest_map_boundary_offset_bottom"`
 	ConquestMapBoundaryOffsetLeft   float32 `json:"conquest_map_boundary_offset_left"`
 	ConquestMapBoundaryOffsetRight  float32 `json:"conquest_map_boundary_offset_right"`
 	ConquestMapBoundaryOffsetTop    float32 `json:"conquest_map_boundary_offset_top"`
-	ConquestMapBoundaryOffsetBottom float32 `json:"conquest_map_boundary_offset_bottom"`
 	ConquestMapCenterOffsetX        float32 `json:"conquest_map_center_offset_x"`
 	ConquestMapCenterOffsetY        float32 `json:"conquest_map_center_offset_y"`
-	CameraAngle                     float32 `json:"camera_angle"`
-	CameraZoomMax                   float32 `json:"camera_zoom_max"`
-	CameraZoomMin                   float32 `json:"camera_zoom_min"`
-	CameraZoomDefault               float32 `json:"camera_zoom_default"`
+	Id                              int64   `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestCameraSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ConquestCameraSettingExcelStart(b)
-	ConquestCameraSettingExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
 	ConquestCameraSettingExcelAddConquestMapBoundaryOffsetLeft(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetLeft, t.FlatBuffer.TableKey))
 	ConquestCameraSettingExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
 	ConquestCameraSettingExcelAddConquestMapBoundaryOffsetTop(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
-	ConquestCameraSettingExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
 	ConquestCameraSettingExcelAddConquestMapCenterOffsetX(b, fbsutils.Convert(t.ConquestMapCenterOffsetX, t.FlatBuffer.TableKey))
 	ConquestCameraSettingExcelAddConquestMapCenterOffsetY(b, fbsutils.Convert(t.ConquestMapCenterOffsetY, t.FlatBuffer.TableKey))
-	ConquestCameraSettingExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
-	ConquestCameraSettingExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
-	ConquestCameraSettingExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
-	ConquestCameraSettingExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
+	ConquestCameraSettingExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return ConquestCameraSettingExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *ConquestCameraSettingExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestCameraSettingExcelDto) UnmarshalMessage(e *ConquestCameraSettingExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
+	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
+	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
+	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetBottom = fbsutils.Convert(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
 	t.ConquestMapBoundaryOffsetLeft = fbsutils.Convert(e.ConquestMapBoundaryOffsetLeft(), t.FlatBuffer.TableKey)
 	t.ConquestMapBoundaryOffsetRight = fbsutils.Convert(e.ConquestMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
 	t.ConquestMapBoundaryOffsetTop = fbsutils.Convert(e.ConquestMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetBottom = fbsutils.Convert(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
 	t.ConquestMapCenterOffsetX = fbsutils.Convert(e.ConquestMapCenterOffsetX(), t.FlatBuffer.TableKey)
 	t.ConquestMapCenterOffsetY = fbsutils.Convert(e.ConquestMapCenterOffsetY(), t.FlatBuffer.TableKey)
-	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
-	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
-	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
-	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

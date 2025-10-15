@@ -4,10 +4,10 @@ include "ShopGroupType.fbs";
 namespace MX.Data.Excel;
 
 table ShopTabGroupExcel {
-    id: long;
-    shop_group_type: ShopGroupType;
     display_order: int;
+    id: long;
     shop_category_types: [ShopCategoryType];
+    shop_group_type: ShopGroupType;
 }
 
 root_type ShopTabGroupExcel;

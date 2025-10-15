@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table LimitedStageSeasonExcel {
+    end_date: string;
     id: long;
     start_date: string;
-    end_date: string;
     type_a_count: long;
     type_b_count: long;
     type_c_count: long;

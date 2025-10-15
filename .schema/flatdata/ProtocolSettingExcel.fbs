@@ -3,9 +3,9 @@ include "OpenConditionContent.fbs";
 namespace FlatData;
 
 table ProtocolSettingExcel {
-    protocol: string;
-    open_condition_content: OpenConditionContent;
     currency: bool;
     inventory: bool;
     mail: bool;
+    open_condition_content: OpenConditionContent;
+    protocol: string;
 }

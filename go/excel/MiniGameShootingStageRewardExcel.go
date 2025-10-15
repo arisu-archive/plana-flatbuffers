@@ -33,7 +33,7 @@ func (rcv *MiniGameShootingStageRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) GroupId() int64 {
+func (rcv *MiniGameShootingStageRewardExcel) ClearSection() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MiniGameShootingStageRewardExcel) GroupId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) MutateGroupId(n int64) bool {
+func (rcv *MiniGameShootingStageRewardExcel) MutateClearSection(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) RewardId() int64 {
+func (rcv *MiniGameShootingStageRewardExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *MiniGameShootingStageRewardExcel) RewardId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) MutateRewardId(n int64) bool {
+func (rcv *MiniGameShootingStageRewardExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) ClearSection() int64 {
+func (rcv *MiniGameShootingStageRewardExcel) RewardId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,20 +65,20 @@ func (rcv *MiniGameShootingStageRewardExcel) ClearSection() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) MutateClearSection(n int64) bool {
+func (rcv *MiniGameShootingStageRewardExcel) MutateRewardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) RewardParcelType(j int) ParcelType {
+func (rcv *MiniGameShootingStageRewardExcel) RewardParcelAmount(j int) int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
 	}
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) RewardParcelTypeLength() int {
+func (rcv *MiniGameShootingStageRewardExcel) RewardParcelAmountLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -86,11 +86,11 @@ func (rcv *MiniGameShootingStageRewardExcel) RewardParcelTypeLength() int {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelAmount(j int, n int32) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
 	}
 	return false
 }
@@ -121,16 +121,16 @@ func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelId(j int, n int64
 	return false
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) RewardParcelAmount(j int) int32 {
+func (rcv *MiniGameShootingStageRewardExcel) RewardParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) RewardParcelAmountLength() int {
+func (rcv *MiniGameShootingStageRewardExcel) RewardParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -138,11 +138,11 @@ func (rcv *MiniGameShootingStageRewardExcel) RewardParcelAmountLength() int {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelAmount(j int, n int32) bool {
+func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -150,19 +150,19 @@ func (rcv *MiniGameShootingStageRewardExcel) MutateRewardParcelAmount(j int, n i
 func MiniGameShootingStageRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
+func MiniGameShootingStageRewardExcelAddClearSection(builder *flatbuffers.Builder, clearSection int64) {
+	builder.PrependInt64Slot(0, clearSection, 0)
+}
 func MiniGameShootingStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+	builder.PrependInt64Slot(1, groupId, 0)
 }
 func MiniGameShootingStageRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(1, rewardId, 0)
+	builder.PrependInt64Slot(2, rewardId, 0)
 }
-func MiniGameShootingStageRewardExcelAddClearSection(builder *flatbuffers.Builder, clearSection int64) {
-	builder.PrependInt64Slot(2, clearSection, 0)
+func MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
-func MiniGameShootingStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameShootingStageRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
@@ -171,10 +171,10 @@ func MiniGameShootingStageRewardExcelAddRewardParcelId(builder *flatbuffers.Buil
 func MiniGameShootingStageRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func MiniGameShootingStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MiniGameShootingStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

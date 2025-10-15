@@ -97,6 +97,7 @@ const (
 	EquipmentOptionTypeRegenCost_Base                        EquipmentOptionType = 87
 	EquipmentOptionTypeRegenCost_Coefficient                 EquipmentOptionType = 88
 	EquipmentOptionTypeMaxCostIncrease_Base                  EquipmentOptionType = 89
+	EquipmentOptionTypeHealRate_Base                         EquipmentOptionType = 90
 )
 
 var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
@@ -190,6 +191,7 @@ var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
 	EquipmentOptionTypeRegenCost_Base:                        "RegenCost_Base",
 	EquipmentOptionTypeRegenCost_Coefficient:                 "RegenCost_Coefficient",
 	EquipmentOptionTypeMaxCostIncrease_Base:                  "MaxCostIncrease_Base",
+	EquipmentOptionTypeHealRate_Base:                         "HealRate_Base",
 }
 
 var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
@@ -283,6 +285,7 @@ var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
 	"RegenCost_Base":                        EquipmentOptionTypeRegenCost_Base,
 	"RegenCost_Coefficient":                 EquipmentOptionTypeRegenCost_Coefficient,
 	"MaxCostIncrease_Base":                  EquipmentOptionTypeMaxCostIncrease_Base,
+	"HealRate_Base":                         EquipmentOptionTypeHealRate_Base,
 }
 
 func (v EquipmentOptionType) String() string {

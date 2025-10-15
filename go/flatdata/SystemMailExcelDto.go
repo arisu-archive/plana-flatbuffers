@@ -10,10 +10,10 @@ import (
 // SystemMailExcelDto represents a FlatBuffers table
 type SystemMailExcelDto struct {
 	fbsutils.FlatBuffer
-	MailType   MailType `json:"mail_type"`
-	ExpiredDay int64    `json:"expired_day"`
-	Sender     string   `json:"sender"`
 	Comment    string   `json:"comment"`
+	ExpiredDay int64    `json:"expired_day"`
+	MailType   MailType `json:"mail_type"`
+	Sender     string   `json:"sender"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *SystemMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMail"))
 	}
 	SystemMailExcelStart(b)
-	SystemMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
-	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
-	SystemMailExcelAddSender(b, b.CreateString(fbsutils.Convert(t.Sender, t.FlatBuffer.TableKey)))
 	SystemMailExcelAddComment(b, b.CreateString(fbsutils.Convert(t.Comment, t.FlatBuffer.TableKey)))
+	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
+	SystemMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
+	SystemMailExcelAddSender(b, b.CreateString(fbsutils.Convert(t.Sender, t.FlatBuffer.TableKey)))
 	return SystemMailExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *SystemMailExcelDto) UnmarshalMessage(e *SystemMailExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMail"))
 	}
-	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
-	t.ExpiredDay = fbsutils.Convert(e.ExpiredDay(), t.FlatBuffer.TableKey)
-	t.Sender = fbsutils.Convert(string(e.Sender()), t.FlatBuffer.TableKey)
 	t.Comment = fbsutils.Convert(string(e.Comment()), t.FlatBuffer.TableKey)
+	t.ExpiredDay = fbsutils.Convert(e.ExpiredDay(), t.FlatBuffer.TableKey)
+	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
+	t.Sender = fbsutils.Convert(string(e.Sender()), t.FlatBuffer.TableKey)
 	return nil
 }
 

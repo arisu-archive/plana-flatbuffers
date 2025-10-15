@@ -33,32 +33,8 @@ func (rcv *TrophyCollectionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TrophyCollectionExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TrophyCollectionExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *TrophyCollectionExcel) LocalizeCodeId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TrophyCollectionExcel) MutateLocalizeCodeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
-}
-
 func (rcv *TrophyCollectionExcel) FurnitureId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -67,7 +43,7 @@ func (rcv *TrophyCollectionExcel) FurnitureId(j int) int64 {
 }
 
 func (rcv *TrophyCollectionExcel) FurnitureIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -75,7 +51,7 @@ func (rcv *TrophyCollectionExcel) FurnitureIdLength() int {
 }
 
 func (rcv *TrophyCollectionExcel) MutateFurnitureId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -83,20 +59,44 @@ func (rcv *TrophyCollectionExcel) MutateFurnitureId(j int, n int64) bool {
 	return false
 }
 
+func (rcv *TrophyCollectionExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TrophyCollectionExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *TrophyCollectionExcel) LocalizeCodeId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TrophyCollectionExcel) MutateLocalizeCodeId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
 func TrophyCollectionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func TrophyCollectionExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
-func TrophyCollectionExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
-	builder.PrependUint32Slot(1, localizeCodeId, 0)
-}
 func TrophyCollectionExcelAddFurnitureId(builder *flatbuffers.Builder, furnitureId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(furnitureId), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(furnitureId), 0)
 }
 func TrophyCollectionExcelStartFurnitureIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func TrophyCollectionExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(1, groupId, 0)
+}
+func TrophyCollectionExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
+	builder.PrependUint32Slot(2, localizeCodeId, 0)
 }
 func TrophyCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

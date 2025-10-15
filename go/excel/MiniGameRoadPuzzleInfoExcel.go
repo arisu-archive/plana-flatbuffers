@@ -33,7 +33,7 @@ func (rcv *MiniGameRoadPuzzleInfoExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) EventContentId() int64 {
+func (rcv *MiniGameRoadPuzzleInfoExcel) CostGoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,20 @@ func (rcv *MiniGameRoadPuzzleInfoExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) MutateEventContentId(n int64) bool {
+func (rcv *MiniGameRoadPuzzleInfoExcel) MutateCostGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) EventUseCostType() ParcelType {
+func (rcv *MiniGameRoadPuzzleInfoExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) MutateEventUseCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *MiniGameRoadPuzzleInfoExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *MiniGameRoadPuzzleInfoExcel) EventUseCostId() int64 {
@@ -69,32 +69,20 @@ func (rcv *MiniGameRoadPuzzleInfoExcel) MutateEventUseCostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) CostGoodsId() int64 {
+func (rcv *MiniGameRoadPuzzleInfoExcel) EventUseCostType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MiniGameRoadPuzzleInfoExcel) MutateCostGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *MiniGameRoadPuzzleInfoExcel) RailSetRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleInfoExcel) MutateRailSetRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *MiniGameRoadPuzzleInfoExcel) MutateEventUseCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *MiniGameRoadPuzzleInfoExcel) InstantClearRound() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -102,29 +90,41 @@ func (rcv *MiniGameRoadPuzzleInfoExcel) InstantClearRound() int32 {
 }
 
 func (rcv *MiniGameRoadPuzzleInfoExcel) MutateInstantClearRound(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *MiniGameRoadPuzzleInfoExcel) RailSetRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleInfoExcel) MutateRailSetRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func MiniGameRoadPuzzleInfoExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func MiniGameRoadPuzzleInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
+	builder.PrependInt64Slot(0, costGoodsId, 0)
 }
-func MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder *flatbuffers.Builder, eventUseCostType ParcelType) {
-	builder.PrependInt32Slot(1, int32(eventUseCostType), 0)
+func MiniGameRoadPuzzleInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(1, eventContentId, 0)
 }
 func MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder *flatbuffers.Builder, eventUseCostId int64) {
 	builder.PrependInt64Slot(2, eventUseCostId, 0)
 }
-func MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
-	builder.PrependInt64Slot(3, costGoodsId, 0)
-}
-func MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder *flatbuffers.Builder, railSetRewardId int64) {
-	builder.PrependInt64Slot(4, railSetRewardId, 0)
+func MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder *flatbuffers.Builder, eventUseCostType ParcelType) {
+	builder.PrependInt32Slot(3, int32(eventUseCostType), 0)
 }
 func MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder *flatbuffers.Builder, instantClearRound int32) {
-	builder.PrependInt32Slot(5, instantClearRound, 0)
+	builder.PrependInt32Slot(4, instantClearRound, 0)
+}
+func MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder *flatbuffers.Builder, railSetRewardId int64) {
+	builder.PrependInt64Slot(5, railSetRewardId, 0)
 }
 func MiniGameRoadPuzzleInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

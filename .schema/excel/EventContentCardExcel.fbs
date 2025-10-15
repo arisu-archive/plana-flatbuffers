@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentCardExcel {
+    back_icon_path: string;
+    card_group_id: int;
+    event_content_id: long;
+    icon_path: string;
+    localize_etc_id: uint;
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+}
+
+root_type EventContentCardExcel;

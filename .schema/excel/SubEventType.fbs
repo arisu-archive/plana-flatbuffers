@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum SubEventType: int {
+    None = 0,
+    SubEvent = 1,
+    SubEventPermanent = 2,
+}

@@ -33,148 +33,8 @@ func (rcv *ConquestTileExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestTileExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ConquestTileExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestTileExcel) EventId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateEventId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ConquestTileExcel) Step() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateStep(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *ConquestTileExcel) PrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestTileExcel) TileNameLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestTileExcel) TileImageName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestTileExcel) Playable() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestTileExcel) MutatePlayable(n bool) bool {
-	return rcv._tab.MutateBoolSlot(18, n)
-}
-
-func (rcv *ConquestTileExcel) TileType() ConquestTileType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return ConquestTileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateTileType(n ConquestTileType) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
-}
-
-func (rcv *ConquestTileExcel) NotMapFog() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestTileExcel) MutateNotMapFog(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
-}
-
-func (rcv *ConquestTileExcel) GroupBonusId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateGroupBonusId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *ConquestTileExcel) ConquestCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateConquestCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *ConquestTileExcel) ConquestCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateConquestCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
 func (rcv *ConquestTileExcel) ConquestCostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -182,47 +42,35 @@ func (rcv *ConquestTileExcel) ConquestCostAmount() int32 {
 }
 
 func (rcv *ConquestTileExcel) MutateConquestCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(30, n)
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *ConquestTileExcel) ManageCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateManageCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
-}
-
-func (rcv *ConquestTileExcel) ManageCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+func (rcv *ConquestTileExcel) ConquestCostId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConquestTileExcel) MutateManageCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
+func (rcv *ConquestTileExcel) MutateConquestCostId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ConquestTileExcel) ManageCostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+func (rcv *ConquestTileExcel) ConquestCostType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ConquestTileExcel) MutateManageCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(36, n)
+func (rcv *ConquestTileExcel) MutateConquestCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *ConquestTileExcel) ConquestRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -230,11 +78,83 @@ func (rcv *ConquestTileExcel) ConquestRewardId() int64 {
 }
 
 func (rcv *ConquestTileExcel) MutateConquestRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *ConquestTileExcel) EventId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateEventId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *ConquestTileExcel) GroupBonusId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateGroupBonusId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *ConquestTileExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *ConquestTileExcel) ManageCostAmount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateManageCostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ConquestTileExcel) ManageCostId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateManageCostId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *ConquestTileExcel) ManageCostType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateManageCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
 }
 
 func (rcv *ConquestTileExcel) MassErosionId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -242,19 +162,99 @@ func (rcv *ConquestTileExcel) MassErosionId() int64 {
 }
 
 func (rcv *ConquestTileExcel) MutateMassErosionId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *ConquestTileExcel) Upgrade2CostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+func (rcv *ConquestTileExcel) Name() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestTileExcel) NotMapFog() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestTileExcel) MutateNotMapFog(n bool) bool {
+	return rcv._tab.MutateBoolSlot(28, n)
+}
+
+func (rcv *ConquestTileExcel) Playable() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestTileExcel) MutatePlayable(n bool) bool {
+	return rcv._tab.MutateBoolSlot(30, n)
+}
+
+func (rcv *ConquestTileExcel) PrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestTileExcel) Step() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConquestTileExcel) MutateUpgrade2CostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(42, int32(n))
+func (rcv *ConquestTileExcel) MutateStep(n int32) bool {
+	return rcv._tab.MutateInt32Slot(34, n)
+}
+
+func (rcv *ConquestTileExcel) TileImageName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestTileExcel) TileNameLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestTileExcel) TileType() ConquestTileType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return ConquestTileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateTileType(n ConquestTileType) bool {
+	return rcv._tab.MutateInt32Slot(40, int32(n))
+}
+
+func (rcv *ConquestTileExcel) Upgrade2CostAmount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateUpgrade2CostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
 }
 
 func (rcv *ConquestTileExcel) Upgrade2CostId() int64 {
@@ -269,28 +269,28 @@ func (rcv *ConquestTileExcel) MutateUpgrade2CostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
-func (rcv *ConquestTileExcel) Upgrade2CostAmount() int32 {
+func (rcv *ConquestTileExcel) Upgrade2CostType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestTileExcel) MutateUpgrade2CostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(46, n)
-}
-
-func (rcv *ConquestTileExcel) Upgrade3CostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ConquestTileExcel) MutateUpgrade3CostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(48, int32(n))
+func (rcv *ConquestTileExcel) MutateUpgrade2CostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
+}
+
+func (rcv *ConquestTileExcel) Upgrade3CostAmount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestTileExcel) MutateUpgrade3CostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(48, n)
 }
 
 func (rcv *ConquestTileExcel) Upgrade3CostId() int64 {
@@ -305,95 +305,95 @@ func (rcv *ConquestTileExcel) MutateUpgrade3CostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *ConquestTileExcel) Upgrade3CostAmount() int32 {
+func (rcv *ConquestTileExcel) Upgrade3CostType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ConquestTileExcel) MutateUpgrade3CostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(52, n)
+func (rcv *ConquestTileExcel) MutateUpgrade3CostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(52, int32(n))
 }
 
 func ConquestTileExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(25)
 }
-func ConquestTileExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ConquestTileExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
-}
-func ConquestTileExcelAddEventId(builder *flatbuffers.Builder, eventId int64) {
-	builder.PrependInt64Slot(2, eventId, 0)
-}
-func ConquestTileExcelAddStep(builder *flatbuffers.Builder, step int32) {
-	builder.PrependInt32Slot(3, step, 0)
-}
-func ConquestTileExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(prefabName), 0)
-}
-func ConquestTileExcelAddTileNameLocalize(builder *flatbuffers.Builder, tileNameLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(tileNameLocalize), 0)
-}
-func ConquestTileExcelAddTileImageName(builder *flatbuffers.Builder, tileImageName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(tileImageName), 0)
-}
-func ConquestTileExcelAddPlayable(builder *flatbuffers.Builder, playable bool) {
-	builder.PrependBoolSlot(7, playable, false)
-}
-func ConquestTileExcelAddTileType(builder *flatbuffers.Builder, tileType ConquestTileType) {
-	builder.PrependInt32Slot(8, int32(tileType), 0)
-}
-func ConquestTileExcelAddNotMapFog(builder *flatbuffers.Builder, notMapFog bool) {
-	builder.PrependBoolSlot(9, notMapFog, false)
-}
-func ConquestTileExcelAddGroupBonusId(builder *flatbuffers.Builder, groupBonusId int64) {
-	builder.PrependInt64Slot(10, groupBonusId, 0)
-}
-func ConquestTileExcelAddConquestCostType(builder *flatbuffers.Builder, conquestCostType ParcelType) {
-	builder.PrependInt32Slot(11, int32(conquestCostType), 0)
+func ConquestTileExcelAddConquestCostAmount(builder *flatbuffers.Builder, conquestCostAmount int32) {
+	builder.PrependInt32Slot(0, conquestCostAmount, 0)
 }
 func ConquestTileExcelAddConquestCostId(builder *flatbuffers.Builder, conquestCostId int64) {
-	builder.PrependInt64Slot(12, conquestCostId, 0)
+	builder.PrependInt64Slot(1, conquestCostId, 0)
 }
-func ConquestTileExcelAddConquestCostAmount(builder *flatbuffers.Builder, conquestCostAmount int32) {
-	builder.PrependInt32Slot(13, conquestCostAmount, 0)
-}
-func ConquestTileExcelAddManageCostType(builder *flatbuffers.Builder, manageCostType ParcelType) {
-	builder.PrependInt32Slot(14, int32(manageCostType), 0)
-}
-func ConquestTileExcelAddManageCostId(builder *flatbuffers.Builder, manageCostId int64) {
-	builder.PrependInt64Slot(15, manageCostId, 0)
-}
-func ConquestTileExcelAddManageCostAmount(builder *flatbuffers.Builder, manageCostAmount int32) {
-	builder.PrependInt32Slot(16, manageCostAmount, 0)
+func ConquestTileExcelAddConquestCostType(builder *flatbuffers.Builder, conquestCostType ParcelType) {
+	builder.PrependInt32Slot(2, int32(conquestCostType), 0)
 }
 func ConquestTileExcelAddConquestRewardId(builder *flatbuffers.Builder, conquestRewardId int64) {
-	builder.PrependInt64Slot(17, conquestRewardId, 0)
+	builder.PrependInt64Slot(3, conquestRewardId, 0)
+}
+func ConquestTileExcelAddEventId(builder *flatbuffers.Builder, eventId int64) {
+	builder.PrependInt64Slot(4, eventId, 0)
+}
+func ConquestTileExcelAddGroupBonusId(builder *flatbuffers.Builder, groupBonusId int64) {
+	builder.PrependInt64Slot(5, groupBonusId, 0)
+}
+func ConquestTileExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
+}
+func ConquestTileExcelAddManageCostAmount(builder *flatbuffers.Builder, manageCostAmount int32) {
+	builder.PrependInt32Slot(7, manageCostAmount, 0)
+}
+func ConquestTileExcelAddManageCostId(builder *flatbuffers.Builder, manageCostId int64) {
+	builder.PrependInt64Slot(8, manageCostId, 0)
+}
+func ConquestTileExcelAddManageCostType(builder *flatbuffers.Builder, manageCostType ParcelType) {
+	builder.PrependInt32Slot(9, int32(manageCostType), 0)
 }
 func ConquestTileExcelAddMassErosionId(builder *flatbuffers.Builder, massErosionId int64) {
-	builder.PrependInt64Slot(18, massErosionId, 0)
+	builder.PrependInt64Slot(10, massErosionId, 0)
 }
-func ConquestTileExcelAddUpgrade2CostType(builder *flatbuffers.Builder, upgrade2CostType ParcelType) {
-	builder.PrependInt32Slot(19, int32(upgrade2CostType), 0)
+func ConquestTileExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(name), 0)
+}
+func ConquestTileExcelAddNotMapFog(builder *flatbuffers.Builder, notMapFog bool) {
+	builder.PrependBoolSlot(12, notMapFog, false)
+}
+func ConquestTileExcelAddPlayable(builder *flatbuffers.Builder, playable bool) {
+	builder.PrependBoolSlot(13, playable, false)
+}
+func ConquestTileExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(prefabName), 0)
+}
+func ConquestTileExcelAddStep(builder *flatbuffers.Builder, step int32) {
+	builder.PrependInt32Slot(15, step, 0)
+}
+func ConquestTileExcelAddTileImageName(builder *flatbuffers.Builder, tileImageName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(tileImageName), 0)
+}
+func ConquestTileExcelAddTileNameLocalize(builder *flatbuffers.Builder, tileNameLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(tileNameLocalize), 0)
+}
+func ConquestTileExcelAddTileType(builder *flatbuffers.Builder, tileType ConquestTileType) {
+	builder.PrependInt32Slot(18, int32(tileType), 0)
+}
+func ConquestTileExcelAddUpgrade2CostAmount(builder *flatbuffers.Builder, upgrade2CostAmount int32) {
+	builder.PrependInt32Slot(19, upgrade2CostAmount, 0)
 }
 func ConquestTileExcelAddUpgrade2CostId(builder *flatbuffers.Builder, upgrade2CostId int64) {
 	builder.PrependInt64Slot(20, upgrade2CostId, 0)
 }
-func ConquestTileExcelAddUpgrade2CostAmount(builder *flatbuffers.Builder, upgrade2CostAmount int32) {
-	builder.PrependInt32Slot(21, upgrade2CostAmount, 0)
+func ConquestTileExcelAddUpgrade2CostType(builder *flatbuffers.Builder, upgrade2CostType ParcelType) {
+	builder.PrependInt32Slot(21, int32(upgrade2CostType), 0)
 }
-func ConquestTileExcelAddUpgrade3CostType(builder *flatbuffers.Builder, upgrade3CostType ParcelType) {
-	builder.PrependInt32Slot(22, int32(upgrade3CostType), 0)
+func ConquestTileExcelAddUpgrade3CostAmount(builder *flatbuffers.Builder, upgrade3CostAmount int32) {
+	builder.PrependInt32Slot(22, upgrade3CostAmount, 0)
 }
 func ConquestTileExcelAddUpgrade3CostId(builder *flatbuffers.Builder, upgrade3CostId int64) {
 	builder.PrependInt64Slot(23, upgrade3CostId, 0)
 }
-func ConquestTileExcelAddUpgrade3CostAmount(builder *flatbuffers.Builder, upgrade3CostAmount int32) {
-	builder.PrependInt32Slot(24, upgrade3CostAmount, 0)
+func ConquestTileExcelAddUpgrade3CostType(builder *flatbuffers.Builder, upgrade3CostType ParcelType) {
+	builder.PrependInt32Slot(24, int32(upgrade3CostType), 0)
 }
 func ConquestTileExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

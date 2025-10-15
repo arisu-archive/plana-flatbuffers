@@ -25,28 +25,28 @@ class MissionEmergencyCompleteExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MissionEmergencyCompleteExcel
-    def MissionId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MissionEmergencyCompleteExcel
     def EmergencyComplete(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
+    # MissionEmergencyCompleteExcel
+    def MissionId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def MissionEmergencyCompleteExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return MissionEmergencyCompleteExcelStart(builder)
-def MissionEmergencyCompleteExcelAddMissionId(builder, missionId): builder.PrependInt64Slot(0, missionId, 0)
-def AddMissionId(builder, missionId):
-    return MissionEmergencyCompleteExcelAddMissionId(builder, missionId)
-def MissionEmergencyCompleteExcelAddEmergencyComplete(builder, emergencyComplete): builder.PrependBoolSlot(1, emergencyComplete, 0)
+def MissionEmergencyCompleteExcelAddEmergencyComplete(builder, emergencyComplete): builder.PrependBoolSlot(0, emergencyComplete, 0)
 def AddEmergencyComplete(builder, emergencyComplete):
     return MissionEmergencyCompleteExcelAddEmergencyComplete(builder, emergencyComplete)
+def MissionEmergencyCompleteExcelAddMissionId(builder, missionId): builder.PrependInt64Slot(1, missionId, 0)
+def AddMissionId(builder, missionId):
+    return MissionEmergencyCompleteExcelAddMissionId(builder, missionId)
 def MissionEmergencyCompleteExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MissionEmergencyCompleteExcelEnd(builder)

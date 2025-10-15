@@ -45,16 +45,12 @@ func (rcv *ScenarioCharacterNameExcel) MutateCharacterName(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *ScenarioCharacterNameExcel) ProductionStep() ProductionStep {
+func (rcv *ScenarioCharacterNameExcel) NameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ScenarioCharacterNameExcel) MutateProductionStep(n ProductionStep) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return nil
 }
 
 func (rcv *ScenarioCharacterNameExcel) NameKr() []byte {
@@ -65,7 +61,7 @@ func (rcv *ScenarioCharacterNameExcel) NameKr() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterNameExcel) NicknameKr() []byte {
+func (rcv *ScenarioCharacterNameExcel) NicknameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,7 +69,7 @@ func (rcv *ScenarioCharacterNameExcel) NicknameKr() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterNameExcel) NameJp() []byte {
+func (rcv *ScenarioCharacterNameExcel) NicknameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,12 +77,16 @@ func (rcv *ScenarioCharacterNameExcel) NameJp() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterNameExcel) NicknameJp() []byte {
+func (rcv *ScenarioCharacterNameExcel) ProductionStep() ProductionStep {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ScenarioCharacterNameExcel) MutateProductionStep(n ProductionStep) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
 func (rcv *ScenarioCharacterNameExcel) Shape() ScenarioCharacterShapes {
@@ -101,7 +101,7 @@ func (rcv *ScenarioCharacterNameExcel) MutateShape(n ScenarioCharacterShapes) bo
 	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *ScenarioCharacterNameExcel) SpinePrefabName() []byte {
+func (rcv *ScenarioCharacterNameExcel) SmallPortrait() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -109,7 +109,7 @@ func (rcv *ScenarioCharacterNameExcel) SpinePrefabName() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterNameExcel) SmallPortrait() []byte {
+func (rcv *ScenarioCharacterNameExcel) SpinePrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -123,29 +123,29 @@ func ScenarioCharacterNameExcelStart(builder *flatbuffers.Builder) {
 func ScenarioCharacterNameExcelAddCharacterName(builder *flatbuffers.Builder, characterName uint32) {
 	builder.PrependUint32Slot(0, characterName, 0)
 }
-func ScenarioCharacterNameExcelAddProductionStep(builder *flatbuffers.Builder, productionStep ProductionStep) {
-	builder.PrependInt32Slot(1, int32(productionStep), 0)
+func ScenarioCharacterNameExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(nameJp), 0)
 }
 func ScenarioCharacterNameExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameKr), 0)
 }
-func ScenarioCharacterNameExcelAddNicknameKr(builder *flatbuffers.Builder, nicknameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nicknameKr), 0)
-}
-func ScenarioCharacterNameExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(nameJp), 0)
-}
 func ScenarioCharacterNameExcelAddNicknameJp(builder *flatbuffers.Builder, nicknameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(nicknameJp), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nicknameJp), 0)
+}
+func ScenarioCharacterNameExcelAddNicknameKr(builder *flatbuffers.Builder, nicknameKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(nicknameKr), 0)
+}
+func ScenarioCharacterNameExcelAddProductionStep(builder *flatbuffers.Builder, productionStep ProductionStep) {
+	builder.PrependInt32Slot(5, int32(productionStep), 0)
 }
 func ScenarioCharacterNameExcelAddShape(builder *flatbuffers.Builder, shape ScenarioCharacterShapes) {
 	builder.PrependInt32Slot(6, int32(shape), 0)
 }
-func ScenarioCharacterNameExcelAddSpinePrefabName(builder *flatbuffers.Builder, spinePrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(spinePrefabName), 0)
-}
 func ScenarioCharacterNameExcelAddSmallPortrait(builder *flatbuffers.Builder, smallPortrait flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(smallPortrait), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(smallPortrait), 0)
+}
+func ScenarioCharacterNameExcelAddSpinePrefabName(builder *flatbuffers.Builder, spinePrefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(spinePrefabName), 0)
 }
 func ScenarioCharacterNameExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

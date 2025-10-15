@@ -71,25 +71,8 @@ func (rcv *VideoExcel) MutateNation(j int, n Nation) bool {
 	return false
 }
 
-func (rcv *VideoExcel) VideoPath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *VideoExcel) VideoPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *VideoExcel) SoundPath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -98,7 +81,7 @@ func (rcv *VideoExcel) SoundPath(j int) []byte {
 }
 
 func (rcv *VideoExcel) SoundPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -106,7 +89,7 @@ func (rcv *VideoExcel) SoundPathLength() int {
 }
 
 func (rcv *VideoExcel) SoundVolume(j int) float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
@@ -115,7 +98,7 @@ func (rcv *VideoExcel) SoundVolume(j int) float32 {
 }
 
 func (rcv *VideoExcel) SoundVolumeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,12 +106,29 @@ func (rcv *VideoExcel) SoundVolumeLength() int {
 }
 
 func (rcv *VideoExcel) MutateSoundVolume(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
 	}
 	return false
+}
+
+func (rcv *VideoExcel) VideoPath(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *VideoExcel) VideoPathLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func VideoExcelStart(builder *flatbuffers.Builder) {
@@ -143,22 +143,22 @@ func VideoExcelAddNation(builder *flatbuffers.Builder, nation flatbuffers.UOffse
 func VideoExcelStartNationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func VideoExcelAddVideoPath(builder *flatbuffers.Builder, videoPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(videoPath), 0)
-}
-func VideoExcelStartVideoPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func VideoExcelAddSoundPath(builder *flatbuffers.Builder, soundPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(soundPath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(soundPath), 0)
 }
 func VideoExcelStartSoundPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func VideoExcelAddSoundVolume(builder *flatbuffers.Builder, soundVolume flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(soundVolume), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(soundVolume), 0)
 }
 func VideoExcelStartSoundVolumeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func VideoExcelAddVideoPath(builder *flatbuffers.Builder, videoPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(videoPath), 0)
+}
+func VideoExcelStartVideoPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func VideoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

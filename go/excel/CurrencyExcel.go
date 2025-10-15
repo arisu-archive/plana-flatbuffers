@@ -33,84 +33,8 @@ func (rcv *CurrencyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CurrencyExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *CurrencyExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
-}
-
-func (rcv *CurrencyExcel) CurrencyType() CurrencyTypes {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateCurrencyType(n CurrencyTypes) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *CurrencyExcel) CurrencyName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CurrencyExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CurrencyExcel) Rarity() Rarity {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateRarity(n Rarity) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
-func (rcv *CurrencyExcel) AutoChargeMsc() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateAutoChargeMsc(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
 func (rcv *CurrencyExcel) AutoChargeAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -118,35 +42,23 @@ func (rcv *CurrencyExcel) AutoChargeAmount() int32 {
 }
 
 func (rcv *CurrencyExcel) MutateAutoChargeAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *CurrencyExcel) CurrencyOverChargeType() CurrencyOverChargeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *CurrencyExcel) AutoChargeMsc() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return CurrencyOverChargeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CurrencyExcel) MutateCurrencyOverChargeType(n CurrencyOverChargeType) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
-}
-
-func (rcv *CurrencyExcel) CurrencyAdditionalChargeType() CurrencyAdditionalChargeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return CurrencyAdditionalChargeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateCurrencyAdditionalChargeType(n CurrencyAdditionalChargeType) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
+func (rcv *CurrencyExcel) MutateAutoChargeMsc(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *CurrencyExcel) ChargeLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -154,43 +66,55 @@ func (rcv *CurrencyExcel) ChargeLimit() int64 {
 }
 
 func (rcv *CurrencyExcel) MutateChargeLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *CurrencyExcel) OverChargeLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+func (rcv *CurrencyExcel) CurrencyAdditionalChargeType() CurrencyAdditionalChargeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return CurrencyAdditionalChargeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CurrencyExcel) MutateOverChargeLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
+func (rcv *CurrencyExcel) MutateCurrencyAdditionalChargeType(n CurrencyAdditionalChargeType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *CurrencyExcel) SpriteName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+func (rcv *CurrencyExcel) CurrencyName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *CurrencyExcel) DailyRefillType() DailyRefillType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+func (rcv *CurrencyExcel) CurrencyOverChargeType() CurrencyOverChargeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return DailyRefillType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return CurrencyOverChargeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CurrencyExcel) MutateDailyRefillType(n DailyRefillType) bool {
-	return rcv._tab.MutateInt32Slot(30, int32(n))
+func (rcv *CurrencyExcel) MutateCurrencyOverChargeType(n CurrencyOverChargeType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *CurrencyExcel) CurrencyType() CurrencyTypes {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return CurrencyTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateCurrencyType(n CurrencyTypes) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func (rcv *CurrencyExcel) DailyRefillAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -198,11 +122,11 @@ func (rcv *CurrencyExcel) DailyRefillAmount() int64 {
 }
 
 func (rcv *CurrencyExcel) MutateDailyRefillAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func (rcv *CurrencyExcel) DailyRefillTime(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -211,7 +135,7 @@ func (rcv *CurrencyExcel) DailyRefillTime(j int) int64 {
 }
 
 func (rcv *CurrencyExcel) DailyRefillTimeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -219,7 +143,7 @@ func (rcv *CurrencyExcel) DailyRefillTimeLength() int {
 }
 
 func (rcv *CurrencyExcel) MutateDailyRefillTime(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -227,8 +151,20 @@ func (rcv *CurrencyExcel) MutateDailyRefillTime(j int, n int64) bool {
 	return false
 }
 
+func (rcv *CurrencyExcel) DailyRefillType() DailyRefillType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return DailyRefillType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateDailyRefillType(n DailyRefillType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
 func (rcv *CurrencyExcel) ExpirationDateTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -236,7 +172,7 @@ func (rcv *CurrencyExcel) ExpirationDateTime() []byte {
 }
 
 func (rcv *CurrencyExcel) ExpirationNotifyDateIn() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -244,35 +180,11 @@ func (rcv *CurrencyExcel) ExpirationNotifyDateIn() int32 {
 }
 
 func (rcv *CurrencyExcel) MutateExpirationNotifyDateIn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
-}
-
-func (rcv *CurrencyExcel) ExpiryChangeParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateExpiryChangeParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(40, int32(n))
-}
-
-func (rcv *CurrencyExcel) ExpiryChangeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CurrencyExcel) MutateExpiryChangeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+	return rcv._tab.MutateInt32Slot(26, n)
 }
 
 func (rcv *CurrencyExcel) ExpiryChangeAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -280,77 +192,195 @@ func (rcv *CurrencyExcel) ExpiryChangeAmount() int64 {
 }
 
 func (rcv *CurrencyExcel) MutateExpiryChangeAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *CurrencyExcel) ExpiryChangeId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateExpiryChangeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *CurrencyExcel) ExpiryChangeParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateExpiryChangeParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(32, int32(n))
+}
+
+func (rcv *CurrencyExcel) Icon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CurrencyExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *CurrencyExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(38, n)
+}
+
+func (rcv *CurrencyExcel) OverChargeLimit() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateOverChargeLimit(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
+func (rcv *CurrencyExcel) Rarity() Rarity {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateRarity(n Rarity) bool {
+	return rcv._tab.MutateInt32Slot(42, int32(n))
+}
+
+func (rcv *CurrencyExcel) ResetAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateResetAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
+func (rcv *CurrencyExcel) ResetType() PeriodType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return PeriodType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CurrencyExcel) MutateResetType(n PeriodType) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
+}
+
+func (rcv *CurrencyExcel) SpriteName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func CurrencyExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(21)
-}
-func CurrencyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func CurrencyExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(1, localizeEtcId, 0)
-}
-func CurrencyExcelAddCurrencyType(builder *flatbuffers.Builder, currencyType CurrencyTypes) {
-	builder.PrependInt32Slot(2, int32(currencyType), 0)
-}
-func CurrencyExcelAddCurrencyName(builder *flatbuffers.Builder, currencyName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(currencyName), 0)
-}
-func CurrencyExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(icon), 0)
-}
-func CurrencyExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(5, int32(rarity), 0)
-}
-func CurrencyExcelAddAutoChargeMsc(builder *flatbuffers.Builder, autoChargeMsc int32) {
-	builder.PrependInt32Slot(6, autoChargeMsc, 0)
+	builder.StartObject(23)
 }
 func CurrencyExcelAddAutoChargeAmount(builder *flatbuffers.Builder, autoChargeAmount int32) {
-	builder.PrependInt32Slot(7, autoChargeAmount, 0)
+	builder.PrependInt32Slot(0, autoChargeAmount, 0)
 }
-func CurrencyExcelAddCurrencyOverChargeType(builder *flatbuffers.Builder, currencyOverChargeType CurrencyOverChargeType) {
-	builder.PrependInt32Slot(8, int32(currencyOverChargeType), 0)
-}
-func CurrencyExcelAddCurrencyAdditionalChargeType(builder *flatbuffers.Builder, currencyAdditionalChargeType CurrencyAdditionalChargeType) {
-	builder.PrependInt32Slot(9, int32(currencyAdditionalChargeType), 0)
+func CurrencyExcelAddAutoChargeMsc(builder *flatbuffers.Builder, autoChargeMsc int32) {
+	builder.PrependInt32Slot(1, autoChargeMsc, 0)
 }
 func CurrencyExcelAddChargeLimit(builder *flatbuffers.Builder, chargeLimit int64) {
-	builder.PrependInt64Slot(10, chargeLimit, 0)
+	builder.PrependInt64Slot(2, chargeLimit, 0)
 }
-func CurrencyExcelAddOverChargeLimit(builder *flatbuffers.Builder, overChargeLimit int64) {
-	builder.PrependInt64Slot(11, overChargeLimit, 0)
+func CurrencyExcelAddCurrencyAdditionalChargeType(builder *flatbuffers.Builder, currencyAdditionalChargeType CurrencyAdditionalChargeType) {
+	builder.PrependInt32Slot(3, int32(currencyAdditionalChargeType), 0)
 }
-func CurrencyExcelAddSpriteName(builder *flatbuffers.Builder, spriteName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(spriteName), 0)
+func CurrencyExcelAddCurrencyName(builder *flatbuffers.Builder, currencyName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(currencyName), 0)
 }
-func CurrencyExcelAddDailyRefillType(builder *flatbuffers.Builder, dailyRefillType DailyRefillType) {
-	builder.PrependInt32Slot(13, int32(dailyRefillType), 0)
+func CurrencyExcelAddCurrencyOverChargeType(builder *flatbuffers.Builder, currencyOverChargeType CurrencyOverChargeType) {
+	builder.PrependInt32Slot(5, int32(currencyOverChargeType), 0)
+}
+func CurrencyExcelAddCurrencyType(builder *flatbuffers.Builder, currencyType CurrencyTypes) {
+	builder.PrependInt32Slot(6, int32(currencyType), 0)
 }
 func CurrencyExcelAddDailyRefillAmount(builder *flatbuffers.Builder, dailyRefillAmount int64) {
-	builder.PrependInt64Slot(14, dailyRefillAmount, 0)
+	builder.PrependInt64Slot(7, dailyRefillAmount, 0)
 }
 func CurrencyExcelAddDailyRefillTime(builder *flatbuffers.Builder, dailyRefillTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(dailyRefillTime), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(dailyRefillTime), 0)
 }
 func CurrencyExcelStartDailyRefillTimeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
+func CurrencyExcelAddDailyRefillType(builder *flatbuffers.Builder, dailyRefillType DailyRefillType) {
+	builder.PrependInt32Slot(9, int32(dailyRefillType), 0)
+}
 func CurrencyExcelAddExpirationDateTime(builder *flatbuffers.Builder, expirationDateTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(expirationDateTime), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(expirationDateTime), 0)
 }
 func CurrencyExcelAddExpirationNotifyDateIn(builder *flatbuffers.Builder, expirationNotifyDateIn int32) {
-	builder.PrependInt32Slot(17, expirationNotifyDateIn, 0)
-}
-func CurrencyExcelAddExpiryChangeParcelType(builder *flatbuffers.Builder, expiryChangeParcelType ParcelType) {
-	builder.PrependInt32Slot(18, int32(expiryChangeParcelType), 0)
-}
-func CurrencyExcelAddExpiryChangeId(builder *flatbuffers.Builder, expiryChangeId int64) {
-	builder.PrependInt64Slot(19, expiryChangeId, 0)
+	builder.PrependInt32Slot(11, expirationNotifyDateIn, 0)
 }
 func CurrencyExcelAddExpiryChangeAmount(builder *flatbuffers.Builder, expiryChangeAmount int64) {
-	builder.PrependInt64Slot(20, expiryChangeAmount, 0)
+	builder.PrependInt64Slot(12, expiryChangeAmount, 0)
+}
+func CurrencyExcelAddExpiryChangeId(builder *flatbuffers.Builder, expiryChangeId int64) {
+	builder.PrependInt64Slot(13, expiryChangeId, 0)
+}
+func CurrencyExcelAddExpiryChangeParcelType(builder *flatbuffers.Builder, expiryChangeParcelType ParcelType) {
+	builder.PrependInt32Slot(14, int32(expiryChangeParcelType), 0)
+}
+func CurrencyExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(icon), 0)
+}
+func CurrencyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(16, id, 0)
+}
+func CurrencyExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(17, localizeEtcId, 0)
+}
+func CurrencyExcelAddOverChargeLimit(builder *flatbuffers.Builder, overChargeLimit int64) {
+	builder.PrependInt64Slot(18, overChargeLimit, 0)
+}
+func CurrencyExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
+	builder.PrependInt32Slot(19, int32(rarity), 0)
+}
+func CurrencyExcelAddResetAmount(builder *flatbuffers.Builder, resetAmount int64) {
+	builder.PrependInt64Slot(20, resetAmount, 0)
+}
+func CurrencyExcelAddResetType(builder *flatbuffers.Builder, resetType PeriodType) {
+	builder.PrependInt32Slot(21, int32(resetType), 0)
+}
+func CurrencyExcelAddSpriteName(builder *flatbuffers.Builder, spriteName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(spriteName), 0)
 }
 func CurrencyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

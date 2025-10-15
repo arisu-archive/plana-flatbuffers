@@ -25,32 +25,45 @@ class AudioAnimatorExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AudioAnimatorExcel
-    def ControllerNameHash(self):
+    def AudioClipPath(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # AudioAnimatorExcel
+    def AudioClipPathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
 
     # AudioAnimatorExcel
-    def VoiceNamePrefix(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+    def AudioClipPathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
 
     # AudioAnimatorExcel
-    def StateNameHash(self):
+    def AudioPriority(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # AudioAnimatorExcel
+    def ControllerNameHash(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # AudioAnimatorExcel
-    def StateName(self):
+    def Delay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # AudioAnimatorExcel
     def IgnoreInterruptDelay(self):
@@ -74,63 +87,36 @@ class AudioAnimatorExcel(object):
         return False
 
     # AudioAnimatorExcel
-    def Volume(self):
+    def RandomPitchMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # AudioAnimatorExcel
-    def Delay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # AudioAnimatorExcel
     def RandomPitchMin(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # AudioAnimatorExcel
+    def StateName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # AudioAnimatorExcel
-    def RandomPitchMax(self):
+    def StateNameHash(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
-
-    # AudioAnimatorExcel
-    def AudioPriority(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # AudioAnimatorExcel
-    def AudioClipPath(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # AudioAnimatorExcel
-    def AudioClipPathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # AudioAnimatorExcel
-    def AudioClipPathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        return o == 0
 
     # AudioAnimatorExcel
     def VoiceHash(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -138,38 +124,55 @@ class AudioAnimatorExcel(object):
 
     # AudioAnimatorExcel
     def VoiceHashAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
         return 0
 
     # AudioAnimatorExcel
     def VoiceHashLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # AudioAnimatorExcel
     def VoiceHashIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
+
+    # AudioAnimatorExcel
+    def VoiceNamePrefix(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AudioAnimatorExcel
+    def Volume(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
 def AudioAnimatorExcelStart(builder): builder.StartObject(14)
 def Start(builder):
     return AudioAnimatorExcelStart(builder)
-def AudioAnimatorExcelAddControllerNameHash(builder, controllerNameHash): builder.PrependUint32Slot(0, controllerNameHash, 0)
+def AudioAnimatorExcelAddAudioClipPath(builder, audioClipPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(audioClipPath), 0)
+def AddAudioClipPath(builder, audioClipPath):
+    return AudioAnimatorExcelAddAudioClipPath(builder, audioClipPath)
+def AudioAnimatorExcelStartAudioClipPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartAudioClipPathVector(builder, numElems):
+    return AudioAnimatorExcelStartAudioClipPathVector(builder, numElems)
+def AudioAnimatorExcelAddAudioPriority(builder, audioPriority): builder.PrependInt32Slot(1, audioPriority, 0)
+def AddAudioPriority(builder, audioPriority):
+    return AudioAnimatorExcelAddAudioPriority(builder, audioPriority)
+def AudioAnimatorExcelAddControllerNameHash(builder, controllerNameHash): builder.PrependUint32Slot(2, controllerNameHash, 0)
 def AddControllerNameHash(builder, controllerNameHash):
     return AudioAnimatorExcelAddControllerNameHash(builder, controllerNameHash)
-def AudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(voiceNamePrefix), 0)
-def AddVoiceNamePrefix(builder, voiceNamePrefix):
-    return AudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix)
-def AudioAnimatorExcelAddStateNameHash(builder, stateNameHash): builder.PrependUint32Slot(2, stateNameHash, 0)
-def AddStateNameHash(builder, stateNameHash):
-    return AudioAnimatorExcelAddStateNameHash(builder, stateNameHash)
-def AudioAnimatorExcelAddStateName(builder, stateName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(stateName), 0)
-def AddStateName(builder, stateName):
-    return AudioAnimatorExcelAddStateName(builder, stateName)
+def AudioAnimatorExcelAddDelay(builder, delay): builder.PrependFloat32Slot(3, delay, 0.0)
+def AddDelay(builder, delay):
+    return AudioAnimatorExcelAddDelay(builder, delay)
 def AudioAnimatorExcelAddIgnoreInterruptDelay(builder, ignoreInterruptDelay): builder.PrependBoolSlot(4, ignoreInterruptDelay, 0)
 def AddIgnoreInterruptDelay(builder, ignoreInterruptDelay):
     return AudioAnimatorExcelAddIgnoreInterruptDelay(builder, ignoreInterruptDelay)
@@ -179,33 +182,30 @@ def AddIgnoreInterruptPlay(builder, ignoreInterruptPlay):
 def AudioAnimatorExcelAddIgnoreVelocity(builder, ignoreVelocity): builder.PrependBoolSlot(6, ignoreVelocity, 0)
 def AddIgnoreVelocity(builder, ignoreVelocity):
     return AudioAnimatorExcelAddIgnoreVelocity(builder, ignoreVelocity)
-def AudioAnimatorExcelAddVolume(builder, volume): builder.PrependFloat32Slot(7, volume, 0.0)
-def AddVolume(builder, volume):
-    return AudioAnimatorExcelAddVolume(builder, volume)
-def AudioAnimatorExcelAddDelay(builder, delay): builder.PrependFloat32Slot(8, delay, 0.0)
-def AddDelay(builder, delay):
-    return AudioAnimatorExcelAddDelay(builder, delay)
-def AudioAnimatorExcelAddRandomPitchMin(builder, randomPitchMin): builder.PrependInt32Slot(9, randomPitchMin, 0)
-def AddRandomPitchMin(builder, randomPitchMin):
-    return AudioAnimatorExcelAddRandomPitchMin(builder, randomPitchMin)
-def AudioAnimatorExcelAddRandomPitchMax(builder, randomPitchMax): builder.PrependInt32Slot(10, randomPitchMax, 0)
+def AudioAnimatorExcelAddRandomPitchMax(builder, randomPitchMax): builder.PrependInt32Slot(7, randomPitchMax, 0)
 def AddRandomPitchMax(builder, randomPitchMax):
     return AudioAnimatorExcelAddRandomPitchMax(builder, randomPitchMax)
-def AudioAnimatorExcelAddAudioPriority(builder, audioPriority): builder.PrependInt32Slot(11, audioPriority, 0)
-def AddAudioPriority(builder, audioPriority):
-    return AudioAnimatorExcelAddAudioPriority(builder, audioPriority)
-def AudioAnimatorExcelAddAudioClipPath(builder, audioClipPath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(audioClipPath), 0)
-def AddAudioClipPath(builder, audioClipPath):
-    return AudioAnimatorExcelAddAudioClipPath(builder, audioClipPath)
-def AudioAnimatorExcelStartAudioClipPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartAudioClipPathVector(builder, numElems):
-    return AudioAnimatorExcelStartAudioClipPathVector(builder, numElems)
-def AudioAnimatorExcelAddVoiceHash(builder, voiceHash): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
+def AudioAnimatorExcelAddRandomPitchMin(builder, randomPitchMin): builder.PrependInt32Slot(8, randomPitchMin, 0)
+def AddRandomPitchMin(builder, randomPitchMin):
+    return AudioAnimatorExcelAddRandomPitchMin(builder, randomPitchMin)
+def AudioAnimatorExcelAddStateName(builder, stateName): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(stateName), 0)
+def AddStateName(builder, stateName):
+    return AudioAnimatorExcelAddStateName(builder, stateName)
+def AudioAnimatorExcelAddStateNameHash(builder, stateNameHash): builder.PrependUint32Slot(10, stateNameHash, 0)
+def AddStateNameHash(builder, stateNameHash):
+    return AudioAnimatorExcelAddStateNameHash(builder, stateNameHash)
+def AudioAnimatorExcelAddVoiceHash(builder, voiceHash): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
 def AddVoiceHash(builder, voiceHash):
     return AudioAnimatorExcelAddVoiceHash(builder, voiceHash)
 def AudioAnimatorExcelStartVoiceHashVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartVoiceHashVector(builder, numElems):
     return AudioAnimatorExcelStartVoiceHashVector(builder, numElems)
+def AudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(voiceNamePrefix), 0)
+def AddVoiceNamePrefix(builder, voiceNamePrefix):
+    return AudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix)
+def AudioAnimatorExcelAddVolume(builder, volume): builder.PrependFloat32Slot(13, volume, 0.0)
+def AddVolume(builder, volume):
+    return AudioAnimatorExcelAddVolume(builder, volume)
 def AudioAnimatorExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AudioAnimatorExcelEnd(builder)

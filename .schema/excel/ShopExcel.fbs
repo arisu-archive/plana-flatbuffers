@@ -5,22 +5,22 @@ include "ShopCategoryType.fbs";
 namespace MX.Data.Excel;
 
 table ShopExcel {
-    id: long;
-    localize_etc_id: uint;
+    buy_report_event_name: string;
     category_type: ShopCategoryType;
-    is_legacy: bool;
-    use_big_popup: bool;
-    goods_id: [long];
     display_order: long;
-    sale_period_from: string;
-    sale_period_to: string;
+    display_tag: ProductDisplayTag;
+    goods_id: [long];
+    id: long;
+    is_legacy: bool;
+    localize_etc_id: uint;
     purchase_cooltime_min: long;
     purchase_count_limit: long;
     purchase_count_reset_type: PurchaseCountResetType;
-    buy_report_event_name: string;
     restrict_buy_when_inventory_full: bool;
-    display_tag: ProductDisplayTag;
+    sale_period_from: string;
+    sale_period_to: string;
     shop_update_group_id: int;
+    use_big_popup: bool;
 }
 
 root_type ShopExcel;

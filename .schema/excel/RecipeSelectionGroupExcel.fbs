@@ -3,12 +3,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table RecipeSelectionGroupExcel {
-    recipe_selection_group_id: long;
-    recipe_selection_group_component_id: long;
-    parcel_type: ParcelType;
     parcel_id: long;
-    result_amount_min: long;
+    parcel_type: ParcelType;
+    recipe_selection_group_component_id: long;
+    recipe_selection_group_id: long;
     result_amount_max: long;
+    result_amount_min: long;
 }
 
 root_type RecipeSelectionGroupExcel;

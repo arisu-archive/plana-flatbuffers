@@ -32,14 +32,14 @@ class ArenaLevelSectionExcel(object):
         return 0
 
     # ArenaLevelSectionExcel
-    def StartLevel(self):
+    def LastLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ArenaLevelSectionExcel
-    def LastLevel(self):
+    def StartLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -58,12 +58,12 @@ def Start(builder):
 def ArenaLevelSectionExcelAddArenaSeasonId(builder, arenaSeasonId): builder.PrependInt64Slot(0, arenaSeasonId, 0)
 def AddArenaSeasonId(builder, arenaSeasonId):
     return ArenaLevelSectionExcelAddArenaSeasonId(builder, arenaSeasonId)
-def ArenaLevelSectionExcelAddStartLevel(builder, startLevel): builder.PrependInt64Slot(1, startLevel, 0)
-def AddStartLevel(builder, startLevel):
-    return ArenaLevelSectionExcelAddStartLevel(builder, startLevel)
-def ArenaLevelSectionExcelAddLastLevel(builder, lastLevel): builder.PrependInt64Slot(2, lastLevel, 0)
+def ArenaLevelSectionExcelAddLastLevel(builder, lastLevel): builder.PrependInt64Slot(1, lastLevel, 0)
 def AddLastLevel(builder, lastLevel):
     return ArenaLevelSectionExcelAddLastLevel(builder, lastLevel)
+def ArenaLevelSectionExcelAddStartLevel(builder, startLevel): builder.PrependInt64Slot(2, startLevel, 0)
+def AddStartLevel(builder, startLevel):
+    return ArenaLevelSectionExcelAddStartLevel(builder, startLevel)
 def ArenaLevelSectionExcelAddUserCount(builder, userCount): builder.PrependInt64Slot(3, userCount, 0)
 def AddUserCount(builder, userCount):
     return ArenaLevelSectionExcelAddUserCount(builder, userCount)

@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum EngageType: int {
+    SearchAndMove = 0,
+    HoldPosition = 1,
+}

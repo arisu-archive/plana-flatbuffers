@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table MinigameCCGRewardCardRateExcel {
-    rarity_group_id: long;
     card_rarity: int;
+    rarity_group_id: long;
     rate: int;
 }
 

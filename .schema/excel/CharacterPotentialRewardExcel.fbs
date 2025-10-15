@@ -5,11 +5,11 @@ namespace MX.Data.Excel;
 
 table CharacterPotentialRewardExcel {
     id: long;
-    require_potential_stat_type: [PotentialStatBonusRateType];
     require_potential_stat_level: [long];
-    reward_parcel_type: ParcelType;
-    reward_id: long;
+    require_potential_stat_type: [PotentialStatBonusRateType];
     reward_amount: int;
+    reward_id: long;
+    reward_parcel_type: ParcelType;
 }
 
 root_type CharacterPotentialRewardExcel;

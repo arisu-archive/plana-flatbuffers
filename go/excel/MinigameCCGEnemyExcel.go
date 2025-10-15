@@ -33,7 +33,7 @@ func (rcv *MinigameCCGEnemyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGEnemyExcel) Id() int64 {
+func (rcv *MinigameCCGEnemyExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,24 +41,12 @@ func (rcv *MinigameCCGEnemyExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *MinigameCCGEnemyExcel) MutateId(n int64) bool {
+func (rcv *MinigameCCGEnemyExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameCCGEnemyExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGEnemyExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *MinigameCCGEnemyExcel) CharacterType() CCGCharacterType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return CCGCharacterType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -66,11 +54,35 @@ func (rcv *MinigameCCGEnemyExcel) CharacterType() CCGCharacterType {
 }
 
 func (rcv *MinigameCCGEnemyExcel) MutateCharacterType(n CCGCharacterType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *MinigameCCGEnemyExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGEnemyExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MinigameCCGEnemyExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGEnemyExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *MinigameCCGEnemyExcel) Order() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -78,38 +90,26 @@ func (rcv *MinigameCCGEnemyExcel) Order() int32 {
 }
 
 func (rcv *MinigameCCGEnemyExcel) MutateOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *MinigameCCGEnemyExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGEnemyExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func MinigameCCGEnemyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func MinigameCCGEnemyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func MinigameCCGEnemyExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(1, groupId, 0)
+func MinigameCCGEnemyExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(0, characterId, 0)
 }
 func MinigameCCGEnemyExcelAddCharacterType(builder *flatbuffers.Builder, characterType CCGCharacterType) {
-	builder.PrependInt32Slot(2, int32(characterType), 0)
+	builder.PrependInt32Slot(1, int32(characterType), 0)
+}
+func MinigameCCGEnemyExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(2, groupId, 0)
+}
+func MinigameCCGEnemyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func MinigameCCGEnemyExcelAddOrder(builder *flatbuffers.Builder, order int32) {
-	builder.PrependInt32Slot(3, order, 0)
-}
-func MinigameCCGEnemyExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(4, characterId, 0)
+	builder.PrependInt32Slot(4, order, 0)
 }
 func MinigameCCGEnemyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,21 +10,21 @@ import (
 // MinigameCCGEnemyExcelDto represents a FlatBuffers table
 type MinigameCCGEnemyExcelDto struct {
 	fbsutils.FlatBuffer
-	Id            int64            `json:"id"`
-	GroupId       int64            `json:"group_id"`
-	CharacterType CCGCharacterType `json:"character_type"`
-	Order         int32            `json:"order"`
 	CharacterId   int64            `json:"character_id"`
+	CharacterType CCGCharacterType `json:"character_type"`
+	GroupId       int64            `json:"group_id"`
+	Id            int64            `json:"id"`
+	Order         int32            `json:"order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGEnemyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGEnemyExcelStart(b)
-	MinigameCCGEnemyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyExcelAddCharacterType(b, fbsutils.Convert(t.CharacterType, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	MinigameCCGEnemyExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyExcelAddCharacterType(b, fbsutils.Convert(t.CharacterType, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MinigameCCGEnemyExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	return MinigameCCGEnemyExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MinigameCCGEnemyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGEnemyExcelDto) UnmarshalMessage(e *MinigameCCGEnemyExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.CharacterType = CCGCharacterType(fbsutils.Convert(int32(e.CharacterType()), t.FlatBuffer.TableKey))
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.CharacterType = CCGCharacterType(fbsutils.Convert(int32(e.CharacterType()), t.FlatBuffer.TableKey))
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	return nil
 }
 

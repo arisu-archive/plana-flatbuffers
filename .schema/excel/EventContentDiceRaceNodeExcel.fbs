@@ -1,0 +1,16 @@
+include "EventContentDiceRaceNodeType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentDiceRaceNodeExcel {
+    event_content_dice_race_node_type: EventContentDiceRaceNodeType;
+    event_content_id: long;
+    move_forward_type_arg: int;
+    node_id: long;
+    reward_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+}
+
+root_type EventContentDiceRaceNodeExcel;

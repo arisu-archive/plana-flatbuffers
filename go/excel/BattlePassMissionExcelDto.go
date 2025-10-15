@@ -10,49 +10,32 @@ import (
 // BattlePassMissionExcelDto represents a FlatBuffers table
 type BattlePassMissionExcelDto struct {
 	fbsutils.FlatBuffer
+	BattlePassExpAmount           int32                            `json:"battle_pass_exp_amount"`
 	BattlePassId                  int64                            `json:"battle_pass_id"`
-	Id                            int64                            `json:"id"`
 	Category                      MissionCategory                  `json:"category"`
-	PreMissionId                  []int64                          `json:"pre_mission_id"`
-	Description                   uint32                           `json:"description"`
-	ResetType                     MissionResetType                 `json:"reset_type"`
-	ToastDisplayType              MissionToastDisplayConditionType `json:"toast_display_type"`
-	ToastImagePath                string                           `json:"toast_image_path"`
-	ViewFlag                      bool                             `json:"view_flag"`
-	DisplayOrder                  int64                            `json:"display_order"`
-	ShortcutUi                    []string                         `json:"shortcut_ui"`
 	ChallengeStageShortcut        int64                            `json:"challenge_stage_shortcut"`
-	CompleteConditionType         MissionCompleteConditionType     `json:"complete_condition_type"`
 	CompleteConditionCount        int64                            `json:"complete_condition_count"`
 	CompleteConditionParameter    []int64                          `json:"complete_condition_parameter"`
 	CompleteConditionParameterTag []Tag                            `json:"complete_condition_parameter_tag"`
-	BattlePassExpAmount           int32                            `json:"battle_pass_exp_amount"`
+	CompleteConditionType         MissionCompleteConditionType     `json:"complete_condition_type"`
+	Description                   uint32                           `json:"description"`
+	DisplayOrder                  int64                            `json:"display_order"`
+	Id                            int64                            `json:"id"`
+	PreMissionId                  []int64                          `json:"pre_mission_id"`
+	ResetType                     MissionResetType                 `json:"reset_type"`
+	ShortcutUi                    []string                         `json:"shortcut_ui"`
+	ToastDisplayType              MissionToastDisplayConditionType `json:"toast_display_type"`
+	ToastImagePath                string                           `json:"toast_image_path"`
+	ViewFlag                      bool                             `json:"view_flag"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BattlePassMissionExcelStart(b)
+	BattlePassMissionExcelAddBattlePassExpAmount(b, fbsutils.Convert(t.BattlePassExpAmount, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelStartPreMissionIdVector(b, len(t.PreMissionId))
-	for i := range len(t.PreMissionId) {
-		b.PrependInt64(fbsutils.Convert(t.PreMissionId[len(t.PreMissionId)-i-1], t.FlatBuffer.TableKey))
-	}
-	BattlePassMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
-	BattlePassMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
-	BattlePassMissionExcelAddViewFlag(b, t.ViewFlag)
-	BattlePassMissionExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
-	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
-	}
-	BattlePassMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
 	BattlePassMissionExcelAddChallengeStageShortcut(b, fbsutils.Convert(t.ChallengeStageShortcut, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddCompleteConditionCount(b, fbsutils.Convert(t.CompleteConditionCount, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelStartCompleteConditionParameterVector(b, len(t.CompleteConditionParameter))
 	for i := range len(t.CompleteConditionParameter) {
@@ -64,7 +47,24 @@ func (t *BattlePassMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		b.PrependInt32(fbsutils.Convert(int32(t.CompleteConditionParameterTag[len(t.CompleteConditionParameterTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	BattlePassMissionExcelAddCompleteConditionParameterTag(b, b.EndVector(len(t.CompleteConditionParameterTag)))
-	BattlePassMissionExcelAddBattlePassExpAmount(b, fbsutils.Convert(t.BattlePassExpAmount, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelStartPreMissionIdVector(b, len(t.PreMissionId))
+	for i := range len(t.PreMissionId) {
+		b.PrependInt64(fbsutils.Convert(t.PreMissionId[len(t.PreMissionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	BattlePassMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
+	BattlePassMissionExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
+	}
+	BattlePassMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
+	BattlePassMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
+	BattlePassMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
+	BattlePassMissionExcelAddViewFlag(b, t.ViewFlag)
 	return BattlePassMissionExcelEnd(b)
 }
 
@@ -77,25 +77,10 @@ func (t *BattlePassMissionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattlePassMissionExcelDto) UnmarshalMessage(e *BattlePassMissionExcel) error {
+	t.BattlePassExpAmount = fbsutils.Convert(e.BattlePassExpAmount(), t.FlatBuffer.TableKey)
 	t.BattlePassId = fbsutils.Convert(e.BattlePassId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Category = MissionCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
-	t.PreMissionId = make([]int64, e.PreMissionIdLength())
-	for i := range e.PreMissionIdLength() {
-		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
-	}
-	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
-	t.ResetType = MissionResetType(fbsutils.Convert(int32(e.ResetType()), t.FlatBuffer.TableKey))
-	t.ToastDisplayType = MissionToastDisplayConditionType(fbsutils.Convert(int32(e.ToastDisplayType()), t.FlatBuffer.TableKey))
-	t.ToastImagePath = fbsutils.Convert(string(e.ToastImagePath()), t.FlatBuffer.TableKey)
-	t.ViewFlag = e.ViewFlag()
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.ShortcutUi = make([]string, e.ShortcutUiLength())
-	for i := range e.ShortcutUiLength() {
-		t.ShortcutUi[i] = fbsutils.Convert(string(e.ShortcutUi(i)), t.FlatBuffer.TableKey)
-	}
 	t.ChallengeStageShortcut = fbsutils.Convert(e.ChallengeStageShortcut(), t.FlatBuffer.TableKey)
-	t.CompleteConditionType = MissionCompleteConditionType(fbsutils.Convert(int32(e.CompleteConditionType()), t.FlatBuffer.TableKey))
 	t.CompleteConditionCount = fbsutils.Convert(e.CompleteConditionCount(), t.FlatBuffer.TableKey)
 	t.CompleteConditionParameter = make([]int64, e.CompleteConditionParameterLength())
 	for i := range e.CompleteConditionParameterLength() {
@@ -105,7 +90,22 @@ func (t *BattlePassMissionExcelDto) UnmarshalMessage(e *BattlePassMissionExcel) 
 	for i := range e.CompleteConditionParameterTagLength() {
 		t.CompleteConditionParameterTag[i] = Tag(fbsutils.Convert(int32(e.CompleteConditionParameterTag(i)), t.FlatBuffer.TableKey))
 	}
-	t.BattlePassExpAmount = fbsutils.Convert(e.BattlePassExpAmount(), t.FlatBuffer.TableKey)
+	t.CompleteConditionType = MissionCompleteConditionType(fbsutils.Convert(int32(e.CompleteConditionType()), t.FlatBuffer.TableKey))
+	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.PreMissionId = make([]int64, e.PreMissionIdLength())
+	for i := range e.PreMissionIdLength() {
+		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
+	}
+	t.ResetType = MissionResetType(fbsutils.Convert(int32(e.ResetType()), t.FlatBuffer.TableKey))
+	t.ShortcutUi = make([]string, e.ShortcutUiLength())
+	for i := range e.ShortcutUiLength() {
+		t.ShortcutUi[i] = fbsutils.Convert(string(e.ShortcutUi(i)), t.FlatBuffer.TableKey)
+	}
+	t.ToastDisplayType = MissionToastDisplayConditionType(fbsutils.Convert(int32(e.ToastDisplayType()), t.FlatBuffer.TableKey))
+	t.ToastImagePath = fbsutils.Convert(string(e.ToastImagePath()), t.FlatBuffer.TableKey)
+	t.ViewFlag = e.ViewFlag()
 	return nil
 }
 

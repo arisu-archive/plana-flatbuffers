@@ -10,25 +10,25 @@ import (
 // FurnitureTemplateElementExcelDto represents a FlatBuffers table
 type FurnitureTemplateElementExcelDto struct {
 	fbsutils.FlatBuffer
-	FurnitureTemplateId int64             `json:"furniture_template_id"`
 	FurnitureId         int64             `json:"furniture_id"`
+	FurnitureTemplateId int64             `json:"furniture_template_id"`
 	Location            FurnitureLocation `json:"location"`
+	Order               int64             `json:"order"`
 	PositionX           float32           `json:"position_x"`
 	PositionY           float32           `json:"position_y"`
 	Rotation            float32           `json:"rotation"`
-	Order               int64             `json:"order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureTemplateElementExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	FurnitureTemplateElementExcelStart(b)
-	FurnitureTemplateElementExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
 	FurnitureTemplateElementExcelAddFurnitureId(b, fbsutils.Convert(t.FurnitureId, t.FlatBuffer.TableKey))
+	FurnitureTemplateElementExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
 	FurnitureTemplateElementExcelAddLocation(b, fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
+	FurnitureTemplateElementExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	FurnitureTemplateElementExcelAddPositionX(b, fbsutils.Convert(t.PositionX, t.FlatBuffer.TableKey))
 	FurnitureTemplateElementExcelAddPositionY(b, fbsutils.Convert(t.PositionY, t.FlatBuffer.TableKey))
 	FurnitureTemplateElementExcelAddRotation(b, fbsutils.Convert(t.Rotation, t.FlatBuffer.TableKey))
-	FurnitureTemplateElementExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	return FurnitureTemplateElementExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *FurnitureTemplateElementExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureTemplateElementExcelDto) UnmarshalMessage(e *FurnitureTemplateElementExcel) error {
-	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
 	t.FurnitureId = fbsutils.Convert(e.FurnitureId(), t.FlatBuffer.TableKey)
+	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
 	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
 	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
 	t.Rotation = fbsutils.Convert(e.Rotation(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	return nil
 }
 

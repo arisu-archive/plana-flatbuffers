@@ -10,9 +10,9 @@ import (
 // ContentsScenarioExcelDto represents a FlatBuffers table
 type ContentsScenarioExcelDto struct {
 	fbsutils.FlatBuffer
+	DisplayOrder        int32               `json:"display_order"`
 	Id                  uint32              `json:"id"`
 	LocalizeId          uint32              `json:"localize_id"`
-	DisplayOrder        int32               `json:"display_order"`
 	ScenarioContentType ScenarioContentType `json:"scenario_content_type"`
 	ScenarioGroupId     []int64             `json:"scenario_group_id"`
 }
@@ -20,9 +20,9 @@ type ContentsScenarioExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ContentsScenarioExcelStart(b)
+	ContentsScenarioExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ContentsScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ContentsScenarioExcelAddLocalizeId(b, fbsutils.Convert(t.LocalizeId, t.FlatBuffer.TableKey))
-	ContentsScenarioExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ContentsScenarioExcelAddScenarioContentType(b, fbsutils.Convert(t.ScenarioContentType, t.FlatBuffer.TableKey))
 	ContentsScenarioExcelStartScenarioGroupIdVector(b, len(t.ScenarioGroupId))
 	for i := range len(t.ScenarioGroupId) {
@@ -41,9 +41,9 @@ func (t *ContentsScenarioExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsScenarioExcelDto) UnmarshalMessage(e *ContentsScenarioExcel) error {
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeId = fbsutils.Convert(e.LocalizeId(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.ScenarioContentType = ScenarioContentType(fbsutils.Convert(int32(e.ScenarioContentType()), t.FlatBuffer.TableKey))
 	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
 	for i := range e.ScenarioGroupIdLength() {

@@ -33,7 +33,7 @@ func (rcv *RaidStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RaidStageExcel) Id() int64 {
+func (rcv *RaidStageExcel) BattleDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,43 +41,80 @@ func (rcv *RaidStageExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateId(n int64) bool {
+func (rcv *RaidStageExcel) MutateBattleDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *RaidStageExcel) UseBossIndex() bool {
+func (rcv *RaidStageExcel) BattleReadyTimelinePath(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *RaidStageExcel) MutateUseBossIndex(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
-func (rcv *RaidStageExcel) UseBossAiPhaseSync() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *RaidStageExcel) MutateUseBossAiPhaseSync(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *RaidStageExcel) RaidBossGroup() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *RaidStageExcel) PortraitPath() []byte {
+func (rcv *RaidStageExcel) BattleReadyTimelinePathLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) BattleReadyTimelinePhaseEnd(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) BattleReadyTimelinePhaseEndLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateBattleReadyTimelinePhaseEnd(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *RaidStageExcel) BattleReadyTimelinePhaseStart(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) BattleReadyTimelinePhaseStartLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateBattleReadyTimelinePhaseStart(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *RaidStageExcel) BgPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,28 +122,20 @@ func (rcv *RaidStageExcel) PortraitPath() []byte {
 	return nil
 }
 
-func (rcv *RaidStageExcel) BgPath() []byte {
+func (rcv *RaidStageExcel) BossBgInfoKey() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *RaidStageExcel) RaidCharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateRaidCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+func (rcv *RaidStageExcel) MutateBossBgInfoKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(14, n)
 }
 
 func (rcv *RaidStageExcel) BossCharacterId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -115,7 +144,7 @@ func (rcv *RaidStageExcel) BossCharacterId(j int) int64 {
 }
 
 func (rcv *RaidStageExcel) BossCharacterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,7 +152,7 @@ func (rcv *RaidStageExcel) BossCharacterIdLength() int {
 }
 
 func (rcv *RaidStageExcel) MutateBossCharacterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -131,8 +160,32 @@ func (rcv *RaidStageExcel) MutateBossCharacterId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *RaidStageExcel) Difficulty() Difficulty {
+func (rcv *RaidStageExcel) ClearScenarioKey() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateClearScenarioKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(18, n)
+}
+
+func (rcv *RaidStageExcel) DefaultClearScore() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateDefaultClearScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *RaidStageExcel) Difficulty() Difficulty {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -140,11 +193,11 @@ func (rcv *RaidStageExcel) Difficulty() Difficulty {
 }
 
 func (rcv *RaidStageExcel) MutateDifficulty(n Difficulty) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
+	return rcv._tab.MutateInt32Slot(22, int32(n))
 }
 
 func (rcv *RaidStageExcel) DifficultyOpenCondition() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -152,55 +205,39 @@ func (rcv *RaidStageExcel) DifficultyOpenCondition() bool {
 }
 
 func (rcv *RaidStageExcel) MutateDifficultyOpenCondition(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+	return rcv._tab.MutateBoolSlot(24, n)
 }
 
-func (rcv *RaidStageExcel) MaxPlayerCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateMaxPlayerCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *RaidStageExcel) RaidRoomLifeTime() int32 {
+func (rcv *RaidStageExcel) EchelonExtensionType() EchelonExtensionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateRaidRoomLifeTime(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
+func (rcv *RaidStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
 }
 
-func (rcv *RaidStageExcel) BattleDuration() int64 {
+func (rcv *RaidStageExcel) EnterScenarioKey() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+func (rcv *RaidStageExcel) MutateEnterScenarioKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(28, n)
 }
 
-func (rcv *RaidStageExcel) GroundId() int64 {
+func (rcv *RaidStageExcel) EnterTimeLine() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
+	return nil
 }
 
 func (rcv *RaidStageExcel) GroundDevName() []byte {
@@ -211,64 +248,20 @@ func (rcv *RaidStageExcel) GroundDevName() []byte {
 	return nil
 }
 
-func (rcv *RaidStageExcel) EnterTimeLine() []byte {
+func (rcv *RaidStageExcel) GroundId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *RaidStageExcel) TacticEnvironment() TacticEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return TacticEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateTacticEnvironment(n TacticEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(36, int32(n))
-}
-
-func (rcv *RaidStageExcel) DefaultClearScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateDefaultClearScore(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
-}
-
-func (rcv *RaidStageExcel) MaximumScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateMaximumScore(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
-}
-
-func (rcv *RaidStageExcel) PerSecondMinusScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutatePerSecondMinusScore(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+func (rcv *RaidStageExcel) MutateGroundId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
 }
 
 func (rcv *RaidStageExcel) HpPercentScore() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -276,6 +269,54 @@ func (rcv *RaidStageExcel) HpPercentScore() int64 {
 }
 
 func (rcv *RaidStageExcel) MutateHpPercentScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *RaidStageExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(38, n)
+}
+
+func (rcv *RaidStageExcel) MaximumAcquisitionScore() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateMaximumAcquisitionScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
+func (rcv *RaidStageExcel) MaximumScore() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateMaximumScore(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
+}
+
+func (rcv *RaidStageExcel) MaxPlayerCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateMaxPlayerCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
@@ -291,7 +332,7 @@ func (rcv *RaidStageExcel) MutateMinimumAcquisitionScore(n int64) bool {
 	return rcv._tab.MutateInt64Slot(46, n)
 }
 
-func (rcv *RaidStageExcel) MaximumAcquisitionScore() int64 {
+func (rcv *RaidStageExcel) PerSecondMinusScore() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -299,12 +340,48 @@ func (rcv *RaidStageExcel) MaximumAcquisitionScore() int64 {
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateMaximumAcquisitionScore(n int64) bool {
+func (rcv *RaidStageExcel) MutatePerSecondMinusScore(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *RaidStageExcel) RaidRewardGroupId() int64 {
+func (rcv *RaidStageExcel) PhaseChangeTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *RaidStageExcel) PortraitPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *RaidStageExcel) RaidBossGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *RaidStageExcel) RaidCharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateRaidCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
+}
+
+func (rcv *RaidStageExcel) RaidRewardGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -312,132 +389,23 @@ func (rcv *RaidStageExcel) RaidRewardGroupId() int64 {
 }
 
 func (rcv *RaidStageExcel) MutateRaidRewardGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(50, n)
+	return rcv._tab.MutateInt64Slot(58, n)
 }
 
-func (rcv *RaidStageExcel) BattleReadyTimelinePath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *RaidStageExcel) BattleReadyTimelinePathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) BattleReadyTimelinePhaseStart(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) BattleReadyTimelinePhaseStartLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateBattleReadyTimelinePhaseStart(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *RaidStageExcel) BattleReadyTimelinePhaseEnd(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) BattleReadyTimelinePhaseEndLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateBattleReadyTimelinePhaseEnd(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *RaidStageExcel) VictoryTimelinePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *RaidStageExcel) PhaseChangeTimelinePath() []byte {
+func (rcv *RaidStageExcel) RaidRoomLifeTime() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *RaidStageExcel) TimeLinePhase() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RaidStageExcel) MutateTimeLinePhase(n int64) bool {
-	return rcv._tab.MutateInt64Slot(62, n)
-}
-
-func (rcv *RaidStageExcel) EnterScenarioKey() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateEnterScenarioKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(64, n)
-}
-
-func (rcv *RaidStageExcel) ClearScenarioKey() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateClearScenarioKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(66, n)
+func (rcv *RaidStageExcel) MutateRaidRoomLifeTime(n int32) bool {
+	return rcv._tab.MutateInt32Slot(60, n)
 }
 
 func (rcv *RaidStageExcel) ShowSkillCard() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -445,152 +413,184 @@ func (rcv *RaidStageExcel) ShowSkillCard() bool {
 }
 
 func (rcv *RaidStageExcel) MutateShowSkillCard(n bool) bool {
+	return rcv._tab.MutateBoolSlot(62, n)
+}
+
+func (rcv *RaidStageExcel) TacticEnvironment() TacticEnvironment {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	if o != 0 {
+		return TacticEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateTacticEnvironment(n TacticEnvironment) bool {
+	return rcv._tab.MutateInt32Slot(64, int32(n))
+}
+
+func (rcv *RaidStageExcel) TimeLinePhase() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateTimeLinePhase(n int64) bool {
+	return rcv._tab.MutateInt64Slot(66, n)
+}
+
+func (rcv *RaidStageExcel) UseBossAiPhaseSync() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *RaidStageExcel) MutateUseBossAiPhaseSync(n bool) bool {
 	return rcv._tab.MutateBoolSlot(68, n)
 }
 
-func (rcv *RaidStageExcel) BossBgInfoKey() uint32 {
+func (rcv *RaidStageExcel) UseBossIndex() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *RaidStageExcel) MutateBossBgInfoKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(70, n)
+func (rcv *RaidStageExcel) MutateUseBossIndex(n bool) bool {
+	return rcv._tab.MutateBoolSlot(70, n)
 }
 
-func (rcv *RaidStageExcel) EchelonExtensionType() EchelonExtensionType {
+func (rcv *RaidStageExcel) VictoryTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
-		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *RaidStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(72, int32(n))
+	return nil
 }
 
 func RaidStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(35)
 }
-func RaidStageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func RaidStageExcelAddUseBossIndex(builder *flatbuffers.Builder, useBossIndex bool) {
-	builder.PrependBoolSlot(1, useBossIndex, false)
-}
-func RaidStageExcelAddUseBossAiPhaseSync(builder *flatbuffers.Builder, useBossAiPhaseSync bool) {
-	builder.PrependBoolSlot(2, useBossAiPhaseSync, false)
-}
-func RaidStageExcelAddRaidBossGroup(builder *flatbuffers.Builder, raidBossGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(raidBossGroup), 0)
-}
-func RaidStageExcelAddPortraitPath(builder *flatbuffers.Builder, portraitPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(portraitPath), 0)
-}
-func RaidStageExcelAddBgPath(builder *flatbuffers.Builder, bgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bgPath), 0)
-}
-func RaidStageExcelAddRaidCharacterId(builder *flatbuffers.Builder, raidCharacterId int64) {
-	builder.PrependInt64Slot(6, raidCharacterId, 0)
-}
-func RaidStageExcelAddBossCharacterId(builder *flatbuffers.Builder, bossCharacterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(bossCharacterId), 0)
-}
-func RaidStageExcelStartBossCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func RaidStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty Difficulty) {
-	builder.PrependInt32Slot(8, int32(difficulty), 0)
-}
-func RaidStageExcelAddDifficultyOpenCondition(builder *flatbuffers.Builder, difficultyOpenCondition bool) {
-	builder.PrependBoolSlot(9, difficultyOpenCondition, false)
-}
-func RaidStageExcelAddMaxPlayerCount(builder *flatbuffers.Builder, maxPlayerCount int64) {
-	builder.PrependInt64Slot(10, maxPlayerCount, 0)
-}
-func RaidStageExcelAddRaidRoomLifeTime(builder *flatbuffers.Builder, raidRoomLifeTime int32) {
-	builder.PrependInt32Slot(11, raidRoomLifeTime, 0)
-}
 func RaidStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(12, battleDuration, 0)
-}
-func RaidStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(13, groundId, 0)
-}
-func RaidStageExcelAddGroundDevName(builder *flatbuffers.Builder, groundDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(groundDevName), 0)
-}
-func RaidStageExcelAddEnterTimeLine(builder *flatbuffers.Builder, enterTimeLine flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(enterTimeLine), 0)
-}
-func RaidStageExcelAddTacticEnvironment(builder *flatbuffers.Builder, tacticEnvironment TacticEnvironment) {
-	builder.PrependInt32Slot(16, int32(tacticEnvironment), 0)
-}
-func RaidStageExcelAddDefaultClearScore(builder *flatbuffers.Builder, defaultClearScore int64) {
-	builder.PrependInt64Slot(17, defaultClearScore, 0)
-}
-func RaidStageExcelAddMaximumScore(builder *flatbuffers.Builder, maximumScore int64) {
-	builder.PrependInt64Slot(18, maximumScore, 0)
-}
-func RaidStageExcelAddPerSecondMinusScore(builder *flatbuffers.Builder, perSecondMinusScore int64) {
-	builder.PrependInt64Slot(19, perSecondMinusScore, 0)
-}
-func RaidStageExcelAddHpPercentScore(builder *flatbuffers.Builder, hpPercentScore int64) {
-	builder.PrependInt64Slot(20, hpPercentScore, 0)
-}
-func RaidStageExcelAddMinimumAcquisitionScore(builder *flatbuffers.Builder, minimumAcquisitionScore int64) {
-	builder.PrependInt64Slot(21, minimumAcquisitionScore, 0)
-}
-func RaidStageExcelAddMaximumAcquisitionScore(builder *flatbuffers.Builder, maximumAcquisitionScore int64) {
-	builder.PrependInt64Slot(22, maximumAcquisitionScore, 0)
-}
-func RaidStageExcelAddRaidRewardGroupId(builder *flatbuffers.Builder, raidRewardGroupId int64) {
-	builder.PrependInt64Slot(23, raidRewardGroupId, 0)
+	builder.PrependInt64Slot(0, battleDuration, 0)
 }
 func RaidStageExcelAddBattleReadyTimelinePath(builder *flatbuffers.Builder, battleReadyTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
 }
 func RaidStageExcelStartBattleReadyTimelinePathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func RaidStageExcelAddBattleReadyTimelinePhaseStart(builder *flatbuffers.Builder, battleReadyTimelinePhaseStart flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(battleReadyTimelinePhaseStart), 0)
-}
-func RaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func RaidStageExcelAddBattleReadyTimelinePhaseEnd(builder *flatbuffers.Builder, battleReadyTimelinePhaseEnd flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(battleReadyTimelinePhaseEnd), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(battleReadyTimelinePhaseEnd), 0)
 }
 func RaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func RaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(victoryTimelinePath), 0)
+func RaidStageExcelAddBattleReadyTimelinePhaseStart(builder *flatbuffers.Builder, battleReadyTimelinePhaseStart flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(battleReadyTimelinePhaseStart), 0)
 }
-func RaidStageExcelAddPhaseChangeTimelinePath(builder *flatbuffers.Builder, phaseChangeTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(phaseChangeTimelinePath), 0)
+func RaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func RaidStageExcelAddTimeLinePhase(builder *flatbuffers.Builder, timeLinePhase int64) {
-	builder.PrependInt64Slot(29, timeLinePhase, 0)
-}
-func RaidStageExcelAddEnterScenarioKey(builder *flatbuffers.Builder, enterScenarioKey uint32) {
-	builder.PrependUint32Slot(30, enterScenarioKey, 0)
-}
-func RaidStageExcelAddClearScenarioKey(builder *flatbuffers.Builder, clearScenarioKey uint32) {
-	builder.PrependUint32Slot(31, clearScenarioKey, 0)
-}
-func RaidStageExcelAddShowSkillCard(builder *flatbuffers.Builder, showSkillCard bool) {
-	builder.PrependBoolSlot(32, showSkillCard, false)
+func RaidStageExcelAddBgPath(builder *flatbuffers.Builder, bgPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(bgPath), 0)
 }
 func RaidStageExcelAddBossBgInfoKey(builder *flatbuffers.Builder, bossBgInfoKey uint32) {
-	builder.PrependUint32Slot(33, bossBgInfoKey, 0)
+	builder.PrependUint32Slot(5, bossBgInfoKey, 0)
+}
+func RaidStageExcelAddBossCharacterId(builder *flatbuffers.Builder, bossCharacterId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(bossCharacterId), 0)
+}
+func RaidStageExcelStartBossCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func RaidStageExcelAddClearScenarioKey(builder *flatbuffers.Builder, clearScenarioKey uint32) {
+	builder.PrependUint32Slot(7, clearScenarioKey, 0)
+}
+func RaidStageExcelAddDefaultClearScore(builder *flatbuffers.Builder, defaultClearScore int64) {
+	builder.PrependInt64Slot(8, defaultClearScore, 0)
+}
+func RaidStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty Difficulty) {
+	builder.PrependInt32Slot(9, int32(difficulty), 0)
+}
+func RaidStageExcelAddDifficultyOpenCondition(builder *flatbuffers.Builder, difficultyOpenCondition bool) {
+	builder.PrependBoolSlot(10, difficultyOpenCondition, false)
 }
 func RaidStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(34, int32(echelonExtensionType), 0)
+	builder.PrependInt32Slot(11, int32(echelonExtensionType), 0)
+}
+func RaidStageExcelAddEnterScenarioKey(builder *flatbuffers.Builder, enterScenarioKey uint32) {
+	builder.PrependUint32Slot(12, enterScenarioKey, 0)
+}
+func RaidStageExcelAddEnterTimeLine(builder *flatbuffers.Builder, enterTimeLine flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(enterTimeLine), 0)
+}
+func RaidStageExcelAddGroundDevName(builder *flatbuffers.Builder, groundDevName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(groundDevName), 0)
+}
+func RaidStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(15, groundId, 0)
+}
+func RaidStageExcelAddHpPercentScore(builder *flatbuffers.Builder, hpPercentScore int64) {
+	builder.PrependInt64Slot(16, hpPercentScore, 0)
+}
+func RaidStageExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(17, id, 0)
+}
+func RaidStageExcelAddMaximumAcquisitionScore(builder *flatbuffers.Builder, maximumAcquisitionScore int64) {
+	builder.PrependInt64Slot(18, maximumAcquisitionScore, 0)
+}
+func RaidStageExcelAddMaximumScore(builder *flatbuffers.Builder, maximumScore int64) {
+	builder.PrependInt64Slot(19, maximumScore, 0)
+}
+func RaidStageExcelAddMaxPlayerCount(builder *flatbuffers.Builder, maxPlayerCount int64) {
+	builder.PrependInt64Slot(20, maxPlayerCount, 0)
+}
+func RaidStageExcelAddMinimumAcquisitionScore(builder *flatbuffers.Builder, minimumAcquisitionScore int64) {
+	builder.PrependInt64Slot(21, minimumAcquisitionScore, 0)
+}
+func RaidStageExcelAddPerSecondMinusScore(builder *flatbuffers.Builder, perSecondMinusScore int64) {
+	builder.PrependInt64Slot(22, perSecondMinusScore, 0)
+}
+func RaidStageExcelAddPhaseChangeTimelinePath(builder *flatbuffers.Builder, phaseChangeTimelinePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(phaseChangeTimelinePath), 0)
+}
+func RaidStageExcelAddPortraitPath(builder *flatbuffers.Builder, portraitPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(portraitPath), 0)
+}
+func RaidStageExcelAddRaidBossGroup(builder *flatbuffers.Builder, raidBossGroup flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(raidBossGroup), 0)
+}
+func RaidStageExcelAddRaidCharacterId(builder *flatbuffers.Builder, raidCharacterId int64) {
+	builder.PrependInt64Slot(26, raidCharacterId, 0)
+}
+func RaidStageExcelAddRaidRewardGroupId(builder *flatbuffers.Builder, raidRewardGroupId int64) {
+	builder.PrependInt64Slot(27, raidRewardGroupId, 0)
+}
+func RaidStageExcelAddRaidRoomLifeTime(builder *flatbuffers.Builder, raidRoomLifeTime int32) {
+	builder.PrependInt32Slot(28, raidRoomLifeTime, 0)
+}
+func RaidStageExcelAddShowSkillCard(builder *flatbuffers.Builder, showSkillCard bool) {
+	builder.PrependBoolSlot(29, showSkillCard, false)
+}
+func RaidStageExcelAddTacticEnvironment(builder *flatbuffers.Builder, tacticEnvironment TacticEnvironment) {
+	builder.PrependInt32Slot(30, int32(tacticEnvironment), 0)
+}
+func RaidStageExcelAddTimeLinePhase(builder *flatbuffers.Builder, timeLinePhase int64) {
+	builder.PrependInt64Slot(31, timeLinePhase, 0)
+}
+func RaidStageExcelAddUseBossAiPhaseSync(builder *flatbuffers.Builder, useBossAiPhaseSync bool) {
+	builder.PrependBoolSlot(32, useBossAiPhaseSync, false)
+}
+func RaidStageExcelAddUseBossIndex(builder *flatbuffers.Builder, useBossIndex bool) {
+	builder.PrependBoolSlot(33, useBossIndex, false)
+}
+func RaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryTimelinePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(34, flatbuffers.UOffsetT(victoryTimelinePath), 0)
 }
 func RaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

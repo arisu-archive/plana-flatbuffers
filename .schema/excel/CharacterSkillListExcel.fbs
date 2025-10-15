@@ -1,0 +1,26 @@
+namespace MX.Data.Excel;
+
+table CharacterSkillListExcel {
+    character_skill_list_group_id: long;
+    ex_skill_cut_in_time_line_index: [string];
+    ex_skill_group_id: [string];
+    ex_skill_level_time_line_index: [string];
+    extra_passive_skill_group_id: [string];
+    form_index: int;
+    hidden_passive_skill_group_id: [string];
+    is_move_left_right: bool;
+    is_root_motion: bool;
+    leader_skill_group_id: [string];
+    minimum_grade_character_weapon: int;
+    minimum_tier_character_gear: int;
+    normal_skill_group_id: [string];
+    normal_skill_time_line_index: [int];
+    passive_skill_group_id: [string];
+    public_skill_group_id: [string];
+    public_skill_time_line_index: [int];
+    select_ex_skill_action_skill_slot: int;
+    tsa_interaction_id: long;
+    use_random_ex_skill_timeline: bool;
+}
+
+root_type CharacterSkillListExcel;

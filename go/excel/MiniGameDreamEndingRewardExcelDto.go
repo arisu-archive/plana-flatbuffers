@@ -10,39 +10,39 @@ import (
 // MiniGameDreamEndingRewardExcelDto represents a FlatBuffers table
 type MiniGameDreamEndingRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId             int64                      `json:"event_content_id"`
-	EndingId                   int64                      `json:"ending_id"`
-	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
 	DreamMakerEndingRewardType DreamMakerEndingRewardType `json:"dream_maker_ending_reward_type"`
 	DreamMakerEndingType       DreamMakerEndingType       `json:"dream_maker_ending_type"`
-	RewardParcelType           []ParcelType               `json:"reward_parcel_type"`
-	RewardParcelId             []int64                    `json:"reward_parcel_id"`
+	EndingId                   int64                      `json:"ending_id"`
+	EventContentId             int64                      `json:"event_content_id"`
+	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
 	RewardParcelAmount         []int64                    `json:"reward_parcel_amount"`
+	RewardParcelId             []int64                    `json:"reward_parcel_id"`
+	RewardParcelType           []ParcelType               `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamEndingRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamEndingRewardExcelStart(b)
-	MiniGameDreamEndingRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelAddDreamMakerEndingRewardType(b, fbsutils.Convert(t.DreamMakerEndingRewardType, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamEndingRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	MiniGameDreamEndingRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamEndingRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	MiniGameDreamEndingRewardExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDreamEndingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	MiniGameDreamEndingRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamEndingRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamEndingRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	return MiniGameDreamEndingRewardExcelEnd(b)
 }
 
@@ -55,22 +55,22 @@ func (t *MiniGameDreamEndingRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamEndingRewardExcelDto) UnmarshalMessage(e *MiniGameDreamEndingRewardExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.DreamMakerEndingRewardType = DreamMakerEndingRewardType(fbsutils.Convert(int32(e.DreamMakerEndingRewardType()), t.FlatBuffer.TableKey))
 	t.DreamMakerEndingType = DreamMakerEndingType(fbsutils.Convert(int32(e.DreamMakerEndingType()), t.FlatBuffer.TableKey))
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

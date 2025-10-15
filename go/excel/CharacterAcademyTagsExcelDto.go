@@ -10,23 +10,17 @@ import (
 // CharacterAcademyTagsExcelDto represents a FlatBuffers table
 type CharacterAcademyTagsExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                  int64 `json:"id"`
-	FavorTags           []Tag `json:"favor_tags"`
 	FavorItemTags       []Tag `json:"favor_item_tags"`
 	FavorItemUniqueTags []Tag `json:"favor_item_unique_tags"`
+	FavorTags           []Tag `json:"favor_tags"`
 	ForbiddenTags       []Tag `json:"forbidden_tags"`
+	Id                  int64 `json:"id"`
 	ZoneWhiteListTags   []Tag `json:"zone_white_list_tags"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterAcademyTagsExcelStart(b)
-	CharacterAcademyTagsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterAcademyTagsExcelStartFavorTagsVector(b, len(t.FavorTags))
-	for i := range len(t.FavorTags) {
-		b.PrependInt32(fbsutils.Convert(int32(t.FavorTags[len(t.FavorTags)-i-1]), t.FlatBuffer.TableKey))
-	}
-	CharacterAcademyTagsExcelAddFavorTags(b, b.EndVector(len(t.FavorTags)))
 	CharacterAcademyTagsExcelStartFavorItemTagsVector(b, len(t.FavorItemTags))
 	for i := range len(t.FavorItemTags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.FavorItemTags[len(t.FavorItemTags)-i-1]), t.FlatBuffer.TableKey))
@@ -37,11 +31,17 @@ func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		b.PrependInt32(fbsutils.Convert(int32(t.FavorItemUniqueTags[len(t.FavorItemUniqueTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddFavorItemUniqueTags(b, b.EndVector(len(t.FavorItemUniqueTags)))
+	CharacterAcademyTagsExcelStartFavorTagsVector(b, len(t.FavorTags))
+	for i := range len(t.FavorTags) {
+		b.PrependInt32(fbsutils.Convert(int32(t.FavorTags[len(t.FavorTags)-i-1]), t.FlatBuffer.TableKey))
+	}
+	CharacterAcademyTagsExcelAddFavorTags(b, b.EndVector(len(t.FavorTags)))
 	CharacterAcademyTagsExcelStartForbiddenTagsVector(b, len(t.ForbiddenTags))
 	for i := range len(t.ForbiddenTags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ForbiddenTags[len(t.ForbiddenTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddForbiddenTags(b, b.EndVector(len(t.ForbiddenTags)))
+	CharacterAcademyTagsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(b, len(t.ZoneWhiteListTags))
 	for i := range len(t.ZoneWhiteListTags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ZoneWhiteListTags[len(t.ZoneWhiteListTags)-i-1]), t.FlatBuffer.TableKey))
@@ -59,11 +59,6 @@ func (t *CharacterAcademyTagsExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.FavorTags = make([]Tag, e.FavorTagsLength())
-	for i := range e.FavorTagsLength() {
-		t.FavorTags[i] = Tag(fbsutils.Convert(int32(e.FavorTags(i)), t.FlatBuffer.TableKey))
-	}
 	t.FavorItemTags = make([]Tag, e.FavorItemTagsLength())
 	for i := range e.FavorItemTagsLength() {
 		t.FavorItemTags[i] = Tag(fbsutils.Convert(int32(e.FavorItemTags(i)), t.FlatBuffer.TableKey))
@@ -72,10 +67,15 @@ func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsE
 	for i := range e.FavorItemUniqueTagsLength() {
 		t.FavorItemUniqueTags[i] = Tag(fbsutils.Convert(int32(e.FavorItemUniqueTags(i)), t.FlatBuffer.TableKey))
 	}
+	t.FavorTags = make([]Tag, e.FavorTagsLength())
+	for i := range e.FavorTagsLength() {
+		t.FavorTags[i] = Tag(fbsutils.Convert(int32(e.FavorTags(i)), t.FlatBuffer.TableKey))
+	}
 	t.ForbiddenTags = make([]Tag, e.ForbiddenTagsLength())
 	for i := range e.ForbiddenTagsLength() {
 		t.ForbiddenTags[i] = Tag(fbsutils.Convert(int32(e.ForbiddenTags(i)), t.FlatBuffer.TableKey))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ZoneWhiteListTags = make([]Tag, e.ZoneWhiteListTagsLength())
 	for i := range e.ZoneWhiteListTagsLength() {
 		t.ZoneWhiteListTags[i] = Tag(fbsutils.Convert(int32(e.ZoneWhiteListTags(i)), t.FlatBuffer.TableKey))

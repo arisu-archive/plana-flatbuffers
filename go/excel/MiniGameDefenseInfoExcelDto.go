@@ -10,21 +10,21 @@ import (
 // MiniGameDefenseInfoExcelDto represents a FlatBuffers table
 type MiniGameDefenseInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId             int64      `json:"event_content_id"`
-	DefenseBattleParcelType    ParcelType `json:"defense_battle_parcel_type"`
-	DefenseBattleParcelId      int64      `json:"defense_battle_parcel_id"`
 	DefenseBattleMultiplierMax int64      `json:"defense_battle_multiplier_max"`
+	DefenseBattleParcelId      int64      `json:"defense_battle_parcel_id"`
+	DefenseBattleParcelType    ParcelType `json:"defense_battle_parcel_type"`
 	DisableRootMotion          bool       `json:"disable_root_motion"`
+	EventContentId             int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDefenseInfoExcelStart(b)
-	MiniGameDefenseInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDefenseInfoExcelAddDefenseBattleParcelType(b, fbsutils.Convert(t.DefenseBattleParcelType, t.FlatBuffer.TableKey))
-	MiniGameDefenseInfoExcelAddDefenseBattleParcelId(b, fbsutils.Convert(t.DefenseBattleParcelId, t.FlatBuffer.TableKey))
 	MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(b, fbsutils.Convert(t.DefenseBattleMultiplierMax, t.FlatBuffer.TableKey))
+	MiniGameDefenseInfoExcelAddDefenseBattleParcelId(b, fbsutils.Convert(t.DefenseBattleParcelId, t.FlatBuffer.TableKey))
+	MiniGameDefenseInfoExcelAddDefenseBattleParcelType(b, fbsutils.Convert(t.DefenseBattleParcelType, t.FlatBuffer.TableKey))
 	MiniGameDefenseInfoExcelAddDisableRootMotion(b, t.DisableRootMotion)
+	MiniGameDefenseInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return MiniGameDefenseInfoExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *MiniGameDefenseInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseInfoExcelDto) UnmarshalMessage(e *MiniGameDefenseInfoExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.DefenseBattleParcelType = ParcelType(fbsutils.Convert(int32(e.DefenseBattleParcelType()), t.FlatBuffer.TableKey))
-	t.DefenseBattleParcelId = fbsutils.Convert(e.DefenseBattleParcelId(), t.FlatBuffer.TableKey)
 	t.DefenseBattleMultiplierMax = fbsutils.Convert(e.DefenseBattleMultiplierMax(), t.FlatBuffer.TableKey)
+	t.DefenseBattleParcelId = fbsutils.Convert(e.DefenseBattleParcelId(), t.FlatBuffer.TableKey)
+	t.DefenseBattleParcelType = ParcelType(fbsutils.Convert(int32(e.DefenseBattleParcelType()), t.FlatBuffer.TableKey))
 	t.DisableRootMotion = e.DisableRootMotion()
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

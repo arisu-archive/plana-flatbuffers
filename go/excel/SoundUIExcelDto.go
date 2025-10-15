@@ -11,16 +11,16 @@ import (
 type SoundUIExcelDto struct {
 	fbsutils.FlatBuffer
 	Id            int64  `json:"id"`
-	SoundUniqueId string `json:"sound_unique_id"`
 	Path          string `json:"path"`
+	SoundUniqueId string `json:"sound_unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SoundUIExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	SoundUIExcelStart(b)
 	SoundUIExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	SoundUIExcelAddSoundUniqueId(b, b.CreateString(fbsutils.Convert(t.SoundUniqueId, t.FlatBuffer.TableKey)))
 	SoundUIExcelAddPath(b, b.CreateString(fbsutils.Convert(t.Path, t.FlatBuffer.TableKey)))
+	SoundUIExcelAddSoundUniqueId(b, b.CreateString(fbsutils.Convert(t.SoundUniqueId, t.FlatBuffer.TableKey)))
 	return SoundUIExcelEnd(b)
 }
 
@@ -34,8 +34,8 @@ func (t *SoundUIExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SoundUIExcelDto) UnmarshalMessage(e *SoundUIExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.SoundUniqueId = fbsutils.Convert(string(e.SoundUniqueId()), t.FlatBuffer.TableKey)
 	t.Path = fbsutils.Convert(string(e.Path()), t.FlatBuffer.TableKey)
+	t.SoundUniqueId = fbsutils.Convert(string(e.SoundUniqueId()), t.FlatBuffer.TableKey)
 	return nil
 }
 

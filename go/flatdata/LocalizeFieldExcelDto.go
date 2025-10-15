@@ -10,9 +10,9 @@ import (
 // LocalizeFieldExcelDto represents a FlatBuffers table
 type LocalizeFieldExcelDto struct {
 	fbsutils.FlatBuffer
+	Jp  string `json:"jp"`
 	Key uint32 `json:"key"`
 	Kr  string `json:"kr"`
-	Jp  string `json:"jp"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *LocalizeFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeField"))
 	}
 	LocalizeFieldExcelStart(b)
+	LocalizeFieldExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	LocalizeFieldExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	LocalizeFieldExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeFieldExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	return LocalizeFieldExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *LocalizeFieldExcelDto) UnmarshalMessage(e *LocalizeFieldExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeField"))
 	}
+	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
-	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	return nil
 }
 

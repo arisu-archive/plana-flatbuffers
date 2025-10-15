@@ -33,7 +33,7 @@ func (rcv *BGMRaidExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BGMRaidExcel) StageId() int64 {
+func (rcv *BGMRaidExcel) BgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *BGMRaidExcel) StageId() int64 {
 	return 0
 }
 
-func (rcv *BGMRaidExcel) MutateStageId(n int64) bool {
+func (rcv *BGMRaidExcel) MutateBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,7 +57,7 @@ func (rcv *BGMRaidExcel) MutatePhaseIndex(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BGMRaidExcel) BgmId() int64 {
+func (rcv *BGMRaidExcel) StageId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,21 +65,21 @@ func (rcv *BGMRaidExcel) BgmId() int64 {
 	return 0
 }
 
-func (rcv *BGMRaidExcel) MutateBgmId(n int64) bool {
+func (rcv *BGMRaidExcel) MutateStageId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func BGMRaidExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func BGMRaidExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
-	builder.PrependInt64Slot(0, stageId, 0)
+func BGMRaidExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(0, bgmId, 0)
 }
 func BGMRaidExcelAddPhaseIndex(builder *flatbuffers.Builder, phaseIndex int64) {
 	builder.PrependInt64Slot(1, phaseIndex, 0)
 }
-func BGMRaidExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(2, bgmId, 0)
+func BGMRaidExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
+	builder.PrependInt64Slot(2, stageId, 0)
 }
 func BGMRaidExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

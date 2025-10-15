@@ -4,9 +4,9 @@ namespace MX.Data.Excel;
 
 table MinigameRoadPuzzleMapTileExcel {
     event_content_id: long;
-    unique_id: long;
-    prefab_name: string;
     map_tile_type: RoadPuzzleMapTileType;
+    prefab_name: string;
+    unique_id: long;
 }
 
 root_type MinigameRoadPuzzleMapTileExcel;

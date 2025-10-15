@@ -1,0 +1,12 @@
+include "EventContentItemType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentCharacterBonusExcel {
+    bonus_percentage: [long];
+    character_id: long;
+    event_content_id: long;
+    event_content_item_type: [EventContentItemType];
+}
+
+root_type EventContentCharacterBonusExcel;

@@ -25,58 +25,58 @@ class TimeAttackDungeonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TimeAttackDungeonExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TimeAttackDungeonExcel
-    def TimeAttackDungeonType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TimeAttackDungeonExcel
-    def LocalizeEtcKey(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # TimeAttackDungeonExcel
     def IconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TimeAttackDungeonExcel
-    def InformationGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TimeAttackDungeonExcel
+    def InformationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TimeAttackDungeonExcel
+    def LocalizeEtcKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # TimeAttackDungeonExcel
+    def TimeAttackDungeonType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def TimeAttackDungeonExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return TimeAttackDungeonExcelStart(builder)
-def TimeAttackDungeonExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return TimeAttackDungeonExcelAddId(builder, id)
-def TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType): builder.PrependInt32Slot(1, timeAttackDungeonType, 0)
-def AddTimeAttackDungeonType(builder, timeAttackDungeonType):
-    return TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType)
-def TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey): builder.PrependUint32Slot(2, localizeEtcKey, 0)
-def AddLocalizeEtcKey(builder, localizeEtcKey):
-    return TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey)
-def TimeAttackDungeonExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+def TimeAttackDungeonExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
     return TimeAttackDungeonExcelAddIconPath(builder, iconPath)
-def TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId): builder.PrependInt64Slot(4, informationGroupId, 0)
+def TimeAttackDungeonExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return TimeAttackDungeonExcelAddId(builder, id)
+def TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId): builder.PrependInt64Slot(2, informationGroupId, 0)
 def AddInformationGroupId(builder, informationGroupId):
     return TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId)
+def TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey): builder.PrependUint32Slot(3, localizeEtcKey, 0)
+def AddLocalizeEtcKey(builder, localizeEtcKey):
+    return TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey)
+def TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType): builder.PrependInt32Slot(4, timeAttackDungeonType, 0)
+def AddTimeAttackDungeonType(builder, timeAttackDungeonType):
+    return TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType)
 def TimeAttackDungeonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TimeAttackDungeonExcelEnd(builder)

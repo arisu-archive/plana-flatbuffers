@@ -1,17 +1,17 @@
 namespace MX.Data.Excel;
 
 table RaidSeasonManageExcel {
-    season_id: long;
-    season_display: long;
-    season_start_data: string;
     end_note_label_start_date: string;
-    season_end_data: string;
-    settlement_end_date: string;
+    max_season_reward_gauage: int;
     open_raid_boss_group: [string];
     ranking_reward_group_id: long;
-    max_season_reward_gauage: int;
-    stacked_season_reward_gauge: [long];
+    season_display: long;
+    season_end_data: string;
+    season_id: long;
     season_reward_id: [long];
+    season_start_data: string;
+    settlement_end_date: string;
+    stacked_season_reward_gauge: [long];
 }
 
 root_type RaidSeasonManageExcel;

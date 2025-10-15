@@ -3,9 +3,9 @@ include "ServiceActionType.fbs";
 namespace MX.Data.Excel;
 
 table ServiceActionExcel {
-    service_action_type: ServiceActionType;
-    is_legacy: bool;
     goods_id: long;
+    is_legacy: bool;
+    service_action_type: ServiceActionType;
 }
 
 root_type ServiceActionExcel;

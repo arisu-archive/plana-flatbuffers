@@ -10,71 +10,73 @@ import (
 // ShopRecruitExcelDto represents a FlatBuffers table
 type ShopRecruitExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                         int64                  `json:"id"`
 	CategoryType               ShopCategoryType       `json:"category_type"`
-	IsLegacy                   bool                   `json:"is_legacy"`
-	OneGachaGoodsId            int64                  `json:"one_gacha_goods_id"`
-	TenGachaGoodsId            int64                  `json:"ten_gacha_goods_id"`
-	GoodsDevName               string                 `json:"goods_dev_name"`
-	DisplayTag                 GachaDisplayTag        `json:"display_tag"`
+	DirectPayAndroidShopCashId int64                  `json:"direct_pay_android_shop_cash_id"`
+	DirectPayAppleShopCashId   int64                  `json:"direct_pay_apple_shop_cash_id"`
+	DirectPayInvisibleTokenId  int64                  `json:"direct_pay_invisible_token_id"`
 	DisplayOrder               int64                  `json:"display_order"`
+	DisplayTag                 GachaDisplayTag        `json:"display_tag"`
 	GachaBannerPath            string                 `json:"gacha_banner_path"`
-	VideoId                    []int64                `json:"video_id"`
-	LinkedRobbyBannerId        int64                  `json:"linked_robby_banner_id"`
+	GoodsDevName               string                 `json:"goods_dev_name"`
+	Id                         int64                  `json:"id"`
 	InfoCharacterId            []int64                `json:"info_character_id"`
-	SalePeriodFrom             string                 `json:"sale_period_from"`
-	SalePeriodTo               string                 `json:"sale_period_to"`
-	RecruitCoinId              int64                  `json:"recruit_coin_id"`
-	RecruitSellectionShopId    int64                  `json:"recruit_sellection_shop_id"`
+	IsLegacy                   bool                   `json:"is_legacy"`
+	IsNewbie                   bool                   `json:"is_newbie"`
+	IsSelectRecruit            bool                   `json:"is_select_recruit"`
+	LinkedRobbyBannerId        int64                  `json:"linked_robby_banner_id"`
+	MaxSelectCharacterNum      int64                  `json:"max_select_character_num"`
+	OneGachaGoodsId            int64                  `json:"one_gacha_goods_id"`
 	PurchaseCooltimeMin        int64                  `json:"purchase_cooltime_min"`
 	PurchaseCountLimit         int64                  `json:"purchase_count_limit"`
 	PurchaseCountResetType     PurchaseCountResetType `json:"purchase_count_reset_type"`
-	IsNewbie                   bool                   `json:"is_newbie"`
-	IsSelectRecruit            bool                   `json:"is_select_recruit"`
-	DirectPayInvisibleTokenId  int64                  `json:"direct_pay_invisible_token_id"`
-	DirectPayAndroidShopCashId int64                  `json:"direct_pay_android_shop_cash_id"`
-	DirectPayAppleShopCashId   int64                  `json:"direct_pay_apple_shop_cash_id"`
+	RecruitCoinId              int64                  `json:"recruit_coin_id"`
+	RecruitSellectionShopId    int64                  `json:"recruit_sellection_shop_id"`
+	SalePeriodFrom             string                 `json:"sale_period_from"`
+	SalePeriodTo               string                 `json:"sale_period_to"`
+	SalePeriodVisible          bool                   `json:"sale_period_visible"`
 	SelectAbleGachaGroupId     int64                  `json:"select_able_gacha_group_id"`
-	MaxSelectCharacterNum      int64                  `json:"max_select_character_num"`
+	TenGachaGoodsId            int64                  `json:"ten_gacha_goods_id"`
+	VideoId                    []int64                `json:"video_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopRecruitExcelStart(b)
-	ShopRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddIsLegacy(b, t.IsLegacy)
-	ShopRecruitExcelAddOneGachaGoodsId(b, fbsutils.Convert(t.OneGachaGoodsId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddTenGachaGoodsId(b, fbsutils.Convert(t.TenGachaGoodsId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddGoodsDevName(b, b.CreateString(fbsutils.Convert(t.GoodsDevName, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddDirectPayAndroidShopCashId(b, fbsutils.Convert(t.DirectPayAndroidShopCashId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddDirectPayAppleShopCashId(b, fbsutils.Convert(t.DirectPayAppleShopCashId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddDirectPayInvisibleTokenId(b, fbsutils.Convert(t.DirectPayInvisibleTokenId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddGachaBannerPath(b, b.CreateString(fbsutils.Convert(t.GachaBannerPath, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelStartVideoIdVector(b, len(t.VideoId))
-	for i := range len(t.VideoId) {
-		b.PrependInt64(fbsutils.Convert(t.VideoId[len(t.VideoId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ShopRecruitExcelAddVideoId(b, b.EndVector(len(t.VideoId)))
-	ShopRecruitExcelAddLinkedRobbyBannerId(b, fbsutils.Convert(t.LinkedRobbyBannerId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddGoodsDevName(b, b.CreateString(fbsutils.Convert(t.GoodsDevName, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopRecruitExcelStartInfoCharacterIdVector(b, len(t.InfoCharacterId))
 	for i := range len(t.InfoCharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.InfoCharacterId[len(t.InfoCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopRecruitExcelAddInfoCharacterId(b, b.EndVector(len(t.InfoCharacterId)))
-	ShopRecruitExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelAddRecruitCoinId(b, fbsutils.Convert(t.RecruitCoinId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddRecruitSellectionShopId(b, fbsutils.Convert(t.RecruitSellectionShopId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddIsLegacy(b, t.IsLegacy)
+	ShopRecruitExcelAddIsNewbie(b, t.IsNewbie)
+	ShopRecruitExcelAddIsSelectRecruit(b, t.IsSelectRecruit)
+	ShopRecruitExcelAddLinkedRobbyBannerId(b, fbsutils.Convert(t.LinkedRobbyBannerId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddMaxSelectCharacterNum(b, fbsutils.Convert(t.MaxSelectCharacterNum, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddOneGachaGoodsId(b, fbsutils.Convert(t.OneGachaGoodsId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddIsNewbie(b, t.IsNewbie)
-	ShopRecruitExcelAddIsSelectRecruit(b, t.IsSelectRecruit)
-	ShopRecruitExcelAddDirectPayInvisibleTokenId(b, fbsutils.Convert(t.DirectPayInvisibleTokenId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddDirectPayAndroidShopCashId(b, fbsutils.Convert(t.DirectPayAndroidShopCashId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddDirectPayAppleShopCashId(b, fbsutils.Convert(t.DirectPayAppleShopCashId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddRecruitCoinId(b, fbsutils.Convert(t.RecruitCoinId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddRecruitSellectionShopId(b, fbsutils.Convert(t.RecruitSellectionShopId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddSalePeriodVisible(b, t.SalePeriodVisible)
 	ShopRecruitExcelAddSelectAbleGachaGroupId(b, fbsutils.Convert(t.SelectAbleGachaGroupId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddMaxSelectCharacterNum(b, fbsutils.Convert(t.MaxSelectCharacterNum, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddTenGachaGoodsId(b, fbsutils.Convert(t.TenGachaGoodsId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelStartVideoIdVector(b, len(t.VideoId))
+	for i := range len(t.VideoId) {
+		b.PrependInt64(fbsutils.Convert(t.VideoId[len(t.VideoId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ShopRecruitExcelAddVideoId(b, b.EndVector(len(t.VideoId)))
 	return ShopRecruitExcelEnd(b)
 }
 
@@ -87,38 +89,39 @@ func (t *ShopRecruitExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.IsLegacy = e.IsLegacy()
-	t.OneGachaGoodsId = fbsutils.Convert(e.OneGachaGoodsId(), t.FlatBuffer.TableKey)
-	t.TenGachaGoodsId = fbsutils.Convert(e.TenGachaGoodsId(), t.FlatBuffer.TableKey)
-	t.GoodsDevName = fbsutils.Convert(string(e.GoodsDevName()), t.FlatBuffer.TableKey)
-	t.DisplayTag = GachaDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
+	t.DirectPayAndroidShopCashId = fbsutils.Convert(e.DirectPayAndroidShopCashId(), t.FlatBuffer.TableKey)
+	t.DirectPayAppleShopCashId = fbsutils.Convert(e.DirectPayAppleShopCashId(), t.FlatBuffer.TableKey)
+	t.DirectPayInvisibleTokenId = fbsutils.Convert(e.DirectPayInvisibleTokenId(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.DisplayTag = GachaDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
 	t.GachaBannerPath = fbsutils.Convert(string(e.GachaBannerPath()), t.FlatBuffer.TableKey)
-	t.VideoId = make([]int64, e.VideoIdLength())
-	for i := range e.VideoIdLength() {
-		t.VideoId[i] = fbsutils.Convert(e.VideoId(i), t.FlatBuffer.TableKey)
-	}
-	t.LinkedRobbyBannerId = fbsutils.Convert(e.LinkedRobbyBannerId(), t.FlatBuffer.TableKey)
+	t.GoodsDevName = fbsutils.Convert(string(e.GoodsDevName()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.InfoCharacterId = make([]int64, e.InfoCharacterIdLength())
 	for i := range e.InfoCharacterIdLength() {
 		t.InfoCharacterId[i] = fbsutils.Convert(e.InfoCharacterId(i), t.FlatBuffer.TableKey)
 	}
-	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
-	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
-	t.RecruitCoinId = fbsutils.Convert(e.RecruitCoinId(), t.FlatBuffer.TableKey)
-	t.RecruitSellectionShopId = fbsutils.Convert(e.RecruitSellectionShopId(), t.FlatBuffer.TableKey)
+	t.IsLegacy = e.IsLegacy()
+	t.IsNewbie = e.IsNewbie()
+	t.IsSelectRecruit = e.IsSelectRecruit()
+	t.LinkedRobbyBannerId = fbsutils.Convert(e.LinkedRobbyBannerId(), t.FlatBuffer.TableKey)
+	t.MaxSelectCharacterNum = fbsutils.Convert(e.MaxSelectCharacterNum(), t.FlatBuffer.TableKey)
+	t.OneGachaGoodsId = fbsutils.Convert(e.OneGachaGoodsId(), t.FlatBuffer.TableKey)
 	t.PurchaseCooltimeMin = fbsutils.Convert(e.PurchaseCooltimeMin(), t.FlatBuffer.TableKey)
 	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
 	t.PurchaseCountResetType = PurchaseCountResetType(fbsutils.Convert(int32(e.PurchaseCountResetType()), t.FlatBuffer.TableKey))
-	t.IsNewbie = e.IsNewbie()
-	t.IsSelectRecruit = e.IsSelectRecruit()
-	t.DirectPayInvisibleTokenId = fbsutils.Convert(e.DirectPayInvisibleTokenId(), t.FlatBuffer.TableKey)
-	t.DirectPayAndroidShopCashId = fbsutils.Convert(e.DirectPayAndroidShopCashId(), t.FlatBuffer.TableKey)
-	t.DirectPayAppleShopCashId = fbsutils.Convert(e.DirectPayAppleShopCashId(), t.FlatBuffer.TableKey)
+	t.RecruitCoinId = fbsutils.Convert(e.RecruitCoinId(), t.FlatBuffer.TableKey)
+	t.RecruitSellectionShopId = fbsutils.Convert(e.RecruitSellectionShopId(), t.FlatBuffer.TableKey)
+	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
+	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
+	t.SalePeriodVisible = e.SalePeriodVisible()
 	t.SelectAbleGachaGroupId = fbsutils.Convert(e.SelectAbleGachaGroupId(), t.FlatBuffer.TableKey)
-	t.MaxSelectCharacterNum = fbsutils.Convert(e.MaxSelectCharacterNum(), t.FlatBuffer.TableKey)
+	t.TenGachaGoodsId = fbsutils.Convert(e.TenGachaGoodsId(), t.FlatBuffer.TableKey)
+	t.VideoId = make([]int64, e.VideoIdLength())
+	for i := range e.VideoIdLength() {
+		t.VideoId[i] = fbsutils.Convert(e.VideoId(i), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 

@@ -33,20 +33,8 @@ func (rcv *MinigameCCGRewardCardRateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameCCGRewardCardRateExcel) RarityGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameCCGRewardCardRateExcel) MutateRarityGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *MinigameCCGRewardCardRateExcel) CardRarity() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,19 @@ func (rcv *MinigameCCGRewardCardRateExcel) CardRarity() int32 {
 }
 
 func (rcv *MinigameCCGRewardCardRateExcel) MutateCardRarity(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *MinigameCCGRewardCardRateExcel) RarityGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGRewardCardRateExcel) MutateRarityGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *MinigameCCGRewardCardRateExcel) Rate() int32 {
@@ -72,11 +72,11 @@ func (rcv *MinigameCCGRewardCardRateExcel) MutateRate(n int32) bool {
 func MinigameCCGRewardCardRateExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func MinigameCCGRewardCardRateExcelAddRarityGroupId(builder *flatbuffers.Builder, rarityGroupId int64) {
-	builder.PrependInt64Slot(0, rarityGroupId, 0)
-}
 func MinigameCCGRewardCardRateExcelAddCardRarity(builder *flatbuffers.Builder, cardRarity int32) {
-	builder.PrependInt32Slot(1, cardRarity, 0)
+	builder.PrependInt32Slot(0, cardRarity, 0)
+}
+func MinigameCCGRewardCardRateExcelAddRarityGroupId(builder *flatbuffers.Builder, rarityGroupId int64) {
+	builder.PrependInt64Slot(1, rarityGroupId, 0)
 }
 func MinigameCCGRewardCardRateExcelAddRate(builder *flatbuffers.Builder, rate int32) {
 	builder.PrependInt32Slot(2, rate, 0)

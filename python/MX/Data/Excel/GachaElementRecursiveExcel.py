@@ -25,42 +25,42 @@ class GachaElementRecursiveExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GachaElementRecursiveExcel
-    def Id(self):
+    def GachaGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GachaElementRecursiveExcel
-    def GachaGroupId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GachaElementRecursiveExcel
-    def ParcelType(self):
+    def ParcelAmountMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # GachaElementRecursiveExcel
-    def ParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GachaElementRecursiveExcel
     def ParcelAmountMin(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # GachaElementRecursiveExcel
-    def ParcelAmountMax(self):
+    def ParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GachaElementRecursiveExcel
+    def ParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -83,24 +83,24 @@ class GachaElementRecursiveExcel(object):
 def GachaElementRecursiveExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return GachaElementRecursiveExcelStart(builder)
-def GachaElementRecursiveExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return GachaElementRecursiveExcelAddId(builder, id)
-def GachaElementRecursiveExcelAddGachaGroupId(builder, gachaGroupId): builder.PrependInt64Slot(1, gachaGroupId, 0)
+def GachaElementRecursiveExcelAddGachaGroupId(builder, gachaGroupId): builder.PrependInt64Slot(0, gachaGroupId, 0)
 def AddGachaGroupId(builder, gachaGroupId):
     return GachaElementRecursiveExcelAddGachaGroupId(builder, gachaGroupId)
-def GachaElementRecursiveExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(2, parcelType, 0)
-def AddParcelType(builder, parcelType):
-    return GachaElementRecursiveExcelAddParcelType(builder, parcelType)
-def GachaElementRecursiveExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(3, parcelId, 0)
-def AddParcelId(builder, parcelId):
-    return GachaElementRecursiveExcelAddParcelId(builder, parcelId)
-def GachaElementRecursiveExcelAddParcelAmountMin(builder, parcelAmountMin): builder.PrependInt32Slot(4, parcelAmountMin, 0)
-def AddParcelAmountMin(builder, parcelAmountMin):
-    return GachaElementRecursiveExcelAddParcelAmountMin(builder, parcelAmountMin)
-def GachaElementRecursiveExcelAddParcelAmountMax(builder, parcelAmountMax): builder.PrependInt32Slot(5, parcelAmountMax, 0)
+def GachaElementRecursiveExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return GachaElementRecursiveExcelAddId(builder, id)
+def GachaElementRecursiveExcelAddParcelAmountMax(builder, parcelAmountMax): builder.PrependInt32Slot(2, parcelAmountMax, 0)
 def AddParcelAmountMax(builder, parcelAmountMax):
     return GachaElementRecursiveExcelAddParcelAmountMax(builder, parcelAmountMax)
+def GachaElementRecursiveExcelAddParcelAmountMin(builder, parcelAmountMin): builder.PrependInt32Slot(3, parcelAmountMin, 0)
+def AddParcelAmountMin(builder, parcelAmountMin):
+    return GachaElementRecursiveExcelAddParcelAmountMin(builder, parcelAmountMin)
+def GachaElementRecursiveExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(4, parcelId, 0)
+def AddParcelId(builder, parcelId):
+    return GachaElementRecursiveExcelAddParcelId(builder, parcelId)
+def GachaElementRecursiveExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(5, parcelType, 0)
+def AddParcelType(builder, parcelType):
+    return GachaElementRecursiveExcelAddParcelType(builder, parcelType)
 def GachaElementRecursiveExcelAddProb(builder, prob): builder.PrependInt32Slot(6, prob, 0)
 def AddProb(builder, prob):
     return GachaElementRecursiveExcelAddProb(builder, prob)

@@ -1,14 +1,14 @@
 namespace MX.Data.Excel;
 
 table MiniGameDreamScheduleExcel {
-    event_content_id: long;
-    dream_maker_schedule_group_id: long;
+    animation_name: string;
     display_order: long;
-    localize_etc_id: uint;
+    dream_maker_schedule_group_id: long;
+    event_content_id: long;
     icon_path: string;
     loading_resource01: string;
     loading_resource02: string;
-    animation_name: string;
+    localize_etc_id: uint;
 }
 
 root_type MiniGameDreamScheduleExcel;

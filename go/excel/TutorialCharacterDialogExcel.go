@@ -33,19 +33,15 @@ func (rcv *TutorialCharacterDialogExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TutorialCharacterDialogExcel) TalkId() int64 {
+func (rcv *TutorialCharacterDialogExcel) AnimationName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *TutorialCharacterDialogExcel) MutateTalkId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *TutorialCharacterDialogExcel) AnimationName() []byte {
+func (rcv *TutorialCharacterDialogExcel) LocalizeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -61,12 +57,16 @@ func (rcv *TutorialCharacterDialogExcel) LocalizeKr() []byte {
 	return nil
 }
 
-func (rcv *TutorialCharacterDialogExcel) LocalizeJp() []byte {
+func (rcv *TutorialCharacterDialogExcel) TalkId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *TutorialCharacterDialogExcel) MutateTalkId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *TutorialCharacterDialogExcel) VoiceId() uint32 {
@@ -84,17 +84,17 @@ func (rcv *TutorialCharacterDialogExcel) MutateVoiceId(n uint32) bool {
 func TutorialCharacterDialogExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func TutorialCharacterDialogExcelAddTalkId(builder *flatbuffers.Builder, talkId int64) {
-	builder.PrependInt64Slot(0, talkId, 0)
-}
 func TutorialCharacterDialogExcelAddAnimationName(builder *flatbuffers.Builder, animationName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(animationName), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(animationName), 0)
+}
+func TutorialCharacterDialogExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(localizeJp), 0)
 }
 func TutorialCharacterDialogExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizeKr), 0)
 }
-func TutorialCharacterDialogExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeJp), 0)
+func TutorialCharacterDialogExcelAddTalkId(builder *flatbuffers.Builder, talkId int64) {
+	builder.PrependInt64Slot(3, talkId, 0)
 }
 func TutorialCharacterDialogExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
 	builder.PrependUint32Slot(4, voiceId, 0)

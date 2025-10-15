@@ -1,12 +1,12 @@
 namespace MX.Data.Excel;
 
 table MiniGamePlayGuideExcel {
-    id: long;
-    event_content_id: long;
     display_order: int;
-    guide_title: string;
+    event_content_id: long;
     guide_image_path: string;
     guide_text: string;
+    guide_title: string;
+    id: long;
 }
 
 root_type MiniGamePlayGuideExcel;

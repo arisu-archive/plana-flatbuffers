@@ -2,9 +2,9 @@ namespace MX.Data.Excel;
 
 table InformationStrategyObjectExcel {
     id: long;
-    stage_id: long;
-    page_name: string;
     localize_code_id: string;
+    page_name: string;
+    stage_id: long;
 }
 
 root_type InformationStrategyObjectExcel;

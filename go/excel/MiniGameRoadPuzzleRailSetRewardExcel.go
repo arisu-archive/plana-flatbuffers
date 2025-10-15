@@ -45,80 +45,16 @@ func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateEventContentId(n int64) b
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) LocalizePrefabId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -127,7 +63,7 @@ func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelAmount(j int) int64
 }
 
 func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -135,12 +71,76 @@ func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelAmountLength() int 
 }
 
 func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) RewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameRoadPuzzleRailSetRewardExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func MiniGameRoadPuzzleRailSetRewardExcelStart(builder *flatbuffers.Builder) {
@@ -149,29 +149,29 @@ func MiniGameRoadPuzzleRailSetRewardExcelStart(builder *flatbuffers.Builder) {
 func MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
 func MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder *flatbuffers.Builder, localizePrefabId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizePrefabId), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(localizePrefabId), 0)
 }
-func MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelType), 0)
+func MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
-func MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(5, uniqueId, 0)
 }
 func MiniGameRoadPuzzleRailSetRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

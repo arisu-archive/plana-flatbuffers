@@ -33,16 +33,8 @@ func (rcv *CharacterDialogSubtitleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterDialogSubtitleExcel) LocalizeCvGroup() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CharacterDialogSubtitleExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -50,11 +42,11 @@ func (rcv *CharacterDialogSubtitleExcel) CharacterId() int64 {
 }
 
 func (rcv *CharacterDialogSubtitleExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *CharacterDialogSubtitleExcel) Duration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,19 +54,23 @@ func (rcv *CharacterDialogSubtitleExcel) Duration() int64 {
 }
 
 func (rcv *CharacterDialogSubtitleExcel) MutateDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterDialogSubtitleExcel) Separate() bool {
+func (rcv *CharacterDialogSubtitleExcel) LocalizeCvGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogSubtitleExcel) LocalizeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *CharacterDialogSubtitleExcel) MutateSeparate(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return nil
 }
 
 func (rcv *CharacterDialogSubtitleExcel) LocalizeKr() []byte {
@@ -85,34 +81,38 @@ func (rcv *CharacterDialogSubtitleExcel) LocalizeKr() []byte {
 	return nil
 }
 
-func (rcv *CharacterDialogSubtitleExcel) LocalizeJp() []byte {
+func (rcv *CharacterDialogSubtitleExcel) Separate() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
+}
+
+func (rcv *CharacterDialogSubtitleExcel) MutateSeparate(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
 }
 
 func CharacterDialogSubtitleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(localizeCvGroup), 0)
-}
 func CharacterDialogSubtitleExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(1, characterId, 0)
+	builder.PrependInt64Slot(0, characterId, 0)
 }
 func CharacterDialogSubtitleExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
-	builder.PrependInt64Slot(2, duration, 0)
+	builder.PrependInt64Slot(1, duration, 0)
 }
-func CharacterDialogSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
-	builder.PrependBoolSlot(3, separate, false)
+func CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizeCvGroup), 0)
+}
+func CharacterDialogSubtitleExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeJp), 0)
 }
 func CharacterDialogSubtitleExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(localizeKr), 0)
 }
-func CharacterDialogSubtitleExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(localizeJp), 0)
+func CharacterDialogSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
+	builder.PrependBoolSlot(5, separate, false)
 }
 func CharacterDialogSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

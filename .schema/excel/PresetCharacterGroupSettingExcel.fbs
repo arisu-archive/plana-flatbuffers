@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table PresetCharacterGroupSettingExcel {
-    character_id: long;
     arena_simulator_fixed: bool;
+    character_id: long;
     preset_type: [string];
 }
 

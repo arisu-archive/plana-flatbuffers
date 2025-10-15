@@ -33,178 +33,8 @@ func (rcv *MessagePopupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MessagePopupExcel) StringId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateStringId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
-func (rcv *MessagePopupExcel) MessagePopupLayout() MessagePopupLayout {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return MessagePopupLayout(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateMessagePopupLayout(n MessagePopupLayout) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *MessagePopupExcel) OrderType() MessagePopupImagePositionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return MessagePopupImagePositionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateOrderType(n MessagePopupImagePositionType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *MessagePopupExcel) Image() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MessagePopupExcel) TitleText() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateTitleText(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(12, n)
-}
-
-func (rcv *MessagePopupExcel) SubTitleText() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateSubTitleText(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
-}
-
-func (rcv *MessagePopupExcel) MessageText() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateMessageText(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(16, n)
-}
-
-func (rcv *MessagePopupExcel) ConditionText(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) ConditionTextLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateConditionText(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *MessagePopupExcel) DisplayXButton() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MessagePopupExcel) MutateDisplayXButton(n bool) bool {
-	return rcv._tab.MutateBoolSlot(20, n)
-}
-
-func (rcv *MessagePopupExcel) Button(j int) MessagePopupButtonType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return MessagePopupButtonType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) ButtonLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateButton(j int, n MessagePopupButtonType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *MessagePopupExcel) ButtonText(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) ButtonTextLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *MessagePopupExcel) MutateButtonText(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
 func (rcv *MessagePopupExcel) ButtonCommand(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -213,15 +43,41 @@ func (rcv *MessagePopupExcel) ButtonCommand(j int) []byte {
 }
 
 func (rcv *MessagePopupExcel) ButtonCommandLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *MessagePopupExcel) Button(j int) MessagePopupButtonType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return MessagePopupButtonType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) ButtonLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateButton(j int, n MessagePopupButtonType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
 func (rcv *MessagePopupExcel) ButtonParameter(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -230,69 +86,213 @@ func (rcv *MessagePopupExcel) ButtonParameter(j int) []byte {
 }
 
 func (rcv *MessagePopupExcel) ButtonParameterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
+func (rcv *MessagePopupExcel) ButtonText(j int) uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) ButtonTextLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateButtonText(j int, n uint32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *MessagePopupExcel) ConditionText(j int) uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) ConditionTextLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateConditionText(j int, n uint32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *MessagePopupExcel) DisplayXButton() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MessagePopupExcel) MutateDisplayXButton(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *MessagePopupExcel) Image() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MessagePopupExcel) MessagePopupLayout() MessagePopupLayout {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return MessagePopupLayout(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateMessagePopupLayout(n MessagePopupLayout) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *MessagePopupExcel) MessageText() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateMessageText(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(20, n)
+}
+
+func (rcv *MessagePopupExcel) OrderType() MessagePopupImagePositionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return MessagePopupImagePositionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateOrderType(n MessagePopupImagePositionType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *MessagePopupExcel) StringId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateStringId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(24, n)
+}
+
+func (rcv *MessagePopupExcel) SubTitleText() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateSubTitleText(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(26, n)
+}
+
+func (rcv *MessagePopupExcel) TitleText() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MessagePopupExcel) MutateTitleText(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(28, n)
+}
+
 func MessagePopupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(13)
 }
-func MessagePopupExcelAddStringId(builder *flatbuffers.Builder, stringId uint32) {
-	builder.PrependUint32Slot(0, stringId, 0)
+func MessagePopupExcelAddButtonCommand(builder *flatbuffers.Builder, buttonCommand flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(buttonCommand), 0)
 }
-func MessagePopupExcelAddMessagePopupLayout(builder *flatbuffers.Builder, messagePopupLayout MessagePopupLayout) {
-	builder.PrependInt32Slot(1, int32(messagePopupLayout), 0)
+func MessagePopupExcelStartButtonCommandVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func MessagePopupExcelAddOrderType(builder *flatbuffers.Builder, orderType MessagePopupImagePositionType) {
-	builder.PrependInt32Slot(2, int32(orderType), 0)
+func MessagePopupExcelAddButton(builder *flatbuffers.Builder, button flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(button), 0)
 }
-func MessagePopupExcelAddImage(builder *flatbuffers.Builder, image flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(image), 0)
+func MessagePopupExcelStartButtonVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func MessagePopupExcelAddTitleText(builder *flatbuffers.Builder, titleText uint32) {
-	builder.PrependUint32Slot(4, titleText, 0)
+func MessagePopupExcelAddButtonParameter(builder *flatbuffers.Builder, buttonParameter flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(buttonParameter), 0)
 }
-func MessagePopupExcelAddSubTitleText(builder *flatbuffers.Builder, subTitleText uint32) {
-	builder.PrependUint32Slot(5, subTitleText, 0)
+func MessagePopupExcelStartButtonParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func MessagePopupExcelAddMessageText(builder *flatbuffers.Builder, messageText uint32) {
-	builder.PrependUint32Slot(6, messageText, 0)
+func MessagePopupExcelAddButtonText(builder *flatbuffers.Builder, buttonText flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buttonText), 0)
+}
+func MessagePopupExcelStartButtonTextVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func MessagePopupExcelAddConditionText(builder *flatbuffers.Builder, conditionText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(conditionText), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(conditionText), 0)
 }
 func MessagePopupExcelStartConditionTextVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func MessagePopupExcelAddDisplayXButton(builder *flatbuffers.Builder, displayXButton bool) {
-	builder.PrependBoolSlot(8, displayXButton, false)
+	builder.PrependBoolSlot(5, displayXButton, false)
 }
-func MessagePopupExcelAddButton(builder *flatbuffers.Builder, button flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(button), 0)
+func MessagePopupExcelAddImage(builder *flatbuffers.Builder, image flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(image), 0)
 }
-func MessagePopupExcelStartButtonVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MessagePopupExcelAddMessagePopupLayout(builder *flatbuffers.Builder, messagePopupLayout MessagePopupLayout) {
+	builder.PrependInt32Slot(7, int32(messagePopupLayout), 0)
 }
-func MessagePopupExcelAddButtonText(builder *flatbuffers.Builder, buttonText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(buttonText), 0)
+func MessagePopupExcelAddMessageText(builder *flatbuffers.Builder, messageText uint32) {
+	builder.PrependUint32Slot(8, messageText, 0)
 }
-func MessagePopupExcelStartButtonTextVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MessagePopupExcelAddOrderType(builder *flatbuffers.Builder, orderType MessagePopupImagePositionType) {
+	builder.PrependInt32Slot(9, int32(orderType), 0)
 }
-func MessagePopupExcelAddButtonCommand(builder *flatbuffers.Builder, buttonCommand flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(buttonCommand), 0)
+func MessagePopupExcelAddStringId(builder *flatbuffers.Builder, stringId uint32) {
+	builder.PrependUint32Slot(10, stringId, 0)
 }
-func MessagePopupExcelStartButtonCommandVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MessagePopupExcelAddSubTitleText(builder *flatbuffers.Builder, subTitleText uint32) {
+	builder.PrependUint32Slot(11, subTitleText, 0)
 }
-func MessagePopupExcelAddButtonParameter(builder *flatbuffers.Builder, buttonParameter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(buttonParameter), 0)
-}
-func MessagePopupExcelStartButtonParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func MessagePopupExcelAddTitleText(builder *flatbuffers.Builder, titleText uint32) {
+	builder.PrependUint32Slot(12, titleText, 0)
 }
 func MessagePopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

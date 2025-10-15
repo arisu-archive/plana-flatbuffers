@@ -33,8 +33,16 @@ func (rcv *AcademyLocationExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AcademyLocationExcel) Id() int64 {
+func (rcv *AcademyLocationExcel) IconImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyLocationExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -42,11 +50,11 @@ func (rcv *AcademyLocationExcel) Id() int64 {
 }
 
 func (rcv *AcademyLocationExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *AcademyLocationExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -54,23 +62,33 @@ func (rcv *AcademyLocationExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *AcademyLocationExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *AcademyLocationExcel) PrefabPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AcademyLocationExcel) IconImagePath() []byte {
+func (rcv *AcademyLocationExcel) OpenConditionCount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *AcademyLocationExcel) OpenConditionCountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AcademyLocationExcel) MutateOpenConditionCount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *AcademyLocationExcel) OpenCondition(j int) School {
@@ -99,42 +117,24 @@ func (rcv *AcademyLocationExcel) MutateOpenCondition(j int, n School) bool {
 	return false
 }
 
-func (rcv *AcademyLocationExcel) OpenConditionCount(j int) int64 {
+func (rcv *AcademyLocationExcel) OpenTeacherRank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *AcademyLocationExcel) OpenConditionCountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *AcademyLocationExcel) MutateOpenTeacherRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *AcademyLocationExcel) MutateOpenConditionCount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *AcademyLocationExcel) RewardParcelType() ParcelType {
+func (rcv *AcademyLocationExcel) PrefabPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *AcademyLocationExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return nil
 }
 
 func (rcv *AcademyLocationExcel) RewardParcelId() int64 {
@@ -149,32 +149,35 @@ func (rcv *AcademyLocationExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *AcademyLocationExcel) OpenTeacherRank() int64 {
+func (rcv *AcademyLocationExcel) RewardParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *AcademyLocationExcel) MutateOpenTeacherRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+func (rcv *AcademyLocationExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
 }
 
 func AcademyLocationExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
+func AcademyLocationExcelAddIconImagePath(builder *flatbuffers.Builder, iconImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(iconImagePath), 0)
+}
 func AcademyLocationExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+	builder.PrependInt64Slot(1, id, 0)
 }
 func AcademyLocationExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(1, localizeEtcId, 0)
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
-func AcademyLocationExcelAddPrefabPath(builder *flatbuffers.Builder, prefabPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabPath), 0)
+func AcademyLocationExcelAddOpenConditionCount(builder *flatbuffers.Builder, openConditionCount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(openConditionCount), 0)
 }
-func AcademyLocationExcelAddIconImagePath(builder *flatbuffers.Builder, iconImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(iconImagePath), 0)
+func AcademyLocationExcelStartOpenConditionCountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func AcademyLocationExcelAddOpenCondition(builder *flatbuffers.Builder, openCondition flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(openCondition), 0)
@@ -182,20 +185,17 @@ func AcademyLocationExcelAddOpenCondition(builder *flatbuffers.Builder, openCond
 func AcademyLocationExcelStartOpenConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func AcademyLocationExcelAddOpenConditionCount(builder *flatbuffers.Builder, openConditionCount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(openConditionCount), 0)
+func AcademyLocationExcelAddOpenTeacherRank(builder *flatbuffers.Builder, openTeacherRank int64) {
+	builder.PrependInt64Slot(5, openTeacherRank, 0)
 }
-func AcademyLocationExcelStartOpenConditionCountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func AcademyLocationExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(6, int32(rewardParcelType), 0)
+func AcademyLocationExcelAddPrefabPath(builder *flatbuffers.Builder, prefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(prefabPath), 0)
 }
 func AcademyLocationExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
 	builder.PrependInt64Slot(7, rewardParcelId, 0)
 }
-func AcademyLocationExcelAddOpenTeacherRank(builder *flatbuffers.Builder, openTeacherRank int64) {
-	builder.PrependInt64Slot(8, openTeacherRank, 0)
+func AcademyLocationExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(8, int32(rewardParcelType), 0)
 }
 func AcademyLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

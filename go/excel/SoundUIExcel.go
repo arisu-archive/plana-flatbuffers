@@ -45,7 +45,7 @@ func (rcv *SoundUIExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *SoundUIExcel) SoundUniqueId() []byte {
+func (rcv *SoundUIExcel) Path() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *SoundUIExcel) SoundUniqueId() []byte {
 	return nil
 }
 
-func (rcv *SoundUIExcel) Path() []byte {
+func (rcv *SoundUIExcel) SoundUniqueId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -67,11 +67,11 @@ func SoundUIExcelStart(builder *flatbuffers.Builder) {
 func SoundUIExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func SoundUIExcelAddSoundUniqueId(builder *flatbuffers.Builder, soundUniqueId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(soundUniqueId), 0)
-}
 func SoundUIExcelAddPath(builder *flatbuffers.Builder, path flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(path), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(path), 0)
+}
+func SoundUIExcelAddSoundUniqueId(builder *flatbuffers.Builder, soundUniqueId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(soundUniqueId), 0)
 }
 func SoundUIExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

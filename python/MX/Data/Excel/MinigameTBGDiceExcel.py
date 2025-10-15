@@ -25,43 +25,36 @@ class MinigameTBGDiceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameTBGDiceExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGDiceExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGDiceExcel
     def DiceGroup(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGDiceExcel
     def DiceResult(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGDiceExcel
+    def EventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGDiceExcel
+    def Prob(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGDiceExcel
-    def Prob(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGDiceExcel
     def ProbModifyCondition(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -69,20 +62,47 @@ class MinigameTBGDiceExcel(object):
 
     # MinigameTBGDiceExcel
     def ProbModifyConditionAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # MinigameTBGDiceExcel
     def ProbModifyConditionLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MinigameTBGDiceExcel
     def ProbModifyConditionIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # MinigameTBGDiceExcel
+    def ProbModifyLimit(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # MinigameTBGDiceExcel
+    def ProbModifyLimitAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MinigameTBGDiceExcel
+    def ProbModifyLimitLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MinigameTBGDiceExcel
+    def ProbModifyLimitIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
@@ -114,68 +134,48 @@ class MinigameTBGDiceExcel(object):
         return o == 0
 
     # MinigameTBGDiceExcel
-    def ProbModifyLimit(self, j):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # MinigameTBGDiceExcel
-    def ProbModifyLimitAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MinigameTBGDiceExcel
-    def ProbModifyLimitLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MinigameTBGDiceExcel
-    def ProbModifyLimitIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
 
 def MinigameTBGDiceExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return MinigameTBGDiceExcelStart(builder)
-def MinigameTBGDiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameTBGDiceExcelAddEventContentId(builder, eventContentId)
-def MinigameTBGDiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MinigameTBGDiceExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGDiceExcelAddDiceGroup(builder, diceGroup): builder.PrependInt32Slot(2, diceGroup, 0)
+def MinigameTBGDiceExcelAddDiceGroup(builder, diceGroup): builder.PrependInt32Slot(0, diceGroup, 0)
 def AddDiceGroup(builder, diceGroup):
     return MinigameTBGDiceExcelAddDiceGroup(builder, diceGroup)
-def MinigameTBGDiceExcelAddDiceResult(builder, diceResult): builder.PrependInt32Slot(3, diceResult, 0)
+def MinigameTBGDiceExcelAddDiceResult(builder, diceResult): builder.PrependInt32Slot(1, diceResult, 0)
 def AddDiceResult(builder, diceResult):
     return MinigameTBGDiceExcelAddDiceResult(builder, diceResult)
-def MinigameTBGDiceExcelAddProb(builder, prob): builder.PrependInt32Slot(4, prob, 0)
+def MinigameTBGDiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameTBGDiceExcelAddEventContentId(builder, eventContentId)
+def MinigameTBGDiceExcelAddProb(builder, prob): builder.PrependInt32Slot(3, prob, 0)
 def AddProb(builder, prob):
     return MinigameTBGDiceExcelAddProb(builder, prob)
-def MinigameTBGDiceExcelAddProbModifyCondition(builder, probModifyCondition): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(probModifyCondition), 0)
+def MinigameTBGDiceExcelAddProbModifyCondition(builder, probModifyCondition): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(probModifyCondition), 0)
 def AddProbModifyCondition(builder, probModifyCondition):
     return MinigameTBGDiceExcelAddProbModifyCondition(builder, probModifyCondition)
 def MinigameTBGDiceExcelStartProbModifyConditionVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartProbModifyConditionVector(builder, numElems):
     return MinigameTBGDiceExcelStartProbModifyConditionVector(builder, numElems)
+def MinigameTBGDiceExcelAddProbModifyLimit(builder, probModifyLimit): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(probModifyLimit), 0)
+def AddProbModifyLimit(builder, probModifyLimit):
+    return MinigameTBGDiceExcelAddProbModifyLimit(builder, probModifyLimit)
+def MinigameTBGDiceExcelStartProbModifyLimitVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartProbModifyLimitVector(builder, numElems):
+    return MinigameTBGDiceExcelStartProbModifyLimitVector(builder, numElems)
 def MinigameTBGDiceExcelAddProbModifyValue(builder, probModifyValue): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(probModifyValue), 0)
 def AddProbModifyValue(builder, probModifyValue):
     return MinigameTBGDiceExcelAddProbModifyValue(builder, probModifyValue)
 def MinigameTBGDiceExcelStartProbModifyValueVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartProbModifyValueVector(builder, numElems):
     return MinigameTBGDiceExcelStartProbModifyValueVector(builder, numElems)
-def MinigameTBGDiceExcelAddProbModifyLimit(builder, probModifyLimit): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(probModifyLimit), 0)
-def AddProbModifyLimit(builder, probModifyLimit):
-    return MinigameTBGDiceExcelAddProbModifyLimit(builder, probModifyLimit)
-def MinigameTBGDiceExcelStartProbModifyLimitVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartProbModifyLimitVector(builder, numElems):
-    return MinigameTBGDiceExcelStartProbModifyLimitVector(builder, numElems)
+def MinigameTBGDiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(7, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MinigameTBGDiceExcelAddUniqueId(builder, uniqueId)
 def MinigameTBGDiceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGDiceExcelEnd(builder)

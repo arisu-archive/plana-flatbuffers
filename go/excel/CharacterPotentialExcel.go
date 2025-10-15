@@ -45,16 +45,16 @@ func (rcv *CharacterPotentialExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CharacterPotentialExcel) PotentialStatGroupId() int64 {
+func (rcv *CharacterPotentialExcel) IsUnnecessaryStat() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CharacterPotentialExcel) MutatePotentialStatGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *CharacterPotentialExcel) MutateIsUnnecessaryStat(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func (rcv *CharacterPotentialExcel) PotentialStatBonusRateType() PotentialStatBonusRateType {
@@ -69,16 +69,16 @@ func (rcv *CharacterPotentialExcel) MutatePotentialStatBonusRateType(n Potential
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *CharacterPotentialExcel) IsUnnecessaryStat() bool {
+func (rcv *CharacterPotentialExcel) PotentialStatGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *CharacterPotentialExcel) MutateIsUnnecessaryStat(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+func (rcv *CharacterPotentialExcel) MutatePotentialStatGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func CharacterPotentialExcelStart(builder *flatbuffers.Builder) {
@@ -87,14 +87,14 @@ func CharacterPotentialExcelStart(builder *flatbuffers.Builder) {
 func CharacterPotentialExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func CharacterPotentialExcelAddPotentialStatGroupId(builder *flatbuffers.Builder, potentialStatGroupId int64) {
-	builder.PrependInt64Slot(1, potentialStatGroupId, 0)
+func CharacterPotentialExcelAddIsUnnecessaryStat(builder *flatbuffers.Builder, isUnnecessaryStat bool) {
+	builder.PrependBoolSlot(1, isUnnecessaryStat, false)
 }
 func CharacterPotentialExcelAddPotentialStatBonusRateType(builder *flatbuffers.Builder, potentialStatBonusRateType PotentialStatBonusRateType) {
 	builder.PrependInt32Slot(2, int32(potentialStatBonusRateType), 0)
 }
-func CharacterPotentialExcelAddIsUnnecessaryStat(builder *flatbuffers.Builder, isUnnecessaryStat bool) {
-	builder.PrependBoolSlot(3, isUnnecessaryStat, false)
+func CharacterPotentialExcelAddPotentialStatGroupId(builder *flatbuffers.Builder, potentialStatGroupId int64) {
+	builder.PrependInt64Slot(3, potentialStatGroupId, 0)
 }
 func CharacterPotentialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

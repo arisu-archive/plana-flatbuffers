@@ -33,7 +33,7 @@ func (rcv *RaidRankingRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RaidRankingRewardExcel) RankingRewardGroupId() int64 {
+func (rcv *RaidRankingRewardExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *RaidRankingRewardExcel) RankingRewardGroupId() int64 {
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutateRankingRewardGroupId(n int64) bool {
+func (rcv *RaidRankingRewardExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *RaidRankingRewardExcel) Id() int64 {
+func (rcv *RaidRankingRewardExcel) PercentRankEnd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *RaidRankingRewardExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutateId(n int64) bool {
+func (rcv *RaidRankingRewardExcel) MutatePercentRankEnd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *RaidRankingRewardExcel) RankStart() int64 {
+func (rcv *RaidRankingRewardExcel) PercentRankStart() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,7 +65,7 @@ func (rcv *RaidRankingRewardExcel) RankStart() int64 {
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutateRankStart(n int64) bool {
+func (rcv *RaidRankingRewardExcel) MutatePercentRankStart(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
@@ -81,7 +81,7 @@ func (rcv *RaidRankingRewardExcel) MutateRankEnd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *RaidRankingRewardExcel) PercentRankStart() int64 {
+func (rcv *RaidRankingRewardExcel) RankingRewardGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *RaidRankingRewardExcel) PercentRankStart() int64 {
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutatePercentRankStart(n int64) bool {
+func (rcv *RaidRankingRewardExcel) MutateRankingRewardGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *RaidRankingRewardExcel) PercentRankEnd() int64 {
+func (rcv *RaidRankingRewardExcel) RankStart() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,20 +101,34 @@ func (rcv *RaidRankingRewardExcel) PercentRankEnd() int64 {
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutatePercentRankEnd(n int64) bool {
+func (rcv *RaidRankingRewardExcel) MutateRankStart(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *RaidRankingRewardExcel) Tier() int32 {
+func (rcv *RaidRankingRewardExcel) RewardParcelAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) MutateTier(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+func (rcv *RaidRankingRewardExcel) RewardParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RaidRankingRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *RaidRankingRewardExcel) RewardParcelType(j int) ParcelType {
@@ -169,72 +183,44 @@ func (rcv *RaidRankingRewardExcel) MutateRewardParcelUniqueId(j int, n int64) bo
 	return false
 }
 
-func (rcv *RaidRankingRewardExcel) RewardParcelUniqueName(j int) []byte {
+func (rcv *RaidRankingRewardExcel) Tier() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *RaidRankingRewardExcel) RewardParcelUniqueNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RaidRankingRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *RaidRankingRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RaidRankingRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *RaidRankingRewardExcel) MutateTier(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
 }
 
 func RaidRankingRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
-}
-func RaidRankingRewardExcelAddRankingRewardGroupId(builder *flatbuffers.Builder, rankingRewardGroupId int64) {
-	builder.PrependInt64Slot(0, rankingRewardGroupId, 0)
+	builder.StartObject(10)
 }
 func RaidRankingRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
+	builder.PrependInt64Slot(0, id, 0)
 }
-func RaidRankingRewardExcelAddRankStart(builder *flatbuffers.Builder, rankStart int64) {
-	builder.PrependInt64Slot(2, rankStart, 0)
+func RaidRankingRewardExcelAddPercentRankEnd(builder *flatbuffers.Builder, percentRankEnd int64) {
+	builder.PrependInt64Slot(1, percentRankEnd, 0)
+}
+func RaidRankingRewardExcelAddPercentRankStart(builder *flatbuffers.Builder, percentRankStart int64) {
+	builder.PrependInt64Slot(2, percentRankStart, 0)
 }
 func RaidRankingRewardExcelAddRankEnd(builder *flatbuffers.Builder, rankEnd int64) {
 	builder.PrependInt64Slot(3, rankEnd, 0)
 }
-func RaidRankingRewardExcelAddPercentRankStart(builder *flatbuffers.Builder, percentRankStart int64) {
-	builder.PrependInt64Slot(4, percentRankStart, 0)
+func RaidRankingRewardExcelAddRankingRewardGroupId(builder *flatbuffers.Builder, rankingRewardGroupId int64) {
+	builder.PrependInt64Slot(4, rankingRewardGroupId, 0)
 }
-func RaidRankingRewardExcelAddPercentRankEnd(builder *flatbuffers.Builder, percentRankEnd int64) {
-	builder.PrependInt64Slot(5, percentRankEnd, 0)
+func RaidRankingRewardExcelAddRankStart(builder *flatbuffers.Builder, rankStart int64) {
+	builder.PrependInt64Slot(5, rankStart, 0)
 }
-func RaidRankingRewardExcelAddTier(builder *flatbuffers.Builder, tier int32) {
-	builder.PrependInt32Slot(6, tier, 0)
+func RaidRankingRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+}
+func RaidRankingRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func RaidRankingRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelType), 0)
@@ -248,17 +234,8 @@ func RaidRankingRewardExcelAddRewardParcelUniqueId(builder *flatbuffers.Builder,
 func RaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func RaidRankingRewardExcelAddRewardParcelUniqueName(builder *flatbuffers.Builder, rewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(rewardParcelUniqueName), 0)
-}
-func RaidRankingRewardExcelStartRewardParcelUniqueNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func RaidRankingRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(rewardParcelAmount), 0)
-}
-func RaidRankingRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func RaidRankingRewardExcelAddTier(builder *flatbuffers.Builder, tier int32) {
+	builder.PrependInt32Slot(9, tier, 0)
 }
 func RaidRankingRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

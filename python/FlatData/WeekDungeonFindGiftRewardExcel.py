@@ -25,43 +25,56 @@ class WeekDungeonFindGiftRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WeekDungeonFindGiftRewardExcel
-    def StageRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # WeekDungeonFindGiftRewardExcel
     def DevName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # WeekDungeonFindGiftRewardExcel
-    def RewardParcelType(self, j):
+    def DropItemModelPrefabPath(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # WeekDungeonFindGiftRewardExcel
+    def DropItemModelPrefabPathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # WeekDungeonFindGiftRewardExcel
+    def DropItemModelPrefabPathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # WeekDungeonFindGiftRewardExcel
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # WeekDungeonFindGiftRewardExcel
-    def RewardParcelTypeAsNumpy(self):
+    def RewardParcelAmountAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # WeekDungeonFindGiftRewardExcel
-    def RewardParcelTypeLength(self):
+    def RewardParcelAmountLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # WeekDungeonFindGiftRewardExcel
-    def RewardParcelTypeIsNone(self):
+    def RewardParcelAmountIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
@@ -93,35 +106,8 @@ class WeekDungeonFindGiftRewardExcel(object):
         return o == 0
 
     # WeekDungeonFindGiftRewardExcel
-    def RewardParcelAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # WeekDungeonFindGiftRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # WeekDungeonFindGiftRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # WeekDungeonFindGiftRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # WeekDungeonFindGiftRewardExcel
     def RewardParcelProbability(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -129,82 +115,96 @@ class WeekDungeonFindGiftRewardExcel(object):
 
     # WeekDungeonFindGiftRewardExcel
     def RewardParcelProbabilityAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # WeekDungeonFindGiftRewardExcel
     def RewardParcelProbabilityLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # WeekDungeonFindGiftRewardExcel
     def RewardParcelProbabilityIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
     # WeekDungeonFindGiftRewardExcel
-    def DropItemModelPrefabPath(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def RewardParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
 
     # WeekDungeonFindGiftRewardExcel
-    def DropItemModelPrefabPathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def RewardParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # WeekDungeonFindGiftRewardExcel
+    def RewardParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # WeekDungeonFindGiftRewardExcel
-    def DropItemModelPrefabPathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def RewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
+
+    # WeekDungeonFindGiftRewardExcel
+    def StageRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def WeekDungeonFindGiftRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return WeekDungeonFindGiftRewardExcelStart(builder)
-def WeekDungeonFindGiftRewardExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(0, stageRewardId, 0)
-def AddStageRewardId(builder, stageRewardId):
-    return WeekDungeonFindGiftRewardExcelAddStageRewardId(builder, stageRewardId)
-def WeekDungeonFindGiftRewardExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
+def WeekDungeonFindGiftRewardExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
 def AddDevName(builder, devName):
     return WeekDungeonFindGiftRewardExcelAddDevName(builder, devName)
-def WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardParcelTypeVector(builder, numElems):
-    return WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
+def AddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
+    return WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
+def WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartDropItemModelPrefabPathVector(builder, numElems):
+    return WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder, numElems)
+def WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelAmountVector(builder, numElems):
+    return WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder, numElems)
 def WeekDungeonFindGiftRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
     return WeekDungeonFindGiftRewardExcelAddRewardParcelId(builder, rewardParcelId)
 def WeekDungeonFindGiftRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return WeekDungeonFindGiftRewardExcelStartRewardParcelIdVector(builder, numElems)
-def WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelAmountVector(builder, numElems):
-    return WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(builder, numElems)
-def WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelProbability), 0)
+def WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelProbability), 0)
 def AddRewardParcelProbability(builder, rewardParcelProbability):
     return WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
 def WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelProbabilityVector(builder, numElems):
     return WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(builder, numElems)
-def WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
-def AddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
-    return WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
-def WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartDropItemModelPrefabPathVector(builder, numElems):
-    return WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(builder, numElems)
+def WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return WeekDungeonFindGiftRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartRewardParcelTypeVector(builder, numElems):
+    return WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def WeekDungeonFindGiftRewardExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(6, stageRewardId, 0)
+def AddStageRewardId(builder, stageRewardId):
+    return WeekDungeonFindGiftRewardExcelAddStageRewardId(builder, stageRewardId)
 def WeekDungeonFindGiftRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return WeekDungeonFindGiftRewardExcelEnd(builder)

@@ -3,12 +3,12 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameShootingStageRewardExcel {
+    clear_section: long;
     group_id: long;
     reward_id: long;
-    clear_section: long;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
     reward_parcel_amount: [int];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
 }
 
 root_type MiniGameShootingStageRewardExcel;

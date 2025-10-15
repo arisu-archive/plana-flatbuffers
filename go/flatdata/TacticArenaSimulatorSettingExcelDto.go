@@ -10,21 +10,21 @@ import (
 // TacticArenaSimulatorSettingExcelDto represents a FlatBuffers table
 type TacticArenaSimulatorSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	Order                  int64                `json:"order"`
-	Repeat                 int64                `json:"repeat"`
 	AttackerFrom           ArenaSimulatorServer `json:"attacker_from"`
+	AttackerPresetGroupId  int64                `json:"attacker_preset_group_id"`
+	AttackerSpecialNum     int64                `json:"attacker_special_num"`
+	AttackerStrikerNum     int64                `json:"attacker_striker_num"`
 	AttackerUserArenaGroup int64                `json:"attacker_user_arena_group"`
 	AttackerUserArenaRank  int64                `json:"attacker_user_arena_rank"`
-	AttackerPresetGroupId  int64                `json:"attacker_preset_group_id"`
-	AttackerStrikerNum     int64                `json:"attacker_striker_num"`
-	AttackerSpecialNum     int64                `json:"attacker_special_num"`
 	DefenderFrom           ArenaSimulatorServer `json:"defender_from"`
+	DefenderPresetGroupId  int64                `json:"defender_preset_group_id"`
+	DefenderSpecialNum     int64                `json:"defender_special_num"`
+	DefenderStrikerNum     int64                `json:"defender_striker_num"`
 	DefenderUserArenaGroup int64                `json:"defender_user_arena_group"`
 	DefenderUserArenaRank  int64                `json:"defender_user_arena_rank"`
-	DefenderPresetGroupId  int64                `json:"defender_preset_group_id"`
-	DefenderStrikerNum     int64                `json:"defender_striker_num"`
-	DefenderSpecialNum     int64                `json:"defender_special_num"`
 	GroundId               int64                `json:"ground_id"`
+	Order                  int64                `json:"order"`
+	Repeat                 int64                `json:"repeat"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,21 +33,21 @@ func (t *TacticArenaSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSetting"))
 	}
 	TacticArenaSimulatorSettingExcelStart(b)
-	TacticArenaSimulatorSettingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddAttackerFrom(b, fbsutils.Convert(t.AttackerFrom, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddAttackerPresetGroupId(b, fbsutils.Convert(t.AttackerPresetGroupId, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddAttackerSpecialNum(b, fbsutils.Convert(t.AttackerSpecialNum, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddAttackerStrikerNum(b, fbsutils.Convert(t.AttackerStrikerNum, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddAttackerUserArenaGroup(b, fbsutils.Convert(t.AttackerUserArenaGroup, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddAttackerUserArenaRank(b, fbsutils.Convert(t.AttackerUserArenaRank, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddAttackerPresetGroupId(b, fbsutils.Convert(t.AttackerPresetGroupId, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddAttackerStrikerNum(b, fbsutils.Convert(t.AttackerStrikerNum, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddAttackerSpecialNum(b, fbsutils.Convert(t.AttackerSpecialNum, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddDefenderFrom(b, fbsutils.Convert(t.DefenderFrom, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddDefenderPresetGroupId(b, fbsutils.Convert(t.DefenderPresetGroupId, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddDefenderSpecialNum(b, fbsutils.Convert(t.DefenderSpecialNum, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddDefenderStrikerNum(b, fbsutils.Convert(t.DefenderStrikerNum, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddDefenderUserArenaGroup(b, fbsutils.Convert(t.DefenderUserArenaGroup, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddDefenderUserArenaRank(b, fbsutils.Convert(t.DefenderUserArenaRank, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddDefenderPresetGroupId(b, fbsutils.Convert(t.DefenderPresetGroupId, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddDefenderStrikerNum(b, fbsutils.Convert(t.DefenderStrikerNum, t.FlatBuffer.TableKey))
-	TacticArenaSimulatorSettingExcelAddDefenderSpecialNum(b, fbsutils.Convert(t.DefenderSpecialNum, t.FlatBuffer.TableKey))
 	TacticArenaSimulatorSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	TacticArenaSimulatorSettingExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
 	return TacticArenaSimulatorSettingExcelEnd(b)
 }
 
@@ -63,21 +63,21 @@ func (t *TacticArenaSimulatorSettingExcelDto) UnmarshalMessage(e *TacticArenaSim
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSetting"))
 	}
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
 	t.AttackerFrom = ArenaSimulatorServer(fbsutils.Convert(int32(e.AttackerFrom()), t.FlatBuffer.TableKey))
+	t.AttackerPresetGroupId = fbsutils.Convert(e.AttackerPresetGroupId(), t.FlatBuffer.TableKey)
+	t.AttackerSpecialNum = fbsutils.Convert(e.AttackerSpecialNum(), t.FlatBuffer.TableKey)
+	t.AttackerStrikerNum = fbsutils.Convert(e.AttackerStrikerNum(), t.FlatBuffer.TableKey)
 	t.AttackerUserArenaGroup = fbsutils.Convert(e.AttackerUserArenaGroup(), t.FlatBuffer.TableKey)
 	t.AttackerUserArenaRank = fbsutils.Convert(e.AttackerUserArenaRank(), t.FlatBuffer.TableKey)
-	t.AttackerPresetGroupId = fbsutils.Convert(e.AttackerPresetGroupId(), t.FlatBuffer.TableKey)
-	t.AttackerStrikerNum = fbsutils.Convert(e.AttackerStrikerNum(), t.FlatBuffer.TableKey)
-	t.AttackerSpecialNum = fbsutils.Convert(e.AttackerSpecialNum(), t.FlatBuffer.TableKey)
 	t.DefenderFrom = ArenaSimulatorServer(fbsutils.Convert(int32(e.DefenderFrom()), t.FlatBuffer.TableKey))
+	t.DefenderPresetGroupId = fbsutils.Convert(e.DefenderPresetGroupId(), t.FlatBuffer.TableKey)
+	t.DefenderSpecialNum = fbsutils.Convert(e.DefenderSpecialNum(), t.FlatBuffer.TableKey)
+	t.DefenderStrikerNum = fbsutils.Convert(e.DefenderStrikerNum(), t.FlatBuffer.TableKey)
 	t.DefenderUserArenaGroup = fbsutils.Convert(e.DefenderUserArenaGroup(), t.FlatBuffer.TableKey)
 	t.DefenderUserArenaRank = fbsutils.Convert(e.DefenderUserArenaRank(), t.FlatBuffer.TableKey)
-	t.DefenderPresetGroupId = fbsutils.Convert(e.DefenderPresetGroupId(), t.FlatBuffer.TableKey)
-	t.DefenderStrikerNum = fbsutils.Convert(e.DefenderStrikerNum(), t.FlatBuffer.TableKey)
-	t.DefenderSpecialNum = fbsutils.Convert(e.DefenderSpecialNum(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table CharacterWeaponLevelExcel {
-    level: int;
     exp: long;
+    level: int;
     total_exp: long;
 }
 

@@ -10,81 +10,81 @@ import (
 // MiniGameDefenseStageExcelDto represents a FlatBuffers table
 type MiniGameDefenseStageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                            int64                `json:"id"`
-	Name                          string               `json:"name"`
-	EventContentId                int64                `json:"event_content_id"`
-	StageDifficulty               StageDifficulty      `json:"stage_difficulty"`
-	StageDifficultyLocalize       uint32               `json:"stage_difficulty_localize"`
-	StageNumber                   int32                `json:"stage_number"`
-	StageDisplay                  int32                `json:"stage_display"`
-	PrevStageId                   int64                `json:"prev_stage_id"`
-	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
 	BattleDuration                int64                `json:"battle_duration"`
-	StageEnterCostType            ParcelType           `json:"stage_enter_cost_type"`
-	StageEnterCostId              int64                `json:"stage_enter_cost_id"`
-	StageEnterCostAmount          int32                `json:"stage_enter_cost_amount"`
-	EventContentStageRewardId     int64                `json:"event_content_stage_reward_id"`
-	EnterScenarioGroupId          []int64              `json:"enter_scenario_group_id"`
 	ClearScenarioGroupId          []int64              `json:"clear_scenario_group_id"`
-	StageTopography               StageTopography      `json:"stage_topography"`
-	RecommandLevel                int32                `json:"recommand_level"`
-	GroundId                      int64                `json:"ground_id"`
 	ContentType                   ContentType          `json:"content_type"`
-	StarGoal                      []StarGoalType       `json:"star_goal"`
-	StarGoalAmount                []int32              `json:"star_goal_amount"`
 	DefenseFormationBgPrefab      string               `json:"defense_formation_bg_prefab"`
 	DefenseFormationBgPrefabScale float32              `json:"defense_formation_bg_prefab_scale"`
+	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
+	EnterScenarioGroupId          []int64              `json:"enter_scenario_group_id"`
+	EventContentId                int64                `json:"event_content_id"`
+	EventContentStageRewardId     int64                `json:"event_content_stage_reward_id"`
 	FixedEchelon                  int64                `json:"fixed_echelon"`
+	GroundId                      int64                `json:"ground_id"`
+	Id                            int64                `json:"id"`
 	MininageDefenseFixedStatId    int64                `json:"mininage_defense_fixed_stat_id"`
+	Name                          string               `json:"name"`
+	PrevStageId                   int64                `json:"prev_stage_id"`
+	RecommandLevel                int32                `json:"recommand_level"`
+	StageDifficulty               StageDifficulty      `json:"stage_difficulty"`
+	StageDifficultyLocalize       uint32               `json:"stage_difficulty_localize"`
+	StageDisplay                  int32                `json:"stage_display"`
+	StageEnterCostAmount          int32                `json:"stage_enter_cost_amount"`
+	StageEnterCostId              int64                `json:"stage_enter_cost_id"`
+	StageEnterCostType            ParcelType           `json:"stage_enter_cost_type"`
 	StageHint                     uint32               `json:"stage_hint"`
+	StageNumber                   int32                `json:"stage_number"`
+	StageTopography               StageTopography      `json:"stage_topography"`
+	StarGoalAmount                []int32              `json:"star_goal_amount"`
+	StarGoal                      []StarGoalType       `json:"star_goal"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDefenseStageExcelStart(b)
-	MiniGameDefenseStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	MiniGameDefenseStageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageDifficultyLocalize(b, fbsutils.Convert(t.StageDifficultyLocalize, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageNumber(b, fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
-	for i := range len(t.EnterScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameDefenseStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
 	MiniGameDefenseStageExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
 	for i := range len(t.ClearScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDefenseStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
-	MiniGameDefenseStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelStartStarGoalVector(b, len(t.StarGoal))
-	for i := range len(t.StarGoal) {
-		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddDefenseFormationBgPrefab(b, b.CreateString(fbsutils.Convert(t.DefenseFormationBgPrefab, t.FlatBuffer.TableKey)))
+	MiniGameDefenseStageExcelAddDefenseFormationBgPrefabScale(b, fbsutils.Convert(t.DefenseFormationBgPrefabScale, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
+	for i := range len(t.EnterScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
-	MiniGameDefenseStageExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
+	MiniGameDefenseStageExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
+	MiniGameDefenseStageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddFixedEchelon(b, fbsutils.Convert(t.FixedEchelon, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddMininageDefenseFixedStatId(b, fbsutils.Convert(t.MininageDefenseFixedStatId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	MiniGameDefenseStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageDifficultyLocalize(b, fbsutils.Convert(t.StageDifficultyLocalize, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageHint(b, fbsutils.Convert(t.StageHint, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageNumber(b, fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))
 	for i := range len(t.StarGoalAmount) {
 		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[len(t.StarGoalAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDefenseStageExcelAddStarGoalAmount(b, b.EndVector(len(t.StarGoalAmount)))
-	MiniGameDefenseStageExcelAddDefenseFormationBgPrefab(b, b.CreateString(fbsutils.Convert(t.DefenseFormationBgPrefab, t.FlatBuffer.TableKey)))
-	MiniGameDefenseStageExcelAddDefenseFormationBgPrefabScale(b, fbsutils.Convert(t.DefenseFormationBgPrefabScale, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddFixedEchelon(b, fbsutils.Convert(t.FixedEchelon, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddMininageDefenseFixedStatId(b, fbsutils.Convert(t.MininageDefenseFixedStatId, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddStageHint(b, fbsutils.Convert(t.StageHint, t.FlatBuffer.TableKey))
+	MiniGameDefenseStageExcelStartStarGoalVector(b, len(t.StarGoal))
+	for i := range len(t.StarGoal) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameDefenseStageExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
 	return MiniGameDefenseStageExcelEnd(b)
 }
 
@@ -97,45 +97,45 @@ func (t *MiniGameDefenseStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
-	t.StageDifficultyLocalize = fbsutils.Convert(e.StageDifficultyLocalize(), t.FlatBuffer.TableKey)
-	t.StageNumber = fbsutils.Convert(e.StageNumber(), t.FlatBuffer.TableKey)
-	t.StageDisplay = fbsutils.Convert(e.StageDisplay(), t.FlatBuffer.TableKey)
-	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
-	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.EventContentStageRewardId = fbsutils.Convert(e.EventContentStageRewardId(), t.FlatBuffer.TableKey)
-	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
-	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
 		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
-	for i := range e.StarGoalLength() {
-		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
+	t.DefenseFormationBgPrefab = fbsutils.Convert(string(e.DefenseFormationBgPrefab()), t.FlatBuffer.TableKey)
+	t.DefenseFormationBgPrefabScale = fbsutils.Convert(e.DefenseFormationBgPrefabScale(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
+	for i := range e.EnterScenarioGroupIdLength() {
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EventContentStageRewardId = fbsutils.Convert(e.EventContentStageRewardId(), t.FlatBuffer.TableKey)
+	t.FixedEchelon = fbsutils.Convert(e.FixedEchelon(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.MininageDefenseFixedStatId = fbsutils.Convert(e.MininageDefenseFixedStatId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
+	t.StageDifficultyLocalize = fbsutils.Convert(e.StageDifficultyLocalize(), t.FlatBuffer.TableKey)
+	t.StageDisplay = fbsutils.Convert(e.StageDisplay(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
+	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
+	t.StageHint = fbsutils.Convert(e.StageHint(), t.FlatBuffer.TableKey)
+	t.StageNumber = fbsutils.Convert(e.StageNumber(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
 		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
-	t.DefenseFormationBgPrefab = fbsutils.Convert(string(e.DefenseFormationBgPrefab()), t.FlatBuffer.TableKey)
-	t.DefenseFormationBgPrefabScale = fbsutils.Convert(e.DefenseFormationBgPrefabScale(), t.FlatBuffer.TableKey)
-	t.FixedEchelon = fbsutils.Convert(e.FixedEchelon(), t.FlatBuffer.TableKey)
-	t.MininageDefenseFixedStatId = fbsutils.Convert(e.MininageDefenseFixedStatId(), t.FlatBuffer.TableKey)
-	t.StageHint = fbsutils.Convert(e.StageHint(), t.FlatBuffer.TableKey)
+	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
+	for i := range e.StarGoalLength() {
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
+	}
 	return nil
 }
 

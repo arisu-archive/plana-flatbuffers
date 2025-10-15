@@ -25,11 +25,11 @@ class MinigameTBGObjectExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameTBGObjectExcel
-    def UniqueId(self):
+    def Disposable(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MinigameTBGObjectExcel
     def Key(self):
@@ -39,17 +39,17 @@ class MinigameTBGObjectExcel(object):
         return None
 
     # MinigameTBGObjectExcel
-    def PrefabName(self):
+    def ObjectCostAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # MinigameTBGObjectExcel
-    def ObjectType(self):
+    def ObjectCostId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGObjectExcel
@@ -60,63 +60,63 @@ class MinigameTBGObjectExcel(object):
         return 0
 
     # MinigameTBGObjectExcel
-    def ObjectCostId(self):
+    def ObjectType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGObjectExcel
-    def ObjectCostAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGObjectExcel
-    def Disposable(self):
+    def PrefabName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MinigameTBGObjectExcel
+    def ReEncounterCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # MinigameTBGObjectExcel
-    def ReEncounterCost(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def MinigameTBGObjectExcelStart(builder): builder.StartObject(9)
 def Start(builder):
     return MinigameTBGObjectExcelStart(builder)
-def MinigameTBGObjectExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MinigameTBGObjectExcelAddUniqueId(builder, uniqueId)
+def MinigameTBGObjectExcelAddDisposable(builder, disposable): builder.PrependBoolSlot(0, disposable, 0)
+def AddDisposable(builder, disposable):
+    return MinigameTBGObjectExcelAddDisposable(builder, disposable)
 def MinigameTBGObjectExcelAddKey(builder, key): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(key), 0)
 def AddKey(builder, key):
     return MinigameTBGObjectExcelAddKey(builder, key)
-def MinigameTBGObjectExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-def AddPrefabName(builder, prefabName):
-    return MinigameTBGObjectExcelAddPrefabName(builder, prefabName)
-def MinigameTBGObjectExcelAddObjectType(builder, objectType): builder.PrependInt32Slot(3, objectType, 0)
-def AddObjectType(builder, objectType):
-    return MinigameTBGObjectExcelAddObjectType(builder, objectType)
+def MinigameTBGObjectExcelAddObjectCostAmount(builder, objectCostAmount): builder.PrependInt32Slot(2, objectCostAmount, 0)
+def AddObjectCostAmount(builder, objectCostAmount):
+    return MinigameTBGObjectExcelAddObjectCostAmount(builder, objectCostAmount)
+def MinigameTBGObjectExcelAddObjectCostId(builder, objectCostId): builder.PrependInt64Slot(3, objectCostId, 0)
+def AddObjectCostId(builder, objectCostId):
+    return MinigameTBGObjectExcelAddObjectCostId(builder, objectCostId)
 def MinigameTBGObjectExcelAddObjectCostType(builder, objectCostType): builder.PrependInt32Slot(4, objectCostType, 0)
 def AddObjectCostType(builder, objectCostType):
     return MinigameTBGObjectExcelAddObjectCostType(builder, objectCostType)
-def MinigameTBGObjectExcelAddObjectCostId(builder, objectCostId): builder.PrependInt64Slot(5, objectCostId, 0)
-def AddObjectCostId(builder, objectCostId):
-    return MinigameTBGObjectExcelAddObjectCostId(builder, objectCostId)
-def MinigameTBGObjectExcelAddObjectCostAmount(builder, objectCostAmount): builder.PrependInt32Slot(6, objectCostAmount, 0)
-def AddObjectCostAmount(builder, objectCostAmount):
-    return MinigameTBGObjectExcelAddObjectCostAmount(builder, objectCostAmount)
-def MinigameTBGObjectExcelAddDisposable(builder, disposable): builder.PrependBoolSlot(7, disposable, 0)
-def AddDisposable(builder, disposable):
-    return MinigameTBGObjectExcelAddDisposable(builder, disposable)
-def MinigameTBGObjectExcelAddReEncounterCost(builder, reEncounterCost): builder.PrependBoolSlot(8, reEncounterCost, 0)
+def MinigameTBGObjectExcelAddObjectType(builder, objectType): builder.PrependInt32Slot(5, objectType, 0)
+def AddObjectType(builder, objectType):
+    return MinigameTBGObjectExcelAddObjectType(builder, objectType)
+def MinigameTBGObjectExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+def AddPrefabName(builder, prefabName):
+    return MinigameTBGObjectExcelAddPrefabName(builder, prefabName)
+def MinigameTBGObjectExcelAddReEncounterCost(builder, reEncounterCost): builder.PrependBoolSlot(7, reEncounterCost, 0)
 def AddReEncounterCost(builder, reEncounterCost):
     return MinigameTBGObjectExcelAddReEncounterCost(builder, reEncounterCost)
+def MinigameTBGObjectExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(8, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MinigameTBGObjectExcelAddUniqueId(builder, uniqueId)
 def MinigameTBGObjectExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGObjectExcelEnd(builder)

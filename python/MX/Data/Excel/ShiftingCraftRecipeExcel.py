@@ -25,71 +25,29 @@ class ShiftingCraftRecipeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShiftingCraftRecipeExcel
-    def Id(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShiftingCraftRecipeExcel
-    def DisplayOrder(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShiftingCraftRecipeExcel
-    def NotificationId(self):
+    def IngredientExp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def ResultParcel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def ResultId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def ResultAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def RequireItemId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def RequireItemAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShiftingCraftRecipeExcel
-    def RequireGold(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShiftingCraftRecipeExcel
     def IngredientTag(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -97,69 +55,111 @@ class ShiftingCraftRecipeExcel(object):
 
     # ShiftingCraftRecipeExcel
     def IngredientTagAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # ShiftingCraftRecipeExcel
     def IngredientTagLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ShiftingCraftRecipeExcel
     def IngredientTagIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
     # ShiftingCraftRecipeExcel
-    def IngredientExp(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+    def NotificationId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def RequireGold(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def RequireItemAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def RequireItemId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def ResultAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def ResultId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShiftingCraftRecipeExcel
+    def ResultParcel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def ShiftingCraftRecipeExcelStart(builder): builder.StartObject(11)
 def Start(builder):
     return ShiftingCraftRecipeExcelStart(builder)
-def ShiftingCraftRecipeExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return ShiftingCraftRecipeExcelAddId(builder, id)
-def ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(1, displayOrder, 0)
+def ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(0, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
     return ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder)
-def ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId): builder.PrependInt32Slot(2, notificationId, 0)
-def AddNotificationId(builder, notificationId):
-    return ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId)
-def ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel): builder.PrependInt32Slot(3, resultParcel, 0)
-def AddResultParcel(builder, resultParcel):
-    return ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel)
-def ShiftingCraftRecipeExcelAddResultId(builder, resultId): builder.PrependInt64Slot(4, resultId, 0)
-def AddResultId(builder, resultId):
-    return ShiftingCraftRecipeExcelAddResultId(builder, resultId)
-def ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(5, resultAmount, 0)
-def AddResultAmount(builder, resultAmount):
-    return ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount)
-def ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId): builder.PrependInt64Slot(6, requireItemId, 0)
-def AddRequireItemId(builder, requireItemId):
-    return ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId)
-def ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount): builder.PrependInt64Slot(7, requireItemAmount, 0)
-def AddRequireItemAmount(builder, requireItemAmount):
-    return ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount)
-def ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold): builder.PrependInt64Slot(8, requireGold, 0)
-def AddRequireGold(builder, requireGold):
-    return ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold)
-def ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientTag), 0)
+def ShiftingCraftRecipeExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def AddId(builder, id):
+    return ShiftingCraftRecipeExcelAddId(builder, id)
+def ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp): builder.PrependInt64Slot(2, ingredientExp, 0)
+def AddIngredientExp(builder, ingredientExp):
+    return ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp)
+def ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientTag), 0)
 def AddIngredientTag(builder, ingredientTag):
     return ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag)
 def ShiftingCraftRecipeExcelStartIngredientTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartIngredientTagVector(builder, numElems):
     return ShiftingCraftRecipeExcelStartIngredientTagVector(builder, numElems)
-def ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp): builder.PrependInt64Slot(10, ingredientExp, 0)
-def AddIngredientExp(builder, ingredientExp):
-    return ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp)
+def ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId): builder.PrependInt32Slot(4, notificationId, 0)
+def AddNotificationId(builder, notificationId):
+    return ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId)
+def ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold): builder.PrependInt64Slot(5, requireGold, 0)
+def AddRequireGold(builder, requireGold):
+    return ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold)
+def ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount): builder.PrependInt64Slot(6, requireItemAmount, 0)
+def AddRequireItemAmount(builder, requireItemAmount):
+    return ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount)
+def ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId): builder.PrependInt64Slot(7, requireItemId, 0)
+def AddRequireItemId(builder, requireItemId):
+    return ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId)
+def ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(8, resultAmount, 0)
+def AddResultAmount(builder, resultAmount):
+    return ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount)
+def ShiftingCraftRecipeExcelAddResultId(builder, resultId): builder.PrependInt64Slot(9, resultId, 0)
+def AddResultId(builder, resultId):
+    return ShiftingCraftRecipeExcelAddResultId(builder, resultId)
+def ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel): builder.PrependInt32Slot(10, resultParcel, 0)
+def AddResultParcel(builder, resultParcel):
+    return ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel)
 def ShiftingCraftRecipeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShiftingCraftRecipeExcelEnd(builder)

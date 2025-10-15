@@ -10,20 +10,20 @@ import (
 // FieldInteractionExcelDto represents a FlatBuffers table
 type FieldInteractionExcelDto struct {
 	fbsutils.FlatBuffer
-	FieldSeasonId            int64                  `json:"field_season_id"`
-	UniqueId                 int64                  `json:"unique_id"`
-	FieldDateId              int64                  `json:"field_date_id"`
-	ShowEmoji                bool                   `json:"show_emoji"`
-	KeywordLocalize          string                 `json:"keyword_localize"`
-	InteractionType          []FieldInteractionType `json:"interaction_type"`
-	InteractionId            []int64                `json:"interaction_id"`
 	ConditionClass           FieldConditionClass    `json:"condition_class"`
 	ConditionClassParameters []int64                `json:"condition_class_parameters"`
-	OnceOnly                 bool                   `json:"once_only"`
+	ConditionId              []int64                `json:"condition_id"`
 	ConditionIndex           []int64                `json:"condition_index"`
 	ConditionType            []FieldConditionType   `json:"condition_type"`
-	ConditionId              []int64                `json:"condition_id"`
+	FieldDateId              int64                  `json:"field_date_id"`
+	FieldSeasonId            int64                  `json:"field_season_id"`
+	InteractionId            []int64                `json:"interaction_id"`
+	InteractionType          []FieldInteractionType `json:"interaction_type"`
+	KeywordLocalize          string                 `json:"keyword_localize"`
 	NegateCondition          []bool                 `json:"negate_condition"`
+	OnceOnly                 bool                   `json:"once_only"`
+	ShowEmoji                bool                   `json:"show_emoji"`
+	UniqueId                 int64                  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,28 +32,17 @@ func (t *FieldInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
 	FieldInteractionExcelStart(b)
-	FieldInteractionExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
-	FieldInteractionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldInteractionExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
-	FieldInteractionExcelAddShowEmoji(b, t.ShowEmoji)
-	FieldInteractionExcelAddKeywordLocalize(b, b.CreateString(fbsutils.Convert(t.KeywordLocalize, t.FlatBuffer.TableKey)))
-	FieldInteractionExcelStartInteractionTypeVector(b, len(t.InteractionType))
-	for i := range len(t.InteractionType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.InteractionType[len(t.InteractionType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	FieldInteractionExcelAddInteractionType(b, b.EndVector(len(t.InteractionType)))
-	FieldInteractionExcelStartInteractionIdVector(b, len(t.InteractionId))
-	for i := range len(t.InteractionId) {
-		b.PrependInt64(fbsutils.Convert(t.InteractionId[len(t.InteractionId)-i-1], t.FlatBuffer.TableKey))
-	}
-	FieldInteractionExcelAddInteractionId(b, b.EndVector(len(t.InteractionId)))
 	FieldInteractionExcelAddConditionClass(b, fbsutils.Convert(t.ConditionClass, t.FlatBuffer.TableKey))
 	FieldInteractionExcelStartConditionClassParametersVector(b, len(t.ConditionClassParameters))
 	for i := range len(t.ConditionClassParameters) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionClassParameters[len(t.ConditionClassParameters)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldInteractionExcelAddConditionClassParameters(b, b.EndVector(len(t.ConditionClassParameters)))
-	FieldInteractionExcelAddOnceOnly(b, t.OnceOnly)
+	FieldInteractionExcelStartConditionIdVector(b, len(t.ConditionId))
+	for i := range len(t.ConditionId) {
+		b.PrependInt64(fbsutils.Convert(t.ConditionId[len(t.ConditionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldInteractionExcelAddConditionId(b, b.EndVector(len(t.ConditionId)))
 	FieldInteractionExcelStartConditionIndexVector(b, len(t.ConditionIndex))
 	for i := range len(t.ConditionIndex) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionIndex[len(t.ConditionIndex)-i-1], t.FlatBuffer.TableKey))
@@ -64,16 +53,27 @@ func (t *FieldInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		b.PrependInt32(fbsutils.Convert(int32(t.ConditionType[len(t.ConditionType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FieldInteractionExcelAddConditionType(b, b.EndVector(len(t.ConditionType)))
-	FieldInteractionExcelStartConditionIdVector(b, len(t.ConditionId))
-	for i := range len(t.ConditionId) {
-		b.PrependInt64(fbsutils.Convert(t.ConditionId[len(t.ConditionId)-i-1], t.FlatBuffer.TableKey))
+	FieldInteractionExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
+	FieldInteractionExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
+	FieldInteractionExcelStartInteractionIdVector(b, len(t.InteractionId))
+	for i := range len(t.InteractionId) {
+		b.PrependInt64(fbsutils.Convert(t.InteractionId[len(t.InteractionId)-i-1], t.FlatBuffer.TableKey))
 	}
-	FieldInteractionExcelAddConditionId(b, b.EndVector(len(t.ConditionId)))
+	FieldInteractionExcelAddInteractionId(b, b.EndVector(len(t.InteractionId)))
+	FieldInteractionExcelStartInteractionTypeVector(b, len(t.InteractionType))
+	for i := range len(t.InteractionType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.InteractionType[len(t.InteractionType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	FieldInteractionExcelAddInteractionType(b, b.EndVector(len(t.InteractionType)))
+	FieldInteractionExcelAddKeywordLocalize(b, b.CreateString(fbsutils.Convert(t.KeywordLocalize, t.FlatBuffer.TableKey)))
 	FieldInteractionExcelStartNegateConditionVector(b, len(t.NegateCondition))
 	for i := range len(t.NegateCondition) {
 		b.PrependBool(t.NegateCondition[len(t.NegateCondition)-i-1])
 	}
 	FieldInteractionExcelAddNegateCondition(b, b.EndVector(len(t.NegateCondition)))
+	FieldInteractionExcelAddOnceOnly(b, t.OnceOnly)
+	FieldInteractionExcelAddShowEmoji(b, t.ShowEmoji)
+	FieldInteractionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return FieldInteractionExcelEnd(b)
 }
 
@@ -89,25 +89,15 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
-	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
-	t.ShowEmoji = e.ShowEmoji()
-	t.KeywordLocalize = fbsutils.Convert(string(e.KeywordLocalize()), t.FlatBuffer.TableKey)
-	t.InteractionType = make([]FieldInteractionType, e.InteractionTypeLength())
-	for i := range e.InteractionTypeLength() {
-		t.InteractionType[i] = FieldInteractionType(fbsutils.Convert(int32(e.InteractionType(i)), t.FlatBuffer.TableKey))
-	}
-	t.InteractionId = make([]int64, e.InteractionIdLength())
-	for i := range e.InteractionIdLength() {
-		t.InteractionId[i] = fbsutils.Convert(e.InteractionId(i), t.FlatBuffer.TableKey)
-	}
 	t.ConditionClass = FieldConditionClass(fbsutils.Convert(int32(e.ConditionClass()), t.FlatBuffer.TableKey))
 	t.ConditionClassParameters = make([]int64, e.ConditionClassParametersLength())
 	for i := range e.ConditionClassParametersLength() {
 		t.ConditionClassParameters[i] = fbsutils.Convert(e.ConditionClassParameters(i), t.FlatBuffer.TableKey)
 	}
-	t.OnceOnly = e.OnceOnly()
+	t.ConditionId = make([]int64, e.ConditionIdLength())
+	for i := range e.ConditionIdLength() {
+		t.ConditionId[i] = fbsutils.Convert(e.ConditionId(i), t.FlatBuffer.TableKey)
+	}
 	t.ConditionIndex = make([]int64, e.ConditionIndexLength())
 	for i := range e.ConditionIndexLength() {
 		t.ConditionIndex[i] = fbsutils.Convert(e.ConditionIndex(i), t.FlatBuffer.TableKey)
@@ -116,14 +106,24 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	for i := range e.ConditionTypeLength() {
 		t.ConditionType[i] = FieldConditionType(fbsutils.Convert(int32(e.ConditionType(i)), t.FlatBuffer.TableKey))
 	}
-	t.ConditionId = make([]int64, e.ConditionIdLength())
-	for i := range e.ConditionIdLength() {
-		t.ConditionId[i] = fbsutils.Convert(e.ConditionId(i), t.FlatBuffer.TableKey)
+	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
+	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
+	t.InteractionId = make([]int64, e.InteractionIdLength())
+	for i := range e.InteractionIdLength() {
+		t.InteractionId[i] = fbsutils.Convert(e.InteractionId(i), t.FlatBuffer.TableKey)
 	}
+	t.InteractionType = make([]FieldInteractionType, e.InteractionTypeLength())
+	for i := range e.InteractionTypeLength() {
+		t.InteractionType[i] = FieldInteractionType(fbsutils.Convert(int32(e.InteractionType(i)), t.FlatBuffer.TableKey))
+	}
+	t.KeywordLocalize = fbsutils.Convert(string(e.KeywordLocalize()), t.FlatBuffer.TableKey)
 	t.NegateCondition = make([]bool, e.NegateConditionLength())
 	for i := range e.NegateConditionLength() {
 		t.NegateCondition[i] = e.NegateCondition(i)
 	}
+	t.OnceOnly = e.OnceOnly()
+	t.ShowEmoji = e.ShowEmoji()
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

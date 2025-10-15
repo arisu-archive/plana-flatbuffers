@@ -45,8 +45,20 @@ func (rcv *CafeInfoExcel) MutateCafeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CafeInfoExcel) IsDefault() bool {
+func (rcv *CafeInfoExcel) CategoryType() ShopCategoryType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CafeInfoExcel) MutateCategoryType(n ShopCategoryType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *CafeInfoExcel) IsDefault() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -54,22 +66,10 @@ func (rcv *CafeInfoExcel) IsDefault() bool {
 }
 
 func (rcv *CafeInfoExcel) MutateIsDefault(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func (rcv *CafeInfoExcel) OpenConditionCafeId() OpenConditionContent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CafeInfoExcel) MutateOpenConditionCafeId(n OpenConditionContent) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *CafeInfoExcel) OpenConditionCafeInvite() OpenConditionContent {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
@@ -77,24 +77,95 @@ func (rcv *CafeInfoExcel) OpenConditionCafeInvite() OpenConditionContent {
 	return 0
 }
 
-func (rcv *CafeInfoExcel) MutateOpenConditionCafeInvite(n OpenConditionContent) bool {
+func (rcv *CafeInfoExcel) MutateOpenConditionCafeId(n OpenConditionContent) bool {
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
+func (rcv *CafeInfoExcel) OpenConditionCafeInvite() OpenConditionContent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CafeInfoExcel) MutateOpenConditionCafeInvite(n OpenConditionContent) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *CafeInfoExcel) SummonParcelAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeInfoExcel) MutateSummonParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *CafeInfoExcel) SummonParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeInfoExcel) MutateSummonParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *CafeInfoExcel) SummonParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CafeInfoExcel) MutateSummonParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *CafeInfoExcel) SummonTicketIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func CafeInfoExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(9)
 }
 func CafeInfoExcelAddCafeId(builder *flatbuffers.Builder, cafeId int64) {
 	builder.PrependInt64Slot(0, cafeId, 0)
 }
+func CafeInfoExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
+	builder.PrependInt32Slot(1, int32(categoryType), 0)
+}
 func CafeInfoExcelAddIsDefault(builder *flatbuffers.Builder, isDefault bool) {
-	builder.PrependBoolSlot(1, isDefault, false)
+	builder.PrependBoolSlot(2, isDefault, false)
 }
 func CafeInfoExcelAddOpenConditionCafeId(builder *flatbuffers.Builder, openConditionCafeId OpenConditionContent) {
-	builder.PrependInt32Slot(2, int32(openConditionCafeId), 0)
+	builder.PrependInt32Slot(3, int32(openConditionCafeId), 0)
 }
 func CafeInfoExcelAddOpenConditionCafeInvite(builder *flatbuffers.Builder, openConditionCafeInvite OpenConditionContent) {
-	builder.PrependInt32Slot(3, int32(openConditionCafeInvite), 0)
+	builder.PrependInt32Slot(4, int32(openConditionCafeInvite), 0)
+}
+func CafeInfoExcelAddSummonParcelAmount(builder *flatbuffers.Builder, summonParcelAmount int64) {
+	builder.PrependInt64Slot(5, summonParcelAmount, 0)
+}
+func CafeInfoExcelAddSummonParcelId(builder *flatbuffers.Builder, summonParcelId int64) {
+	builder.PrependInt64Slot(6, summonParcelId, 0)
+}
+func CafeInfoExcelAddSummonParcelType(builder *flatbuffers.Builder, summonParcelType ParcelType) {
+	builder.PrependInt32Slot(7, int32(summonParcelType), 0)
+}
+func CafeInfoExcelAddSummonTicketIconPath(builder *flatbuffers.Builder, summonTicketIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(summonTicketIconPath), 0)
 }
 func CafeInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -33,8 +33,16 @@ func (rcv *LimitedStageSeasonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LimitedStageSeasonExcel) Id() int64 {
+func (rcv *LimitedStageSeasonExcel) EndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LimitedStageSeasonExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -42,18 +50,10 @@ func (rcv *LimitedStageSeasonExcel) Id() int64 {
 }
 
 func (rcv *LimitedStageSeasonExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *LimitedStageSeasonExcel) StartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LimitedStageSeasonExcel) EndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -100,14 +100,14 @@ func (rcv *LimitedStageSeasonExcel) MutateTypeCCount(n int64) bool {
 func LimitedStageSeasonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
+func LimitedStageSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(endDate), 0)
+}
 func LimitedStageSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+	builder.PrependInt64Slot(1, id, 0)
 }
 func LimitedStageSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(startDate), 0)
-}
-func LimitedStageSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(endDate), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(startDate), 0)
 }
 func LimitedStageSeasonExcelAddTypeACount(builder *flatbuffers.Builder, typeACount int64) {
 	builder.PrependInt64Slot(3, typeACount, 0)

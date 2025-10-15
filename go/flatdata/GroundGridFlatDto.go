@@ -11,13 +11,13 @@ import (
 // GroundGridFlatDto represents a FlatBuffers table
 type GroundGridFlatDto struct {
 	fbsutils.FlatBuffer
-	X       int32               `json:"x"`
-	Y       int32               `json:"y"`
-	StartX  float32             `json:"start_x"`
-	StartY  float32             `json:"start_y"`
 	Gap     float32             `json:"gap"`
 	Nodes   []GroundNodeFlatDto `json:"nodes"`
+	StartX  float32             `json:"start_x"`
+	StartY  float32             `json:"start_y"`
 	Version string              `json:"version"`
+	X       int32               `json:"x"`
+	Y       int32               `json:"y"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,10 +26,6 @@ func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
 	}
 	GroundGridFlatStart(b)
-	GroundGridFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	GroundGridFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
-	GroundGridFlatAddStartX(b, fbsutils.Convert(t.StartX, t.FlatBuffer.TableKey))
-	GroundGridFlatAddStartY(b, fbsutils.Convert(t.StartY, t.FlatBuffer.TableKey))
 	GroundGridFlatAddGap(b, fbsutils.Convert(t.Gap, t.FlatBuffer.TableKey))
 	GroundGridFlatStartNodesVector(b, len(t.Nodes))
 	for i := range len(t.Nodes) {
@@ -37,7 +33,11 @@ func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		b.PrependUOffsetT(t.Nodes[len(t.Nodes)-i-1].MarshalModel(b))
 	}
 	GroundGridFlatAddNodes(b, b.EndVector(len(t.Nodes)))
+	GroundGridFlatAddStartX(b, fbsutils.Convert(t.StartX, t.FlatBuffer.TableKey))
+	GroundGridFlatAddStartY(b, fbsutils.Convert(t.StartY, t.FlatBuffer.TableKey))
 	GroundGridFlatAddVersion(b, b.CreateString(fbsutils.Convert(t.Version, t.FlatBuffer.TableKey)))
+	GroundGridFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
+	GroundGridFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
 	return GroundGridFlatEnd(b)
 }
 
@@ -53,10 +53,6 @@ func (t *GroundGridFlatDto) UnmarshalMessage(e *GroundGridFlat) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
-	t.StartX = fbsutils.Convert(e.StartX(), t.FlatBuffer.TableKey)
-	t.StartY = fbsutils.Convert(e.StartY(), t.FlatBuffer.TableKey)
 	t.Gap = fbsutils.Convert(e.Gap(), t.FlatBuffer.TableKey)
 	t.Nodes = make([]GroundNodeFlatDto, e.NodesLength())
 	for i := range e.NodesLength() {
@@ -66,7 +62,11 @@ func (t *GroundGridFlatDto) UnmarshalMessage(e *GroundGridFlat) error {
 		}
 		t.Nodes[i].UnmarshalMessage(d)
 	}
+	t.StartX = fbsutils.Convert(e.StartX(), t.FlatBuffer.TableKey)
+	t.StartY = fbsutils.Convert(e.StartY(), t.FlatBuffer.TableKey)
 	t.Version = fbsutils.Convert(string(e.Version()), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
+	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	return nil
 }
 

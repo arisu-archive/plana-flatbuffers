@@ -33,16 +33,8 @@ func (rcv *CharacterVoiceSubtitleExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterVoiceSubtitleExcel) LocalizeCvGroup() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CharacterVoiceSubtitleExcel) CharacterVoiceGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -50,11 +42,11 @@ func (rcv *CharacterVoiceSubtitleExcel) CharacterVoiceGroupId() int64 {
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) MutateCharacterVoiceGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) Duration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,19 +54,23 @@ func (rcv *CharacterVoiceSubtitleExcel) Duration() int64 {
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) MutateDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterVoiceSubtitleExcel) Separate() bool {
+func (rcv *CharacterVoiceSubtitleExcel) LocalizeCvGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVoiceSubtitleExcel) LocalizeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *CharacterVoiceSubtitleExcel) MutateSeparate(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return nil
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) LocalizeKr() []byte {
@@ -85,34 +81,38 @@ func (rcv *CharacterVoiceSubtitleExcel) LocalizeKr() []byte {
 	return nil
 }
 
-func (rcv *CharacterVoiceSubtitleExcel) LocalizeJp() []byte {
+func (rcv *CharacterVoiceSubtitleExcel) Separate() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
+}
+
+func (rcv *CharacterVoiceSubtitleExcel) MutateSeparate(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
 }
 
 func CharacterVoiceSubtitleExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func CharacterVoiceSubtitleExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(localizeCvGroup), 0)
-}
 func CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
-	builder.PrependInt64Slot(1, characterVoiceGroupId, 0)
+	builder.PrependInt64Slot(0, characterVoiceGroupId, 0)
 }
 func CharacterVoiceSubtitleExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
-	builder.PrependInt64Slot(2, duration, 0)
+	builder.PrependInt64Slot(1, duration, 0)
 }
-func CharacterVoiceSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
-	builder.PrependBoolSlot(3, separate, false)
+func CharacterVoiceSubtitleExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizeCvGroup), 0)
+}
+func CharacterVoiceSubtitleExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeJp), 0)
 }
 func CharacterVoiceSubtitleExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(localizeKr), 0)
 }
-func CharacterVoiceSubtitleExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(localizeJp), 0)
+func CharacterVoiceSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
+	builder.PrependBoolSlot(5, separate, false)
 }
 func CharacterVoiceSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

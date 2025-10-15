@@ -10,27 +10,27 @@ import (
 // CombatEmojiExcelDto represents a FlatBuffers table
 type CombatEmojiExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId        int64      `json:"unique_id"`
-	EmojiEvent      EmojiEvent `json:"emoji_event"`
-	OrderOfPriority int32      `json:"order_of_priority"`
 	EmojiDuration   bool       `json:"emoji_duration"`
+	EmojiEvent      EmojiEvent `json:"emoji_event"`
 	EmojiReversal   bool       `json:"emoji_reversal"`
 	EmojiTurnOn     bool       `json:"emoji_turn_on"`
-	ShowEmojiDelay  int32      `json:"show_emoji_delay"`
+	OrderOfPriority int32      `json:"order_of_priority"`
 	ShowDefaultBg   bool       `json:"show_default_bg"`
+	ShowEmojiDelay  int32      `json:"show_emoji_delay"`
+	UniqueId        int64      `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CombatEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CombatEmojiExcelStart(b)
-	CombatEmojiExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	CombatEmojiExcelAddEmojiEvent(b, fbsutils.Convert(t.EmojiEvent, t.FlatBuffer.TableKey))
-	CombatEmojiExcelAddOrderOfPriority(b, fbsutils.Convert(t.OrderOfPriority, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddEmojiDuration(b, t.EmojiDuration)
+	CombatEmojiExcelAddEmojiEvent(b, fbsutils.Convert(t.EmojiEvent, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddEmojiReversal(b, t.EmojiReversal)
 	CombatEmojiExcelAddEmojiTurnOn(b, t.EmojiTurnOn)
-	CombatEmojiExcelAddShowEmojiDelay(b, fbsutils.Convert(t.ShowEmojiDelay, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddOrderOfPriority(b, fbsutils.Convert(t.OrderOfPriority, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddShowDefaultBg(b, t.ShowDefaultBg)
+	CombatEmojiExcelAddShowEmojiDelay(b, fbsutils.Convert(t.ShowEmojiDelay, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return CombatEmojiExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *CombatEmojiExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CombatEmojiExcelDto) UnmarshalMessage(e *CombatEmojiExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.EmojiEvent = EmojiEvent(fbsutils.Convert(int32(e.EmojiEvent()), t.FlatBuffer.TableKey))
-	t.OrderOfPriority = fbsutils.Convert(e.OrderOfPriority(), t.FlatBuffer.TableKey)
 	t.EmojiDuration = e.EmojiDuration()
+	t.EmojiEvent = EmojiEvent(fbsutils.Convert(int32(e.EmojiEvent()), t.FlatBuffer.TableKey))
 	t.EmojiReversal = e.EmojiReversal()
 	t.EmojiTurnOn = e.EmojiTurnOn()
-	t.ShowEmojiDelay = fbsutils.Convert(e.ShowEmojiDelay(), t.FlatBuffer.TableKey)
+	t.OrderOfPriority = fbsutils.Convert(e.OrderOfPriority(), t.FlatBuffer.TableKey)
 	t.ShowDefaultBg = e.ShowDefaultBg()
+	t.ShowEmojiDelay = fbsutils.Convert(e.ShowEmojiDelay(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

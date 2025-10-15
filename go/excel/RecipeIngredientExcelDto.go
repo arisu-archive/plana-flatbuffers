@@ -10,53 +10,53 @@ import (
 // RecipeIngredientExcelDto represents a FlatBuffers table
 type RecipeIngredientExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64        `json:"id"`
-	RecipeType           RecipeType   `json:"recipe_type"`
-	CostParcelType       []ParcelType `json:"cost_parcel_type"`
-	CostId               []int64      `json:"cost_id"`
 	CostAmount           []int64      `json:"cost_amount"`
-	IngredientParcelType []ParcelType `json:"ingredient_parcel_type"`
-	IngredientId         []int64      `json:"ingredient_id"`
-	IngredientAmount     []int64      `json:"ingredient_amount"`
+	CostId               []int64      `json:"cost_id"`
+	CostParcelType       []ParcelType `json:"cost_parcel_type"`
 	CostTimeInSecond     int64        `json:"cost_time_in_second"`
+	Id                   int64        `json:"id"`
+	IngredientAmount     []int64      `json:"ingredient_amount"`
+	IngredientId         []int64      `json:"ingredient_id"`
+	IngredientParcelType []ParcelType `json:"ingredient_parcel_type"`
+	RecipeType           RecipeType   `json:"recipe_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeIngredientExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	RecipeIngredientExcelStart(b)
-	RecipeIngredientExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	RecipeIngredientExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
-	RecipeIngredientExcelStartCostParcelTypeVector(b, len(t.CostParcelType))
-	for i := range len(t.CostParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.CostParcelType[len(t.CostParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	RecipeIngredientExcelAddCostParcelType(b, b.EndVector(len(t.CostParcelType)))
-	RecipeIngredientExcelStartCostIdVector(b, len(t.CostId))
-	for i := range len(t.CostId) {
-		b.PrependInt64(fbsutils.Convert(t.CostId[len(t.CostId)-i-1], t.FlatBuffer.TableKey))
-	}
-	RecipeIngredientExcelAddCostId(b, b.EndVector(len(t.CostId)))
 	RecipeIngredientExcelStartCostAmountVector(b, len(t.CostAmount))
 	for i := range len(t.CostAmount) {
 		b.PrependInt64(fbsutils.Convert(t.CostAmount[len(t.CostAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	RecipeIngredientExcelAddCostAmount(b, b.EndVector(len(t.CostAmount)))
-	RecipeIngredientExcelStartIngredientParcelTypeVector(b, len(t.IngredientParcelType))
-	for i := range len(t.IngredientParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.IngredientParcelType[len(t.IngredientParcelType)-i-1]), t.FlatBuffer.TableKey))
+	RecipeIngredientExcelStartCostIdVector(b, len(t.CostId))
+	for i := range len(t.CostId) {
+		b.PrependInt64(fbsutils.Convert(t.CostId[len(t.CostId)-i-1], t.FlatBuffer.TableKey))
 	}
-	RecipeIngredientExcelAddIngredientParcelType(b, b.EndVector(len(t.IngredientParcelType)))
-	RecipeIngredientExcelStartIngredientIdVector(b, len(t.IngredientId))
-	for i := range len(t.IngredientId) {
-		b.PrependInt64(fbsutils.Convert(t.IngredientId[len(t.IngredientId)-i-1], t.FlatBuffer.TableKey))
+	RecipeIngredientExcelAddCostId(b, b.EndVector(len(t.CostId)))
+	RecipeIngredientExcelStartCostParcelTypeVector(b, len(t.CostParcelType))
+	for i := range len(t.CostParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.CostParcelType[len(t.CostParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
-	RecipeIngredientExcelAddIngredientId(b, b.EndVector(len(t.IngredientId)))
+	RecipeIngredientExcelAddCostParcelType(b, b.EndVector(len(t.CostParcelType)))
+	RecipeIngredientExcelAddCostTimeInSecond(b, fbsutils.Convert(t.CostTimeInSecond, t.FlatBuffer.TableKey))
+	RecipeIngredientExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RecipeIngredientExcelStartIngredientAmountVector(b, len(t.IngredientAmount))
 	for i := range len(t.IngredientAmount) {
 		b.PrependInt64(fbsutils.Convert(t.IngredientAmount[len(t.IngredientAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	RecipeIngredientExcelAddIngredientAmount(b, b.EndVector(len(t.IngredientAmount)))
-	RecipeIngredientExcelAddCostTimeInSecond(b, fbsutils.Convert(t.CostTimeInSecond, t.FlatBuffer.TableKey))
+	RecipeIngredientExcelStartIngredientIdVector(b, len(t.IngredientId))
+	for i := range len(t.IngredientId) {
+		b.PrependInt64(fbsutils.Convert(t.IngredientId[len(t.IngredientId)-i-1], t.FlatBuffer.TableKey))
+	}
+	RecipeIngredientExcelAddIngredientId(b, b.EndVector(len(t.IngredientId)))
+	RecipeIngredientExcelStartIngredientParcelTypeVector(b, len(t.IngredientParcelType))
+	for i := range len(t.IngredientParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.IngredientParcelType[len(t.IngredientParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	RecipeIngredientExcelAddIngredientParcelType(b, b.EndVector(len(t.IngredientParcelType)))
+	RecipeIngredientExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
 	return RecipeIngredientExcelEnd(b)
 }
 
@@ -69,33 +69,33 @@ func (t *RecipeIngredientExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeIngredientExcelDto) UnmarshalMessage(e *RecipeIngredientExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RecipeType = RecipeType(fbsutils.Convert(int32(e.RecipeType()), t.FlatBuffer.TableKey))
-	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
-	for i := range e.CostParcelTypeLength() {
-		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
+	t.CostAmount = make([]int64, e.CostAmountLength())
+	for i := range e.CostAmountLength() {
+		t.CostAmount[i] = fbsutils.Convert(e.CostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.CostId = make([]int64, e.CostIdLength())
 	for i := range e.CostIdLength() {
 		t.CostId[i] = fbsutils.Convert(e.CostId(i), t.FlatBuffer.TableKey)
 	}
-	t.CostAmount = make([]int64, e.CostAmountLength())
-	for i := range e.CostAmountLength() {
-		t.CostAmount[i] = fbsutils.Convert(e.CostAmount(i), t.FlatBuffer.TableKey)
+	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
+	for i := range e.CostParcelTypeLength() {
+		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.IngredientParcelType = make([]ParcelType, e.IngredientParcelTypeLength())
-	for i := range e.IngredientParcelTypeLength() {
-		t.IngredientParcelType[i] = ParcelType(fbsutils.Convert(int32(e.IngredientParcelType(i)), t.FlatBuffer.TableKey))
+	t.CostTimeInSecond = fbsutils.Convert(e.CostTimeInSecond(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.IngredientAmount = make([]int64, e.IngredientAmountLength())
+	for i := range e.IngredientAmountLength() {
+		t.IngredientAmount[i] = fbsutils.Convert(e.IngredientAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.IngredientId = make([]int64, e.IngredientIdLength())
 	for i := range e.IngredientIdLength() {
 		t.IngredientId[i] = fbsutils.Convert(e.IngredientId(i), t.FlatBuffer.TableKey)
 	}
-	t.IngredientAmount = make([]int64, e.IngredientAmountLength())
-	for i := range e.IngredientAmountLength() {
-		t.IngredientAmount[i] = fbsutils.Convert(e.IngredientAmount(i), t.FlatBuffer.TableKey)
+	t.IngredientParcelType = make([]ParcelType, e.IngredientParcelTypeLength())
+	for i := range e.IngredientParcelTypeLength() {
+		t.IngredientParcelType[i] = ParcelType(fbsutils.Convert(int32(e.IngredientParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.CostTimeInSecond = fbsutils.Convert(e.CostTimeInSecond(), t.FlatBuffer.TableKey)
+	t.RecipeType = RecipeType(fbsutils.Convert(int32(e.RecipeType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

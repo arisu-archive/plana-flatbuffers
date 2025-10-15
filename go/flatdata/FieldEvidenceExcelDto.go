@@ -10,12 +10,12 @@ import (
 // FieldEvidenceExcelDto represents a FlatBuffers table
 type FieldEvidenceExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId               int64  `json:"unique_id"`
-	SeasonId               int64  `json:"season_id"`
-	NameLocalizeKey        string `json:"name_localize_key"`
 	DescriptionLocalizeKey string `json:"description_localize_key"`
 	DetailLocalizeKey      string `json:"detail_localize_key"`
 	ImagePath              string `json:"image_path"`
+	NameLocalizeKey        string `json:"name_localize_key"`
+	SeasonId               int64  `json:"season_id"`
+	UniqueId               int64  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *FieldEvidenceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidence"))
 	}
 	FieldEvidenceExcelStart(b)
-	FieldEvidenceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
 	FieldEvidenceExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
 	FieldEvidenceExcelAddDetailLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DetailLocalizeKey, t.FlatBuffer.TableKey)))
 	FieldEvidenceExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	FieldEvidenceExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldEvidenceExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	FieldEvidenceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return FieldEvidenceExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *FieldEvidenceExcelDto) UnmarshalMessage(e *FieldEvidenceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidence"))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
 	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
 	t.DetailLocalizeKey = fbsutils.Convert(string(e.DetailLocalizeKey()), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

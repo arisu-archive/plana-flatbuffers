@@ -3,12 +3,13 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameCCGRewardItemExcel {
-    id: long;
     ccg_id: long;
+    display_order: long;
+    id: long;
     min_point: int;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
     reward_parcel_amount: int;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
 }
 
 root_type MinigameCCGRewardItemExcel;

@@ -33,16 +33,12 @@ func (rcv *WeekDungeonRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WeekDungeonRewardExcel) GroupId() int64 {
+func (rcv *WeekDungeonRewardExcel) DropItemModelPrefabPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *WeekDungeonRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return nil
 }
 
 func (rcv *WeekDungeonRewardExcel) DungeonType() WeekDungeonType {
@@ -57,28 +53,28 @@ func (rcv *WeekDungeonRewardExcel) MutateDungeonType(n WeekDungeonType) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *WeekDungeonRewardExcel) RewardParcelType() ParcelType {
+func (rcv *WeekDungeonRewardExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *WeekDungeonRewardExcel) RewardParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonRewardExcel) MutateRewardParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *WeekDungeonRewardExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *WeekDungeonRewardExcel) IsDisplayed() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *WeekDungeonRewardExcel) MutateIsDisplayed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func (rcv *WeekDungeonRewardExcel) RewardParcelAmount() int64 {
@@ -93,7 +89,7 @@ func (rcv *WeekDungeonRewardExcel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *WeekDungeonRewardExcel) RewardParcelProbability() int64 {
+func (rcv *WeekDungeonRewardExcel) RewardParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,56 +97,60 @@ func (rcv *WeekDungeonRewardExcel) RewardParcelProbability() int64 {
 	return 0
 }
 
-func (rcv *WeekDungeonRewardExcel) MutateRewardParcelProbability(n int64) bool {
+func (rcv *WeekDungeonRewardExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *WeekDungeonRewardExcel) IsDisplayed() bool {
+func (rcv *WeekDungeonRewardExcel) RewardParcelProbability() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *WeekDungeonRewardExcel) MutateIsDisplayed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *WeekDungeonRewardExcel) MutateRewardParcelProbability(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *WeekDungeonRewardExcel) DropItemModelPrefabPath() []byte {
+func (rcv *WeekDungeonRewardExcel) RewardParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *WeekDungeonRewardExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
 func WeekDungeonRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func WeekDungeonRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func WeekDungeonRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
 }
 func WeekDungeonRewardExcelAddDungeonType(builder *flatbuffers.Builder, dungeonType WeekDungeonType) {
 	builder.PrependInt32Slot(1, int32(dungeonType), 0)
 }
-func WeekDungeonRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(rewardParcelType), 0)
+func WeekDungeonRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(2, groupId, 0)
 }
-func WeekDungeonRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(3, rewardParcelId, 0)
+func WeekDungeonRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
+	builder.PrependBoolSlot(3, isDisplayed, false)
 }
 func WeekDungeonRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
 	builder.PrependInt64Slot(4, rewardParcelAmount, 0)
 }
+func WeekDungeonRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(5, rewardParcelId, 0)
+}
 func WeekDungeonRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability int64) {
-	builder.PrependInt64Slot(5, rewardParcelProbability, 0)
+	builder.PrependInt64Slot(6, rewardParcelProbability, 0)
 }
-func WeekDungeonRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
-	builder.PrependBoolSlot(6, isDisplayed, false)
-}
-func WeekDungeonRewardExcelAddDropItemModelPrefabPath(builder *flatbuffers.Builder, dropItemModelPrefabPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(dropItemModelPrefabPath), 0)
+func WeekDungeonRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(7, int32(rewardParcelType), 0)
 }
 func WeekDungeonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,47 +10,47 @@ import (
 // ShopExcelDto represents a FlatBuffers table
 type ShopExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64                  `json:"id"`
-	LocalizeEtcId                uint32                 `json:"localize_etc_id"`
+	BuyReportEventName           string                 `json:"buy_report_event_name"`
 	CategoryType                 ShopCategoryType       `json:"category_type"`
-	IsLegacy                     bool                   `json:"is_legacy"`
-	UseBigPopup                  bool                   `json:"use_big_popup"`
-	GoodsId                      []int64                `json:"goods_id"`
 	DisplayOrder                 int64                  `json:"display_order"`
-	SalePeriodFrom               string                 `json:"sale_period_from"`
-	SalePeriodTo                 string                 `json:"sale_period_to"`
+	DisplayTag                   ProductDisplayTag      `json:"display_tag"`
+	GoodsId                      []int64                `json:"goods_id"`
+	Id                           int64                  `json:"id"`
+	IsLegacy                     bool                   `json:"is_legacy"`
+	LocalizeEtcId                uint32                 `json:"localize_etc_id"`
 	PurchaseCooltimeMin          int64                  `json:"purchase_cooltime_min"`
 	PurchaseCountLimit           int64                  `json:"purchase_count_limit"`
 	PurchaseCountResetType       PurchaseCountResetType `json:"purchase_count_reset_type"`
-	BuyReportEventName           string                 `json:"buy_report_event_name"`
 	RestrictBuyWhenInventoryFull bool                   `json:"restrict_buy_when_inventory_full"`
-	DisplayTag                   ProductDisplayTag      `json:"display_tag"`
+	SalePeriodFrom               string                 `json:"sale_period_from"`
+	SalePeriodTo                 string                 `json:"sale_period_to"`
 	ShopUpdateGroupId            int32                  `json:"shop_update_group_id"`
+	UseBigPopup                  bool                   `json:"use_big_popup"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopExcelStart(b)
-	ShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	ShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
 	ShopExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopExcelAddIsLegacy(b, t.IsLegacy)
-	ShopExcelAddUseBigPopup(b, t.UseBigPopup)
+	ShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShopExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	ShopExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	ShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ShopExcelAddIsLegacy(b, t.IsLegacy)
+	ShopExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	ShopExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
 	ShopExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ShopExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
-	ShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
 	ShopExcelAddRestrictBuyWhenInventoryFull(b, t.RestrictBuyWhenInventoryFull)
-	ShopExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
+	ShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
+	ShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
 	ShopExcelAddShopUpdateGroupId(b, fbsutils.Convert(t.ShopUpdateGroupId, t.FlatBuffer.TableKey))
+	ShopExcelAddUseBigPopup(b, t.UseBigPopup)
 	return ShopExcelEnd(b)
 }
 
@@ -63,25 +63,25 @@ func (t *ShopExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopExcelDto) UnmarshalMessage(e *ShopExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.IsLegacy = e.IsLegacy()
-	t.UseBigPopup = e.UseBigPopup()
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
 		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
-	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.IsLegacy = e.IsLegacy()
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.PurchaseCooltimeMin = fbsutils.Convert(e.PurchaseCooltimeMin(), t.FlatBuffer.TableKey)
 	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
 	t.PurchaseCountResetType = PurchaseCountResetType(fbsutils.Convert(int32(e.PurchaseCountResetType()), t.FlatBuffer.TableKey))
-	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
 	t.RestrictBuyWhenInventoryFull = e.RestrictBuyWhenInventoryFull()
-	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
+	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
+	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
 	t.ShopUpdateGroupId = fbsutils.Convert(e.ShopUpdateGroupId(), t.FlatBuffer.TableKey)
+	t.UseBigPopup = e.UseBigPopup()
 	return nil
 }
 

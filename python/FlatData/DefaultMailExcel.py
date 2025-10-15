@@ -39,50 +39,50 @@ class DefaultMailExcel(object):
         return 0
 
     # DefaultMailExcel
-    def MailType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # DefaultMailExcel
     def MailSendPeriodFrom(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # DefaultMailExcel
     def MailSendPeriodTo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # DefaultMailExcel
-    def RewardParcelType(self, j):
+    def MailType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # DefaultMailExcel
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # DefaultMailExcel
-    def RewardParcelTypeAsNumpy(self):
+    def RewardParcelAmountAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # DefaultMailExcel
-    def RewardParcelTypeLength(self):
+    def RewardParcelAmountLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # DefaultMailExcel
-    def RewardParcelTypeIsNone(self):
+    def RewardParcelAmountIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
@@ -114,29 +114,29 @@ class DefaultMailExcel(object):
         return o == 0
 
     # DefaultMailExcel
-    def RewardParcelAmount(self, j):
+    def RewardParcelType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # DefaultMailExcel
-    def RewardParcelAmountAsNumpy(self):
+    def RewardParcelTypeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # DefaultMailExcel
-    def RewardParcelAmountLength(self):
+    def RewardParcelTypeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # DefaultMailExcel
-    def RewardParcelAmountIsNone(self):
+    def RewardParcelTypeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
@@ -149,33 +149,33 @@ def AddId(builder, id):
 def DefaultMailExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(1, localizeCodeId, 0)
 def AddLocalizeCodeId(builder, localizeCodeId):
     return DefaultMailExcelAddLocalizeCodeId(builder, localizeCodeId)
-def DefaultMailExcelAddMailType(builder, mailType): builder.PrependInt32Slot(2, mailType, 0)
-def AddMailType(builder, mailType):
-    return DefaultMailExcelAddMailType(builder, mailType)
-def DefaultMailExcelAddMailSendPeriodFrom(builder, mailSendPeriodFrom): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(mailSendPeriodFrom), 0)
+def DefaultMailExcelAddMailSendPeriodFrom(builder, mailSendPeriodFrom): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(mailSendPeriodFrom), 0)
 def AddMailSendPeriodFrom(builder, mailSendPeriodFrom):
     return DefaultMailExcelAddMailSendPeriodFrom(builder, mailSendPeriodFrom)
-def DefaultMailExcelAddMailSendPeriodTo(builder, mailSendPeriodTo): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(mailSendPeriodTo), 0)
+def DefaultMailExcelAddMailSendPeriodTo(builder, mailSendPeriodTo): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(mailSendPeriodTo), 0)
 def AddMailSendPeriodTo(builder, mailSendPeriodTo):
     return DefaultMailExcelAddMailSendPeriodTo(builder, mailSendPeriodTo)
-def DefaultMailExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return DefaultMailExcelAddRewardParcelType(builder, rewardParcelType)
-def DefaultMailExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardParcelTypeVector(builder, numElems):
-    return DefaultMailExcelStartRewardParcelTypeVector(builder, numElems)
+def DefaultMailExcelAddMailType(builder, mailType): builder.PrependInt32Slot(4, mailType, 0)
+def AddMailType(builder, mailType):
+    return DefaultMailExcelAddMailType(builder, mailType)
+def DefaultMailExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return DefaultMailExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def DefaultMailExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelAmountVector(builder, numElems):
+    return DefaultMailExcelStartRewardParcelAmountVector(builder, numElems)
 def DefaultMailExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
     return DefaultMailExcelAddRewardParcelId(builder, rewardParcelId)
 def DefaultMailExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return DefaultMailExcelStartRewardParcelIdVector(builder, numElems)
-def DefaultMailExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return DefaultMailExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def DefaultMailExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelAmountVector(builder, numElems):
-    return DefaultMailExcelStartRewardParcelAmountVector(builder, numElems)
+def DefaultMailExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return DefaultMailExcelAddRewardParcelType(builder, rewardParcelType)
+def DefaultMailExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartRewardParcelTypeVector(builder, numElems):
+    return DefaultMailExcelStartRewardParcelTypeVector(builder, numElems)
 def DefaultMailExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return DefaultMailExcelEnd(builder)

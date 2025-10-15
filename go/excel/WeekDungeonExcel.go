@@ -33,7 +33,7 @@ func (rcv *WeekDungeonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WeekDungeonExcel) StageId() int64 {
+func (rcv *WeekDungeonExcel) BattleDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,250 +41,12 @@ func (rcv *WeekDungeonExcel) StageId() int64 {
 	return 0
 }
 
-func (rcv *WeekDungeonExcel) MutateStageId(n int64) bool {
+func (rcv *WeekDungeonExcel) MutateBattleDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *WeekDungeonExcel) WeekDungeonType() WeekDungeonType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return WeekDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateWeekDungeonType(n WeekDungeonType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *WeekDungeonExcel) Difficulty() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateDifficulty(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *WeekDungeonExcel) BattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *WeekDungeonExcel) PrevStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutatePrevStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStageEnterCostType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStageEnterCostId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) StageEnterCostAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStageEnterCostAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *WeekDungeonExcel) GroundId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateGroundId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *WeekDungeonExcel) StarGoal(j int) StarGoalType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return StarGoalType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) StarGoalLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStarGoal(j int, n StarGoalType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *WeekDungeonExcel) StarGoalAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) StarGoalAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStarGoalAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *WeekDungeonExcel) StageTopography() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *WeekDungeonExcel) RecommandLevel() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateRecommandLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
-func (rcv *WeekDungeonExcel) StageRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutateStageRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *WeekDungeonExcel) PlayTimeLimitInSeconds() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WeekDungeonExcel) MutatePlayTimeLimitInSeconds(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
-}
-
 func (rcv *WeekDungeonExcel) BattleRewardExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -292,11 +54,11 @@ func (rcv *WeekDungeonExcel) BattleRewardExp() int64 {
 }
 
 func (rcv *WeekDungeonExcel) MutateBattleRewardExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *WeekDungeonExcel) BattleRewardPlayerExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -304,11 +66,47 @@ func (rcv *WeekDungeonExcel) BattleRewardPlayerExp() int64 {
 }
 
 func (rcv *WeekDungeonExcel) MutateBattleRewardPlayerExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *WeekDungeonExcel) Difficulty() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateDifficulty(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *WeekDungeonExcel) EchelonExtensionType() EchelonExtensionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *WeekDungeonExcel) GroundId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateGroundId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
 func (rcv *WeekDungeonExcel) GroupBuffId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -317,7 +115,7 @@ func (rcv *WeekDungeonExcel) GroupBuffId(j int) int64 {
 }
 
 func (rcv *WeekDungeonExcel) GroupBuffIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -325,7 +123,7 @@ func (rcv *WeekDungeonExcel) GroupBuffIdLength() int {
 }
 
 func (rcv *WeekDungeonExcel) MutateGroupBuffId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -333,95 +131,297 @@ func (rcv *WeekDungeonExcel) MutateGroupBuffId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *WeekDungeonExcel) EchelonExtensionType() EchelonExtensionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+func (rcv *WeekDungeonExcel) PlayTimeLimitInSeconds() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *WeekDungeonExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
+func (rcv *WeekDungeonExcel) MutatePlayTimeLimitInSeconds(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *WeekDungeonExcel) PrevStageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutatePrevStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *WeekDungeonExcel) RecommandLevel() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateRecommandLevel(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostAmount(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageEnterCostAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageEnterCostId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) StageEnterCostTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageEnterCostType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *WeekDungeonExcel) StageId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *WeekDungeonExcel) StageRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *WeekDungeonExcel) StageTopography() StageTopography {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStageTopography(n StageTopography) bool {
+	return rcv._tab.MutateInt32Slot(34, int32(n))
+}
+
+func (rcv *WeekDungeonExcel) StarGoalAmount(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) StarGoalAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStarGoalAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *WeekDungeonExcel) StarGoal(j int) StarGoalType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return StarGoalType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) StarGoalLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateStarGoal(j int, n StarGoalType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *WeekDungeonExcel) WeekDungeonType() WeekDungeonType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return WeekDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateWeekDungeonType(n WeekDungeonType) bool {
 	return rcv._tab.MutateInt32Slot(40, int32(n))
 }
 
 func WeekDungeonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(19)
 }
-func WeekDungeonExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
-	builder.PrependInt64Slot(0, stageId, 0)
-}
-func WeekDungeonExcelAddWeekDungeonType(builder *flatbuffers.Builder, weekDungeonType WeekDungeonType) {
-	builder.PrependInt32Slot(1, int32(weekDungeonType), 0)
-}
-func WeekDungeonExcelAddDifficulty(builder *flatbuffers.Builder, difficulty int32) {
-	builder.PrependInt32Slot(2, difficulty, 0)
-}
 func WeekDungeonExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(3, battleDuration, 0)
-}
-func WeekDungeonExcelAddPrevStageId(builder *flatbuffers.Builder, prevStageId int64) {
-	builder.PrependInt64Slot(4, prevStageId, 0)
-}
-func WeekDungeonExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(stageEnterCostType), 0)
-}
-func WeekDungeonExcelStartStageEnterCostTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WeekDungeonExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(stageEnterCostId), 0)
-}
-func WeekDungeonExcelStartStageEnterCostIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func WeekDungeonExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(stageEnterCostAmount), 0)
-}
-func WeekDungeonExcelStartStageEnterCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WeekDungeonExcelAddGroundId(builder *flatbuffers.Builder, groundId int32) {
-	builder.PrependInt32Slot(8, groundId, 0)
-}
-func WeekDungeonExcelAddStarGoal(builder *flatbuffers.Builder, starGoal flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(starGoal), 0)
-}
-func WeekDungeonExcelStartStarGoalVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WeekDungeonExcelAddStarGoalAmount(builder *flatbuffers.Builder, starGoalAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(starGoalAmount), 0)
-}
-func WeekDungeonExcelStartStarGoalAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func WeekDungeonExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(11, int32(stageTopography), 0)
-}
-func WeekDungeonExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int64) {
-	builder.PrependInt64Slot(12, recommandLevel, 0)
-}
-func WeekDungeonExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
-	builder.PrependInt64Slot(13, stageRewardId, 0)
-}
-func WeekDungeonExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int64) {
-	builder.PrependInt64Slot(14, playTimeLimitInSeconds, 0)
+	builder.PrependInt64Slot(0, battleDuration, 0)
 }
 func WeekDungeonExcelAddBattleRewardExp(builder *flatbuffers.Builder, battleRewardExp int64) {
-	builder.PrependInt64Slot(15, battleRewardExp, 0)
+	builder.PrependInt64Slot(1, battleRewardExp, 0)
 }
 func WeekDungeonExcelAddBattleRewardPlayerExp(builder *flatbuffers.Builder, battleRewardPlayerExp int64) {
-	builder.PrependInt64Slot(16, battleRewardPlayerExp, 0)
+	builder.PrependInt64Slot(2, battleRewardPlayerExp, 0)
+}
+func WeekDungeonExcelAddDifficulty(builder *flatbuffers.Builder, difficulty int32) {
+	builder.PrependInt32Slot(3, difficulty, 0)
+}
+func WeekDungeonExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
+	builder.PrependInt32Slot(4, int32(echelonExtensionType), 0)
+}
+func WeekDungeonExcelAddGroundId(builder *flatbuffers.Builder, groundId int32) {
+	builder.PrependInt32Slot(5, groundId, 0)
 }
 func WeekDungeonExcelAddGroupBuffId(builder *flatbuffers.Builder, groupBuffId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(groupBuffId), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(groupBuffId), 0)
 }
 func WeekDungeonExcelStartGroupBuffIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func WeekDungeonExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(18, int32(echelonExtensionType), 0)
+func WeekDungeonExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int64) {
+	builder.PrependInt64Slot(7, playTimeLimitInSeconds, 0)
+}
+func WeekDungeonExcelAddPrevStageId(builder *flatbuffers.Builder, prevStageId int64) {
+	builder.PrependInt64Slot(8, prevStageId, 0)
+}
+func WeekDungeonExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int64) {
+	builder.PrependInt64Slot(9, recommandLevel, 0)
+}
+func WeekDungeonExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(stageEnterCostAmount), 0)
+}
+func WeekDungeonExcelStartStageEnterCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(stageEnterCostId), 0)
+}
+func WeekDungeonExcelStartStageEnterCostIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func WeekDungeonExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(stageEnterCostType), 0)
+}
+func WeekDungeonExcelStartStageEnterCostTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
+	builder.PrependInt64Slot(13, stageId, 0)
+}
+func WeekDungeonExcelAddStageRewardId(builder *flatbuffers.Builder, stageRewardId int64) {
+	builder.PrependInt64Slot(14, stageRewardId, 0)
+}
+func WeekDungeonExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
+	builder.PrependInt32Slot(15, int32(stageTopography), 0)
+}
+func WeekDungeonExcelAddStarGoalAmount(builder *flatbuffers.Builder, starGoalAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(starGoalAmount), 0)
+}
+func WeekDungeonExcelStartStarGoalAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonExcelAddStarGoal(builder *flatbuffers.Builder, starGoal flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(starGoal), 0)
+}
+func WeekDungeonExcelStartStarGoalVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func WeekDungeonExcelAddWeekDungeonType(builder *flatbuffers.Builder, weekDungeonType WeekDungeonType) {
+	builder.PrependInt32Slot(18, int32(weekDungeonType), 0)
 }
 func WeekDungeonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

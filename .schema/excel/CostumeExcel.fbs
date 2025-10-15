@@ -1,0 +1,43 @@
+include "EntityMaterialType.fbs";
+include "ProductionStep.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table CostumeExcel {
+    animation_ssr: string;
+    animation_validator: bool;
+    animator_name: string;
+    cafe_model_prefab_name: string;
+    character_skill_list_group_id: long;
+    character_voice_group_id: long;
+    collection_bg_texture_path: string;
+    collection_texture_path: string;
+    collection_visible: bool;
+    collection_visible_end_date: string;
+    collection_visible_start_date: string;
+    combat_style_texture_path: string;
+    costume_group_id: long;
+    costume_unique_id: long;
+    dev_name: string;
+    echelon_model_prefab_name: string;
+    enter_strategy_animation_name: string;
+    entity_material_type: EntityMaterialType;
+    information_pacel: string;
+    is_default: bool;
+    model_prefab_name: string;
+    production_step: ProductionStep;
+    rarity: Rarity;
+    release_date: string;
+    show_object_hp_status: bool;
+    spine_resource_name: string;
+    spine_resource_name_diorama: string;
+    spine_resource_name_diorama_for_form_conversion: [string];
+    strategy_model_prefab_name: string;
+    texture_boss: string;
+    texture_dir: string;
+    texture_skill_card: [string];
+    use_object_hpbar: bool;
+}
+
+root_type CostumeExcel;

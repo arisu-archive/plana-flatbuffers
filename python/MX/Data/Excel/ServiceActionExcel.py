@@ -25,10 +25,10 @@ class ServiceActionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ServiceActionExcel
-    def ServiceActionType(self):
+    def GoodsId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ServiceActionExcel
@@ -39,24 +39,24 @@ class ServiceActionExcel(object):
         return False
 
     # ServiceActionExcel
-    def GoodsId(self):
+    def ServiceActionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def ServiceActionExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return ServiceActionExcelStart(builder)
-def ServiceActionExcelAddServiceActionType(builder, serviceActionType): builder.PrependInt32Slot(0, serviceActionType, 0)
-def AddServiceActionType(builder, serviceActionType):
-    return ServiceActionExcelAddServiceActionType(builder, serviceActionType)
+def ServiceActionExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(0, goodsId, 0)
+def AddGoodsId(builder, goodsId):
+    return ServiceActionExcelAddGoodsId(builder, goodsId)
 def ServiceActionExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(1, isLegacy, 0)
 def AddIsLegacy(builder, isLegacy):
     return ServiceActionExcelAddIsLegacy(builder, isLegacy)
-def ServiceActionExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(2, goodsId, 0)
-def AddGoodsId(builder, goodsId):
-    return ServiceActionExcelAddGoodsId(builder, goodsId)
+def ServiceActionExcelAddServiceActionType(builder, serviceActionType): builder.PrependInt32Slot(2, serviceActionType, 0)
+def AddServiceActionType(builder, serviceActionType):
+    return ServiceActionExcelAddServiceActionType(builder, serviceActionType)
 def ServiceActionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ServiceActionExcelEnd(builder)

@@ -10,9 +10,9 @@ import (
 // StringTestExcelDto represents a FlatBuffers table
 type StringTestExcelDto struct {
 	fbsutils.FlatBuffer
-	String    []string `json:"string"`
-	Sentence1 string   `json:"sentence1"`
 	Script    string   `json:"script"`
+	Sentence1 string   `json:"sentence1"`
+	String    []string `json:"string"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,13 +21,13 @@ func (t *StringTestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTest"))
 	}
 	StringTestExcelStart(b)
+	StringTestExcelAddScript(b, b.CreateString(fbsutils.Convert(t.Script, t.FlatBuffer.TableKey)))
+	StringTestExcelAddSentence1(b, b.CreateString(fbsutils.Convert(t.Sentence1, t.FlatBuffer.TableKey)))
 	StringTestExcelStartStringVector(b, len(t.String))
 	for i := range len(t.String) {
 		b.PrependUOffsetT(b.CreateString(t.String[len(t.String)-i-1]))
 	}
 	StringTestExcelAddString(b, b.EndVector(len(t.String)))
-	StringTestExcelAddSentence1(b, b.CreateString(fbsutils.Convert(t.Sentence1, t.FlatBuffer.TableKey)))
-	StringTestExcelAddScript(b, b.CreateString(fbsutils.Convert(t.Script, t.FlatBuffer.TableKey)))
 	return StringTestExcelEnd(b)
 }
 
@@ -43,12 +43,12 @@ func (t *StringTestExcelDto) UnmarshalMessage(e *StringTestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTest"))
 	}
+	t.Script = fbsutils.Convert(string(e.Script()), t.FlatBuffer.TableKey)
+	t.Sentence1 = fbsutils.Convert(string(e.Sentence1()), t.FlatBuffer.TableKey)
 	t.String = make([]string, e.StringLength())
 	for i := range e.StringLength() {
 		t.String[i] = fbsutils.Convert(string(e.String(i)), t.FlatBuffer.TableKey)
 	}
-	t.Sentence1 = fbsutils.Convert(string(e.Sentence1()), t.FlatBuffer.TableKey)
-	t.Script = fbsutils.Convert(string(e.Script()), t.FlatBuffer.TableKey)
 	return nil
 }
 

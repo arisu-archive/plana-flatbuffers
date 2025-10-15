@@ -12,9 +12,9 @@ type EventContentTreasureCellRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                 int64        `json:"id"`
 	LocalizeCodeId     string       `json:"localize_code_id"`
-	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
-	RewardParcelId     []int64      `json:"reward_parcel_id"`
 	RewardParcelAmount []int64      `json:"reward_parcel_amount"`
+	RewardParcelId     []int64      `json:"reward_parcel_id"`
+	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,21 +22,21 @@ func (t *EventContentTreasureCellRewardExcelDto) MarshalModel(b *flatbuffers.Bui
 	EventContentTreasureCellRewardExcelStart(b)
 	EventContentTreasureCellRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentTreasureCellRewardExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
-	EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureCellRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EventContentTreasureCellRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentTreasureCellRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
 	EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentTreasureCellRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	EventContentTreasureCellRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureCellRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	EventContentTreasureCellRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	return EventContentTreasureCellRewardExcelEnd(b)
 }
 
@@ -51,17 +51,17 @@ func (t *EventContentTreasureCellRewardExcelDto) Marshal() ([]byte, error) {
 func (t *EventContentTreasureCellRewardExcelDto) UnmarshalMessage(e *EventContentTreasureCellRewardExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

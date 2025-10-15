@@ -3,11 +3,11 @@ include "DreamMakerParameterType.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameDreamCollectionScenarioExcel {
+    event_content_id: long;
     id: long;
     is_skip: bool;
-    event_content_id: long;
-    parameter: [DreamMakerParameterType];
     parameter_amount: [long];
+    parameter: [DreamMakerParameterType];
     scenario_group_id: long;
 }
 

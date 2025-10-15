@@ -1,13 +1,13 @@
 namespace MX.Data.Excel;
 
 table GachaCraftNodeExcel {
-    id: long;
-    tier: long;
-    quick_craft_node_display_order: int;
-    node_quality: long;
     icon: string;
+    id: long;
     localize_key: uint;
+    node_quality: long;
     property: long;
+    quick_craft_node_display_order: int;
+    tier: long;
 }
 
 root_type GachaCraftNodeExcel;

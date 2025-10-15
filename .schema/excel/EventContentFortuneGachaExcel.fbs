@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table EventContentFortuneGachaExcel {
+    fortune_gacha_group_id: int;
+    icon_path: string;
+    localize_etc_id: uint;
+    name_image_path: string;
+}
+
+root_type EventContentFortuneGachaExcel;

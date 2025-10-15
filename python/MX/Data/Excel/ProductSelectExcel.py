@@ -32,104 +32,8 @@ class ProductSelectExcel(object):
         return 0
 
     # ProductSelectExcel
-    def ProductId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ProductSelectExcel
-    def StoreType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ProductSelectExcel
-    def Price(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ProductSelectExcel
-    def PriceReference(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ProductSelectExcel
-    def PurchasePeriodType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ProductSelectExcel
-    def PurchasePeriodLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ProductSelectExcel
-    def ParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # ProductSelectExcel
-    def ParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # ProductSelectExcel
-    def ParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ProductSelectExcel
-    def ParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # ProductSelectExcel
-    def ParcelId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # ProductSelectExcel
-    def ParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # ProductSelectExcel
-    def ParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ProductSelectExcel
-    def ParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        return o == 0
-
-    # ProductSelectExcel
     def ParcelAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -137,26 +41,101 @@ class ProductSelectExcel(object):
 
     # ProductSelectExcel
     def ParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ProductSelectExcel
     def ParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ProductSelectExcel
     def ParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # ProductSelectExcel
+    def ParcelId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ProductSelectExcel
+    def ParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ProductSelectExcel
+    def ParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductSelectExcel
+    def ParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # ProductSelectExcel
+    def ParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ProductSelectExcel
+    def ParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ProductSelectExcel
+    def ParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ProductSelectExcel
+    def ParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # ProductSelectExcel
+    def Price(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductSelectExcel
+    def PriceReference(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ProductSelectExcel
+    def ProductId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ProductSelectExcel
     def ProductSelectionSlot(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -164,22 +143,43 @@ class ProductSelectExcel(object):
 
     # ProductSelectExcel
     def ProductSelectionSlotAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ProductSelectExcel
     def ProductSelectionSlotLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ProductSelectExcel
     def ProductSelectionSlotIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
+
+    # ProductSelectExcel
+    def PurchasePeriodLimit(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductSelectExcel
+    def PurchasePeriodType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ProductSelectExcel
+    def StoreType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
 def ProductSelectExcelStart(builder): builder.StartObject(11)
 def Start(builder):
@@ -187,48 +187,48 @@ def Start(builder):
 def ProductSelectExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return ProductSelectExcelAddId(builder, id)
-def ProductSelectExcelAddProductId(builder, productId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(productId), 0)
-def AddProductId(builder, productId):
-    return ProductSelectExcelAddProductId(builder, productId)
-def ProductSelectExcelAddStoreType(builder, storeType): builder.PrependInt32Slot(2, storeType, 0)
-def AddStoreType(builder, storeType):
-    return ProductSelectExcelAddStoreType(builder, storeType)
-def ProductSelectExcelAddPrice(builder, price): builder.PrependInt64Slot(3, price, 0)
-def AddPrice(builder, price):
-    return ProductSelectExcelAddPrice(builder, price)
-def ProductSelectExcelAddPriceReference(builder, priceReference): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(priceReference), 0)
-def AddPriceReference(builder, priceReference):
-    return ProductSelectExcelAddPriceReference(builder, priceReference)
-def ProductSelectExcelAddPurchasePeriodType(builder, purchasePeriodType): builder.PrependInt32Slot(5, purchasePeriodType, 0)
-def AddPurchasePeriodType(builder, purchasePeriodType):
-    return ProductSelectExcelAddPurchasePeriodType(builder, purchasePeriodType)
-def ProductSelectExcelAddPurchasePeriodLimit(builder, purchasePeriodLimit): builder.PrependInt64Slot(6, purchasePeriodLimit, 0)
-def AddPurchasePeriodLimit(builder, purchasePeriodLimit):
-    return ProductSelectExcelAddPurchasePeriodLimit(builder, purchasePeriodLimit)
-def ProductSelectExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
-def AddParcelType(builder, parcelType):
-    return ProductSelectExcelAddParcelType(builder, parcelType)
-def ProductSelectExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartParcelTypeVector(builder, numElems):
-    return ProductSelectExcelStartParcelTypeVector(builder, numElems)
-def ProductSelectExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
-def AddParcelId(builder, parcelId):
-    return ProductSelectExcelAddParcelId(builder, parcelId)
-def ProductSelectExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartParcelIdVector(builder, numElems):
-    return ProductSelectExcelStartParcelIdVector(builder, numElems)
-def ProductSelectExcelAddParcelAmount(builder, parcelAmount): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
+def ProductSelectExcelAddParcelAmount(builder, parcelAmount): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
 def AddParcelAmount(builder, parcelAmount):
     return ProductSelectExcelAddParcelAmount(builder, parcelAmount)
 def ProductSelectExcelStartParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartParcelAmountVector(builder, numElems):
     return ProductSelectExcelStartParcelAmountVector(builder, numElems)
-def ProductSelectExcelAddProductSelectionSlot(builder, productSelectionSlot): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(productSelectionSlot), 0)
+def ProductSelectExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+def AddParcelId(builder, parcelId):
+    return ProductSelectExcelAddParcelId(builder, parcelId)
+def ProductSelectExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartParcelIdVector(builder, numElems):
+    return ProductSelectExcelStartParcelIdVector(builder, numElems)
+def ProductSelectExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+def AddParcelType(builder, parcelType):
+    return ProductSelectExcelAddParcelType(builder, parcelType)
+def ProductSelectExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartParcelTypeVector(builder, numElems):
+    return ProductSelectExcelStartParcelTypeVector(builder, numElems)
+def ProductSelectExcelAddPrice(builder, price): builder.PrependInt64Slot(4, price, 0)
+def AddPrice(builder, price):
+    return ProductSelectExcelAddPrice(builder, price)
+def ProductSelectExcelAddPriceReference(builder, priceReference): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(priceReference), 0)
+def AddPriceReference(builder, priceReference):
+    return ProductSelectExcelAddPriceReference(builder, priceReference)
+def ProductSelectExcelAddProductId(builder, productId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(productId), 0)
+def AddProductId(builder, productId):
+    return ProductSelectExcelAddProductId(builder, productId)
+def ProductSelectExcelAddProductSelectionSlot(builder, productSelectionSlot): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(productSelectionSlot), 0)
 def AddProductSelectionSlot(builder, productSelectionSlot):
     return ProductSelectExcelAddProductSelectionSlot(builder, productSelectionSlot)
 def ProductSelectExcelStartProductSelectionSlotVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartProductSelectionSlotVector(builder, numElems):
     return ProductSelectExcelStartProductSelectionSlotVector(builder, numElems)
+def ProductSelectExcelAddPurchasePeriodLimit(builder, purchasePeriodLimit): builder.PrependInt64Slot(8, purchasePeriodLimit, 0)
+def AddPurchasePeriodLimit(builder, purchasePeriodLimit):
+    return ProductSelectExcelAddPurchasePeriodLimit(builder, purchasePeriodLimit)
+def ProductSelectExcelAddPurchasePeriodType(builder, purchasePeriodType): builder.PrependInt32Slot(9, purchasePeriodType, 0)
+def AddPurchasePeriodType(builder, purchasePeriodType):
+    return ProductSelectExcelAddPurchasePeriodType(builder, purchasePeriodType)
+def ProductSelectExcelAddStoreType(builder, storeType): builder.PrependInt32Slot(10, storeType, 0)
+def AddStoreType(builder, storeType):
+    return ProductSelectExcelAddStoreType(builder, storeType)
 def ProductSelectExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ProductSelectExcelEnd(builder)

@@ -32,56 +32,8 @@ class RecipeExcel(object):
         return 0
 
     # RecipeExcel
-    def RecipeType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # RecipeExcel
-    def RecipeIngredientId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # RecipeExcel
-    def RecipeSelectionGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # RecipeExcel
-    def ParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # RecipeExcel
-    def ParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # RecipeExcel
-    def ParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # RecipeExcel
-    def ParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # RecipeExcel
     def ParcelId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -89,53 +41,74 @@ class RecipeExcel(object):
 
     # RecipeExcel
     def ParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # RecipeExcel
     def ParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RecipeExcel
     def ParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # RecipeExcel
-    def ResultAmountMin(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def ParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # RecipeExcel
-    def ResultAmountMinAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def ParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # RecipeExcel
-    def ResultAmountMinLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def ParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RecipeExcel
-    def ResultAmountMinIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def ParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # RecipeExcel
+    def RecipeIngredientId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # RecipeExcel
+    def RecipeSelectionGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # RecipeExcel
+    def RecipeType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # RecipeExcel
     def ResultAmountMax(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -143,20 +116,47 @@ class RecipeExcel(object):
 
     # RecipeExcel
     def ResultAmountMaxAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # RecipeExcel
     def ResultAmountMaxLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RecipeExcel
     def ResultAmountMaxIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # RecipeExcel
+    def ResultAmountMin(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # RecipeExcel
+    def ResultAmountMinAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # RecipeExcel
+    def ResultAmountMinLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # RecipeExcel
+    def ResultAmountMinIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
@@ -166,39 +166,39 @@ def Start(builder):
 def RecipeExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return RecipeExcelAddId(builder, id)
-def RecipeExcelAddRecipeType(builder, recipeType): builder.PrependInt32Slot(1, recipeType, 0)
-def AddRecipeType(builder, recipeType):
-    return RecipeExcelAddRecipeType(builder, recipeType)
-def RecipeExcelAddRecipeIngredientId(builder, recipeIngredientId): builder.PrependInt64Slot(2, recipeIngredientId, 0)
-def AddRecipeIngredientId(builder, recipeIngredientId):
-    return RecipeExcelAddRecipeIngredientId(builder, recipeIngredientId)
-def RecipeExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId): builder.PrependInt64Slot(3, recipeSelectionGroupId, 0)
-def AddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
-    return RecipeExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
-def RecipeExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
-def AddParcelType(builder, parcelType):
-    return RecipeExcelAddParcelType(builder, parcelType)
-def RecipeExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartParcelTypeVector(builder, numElems):
-    return RecipeExcelStartParcelTypeVector(builder, numElems)
-def RecipeExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+def RecipeExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
 def AddParcelId(builder, parcelId):
     return RecipeExcelAddParcelId(builder, parcelId)
 def RecipeExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartParcelIdVector(builder, numElems):
     return RecipeExcelStartParcelIdVector(builder, numElems)
-def RecipeExcelAddResultAmountMin(builder, resultAmountMin): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(resultAmountMin), 0)
-def AddResultAmountMin(builder, resultAmountMin):
-    return RecipeExcelAddResultAmountMin(builder, resultAmountMin)
-def RecipeExcelStartResultAmountMinVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartResultAmountMinVector(builder, numElems):
-    return RecipeExcelStartResultAmountMinVector(builder, numElems)
-def RecipeExcelAddResultAmountMax(builder, resultAmountMax): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(resultAmountMax), 0)
+def RecipeExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+def AddParcelType(builder, parcelType):
+    return RecipeExcelAddParcelType(builder, parcelType)
+def RecipeExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartParcelTypeVector(builder, numElems):
+    return RecipeExcelStartParcelTypeVector(builder, numElems)
+def RecipeExcelAddRecipeIngredientId(builder, recipeIngredientId): builder.PrependInt64Slot(3, recipeIngredientId, 0)
+def AddRecipeIngredientId(builder, recipeIngredientId):
+    return RecipeExcelAddRecipeIngredientId(builder, recipeIngredientId)
+def RecipeExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId): builder.PrependInt64Slot(4, recipeSelectionGroupId, 0)
+def AddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
+    return RecipeExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
+def RecipeExcelAddRecipeType(builder, recipeType): builder.PrependInt32Slot(5, recipeType, 0)
+def AddRecipeType(builder, recipeType):
+    return RecipeExcelAddRecipeType(builder, recipeType)
+def RecipeExcelAddResultAmountMax(builder, resultAmountMax): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(resultAmountMax), 0)
 def AddResultAmountMax(builder, resultAmountMax):
     return RecipeExcelAddResultAmountMax(builder, resultAmountMax)
 def RecipeExcelStartResultAmountMaxVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartResultAmountMaxVector(builder, numElems):
     return RecipeExcelStartResultAmountMaxVector(builder, numElems)
+def RecipeExcelAddResultAmountMin(builder, resultAmountMin): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(resultAmountMin), 0)
+def AddResultAmountMin(builder, resultAmountMin):
+    return RecipeExcelAddResultAmountMin(builder, resultAmountMin)
+def RecipeExcelStartResultAmountMinVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartResultAmountMinVector(builder, numElems):
+    return RecipeExcelStartResultAmountMinVector(builder, numElems)
 def RecipeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeExcelEnd(builder)

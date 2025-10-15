@@ -10,45 +10,45 @@ import (
 // MinigameCCGCharacterExcelDto represents a FlatBuffers table
 type MinigameCCGCharacterExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                      int64            `json:"id"`
-	Type                    CCGCharacterType `json:"type"`
-	ActiveSkillId           int64            `json:"active_skill_id"`
+	ActiveSkillCooldown     int32            `json:"active_skill_cooldown"`
 	ActiveSkillCost         int32            `json:"active_skill_cost"`
 	ActiveSkilleCostVisible bool             `json:"active_skille_cost_visible"`
-	ActiveSkillCooldown     int32            `json:"active_skill_cooldown"`
-	MaxHealth               int32            `json:"max_health"`
-	PassiveSkillId          []int64          `json:"passive_skill_id"`
-	Name                    uint32           `json:"name"`
+	ActiveSkillId           int64            `json:"active_skill_id"`
 	Description             string           `json:"description"`
+	Id                      int64            `json:"id"`
 	ImagePath               string           `json:"image_path"`
-	UiImagePath             string           `json:"ui_image_path"`
+	MaxHealth               int32            `json:"max_health"`
+	Name                    uint32           `json:"name"`
+	PassiveSkillId          []int64          `json:"passive_skill_id"`
 	Tags                    []CCGTagType     `json:"tags"`
+	Type                    CCGCharacterType `json:"type"`
+	UiImagePath             string           `json:"ui_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGCharacterExcelStart(b)
-	MinigameCCGCharacterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGCharacterExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
-	MinigameCCGCharacterExcelAddActiveSkillId(b, fbsutils.Convert(t.ActiveSkillId, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddActiveSkillCooldown(b, fbsutils.Convert(t.ActiveSkillCooldown, t.FlatBuffer.TableKey))
 	MinigameCCGCharacterExcelAddActiveSkillCost(b, fbsutils.Convert(t.ActiveSkillCost, t.FlatBuffer.TableKey))
 	MinigameCCGCharacterExcelAddActiveSkilleCostVisible(b, t.ActiveSkilleCostVisible)
-	MinigameCCGCharacterExcelAddActiveSkillCooldown(b, fbsutils.Convert(t.ActiveSkillCooldown, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddActiveSkillId(b, fbsutils.Convert(t.ActiveSkillId, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
+	MinigameCCGCharacterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	MinigameCCGCharacterExcelAddMaxHealth(b, fbsutils.Convert(t.MaxHealth, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	MinigameCCGCharacterExcelStartPassiveSkillIdVector(b, len(t.PassiveSkillId))
 	for i := range len(t.PassiveSkillId) {
 		b.PrependInt64(fbsutils.Convert(t.PassiveSkillId[len(t.PassiveSkillId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameCCGCharacterExcelAddPassiveSkillId(b, b.EndVector(len(t.PassiveSkillId)))
-	MinigameCCGCharacterExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	MinigameCCGCharacterExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
-	MinigameCCGCharacterExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	MinigameCCGCharacterExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
 	MinigameCCGCharacterExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameCCGCharacterExcelAddTags(b, b.EndVector(len(t.Tags)))
+	MinigameCCGCharacterExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	MinigameCCGCharacterExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
 	return MinigameCCGCharacterExcelEnd(b)
 }
 
@@ -61,25 +61,25 @@ func (t *MinigameCCGCharacterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGCharacterExcelDto) UnmarshalMessage(e *MinigameCCGCharacterExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Type = CCGCharacterType(fbsutils.Convert(int32(e.Type()), t.FlatBuffer.TableKey))
-	t.ActiveSkillId = fbsutils.Convert(e.ActiveSkillId(), t.FlatBuffer.TableKey)
+	t.ActiveSkillCooldown = fbsutils.Convert(e.ActiveSkillCooldown(), t.FlatBuffer.TableKey)
 	t.ActiveSkillCost = fbsutils.Convert(e.ActiveSkillCost(), t.FlatBuffer.TableKey)
 	t.ActiveSkilleCostVisible = e.ActiveSkilleCostVisible()
-	t.ActiveSkillCooldown = fbsutils.Convert(e.ActiveSkillCooldown(), t.FlatBuffer.TableKey)
+	t.ActiveSkillId = fbsutils.Convert(e.ActiveSkillId(), t.FlatBuffer.TableKey)
+	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.MaxHealth = fbsutils.Convert(e.MaxHealth(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.PassiveSkillId = make([]int64, e.PassiveSkillIdLength())
 	for i := range e.PassiveSkillIdLength() {
 		t.PassiveSkillId[i] = fbsutils.Convert(e.PassiveSkillId(i), t.FlatBuffer.TableKey)
 	}
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.UiImagePath = fbsutils.Convert(string(e.UiImagePath()), t.FlatBuffer.TableKey)
 	t.Tags = make([]CCGTagType, e.TagsLength())
 	for i := range e.TagsLength() {
 		t.Tags[i] = CCGTagType(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.Type = CCGCharacterType(fbsutils.Convert(int32(e.Type()), t.FlatBuffer.TableKey))
+	t.UiImagePath = fbsutils.Convert(string(e.UiImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

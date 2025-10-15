@@ -11,8 +11,8 @@ import (
 type LevelExpMasterCoinExcelDto struct {
 	fbsutils.FlatBuffer
 	Id       int64 `json:"id"`
-	MinLevel int32 `json:"min_level"`
 	MaxLevel int32 `json:"max_level"`
+	MinLevel int32 `json:"min_level"`
 	Ratio    int32 `json:"ratio"`
 }
 
@@ -20,8 +20,8 @@ type LevelExpMasterCoinExcelDto struct {
 func (t *LevelExpMasterCoinExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LevelExpMasterCoinExcelStart(b)
 	LevelExpMasterCoinExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LevelExpMasterCoinExcelAddMinLevel(b, fbsutils.Convert(t.MinLevel, t.FlatBuffer.TableKey))
 	LevelExpMasterCoinExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
+	LevelExpMasterCoinExcelAddMinLevel(b, fbsutils.Convert(t.MinLevel, t.FlatBuffer.TableKey))
 	LevelExpMasterCoinExcelAddRatio(b, fbsutils.Convert(t.Ratio, t.FlatBuffer.TableKey))
 	return LevelExpMasterCoinExcelEnd(b)
 }
@@ -36,8 +36,8 @@ func (t *LevelExpMasterCoinExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LevelExpMasterCoinExcelDto) UnmarshalMessage(e *LevelExpMasterCoinExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.MinLevel = fbsutils.Convert(e.MinLevel(), t.FlatBuffer.TableKey)
 	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
+	t.MinLevel = fbsutils.Convert(e.MinLevel(), t.FlatBuffer.TableKey)
 	t.Ratio = fbsutils.Convert(e.Ratio(), t.FlatBuffer.TableKey)
 	return nil
 }

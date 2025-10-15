@@ -11,38 +11,38 @@ import (
 type MiniGameTBGThemaRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId             int64                      `json:"event_content_id"`
-	ThemaRound                 int32                      `json:"thema_round"`
-	ThemaUniqueId              int32                      `json:"thema_unique_id"`
 	IsLoop                     bool                       `json:"is_loop"`
 	MiniGameTbgThemaRewardType MiniGameTBGThemaRewardType `json:"mini_game_tbg_thema_reward_type"`
-	RewardParcelType           []ParcelType               `json:"reward_parcel_type"`
-	RewardParcelId             []int64                    `json:"reward_parcel_id"`
 	RewardParcelAmount         []int32                    `json:"reward_parcel_amount"`
+	RewardParcelId             []int64                    `json:"reward_parcel_id"`
+	RewardParcelType           []ParcelType               `json:"reward_parcel_type"`
+	ThemaRound                 int32                      `json:"thema_round"`
+	ThemaUniqueId              int32                      `json:"thema_unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameTBGThemaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameTBGThemaRewardExcelStart(b)
 	MiniGameTBGThemaRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameTBGThemaRewardExcelAddThemaRound(b, fbsutils.Convert(t.ThemaRound, t.FlatBuffer.TableKey))
-	MiniGameTBGThemaRewardExcelAddThemaUniqueId(b, fbsutils.Convert(t.ThemaUniqueId, t.FlatBuffer.TableKey))
 	MiniGameTBGThemaRewardExcelAddIsLoop(b, t.IsLoop)
 	MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(b, fbsutils.Convert(t.MiniGameTbgThemaRewardType, t.FlatBuffer.TableKey))
-	MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameTBGThemaRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameTBGThemaRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
 	MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt32(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameTBGThemaRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameTBGThemaRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameTBGThemaRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	MiniGameTBGThemaRewardExcelAddThemaRound(b, fbsutils.Convert(t.ThemaRound, t.FlatBuffer.TableKey))
+	MiniGameTBGThemaRewardExcelAddThemaUniqueId(b, fbsutils.Convert(t.ThemaUniqueId, t.FlatBuffer.TableKey))
 	return MiniGameTBGThemaRewardExcelEnd(b)
 }
 
@@ -56,22 +56,22 @@ func (t *MiniGameTBGThemaRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameTBGThemaRewardExcelDto) UnmarshalMessage(e *MiniGameTBGThemaRewardExcel) error {
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ThemaRound = fbsutils.Convert(e.ThemaRound(), t.FlatBuffer.TableKey)
-	t.ThemaUniqueId = fbsutils.Convert(e.ThemaUniqueId(), t.FlatBuffer.TableKey)
 	t.IsLoop = e.IsLoop()
 	t.MiniGameTbgThemaRewardType = MiniGameTBGThemaRewardType(fbsutils.Convert(int32(e.MiniGameTbgThemaRewardType()), t.FlatBuffer.TableKey))
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.RewardParcelAmount = make([]int32, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int32, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
+	t.ThemaRound = fbsutils.Convert(e.ThemaRound(), t.FlatBuffer.TableKey)
+	t.ThemaUniqueId = fbsutils.Convert(e.ThemaUniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

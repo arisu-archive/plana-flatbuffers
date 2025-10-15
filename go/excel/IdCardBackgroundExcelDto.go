@@ -10,27 +10,27 @@ import (
 // IdCardBackgroundExcelDto represents a FlatBuffers table
 type IdCardBackgroundExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64  `json:"id"`
-	Rarity            Rarity `json:"rarity"`
-	DisplayOrder      int64  `json:"display_order"`
-	CollectionVisible bool   `json:"collection_visible"`
-	IsDefault         bool   `json:"is_default"`
 	BgPath            string `json:"bg_path"`
-	LocalizeEtcId     uint32 `json:"localize_etc_id"`
+	CollectionVisible bool   `json:"collection_visible"`
+	DisplayOrder      int64  `json:"display_order"`
 	Icon              string `json:"icon"`
+	Id                int64  `json:"id"`
+	IsDefault         bool   `json:"is_default"`
+	LocalizeEtcId     uint32 `json:"localize_etc_id"`
+	Rarity            Rarity `json:"rarity"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *IdCardBackgroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	IdCardBackgroundExcelStart(b)
-	IdCardBackgroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	IdCardBackgroundExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	IdCardBackgroundExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	IdCardBackgroundExcelAddCollectionVisible(b, t.CollectionVisible)
-	IdCardBackgroundExcelAddIsDefault(b, t.IsDefault)
 	IdCardBackgroundExcelAddBgPath(b, b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey)))
-	IdCardBackgroundExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	IdCardBackgroundExcelAddCollectionVisible(b, t.CollectionVisible)
+	IdCardBackgroundExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	IdCardBackgroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	IdCardBackgroundExcelAddIsDefault(b, t.IsDefault)
+	IdCardBackgroundExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	IdCardBackgroundExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	return IdCardBackgroundExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *IdCardBackgroundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *IdCardBackgroundExcelDto) UnmarshalMessage(e *IdCardBackgroundExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.CollectionVisible = e.CollectionVisible()
-	t.IsDefault = e.IsDefault()
 	t.BgPath = fbsutils.Convert(string(e.BgPath()), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.CollectionVisible = e.CollectionVisible()
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.IsDefault = e.IsDefault()
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	return nil
 }
 

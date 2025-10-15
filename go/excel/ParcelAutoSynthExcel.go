@@ -33,16 +33,16 @@ func (rcv *ParcelAutoSynthExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ParcelAutoSynthExcel) RequireParcelType() ParcelType {
+func (rcv *ParcelAutoSynthExcel) RequireParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateRequireParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
+func (rcv *ParcelAutoSynthExcel) MutateRequireParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *ParcelAutoSynthExcel) RequireParcelId() int64 {
@@ -57,19 +57,19 @@ func (rcv *ParcelAutoSynthExcel) MutateRequireParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ParcelAutoSynthExcel) RequireParcelAmount() int64 {
+func (rcv *ParcelAutoSynthExcel) RequireParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateRequireParcelAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+func (rcv *ParcelAutoSynthExcel) MutateRequireParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *ParcelAutoSynthExcel) SynthStartAmount() int64 {
+func (rcv *ParcelAutoSynthExcel) ResultParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *ParcelAutoSynthExcel) SynthStartAmount() int64 {
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateSynthStartAmount(n int64) bool {
+func (rcv *ParcelAutoSynthExcel) MutateResultParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ParcelAutoSynthExcel) SynthEndAmount() int64 {
+func (rcv *ParcelAutoSynthExcel) ResultParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,24 +89,12 @@ func (rcv *ParcelAutoSynthExcel) SynthEndAmount() int64 {
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateSynthEndAmount(n int64) bool {
+func (rcv *ParcelAutoSynthExcel) MutateResultParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *ParcelAutoSynthExcel) SynthMaxItem() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ParcelAutoSynthExcel) MutateSynthMaxItem(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
 func (rcv *ParcelAutoSynthExcel) ResultParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -114,22 +102,34 @@ func (rcv *ParcelAutoSynthExcel) ResultParcelType() ParcelType {
 }
 
 func (rcv *ParcelAutoSynthExcel) MutateResultParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *ParcelAutoSynthExcel) ResultParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *ParcelAutoSynthExcel) SynthEndAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateResultParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *ParcelAutoSynthExcel) MutateSynthEndAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *ParcelAutoSynthExcel) ResultParcelAmount() int64 {
+func (rcv *ParcelAutoSynthExcel) SynthMaxItem() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ParcelAutoSynthExcel) MutateSynthMaxItem(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
+}
+
+func (rcv *ParcelAutoSynthExcel) SynthStartAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -137,39 +137,39 @@ func (rcv *ParcelAutoSynthExcel) ResultParcelAmount() int64 {
 	return 0
 }
 
-func (rcv *ParcelAutoSynthExcel) MutateResultParcelAmount(n int64) bool {
+func (rcv *ParcelAutoSynthExcel) MutateSynthStartAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func ParcelAutoSynthExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func ParcelAutoSynthExcelAddRequireParcelType(builder *flatbuffers.Builder, requireParcelType ParcelType) {
-	builder.PrependInt32Slot(0, int32(requireParcelType), 0)
+func ParcelAutoSynthExcelAddRequireParcelAmount(builder *flatbuffers.Builder, requireParcelAmount int64) {
+	builder.PrependInt64Slot(0, requireParcelAmount, 0)
 }
 func ParcelAutoSynthExcelAddRequireParcelId(builder *flatbuffers.Builder, requireParcelId int64) {
 	builder.PrependInt64Slot(1, requireParcelId, 0)
 }
-func ParcelAutoSynthExcelAddRequireParcelAmount(builder *flatbuffers.Builder, requireParcelAmount int64) {
-	builder.PrependInt64Slot(2, requireParcelAmount, 0)
-}
-func ParcelAutoSynthExcelAddSynthStartAmount(builder *flatbuffers.Builder, synthStartAmount int64) {
-	builder.PrependInt64Slot(3, synthStartAmount, 0)
-}
-func ParcelAutoSynthExcelAddSynthEndAmount(builder *flatbuffers.Builder, synthEndAmount int64) {
-	builder.PrependInt64Slot(4, synthEndAmount, 0)
-}
-func ParcelAutoSynthExcelAddSynthMaxItem(builder *flatbuffers.Builder, synthMaxItem bool) {
-	builder.PrependBoolSlot(5, synthMaxItem, false)
-}
-func ParcelAutoSynthExcelAddResultParcelType(builder *flatbuffers.Builder, resultParcelType ParcelType) {
-	builder.PrependInt32Slot(6, int32(resultParcelType), 0)
-}
-func ParcelAutoSynthExcelAddResultParcelId(builder *flatbuffers.Builder, resultParcelId int64) {
-	builder.PrependInt64Slot(7, resultParcelId, 0)
+func ParcelAutoSynthExcelAddRequireParcelType(builder *flatbuffers.Builder, requireParcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(requireParcelType), 0)
 }
 func ParcelAutoSynthExcelAddResultParcelAmount(builder *flatbuffers.Builder, resultParcelAmount int64) {
-	builder.PrependInt64Slot(8, resultParcelAmount, 0)
+	builder.PrependInt64Slot(3, resultParcelAmount, 0)
+}
+func ParcelAutoSynthExcelAddResultParcelId(builder *flatbuffers.Builder, resultParcelId int64) {
+	builder.PrependInt64Slot(4, resultParcelId, 0)
+}
+func ParcelAutoSynthExcelAddResultParcelType(builder *flatbuffers.Builder, resultParcelType ParcelType) {
+	builder.PrependInt32Slot(5, int32(resultParcelType), 0)
+}
+func ParcelAutoSynthExcelAddSynthEndAmount(builder *flatbuffers.Builder, synthEndAmount int64) {
+	builder.PrependInt64Slot(6, synthEndAmount, 0)
+}
+func ParcelAutoSynthExcelAddSynthMaxItem(builder *flatbuffers.Builder, synthMaxItem bool) {
+	builder.PrependBoolSlot(7, synthMaxItem, false)
+}
+func ParcelAutoSynthExcelAddSynthStartAmount(builder *flatbuffers.Builder, synthStartAmount int64) {
+	builder.PrependInt64Slot(8, synthStartAmount, 0)
 }
 func ParcelAutoSynthExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

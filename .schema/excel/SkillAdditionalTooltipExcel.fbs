@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table SkillAdditionalTooltipExcel {
-    group_id: long;
     additional_skill_group_id: string;
+    group_id: long;
     show_skill_slot: string;
 }
 

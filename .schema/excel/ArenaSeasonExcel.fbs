@@ -1,11 +1,11 @@
 namespace MX.Data.Excel;
 
 table ArenaSeasonExcel {
-    unique_id: long;
-    season_start_date: string;
+    prev_season_id: long;
     season_end_date: string;
     season_group_limit: long;
-    prev_season_id: long;
+    season_start_date: string;
+    unique_id: long;
 }
 
 root_type ArenaSeasonExcel;

@@ -3,7 +3,7 @@ include "Motion.fbs";
 namespace FlatData;
 
 table MoveEnd {
+    kneel: Motion;
     normal: Motion;
     stand: Motion;
-    kneel: Motion;
 }

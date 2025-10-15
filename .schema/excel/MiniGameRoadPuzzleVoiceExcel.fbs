@@ -5,8 +5,8 @@ namespace MX.Data.Excel;
 table MiniGameRoadPuzzleVoiceExcel {
     event_content_id: long;
     unique_id: long;
-    voice_condition: RoadPuzzleVoiceCondition;
     voice_clip: uint;
+    voice_condition: RoadPuzzleVoiceCondition;
 }
 
 root_type MiniGameRoadPuzzleVoiceExcel;

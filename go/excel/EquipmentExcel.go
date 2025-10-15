@@ -33,7 +33,7 @@ func (rcv *EquipmentExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EquipmentExcel) Id() int64 {
+func (rcv *EquipmentExcel) CraftQualityTier0() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,174 +41,12 @@ func (rcv *EquipmentExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *EquipmentExcel) MutateId(n int64) bool {
+func (rcv *EquipmentExcel) MutateCraftQualityTier0(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EquipmentExcel) EquipmentCategory() EquipmentCategory {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return EquipmentCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateEquipmentCategory(n EquipmentCategory) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *EquipmentExcel) Rarity() Rarity {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateRarity(n Rarity) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *EquipmentExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
-}
-
-func (rcv *EquipmentExcel) Wear() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EquipmentExcel) MutateWear(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *EquipmentExcel) MaxLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateMaxLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
-func (rcv *EquipmentExcel) RecipeId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateRecipeId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
-func (rcv *EquipmentExcel) TierInit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateTierInit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *EquipmentExcel) NextTierEquipment() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateNextTierEquipment(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *EquipmentExcel) StackableMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateStackableMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
-}
-
-func (rcv *EquipmentExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EquipmentExcel) ImageName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EquipmentExcel) Tags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *EquipmentExcel) CraftQualityTier0() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EquipmentExcel) MutateCraftQualityTier0(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
 func (rcv *EquipmentExcel) CraftQualityTier1() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -216,11 +54,11 @@ func (rcv *EquipmentExcel) CraftQualityTier1() int64 {
 }
 
 func (rcv *EquipmentExcel) MutateCraftQualityTier1(n int64) bool {
-	return rcv._tab.MutateInt64Slot(32, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *EquipmentExcel) CraftQualityTier2() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -228,11 +66,111 @@ func (rcv *EquipmentExcel) CraftQualityTier2() int64 {
 }
 
 func (rcv *EquipmentExcel) MutateCraftQualityTier2(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EquipmentExcel) EquipmentCategory() EquipmentCategory {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return EquipmentCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateEquipmentCategory(n EquipmentCategory) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *EquipmentExcel) Icon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EquipmentExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *EquipmentExcel) ImageName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EquipmentExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(18, n)
+}
+
+func (rcv *EquipmentExcel) MaxLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateMaxLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *EquipmentExcel) NextTierEquipment() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateNextTierEquipment(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *EquipmentExcel) Rarity() Rarity {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateRarity(n Rarity) bool {
+	return rcv._tab.MutateInt32Slot(24, int32(n))
+}
+
+func (rcv *EquipmentExcel) RecipeId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateRecipeId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(26, n)
 }
 
 func (rcv *EquipmentExcel) ShiftingCraftQuality() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -240,11 +178,11 @@ func (rcv *EquipmentExcel) ShiftingCraftQuality() int64 {
 }
 
 func (rcv *EquipmentExcel) MutateShiftingCraftQuality(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
+	return rcv._tab.MutateInt64Slot(28, n)
 }
 
 func (rcv *EquipmentExcel) ShopCategory(j int) ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ShopCategoryType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -253,7 +191,7 @@ func (rcv *EquipmentExcel) ShopCategory(j int) ShopCategoryType {
 }
 
 func (rcv *EquipmentExcel) ShopCategoryLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -261,7 +199,7 @@ func (rcv *EquipmentExcel) ShopCategoryLength() int {
 }
 
 func (rcv *EquipmentExcel) MutateShopCategory(j int, n ShopCategoryType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -270,7 +208,7 @@ func (rcv *EquipmentExcel) MutateShopCategory(j int, n ShopCategoryType) bool {
 }
 
 func (rcv *EquipmentExcel) ShortcutTypeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -278,74 +216,136 @@ func (rcv *EquipmentExcel) ShortcutTypeId() int64 {
 }
 
 func (rcv *EquipmentExcel) MutateShortcutTypeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *EquipmentExcel) StackableMax() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateStackableMax(n int32) bool {
+	return rcv._tab.MutateInt32Slot(34, n)
+}
+
+func (rcv *EquipmentExcel) Tags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) TagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *EquipmentExcel) TierInit() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateTierInit(n int64) bool {
+	return rcv._tab.MutateInt64Slot(38, n)
+}
+
+func (rcv *EquipmentExcel) Wear() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EquipmentExcel) MutateWear(n bool) bool {
+	return rcv._tab.MutateBoolSlot(40, n)
 }
 
 func EquipmentExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(19)
 }
-func EquipmentExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func EquipmentExcelAddEquipmentCategory(builder *flatbuffers.Builder, equipmentCategory EquipmentCategory) {
-	builder.PrependInt32Slot(1, int32(equipmentCategory), 0)
-}
-func EquipmentExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(2, int32(rarity), 0)
-}
-func EquipmentExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(3, localizeEtcId, 0)
-}
-func EquipmentExcelAddWear(builder *flatbuffers.Builder, wear bool) {
-	builder.PrependBoolSlot(4, wear, false)
-}
-func EquipmentExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int32) {
-	builder.PrependInt32Slot(5, maxLevel, 0)
-}
-func EquipmentExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int32) {
-	builder.PrependInt32Slot(6, recipeId, 0)
-}
-func EquipmentExcelAddTierInit(builder *flatbuffers.Builder, tierInit int64) {
-	builder.PrependInt64Slot(7, tierInit, 0)
-}
-func EquipmentExcelAddNextTierEquipment(builder *flatbuffers.Builder, nextTierEquipment int64) {
-	builder.PrependInt64Slot(8, nextTierEquipment, 0)
-}
-func EquipmentExcelAddStackableMax(builder *flatbuffers.Builder, stackableMax int32) {
-	builder.PrependInt32Slot(9, stackableMax, 0)
-}
-func EquipmentExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(icon), 0)
-}
-func EquipmentExcelAddImageName(builder *flatbuffers.Builder, imageName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(imageName), 0)
-}
-func EquipmentExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(tags), 0)
-}
-func EquipmentExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func EquipmentExcelAddCraftQualityTier0(builder *flatbuffers.Builder, craftQualityTier0 int64) {
-	builder.PrependInt64Slot(13, craftQualityTier0, 0)
+	builder.PrependInt64Slot(0, craftQualityTier0, 0)
 }
 func EquipmentExcelAddCraftQualityTier1(builder *flatbuffers.Builder, craftQualityTier1 int64) {
-	builder.PrependInt64Slot(14, craftQualityTier1, 0)
+	builder.PrependInt64Slot(1, craftQualityTier1, 0)
 }
 func EquipmentExcelAddCraftQualityTier2(builder *flatbuffers.Builder, craftQualityTier2 int64) {
-	builder.PrependInt64Slot(15, craftQualityTier2, 0)
+	builder.PrependInt64Slot(2, craftQualityTier2, 0)
+}
+func EquipmentExcelAddEquipmentCategory(builder *flatbuffers.Builder, equipmentCategory EquipmentCategory) {
+	builder.PrependInt32Slot(3, int32(equipmentCategory), 0)
+}
+func EquipmentExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(icon), 0)
+}
+func EquipmentExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
+}
+func EquipmentExcelAddImageName(builder *flatbuffers.Builder, imageName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(imageName), 0)
+}
+func EquipmentExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(7, localizeEtcId, 0)
+}
+func EquipmentExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int32) {
+	builder.PrependInt32Slot(8, maxLevel, 0)
+}
+func EquipmentExcelAddNextTierEquipment(builder *flatbuffers.Builder, nextTierEquipment int64) {
+	builder.PrependInt64Slot(9, nextTierEquipment, 0)
+}
+func EquipmentExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
+	builder.PrependInt32Slot(10, int32(rarity), 0)
+}
+func EquipmentExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int32) {
+	builder.PrependInt32Slot(11, recipeId, 0)
 }
 func EquipmentExcelAddShiftingCraftQuality(builder *flatbuffers.Builder, shiftingCraftQuality int64) {
-	builder.PrependInt64Slot(16, shiftingCraftQuality, 0)
+	builder.PrependInt64Slot(12, shiftingCraftQuality, 0)
 }
 func EquipmentExcelAddShopCategory(builder *flatbuffers.Builder, shopCategory flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(shopCategory), 0)
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(shopCategory), 0)
 }
 func EquipmentExcelStartShopCategoryVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EquipmentExcelAddShortcutTypeId(builder *flatbuffers.Builder, shortcutTypeId int64) {
-	builder.PrependInt64Slot(18, shortcutTypeId, 0)
+	builder.PrependInt64Slot(14, shortcutTypeId, 0)
+}
+func EquipmentExcelAddStackableMax(builder *flatbuffers.Builder, stackableMax int32) {
+	builder.PrependInt32Slot(15, stackableMax, 0)
+}
+func EquipmentExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(tags), 0)
+}
+func EquipmentExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func EquipmentExcelAddTierInit(builder *flatbuffers.Builder, tierInit int64) {
+	builder.PrependInt64Slot(17, tierInit, 0)
+}
+func EquipmentExcelAddWear(builder *flatbuffers.Builder, wear bool) {
+	builder.PrependBoolSlot(18, wear, false)
 }
 func EquipmentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

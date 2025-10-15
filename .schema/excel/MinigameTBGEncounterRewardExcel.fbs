@@ -4,14 +4,14 @@ include "TBGOptionSuccessType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameTBGEncounterRewardExcel {
-    group_id: long;
-    unique_id: long;
-    tbg_option_success_type: TBGOptionSuccessType;
-    paremeter: long;
-    parcel_type: ParcelType;
-    parcel_id: long;
     amount: long;
+    group_id: long;
+    parcel_id: long;
+    parcel_type: ParcelType;
+    paremeter: long;
     prob: int;
+    tbg_option_success_type: TBGOptionSuccessType;
+    unique_id: long;
 }
 
 root_type MinigameTBGEncounterRewardExcel;

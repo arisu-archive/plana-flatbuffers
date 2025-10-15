@@ -10,27 +10,27 @@ import (
 // MiniGameDreamScheduleExcelDto represents a FlatBuffers table
 type MiniGameDreamScheduleExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId            int64  `json:"event_content_id"`
-	DreamMakerScheduleGroupId int64  `json:"dream_maker_schedule_group_id"`
+	AnimationName             string `json:"animation_name"`
 	DisplayOrder              int64  `json:"display_order"`
-	LocalizeEtcId             uint32 `json:"localize_etc_id"`
+	DreamMakerScheduleGroupId int64  `json:"dream_maker_schedule_group_id"`
+	EventContentId            int64  `json:"event_content_id"`
 	IconPath                  string `json:"icon_path"`
 	LoadingResource01         string `json:"loading_resource01"`
 	LoadingResource02         string `json:"loading_resource02"`
-	AnimationName             string `json:"animation_name"`
+	LocalizeEtcId             uint32 `json:"localize_etc_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamScheduleExcelStart(b)
-	MiniGameDreamScheduleExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(b, fbsutils.Convert(t.DreamMakerScheduleGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
 	MiniGameDreamScheduleExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(b, fbsutils.Convert(t.DreamMakerScheduleGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamScheduleExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	MiniGameDreamScheduleExcelAddLoadingResource01(b, b.CreateString(fbsutils.Convert(t.LoadingResource01, t.FlatBuffer.TableKey)))
 	MiniGameDreamScheduleExcelAddLoadingResource02(b, b.CreateString(fbsutils.Convert(t.LoadingResource02, t.FlatBuffer.TableKey)))
-	MiniGameDreamScheduleExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
+	MiniGameDreamScheduleExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	return MiniGameDreamScheduleExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *MiniGameDreamScheduleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamScheduleExcelDto) UnmarshalMessage(e *MiniGameDreamScheduleExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.DreamMakerScheduleGroupId = fbsutils.Convert(e.DreamMakerScheduleGroupId(), t.FlatBuffer.TableKey)
+	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.DreamMakerScheduleGroupId = fbsutils.Convert(e.DreamMakerScheduleGroupId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.LoadingResource01 = fbsutils.Convert(string(e.LoadingResource01()), t.FlatBuffer.TableKey)
 	t.LoadingResource02 = fbsutils.Convert(string(e.LoadingResource02()), t.FlatBuffer.TableKey)
-	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

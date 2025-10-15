@@ -33,20 +33,8 @@ func (rcv *VoiceCommonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceCommonExcel) VoiceEvent() VoiceEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *VoiceCommonExcel) MutateVoiceEvent(n VoiceEvent) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *VoiceCommonExcel) Rate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,19 @@ func (rcv *VoiceCommonExcel) Rate() int64 {
 }
 
 func (rcv *VoiceCommonExcel) MutateRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *VoiceCommonExcel) VoiceEvent() VoiceEvent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *VoiceCommonExcel) MutateVoiceEvent(n VoiceEvent) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *VoiceCommonExcel) VoiceHash(j int) uint32 {
@@ -86,11 +86,11 @@ func (rcv *VoiceCommonExcel) MutateVoiceHash(j int, n uint32) bool {
 func VoiceCommonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func VoiceCommonExcelAddVoiceEvent(builder *flatbuffers.Builder, voiceEvent VoiceEvent) {
-	builder.PrependInt32Slot(0, int32(voiceEvent), 0)
-}
 func VoiceCommonExcelAddRate(builder *flatbuffers.Builder, rate int64) {
-	builder.PrependInt64Slot(1, rate, 0)
+	builder.PrependInt64Slot(0, rate, 0)
+}
+func VoiceCommonExcelAddVoiceEvent(builder *flatbuffers.Builder, voiceEvent VoiceEvent) {
+	builder.PrependInt32Slot(1, int32(voiceEvent), 0)
 }
 func VoiceCommonExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(voiceHash), 0)

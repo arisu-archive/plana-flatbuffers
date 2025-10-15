@@ -45,16 +45,16 @@ func (rcv *ToastExcel) MutateId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *ToastExcel) ToastType() ToastType {
+func (rcv *ToastExcel) LifeTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return ToastType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ToastExcel) MutateToastType(n ToastType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *ToastExcel) MutateLifeTime(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *ToastExcel) MissionId() uint32 {
@@ -81,16 +81,16 @@ func (rcv *ToastExcel) MutateTextId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(10, n)
 }
 
-func (rcv *ToastExcel) LifeTime() int64 {
+func (rcv *ToastExcel) ToastType() ToastType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ToastType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ToastExcel) MutateLifeTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *ToastExcel) MutateToastType(n ToastType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func ToastExcelStart(builder *flatbuffers.Builder) {
@@ -99,8 +99,8 @@ func ToastExcelStart(builder *flatbuffers.Builder) {
 func ToastExcelAddId(builder *flatbuffers.Builder, id uint32) {
 	builder.PrependUint32Slot(0, id, 0)
 }
-func ToastExcelAddToastType(builder *flatbuffers.Builder, toastType ToastType) {
-	builder.PrependInt32Slot(1, int32(toastType), 0)
+func ToastExcelAddLifeTime(builder *flatbuffers.Builder, lifeTime int64) {
+	builder.PrependInt64Slot(1, lifeTime, 0)
 }
 func ToastExcelAddMissionId(builder *flatbuffers.Builder, missionId uint32) {
 	builder.PrependUint32Slot(2, missionId, 0)
@@ -108,8 +108,8 @@ func ToastExcelAddMissionId(builder *flatbuffers.Builder, missionId uint32) {
 func ToastExcelAddTextId(builder *flatbuffers.Builder, textId uint32) {
 	builder.PrependUint32Slot(3, textId, 0)
 }
-func ToastExcelAddLifeTime(builder *flatbuffers.Builder, lifeTime int64) {
-	builder.PrependInt64Slot(4, lifeTime, 0)
+func ToastExcelAddToastType(builder *flatbuffers.Builder, toastType ToastType) {
+	builder.PrependInt32Slot(4, int32(toastType), 0)
 }
 func ToastExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

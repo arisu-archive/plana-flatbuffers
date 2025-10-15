@@ -10,10 +10,10 @@ import (
 // FieldCurtainCallFreeModeExcelDto represents a FlatBuffers table
 type FieldCurtainCallFreeModeExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId              int64 `json:"unique_id"`
 	OpenDate              int64 `json:"open_date"`
 	SetFieldDateId        int64 `json:"set_field_date_id"`
 	SetFieldQuestOpenDate int64 `json:"set_field_quest_open_date"`
+	UniqueId              int64 `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *FieldCurtainCallFreeModeExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeMode"))
 	}
 	FieldCurtainCallFreeModeExcelStart(b)
-	FieldCurtainCallFreeModeExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldCurtainCallFreeModeExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
 	FieldCurtainCallFreeModeExcelAddSetFieldDateId(b, fbsutils.Convert(t.SetFieldDateId, t.FlatBuffer.TableKey))
 	FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(b, fbsutils.Convert(t.SetFieldQuestOpenDate, t.FlatBuffer.TableKey))
+	FieldCurtainCallFreeModeExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return FieldCurtainCallFreeModeExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *FieldCurtainCallFreeModeExcelDto) UnmarshalMessage(e *FieldCurtainCallF
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeMode"))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
 	t.SetFieldDateId = fbsutils.Convert(e.SetFieldDateId(), t.FlatBuffer.TableKey)
 	t.SetFieldQuestOpenDate = fbsutils.Convert(e.SetFieldQuestOpenDate(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

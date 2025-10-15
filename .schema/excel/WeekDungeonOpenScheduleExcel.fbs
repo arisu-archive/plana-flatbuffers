@@ -4,8 +4,8 @@ include "WeekDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table WeekDungeonOpenScheduleExcel {
-    week_day: WeekDay;
     open: [WeekDungeonType];
+    week_day: WeekDay;
 }
 
 root_type WeekDungeonOpenScheduleExcel;

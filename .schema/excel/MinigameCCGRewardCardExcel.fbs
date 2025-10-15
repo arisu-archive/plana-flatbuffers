@@ -3,11 +3,11 @@ include "CCGEntityType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameCCGRewardCardExcel {
-    id: long;
-    group_id: long;
-    entity_type: CCGEntityType;
     card_id: long;
     card_rarity: int;
+    entity_type: CCGEntityType;
+    group_id: long;
+    id: long;
 }
 
 root_type MinigameCCGRewardCardExcel;

@@ -4,19 +4,19 @@ include "CCGTagType.fbs";
 namespace MX.Data.Excel;
 
 table MinigameCCGCharacterExcel {
-    id: long;
-    type: CCGCharacterType;
-    active_skill_id: long;
+    active_skill_cooldown: int;
     active_skill_cost: int;
     active_skille_cost_visible: bool;
-    active_skill_cooldown: int;
-    max_health: int;
-    passive_skill_id: [long];
-    name: uint;
+    active_skill_id: long;
     description: string;
+    id: long;
     image_path: string;
-    ui_image_path: string;
+    max_health: int;
+    name: uint;
+    passive_skill_id: [long];
     tags: [CCGTagType];
+    type: CCGCharacterType;
+    ui_image_path: string;
 }
 
 root_type MinigameCCGCharacterExcel;

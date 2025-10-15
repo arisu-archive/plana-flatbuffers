@@ -3,13 +3,13 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table GroundModuleRewardExcel {
-    group_id: uint;
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
-    reward_parcel_amount: long;
-    reward_parcel_probability: long;
-    is_displayed: bool;
     drop_item_model_prefab_path: string;
+    group_id: uint;
+    is_displayed: bool;
+    reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_probability: long;
+    reward_parcel_type: ParcelType;
 }
 
 root_type GroundModuleRewardExcel;

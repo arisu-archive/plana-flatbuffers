@@ -10,57 +10,61 @@ import (
 // CurrencyExcelDto represents a FlatBuffers table
 type CurrencyExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64                        `json:"id"`
-	LocalizeEtcId                uint32                       `json:"localize_etc_id"`
-	CurrencyType                 CurrencyTypes                `json:"currency_type"`
-	CurrencyName                 string                       `json:"currency_name"`
-	Icon                         string                       `json:"icon"`
-	Rarity                       Rarity                       `json:"rarity"`
-	AutoChargeMsc                int32                        `json:"auto_charge_msc"`
 	AutoChargeAmount             int32                        `json:"auto_charge_amount"`
-	CurrencyOverChargeType       CurrencyOverChargeType       `json:"currency_over_charge_type"`
-	CurrencyAdditionalChargeType CurrencyAdditionalChargeType `json:"currency_additional_charge_type"`
+	AutoChargeMsc                int32                        `json:"auto_charge_msc"`
 	ChargeLimit                  int64                        `json:"charge_limit"`
-	OverChargeLimit              int64                        `json:"over_charge_limit"`
-	SpriteName                   string                       `json:"sprite_name"`
-	DailyRefillType              DailyRefillType              `json:"daily_refill_type"`
+	CurrencyAdditionalChargeType CurrencyAdditionalChargeType `json:"currency_additional_charge_type"`
+	CurrencyName                 string                       `json:"currency_name"`
+	CurrencyOverChargeType       CurrencyOverChargeType       `json:"currency_over_charge_type"`
+	CurrencyType                 CurrencyTypes                `json:"currency_type"`
 	DailyRefillAmount            int64                        `json:"daily_refill_amount"`
 	DailyRefillTime              []int64                      `json:"daily_refill_time"`
+	DailyRefillType              DailyRefillType              `json:"daily_refill_type"`
 	ExpirationDateTime           string                       `json:"expiration_date_time"`
 	ExpirationNotifyDateIn       int32                        `json:"expiration_notify_date_in"`
-	ExpiryChangeParcelType       ParcelType                   `json:"expiry_change_parcel_type"`
-	ExpiryChangeId               int64                        `json:"expiry_change_id"`
 	ExpiryChangeAmount           int64                        `json:"expiry_change_amount"`
+	ExpiryChangeId               int64                        `json:"expiry_change_id"`
+	ExpiryChangeParcelType       ParcelType                   `json:"expiry_change_parcel_type"`
+	Icon                         string                       `json:"icon"`
+	Id                           int64                        `json:"id"`
+	LocalizeEtcId                uint32                       `json:"localize_etc_id"`
+	OverChargeLimit              int64                        `json:"over_charge_limit"`
+	Rarity                       Rarity                       `json:"rarity"`
+	ResetAmount                  int64                        `json:"reset_amount"`
+	ResetType                    PeriodType                   `json:"reset_type"`
+	SpriteName                   string                       `json:"sprite_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CurrencyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CurrencyExcelStart(b)
-	CurrencyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CurrencyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	CurrencyExcelAddCurrencyType(b, fbsutils.Convert(t.CurrencyType, t.FlatBuffer.TableKey))
-	CurrencyExcelAddCurrencyName(b, b.CreateString(fbsutils.Convert(t.CurrencyName, t.FlatBuffer.TableKey)))
-	CurrencyExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	CurrencyExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	CurrencyExcelAddAutoChargeMsc(b, fbsutils.Convert(t.AutoChargeMsc, t.FlatBuffer.TableKey))
 	CurrencyExcelAddAutoChargeAmount(b, fbsutils.Convert(t.AutoChargeAmount, t.FlatBuffer.TableKey))
-	CurrencyExcelAddCurrencyOverChargeType(b, fbsutils.Convert(t.CurrencyOverChargeType, t.FlatBuffer.TableKey))
-	CurrencyExcelAddCurrencyAdditionalChargeType(b, fbsutils.Convert(t.CurrencyAdditionalChargeType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddAutoChargeMsc(b, fbsutils.Convert(t.AutoChargeMsc, t.FlatBuffer.TableKey))
 	CurrencyExcelAddChargeLimit(b, fbsutils.Convert(t.ChargeLimit, t.FlatBuffer.TableKey))
-	CurrencyExcelAddOverChargeLimit(b, fbsutils.Convert(t.OverChargeLimit, t.FlatBuffer.TableKey))
-	CurrencyExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
-	CurrencyExcelAddDailyRefillType(b, fbsutils.Convert(t.DailyRefillType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddCurrencyAdditionalChargeType(b, fbsutils.Convert(t.CurrencyAdditionalChargeType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddCurrencyName(b, b.CreateString(fbsutils.Convert(t.CurrencyName, t.FlatBuffer.TableKey)))
+	CurrencyExcelAddCurrencyOverChargeType(b, fbsutils.Convert(t.CurrencyOverChargeType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddCurrencyType(b, fbsutils.Convert(t.CurrencyType, t.FlatBuffer.TableKey))
 	CurrencyExcelAddDailyRefillAmount(b, fbsutils.Convert(t.DailyRefillAmount, t.FlatBuffer.TableKey))
 	CurrencyExcelStartDailyRefillTimeVector(b, len(t.DailyRefillTime))
 	for i := range len(t.DailyRefillTime) {
 		b.PrependInt64(fbsutils.Convert(t.DailyRefillTime[len(t.DailyRefillTime)-i-1], t.FlatBuffer.TableKey))
 	}
 	CurrencyExcelAddDailyRefillTime(b, b.EndVector(len(t.DailyRefillTime)))
+	CurrencyExcelAddDailyRefillType(b, fbsutils.Convert(t.DailyRefillType, t.FlatBuffer.TableKey))
 	CurrencyExcelAddExpirationDateTime(b, b.CreateString(fbsutils.Convert(t.ExpirationDateTime, t.FlatBuffer.TableKey)))
 	CurrencyExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
-	CurrencyExcelAddExpiryChangeParcelType(b, fbsutils.Convert(t.ExpiryChangeParcelType, t.FlatBuffer.TableKey))
-	CurrencyExcelAddExpiryChangeId(b, fbsutils.Convert(t.ExpiryChangeId, t.FlatBuffer.TableKey))
 	CurrencyExcelAddExpiryChangeAmount(b, fbsutils.Convert(t.ExpiryChangeAmount, t.FlatBuffer.TableKey))
+	CurrencyExcelAddExpiryChangeId(b, fbsutils.Convert(t.ExpiryChangeId, t.FlatBuffer.TableKey))
+	CurrencyExcelAddExpiryChangeParcelType(b, fbsutils.Convert(t.ExpiryChangeParcelType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	CurrencyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CurrencyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	CurrencyExcelAddOverChargeLimit(b, fbsutils.Convert(t.OverChargeLimit, t.FlatBuffer.TableKey))
+	CurrencyExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	CurrencyExcelAddResetAmount(b, fbsutils.Convert(t.ResetAmount, t.FlatBuffer.TableKey))
+	CurrencyExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
+	CurrencyExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
 	return CurrencyExcelEnd(b)
 }
 
@@ -73,30 +77,32 @@ func (t *CurrencyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CurrencyExcelDto) UnmarshalMessage(e *CurrencyExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.CurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CurrencyType()), t.FlatBuffer.TableKey))
-	t.CurrencyName = fbsutils.Convert(string(e.CurrencyName()), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.AutoChargeMsc = fbsutils.Convert(e.AutoChargeMsc(), t.FlatBuffer.TableKey)
 	t.AutoChargeAmount = fbsutils.Convert(e.AutoChargeAmount(), t.FlatBuffer.TableKey)
-	t.CurrencyOverChargeType = CurrencyOverChargeType(fbsutils.Convert(int32(e.CurrencyOverChargeType()), t.FlatBuffer.TableKey))
-	t.CurrencyAdditionalChargeType = CurrencyAdditionalChargeType(fbsutils.Convert(int32(e.CurrencyAdditionalChargeType()), t.FlatBuffer.TableKey))
+	t.AutoChargeMsc = fbsutils.Convert(e.AutoChargeMsc(), t.FlatBuffer.TableKey)
 	t.ChargeLimit = fbsutils.Convert(e.ChargeLimit(), t.FlatBuffer.TableKey)
-	t.OverChargeLimit = fbsutils.Convert(e.OverChargeLimit(), t.FlatBuffer.TableKey)
-	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
-	t.DailyRefillType = DailyRefillType(fbsutils.Convert(int32(e.DailyRefillType()), t.FlatBuffer.TableKey))
+	t.CurrencyAdditionalChargeType = CurrencyAdditionalChargeType(fbsutils.Convert(int32(e.CurrencyAdditionalChargeType()), t.FlatBuffer.TableKey))
+	t.CurrencyName = fbsutils.Convert(string(e.CurrencyName()), t.FlatBuffer.TableKey)
+	t.CurrencyOverChargeType = CurrencyOverChargeType(fbsutils.Convert(int32(e.CurrencyOverChargeType()), t.FlatBuffer.TableKey))
+	t.CurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CurrencyType()), t.FlatBuffer.TableKey))
 	t.DailyRefillAmount = fbsutils.Convert(e.DailyRefillAmount(), t.FlatBuffer.TableKey)
 	t.DailyRefillTime = make([]int64, e.DailyRefillTimeLength())
 	for i := range e.DailyRefillTimeLength() {
 		t.DailyRefillTime[i] = fbsutils.Convert(e.DailyRefillTime(i), t.FlatBuffer.TableKey)
 	}
+	t.DailyRefillType = DailyRefillType(fbsutils.Convert(int32(e.DailyRefillType()), t.FlatBuffer.TableKey))
 	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
-	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
-	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
 	t.ExpiryChangeAmount = fbsutils.Convert(e.ExpiryChangeAmount(), t.FlatBuffer.TableKey)
+	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
+	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.OverChargeLimit = fbsutils.Convert(e.OverChargeLimit(), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.ResetAmount = fbsutils.Convert(e.ResetAmount(), t.FlatBuffer.TableKey)
+	t.ResetType = PeriodType(fbsutils.Convert(int32(e.ResetType()), t.FlatBuffer.TableKey))
+	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

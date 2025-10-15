@@ -1,0 +1,16 @@
+include "BattleCalculationStat.fbs";
+include "TacticEntityType.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterCalculationLimitExcel {
+    calculation_value: BattleCalculationStat;
+    decrease_rate: [long];
+    id: long;
+    limit_start_value: [long];
+    max_value: long;
+    min_value: long;
+    tactic_entity_type: TacticEntityType;
+}
+
+root_type CharacterCalculationLimitExcel;

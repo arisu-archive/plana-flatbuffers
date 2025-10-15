@@ -33,7 +33,7 @@ func (rcv *MinigameTBGEncounterRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) GroupId() int64 {
+func (rcv *MinigameTBGEncounterRewardExcel) Amount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *MinigameTBGEncounterRewardExcel) GroupId() int64 {
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) MutateGroupId(n int64) bool {
+func (rcv *MinigameTBGEncounterRewardExcel) MutateAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) UniqueId() int64 {
+func (rcv *MinigameTBGEncounterRewardExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,48 +53,12 @@ func (rcv *MinigameTBGEncounterRewardExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) MutateUniqueId(n int64) bool {
+func (rcv *MinigameTBGEncounterRewardExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) TbgOptionSuccessType() TBGOptionSuccessType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return TBGOptionSuccessType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterRewardExcel) MutateTbgOptionSuccessType(n TBGOptionSuccessType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *MinigameTBGEncounterRewardExcel) Paremeter() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterRewardExcel) MutateParemeter(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *MinigameTBGEncounterRewardExcel) ParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGEncounterRewardExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
 func (rcv *MinigameTBGEncounterRewardExcel) ParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -102,23 +66,35 @@ func (rcv *MinigameTBGEncounterRewardExcel) ParcelId() int64 {
 }
 
 func (rcv *MinigameTBGEncounterRewardExcel) MutateParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) Amount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+func (rcv *MinigameTBGEncounterRewardExcel) ParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) MutateParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) Paremeter() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGEncounterRewardExcel) MutateAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+func (rcv *MinigameTBGEncounterRewardExcel) MutateParemeter(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *MinigameTBGEncounterRewardExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -126,35 +102,59 @@ func (rcv *MinigameTBGEncounterRewardExcel) Prob() int32 {
 }
 
 func (rcv *MinigameTBGEncounterRewardExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) TbgOptionSuccessType() TBGOptionSuccessType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return TBGOptionSuccessType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) MutateTbgOptionSuccessType(n TBGOptionSuccessType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGEncounterRewardExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func MinigameTBGEncounterRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
+func MinigameTBGEncounterRewardExcelAddAmount(builder *flatbuffers.Builder, amount int64) {
+	builder.PrependInt64Slot(0, amount, 0)
+}
 func MinigameTBGEncounterRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
-func MinigameTBGEncounterRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder *flatbuffers.Builder, tbgOptionSuccessType TBGOptionSuccessType) {
-	builder.PrependInt32Slot(2, int32(tbgOptionSuccessType), 0)
-}
-func MinigameTBGEncounterRewardExcelAddParemeter(builder *flatbuffers.Builder, paremeter int64) {
-	builder.PrependInt64Slot(3, paremeter, 0)
-}
-func MinigameTBGEncounterRewardExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(4, int32(parcelType), 0)
+	builder.PrependInt64Slot(1, groupId, 0)
 }
 func MinigameTBGEncounterRewardExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
-	builder.PrependInt64Slot(5, parcelId, 0)
+	builder.PrependInt64Slot(2, parcelId, 0)
 }
-func MinigameTBGEncounterRewardExcelAddAmount(builder *flatbuffers.Builder, amount int64) {
-	builder.PrependInt64Slot(6, amount, 0)
+func MinigameTBGEncounterRewardExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(3, int32(parcelType), 0)
+}
+func MinigameTBGEncounterRewardExcelAddParemeter(builder *flatbuffers.Builder, paremeter int64) {
+	builder.PrependInt64Slot(4, paremeter, 0)
 }
 func MinigameTBGEncounterRewardExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(7, prob, 0)
+	builder.PrependInt32Slot(5, prob, 0)
+}
+func MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder *flatbuffers.Builder, tbgOptionSuccessType TBGOptionSuccessType) {
+	builder.PrependInt32Slot(6, int32(tbgOptionSuccessType), 0)
+}
+func MinigameTBGEncounterRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(7, uniqueId, 0)
 }
 func MinigameTBGEncounterRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

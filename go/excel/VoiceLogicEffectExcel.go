@@ -45,20 +45,8 @@ func (rcv *VoiceLogicEffectExcel) MutateLogicEffectNameHash(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *VoiceLogicEffectExcel) Self() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *VoiceLogicEffectExcel) MutateSelf(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
 func (rcv *VoiceLogicEffectExcel) Priority() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -66,7 +54,19 @@ func (rcv *VoiceLogicEffectExcel) Priority() int32 {
 }
 
 func (rcv *VoiceLogicEffectExcel) MutatePriority(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *VoiceLogicEffectExcel) Self() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *VoiceLogicEffectExcel) MutateSelf(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func (rcv *VoiceLogicEffectExcel) VoiceHash(j int) uint32 {
@@ -113,11 +113,11 @@ func VoiceLogicEffectExcelStart(builder *flatbuffers.Builder) {
 func VoiceLogicEffectExcelAddLogicEffectNameHash(builder *flatbuffers.Builder, logicEffectNameHash uint32) {
 	builder.PrependUint32Slot(0, logicEffectNameHash, 0)
 }
-func VoiceLogicEffectExcelAddSelf(builder *flatbuffers.Builder, self bool) {
-	builder.PrependBoolSlot(1, self, false)
-}
 func VoiceLogicEffectExcelAddPriority(builder *flatbuffers.Builder, priority int32) {
-	builder.PrependInt32Slot(2, priority, 0)
+	builder.PrependInt32Slot(1, priority, 0)
+}
+func VoiceLogicEffectExcelAddSelf(builder *flatbuffers.Builder, self bool) {
+	builder.PrependBoolSlot(2, self, false)
 }
 func VoiceLogicEffectExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(voiceHash), 0)

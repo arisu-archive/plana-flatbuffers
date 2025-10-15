@@ -10,57 +10,57 @@ import (
 // MessagePopupExcelDto represents a FlatBuffers table
 type MessagePopupExcelDto struct {
 	fbsutils.FlatBuffer
-	StringId           uint32                        `json:"string_id"`
-	MessagePopupLayout MessagePopupLayout            `json:"message_popup_layout"`
-	OrderType          MessagePopupImagePositionType `json:"order_type"`
-	Image              string                        `json:"image"`
-	TitleText          uint32                        `json:"title_text"`
-	SubTitleText       uint32                        `json:"sub_title_text"`
-	MessageText        uint32                        `json:"message_text"`
+	ButtonCommand      []string                      `json:"button_command"`
+	Button             []MessagePopupButtonType      `json:"button"`
+	ButtonParameter    []string                      `json:"button_parameter"`
+	ButtonText         []uint32                      `json:"button_text"`
 	ConditionText      []uint32                      `json:"condition_text"`
 	DisplayXButton     bool                          `json:"display_x_button"`
-	Button             []MessagePopupButtonType      `json:"button"`
-	ButtonText         []uint32                      `json:"button_text"`
-	ButtonCommand      []string                      `json:"button_command"`
-	ButtonParameter    []string                      `json:"button_parameter"`
+	Image              string                        `json:"image"`
+	MessagePopupLayout MessagePopupLayout            `json:"message_popup_layout"`
+	MessageText        uint32                        `json:"message_text"`
+	OrderType          MessagePopupImagePositionType `json:"order_type"`
+	StringId           uint32                        `json:"string_id"`
+	SubTitleText       uint32                        `json:"sub_title_text"`
+	TitleText          uint32                        `json:"title_text"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MessagePopupExcelStart(b)
-	MessagePopupExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddMessagePopupLayout(b, fbsutils.Convert(t.MessagePopupLayout, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddOrderType(b, fbsutils.Convert(t.OrderType, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddImage(b, b.CreateString(fbsutils.Convert(t.Image, t.FlatBuffer.TableKey)))
-	MessagePopupExcelAddTitleText(b, fbsutils.Convert(t.TitleText, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddSubTitleText(b, fbsutils.Convert(t.SubTitleText, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddMessageText(b, fbsutils.Convert(t.MessageText, t.FlatBuffer.TableKey))
+	MessagePopupExcelStartButtonCommandVector(b, len(t.ButtonCommand))
+	for i := range len(t.ButtonCommand) {
+		b.PrependUOffsetT(b.CreateString(t.ButtonCommand[len(t.ButtonCommand)-i-1]))
+	}
+	MessagePopupExcelAddButtonCommand(b, b.EndVector(len(t.ButtonCommand)))
+	MessagePopupExcelStartButtonVector(b, len(t.Button))
+	for i := range len(t.Button) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Button[len(t.Button)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MessagePopupExcelAddButton(b, b.EndVector(len(t.Button)))
+	MessagePopupExcelStartButtonParameterVector(b, len(t.ButtonParameter))
+	for i := range len(t.ButtonParameter) {
+		b.PrependUOffsetT(b.CreateString(t.ButtonParameter[len(t.ButtonParameter)-i-1]))
+	}
+	MessagePopupExcelAddButtonParameter(b, b.EndVector(len(t.ButtonParameter)))
+	MessagePopupExcelStartButtonTextVector(b, len(t.ButtonText))
+	for i := range len(t.ButtonText) {
+		b.PrependUint32(fbsutils.Convert(t.ButtonText[len(t.ButtonText)-i-1], t.FlatBuffer.TableKey))
+	}
+	MessagePopupExcelAddButtonText(b, b.EndVector(len(t.ButtonText)))
 	MessagePopupExcelStartConditionTextVector(b, len(t.ConditionText))
 	for i := range len(t.ConditionText) {
 		b.PrependUint32(fbsutils.Convert(t.ConditionText[len(t.ConditionText)-i-1], t.FlatBuffer.TableKey))
 	}
 	MessagePopupExcelAddConditionText(b, b.EndVector(len(t.ConditionText)))
 	MessagePopupExcelAddDisplayXButton(b, t.DisplayXButton)
-	MessagePopupExcelStartButtonVector(b, len(t.Button))
-	for i := range len(t.Button) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Button[len(t.Button)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MessagePopupExcelAddButton(b, b.EndVector(len(t.Button)))
-	MessagePopupExcelStartButtonTextVector(b, len(t.ButtonText))
-	for i := range len(t.ButtonText) {
-		b.PrependUint32(fbsutils.Convert(t.ButtonText[len(t.ButtonText)-i-1], t.FlatBuffer.TableKey))
-	}
-	MessagePopupExcelAddButtonText(b, b.EndVector(len(t.ButtonText)))
-	MessagePopupExcelStartButtonCommandVector(b, len(t.ButtonCommand))
-	for i := range len(t.ButtonCommand) {
-		b.PrependUOffsetT(b.CreateString(t.ButtonCommand[len(t.ButtonCommand)-i-1]))
-	}
-	MessagePopupExcelAddButtonCommand(b, b.EndVector(len(t.ButtonCommand)))
-	MessagePopupExcelStartButtonParameterVector(b, len(t.ButtonParameter))
-	for i := range len(t.ButtonParameter) {
-		b.PrependUOffsetT(b.CreateString(t.ButtonParameter[len(t.ButtonParameter)-i-1]))
-	}
-	MessagePopupExcelAddButtonParameter(b, b.EndVector(len(t.ButtonParameter)))
+	MessagePopupExcelAddImage(b, b.CreateString(fbsutils.Convert(t.Image, t.FlatBuffer.TableKey)))
+	MessagePopupExcelAddMessagePopupLayout(b, fbsutils.Convert(t.MessagePopupLayout, t.FlatBuffer.TableKey))
+	MessagePopupExcelAddMessageText(b, fbsutils.Convert(t.MessageText, t.FlatBuffer.TableKey))
+	MessagePopupExcelAddOrderType(b, fbsutils.Convert(t.OrderType, t.FlatBuffer.TableKey))
+	MessagePopupExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
+	MessagePopupExcelAddSubTitleText(b, fbsutils.Convert(t.SubTitleText, t.FlatBuffer.TableKey))
+	MessagePopupExcelAddTitleText(b, fbsutils.Convert(t.TitleText, t.FlatBuffer.TableKey))
 	return MessagePopupExcelEnd(b)
 }
 
@@ -73,34 +73,34 @@ func (t *MessagePopupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
-	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
-	t.MessagePopupLayout = MessagePopupLayout(fbsutils.Convert(int32(e.MessagePopupLayout()), t.FlatBuffer.TableKey))
-	t.OrderType = MessagePopupImagePositionType(fbsutils.Convert(int32(e.OrderType()), t.FlatBuffer.TableKey))
-	t.Image = fbsutils.Convert(string(e.Image()), t.FlatBuffer.TableKey)
-	t.TitleText = fbsutils.Convert(e.TitleText(), t.FlatBuffer.TableKey)
-	t.SubTitleText = fbsutils.Convert(e.SubTitleText(), t.FlatBuffer.TableKey)
-	t.MessageText = fbsutils.Convert(e.MessageText(), t.FlatBuffer.TableKey)
-	t.ConditionText = make([]uint32, e.ConditionTextLength())
-	for i := range e.ConditionTextLength() {
-		t.ConditionText[i] = fbsutils.Convert(e.ConditionText(i), t.FlatBuffer.TableKey)
-	}
-	t.DisplayXButton = e.DisplayXButton()
-	t.Button = make([]MessagePopupButtonType, e.ButtonLength())
-	for i := range e.ButtonLength() {
-		t.Button[i] = MessagePopupButtonType(fbsutils.Convert(int32(e.Button(i)), t.FlatBuffer.TableKey))
-	}
-	t.ButtonText = make([]uint32, e.ButtonTextLength())
-	for i := range e.ButtonTextLength() {
-		t.ButtonText[i] = fbsutils.Convert(e.ButtonText(i), t.FlatBuffer.TableKey)
-	}
 	t.ButtonCommand = make([]string, e.ButtonCommandLength())
 	for i := range e.ButtonCommandLength() {
 		t.ButtonCommand[i] = fbsutils.Convert(string(e.ButtonCommand(i)), t.FlatBuffer.TableKey)
+	}
+	t.Button = make([]MessagePopupButtonType, e.ButtonLength())
+	for i := range e.ButtonLength() {
+		t.Button[i] = MessagePopupButtonType(fbsutils.Convert(int32(e.Button(i)), t.FlatBuffer.TableKey))
 	}
 	t.ButtonParameter = make([]string, e.ButtonParameterLength())
 	for i := range e.ButtonParameterLength() {
 		t.ButtonParameter[i] = fbsutils.Convert(string(e.ButtonParameter(i)), t.FlatBuffer.TableKey)
 	}
+	t.ButtonText = make([]uint32, e.ButtonTextLength())
+	for i := range e.ButtonTextLength() {
+		t.ButtonText[i] = fbsutils.Convert(e.ButtonText(i), t.FlatBuffer.TableKey)
+	}
+	t.ConditionText = make([]uint32, e.ConditionTextLength())
+	for i := range e.ConditionTextLength() {
+		t.ConditionText[i] = fbsutils.Convert(e.ConditionText(i), t.FlatBuffer.TableKey)
+	}
+	t.DisplayXButton = e.DisplayXButton()
+	t.Image = fbsutils.Convert(string(e.Image()), t.FlatBuffer.TableKey)
+	t.MessagePopupLayout = MessagePopupLayout(fbsutils.Convert(int32(e.MessagePopupLayout()), t.FlatBuffer.TableKey))
+	t.MessageText = fbsutils.Convert(e.MessageText(), t.FlatBuffer.TableKey)
+	t.OrderType = MessagePopupImagePositionType(fbsutils.Convert(int32(e.OrderType()), t.FlatBuffer.TableKey))
+	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
+	t.SubTitleText = fbsutils.Convert(e.SubTitleText(), t.FlatBuffer.TableKey)
+	t.TitleText = fbsutils.Convert(e.TitleText(), t.FlatBuffer.TableKey)
 	return nil
 }
 

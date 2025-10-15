@@ -10,23 +10,23 @@ import (
 // ShopTabGroupExcelDto represents a FlatBuffers table
 type ShopTabGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64              `json:"id"`
-	ShopGroupType     ShopGroupType      `json:"shop_group_type"`
 	DisplayOrder      int32              `json:"display_order"`
+	Id                int64              `json:"id"`
 	ShopCategoryTypes []ShopCategoryType `json:"shop_category_types"`
+	ShopGroupType     ShopGroupType      `json:"shop_group_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopTabGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ShopTabGroupExcelStart(b)
-	ShopTabGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopTabGroupExcelAddShopGroupType(b, fbsutils.Convert(t.ShopGroupType, t.FlatBuffer.TableKey))
 	ShopTabGroupExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShopTabGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopTabGroupExcelStartShopCategoryTypesVector(b, len(t.ShopCategoryTypes))
 	for i := range len(t.ShopCategoryTypes) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ShopCategoryTypes[len(t.ShopCategoryTypes)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ShopTabGroupExcelAddShopCategoryTypes(b, b.EndVector(len(t.ShopCategoryTypes)))
+	ShopTabGroupExcelAddShopGroupType(b, fbsutils.Convert(t.ShopGroupType, t.FlatBuffer.TableKey))
 	return ShopTabGroupExcelEnd(b)
 }
 
@@ -39,13 +39,13 @@ func (t *ShopTabGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopTabGroupExcelDto) UnmarshalMessage(e *ShopTabGroupExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ShopGroupType = ShopGroupType(fbsutils.Convert(int32(e.ShopGroupType()), t.FlatBuffer.TableKey))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ShopCategoryTypes = make([]ShopCategoryType, e.ShopCategoryTypesLength())
 	for i := range e.ShopCategoryTypesLength() {
 		t.ShopCategoryTypes[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategoryTypes(i)), t.FlatBuffer.TableKey))
 	}
+	t.ShopGroupType = ShopGroupType(fbsutils.Convert(int32(e.ShopGroupType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

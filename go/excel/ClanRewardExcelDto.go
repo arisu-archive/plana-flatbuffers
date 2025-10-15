@@ -12,9 +12,9 @@ type ClanRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	ClanRewardType     ClanRewardType `json:"clan_reward_type"`
 	EchelonType        EchelonType    `json:"echelon_type"`
-	RewardParcelType   ParcelType     `json:"reward_parcel_type"`
-	RewardParcelId     int64          `json:"reward_parcel_id"`
 	RewardParcelAmount int64          `json:"reward_parcel_amount"`
+	RewardParcelId     int64          `json:"reward_parcel_id"`
+	RewardParcelType   ParcelType     `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,9 +22,9 @@ func (t *ClanRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	ClanRewardExcelStart(b)
 	ClanRewardExcelAddClanRewardType(b, fbsutils.Convert(t.ClanRewardType, t.FlatBuffer.TableKey))
 	ClanRewardExcelAddEchelonType(b, fbsutils.Convert(t.EchelonType, t.FlatBuffer.TableKey))
-	ClanRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	ClanRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	ClanRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	ClanRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	ClanRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	return ClanRewardExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *ClanRewardExcelDto) Marshal() ([]byte, error) {
 func (t *ClanRewardExcelDto) UnmarshalMessage(e *ClanRewardExcel) error {
 	t.ClanRewardType = ClanRewardType(fbsutils.Convert(int32(e.ClanRewardType()), t.FlatBuffer.TableKey))
 	t.EchelonType = EchelonType(fbsutils.Convert(int32(e.EchelonType()), t.FlatBuffer.TableKey))
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

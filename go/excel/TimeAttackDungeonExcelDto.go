@@ -10,21 +10,21 @@ import (
 // TimeAttackDungeonExcelDto represents a FlatBuffers table
 type TimeAttackDungeonExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                    int64                 `json:"id"`
-	TimeAttackDungeonType TimeAttackDungeonType `json:"time_attack_dungeon_type"`
-	LocalizeEtcKey        uint32                `json:"localize_etc_key"`
 	IconPath              string                `json:"icon_path"`
+	Id                    int64                 `json:"id"`
 	InformationGroupId    int64                 `json:"information_group_id"`
+	LocalizeEtcKey        uint32                `json:"localize_etc_key"`
+	TimeAttackDungeonType TimeAttackDungeonType `json:"time_attack_dungeon_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TimeAttackDungeonExcelStart(b)
-	TimeAttackDungeonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TimeAttackDungeonExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
-	TimeAttackDungeonExcelAddLocalizeEtcKey(b, fbsutils.Convert(t.LocalizeEtcKey, t.FlatBuffer.TableKey))
 	TimeAttackDungeonExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonExcelAddInformationGroupId(b, fbsutils.Convert(t.InformationGroupId, t.FlatBuffer.TableKey))
+	TimeAttackDungeonExcelAddLocalizeEtcKey(b, fbsutils.Convert(t.LocalizeEtcKey, t.FlatBuffer.TableKey))
+	TimeAttackDungeonExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
 	return TimeAttackDungeonExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *TimeAttackDungeonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonExcelDto) UnmarshalMessage(e *TimeAttackDungeonExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
-	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.InformationGroupId = fbsutils.Convert(e.InformationGroupId(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
+	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

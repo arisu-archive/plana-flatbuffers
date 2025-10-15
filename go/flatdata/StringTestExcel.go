@@ -33,21 +33,12 @@ func (rcv *StringTestExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StringTestExcel) String(j int) []byte {
+func (rcv *StringTestExcel) Script() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
-}
-
-func (rcv *StringTestExcel) StringLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
 }
 
 func (rcv *StringTestExcel) Sentence1() []byte {
@@ -58,28 +49,37 @@ func (rcv *StringTestExcel) Sentence1() []byte {
 	return nil
 }
 
-func (rcv *StringTestExcel) Script() []byte {
+func (rcv *StringTestExcel) String(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
+}
+
+func (rcv *StringTestExcel) StringLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func StringTestExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func StringTestExcelAddString(builder *flatbuffers.Builder, string flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(string), 0)
-}
-func StringTestExcelStartStringVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func StringTestExcelAddScript(builder *flatbuffers.Builder, script flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(script), 0)
 }
 func StringTestExcelAddSentence1(builder *flatbuffers.Builder, sentence1 flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(sentence1), 0)
 }
-func StringTestExcelAddScript(builder *flatbuffers.Builder, script flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(script), 0)
+func StringTestExcelAddString(builder *flatbuffers.Builder, string flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(string), 0)
+}
+func StringTestExcelStartStringVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func StringTestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table BlendInfo {
+    blend: float;
     from: int;
     to: int;
-    blend: float;
 }

@@ -4,15 +4,15 @@ include "School.fbs";
 namespace MX.Data.Excel;
 
 table AcademyLocationExcel {
+    icon_image_path: string;
     id: long;
     localize_etc_id: uint;
-    prefab_path: string;
-    icon_image_path: string;
-    open_condition: [School];
     open_condition_count: [long];
-    reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
+    open_condition: [School];
     open_teacher_rank: long;
+    prefab_path: string;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
 }
 
 root_type AcademyLocationExcel;

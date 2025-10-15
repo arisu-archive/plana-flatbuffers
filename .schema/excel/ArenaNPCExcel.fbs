@@ -3,16 +3,16 @@ include "Rarity.fbs";
 namespace MX.Data.Excel;
 
 table ArenaNPCExcel {
-    unique_id: long;
-    rank: long;
-    npc_account_level: long;
-    npc_level: long;
-    npc_level_deviation: long;
-    npc_star_grade: long;
     exception_character_rarities: [Rarity];
     exception_main_character_ids: [long];
     exception_support_character_ids: [long];
     exception_tss_ids: [long];
+    npc_account_level: long;
+    npc_level: long;
+    npc_level_deviation: long;
+    npc_star_grade: long;
+    rank: long;
+    unique_id: long;
 }
 
 root_type ArenaNPCExcel;

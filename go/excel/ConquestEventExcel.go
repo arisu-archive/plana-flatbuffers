@@ -33,176 +33,8 @@ func (rcv *ConquestEventExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestEventExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *ConquestEventExcel) MainStoryEventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateMainStoryEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *ConquestEventExcel) ConquestEventType() ConquestEventType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return ConquestEventType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateConquestEventType(n ConquestEventType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *ConquestEventExcel) UseErosion() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestEventExcel) MutateUseErosion(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *ConquestEventExcel) UseUnexpectedEvent() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestEventExcel) MutateUseUnexpectedEvent(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *ConquestEventExcel) UseCalculate() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestEventExcel) MutateUseCalculate(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
-func (rcv *ConquestEventExcel) UseConquestObject() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ConquestEventExcel) MutateUseConquestObject(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *ConquestEventExcel) EvnetMapGoalLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) EvnetMapNameLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) MapEnterScenarioGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateMapEnterScenarioGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *ConquestEventExcel) EvnetScenarioBg() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) ManageUnitChange() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateManageUnitChange(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
-}
-
-func (rcv *ConquestEventExcel) AssistCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateAssistCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(28, n)
-}
-
-func (rcv *ConquestEventExcel) PlayTimeLimitInSeconds() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutatePlayTimeLimitInSeconds(n int32) bool {
-	return rcv._tab.MutateInt32Slot(30, n)
-}
-
-func (rcv *ConquestEventExcel) AnimationUnitAmountMin() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestEventExcel) MutateAnimationUnitAmountMin(n int32) bool {
-	return rcv._tab.MutateInt32Slot(32, n)
-}
-
 func (rcv *ConquestEventExcel) AnimationUnitAmountMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -210,11 +42,23 @@ func (rcv *ConquestEventExcel) AnimationUnitAmountMax() int32 {
 }
 
 func (rcv *ConquestEventExcel) MutateAnimationUnitAmountMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(34, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *ConquestEventExcel) AnimationUnitAmountMin() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateAnimationUnitAmountMin(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *ConquestEventExcel) AnimationUnitDelay() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -222,67 +66,63 @@ func (rcv *ConquestEventExcel) AnimationUnitDelay() float32 {
 }
 
 func (rcv *ConquestEventExcel) MutateAnimationUnitDelay(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(36, n)
+	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *ConquestEventExcel) LocalizeUnexpected() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+func (rcv *ConquestEventExcel) AssistCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateAssistCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *ConquestEventExcel) ConquestEventType() ConquestEventType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return ConquestEventType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateConquestEventType(n ConquestEventType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *ConquestEventExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *ConquestEventExcel) EvnetMapGoalLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *ConquestEventExcel) LocalizeErosions() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+func (rcv *ConquestEventExcel) EvnetMapNameLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *ConquestEventExcel) LocalizeStep() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) LocalizeTile() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) LocalizeMapInfo() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) LocalizeManage() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) LocalizeUpgrade() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConquestEventExcel) LocalizeTreasureBox() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+func (rcv *ConquestEventExcel) EvnetScenarioBg() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -290,7 +130,7 @@ func (rcv *ConquestEventExcel) LocalizeTreasureBox() []byte {
 }
 
 func (rcv *ConquestEventExcel) IndividualErosionDailyCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -298,89 +138,249 @@ func (rcv *ConquestEventExcel) IndividualErosionDailyCount() int64 {
 }
 
 func (rcv *ConquestEventExcel) MutateIndividualErosionDailyCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(54, n)
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *ConquestEventExcel) LocalizeErosions() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeManage() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeMapInfo() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeStep() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeTile() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeTreasureBox() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeUnexpected() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) LocalizeUpgrade() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConquestEventExcel) MainStoryEventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateMainStoryEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
+func (rcv *ConquestEventExcel) ManageUnitChange() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateManageUnitChange(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
+}
+
+func (rcv *ConquestEventExcel) MapEnterScenarioGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutateMapEnterScenarioGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(44, n)
+}
+
+func (rcv *ConquestEventExcel) PlayTimeLimitInSeconds() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestEventExcel) MutatePlayTimeLimitInSeconds(n int32) bool {
+	return rcv._tab.MutateInt32Slot(46, n)
+}
+
+func (rcv *ConquestEventExcel) UseCalculate() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestEventExcel) MutateUseCalculate(n bool) bool {
+	return rcv._tab.MutateBoolSlot(48, n)
+}
+
+func (rcv *ConquestEventExcel) UseConquestObject() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestEventExcel) MutateUseConquestObject(n bool) bool {
+	return rcv._tab.MutateBoolSlot(50, n)
+}
+
+func (rcv *ConquestEventExcel) UseErosion() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestEventExcel) MutateUseErosion(n bool) bool {
+	return rcv._tab.MutateBoolSlot(52, n)
+}
+
+func (rcv *ConquestEventExcel) UseUnexpectedEvent() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConquestEventExcel) MutateUseUnexpectedEvent(n bool) bool {
+	return rcv._tab.MutateBoolSlot(54, n)
 }
 
 func ConquestEventExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(26)
 }
-func ConquestEventExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func ConquestEventExcelAddMainStoryEventContentId(builder *flatbuffers.Builder, mainStoryEventContentId int64) {
-	builder.PrependInt64Slot(1, mainStoryEventContentId, 0)
-}
-func ConquestEventExcelAddConquestEventType(builder *flatbuffers.Builder, conquestEventType ConquestEventType) {
-	builder.PrependInt32Slot(2, int32(conquestEventType), 0)
-}
-func ConquestEventExcelAddUseErosion(builder *flatbuffers.Builder, useErosion bool) {
-	builder.PrependBoolSlot(3, useErosion, false)
-}
-func ConquestEventExcelAddUseUnexpectedEvent(builder *flatbuffers.Builder, useUnexpectedEvent bool) {
-	builder.PrependBoolSlot(4, useUnexpectedEvent, false)
-}
-func ConquestEventExcelAddUseCalculate(builder *flatbuffers.Builder, useCalculate bool) {
-	builder.PrependBoolSlot(5, useCalculate, false)
-}
-func ConquestEventExcelAddUseConquestObject(builder *flatbuffers.Builder, useConquestObject bool) {
-	builder.PrependBoolSlot(6, useConquestObject, false)
-}
-func ConquestEventExcelAddEvnetMapGoalLocalize(builder *flatbuffers.Builder, evnetMapGoalLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(evnetMapGoalLocalize), 0)
-}
-func ConquestEventExcelAddEvnetMapNameLocalize(builder *flatbuffers.Builder, evnetMapNameLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(evnetMapNameLocalize), 0)
-}
-func ConquestEventExcelAddMapEnterScenarioGroupId(builder *flatbuffers.Builder, mapEnterScenarioGroupId int64) {
-	builder.PrependInt64Slot(9, mapEnterScenarioGroupId, 0)
-}
-func ConquestEventExcelAddEvnetScenarioBg(builder *flatbuffers.Builder, evnetScenarioBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(evnetScenarioBg), 0)
-}
-func ConquestEventExcelAddManageUnitChange(builder *flatbuffers.Builder, manageUnitChange int32) {
-	builder.PrependInt32Slot(11, manageUnitChange, 0)
-}
-func ConquestEventExcelAddAssistCount(builder *flatbuffers.Builder, assistCount int32) {
-	builder.PrependInt32Slot(12, assistCount, 0)
-}
-func ConquestEventExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int32) {
-	builder.PrependInt32Slot(13, playTimeLimitInSeconds, 0)
+func ConquestEventExcelAddAnimationUnitAmountMax(builder *flatbuffers.Builder, animationUnitAmountMax int32) {
+	builder.PrependInt32Slot(0, animationUnitAmountMax, 0)
 }
 func ConquestEventExcelAddAnimationUnitAmountMin(builder *flatbuffers.Builder, animationUnitAmountMin int32) {
-	builder.PrependInt32Slot(14, animationUnitAmountMin, 0)
-}
-func ConquestEventExcelAddAnimationUnitAmountMax(builder *flatbuffers.Builder, animationUnitAmountMax int32) {
-	builder.PrependInt32Slot(15, animationUnitAmountMax, 0)
+	builder.PrependInt32Slot(1, animationUnitAmountMin, 0)
 }
 func ConquestEventExcelAddAnimationUnitDelay(builder *flatbuffers.Builder, animationUnitDelay float32) {
-	builder.PrependFloat32Slot(16, animationUnitDelay, 0.0)
+	builder.PrependFloat32Slot(2, animationUnitDelay, 0.0)
 }
-func ConquestEventExcelAddLocalizeUnexpected(builder *flatbuffers.Builder, localizeUnexpected flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(localizeUnexpected), 0)
+func ConquestEventExcelAddAssistCount(builder *flatbuffers.Builder, assistCount int32) {
+	builder.PrependInt32Slot(3, assistCount, 0)
 }
-func ConquestEventExcelAddLocalizeErosions(builder *flatbuffers.Builder, localizeErosions flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(localizeErosions), 0)
+func ConquestEventExcelAddConquestEventType(builder *flatbuffers.Builder, conquestEventType ConquestEventType) {
+	builder.PrependInt32Slot(4, int32(conquestEventType), 0)
 }
-func ConquestEventExcelAddLocalizeStep(builder *flatbuffers.Builder, localizeStep flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(localizeStep), 0)
+func ConquestEventExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(5, eventContentId, 0)
 }
-func ConquestEventExcelAddLocalizeTile(builder *flatbuffers.Builder, localizeTile flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(localizeTile), 0)
+func ConquestEventExcelAddEvnetMapGoalLocalize(builder *flatbuffers.Builder, evnetMapGoalLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(evnetMapGoalLocalize), 0)
 }
-func ConquestEventExcelAddLocalizeMapInfo(builder *flatbuffers.Builder, localizeMapInfo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(localizeMapInfo), 0)
+func ConquestEventExcelAddEvnetMapNameLocalize(builder *flatbuffers.Builder, evnetMapNameLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(evnetMapNameLocalize), 0)
 }
-func ConquestEventExcelAddLocalizeManage(builder *flatbuffers.Builder, localizeManage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(localizeManage), 0)
-}
-func ConquestEventExcelAddLocalizeUpgrade(builder *flatbuffers.Builder, localizeUpgrade flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(localizeUpgrade), 0)
-}
-func ConquestEventExcelAddLocalizeTreasureBox(builder *flatbuffers.Builder, localizeTreasureBox flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(localizeTreasureBox), 0)
+func ConquestEventExcelAddEvnetScenarioBg(builder *flatbuffers.Builder, evnetScenarioBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(evnetScenarioBg), 0)
 }
 func ConquestEventExcelAddIndividualErosionDailyCount(builder *flatbuffers.Builder, individualErosionDailyCount int64) {
-	builder.PrependInt64Slot(25, individualErosionDailyCount, 0)
+	builder.PrependInt64Slot(9, individualErosionDailyCount, 0)
+}
+func ConquestEventExcelAddLocalizeErosions(builder *flatbuffers.Builder, localizeErosions flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(localizeErosions), 0)
+}
+func ConquestEventExcelAddLocalizeManage(builder *flatbuffers.Builder, localizeManage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(localizeManage), 0)
+}
+func ConquestEventExcelAddLocalizeMapInfo(builder *flatbuffers.Builder, localizeMapInfo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(localizeMapInfo), 0)
+}
+func ConquestEventExcelAddLocalizeStep(builder *flatbuffers.Builder, localizeStep flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(localizeStep), 0)
+}
+func ConquestEventExcelAddLocalizeTile(builder *flatbuffers.Builder, localizeTile flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(localizeTile), 0)
+}
+func ConquestEventExcelAddLocalizeTreasureBox(builder *flatbuffers.Builder, localizeTreasureBox flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(localizeTreasureBox), 0)
+}
+func ConquestEventExcelAddLocalizeUnexpected(builder *flatbuffers.Builder, localizeUnexpected flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(localizeUnexpected), 0)
+}
+func ConquestEventExcelAddLocalizeUpgrade(builder *flatbuffers.Builder, localizeUpgrade flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(localizeUpgrade), 0)
+}
+func ConquestEventExcelAddMainStoryEventContentId(builder *flatbuffers.Builder, mainStoryEventContentId int64) {
+	builder.PrependInt64Slot(18, mainStoryEventContentId, 0)
+}
+func ConquestEventExcelAddManageUnitChange(builder *flatbuffers.Builder, manageUnitChange int32) {
+	builder.PrependInt32Slot(19, manageUnitChange, 0)
+}
+func ConquestEventExcelAddMapEnterScenarioGroupId(builder *flatbuffers.Builder, mapEnterScenarioGroupId int64) {
+	builder.PrependInt64Slot(20, mapEnterScenarioGroupId, 0)
+}
+func ConquestEventExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, playTimeLimitInSeconds int32) {
+	builder.PrependInt32Slot(21, playTimeLimitInSeconds, 0)
+}
+func ConquestEventExcelAddUseCalculate(builder *flatbuffers.Builder, useCalculate bool) {
+	builder.PrependBoolSlot(22, useCalculate, false)
+}
+func ConquestEventExcelAddUseConquestObject(builder *flatbuffers.Builder, useConquestObject bool) {
+	builder.PrependBoolSlot(23, useConquestObject, false)
+}
+func ConquestEventExcelAddUseErosion(builder *flatbuffers.Builder, useErosion bool) {
+	builder.PrependBoolSlot(24, useErosion, false)
+}
+func ConquestEventExcelAddUseUnexpectedEvent(builder *flatbuffers.Builder, useUnexpectedEvent bool) {
+	builder.PrependBoolSlot(25, useUnexpectedEvent, false)
 }
 func ConquestEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

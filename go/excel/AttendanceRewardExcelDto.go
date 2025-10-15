@@ -12,10 +12,10 @@ type AttendanceRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	AttendanceId     int64        `json:"attendance_id"`
 	Day              int64        `json:"day"`
-	RewardIcon       string       `json:"reward_icon"`
-	RewardParcelType []ParcelType `json:"reward_parcel_type"`
-	RewardId         []int64      `json:"reward_id"`
 	RewardAmount     []int64      `json:"reward_amount"`
+	RewardIcon       string       `json:"reward_icon"`
+	RewardId         []int64      `json:"reward_id"`
+	RewardParcelType []ParcelType `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,22 +23,22 @@ func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	AttendanceRewardExcelStart(b)
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
-	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
-	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	AttendanceRewardExcelStartRewardIdVector(b, len(t.RewardId))
-	for i := range len(t.RewardId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
-	}
-	AttendanceRewardExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
 	AttendanceRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
 	for i := range len(t.RewardAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	AttendanceRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
+	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	AttendanceRewardExcelStartRewardIdVector(b, len(t.RewardId))
+	for i := range len(t.RewardId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
+	}
+	AttendanceRewardExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
+	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	return AttendanceRewardExcelEnd(b)
 }
 
@@ -53,18 +53,18 @@ func (t *AttendanceRewardExcelDto) Marshal() ([]byte, error) {
 func (t *AttendanceRewardExcelDto) UnmarshalMessage(e *AttendanceRewardExcel) error {
 	t.AttendanceId = fbsutils.Convert(e.AttendanceId(), t.FlatBuffer.TableKey)
 	t.Day = fbsutils.Convert(e.Day(), t.FlatBuffer.TableKey)
-	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.RewardAmount = make([]int64, e.RewardAmountLength())
+	for i := range e.RewardAmountLength() {
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
 		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardAmount = make([]int64, e.RewardAmountLength())
-	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

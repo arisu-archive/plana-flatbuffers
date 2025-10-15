@@ -10,55 +10,55 @@ import (
 // CharacterDialogBattlePassExcelDto represents a FlatBuffers table
 type CharacterDialogBattlePassExcelDto struct {
 	fbsutils.FlatBuffer
-	CostumeUniqueId            int64                 `json:"costume_unique_id"`
-	OriginalCharacterId        int64                 `json:"original_character_id"`
-	DisplayOrder               int64                 `json:"display_order"`
+	AnimationName              string                `json:"animation_name"`
 	BattlePassId               int64                 `json:"battle_pass_id"`
-	ProductionStep             ProductionStep        `json:"production_step"`
+	CollectionVisible          bool                  `json:"collection_visible"`
+	CostumeUniqueId            int64                 `json:"costume_unique_id"`
+	CvCollectionType           CVCollectionType      `json:"cv_collection_type"`
 	DialogCategory             DialogCategory        `json:"dialog_category"`
 	DialogCondition            DialogCondition       `json:"dialog_condition"`
 	DialogConditionDetail      DialogConditionDetail `json:"dialog_condition_detail"`
 	DialogConditionDetailValue int64                 `json:"dialog_condition_detail_value"`
-	GroupId                    int64                 `json:"group_id"`
 	DialogType                 DialogType            `json:"dialog_type"`
+	DisplayOrder               int64                 `json:"display_order"`
 	Duration                   int64                 `json:"duration"`
-	AnimationName              string                `json:"animation_name"`
-	LocalizeKr                 string                `json:"localize_kr"`
-	LocalizeJp                 string                `json:"localize_jp"`
-	VoiceId                    []uint32              `json:"voice_id"`
-	CollectionVisible          bool                  `json:"collection_visible"`
-	CvCollectionType           CVCollectionType      `json:"cv_collection_type"`
-	UnlockBattlePassId         int64                 `json:"unlock_battle_pass_id"`
+	GroupId                    int64                 `json:"group_id"`
 	LocalizeCvGroup            string                `json:"localize_cv_group"`
+	LocalizeJp                 string                `json:"localize_jp"`
+	LocalizeKr                 string                `json:"localize_kr"`
+	OriginalCharacterId        int64                 `json:"original_character_id"`
+	ProductionStep             ProductionStep        `json:"production_step"`
+	UnlockBattlePassId         int64                 `json:"unlock_battle_pass_id"`
+	VoiceId                    []uint32              `json:"voice_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogBattlePassExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterDialogBattlePassExcelStart(b)
-	CharacterDialogBattlePassExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddOriginalCharacterId(b, fbsutils.Convert(t.OriginalCharacterId, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
 	CharacterDialogBattlePassExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddCollectionVisible(b, t.CollectionVisible)
+	CharacterDialogBattlePassExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDialogCondition(b, fbsutils.Convert(t.DialogCondition, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDialogConditionDetail(b, fbsutils.Convert(t.DialogConditionDetail, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDialogConditionDetailValue(b, fbsutils.Convert(t.DialogConditionDetailValue, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
-	CharacterDialogBattlePassExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterDialogBattlePassExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterDialogBattlePassExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogBattlePassExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterDialogBattlePassExcelAddOriginalCharacterId(b, fbsutils.Convert(t.OriginalCharacterId, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	CharacterDialogBattlePassExcelAddUnlockBattlePassId(b, fbsutils.Convert(t.UnlockBattlePassId, t.FlatBuffer.TableKey))
 	CharacterDialogBattlePassExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterDialogBattlePassExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	CharacterDialogBattlePassExcelAddCollectionVisible(b, t.CollectionVisible)
-	CharacterDialogBattlePassExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddUnlockBattlePassId(b, fbsutils.Convert(t.UnlockBattlePassId, t.FlatBuffer.TableKey))
-	CharacterDialogBattlePassExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	return CharacterDialogBattlePassExcelEnd(b)
 }
 
@@ -71,29 +71,29 @@ func (t *CharacterDialogBattlePassExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogBattlePassExcelDto) UnmarshalMessage(e *CharacterDialogBattlePassExcel) error {
-	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
-	t.OriginalCharacterId = fbsutils.Convert(e.OriginalCharacterId(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.BattlePassId = fbsutils.Convert(e.BattlePassId(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.CollectionVisible = e.CollectionVisible()
+	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
+	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
 	t.DialogCategory = DialogCategory(fbsutils.Convert(int32(e.DialogCategory()), t.FlatBuffer.TableKey))
 	t.DialogCondition = DialogCondition(fbsutils.Convert(int32(e.DialogCondition()), t.FlatBuffer.TableKey))
 	t.DialogConditionDetail = DialogConditionDetail(fbsutils.Convert(int32(e.DialogConditionDetail()), t.FlatBuffer.TableKey))
 	t.DialogConditionDetailValue = fbsutils.Convert(e.DialogConditionDetailValue(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.DialogType = DialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.OriginalCharacterId = fbsutils.Convert(e.OriginalCharacterId(), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.UnlockBattlePassId = fbsutils.Convert(e.UnlockBattlePassId(), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
-	t.CollectionVisible = e.CollectionVisible()
-	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
-	t.UnlockBattlePassId = fbsutils.Convert(e.UnlockBattlePassId(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	return nil
 }
 

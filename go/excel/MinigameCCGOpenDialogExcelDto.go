@@ -10,22 +10,22 @@ import (
 // MinigameCCGOpenDialogExcelDto represents a FlatBuffers table
 type MinigameCCGOpenDialogExcelDto struct {
 	fbsutils.FlatBuffer
-	DialogId      int64  `json:"dialog_id"`
-	PlayOrder     int32  `json:"play_order"`
 	ConditionCard int64  `json:"condition_card"`
 	Dialog        uint32 `json:"dialog"`
+	DialogId      int64  `json:"dialog_id"`
 	Duration      int64  `json:"duration"`
+	PlayOrder     int32  `json:"play_order"`
 	Voice         uint32 `json:"voice"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGOpenDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MinigameCCGOpenDialogExcelStart(b)
-	MinigameCCGOpenDialogExcelAddDialogId(b, fbsutils.Convert(t.DialogId, t.FlatBuffer.TableKey))
-	MinigameCCGOpenDialogExcelAddPlayOrder(b, fbsutils.Convert(t.PlayOrder, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddConditionCard(b, fbsutils.Convert(t.ConditionCard, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddDialog(b, fbsutils.Convert(t.Dialog, t.FlatBuffer.TableKey))
+	MinigameCCGOpenDialogExcelAddDialogId(b, fbsutils.Convert(t.DialogId, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	MinigameCCGOpenDialogExcelAddPlayOrder(b, fbsutils.Convert(t.PlayOrder, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddVoice(b, fbsutils.Convert(t.Voice, t.FlatBuffer.TableKey))
 	return MinigameCCGOpenDialogExcelEnd(b)
 }
@@ -39,11 +39,11 @@ func (t *MinigameCCGOpenDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameCCGOpenDialogExcelDto) UnmarshalMessage(e *MinigameCCGOpenDialogExcel) error {
-	t.DialogId = fbsutils.Convert(e.DialogId(), t.FlatBuffer.TableKey)
-	t.PlayOrder = fbsutils.Convert(e.PlayOrder(), t.FlatBuffer.TableKey)
 	t.ConditionCard = fbsutils.Convert(e.ConditionCard(), t.FlatBuffer.TableKey)
 	t.Dialog = fbsutils.Convert(e.Dialog(), t.FlatBuffer.TableKey)
+	t.DialogId = fbsutils.Convert(e.DialogId(), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.PlayOrder = fbsutils.Convert(e.PlayOrder(), t.FlatBuffer.TableKey)
 	t.Voice = fbsutils.Convert(e.Voice(), t.FlatBuffer.TableKey)
 	return nil
 }

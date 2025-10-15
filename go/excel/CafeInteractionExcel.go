@@ -33,74 +33,8 @@ func (rcv *CafeInteractionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CafeInteractionExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CafeInteractionExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *CafeInteractionExcel) IgnoreIfUnobtained() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CafeInteractionExcel) MutateIgnoreIfUnobtained(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
-func (rcv *CafeInteractionExcel) IgnoreIfUnobtainedStartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CafeInteractionExcel) IgnoreIfUnobtainedEndDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CafeInteractionExcel) BubbleType(j int) BubbleType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return BubbleType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CafeInteractionExcel) BubbleTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CafeInteractionExcel) MutateBubbleType(j int, n BubbleType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
 func (rcv *CafeInteractionExcel) BubbleDuration(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -109,7 +43,7 @@ func (rcv *CafeInteractionExcel) BubbleDuration(j int) int64 {
 }
 
 func (rcv *CafeInteractionExcel) BubbleDurationLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -117,12 +51,91 @@ func (rcv *CafeInteractionExcel) BubbleDurationLength() int {
 }
 
 func (rcv *CafeInteractionExcel) MutateBubbleDuration(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
+}
+
+func (rcv *CafeInteractionExcel) BubbleType(j int) BubbleType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return BubbleType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) BubbleTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) MutateBubbleType(j int, n BubbleType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CafeInteractionExcel) CafeCharacterState(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *CafeInteractionExcel) CafeCharacterStateLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) CharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *CafeInteractionExcel) FavorEmoticonRewardAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) MutateFavorEmoticonRewardAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *CafeInteractionExcel) FavorEmoticonRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeInteractionExcel) MutateFavorEmoticonRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *CafeInteractionExcel) FavorEmoticonRewardParcelType() ParcelType {
@@ -137,88 +150,75 @@ func (rcv *CafeInteractionExcel) MutateFavorEmoticonRewardParcelType(n ParcelTyp
 	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *CafeInteractionExcel) FavorEmoticonRewardId() int64 {
+func (rcv *CafeInteractionExcel) IgnoreIfUnobtained() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CafeInteractionExcel) MutateFavorEmoticonRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *CafeInteractionExcel) MutateIgnoreIfUnobtained(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
-func (rcv *CafeInteractionExcel) FavorEmoticonRewardAmount() int64 {
+func (rcv *CafeInteractionExcel) IgnoreIfUnobtainedEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CafeInteractionExcel) MutateFavorEmoticonRewardAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *CafeInteractionExcel) CafeCharacterState(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *CafeInteractionExcel) CafeCharacterStateLength() int {
+func (rcv *CafeInteractionExcel) IgnoreIfUnobtainedStartDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
 func CafeInteractionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func CafeInteractionExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(0, characterId, 0)
-}
-func CafeInteractionExcelAddIgnoreIfUnobtained(builder *flatbuffers.Builder, ignoreIfUnobtained bool) {
-	builder.PrependBoolSlot(1, ignoreIfUnobtained, false)
-}
-func CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder *flatbuffers.Builder, ignoreIfUnobtainedStartDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(ignoreIfUnobtainedStartDate), 0)
-}
-func CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder *flatbuffers.Builder, ignoreIfUnobtainedEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(ignoreIfUnobtainedEndDate), 0)
-}
-func CafeInteractionExcelAddBubbleType(builder *flatbuffers.Builder, bubbleType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(bubbleType), 0)
-}
-func CafeInteractionExcelStartBubbleTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func CafeInteractionExcelAddBubbleDuration(builder *flatbuffers.Builder, bubbleDuration flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bubbleDuration), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(bubbleDuration), 0)
 }
 func CafeInteractionExcelStartBubbleDurationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder *flatbuffers.Builder, favorEmoticonRewardParcelType ParcelType) {
-	builder.PrependInt32Slot(6, int32(favorEmoticonRewardParcelType), 0)
+func CafeInteractionExcelAddBubbleType(builder *flatbuffers.Builder, bubbleType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(bubbleType), 0)
 }
-func CafeInteractionExcelAddFavorEmoticonRewardId(builder *flatbuffers.Builder, favorEmoticonRewardId int64) {
-	builder.PrependInt64Slot(7, favorEmoticonRewardId, 0)
-}
-func CafeInteractionExcelAddFavorEmoticonRewardAmount(builder *flatbuffers.Builder, favorEmoticonRewardAmount int64) {
-	builder.PrependInt64Slot(8, favorEmoticonRewardAmount, 0)
+func CafeInteractionExcelStartBubbleTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func CafeInteractionExcelAddCafeCharacterState(builder *flatbuffers.Builder, cafeCharacterState flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(cafeCharacterState), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(cafeCharacterState), 0)
 }
 func CafeInteractionExcelStartCafeCharacterStateVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func CafeInteractionExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(3, characterId, 0)
+}
+func CafeInteractionExcelAddFavorEmoticonRewardAmount(builder *flatbuffers.Builder, favorEmoticonRewardAmount int64) {
+	builder.PrependInt64Slot(4, favorEmoticonRewardAmount, 0)
+}
+func CafeInteractionExcelAddFavorEmoticonRewardId(builder *flatbuffers.Builder, favorEmoticonRewardId int64) {
+	builder.PrependInt64Slot(5, favorEmoticonRewardId, 0)
+}
+func CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder *flatbuffers.Builder, favorEmoticonRewardParcelType ParcelType) {
+	builder.PrependInt32Slot(6, int32(favorEmoticonRewardParcelType), 0)
+}
+func CafeInteractionExcelAddIgnoreIfUnobtained(builder *flatbuffers.Builder, ignoreIfUnobtained bool) {
+	builder.PrependBoolSlot(7, ignoreIfUnobtained, false)
+}
+func CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder *flatbuffers.Builder, ignoreIfUnobtainedEndDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(ignoreIfUnobtainedEndDate), 0)
+}
+func CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder *flatbuffers.Builder, ignoreIfUnobtainedStartDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(ignoreIfUnobtainedStartDate), 0)
 }
 func CafeInteractionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -45,8 +45,20 @@ func (rcv *ConquestGroupBuffExcel) MutateConquestBuffId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ConquestGroupBuffExcel) School(j int) School {
+func (rcv *ConquestGroupBuffExcel) RecommandLocalizeEtcId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConquestGroupBuffExcel) MutateRecommandLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *ConquestGroupBuffExcel) School(j int) School {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return School(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -55,7 +67,7 @@ func (rcv *ConquestGroupBuffExcel) School(j int) School {
 }
 
 func (rcv *ConquestGroupBuffExcel) SchoolLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,24 +75,12 @@ func (rcv *ConquestGroupBuffExcel) SchoolLength() int {
 }
 
 func (rcv *ConquestGroupBuffExcel) MutateSchool(j int, n School) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
-}
-
-func (rcv *ConquestGroupBuffExcel) RecommandLocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConquestGroupBuffExcel) MutateRecommandLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *ConquestGroupBuffExcel) SkillGroupId() []byte {
@@ -97,14 +97,14 @@ func ConquestGroupBuffExcelStart(builder *flatbuffers.Builder) {
 func ConquestGroupBuffExcelAddConquestBuffId(builder *flatbuffers.Builder, conquestBuffId int64) {
 	builder.PrependInt64Slot(0, conquestBuffId, 0)
 }
+func ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder *flatbuffers.Builder, recommandLocalizeEtcId uint32) {
+	builder.PrependUint32Slot(1, recommandLocalizeEtcId, 0)
+}
 func ConquestGroupBuffExcelAddSchool(builder *flatbuffers.Builder, school flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(school), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(school), 0)
 }
 func ConquestGroupBuffExcelStartSchoolVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder *flatbuffers.Builder, recommandLocalizeEtcId uint32) {
-	builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
 }
 func ConquestGroupBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(skillGroupId), 0)

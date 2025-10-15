@@ -4,17 +4,17 @@ include "School.fbs";
 namespace MX.Data.Excel;
 
 table ConquestGroupBonusExcel {
-    conquest_bonus_id: long;
-    school: [School];
-    recommand_localize_etc_id: uint;
-    bonus_parcel_type: [ParcelType];
-    bonus_id: [long];
     bonus_character_count1: [int];
-    bonus_percentage1: [long];
     bonus_character_count2: [int];
-    bonus_percentage2: [long];
     bonus_character_count3: [int];
+    bonus_id: [long];
+    bonus_parcel_type: [ParcelType];
+    bonus_percentage1: [long];
+    bonus_percentage2: [long];
     bonus_percentage3: [long];
+    conquest_bonus_id: long;
+    recommand_localize_etc_id: uint;
+    school: [School];
 }
 
 root_type ConquestGroupBonusExcel;

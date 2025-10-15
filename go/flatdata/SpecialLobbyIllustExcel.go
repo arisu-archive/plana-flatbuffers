@@ -33,7 +33,7 @@ func (rcv *SpecialLobbyIllustExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *SpecialLobbyIllustExcel) UniqueId() int64 {
+func (rcv *SpecialLobbyIllustExcel) CharacterCostumeUniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *SpecialLobbyIllustExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *SpecialLobbyIllustExcel) MutateUniqueId(n int64) bool {
+func (rcv *SpecialLobbyIllustExcel) MutateCharacterCostumeUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -53,19 +53,15 @@ func (rcv *SpecialLobbyIllustExcel) DevName() []byte {
 	return nil
 }
 
-func (rcv *SpecialLobbyIllustExcel) CharacterCostumeUniqueId() int64 {
+func (rcv *SpecialLobbyIllustExcel) PrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *SpecialLobbyIllustExcel) MutateCharacterCostumeUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *SpecialLobbyIllustExcel) PrefabName() []byte {
+func (rcv *SpecialLobbyIllustExcel) RewardTextureName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,34 +77,38 @@ func (rcv *SpecialLobbyIllustExcel) SlotTextureName() []byte {
 	return nil
 }
 
-func (rcv *SpecialLobbyIllustExcel) RewardTextureName() []byte {
+func (rcv *SpecialLobbyIllustExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *SpecialLobbyIllustExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func SpecialLobbyIllustExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func SpecialLobbyIllustExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder *flatbuffers.Builder, characterCostumeUniqueId int64) {
+	builder.PrependInt64Slot(0, characterCostumeUniqueId, 0)
 }
 func SpecialLobbyIllustExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(devName), 0)
 }
-func SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder *flatbuffers.Builder, characterCostumeUniqueId int64) {
-	builder.PrependInt64Slot(2, characterCostumeUniqueId, 0)
-}
 func SpecialLobbyIllustExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(prefabName), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabName), 0)
+}
+func SpecialLobbyIllustExcelAddRewardTextureName(builder *flatbuffers.Builder, rewardTextureName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardTextureName), 0)
 }
 func SpecialLobbyIllustExcelAddSlotTextureName(builder *flatbuffers.Builder, slotTextureName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(slotTextureName), 0)
 }
-func SpecialLobbyIllustExcelAddRewardTextureName(builder *flatbuffers.Builder, rewardTextureName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardTextureName), 0)
+func SpecialLobbyIllustExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(5, uniqueId, 0)
 }
 func SpecialLobbyIllustExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

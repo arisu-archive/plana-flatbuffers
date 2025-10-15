@@ -33,7 +33,7 @@ func (rcv *FieldMasteryExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldMasteryExcel) UniqueId() int64 {
+func (rcv *FieldMasteryExcel) AccomplishmentConditionId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,36 +41,24 @@ func (rcv *FieldMasteryExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *FieldMasteryExcel) MutateUniqueId(n int64) bool {
+func (rcv *FieldMasteryExcel) MutateAccomplishmentConditionId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FieldMasteryExcel) SeasonId() int64 {
+func (rcv *FieldMasteryExcel) AccomplishmentConditionType() FieldConditionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return FieldConditionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *FieldMasteryExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *FieldMasteryExcel) Order() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldMasteryExcel) MutateOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *FieldMasteryExcel) MutateAccomplishmentConditionType(n FieldConditionType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *FieldMasteryExcel) ExpAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -78,19 +66,31 @@ func (rcv *FieldMasteryExcel) ExpAmount() int64 {
 }
 
 func (rcv *FieldMasteryExcel) MutateExpAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *FieldMasteryExcel) TokenType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+func (rcv *FieldMasteryExcel) Order() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FieldMasteryExcel) MutateTokenType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+func (rcv *FieldMasteryExcel) MutateOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *FieldMasteryExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldMasteryExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *FieldMasteryExcel) TokenId() int64 {
@@ -117,19 +117,19 @@ func (rcv *FieldMasteryExcel) MutateTokenRequirement(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *FieldMasteryExcel) AccomplishmentConditionType() FieldConditionType {
+func (rcv *FieldMasteryExcel) TokenType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return FieldConditionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *FieldMasteryExcel) MutateAccomplishmentConditionType(n FieldConditionType) bool {
+func (rcv *FieldMasteryExcel) MutateTokenType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
-func (rcv *FieldMasteryExcel) AccomplishmentConditionId() int64 {
+func (rcv *FieldMasteryExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -137,27 +137,27 @@ func (rcv *FieldMasteryExcel) AccomplishmentConditionId() int64 {
 	return 0
 }
 
-func (rcv *FieldMasteryExcel) MutateAccomplishmentConditionId(n int64) bool {
+func (rcv *FieldMasteryExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func FieldMasteryExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func FieldMasteryExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func FieldMasteryExcelAddAccomplishmentConditionId(builder *flatbuffers.Builder, accomplishmentConditionId int64) {
+	builder.PrependInt64Slot(0, accomplishmentConditionId, 0)
 }
-func FieldMasteryExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
-}
-func FieldMasteryExcelAddOrder(builder *flatbuffers.Builder, order int32) {
-	builder.PrependInt32Slot(2, order, 0)
+func FieldMasteryExcelAddAccomplishmentConditionType(builder *flatbuffers.Builder, accomplishmentConditionType FieldConditionType) {
+	builder.PrependInt32Slot(1, int32(accomplishmentConditionType), 0)
 }
 func FieldMasteryExcelAddExpAmount(builder *flatbuffers.Builder, expAmount int64) {
-	builder.PrependInt64Slot(3, expAmount, 0)
+	builder.PrependInt64Slot(2, expAmount, 0)
 }
-func FieldMasteryExcelAddTokenType(builder *flatbuffers.Builder, tokenType ParcelType) {
-	builder.PrependInt32Slot(4, int32(tokenType), 0)
+func FieldMasteryExcelAddOrder(builder *flatbuffers.Builder, order int32) {
+	builder.PrependInt32Slot(3, order, 0)
+}
+func FieldMasteryExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(4, seasonId, 0)
 }
 func FieldMasteryExcelAddTokenId(builder *flatbuffers.Builder, tokenId int64) {
 	builder.PrependInt64Slot(5, tokenId, 0)
@@ -165,11 +165,11 @@ func FieldMasteryExcelAddTokenId(builder *flatbuffers.Builder, tokenId int64) {
 func FieldMasteryExcelAddTokenRequirement(builder *flatbuffers.Builder, tokenRequirement int64) {
 	builder.PrependInt64Slot(6, tokenRequirement, 0)
 }
-func FieldMasteryExcelAddAccomplishmentConditionType(builder *flatbuffers.Builder, accomplishmentConditionType FieldConditionType) {
-	builder.PrependInt32Slot(7, int32(accomplishmentConditionType), 0)
+func FieldMasteryExcelAddTokenType(builder *flatbuffers.Builder, tokenType ParcelType) {
+	builder.PrependInt32Slot(7, int32(tokenType), 0)
 }
-func FieldMasteryExcelAddAccomplishmentConditionId(builder *flatbuffers.Builder, accomplishmentConditionId int64) {
-	builder.PrependInt64Slot(8, accomplishmentConditionId, 0)
+func FieldMasteryExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(8, uniqueId, 0)
 }
 func FieldMasteryExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -3,13 +3,13 @@ include "GroundNodeFlat.fbs";
 namespace FlatData;
 
 table GroundGridFlat {
-    x: int;
-    y: int;
-    start_x: float;
-    start_y: float;
     gap: float;
     nodes: [GroundNodeFlat];
+    start_x: float;
+    start_y: float;
     version: string;
+    x: int;
+    y: int;
 }
 
 root_type GroundGridFlat;

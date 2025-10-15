@@ -10,21 +10,21 @@ import (
 // ArenaSeasonExcelDto represents a FlatBuffers table
 type ArenaSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId         int64  `json:"unique_id"`
-	SeasonStartDate  string `json:"season_start_date"`
+	PrevSeasonId     int64  `json:"prev_season_id"`
 	SeasonEndDate    string `json:"season_end_date"`
 	SeasonGroupLimit int64  `json:"season_group_limit"`
-	PrevSeasonId     int64  `json:"prev_season_id"`
+	SeasonStartDate  string `json:"season_start_date"`
+	UniqueId         int64  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ArenaSeasonExcelStart(b)
-	ArenaSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	ArenaSeasonExcelAddSeasonStartDate(b, b.CreateString(fbsutils.Convert(t.SeasonStartDate, t.FlatBuffer.TableKey)))
+	ArenaSeasonExcelAddPrevSeasonId(b, fbsutils.Convert(t.PrevSeasonId, t.FlatBuffer.TableKey))
 	ArenaSeasonExcelAddSeasonEndDate(b, b.CreateString(fbsutils.Convert(t.SeasonEndDate, t.FlatBuffer.TableKey)))
 	ArenaSeasonExcelAddSeasonGroupLimit(b, fbsutils.Convert(t.SeasonGroupLimit, t.FlatBuffer.TableKey))
-	ArenaSeasonExcelAddPrevSeasonId(b, fbsutils.Convert(t.PrevSeasonId, t.FlatBuffer.TableKey))
+	ArenaSeasonExcelAddSeasonStartDate(b, b.CreateString(fbsutils.Convert(t.SeasonStartDate, t.FlatBuffer.TableKey)))
+	ArenaSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return ArenaSeasonExcelEnd(b)
 }
 
@@ -37,11 +37,11 @@ func (t *ArenaSeasonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaSeasonExcelDto) UnmarshalMessage(e *ArenaSeasonExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SeasonStartDate = fbsutils.Convert(string(e.SeasonStartDate()), t.FlatBuffer.TableKey)
+	t.PrevSeasonId = fbsutils.Convert(e.PrevSeasonId(), t.FlatBuffer.TableKey)
 	t.SeasonEndDate = fbsutils.Convert(string(e.SeasonEndDate()), t.FlatBuffer.TableKey)
 	t.SeasonGroupLimit = fbsutils.Convert(e.SeasonGroupLimit(), t.FlatBuffer.TableKey)
-	t.PrevSeasonId = fbsutils.Convert(e.PrevSeasonId(), t.FlatBuffer.TableKey)
+	t.SeasonStartDate = fbsutils.Convert(string(e.SeasonStartDate()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 
