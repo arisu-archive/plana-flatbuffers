@@ -49,15 +49,26 @@ class ConstNewbieContentExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstNewbieContentExcelTableStart(builder): builder.StartObject(1)
+def ConstNewbieContentExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConstNewbieContentExcelTableStart(builder)
-def ConstNewbieContentExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConstNewbieContentExcelTableStart(builder)
+
+def ConstNewbieContentExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConstNewbieContentExcelTableAddDataList(builder, dataList)
-def ConstNewbieContentExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConstNewbieContentExcelTableAddDataList(builder, dataList)
+
+def ConstNewbieContentExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConstNewbieContentExcelTableStartDataListVector(builder, numElems)
-def ConstNewbieContentExcelTableEnd(builder): return builder.EndObject()
+
+def ConstNewbieContentExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstNewbieContentExcelTableEnd(builder)

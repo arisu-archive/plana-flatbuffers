@@ -23,11 +23,13 @@ func (t *GroundNodeFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
 	}
+	t.Position.InitKey(t.FlatBuffer.TableKey)
+	__offset_position := t.Position.MarshalModel(b)
 	GroundNodeFlatStart(b)
 	GroundNodeFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddIsCanNotUseSkill(b, t.IsCanNotUseSkill)
-	GroundNodeFlatAddPosition(b, t.Position.MarshalModel(b))
+	GroundNodeFlatAddPosition(b, __offset_position)
 	GroundNodeFlatAddNodeType(b, fbsutils.Convert(t.NodeType, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddOriginalNodeType(b, fbsutils.Convert(t.OriginalNodeType, t.FlatBuffer.TableKey))
 	return GroundNodeFlatEnd(b)

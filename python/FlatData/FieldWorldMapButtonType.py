@@ -2,9 +2,4 @@
 
 # namespace: FlatData
 
-class FieldWorldMapButtonType(object):
-    DefaultMode = 0
-    Normal = 1
-    Combat = 2
-    Combat_VeryHard = 3
-    UnderCover = 4
+# NOTE FieldWorldMapButtonType.py does not declare any structs or enums

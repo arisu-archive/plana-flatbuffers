@@ -49,15 +49,26 @@ class FieldMasteryExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldMasteryExcelTableStart(builder): builder.StartObject(1)
+def FieldMasteryExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return FieldMasteryExcelTableStart(builder)
-def FieldMasteryExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    FieldMasteryExcelTableStart(builder)
+
+def FieldMasteryExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return FieldMasteryExcelTableAddDataList(builder, dataList)
-def FieldMasteryExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldMasteryExcelTableAddDataList(builder, dataList)
+
+def FieldMasteryExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return FieldMasteryExcelTableStartDataListVector(builder, numElems)
-def FieldMasteryExcelTableEnd(builder): return builder.EndObject()
+
+def FieldMasteryExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldMasteryExcelTableEnd(builder)

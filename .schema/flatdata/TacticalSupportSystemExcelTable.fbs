@@ -1,9 +1,0 @@
-include "TacticalSupportSystemExcel.fbs";
-
-namespace FlatData;
-
-table TacticalSupportSystemExcelTable {
-    data_list: [TacticalSupportSystemExcel];
-}
-
-root_type TacticalSupportSystemExcelTable;

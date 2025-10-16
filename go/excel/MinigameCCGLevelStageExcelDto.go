@@ -29,6 +29,8 @@ type MinigameCCGLevelStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLevelStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_camp_spr_path := b.CreateString(fbsutils.Convert(t.CampSprPath, t.FlatBuffer.TableKey))
+	__offset_camp_background_path := b.CreateString(fbsutils.Convert(t.CampBackgroundPath, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelStart(b)
 	MinigameCCGLevelStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -39,8 +41,8 @@ func (t *MinigameCCGLevelStageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MinigameCCGLevelStageExcelAddEnemyGroupId(b, b.EndVector(len(t.EnemyGroupId)))
 	MinigameCCGLevelStageExcelAddStageType(b, fbsutils.Convert(t.StageType, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelAddCampDiscardCardCount(b, fbsutils.Convert(t.CampDiscardCardCount, t.FlatBuffer.TableKey))
-	MinigameCCGLevelStageExcelAddCampSprPath(b, b.CreateString(fbsutils.Convert(t.CampSprPath, t.FlatBuffer.TableKey)))
-	MinigameCCGLevelStageExcelAddCampBackgroundPath(b, b.CreateString(fbsutils.Convert(t.CampBackgroundPath, t.FlatBuffer.TableKey)))
+	MinigameCCGLevelStageExcelAddCampSprPath(b, __offset_camp_spr_path)
+	MinigameCCGLevelStageExcelAddCampBackgroundPath(b, __offset_camp_background_path)
 	MinigameCCGLevelStageExcelAddRewardType(b, fbsutils.Convert(t.RewardType, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelAddRewardCount(b, fbsutils.Convert(t.RewardCount, t.FlatBuffer.TableKey))
 	MinigameCCGLevelStageExcelAddRewardCardGroupId(b, fbsutils.Convert(t.RewardCardGroupId, t.FlatBuffer.TableKey))

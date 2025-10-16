@@ -25,18 +25,23 @@ type MemoryLobbyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MemoryLobbyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
+	__offset_slot_texture_name := b.CreateString(fbsutils.Convert(t.SlotTextureName, t.FlatBuffer.TableKey))
+	__offset_reward_texture_name := b.CreateString(fbsutils.Convert(t.RewardTextureName, t.FlatBuffer.TableKey))
+	__offset_audio_clip_jp := b.CreateString(fbsutils.Convert(t.AudioClipJp, t.FlatBuffer.TableKey))
+	__offset_audio_clip_kr := b.CreateString(fbsutils.Convert(t.AudioClipKr, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelStart(b)
 	MemoryLobbyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	MemoryLobbyExcelAddPrefabName(b, __offset_prefab_name)
 	MemoryLobbyExcelAddMemoryLobbyCategory(b, fbsutils.Convert(t.MemoryLobbyCategory, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddSlotTextureName(b, b.CreateString(fbsutils.Convert(t.SlotTextureName, t.FlatBuffer.TableKey)))
-	MemoryLobbyExcelAddRewardTextureName(b, b.CreateString(fbsutils.Convert(t.RewardTextureName, t.FlatBuffer.TableKey)))
+	MemoryLobbyExcelAddSlotTextureName(b, __offset_slot_texture_name)
+	MemoryLobbyExcelAddRewardTextureName(b, __offset_reward_texture_name)
 	MemoryLobbyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddAudioClipJp(b, b.CreateString(fbsutils.Convert(t.AudioClipJp, t.FlatBuffer.TableKey)))
-	MemoryLobbyExcelAddAudioClipKr(b, b.CreateString(fbsutils.Convert(t.AudioClipKr, t.FlatBuffer.TableKey)))
+	MemoryLobbyExcelAddAudioClipJp(b, __offset_audio_clip_jp)
+	MemoryLobbyExcelAddAudioClipKr(b, __offset_audio_clip_kr)
 	return MemoryLobbyExcelEnd(b)
 }
 

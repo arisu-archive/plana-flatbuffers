@@ -25,6 +25,7 @@ type MinigameCCGPerkExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGPerkExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_shop_icon := b.CreateString(fbsutils.Convert(t.ShopIcon, t.FlatBuffer.TableKey))
 	MinigameCCGPerkExcelStart(b)
 	MinigameCCGPerkExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGPerkExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
@@ -42,7 +43,7 @@ func (t *MinigameCCGPerkExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	MinigameCCGPerkExcelAddRequiredPerkId(b, b.EndVector(len(t.RequiredPerkId)))
 	MinigameCCGPerkExcelAddShopOrder(b, fbsutils.Convert(t.ShopOrder, t.FlatBuffer.TableKey))
-	MinigameCCGPerkExcelAddShopIcon(b, b.CreateString(fbsutils.Convert(t.ShopIcon, t.FlatBuffer.TableKey)))
+	MinigameCCGPerkExcelAddShopIcon(b, __offset_shop_icon)
 	MinigameCCGPerkExcelAddShopLocalizeTitle(b, fbsutils.Convert(t.ShopLocalizeTitle, t.FlatBuffer.TableKey))
 	MinigameCCGPerkExcelAddShopLocalizeDesc(b, fbsutils.Convert(t.ShopLocalizeDesc, t.FlatBuffer.TableKey))
 	return MinigameCCGPerkExcelEnd(b)

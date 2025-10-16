@@ -1,9 +1,0 @@
-include "RaidRankingRewardExcel.fbs";
-
-namespace FlatData;
-
-table RaidRankingRewardExcelTable {
-    data_list: [RaidRankingRewardExcel];
-}
-
-root_type RaidRankingRewardExcelTable;

@@ -17,11 +17,19 @@ func GetRootAsSoundUIExcel(buf []byte, offset flatbuffers.UOffsetT) *SoundUIExce
 	return x
 }
 
+func FinishSoundUIExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSoundUIExcel(buf []byte, offset flatbuffers.UOffsetT) *SoundUIExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SoundUIExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSoundUIExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SoundUIExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,11 +17,19 @@ func GetRootAsEliminateRaidStageSeasonRewardExcel(buf []byte, offset flatbuffers
 	return x
 }
 
+func FinishEliminateRaidStageSeasonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEliminateRaidStageSeasonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EliminateRaidStageSeasonRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EliminateRaidStageSeasonRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEliminateRaidStageSeasonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EliminateRaidStageSeasonRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -97,25 +105,8 @@ func (rcv *EliminateRaidStageSeasonRewardExcel) MutateSeasonRewardParcelUniqueId
 	return false
 }
 
-func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardParcelUniqueName(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardParcelUniqueNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -124,7 +115,7 @@ func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardAmount(j int) int64 
 }
 
 func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -132,7 +123,7 @@ func (rcv *EliminateRaidStageSeasonRewardExcel) SeasonRewardAmountLength() int {
 }
 
 func (rcv *EliminateRaidStageSeasonRewardExcel) MutateSeasonRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -141,7 +132,7 @@ func (rcv *EliminateRaidStageSeasonRewardExcel) MutateSeasonRewardAmount(j int, 
 }
 
 func EliminateRaidStageSeasonRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(4)
 }
 func EliminateRaidStageSeasonRewardExcelAddSeasonRewardId(builder *flatbuffers.Builder, seasonRewardId int64) {
 	builder.PrependInt64Slot(0, seasonRewardId, 0)
@@ -158,14 +149,8 @@ func EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueId(builder *f
 func EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueName(builder *flatbuffers.Builder, seasonRewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(seasonRewardParcelUniqueName), 0)
-}
-func EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func EliminateRaidStageSeasonRewardExcelAddSeasonRewardAmount(builder *flatbuffers.Builder, seasonRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(seasonRewardAmount), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(seasonRewardAmount), 0)
 }
 func EliminateRaidStageSeasonRewardExcelStartSeasonRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

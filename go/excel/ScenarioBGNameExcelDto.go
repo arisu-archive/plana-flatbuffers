@@ -23,13 +23,16 @@ type ScenarioBGNameExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_bg_file_name := b.CreateString(fbsutils.Convert(t.BgFileName, t.FlatBuffer.TableKey))
+	__offset_animation_root := b.CreateString(fbsutils.Convert(t.AnimationRoot, t.FlatBuffer.TableKey))
+	__offset_animation_name := b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelStart(b)
 	ScenarioBGNameExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddBgFileName(b, b.CreateString(fbsutils.Convert(t.BgFileName, t.FlatBuffer.TableKey)))
+	ScenarioBGNameExcelAddBgFileName(b, __offset_bg_file_name)
 	ScenarioBGNameExcelAddBgType(b, fbsutils.Convert(t.BgType, t.FlatBuffer.TableKey))
-	ScenarioBGNameExcelAddAnimationRoot(b, b.CreateString(fbsutils.Convert(t.AnimationRoot, t.FlatBuffer.TableKey)))
-	ScenarioBGNameExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
+	ScenarioBGNameExcelAddAnimationRoot(b, __offset_animation_root)
+	ScenarioBGNameExcelAddAnimationName(b, __offset_animation_name)
 	ScenarioBGNameExcelAddSpineScale(b, fbsutils.Convert(t.SpineScale, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddSpineLocalPosX(b, fbsutils.Convert(t.SpineLocalPosX, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddSpineLocalPosY(b, fbsutils.Convert(t.SpineLocalPosY, t.FlatBuffer.TableKey))

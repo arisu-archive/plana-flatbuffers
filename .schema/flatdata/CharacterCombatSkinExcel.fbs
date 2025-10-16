@@ -1,7 +1,0 @@
-namespace FlatData;
-
-table CharacterCombatSkinExcel {
-    group_id: string;
-    unique_id: long;
-    resource_path: string;
-}

@@ -18,9 +18,10 @@ type GachaGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name_kr := b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
 	GachaGroupExcelStart(b)
 	GachaGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaGroupExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
+	GachaGroupExcelAddNameKr(b, __offset_name_kr)
 	GachaGroupExcelAddIsRecursive(b, t.IsRecursive)
 	GachaGroupExcelAddGroupType(b, fbsutils.Convert(t.GroupType, t.FlatBuffer.TableKey))
 	return GachaGroupExcelEnd(b)

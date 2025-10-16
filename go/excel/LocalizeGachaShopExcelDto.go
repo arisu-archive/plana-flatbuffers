@@ -23,16 +23,24 @@ type LocalizeGachaShopExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeGachaShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_tab_name_kr := b.CreateString(fbsutils.Convert(t.TabNameKr, t.FlatBuffer.TableKey))
+	__offset_tab_name_jp := b.CreateString(fbsutils.Convert(t.TabNameJp, t.FlatBuffer.TableKey))
+	__offset_title_name_kr := b.CreateString(fbsutils.Convert(t.TitleNameKr, t.FlatBuffer.TableKey))
+	__offset_title_name_jp := b.CreateString(fbsutils.Convert(t.TitleNameJp, t.FlatBuffer.TableKey))
+	__offset_sub_title_kr := b.CreateString(fbsutils.Convert(t.SubTitleKr, t.FlatBuffer.TableKey))
+	__offset_sub_title_jp := b.CreateString(fbsutils.Convert(t.SubTitleJp, t.FlatBuffer.TableKey))
+	__offset_gacha_description_kr := b.CreateString(fbsutils.Convert(t.GachaDescriptionKr, t.FlatBuffer.TableKey))
+	__offset_gacha_description_jp := b.CreateString(fbsutils.Convert(t.GachaDescriptionJp, t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelStart(b)
 	LocalizeGachaShopExcelAddGachaShopId(b, fbsutils.Convert(t.GachaShopId, t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddTabNameKr(b, b.CreateString(fbsutils.Convert(t.TabNameKr, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddTabNameJp(b, b.CreateString(fbsutils.Convert(t.TabNameJp, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddTitleNameKr(b, b.CreateString(fbsutils.Convert(t.TitleNameKr, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddTitleNameJp(b, b.CreateString(fbsutils.Convert(t.TitleNameJp, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddSubTitleKr(b, b.CreateString(fbsutils.Convert(t.SubTitleKr, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddSubTitleJp(b, b.CreateString(fbsutils.Convert(t.SubTitleJp, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddGachaDescriptionKr(b, b.CreateString(fbsutils.Convert(t.GachaDescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeGachaShopExcelAddGachaDescriptionJp(b, b.CreateString(fbsutils.Convert(t.GachaDescriptionJp, t.FlatBuffer.TableKey)))
+	LocalizeGachaShopExcelAddTabNameKr(b, __offset_tab_name_kr)
+	LocalizeGachaShopExcelAddTabNameJp(b, __offset_tab_name_jp)
+	LocalizeGachaShopExcelAddTitleNameKr(b, __offset_title_name_kr)
+	LocalizeGachaShopExcelAddTitleNameJp(b, __offset_title_name_jp)
+	LocalizeGachaShopExcelAddSubTitleKr(b, __offset_sub_title_kr)
+	LocalizeGachaShopExcelAddSubTitleJp(b, __offset_sub_title_jp)
+	LocalizeGachaShopExcelAddGachaDescriptionKr(b, __offset_gacha_description_kr)
+	LocalizeGachaShopExcelAddGachaDescriptionJp(b, __offset_gacha_description_jp)
 	return LocalizeGachaShopExcelEnd(b)
 }
 

@@ -38,15 +38,26 @@ class AcademyTicketExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def AcademyTicketExcelStart(builder): builder.StartObject(2)
+def AcademyTicketExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return AcademyTicketExcelStart(builder)
-def AcademyTicketExcelAddLocationRankSum(builder, locationRankSum): builder.PrependInt64Slot(0, locationRankSum, 0)
+    AcademyTicketExcelStart(builder)
+
+def AcademyTicketExcelAddLocationRankSum(builder, locationRankSum):
+    builder.PrependInt64Slot(0, locationRankSum, 0)
+
 def AddLocationRankSum(builder, locationRankSum):
-    return AcademyTicketExcelAddLocationRankSum(builder, locationRankSum)
-def AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax): builder.PrependInt64Slot(1, scheduleTicktetMax, 0)
+    AcademyTicketExcelAddLocationRankSum(builder, locationRankSum)
+
+def AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax):
+    builder.PrependInt64Slot(1, scheduleTicktetMax, 0)
+
 def AddScheduleTicktetMax(builder, scheduleTicktetMax):
-    return AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax)
-def AcademyTicketExcelEnd(builder): return builder.EndObject()
+    AcademyTicketExcelAddScheduleTicktetMax(builder, scheduleTicktetMax)
+
+def AcademyTicketExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AcademyTicketExcelEnd(builder)

@@ -1,9 +1,0 @@
-include "AcademyTicketExcel.fbs";
-
-namespace FlatData;
-
-table AcademyTicketExcelTable {
-    data_list: [AcademyTicketExcel];
-}
-
-root_type AcademyTicketExcelTable;

@@ -2,7 +2,4 @@
 
 # namespace: Excel
 
-class DreamMakerEndingType(object):
-    None_ = 0
-    Normal = 1
-    Special = 2
+# NOTE DreamMakerEndingType.py does not declare any structs or enums

@@ -2,6 +2,4 @@
 
 # namespace: Excel
 
-class EchelonExtensionType(object):
-    Base = 0
-    Extension = 1
+# NOTE EchelonExtensionType.py does not declare any structs or enums

@@ -1,9 +1,0 @@
-include "CraftNodeTier.fbs";
-include "Tag.fbs";
-
-namespace FlatData;
-
-table GachaCraftOpenTagExcel {
-    node_tier: CraftNodeTier;
-    tag: [Tag];
-}

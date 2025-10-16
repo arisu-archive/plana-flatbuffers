@@ -45,6 +45,10 @@ type ShopInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_open_period_from := b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey))
+	__offset_open_period_to := b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey))
+	__offset_refresh_period_base_time := b.CreateString(fbsutils.Convert(t.RefreshPeriodBaseTime, t.FlatBuffer.TableKey))
+	__offset_shop_product_update_time := b.CreateString(fbsutils.Convert(t.ShopProductUpdateTime, t.FlatBuffer.TableKey))
 	ShopInfoExcelStart(b)
 	ShopInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddIsRefresh(b, t.IsRefresh)
@@ -68,10 +72,10 @@ func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	ShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
-	ShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
-	ShopInfoExcelAddRefreshPeriodBaseTime(b, b.CreateString(fbsutils.Convert(t.RefreshPeriodBaseTime, t.FlatBuffer.TableKey)))
-	ShopInfoExcelAddShopProductUpdateTime(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateTime, t.FlatBuffer.TableKey)))
+	ShopInfoExcelAddOpenPeriodFrom(b, __offset_open_period_from)
+	ShopInfoExcelAddOpenPeriodTo(b, __offset_open_period_to)
+	ShopInfoExcelAddRefreshPeriodBaseTime(b, __offset_refresh_period_base_time)
+	ShopInfoExcelAddShopProductUpdateTime(b, __offset_shop_product_update_time)
 	ShopInfoExcelAddDisplayParcelType(b, fbsutils.Convert(t.DisplayParcelType, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddDisplayParcelId(b, fbsutils.Convert(t.DisplayParcelId, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddIsShopVisible(b, t.IsShopVisible)

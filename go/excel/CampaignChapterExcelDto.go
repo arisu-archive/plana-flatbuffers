@@ -28,11 +28,14 @@ type CampaignChapterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignChapterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_normal_image_path := b.CreateString(fbsutils.Convert(t.NormalImagePath, t.FlatBuffer.TableKey))
+	__offset_hard_image_path := b.CreateString(fbsutils.Convert(t.HardImagePath, t.FlatBuffer.TableKey))
 	CampaignChapterExcelStart(b)
 	CampaignChapterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CampaignChapterExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	CampaignChapterExcelAddNormalImagePath(b, b.CreateString(fbsutils.Convert(t.NormalImagePath, t.FlatBuffer.TableKey)))
-	CampaignChapterExcelAddHardImagePath(b, b.CreateString(fbsutils.Convert(t.HardImagePath, t.FlatBuffer.TableKey)))
+	CampaignChapterExcelAddName(b, __offset_name)
+	CampaignChapterExcelAddNormalImagePath(b, __offset_normal_image_path)
+	CampaignChapterExcelAddHardImagePath(b, __offset_hard_image_path)
 	CampaignChapterExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	CampaignChapterExcelStartPreChapterIdVector(b, len(t.PreChapterId))
 	for i := range len(t.PreChapterId) {

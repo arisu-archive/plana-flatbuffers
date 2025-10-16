@@ -21,10 +21,12 @@ type ScenarioBGEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_effect := b.CreateString(fbsutils.Convert(t.Effect, t.FlatBuffer.TableKey))
+	__offset_effect2 := b.CreateString(fbsutils.Convert(t.Effect2, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelStart(b)
 	ScenarioBGEffectExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	ScenarioBGEffectExcelAddEffect(b, b.CreateString(fbsutils.Convert(t.Effect, t.FlatBuffer.TableKey)))
-	ScenarioBGEffectExcelAddEffect2(b, b.CreateString(fbsutils.Convert(t.Effect2, t.FlatBuffer.TableKey)))
+	ScenarioBGEffectExcelAddEffect(b, __offset_effect)
+	ScenarioBGEffectExcelAddEffect2(b, __offset_effect2)
 	ScenarioBGEffectExcelAddScroll(b, fbsutils.Convert(t.Scroll, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddScrollTime(b, fbsutils.Convert(t.ScrollTime, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddScrollFrom(b, fbsutils.Convert(t.ScrollFrom, t.FlatBuffer.TableKey))

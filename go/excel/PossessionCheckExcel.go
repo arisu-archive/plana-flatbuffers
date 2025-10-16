@@ -17,11 +17,19 @@ func GetRootAsPossessionCheckExcel(buf []byte, offset flatbuffers.UOffsetT) *Pos
 	return x
 }
 
+func FinishPossessionCheckExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPossessionCheckExcel(buf []byte, offset flatbuffers.UOffsetT) *PossessionCheckExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PossessionCheckExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPossessionCheckExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PossessionCheckExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

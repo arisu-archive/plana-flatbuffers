@@ -27,6 +27,9 @@ type MinigameCCGCardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_description := b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
+	__offset_ui_image_path := b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelStart(b)
 	MinigameCCGCardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
@@ -41,9 +44,9 @@ func (t *MinigameCCGCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	MinigameCCGCardExcelAddPassiveSkillId(b, b.EndVector(len(t.PassiveSkillId)))
 	MinigameCCGCardExcelAddPassiveActivateCount(b, fbsutils.Convert(t.PassiveActivateCount, t.FlatBuffer.TableKey))
 	MinigameCCGCardExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	MinigameCCGCardExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
-	MinigameCCGCardExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	MinigameCCGCardExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
+	MinigameCCGCardExcelAddDescription(b, __offset_description)
+	MinigameCCGCardExcelAddImagePath(b, __offset_image_path)
+	MinigameCCGCardExcelAddUiImagePath(b, __offset_ui_image_path)
 	MinigameCCGCardExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))

@@ -21,14 +21,20 @@ type LocalizeSkillExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name_kr := b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
+	__offset_description_kr := b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey))
+	__offset_skill_invoke_localize_kr := b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey))
+	__offset_name_jp := b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey))
+	__offset_description_jp := b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey))
+	__offset_skill_invoke_localize_jp := b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeJp, t.FlatBuffer.TableKey))
 	LocalizeSkillExcelStart(b)
 	LocalizeSkillExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeSkillExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameKr(b, __offset_name_kr)
+	LocalizeSkillExcelAddDescriptionKr(b, __offset_description_kr)
+	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, __offset_skill_invoke_localize_kr)
+	LocalizeSkillExcelAddNameJp(b, __offset_name_jp)
+	LocalizeSkillExcelAddDescriptionJp(b, __offset_description_jp)
+	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, __offset_skill_invoke_localize_jp)
 	return LocalizeSkillExcelEnd(b)
 }
 

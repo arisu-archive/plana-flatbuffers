@@ -1,9 +1,0 @@
-include "ConquestRewardExcel.fbs";
-
-namespace FlatData;
-
-table ConquestRewardExcelTable {
-    data_list: [ConquestRewardExcel];
-}
-
-root_type ConquestRewardExcelTable;

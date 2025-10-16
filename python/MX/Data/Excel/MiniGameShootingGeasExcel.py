@@ -80,33 +80,62 @@ class MiniGameShootingGeasExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def MiniGameShootingGeasExcelStart(builder): builder.StartObject(8)
+def MiniGameShootingGeasExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return MiniGameShootingGeasExcelStart(builder)
-def MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
+    MiniGameShootingGeasExcelStart(builder)
+
+def MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId)
-def MiniGameShootingGeasExcelAddGeasType(builder, geasType): builder.PrependInt32Slot(1, geasType, 0)
+    MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId)
+
+def MiniGameShootingGeasExcelAddGeasType(builder, geasType):
+    builder.PrependInt32Slot(1, geasType, 0)
+
 def AddGeasType(builder, geasType):
-    return MiniGameShootingGeasExcelAddGeasType(builder, geasType)
-def MiniGameShootingGeasExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+    MiniGameShootingGeasExcelAddGeasType(builder, geasType)
+
+def MiniGameShootingGeasExcelAddIcon(builder, icon):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+
 def AddIcon(builder, icon):
-    return MiniGameShootingGeasExcelAddIcon(builder, icon)
-def MiniGameShootingGeasExcelAddProbability(builder, probability): builder.PrependInt64Slot(3, probability, 0)
+    MiniGameShootingGeasExcelAddIcon(builder, icon)
+
+def MiniGameShootingGeasExcelAddProbability(builder, probability):
+    builder.PrependInt64Slot(3, probability, 0)
+
 def AddProbability(builder, probability):
-    return MiniGameShootingGeasExcelAddProbability(builder, probability)
-def MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount): builder.PrependInt32Slot(4, maxOverlapCount, 0)
+    MiniGameShootingGeasExcelAddProbability(builder, probability)
+
+def MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount):
+    builder.PrependInt32Slot(4, maxOverlapCount, 0)
+
 def AddMaxOverlapCount(builder, maxOverlapCount):
-    return MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount)
-def MiniGameShootingGeasExcelAddGeasData(builder, geasData): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(geasData), 0)
+    MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount)
+
+def MiniGameShootingGeasExcelAddGeasData(builder, geasData):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(geasData), 0)
+
 def AddGeasData(builder, geasData):
-    return MiniGameShootingGeasExcelAddGeasData(builder, geasData)
-def MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId): builder.PrependInt64Slot(6, needGeasId, 0)
+    MiniGameShootingGeasExcelAddGeasData(builder, geasData)
+
+def MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId):
+    builder.PrependInt64Slot(6, needGeasId, 0)
+
 def AddNeedGeasId(builder, needGeasId):
-    return MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId)
-def MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup): builder.PrependBoolSlot(7, hideInPausePopup, 0)
+    MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId)
+
+def MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup):
+    builder.PrependBoolSlot(7, hideInPausePopup, 0)
+
 def AddHideInPausePopup(builder, hideInPausePopup):
-    return MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup)
-def MiniGameShootingGeasExcelEnd(builder): return builder.EndObject()
+    MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup)
+
+def MiniGameShootingGeasExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameShootingGeasExcelEnd(builder)

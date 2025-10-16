@@ -25,19 +25,26 @@ func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
 	}
+	var __offset_nodes flatbuffers.UOffsetT
+	__nestedOffsets_nodes := make([]flatbuffers.UOffsetT, len(t.Nodes))
+	for i := range len(t.Nodes) {
+		t.Nodes[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_nodes[i] = t.Nodes[i].MarshalModel(b)
+	}
+	GroundGridFlatStartNodesVector(b, len(t.Nodes))
+	for i := range len(t.Nodes) {
+		b.PrependUOffsetT(__nestedOffsets_nodes[len(t.Nodes)-i-1])
+	}
+	__offset_nodes = b.EndVector(len(t.Nodes))
+	__offset_version := b.CreateString(fbsutils.Convert(t.Version, t.FlatBuffer.TableKey))
 	GroundGridFlatStart(b)
 	GroundGridFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	GroundGridFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
 	GroundGridFlatAddStartX(b, fbsutils.Convert(t.StartX, t.FlatBuffer.TableKey))
 	GroundGridFlatAddStartY(b, fbsutils.Convert(t.StartY, t.FlatBuffer.TableKey))
 	GroundGridFlatAddGap(b, fbsutils.Convert(t.Gap, t.FlatBuffer.TableKey))
-	GroundGridFlatStartNodesVector(b, len(t.Nodes))
-	for i := range len(t.Nodes) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Nodes[len(t.Nodes)-i-1].MarshalModel(b))
-	}
-	GroundGridFlatAddNodes(b, b.EndVector(len(t.Nodes)))
-	GroundGridFlatAddVersion(b, b.CreateString(fbsutils.Convert(t.Version, t.FlatBuffer.TableKey)))
+	GroundGridFlatAddNodes(b, __offset_nodes)
+	GroundGridFlatAddVersion(b, __offset_version)
 	return GroundGridFlatEnd(b)
 }
 

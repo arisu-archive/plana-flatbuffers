@@ -17,11 +17,19 @@ func GetRootAsBattlePassInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *Batt
 	return x
 }
 
+func FinishBattlePassInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBattlePassInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *BattlePassInfoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BattlePassInfoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBattlePassInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BattlePassInfoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -255,16 +263,8 @@ func (rcv *BattlePassInfoExcel) PurchaseStepProductImagePath() []byte {
 	return nil
 }
 
-func (rcv *BattlePassInfoExcel) PurchaseStepBgImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func BattlePassInfoExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(20)
+	builder.StartObject(19)
 }
 func BattlePassInfoExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -325,9 +325,6 @@ func BattlePassInfoExcelAddMainIconParcelPath(builder *flatbuffers.Builder, main
 }
 func BattlePassInfoExcelAddPurchaseStepProductImagePath(builder *flatbuffers.Builder, purchaseStepProductImagePath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(purchaseStepProductImagePath), 0)
-}
-func BattlePassInfoExcelAddPurchaseStepBgImagePath(builder *flatbuffers.Builder, purchaseStepBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(purchaseStepBgImagePath), 0)
 }
 func BattlePassInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

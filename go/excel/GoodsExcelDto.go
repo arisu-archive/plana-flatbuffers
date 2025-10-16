@@ -32,11 +32,12 @@ type GoodsExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	GoodsExcelStart(b)
 	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	GoodsExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	GoodsExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	GoodsExcelAddIconPath(b, __offset_icon_path)
 	GoodsExcelStartConsumeParcelTypeVector(b, len(t.ConsumeParcelType))
 	for i := range len(t.ConsumeParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1]), t.FlatBuffer.TableKey))

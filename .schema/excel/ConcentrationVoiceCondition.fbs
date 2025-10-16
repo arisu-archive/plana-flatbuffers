@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum ConcentrationVoiceCondition: int {
+    None = 0,
+    PairMatchFail = 1,
+    PairMatchSuccess = 2,
+    RoundRenewal = 3,
+}

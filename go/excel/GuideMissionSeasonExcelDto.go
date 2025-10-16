@@ -23,6 +23,7 @@ type GuideMissionSeasonExcelDto struct {
 	CloseBannerAfterCompletion      bool                `json:"close_banner_after_completion"`
 	MaximumLoginCount               int64               `json:"maximum_login_count"`
 	ExpiryDate                      int64               `json:"expiry_date"`
+	IconOrder                       int64               `json:"icon_order"`
 	SpineCharacterId                int64               `json:"spine_character_id"`
 	RequirementParcelImage          string              `json:"requirement_parcel_image"`
 	RewardImage                     string              `json:"reward_image"`
@@ -39,26 +40,39 @@ type GuideMissionSeasonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_title_localize_code := b.CreateString(fbsutils.Convert(t.TitleLocalizeCode, t.FlatBuffer.TableKey))
+	__offset_permanent_infomation_localize_code := b.CreateString(fbsutils.Convert(t.PermanentInfomationLocalizeCode, t.FlatBuffer.TableKey))
+	__offset_infomation_localize_code := b.CreateString(fbsutils.Convert(t.InfomationLocalizeCode, t.FlatBuffer.TableKey))
+	__offset_banner_open_date := b.CreateString(fbsutils.Convert(t.BannerOpenDate, t.FlatBuffer.TableKey))
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_startable_end_date := b.CreateString(fbsutils.Convert(t.StartableEndDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
+	__offset_requirement_parcel_image := b.CreateString(fbsutils.Convert(t.RequirementParcelImage, t.FlatBuffer.TableKey))
+	__offset_reward_image := b.CreateString(fbsutils.Convert(t.RewardImage, t.FlatBuffer.TableKey))
+	__offset_lobby_banner_image := b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey))
+	__offset_background_image := b.CreateString(fbsutils.Convert(t.BackgroundImage, t.FlatBuffer.TableKey))
+	__offset_title_image := b.CreateString(fbsutils.Convert(t.TitleImage, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelStart(b)
 	GuideMissionSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddTitleLocalizeCode(b, b.CreateString(fbsutils.Convert(t.TitleLocalizeCode, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(b, b.CreateString(fbsutils.Convert(t.PermanentInfomationLocalizeCode, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddInfomationLocalizeCode(b, b.CreateString(fbsutils.Convert(t.InfomationLocalizeCode, t.FlatBuffer.TableKey)))
+	GuideMissionSeasonExcelAddTitleLocalizeCode(b, __offset_title_localize_code)
+	GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(b, __offset_permanent_infomation_localize_code)
+	GuideMissionSeasonExcelAddInfomationLocalizeCode(b, __offset_infomation_localize_code)
 	GuideMissionSeasonExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddEnabled(b, t.Enabled)
-	GuideMissionSeasonExcelAddBannerOpenDate(b, b.CreateString(fbsutils.Convert(t.BannerOpenDate, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddStartableEndDate(b, b.CreateString(fbsutils.Convert(t.StartableEndDate, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	GuideMissionSeasonExcelAddBannerOpenDate(b, __offset_banner_open_date)
+	GuideMissionSeasonExcelAddStartDate(b, __offset_start_date)
+	GuideMissionSeasonExcelAddStartableEndDate(b, __offset_startable_end_date)
+	GuideMissionSeasonExcelAddEndDate(b, __offset_end_date)
 	GuideMissionSeasonExcelAddCloseBannerAfterCompletion(b, t.CloseBannerAfterCompletion)
 	GuideMissionSeasonExcelAddMaximumLoginCount(b, fbsutils.Convert(t.MaximumLoginCount, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddExpiryDate(b, fbsutils.Convert(t.ExpiryDate, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddSpineCharacterId(b, fbsutils.Convert(t.SpineCharacterId, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRequirementParcelImage(b, b.CreateString(fbsutils.Convert(t.RequirementParcelImage, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddRewardImage(b, b.CreateString(fbsutils.Convert(t.RewardImage, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddLobbyBannerImage(b, b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddBackgroundImage(b, b.CreateString(fbsutils.Convert(t.BackgroundImage, t.FlatBuffer.TableKey)))
-	GuideMissionSeasonExcelAddTitleImage(b, b.CreateString(fbsutils.Convert(t.TitleImage, t.FlatBuffer.TableKey)))
+	GuideMissionSeasonExcelAddRequirementParcelImage(b, __offset_requirement_parcel_image)
+	GuideMissionSeasonExcelAddRewardImage(b, __offset_reward_image)
+	GuideMissionSeasonExcelAddLobbyBannerImage(b, __offset_lobby_banner_image)
+	GuideMissionSeasonExcelAddBackgroundImage(b, __offset_background_image)
+	GuideMissionSeasonExcelAddTitleImage(b, __offset_title_image)
 	GuideMissionSeasonExcelAddRequirementParcelType(b, fbsutils.Convert(t.RequirementParcelType, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddRequirementParcelId(b, fbsutils.Convert(t.RequirementParcelId, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddRequirementParcelAmount(b, fbsutils.Convert(t.RequirementParcelAmount, t.FlatBuffer.TableKey))
@@ -90,6 +104,7 @@ func (t *GuideMissionSeasonExcelDto) UnmarshalMessage(e *GuideMissionSeasonExcel
 	t.CloseBannerAfterCompletion = e.CloseBannerAfterCompletion()
 	t.MaximumLoginCount = fbsutils.Convert(e.MaximumLoginCount(), t.FlatBuffer.TableKey)
 	t.ExpiryDate = fbsutils.Convert(e.ExpiryDate(), t.FlatBuffer.TableKey)
+	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
 	t.SpineCharacterId = fbsutils.Convert(e.SpineCharacterId(), t.FlatBuffer.TableKey)
 	t.RequirementParcelImage = fbsutils.Convert(string(e.RequirementParcelImage()), t.FlatBuffer.TableKey)
 	t.RewardImage = fbsutils.Convert(string(e.RewardImage()), t.FlatBuffer.TableKey)

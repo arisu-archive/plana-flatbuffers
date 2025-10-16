@@ -45,18 +45,32 @@ class AcademyLocationRankExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def AcademyLocationRankExcelStart(builder): builder.StartObject(3)
+def AcademyLocationRankExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return AcademyLocationRankExcelStart(builder)
-def AcademyLocationRankExcelAddRank(builder, rank): builder.PrependInt64Slot(0, rank, 0)
+    AcademyLocationRankExcelStart(builder)
+
+def AcademyLocationRankExcelAddRank(builder, rank):
+    builder.PrependInt64Slot(0, rank, 0)
+
 def AddRank(builder, rank):
-    return AcademyLocationRankExcelAddRank(builder, rank)
-def AcademyLocationRankExcelAddRankExp(builder, rankExp): builder.PrependInt64Slot(1, rankExp, 0)
+    AcademyLocationRankExcelAddRank(builder, rank)
+
+def AcademyLocationRankExcelAddRankExp(builder, rankExp):
+    builder.PrependInt64Slot(1, rankExp, 0)
+
 def AddRankExp(builder, rankExp):
-    return AcademyLocationRankExcelAddRankExp(builder, rankExp)
-def AcademyLocationRankExcelAddTotalExp(builder, totalExp): builder.PrependInt64Slot(2, totalExp, 0)
+    AcademyLocationRankExcelAddRankExp(builder, rankExp)
+
+def AcademyLocationRankExcelAddTotalExp(builder, totalExp):
+    builder.PrependInt64Slot(2, totalExp, 0)
+
 def AddTotalExp(builder, totalExp):
-    return AcademyLocationRankExcelAddTotalExp(builder, totalExp)
-def AcademyLocationRankExcelEnd(builder): return builder.EndObject()
+    AcademyLocationRankExcelAddTotalExp(builder, totalExp)
+
+def AcademyLocationRankExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AcademyLocationRankExcelEnd(builder)

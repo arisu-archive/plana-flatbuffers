@@ -27,24 +27,33 @@ type ContentsShortcutExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsShortcutExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_shortcut_open_time := b.CreateString(fbsutils.Convert(t.ShortcutOpenTime, t.FlatBuffer.TableKey))
+	__offset_shortcut_close_time := b.CreateString(fbsutils.Convert(t.ShortcutCloseTime, t.FlatBuffer.TableKey))
+	var __offset_shortcut_ui_name flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui_name := make([]flatbuffers.UOffsetT, len(t.ShortcutUiName))
+	for i := range len(t.ShortcutUiName) {
+		__stringOffsets_shortcut_ui_name[i] = b.CreateString(fbsutils.Convert(t.ShortcutUiName[i], t.FlatBuffer.TableKey))
+	}
+	ContentsShortcutExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
+	for i := range len(t.ShortcutUiName) {
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui_name[len(t.ShortcutUiName)-i-1])
+	}
+	__offset_shortcut_ui_name = b.EndVector(len(t.ShortcutUiName))
+	__offset_localize := b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelStart(b)
 	ContentsShortcutExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddScenarioModeVolume(b, fbsutils.Convert(t.ScenarioModeVolume, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddScenarioModeChapter(b, fbsutils.Convert(t.ScenarioModeChapter, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelAddShortcutOpenTime(b, b.CreateString(fbsutils.Convert(t.ShortcutOpenTime, t.FlatBuffer.TableKey)))
-	ContentsShortcutExcelAddShortcutCloseTime(b, b.CreateString(fbsutils.Convert(t.ShortcutCloseTime, t.FlatBuffer.TableKey)))
+	ContentsShortcutExcelAddShortcutOpenTime(b, __offset_shortcut_open_time)
+	ContentsShortcutExcelAddShortcutCloseTime(b, __offset_shortcut_close_time)
 	ContentsShortcutExcelAddConditionContentId(b, fbsutils.Convert(t.ConditionContentId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddConquestMapDifficulty(b, fbsutils.Convert(t.ConquestMapDifficulty, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddConquestStepIndex(b, fbsutils.Convert(t.ConquestStepIndex, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddShortcutContentId(b, fbsutils.Convert(t.ShortcutContentId, t.FlatBuffer.TableKey))
-	ContentsShortcutExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
-	for i := range len(t.ShortcutUiName) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]))
-	}
-	ContentsShortcutExcelAddShortcutUiName(b, b.EndVector(len(t.ShortcutUiName)))
-	ContentsShortcutExcelAddLocalize(b, b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey)))
+	ContentsShortcutExcelAddShortcutUiName(b, __offset_shortcut_ui_name)
+	ContentsShortcutExcelAddLocalize(b, __offset_localize)
 	return ContentsShortcutExcelEnd(b)
 }
 

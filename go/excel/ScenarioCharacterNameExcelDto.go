@@ -23,16 +23,22 @@ type ScenarioCharacterNameExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name_kr := b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
+	__offset_nickname_kr := b.CreateString(fbsutils.Convert(t.NicknameKr, t.FlatBuffer.TableKey))
+	__offset_name_jp := b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey))
+	__offset_nickname_jp := b.CreateString(fbsutils.Convert(t.NicknameJp, t.FlatBuffer.TableKey))
+	__offset_spine_prefab_name := b.CreateString(fbsutils.Convert(t.SpinePrefabName, t.FlatBuffer.TableKey))
+	__offset_small_portrait := b.CreateString(fbsutils.Convert(t.SmallPortrait, t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelStart(b)
 	ScenarioCharacterNameExcelAddCharacterName(b, fbsutils.Convert(t.CharacterName, t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	ScenarioCharacterNameExcelAddNicknameKr(b, b.CreateString(fbsutils.Convert(t.NicknameKr, t.FlatBuffer.TableKey)))
-	ScenarioCharacterNameExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	ScenarioCharacterNameExcelAddNicknameJp(b, b.CreateString(fbsutils.Convert(t.NicknameJp, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddNameKr(b, __offset_name_kr)
+	ScenarioCharacterNameExcelAddNicknameKr(b, __offset_nickname_kr)
+	ScenarioCharacterNameExcelAddNameJp(b, __offset_name_jp)
+	ScenarioCharacterNameExcelAddNicknameJp(b, __offset_nickname_jp)
 	ScenarioCharacterNameExcelAddShape(b, fbsutils.Convert(t.Shape, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddSpinePrefabName(b, b.CreateString(fbsutils.Convert(t.SpinePrefabName, t.FlatBuffer.TableKey)))
-	ScenarioCharacterNameExcelAddSmallPortrait(b, b.CreateString(fbsutils.Convert(t.SmallPortrait, t.FlatBuffer.TableKey)))
+	ScenarioCharacterNameExcelAddSpinePrefabName(b, __offset_spine_prefab_name)
+	ScenarioCharacterNameExcelAddSmallPortrait(b, __offset_small_portrait)
 	return ScenarioCharacterNameExcelEnd(b)
 }
 

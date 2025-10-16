@@ -1,9 +1,0 @@
-include "GuideMissionExcel.fbs";
-
-namespace FlatData;
-
-table GuideMissionExcelTable {
-    data_list: [GuideMissionExcel];
-}
-
-root_type GuideMissionExcelTable;

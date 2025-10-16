@@ -17,11 +17,19 @@ func GetRootAsFieldStoryStageExcel(buf []byte, offset flatbuffers.UOffsetT) *Fie
 	return x
 }
 
+func FinishFieldStoryStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldStoryStageExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldStoryStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldStoryStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldStoryStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldStoryStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

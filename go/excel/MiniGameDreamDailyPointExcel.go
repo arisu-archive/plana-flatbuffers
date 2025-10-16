@@ -17,11 +17,19 @@ func GetRootAsMiniGameDreamDailyPointExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishMiniGameDreamDailyPointExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameDreamDailyPointExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameDreamDailyPointExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameDreamDailyPointExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameDreamDailyPointExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameDreamDailyPointExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

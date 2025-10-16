@@ -59,24 +59,44 @@ class WeekDungeonGroupBuffExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def WeekDungeonGroupBuffExcelStart(builder): builder.StartObject(5)
+def WeekDungeonGroupBuffExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return WeekDungeonGroupBuffExcelStart(builder)
-def WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId): builder.PrependInt64Slot(0, weekDungeonBuffId, 0)
+    WeekDungeonGroupBuffExcelStart(builder)
+
+def WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId):
+    builder.PrependInt64Slot(0, weekDungeonBuffId, 0)
+
 def AddWeekDungeonBuffId(builder, weekDungeonBuffId):
-    return WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId)
-def WeekDungeonGroupBuffExcelAddSchool(builder, school): builder.PrependInt32Slot(1, school, 0)
+    WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, weekDungeonBuffId)
+
+def WeekDungeonGroupBuffExcelAddSchool(builder, school):
+    builder.PrependInt32Slot(1, school, 0)
+
 def AddSchool(builder, school):
-    return WeekDungeonGroupBuffExcelAddSchool(builder, school)
-def WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId): builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
+    WeekDungeonGroupBuffExcelAddSchool(builder, school)
+
+def WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId):
+    builder.PrependUint32Slot(2, recommandLocalizeEtcId, 0)
+
 def AddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId):
-    return WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId)
-def WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId): builder.PrependUint32Slot(3, formationLocalizeEtcId, 0)
+    WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, recommandLocalizeEtcId)
+
+def WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId):
+    builder.PrependUint32Slot(3, formationLocalizeEtcId, 0)
+
 def AddFormationLocalizeEtcId(builder, formationLocalizeEtcId):
-    return WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId)
-def WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
+    WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, formationLocalizeEtcId)
+
+def WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
+
 def AddSkillGroupId(builder, skillGroupId):
-    return WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
-def WeekDungeonGroupBuffExcelEnd(builder): return builder.EndObject()
+    WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
+
+def WeekDungeonGroupBuffExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WeekDungeonGroupBuffExcelEnd(builder)

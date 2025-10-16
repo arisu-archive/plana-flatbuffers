@@ -19,11 +19,14 @@ type TutorialCharacterDialogExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialCharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_animation_name := b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
 	TutorialCharacterDialogExcelStart(b)
 	TutorialCharacterDialogExcelAddTalkId(b, fbsutils.Convert(t.TalkId, t.FlatBuffer.TableKey))
-	TutorialCharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
-	TutorialCharacterDialogExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	TutorialCharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	TutorialCharacterDialogExcelAddAnimationName(b, __offset_animation_name)
+	TutorialCharacterDialogExcelAddLocalizeKr(b, __offset_localize_kr)
+	TutorialCharacterDialogExcelAddLocalizeJp(b, __offset_localize_jp)
 	TutorialCharacterDialogExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	return TutorialCharacterDialogExcelEnd(b)
 }

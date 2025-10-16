@@ -1,9 +1,0 @@
-include "BossExternalBTExcel.fbs";
-
-namespace FlatData;
-
-table BossExternalBTExcelTable {
-    data_list: [BossExternalBTExcel];
-}
-
-root_type BossExternalBTExcelTable;

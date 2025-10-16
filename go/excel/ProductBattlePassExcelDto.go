@@ -23,9 +23,10 @@ type ProductBattlePassExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductBattlePassExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_product_id := b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey))
 	ProductBattlePassExcelStart(b)
 	ProductBattlePassExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductBattlePassExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductBattlePassExcelAddProductId(b, __offset_product_id)
 	ProductBattlePassExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductBattlePassExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
 	ProductBattlePassExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))

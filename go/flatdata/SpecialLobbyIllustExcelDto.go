@@ -23,13 +23,17 @@ func (t *SpecialLobbyIllustExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllust"))
 	}
+	__offset_dev_name := b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey))
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
+	__offset_slot_texture_name := b.CreateString(fbsutils.Convert(t.SlotTextureName, t.FlatBuffer.TableKey))
+	__offset_reward_texture_name := b.CreateString(fbsutils.Convert(t.RewardTextureName, t.FlatBuffer.TableKey))
 	SpecialLobbyIllustExcelStart(b)
 	SpecialLobbyIllustExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	SpecialLobbyIllustExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	SpecialLobbyIllustExcelAddDevName(b, __offset_dev_name)
 	SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(b, fbsutils.Convert(t.CharacterCostumeUniqueId, t.FlatBuffer.TableKey))
-	SpecialLobbyIllustExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	SpecialLobbyIllustExcelAddSlotTextureName(b, b.CreateString(fbsutils.Convert(t.SlotTextureName, t.FlatBuffer.TableKey)))
-	SpecialLobbyIllustExcelAddRewardTextureName(b, b.CreateString(fbsutils.Convert(t.RewardTextureName, t.FlatBuffer.TableKey)))
+	SpecialLobbyIllustExcelAddPrefabName(b, __offset_prefab_name)
+	SpecialLobbyIllustExcelAddSlotTextureName(b, __offset_slot_texture_name)
+	SpecialLobbyIllustExcelAddRewardTextureName(b, __offset_reward_texture_name)
 	return SpecialLobbyIllustExcelEnd(b)
 }
 

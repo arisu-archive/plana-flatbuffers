@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum PositioningType: int {
+    CloseToObstacle = 0,
+    CloseToTarget = 1,
+}

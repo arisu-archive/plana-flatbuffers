@@ -1,9 +1,0 @@
-include "MiniGameShootingGeasExcel.fbs";
-
-namespace FlatData;
-
-table MiniGameShootingGeasExcelTable {
-    data_list: [MiniGameShootingGeasExcel];
-}
-
-root_type MiniGameShootingGeasExcelTable;

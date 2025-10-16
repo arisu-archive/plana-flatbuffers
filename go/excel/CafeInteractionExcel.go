@@ -17,11 +17,19 @@ func GetRootAsCafeInteractionExcel(buf []byte, offset flatbuffers.UOffsetT) *Caf
 	return x
 }
 
+func FinishCafeInteractionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCafeInteractionExcel(buf []byte, offset flatbuffers.UOffsetT) *CafeInteractionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CafeInteractionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCafeInteractionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CafeInteractionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

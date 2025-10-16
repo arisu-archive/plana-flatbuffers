@@ -24,12 +24,14 @@ type MinigameRoadPuzzleMapExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameRoadPuzzleMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_map := b.CreateString(fbsutils.Convert(t.Map, t.FlatBuffer.TableKey))
+	__offset_map_bg := b.CreateString(fbsutils.Convert(t.MapBg, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelStart(b)
 	MinigameRoadPuzzleMapExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelAddMapGroupId(b, fbsutils.Convert(t.MapGroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleMapExcelAddMap(b, b.CreateString(fbsutils.Convert(t.Map, t.FlatBuffer.TableKey)))
-	MinigameRoadPuzzleMapExcelAddMapBg(b, b.CreateString(fbsutils.Convert(t.MapBg, t.FlatBuffer.TableKey)))
+	MinigameRoadPuzzleMapExcelAddMap(b, __offset_map)
+	MinigameRoadPuzzleMapExcelAddMapBg(b, __offset_map_bg)
 	MinigameRoadPuzzleMapExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(b, len(t.AvailableRailTile))
 	for i := range len(t.AvailableRailTile) {

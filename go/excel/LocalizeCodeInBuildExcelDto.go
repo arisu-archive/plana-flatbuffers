@@ -17,10 +17,12 @@ type LocalizeCodeInBuildExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCodeInBuildExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
 	LocalizeCodeInBuildExcelStart(b)
 	LocalizeCodeInBuildExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeCodeInBuildExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeCodeInBuildExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	LocalizeCodeInBuildExcelAddKr(b, __offset_kr)
+	LocalizeCodeInBuildExcelAddJp(b, __offset_jp)
 	return LocalizeCodeInBuildExcelEnd(b)
 }
 

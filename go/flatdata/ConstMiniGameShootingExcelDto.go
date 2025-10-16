@@ -29,6 +29,7 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
+	__offset_spawn_effect_path := b.CreateString(fbsutils.Convert(t.SpawnEffectPath, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelStart(b)
 	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Convert(t.NormalStageId, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Convert(t.NormalSectionCount, t.FlatBuffer.TableKey))
@@ -43,7 +44,7 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	ConstMiniGameShootingExcelAddPlayerCharacterId(b, b.EndVector(len(t.PlayerCharacterId)))
 	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Convert(t.HiddenPlayerCharacterId, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddSpawnEffectPath(b, b.CreateString(fbsutils.Convert(t.SpawnEffectPath, t.FlatBuffer.TableKey)))
+	ConstMiniGameShootingExcelAddSpawnEffectPath(b, __offset_spawn_effect_path)
 	ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(b, fbsutils.Convert(t.WaitTimeAfterSpawn, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Convert(t.FreeGearInterval, t.FlatBuffer.TableKey))
 	return ConstMiniGameShootingExcelEnd(b)

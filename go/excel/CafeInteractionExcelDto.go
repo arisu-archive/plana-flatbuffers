@@ -24,11 +24,23 @@ type CafeInteractionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_ignore_if_unobtained_start_date := b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedStartDate, t.FlatBuffer.TableKey))
+	__offset_ignore_if_unobtained_end_date := b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedEndDate, t.FlatBuffer.TableKey))
+	var __offset_cafe_character_state flatbuffers.UOffsetT
+	__stringOffsets_cafe_character_state := make([]flatbuffers.UOffsetT, len(t.CafeCharacterState))
+	for i := range len(t.CafeCharacterState) {
+		__stringOffsets_cafe_character_state[i] = b.CreateString(fbsutils.Convert(t.CafeCharacterState[i], t.FlatBuffer.TableKey))
+	}
+	CafeInteractionExcelStartCafeCharacterStateVector(b, len(t.CafeCharacterState))
+	for i := range len(t.CafeCharacterState) {
+		b.PrependUOffsetT(__stringOffsets_cafe_character_state[len(t.CafeCharacterState)-i-1])
+	}
+	__offset_cafe_character_state = b.EndVector(len(t.CafeCharacterState))
 	CafeInteractionExcelStart(b)
 	CafeInteractionExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	CafeInteractionExcelAddIgnoreIfUnobtained(b, t.IgnoreIfUnobtained)
-	CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(b, b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedStartDate, t.FlatBuffer.TableKey)))
-	CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(b, b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedEndDate, t.FlatBuffer.TableKey)))
+	CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(b, __offset_ignore_if_unobtained_start_date)
+	CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(b, __offset_ignore_if_unobtained_end_date)
 	CafeInteractionExcelStartBubbleTypeVector(b, len(t.BubbleType))
 	for i := range len(t.BubbleType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.BubbleType[len(t.BubbleType)-i-1]), t.FlatBuffer.TableKey))
@@ -42,11 +54,7 @@ func (t *CafeInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	CafeInteractionExcelAddFavorEmoticonRewardParcelType(b, fbsutils.Convert(t.FavorEmoticonRewardParcelType, t.FlatBuffer.TableKey))
 	CafeInteractionExcelAddFavorEmoticonRewardId(b, fbsutils.Convert(t.FavorEmoticonRewardId, t.FlatBuffer.TableKey))
 	CafeInteractionExcelAddFavorEmoticonRewardAmount(b, fbsutils.Convert(t.FavorEmoticonRewardAmount, t.FlatBuffer.TableKey))
-	CafeInteractionExcelStartCafeCharacterStateVector(b, len(t.CafeCharacterState))
-	for i := range len(t.CafeCharacterState) {
-		b.PrependUOffsetT(b.CreateString(t.CafeCharacterState[len(t.CafeCharacterState)-i-1]))
-	}
-	CafeInteractionExcelAddCafeCharacterState(b, b.EndVector(len(t.CafeCharacterState)))
+	CafeInteractionExcelAddCafeCharacterState(b, __offset_cafe_character_state)
 	return CafeInteractionExcelEnd(b)
 }
 

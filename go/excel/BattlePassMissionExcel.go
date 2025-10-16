@@ -17,11 +17,19 @@ func GetRootAsBattlePassMissionExcel(buf []byte, offset flatbuffers.UOffsetT) *B
 	return x
 }
 
+func FinishBattlePassMissionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBattlePassMissionExcel(buf []byte, offset flatbuffers.UOffsetT) *BattlePassMissionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BattlePassMissionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBattlePassMissionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BattlePassMissionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

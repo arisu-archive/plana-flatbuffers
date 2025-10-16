@@ -52,21 +52,38 @@ class GachaGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def GachaGroupExcelStart(builder): builder.StartObject(4)
+def GachaGroupExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return GachaGroupExcelStart(builder)
-def GachaGroupExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    GachaGroupExcelStart(builder)
+
+def GachaGroupExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return GachaGroupExcelAddId(builder, id)
-def GachaGroupExcelAddNameKr(builder, nameKr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
+    GachaGroupExcelAddId(builder, id)
+
+def GachaGroupExcelAddNameKr(builder, nameKr):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
+
 def AddNameKr(builder, nameKr):
-    return GachaGroupExcelAddNameKr(builder, nameKr)
-def GachaGroupExcelAddIsRecursive(builder, isRecursive): builder.PrependBoolSlot(2, isRecursive, 0)
+    GachaGroupExcelAddNameKr(builder, nameKr)
+
+def GachaGroupExcelAddIsRecursive(builder, isRecursive):
+    builder.PrependBoolSlot(2, isRecursive, 0)
+
 def AddIsRecursive(builder, isRecursive):
-    return GachaGroupExcelAddIsRecursive(builder, isRecursive)
-def GachaGroupExcelAddGroupType(builder, groupType): builder.PrependInt32Slot(3, groupType, 0)
+    GachaGroupExcelAddIsRecursive(builder, isRecursive)
+
+def GachaGroupExcelAddGroupType(builder, groupType):
+    builder.PrependInt32Slot(3, groupType, 0)
+
 def AddGroupType(builder, groupType):
-    return GachaGroupExcelAddGroupType(builder, groupType)
-def GachaGroupExcelEnd(builder): return builder.EndObject()
+    GachaGroupExcelAddGroupType(builder, groupType)
+
+def GachaGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GachaGroupExcelEnd(builder)

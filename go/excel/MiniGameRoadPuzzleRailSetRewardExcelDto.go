@@ -20,10 +20,11 @@ type MiniGameRoadPuzzleRailSetRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRoadPuzzleRailSetRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_prefab_id := b.CreateString(fbsutils.Convert(t.LocalizePrefabId, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleRailSetRewardExcelStart(b)
 	MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(b, b.CreateString(fbsutils.Convert(t.LocalizePrefabId, t.FlatBuffer.TableKey)))
+	MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(b, __offset_localize_prefab_id)
 	MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))

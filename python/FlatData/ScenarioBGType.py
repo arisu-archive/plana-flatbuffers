@@ -2,9 +2,4 @@
 
 # namespace: FlatData
 
-class ScenarioBGType(object):
-    None_ = 0
-    Image = 1
-    BlurRT = 2
-    Spine = 3
-    Hide = 4
+# NOTE ScenarioBGType.py does not declare any structs or enums

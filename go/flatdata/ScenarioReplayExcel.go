@@ -17,11 +17,19 @@ func GetRootAsScenarioReplayExcel(buf []byte, offset flatbuffers.UOffsetT) *Scen
 	return x
 }
 
+func FinishScenarioReplayExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioReplayExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioReplayExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioReplayExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioReplayExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioReplayExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

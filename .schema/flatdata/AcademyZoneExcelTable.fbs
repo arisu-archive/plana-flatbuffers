@@ -1,9 +1,0 @@
-include "AcademyZoneExcel.fbs";
-
-namespace FlatData;
-
-table AcademyZoneExcelTable {
-    data_list: [AcademyZoneExcel];
-}
-
-root_type AcademyZoneExcelTable;

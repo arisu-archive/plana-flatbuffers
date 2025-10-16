@@ -49,15 +49,26 @@ class ConstMinigameCCGExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstMinigameCCGExcelTableStart(builder): builder.StartObject(1)
+def ConstMinigameCCGExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConstMinigameCCGExcelTableStart(builder)
-def ConstMinigameCCGExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConstMinigameCCGExcelTableStart(builder)
+
+def ConstMinigameCCGExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConstMinigameCCGExcelTableAddDataList(builder, dataList)
-def ConstMinigameCCGExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConstMinigameCCGExcelTableAddDataList(builder, dataList)
+
+def ConstMinigameCCGExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConstMinigameCCGExcelTableStartDataListVector(builder, numElems)
-def ConstMinigameCCGExcelTableEnd(builder): return builder.EndObject()
+
+def ConstMinigameCCGExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstMinigameCCGExcelTableEnd(builder)

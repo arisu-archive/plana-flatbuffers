@@ -41,6 +41,8 @@ func (t *ConstMinigameCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameCCG"))
 	}
+	__offset_ani_ally_battle_attack := b.CreateString(fbsutils.Convert(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
+	__offset_alternative_card_image_path := b.CreateString(fbsutils.Convert(t.AlternativeCardImagePath, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelStart(b)
 	ConstMinigameCCGExcelAddTurnDrawCount(b, fbsutils.Convert(t.TurnDrawCount, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
@@ -54,7 +56,7 @@ func (t *ConstMinigameCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ConstMinigameCCGExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddThemaLoadingProgressTime(b, fbsutils.Convert(t.ThemaLoadingProgressTime, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddMapAllyRotation(b, fbsutils.Convert(t.MapAllyRotation, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddAniAllyBattleAttack(b, b.CreateString(fbsutils.Convert(t.AniAllyBattleAttack, t.FlatBuffer.TableKey)))
+	ConstMinigameCCGExcelAddAniAllyBattleAttack(b, __offset_ani_ally_battle_attack)
 	ConstMinigameCCGExcelAddMaxHandCount(b, fbsutils.Convert(t.MaxHandCount, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddMaxCost(b, fbsutils.Convert(t.MaxCost, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddStartCost(b, fbsutils.Convert(t.StartCost, t.FlatBuffer.TableKey))
@@ -65,7 +67,7 @@ func (t *ConstMinigameCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ConstMinigameCCGExcelAddCampReviveHealthRate(b, fbsutils.Convert(t.CampReviveHealthRate, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddBaseRewardRerollPoint(b, fbsutils.Convert(t.BaseRewardRerollPoint, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddSelectRewardOptionCount(b, fbsutils.Convert(t.SelectRewardOptionCount, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddAlternativeCardImagePath(b, b.CreateString(fbsutils.Convert(t.AlternativeCardImagePath, t.FlatBuffer.TableKey)))
+	ConstMinigameCCGExcelAddAlternativeCardImagePath(b, __offset_alternative_card_image_path)
 	return ConstMinigameCCGExcelEnd(b)
 }
 

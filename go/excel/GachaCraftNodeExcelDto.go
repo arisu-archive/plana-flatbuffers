@@ -21,12 +21,13 @@ type GachaCraftNodeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelStart(b)
 	GachaCraftNodeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(b, fbsutils.Convert(t.QuickCraftNodeDisplayOrder, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddNodeQuality(b, fbsutils.Convert(t.NodeQuality, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	GachaCraftNodeExcelAddIcon(b, __offset_icon)
 	GachaCraftNodeExcelAddLocalizeKey(b, fbsutils.Convert(t.LocalizeKey, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddProperty(b, fbsutils.Convert(t.Property, t.FlatBuffer.TableKey))
 	return GachaCraftNodeExcelEnd(b)

@@ -2,10 +2,4 @@
 
 # namespace: FlatData
 
-class ArmorType(object):
-    LightArmor = 0
-    HeavyArmor = 1
-    Unarmed = 2
-    Structure = 3
-    Normal = 4
-    ElasticArmor = 5
+# NOTE ArmorType.py does not declare any structs or enums

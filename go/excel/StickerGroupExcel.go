@@ -17,11 +17,19 @@ func GetRootAsStickerGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *Sticke
 	return x
 }
 
+func FinishStickerGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStickerGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *StickerGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StickerGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStickerGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StickerGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

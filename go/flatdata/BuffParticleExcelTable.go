@@ -17,11 +17,19 @@ func GetRootAsBuffParticleExcelTable(buf []byte, offset flatbuffers.UOffsetT) *B
 	return x
 }
 
+func FinishBuffParticleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBuffParticleExcelTable(buf []byte, offset flatbuffers.UOffsetT) *BuffParticleExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BuffParticleExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBuffParticleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BuffParticleExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

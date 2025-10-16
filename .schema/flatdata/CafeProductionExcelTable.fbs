@@ -1,9 +1,0 @@
-include "CafeProductionExcel.fbs";
-
-namespace FlatData;
-
-table CafeProductionExcelTable {
-    data_list: [CafeProductionExcel];
-}
-
-root_type CafeProductionExcelTable;

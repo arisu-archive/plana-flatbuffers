@@ -66,27 +66,50 @@ class PickupFirstGetBonusExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def PickupFirstGetBonusExcelStart(builder): builder.StartObject(6)
+def PickupFirstGetBonusExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return PickupFirstGetBonusExcelStart(builder)
-def PickupFirstGetBonusExcelAddShopRecruitId(builder, shopRecruitId): builder.PrependInt64Slot(0, shopRecruitId, 0)
+    PickupFirstGetBonusExcelStart(builder)
+
+def PickupFirstGetBonusExcelAddShopRecruitId(builder, shopRecruitId):
+    builder.PrependInt64Slot(0, shopRecruitId, 0)
+
 def AddShopRecruitId(builder, shopRecruitId):
-    return PickupFirstGetBonusExcelAddShopRecruitId(builder, shopRecruitId)
-def PickupFirstGetBonusExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId): builder.PrependInt64Slot(1, recruitSellectionShopId, 0)
+    PickupFirstGetBonusExcelAddShopRecruitId(builder, shopRecruitId)
+
+def PickupFirstGetBonusExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId):
+    builder.PrependInt64Slot(1, recruitSellectionShopId, 0)
+
 def AddRecruitSellectionShopId(builder, recruitSellectionShopId):
-    return PickupFirstGetBonusExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId)
-def PickupFirstGetBonusExcelAddPickupCharacterId(builder, pickupCharacterId): builder.PrependInt64Slot(2, pickupCharacterId, 0)
+    PickupFirstGetBonusExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId)
+
+def PickupFirstGetBonusExcelAddPickupCharacterId(builder, pickupCharacterId):
+    builder.PrependInt64Slot(2, pickupCharacterId, 0)
+
 def AddPickupCharacterId(builder, pickupCharacterId):
-    return PickupFirstGetBonusExcelAddPickupCharacterId(builder, pickupCharacterId)
-def PickupFirstGetBonusExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
+    PickupFirstGetBonusExcelAddPickupCharacterId(builder, pickupCharacterId)
+
+def PickupFirstGetBonusExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(3, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return PickupFirstGetBonusExcelAddRewardParcelType(builder, rewardParcelType)
-def PickupFirstGetBonusExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(4, rewardParcelId, 0)
+    PickupFirstGetBonusExcelAddRewardParcelType(builder, rewardParcelType)
+
+def PickupFirstGetBonusExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependInt64Slot(4, rewardParcelId, 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return PickupFirstGetBonusExcelAddRewardParcelId(builder, rewardParcelId)
-def PickupFirstGetBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(5, rewardParcelAmount, 0)
+    PickupFirstGetBonusExcelAddRewardParcelId(builder, rewardParcelId)
+
+def PickupFirstGetBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependInt64Slot(5, rewardParcelAmount, 0)
+
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return PickupFirstGetBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def PickupFirstGetBonusExcelEnd(builder): return builder.EndObject()
+    PickupFirstGetBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def PickupFirstGetBonusExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PickupFirstGetBonusExcelEnd(builder)

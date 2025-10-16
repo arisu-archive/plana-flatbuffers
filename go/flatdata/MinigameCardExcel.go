@@ -17,11 +17,19 @@ func GetRootAsMinigameCardExcel(buf []byte, offset flatbuffers.UOffsetT) *Miniga
 	return x
 }
 
+func FinishMinigameCardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameCardExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameCardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameCardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameCardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameCardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

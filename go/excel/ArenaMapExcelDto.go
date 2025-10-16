@@ -23,13 +23,16 @@ type ArenaMapExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_terrain_type_localize_key := b.CreateString(fbsutils.Convert(t.TerrainTypeLocalizeKey, t.FlatBuffer.TableKey))
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
+	__offset_ground_group_name_localize_key := b.CreateString(fbsutils.Convert(t.GroundGroupNameLocalizeKey, t.FlatBuffer.TableKey))
 	ArenaMapExcelStart(b)
 	ArenaMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddTerrainType(b, fbsutils.Convert(t.TerrainType, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddTerrainTypeLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TerrainTypeLocalizeKey, t.FlatBuffer.TableKey)))
-	ArenaMapExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	ArenaMapExcelAddTerrainTypeLocalizeKey(b, __offset_terrain_type_localize_key)
+	ArenaMapExcelAddImagePath(b, __offset_image_path)
 	ArenaMapExcelAddGroundGroupId(b, fbsutils.Convert(t.GroundGroupId, t.FlatBuffer.TableKey))
-	ArenaMapExcelAddGroundGroupNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.GroundGroupNameLocalizeKey, t.FlatBuffer.TableKey)))
+	ArenaMapExcelAddGroundGroupNameLocalizeKey(b, __offset_ground_group_name_localize_key)
 	ArenaMapExcelAddStartRank(b, fbsutils.Convert(t.StartRank, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddEndRank(b, fbsutils.Convert(t.EndRank, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))

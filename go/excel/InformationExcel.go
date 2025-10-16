@@ -17,11 +17,19 @@ func GetRootAsInformationExcel(buf []byte, offset flatbuffers.UOffsetT) *Informa
 	return x
 }
 
+func FinishInformationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsInformationExcel(buf []byte, offset flatbuffers.UOffsetT) *InformationExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &InformationExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedInformationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *InformationExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

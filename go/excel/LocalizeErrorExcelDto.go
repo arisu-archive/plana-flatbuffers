@@ -18,11 +18,13 @@ type LocalizeErrorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeErrorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
 	LocalizeErrorExcelStart(b)
 	LocalizeErrorExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	LocalizeErrorExcelAddErrorLevel(b, fbsutils.Convert(t.ErrorLevel, t.FlatBuffer.TableKey))
-	LocalizeErrorExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeErrorExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddKr(b, __offset_kr)
+	LocalizeErrorExcelAddJp(b, __offset_jp)
 	return LocalizeErrorExcelEnd(b)
 }
 

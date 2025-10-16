@@ -1,7 +1,0 @@
-namespace FlatData;
-
-table TrophyCollectionExcel {
-    group_id: long;
-    localize_code_id: uint;
-    furniture_id: [long];
-}

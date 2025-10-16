@@ -1,9 +1,0 @@
-include "EchelonConstraintExcel.fbs";
-
-namespace FlatData;
-
-table EchelonConstraintExcelTable {
-    data_list: [EchelonConstraintExcel];
-}
-
-root_type EchelonConstraintExcelTable;

@@ -49,15 +49,26 @@ class FieldContentStageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldContentStageExcelTableStart(builder): builder.StartObject(1)
+def FieldContentStageExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return FieldContentStageExcelTableStart(builder)
-def FieldContentStageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    FieldContentStageExcelTableStart(builder)
+
+def FieldContentStageExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return FieldContentStageExcelTableAddDataList(builder, dataList)
-def FieldContentStageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldContentStageExcelTableAddDataList(builder, dataList)
+
+def FieldContentStageExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return FieldContentStageExcelTableStartDataListVector(builder, numElems)
-def FieldContentStageExcelTableEnd(builder): return builder.EndObject()
+
+def FieldContentStageExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldContentStageExcelTableEnd(builder)

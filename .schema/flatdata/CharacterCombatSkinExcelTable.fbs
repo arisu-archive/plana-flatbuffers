@@ -1,9 +1,0 @@
-include "CharacterCombatSkinExcel.fbs";
-
-namespace FlatData;
-
-table CharacterCombatSkinExcelTable {
-    data_list: [CharacterCombatSkinExcel];
-}
-
-root_type CharacterCombatSkinExcelTable;

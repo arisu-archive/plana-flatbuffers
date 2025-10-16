@@ -1,9 +1,0 @@
-include "EventContentArchiveBannerOffsetExcel.fbs";
-
-namespace FlatData;
-
-table EventContentArchiveBannerOffsetExcelTable {
-    data_list: [EventContentArchiveBannerOffsetExcel];
-}
-
-root_type EventContentArchiveBannerOffsetExcelTable;

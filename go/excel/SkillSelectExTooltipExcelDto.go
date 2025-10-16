@@ -17,10 +17,12 @@ type SkillSelectExTooltipExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SkillSelectExTooltipExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_selectable_ex_skill_group_id := b.CreateString(fbsutils.Convert(t.SelectableExSkillGroupId, t.FlatBuffer.TableKey))
+	__offset_skill_use_condition_localize_id := b.CreateString(fbsutils.Convert(t.SkillUseConditionLocalizeId, t.FlatBuffer.TableKey))
 	SkillSelectExTooltipExcelStart(b)
 	SkillSelectExTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	SkillSelectExTooltipExcelAddSelectableExSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SelectableExSkillGroupId, t.FlatBuffer.TableKey)))
-	SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(b, b.CreateString(fbsutils.Convert(t.SkillUseConditionLocalizeId, t.FlatBuffer.TableKey)))
+	SkillSelectExTooltipExcelAddSelectableExSkillGroupId(b, __offset_selectable_ex_skill_group_id)
+	SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(b, __offset_skill_use_condition_localize_id)
 	return SkillSelectExTooltipExcelEnd(b)
 }
 

@@ -19,6 +19,16 @@ type VoiceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_path flatbuffers.UOffsetT
+	__stringOffsets_path := make([]flatbuffers.UOffsetT, len(t.Path))
+	for i := range len(t.Path) {
+		__stringOffsets_path[i] = b.CreateString(fbsutils.Convert(t.Path[i], t.FlatBuffer.TableKey))
+	}
+	VoiceExcelStartPathVector(b, len(t.Path))
+	for i := range len(t.Path) {
+		b.PrependUOffsetT(__stringOffsets_path[len(t.Path)-i-1])
+	}
+	__offset_path = b.EndVector(len(t.Path))
 	VoiceExcelStart(b)
 	VoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -27,11 +37,7 @@ func (t *VoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
 	}
 	VoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
-	VoiceExcelStartPathVector(b, len(t.Path))
-	for i := range len(t.Path) {
-		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
-	}
-	VoiceExcelAddPath(b, b.EndVector(len(t.Path)))
+	VoiceExcelAddPath(b, __offset_path)
 	VoiceExcelStartVolumeVector(b, len(t.Volume))
 	for i := range len(t.Volume) {
 		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))

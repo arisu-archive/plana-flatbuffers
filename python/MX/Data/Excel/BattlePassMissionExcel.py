@@ -216,72 +216,140 @@ class BattlePassMissionExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def BattlePassMissionExcelStart(builder): builder.StartObject(17)
+def BattlePassMissionExcelStart(builder):
+    builder.StartObject(17)
+
 def Start(builder):
-    return BattlePassMissionExcelStart(builder)
-def BattlePassMissionExcelAddBattlePassId(builder, battlePassId): builder.PrependInt64Slot(0, battlePassId, 0)
+    BattlePassMissionExcelStart(builder)
+
+def BattlePassMissionExcelAddBattlePassId(builder, battlePassId):
+    builder.PrependInt64Slot(0, battlePassId, 0)
+
 def AddBattlePassId(builder, battlePassId):
-    return BattlePassMissionExcelAddBattlePassId(builder, battlePassId)
-def BattlePassMissionExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    BattlePassMissionExcelAddBattlePassId(builder, battlePassId)
+
+def BattlePassMissionExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return BattlePassMissionExcelAddId(builder, id)
-def BattlePassMissionExcelAddCategory(builder, category): builder.PrependInt32Slot(2, category, 0)
+    BattlePassMissionExcelAddId(builder, id)
+
+def BattlePassMissionExcelAddCategory(builder, category):
+    builder.PrependInt32Slot(2, category, 0)
+
 def AddCategory(builder, category):
-    return BattlePassMissionExcelAddCategory(builder, category)
-def BattlePassMissionExcelAddPreMissionId(builder, preMissionId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
+    BattlePassMissionExcelAddCategory(builder, category)
+
+def BattlePassMissionExcelAddPreMissionId(builder, preMissionId):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
+
 def AddPreMissionId(builder, preMissionId):
-    return BattlePassMissionExcelAddPreMissionId(builder, preMissionId)
-def BattlePassMissionExcelStartPreMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    BattlePassMissionExcelAddPreMissionId(builder, preMissionId)
+
+def BattlePassMissionExcelStartPreMissionIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartPreMissionIdVector(builder, numElems):
     return BattlePassMissionExcelStartPreMissionIdVector(builder, numElems)
-def BattlePassMissionExcelAddDescription(builder, description): builder.PrependUint32Slot(4, description, 0)
+
+def BattlePassMissionExcelAddDescription(builder, description):
+    builder.PrependUint32Slot(4, description, 0)
+
 def AddDescription(builder, description):
-    return BattlePassMissionExcelAddDescription(builder, description)
-def BattlePassMissionExcelAddResetType(builder, resetType): builder.PrependInt32Slot(5, resetType, 0)
+    BattlePassMissionExcelAddDescription(builder, description)
+
+def BattlePassMissionExcelAddResetType(builder, resetType):
+    builder.PrependInt32Slot(5, resetType, 0)
+
 def AddResetType(builder, resetType):
-    return BattlePassMissionExcelAddResetType(builder, resetType)
-def BattlePassMissionExcelAddToastDisplayType(builder, toastDisplayType): builder.PrependInt32Slot(6, toastDisplayType, 0)
+    BattlePassMissionExcelAddResetType(builder, resetType)
+
+def BattlePassMissionExcelAddToastDisplayType(builder, toastDisplayType):
+    builder.PrependInt32Slot(6, toastDisplayType, 0)
+
 def AddToastDisplayType(builder, toastDisplayType):
-    return BattlePassMissionExcelAddToastDisplayType(builder, toastDisplayType)
-def BattlePassMissionExcelAddToastImagePath(builder, toastImagePath): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
+    BattlePassMissionExcelAddToastDisplayType(builder, toastDisplayType)
+
+def BattlePassMissionExcelAddToastImagePath(builder, toastImagePath):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
+
 def AddToastImagePath(builder, toastImagePath):
-    return BattlePassMissionExcelAddToastImagePath(builder, toastImagePath)
-def BattlePassMissionExcelAddViewFlag(builder, viewFlag): builder.PrependBoolSlot(8, viewFlag, 0)
+    BattlePassMissionExcelAddToastImagePath(builder, toastImagePath)
+
+def BattlePassMissionExcelAddViewFlag(builder, viewFlag):
+    builder.PrependBoolSlot(8, viewFlag, 0)
+
 def AddViewFlag(builder, viewFlag):
-    return BattlePassMissionExcelAddViewFlag(builder, viewFlag)
-def BattlePassMissionExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(9, displayOrder, 0)
+    BattlePassMissionExcelAddViewFlag(builder, viewFlag)
+
+def BattlePassMissionExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(9, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return BattlePassMissionExcelAddDisplayOrder(builder, displayOrder)
-def BattlePassMissionExcelAddShortcutUi(builder, shortcutUi): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
+    BattlePassMissionExcelAddDisplayOrder(builder, displayOrder)
+
+def BattlePassMissionExcelAddShortcutUi(builder, shortcutUi):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
+
 def AddShortcutUi(builder, shortcutUi):
-    return BattlePassMissionExcelAddShortcutUi(builder, shortcutUi)
-def BattlePassMissionExcelStartShortcutUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BattlePassMissionExcelAddShortcutUi(builder, shortcutUi)
+
+def BattlePassMissionExcelStartShortcutUiVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartShortcutUiVector(builder, numElems):
     return BattlePassMissionExcelStartShortcutUiVector(builder, numElems)
-def BattlePassMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut): builder.PrependInt64Slot(11, challengeStageShortcut, 0)
+
+def BattlePassMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut):
+    builder.PrependInt64Slot(11, challengeStageShortcut, 0)
+
 def AddChallengeStageShortcut(builder, challengeStageShortcut):
-    return BattlePassMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
-def BattlePassMissionExcelAddCompleteConditionType(builder, completeConditionType): builder.PrependInt32Slot(12, completeConditionType, 0)
+    BattlePassMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
+
+def BattlePassMissionExcelAddCompleteConditionType(builder, completeConditionType):
+    builder.PrependInt32Slot(12, completeConditionType, 0)
+
 def AddCompleteConditionType(builder, completeConditionType):
-    return BattlePassMissionExcelAddCompleteConditionType(builder, completeConditionType)
-def BattlePassMissionExcelAddCompleteConditionCount(builder, completeConditionCount): builder.PrependInt64Slot(13, completeConditionCount, 0)
+    BattlePassMissionExcelAddCompleteConditionType(builder, completeConditionType)
+
+def BattlePassMissionExcelAddCompleteConditionCount(builder, completeConditionCount):
+    builder.PrependInt64Slot(13, completeConditionCount, 0)
+
 def AddCompleteConditionCount(builder, completeConditionCount):
-    return BattlePassMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
-def BattlePassMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
+    BattlePassMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
+
+def BattlePassMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
+
 def AddCompleteConditionParameter(builder, completeConditionParameter):
-    return BattlePassMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
-def BattlePassMissionExcelStartCompleteConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    BattlePassMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+
+def BattlePassMissionExcelStartCompleteConditionParameterVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartCompleteConditionParameterVector(builder, numElems):
     return BattlePassMissionExcelStartCompleteConditionParameterVector(builder, numElems)
-def BattlePassMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
+
+def BattlePassMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
+
 def AddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    return BattlePassMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
-def BattlePassMissionExcelStartCompleteConditionParameterTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BattlePassMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+
+def BattlePassMissionExcelStartCompleteConditionParameterTagVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartCompleteConditionParameterTagVector(builder, numElems):
     return BattlePassMissionExcelStartCompleteConditionParameterTagVector(builder, numElems)
-def BattlePassMissionExcelAddBattlePassExpAmount(builder, battlePassExpAmount): builder.PrependInt32Slot(16, battlePassExpAmount, 0)
+
+def BattlePassMissionExcelAddBattlePassExpAmount(builder, battlePassExpAmount):
+    builder.PrependInt32Slot(16, battlePassExpAmount, 0)
+
 def AddBattlePassExpAmount(builder, battlePassExpAmount):
-    return BattlePassMissionExcelAddBattlePassExpAmount(builder, battlePassExpAmount)
-def BattlePassMissionExcelEnd(builder): return builder.EndObject()
+    BattlePassMissionExcelAddBattlePassExpAmount(builder, battlePassExpAmount)
+
+def BattlePassMissionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattlePassMissionExcelEnd(builder)

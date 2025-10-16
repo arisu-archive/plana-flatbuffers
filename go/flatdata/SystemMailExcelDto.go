@@ -21,11 +21,13 @@ func (t *SystemMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMail"))
 	}
+	__offset_sender := b.CreateString(fbsutils.Convert(t.Sender, t.FlatBuffer.TableKey))
+	__offset_comment := b.CreateString(fbsutils.Convert(t.Comment, t.FlatBuffer.TableKey))
 	SystemMailExcelStart(b)
 	SystemMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
 	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
-	SystemMailExcelAddSender(b, b.CreateString(fbsutils.Convert(t.Sender, t.FlatBuffer.TableKey)))
-	SystemMailExcelAddComment(b, b.CreateString(fbsutils.Convert(t.Comment, t.FlatBuffer.TableKey)))
+	SystemMailExcelAddSender(b, __offset_sender)
+	SystemMailExcelAddComment(b, __offset_comment)
 	return SystemMailExcelEnd(b)
 }
 

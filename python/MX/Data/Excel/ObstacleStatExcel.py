@@ -129,54 +129,104 @@ class ObstacleStatExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ObstacleStatExcelStart(builder): builder.StartObject(15)
+def ObstacleStatExcelStart(builder):
+    builder.StartObject(15)
+
 def Start(builder):
-    return ObstacleStatExcelStart(builder)
-def ObstacleStatExcelAddStringId(builder, stringId): builder.PrependUint32Slot(0, stringId, 0)
+    ObstacleStatExcelStart(builder)
+
+def ObstacleStatExcelAddStringId(builder, stringId):
+    builder.PrependUint32Slot(0, stringId, 0)
+
 def AddStringId(builder, stringId):
-    return ObstacleStatExcelAddStringId(builder, stringId)
-def ObstacleStatExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    ObstacleStatExcelAddStringId(builder, stringId)
+
+def ObstacleStatExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return ObstacleStatExcelAddName(builder, name)
-def ObstacleStatExcelAddMaxHp1(builder, maxHp1): builder.PrependInt64Slot(2, maxHp1, 0)
+    ObstacleStatExcelAddName(builder, name)
+
+def ObstacleStatExcelAddMaxHp1(builder, maxHp1):
+    builder.PrependInt64Slot(2, maxHp1, 0)
+
 def AddMaxHp1(builder, maxHp1):
-    return ObstacleStatExcelAddMaxHp1(builder, maxHp1)
-def ObstacleStatExcelAddMaxHp100(builder, maxHp100): builder.PrependInt64Slot(3, maxHp100, 0)
+    ObstacleStatExcelAddMaxHp1(builder, maxHp1)
+
+def ObstacleStatExcelAddMaxHp100(builder, maxHp100):
+    builder.PrependInt64Slot(3, maxHp100, 0)
+
 def AddMaxHp100(builder, maxHp100):
-    return ObstacleStatExcelAddMaxHp100(builder, maxHp100)
-def ObstacleStatExcelAddBlockRate(builder, blockRate): builder.PrependInt64Slot(4, blockRate, 0)
+    ObstacleStatExcelAddMaxHp100(builder, maxHp100)
+
+def ObstacleStatExcelAddBlockRate(builder, blockRate):
+    builder.PrependInt64Slot(4, blockRate, 0)
+
 def AddBlockRate(builder, blockRate):
-    return ObstacleStatExcelAddBlockRate(builder, blockRate)
-def ObstacleStatExcelAddDodge(builder, dodge): builder.PrependInt64Slot(5, dodge, 0)
+    ObstacleStatExcelAddBlockRate(builder, blockRate)
+
+def ObstacleStatExcelAddDodge(builder, dodge):
+    builder.PrependInt64Slot(5, dodge, 0)
+
 def AddDodge(builder, dodge):
-    return ObstacleStatExcelAddDodge(builder, dodge)
-def ObstacleStatExcelAddCanNotStandRange(builder, canNotStandRange): builder.PrependInt64Slot(6, canNotStandRange, 0)
+    ObstacleStatExcelAddDodge(builder, dodge)
+
+def ObstacleStatExcelAddCanNotStandRange(builder, canNotStandRange):
+    builder.PrependInt64Slot(6, canNotStandRange, 0)
+
 def AddCanNotStandRange(builder, canNotStandRange):
-    return ObstacleStatExcelAddCanNotStandRange(builder, canNotStandRange)
-def ObstacleStatExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight): builder.PrependFloat32Slot(7, highlightFloaterHeight, 0.0)
+    ObstacleStatExcelAddCanNotStandRange(builder, canNotStandRange)
+
+def ObstacleStatExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight):
+    builder.PrependFloat32Slot(7, highlightFloaterHeight, 0.0)
+
 def AddHighlightFloaterHeight(builder, highlightFloaterHeight):
-    return ObstacleStatExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight)
-def ObstacleStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate): builder.PrependInt64Slot(8, enhanceLightArmorRate, 0)
+    ObstacleStatExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight)
+
+def ObstacleStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate):
+    builder.PrependInt64Slot(8, enhanceLightArmorRate, 0)
+
 def AddEnhanceLightArmorRate(builder, enhanceLightArmorRate):
-    return ObstacleStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate)
-def ObstacleStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate): builder.PrependInt64Slot(9, enhanceHeavyArmorRate, 0)
+    ObstacleStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate)
+
+def ObstacleStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate):
+    builder.PrependInt64Slot(9, enhanceHeavyArmorRate, 0)
+
 def AddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate):
-    return ObstacleStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate)
-def ObstacleStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate): builder.PrependInt64Slot(10, enhanceUnarmedRate, 0)
+    ObstacleStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate)
+
+def ObstacleStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate):
+    builder.PrependInt64Slot(10, enhanceUnarmedRate, 0)
+
 def AddEnhanceUnarmedRate(builder, enhanceUnarmedRate):
-    return ObstacleStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate)
-def ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate): builder.PrependInt64Slot(11, enhanceElasticArmorRate, 0)
+    ObstacleStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate)
+
+def ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate):
+    builder.PrependInt64Slot(11, enhanceElasticArmorRate, 0)
+
 def AddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate):
-    return ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate)
-def ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate): builder.PrependInt64Slot(12, enhanceStructureRate, 0)
+    ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate)
+
+def ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate):
+    builder.PrependInt64Slot(12, enhanceStructureRate, 0)
+
 def AddEnhanceStructureRate(builder, enhanceStructureRate):
-    return ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate)
-def ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate): builder.PrependInt64Slot(13, enhanceNormalArmorRate, 0)
+    ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate)
+
+def ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
+    builder.PrependInt64Slot(13, enhanceNormalArmorRate, 0)
+
 def AddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
-    return ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate)
-def ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate): builder.PrependInt64Slot(14, reduceExDamagedRate, 0)
+    ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate)
+
+def ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate):
+    builder.PrependInt64Slot(14, reduceExDamagedRate, 0)
+
 def AddReduceExDamagedRate(builder, reduceExDamagedRate):
-    return ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate)
-def ObstacleStatExcelEnd(builder): return builder.EndObject()
+    ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate)
+
+def ObstacleStatExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ObstacleStatExcelEnd(builder)

@@ -18,10 +18,12 @@ type LoadingImageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LoadingImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_image_path_kr := b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey))
+	__offset_image_path_jp := b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey))
 	LoadingImageExcelStart(b)
 	LoadingImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LoadingImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	LoadingImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	LoadingImageExcelAddImagePathKr(b, __offset_image_path_kr)
+	LoadingImageExcelAddImagePathJp(b, __offset_image_path_jp)
 	LoadingImageExcelAddDisplayWeight(b, fbsutils.Convert(t.DisplayWeight, t.FlatBuffer.TableKey))
 	return LoadingImageExcelEnd(b)
 }

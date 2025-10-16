@@ -17,11 +17,19 @@ func GetRootAsAttendanceExcel(buf []byte, offset flatbuffers.UOffsetT) *Attendan
 	return x
 }
 
+func FinishAttendanceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAttendanceExcel(buf []byte, offset flatbuffers.UOffsetT) *AttendanceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AttendanceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAttendanceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AttendanceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

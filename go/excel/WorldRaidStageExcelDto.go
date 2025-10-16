@@ -49,13 +49,37 @@ type WorldRaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_portrait_path := b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey))
+	__offset_bg_path := b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey))
+	var __offset_battle_ready_timeline_path flatbuffers.UOffsetT
+	__stringOffsets_battle_ready_timeline_path := make([]flatbuffers.UOffsetT, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		__stringOffsets_battle_ready_timeline_path[i] = b.CreateString(fbsutils.Convert(t.BattleReadyTimelinePath[i], t.FlatBuffer.TableKey))
+	}
+	WorldRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		b.PrependUOffsetT(__stringOffsets_battle_ready_timeline_path[len(t.BattleReadyTimelinePath)-i-1])
+	}
+	__offset_battle_ready_timeline_path = b.EndVector(len(t.BattleReadyTimelinePath))
+	__offset_victory_timeline_path := b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
+	__offset_phase_change_timeline_path := b.CreateString(fbsutils.Convert(t.PhaseChangeTimelinePath, t.FlatBuffer.TableKey))
+	var __offset_ally_passive_skill flatbuffers.UOffsetT
+	__stringOffsets_ally_passive_skill := make([]flatbuffers.UOffsetT, len(t.AllyPassiveSkill))
+	for i := range len(t.AllyPassiveSkill) {
+		__stringOffsets_ally_passive_skill[i] = b.CreateString(fbsutils.Convert(t.AllyPassiveSkill[i], t.FlatBuffer.TableKey))
+	}
+	WorldRaidStageExcelStartAllyPassiveSkillVector(b, len(t.AllyPassiveSkill))
+	for i := range len(t.AllyPassiveSkill) {
+		b.PrependUOffsetT(__stringOffsets_ally_passive_skill[len(t.AllyPassiveSkill)-i-1])
+	}
+	__offset_ally_passive_skill = b.EndVector(len(t.AllyPassiveSkill))
 	WorldRaidStageExcelStart(b)
 	WorldRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddUseBossIndex(b, t.UseBossIndex)
 	WorldRaidStageExcelAddUseBossAiPhaseSync(b, t.UseBossAiPhaseSync)
 	WorldRaidStageExcelAddWorldRaidBossGroupId(b, fbsutils.Convert(t.WorldRaidBossGroupId, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
-	WorldRaidStageExcelAddBgPath(b, b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey)))
+	WorldRaidStageExcelAddPortraitPath(b, __offset_portrait_path)
+	WorldRaidStageExcelAddBgPath(b, __offset_bg_path)
 	WorldRaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelStartBossCharacterIdVector(b, len(t.BossCharacterId))
 	for i := range len(t.BossCharacterId) {
@@ -71,11 +95,7 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WorldRaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddRaidBattleEndRewardGroupId(b, fbsutils.Convert(t.RaidBattleEndRewardGroupId, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddRaidRewardGroupId(b, fbsutils.Convert(t.RaidRewardGroupId, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
-	for i := range len(t.BattleReadyTimelinePath) {
-		b.PrependUOffsetT(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]))
-	}
-	WorldRaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
+	WorldRaidStageExcelAddBattleReadyTimelinePath(b, __offset_battle_ready_timeline_path)
 	WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
 	for i := range len(t.BattleReadyTimelinePhaseStart) {
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseStart[len(t.BattleReadyTimelinePhaseStart)-i-1], t.FlatBuffer.TableKey))
@@ -86,8 +106,8 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
-	WorldRaidStageExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
-	WorldRaidStageExcelAddPhaseChangeTimelinePath(b, b.CreateString(fbsutils.Convert(t.PhaseChangeTimelinePath, t.FlatBuffer.TableKey)))
+	WorldRaidStageExcelAddVictoryTimelinePath(b, __offset_victory_timeline_path)
+	WorldRaidStageExcelAddPhaseChangeTimelinePath(b, __offset_phase_change_timeline_path)
 	WorldRaidStageExcelAddTimeLinePhase(b, fbsutils.Convert(t.TimeLinePhase, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddEnterScenarioKey(b, fbsutils.Convert(t.EnterScenarioKey, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddClearScenarioKey(b, fbsutils.Convert(t.ClearScenarioKey, t.FlatBuffer.TableKey))
@@ -97,11 +117,7 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WorldRaidStageExcelAddShowSkillCard(b, t.ShowSkillCard)
 	WorldRaidStageExcelAddBossBgInfoKey(b, fbsutils.Convert(t.BossBgInfoKey, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddDamageToWorldBoss(b, fbsutils.Convert(t.DamageToWorldBoss, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelStartAllyPassiveSkillVector(b, len(t.AllyPassiveSkill))
-	for i := range len(t.AllyPassiveSkill) {
-		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkill[len(t.AllyPassiveSkill)-i-1]))
-	}
-	WorldRaidStageExcelAddAllyPassiveSkill(b, b.EndVector(len(t.AllyPassiveSkill)))
+	WorldRaidStageExcelAddAllyPassiveSkill(b, __offset_ally_passive_skill)
 	WorldRaidStageExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
 	for i := range len(t.AllyPassiveSkillLevel) {
 		b.PrependInt32(fbsutils.Convert(t.AllyPassiveSkillLevel[len(t.AllyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))

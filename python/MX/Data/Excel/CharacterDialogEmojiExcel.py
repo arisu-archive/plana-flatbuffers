@@ -73,30 +73,56 @@ class CharacterDialogEmojiExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def CharacterDialogEmojiExcelStart(builder): builder.StartObject(7)
+def CharacterDialogEmojiExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return CharacterDialogEmojiExcelStart(builder)
-def CharacterDialogEmojiExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    CharacterDialogEmojiExcelStart(builder)
+
+def CharacterDialogEmojiExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return CharacterDialogEmojiExcelAddGroupId(builder, groupId)
-def CharacterDialogEmojiExcelAddTargetIndex(builder, targetIndex): builder.PrependInt32Slot(1, targetIndex, 0)
+    CharacterDialogEmojiExcelAddGroupId(builder, groupId)
+
+def CharacterDialogEmojiExcelAddTargetIndex(builder, targetIndex):
+    builder.PrependInt32Slot(1, targetIndex, 0)
+
 def AddTargetIndex(builder, targetIndex):
-    return CharacterDialogEmojiExcelAddTargetIndex(builder, targetIndex)
-def CharacterDialogEmojiExcelAddDialogType(builder, dialogType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dialogType), 0)
+    CharacterDialogEmojiExcelAddTargetIndex(builder, targetIndex)
+
+def CharacterDialogEmojiExcelAddDialogType(builder, dialogType):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dialogType), 0)
+
 def AddDialogType(builder, dialogType):
-    return CharacterDialogEmojiExcelAddDialogType(builder, dialogType)
-def CharacterDialogEmojiExcelAddDuration(builder, duration): builder.PrependInt64Slot(3, duration, 0)
+    CharacterDialogEmojiExcelAddDialogType(builder, dialogType)
+
+def CharacterDialogEmojiExcelAddDuration(builder, duration):
+    builder.PrependInt64Slot(3, duration, 0)
+
 def AddDuration(builder, duration):
-    return CharacterDialogEmojiExcelAddDuration(builder, duration)
-def CharacterDialogEmojiExcelAddHideUi(builder, hideUi): builder.PrependBoolSlot(4, hideUi, 0)
+    CharacterDialogEmojiExcelAddDuration(builder, duration)
+
+def CharacterDialogEmojiExcelAddHideUi(builder, hideUi):
+    builder.PrependBoolSlot(4, hideUi, 0)
+
 def AddHideUi(builder, hideUi):
-    return CharacterDialogEmojiExcelAddHideUi(builder, hideUi)
-def CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+    CharacterDialogEmojiExcelAddHideUi(builder, hideUi)
+
+def CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+
 def AddLocalizeKr(builder, localizeKr):
-    return CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr)
-def CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+    CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr)
+
+def CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+
 def AddLocalizeJp(builder, localizeJp):
-    return CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp)
-def CharacterDialogEmojiExcelEnd(builder): return builder.EndObject()
+    CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp)
+
+def CharacterDialogEmojiExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterDialogEmojiExcelEnd(builder)

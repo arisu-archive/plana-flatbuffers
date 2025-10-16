@@ -1,0 +1,17 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentZoneVisitRewardExcel {
+    event_content_id: long;
+    event_content_location_id: long;
+    dev_name: string;
+    character_id: long;
+    character_dev_name: string;
+    visit_reward_parcel_type: [ParcelType];
+    visit_reward_parcel_id: [long];
+    visit_reward_amount: [long];
+    visit_reward_prob: [long];
+}
+
+root_type EventContentZoneVisitRewardExcel;

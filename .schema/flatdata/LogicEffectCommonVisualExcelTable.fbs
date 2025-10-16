@@ -1,9 +1,0 @@
-include "LogicEffectCommonVisualExcel.fbs";
-
-namespace FlatData;
-
-table LogicEffectCommonVisualExcelTable {
-    data_list: [LogicEffectCommonVisualExcel];
-}
-
-root_type LogicEffectCommonVisualExcelTable;

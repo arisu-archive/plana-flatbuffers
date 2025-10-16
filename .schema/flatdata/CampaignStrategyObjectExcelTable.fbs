@@ -1,9 +1,0 @@
-include "CampaignStrategyObjectExcel.fbs";
-
-namespace FlatData;
-
-table CampaignStrategyObjectExcelTable {
-    data_list: [CampaignStrategyObjectExcel];
-}
-
-root_type CampaignStrategyObjectExcelTable;

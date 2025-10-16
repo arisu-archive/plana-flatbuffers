@@ -34,10 +34,14 @@ type MiniGameRhythmExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_preset_name := b.CreateString(fbsutils.Convert(t.PresetName, t.FlatBuffer.TableKey))
+	__offset_rhythm_file_name := b.CreateString(fbsutils.Convert(t.RhythmFileName, t.FlatBuffer.TableKey))
+	__offset_art_level_scene_name := b.CreateString(fbsutils.Convert(t.ArtLevelSceneName, t.FlatBuffer.TableKey))
+	__offset_combo_image_path := b.CreateString(fbsutils.Convert(t.ComboImagePath, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelStart(b)
 	MiniGameRhythmExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddPresetName(b, b.CreateString(fbsutils.Convert(t.PresetName, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddPresetName(b, __offset_preset_name)
 	MiniGameRhythmExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddIsSpecial(b, t.IsSpecial)
 	MiniGameRhythmExcelAddOpenStageScoreAmount(b, fbsutils.Convert(t.OpenStageScoreAmount, t.FlatBuffer.TableKey))
@@ -52,9 +56,9 @@ func (t *MiniGameRhythmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	MiniGameRhythmExcelAddFeverCriticalRate(b, fbsutils.Convert(t.FeverCriticalRate, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddFeverAttackRate(b, fbsutils.Convert(t.FeverAttackRate, t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddMaxHpScore(b, fbsutils.Convert(t.MaxHpScore, t.FlatBuffer.TableKey))
-	MiniGameRhythmExcelAddRhythmFileName(b, b.CreateString(fbsutils.Convert(t.RhythmFileName, t.FlatBuffer.TableKey)))
-	MiniGameRhythmExcelAddArtLevelSceneName(b, b.CreateString(fbsutils.Convert(t.ArtLevelSceneName, t.FlatBuffer.TableKey)))
-	MiniGameRhythmExcelAddComboImagePath(b, b.CreateString(fbsutils.Convert(t.ComboImagePath, t.FlatBuffer.TableKey)))
+	MiniGameRhythmExcelAddRhythmFileName(b, __offset_rhythm_file_name)
+	MiniGameRhythmExcelAddArtLevelSceneName(b, __offset_art_level_scene_name)
+	MiniGameRhythmExcelAddComboImagePath(b, __offset_combo_image_path)
 	return MiniGameRhythmExcelEnd(b)
 }
 

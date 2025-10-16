@@ -1,9 +1,0 @@
-include "PresetParcelsExcel.fbs";
-
-namespace FlatData;
-
-table PresetParcelsExcelTable {
-    data_list: [PresetParcelsExcel];
-}
-
-root_type PresetParcelsExcelTable;

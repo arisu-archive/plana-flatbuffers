@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class CCGStageRewardType(object):
-    None_ = 0
-    All = 1
-    Random = 2
-    Select = 3
+# NOTE CCGStageRewardType.py does not declare any structs or enums

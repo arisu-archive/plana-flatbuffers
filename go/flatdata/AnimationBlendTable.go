@@ -17,11 +17,19 @@ func GetRootAsAnimationBlendTable(buf []byte, offset flatbuffers.UOffsetT) *Anim
 	return x
 }
 
+func FinishAnimationBlendTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAnimationBlendTable(buf []byte, offset flatbuffers.UOffsetT) *AnimationBlendTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AnimationBlendTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAnimationBlendTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AnimationBlendTable) Init(buf []byte, i flatbuffers.UOffsetT) {

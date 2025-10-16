@@ -3,6 +3,7 @@ include "CurrencyOverChargeType.fbs";
 include "CurrencyTypes.fbs";
 include "DailyRefillType.fbs";
 include "ParcelType.fbs";
+include "PeriodType.fbs";
 include "Rarity.fbs";
 
 namespace MX.Data.Excel;
@@ -29,6 +30,8 @@ table CurrencyExcel {
     expiry_change_parcel_type: ParcelType;
     expiry_change_id: long;
     expiry_change_amount: long;
+    reset_type: PeriodType;
+    reset_amount: long;
 }
 
 root_type CurrencyExcel;

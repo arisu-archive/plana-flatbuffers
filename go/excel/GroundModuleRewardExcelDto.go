@@ -21,6 +21,7 @@ type GroundModuleRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundModuleRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_drop_item_model_prefab_path := b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelStart(b)
 	GroundModuleRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
@@ -28,7 +29,7 @@ func (t *GroundModuleRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	GroundModuleRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelAddIsDisplayed(b, t.IsDisplayed)
-	GroundModuleRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
+	GroundModuleRewardExcelAddDropItemModelPrefabPath(b, __offset_drop_item_model_prefab_path)
 	return GroundModuleRewardExcelEnd(b)
 }
 

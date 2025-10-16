@@ -2,7 +2,4 @@
 
 # namespace: Excel
 
-class ShopPurchasePopupType(object):
-    None_ = 0
-    Bundle = 1
-    Piece = 2
+# NOTE ShopPurchasePopupType.py does not declare any structs or enums

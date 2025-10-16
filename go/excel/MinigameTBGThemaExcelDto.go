@@ -29,28 +29,40 @@ type MinigameTBGThemaExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGThemaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_thema_map := b.CreateString(fbsutils.Convert(t.ThemaMap, t.FlatBuffer.TableKey))
+	__offset_thema_map_bg := b.CreateString(fbsutils.Convert(t.ThemaMapBg, t.FlatBuffer.TableKey))
+	var __offset_portal_condition_parameter flatbuffers.UOffsetT
+	__stringOffsets_portal_condition_parameter := make([]flatbuffers.UOffsetT, len(t.PortalConditionParameter))
+	for i := range len(t.PortalConditionParameter) {
+		__stringOffsets_portal_condition_parameter[i] = b.CreateString(fbsutils.Convert(t.PortalConditionParameter[i], t.FlatBuffer.TableKey))
+	}
+	MinigameTBGThemaExcelStartPortalConditionParameterVector(b, len(t.PortalConditionParameter))
+	for i := range len(t.PortalConditionParameter) {
+		b.PrependUOffsetT(__stringOffsets_portal_condition_parameter[len(t.PortalConditionParameter)-i-1])
+	}
+	__offset_portal_condition_parameter = b.EndVector(len(t.PortalConditionParameter))
+	__offset_thema_name_localize := b.CreateString(fbsutils.Convert(t.ThemaNameLocalize, t.FlatBuffer.TableKey))
+	__offset_thema_loading_image := b.CreateString(fbsutils.Convert(t.ThemaLoadingImage, t.FlatBuffer.TableKey))
+	__offset_thema_player_prefab := b.CreateString(fbsutils.Convert(t.ThemaPlayerPrefab, t.FlatBuffer.TableKey))
+	__offset_thema_goal_localize := b.CreateString(fbsutils.Convert(t.ThemaGoalLocalize, t.FlatBuffer.TableKey))
 	MinigameTBGThemaExcelStart(b)
 	MinigameTBGThemaExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameTBGThemaExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MinigameTBGThemaExcelAddThemaIndex(b, fbsutils.Convert(t.ThemaIndex, t.FlatBuffer.TableKey))
 	MinigameTBGThemaExcelAddThemaType(b, fbsutils.Convert(t.ThemaType, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddThemaMap(b, b.CreateString(fbsutils.Convert(t.ThemaMap, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaMapBg(b, b.CreateString(fbsutils.Convert(t.ThemaMapBg, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddThemaMap(b, __offset_thema_map)
+	MinigameTBGThemaExcelAddThemaMapBg(b, __offset_thema_map_bg)
 	MinigameTBGThemaExcelStartPortalConditionVector(b, len(t.PortalCondition))
 	for i := range len(t.PortalCondition) {
 		b.PrependInt32(fbsutils.Convert(int32(t.PortalCondition[len(t.PortalCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameTBGThemaExcelAddPortalCondition(b, b.EndVector(len(t.PortalCondition)))
-	MinigameTBGThemaExcelStartPortalConditionParameterVector(b, len(t.PortalConditionParameter))
-	for i := range len(t.PortalConditionParameter) {
-		b.PrependUOffsetT(b.CreateString(t.PortalConditionParameter[len(t.PortalConditionParameter)-i-1]))
-	}
-	MinigameTBGThemaExcelAddPortalConditionParameter(b, b.EndVector(len(t.PortalConditionParameter)))
-	MinigameTBGThemaExcelAddThemaNameLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaNameLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaLoadingImage(b, b.CreateString(fbsutils.Convert(t.ThemaLoadingImage, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaPlayerPrefab(b, b.CreateString(fbsutils.Convert(t.ThemaPlayerPrefab, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddPortalConditionParameter(b, __offset_portal_condition_parameter)
+	MinigameTBGThemaExcelAddThemaNameLocalize(b, __offset_thema_name_localize)
+	MinigameTBGThemaExcelAddThemaLoadingImage(b, __offset_thema_loading_image)
+	MinigameTBGThemaExcelAddThemaPlayerPrefab(b, __offset_thema_player_prefab)
 	MinigameTBGThemaExcelAddThemaLeaderId(b, fbsutils.Convert(t.ThemaLeaderId, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddThemaGoalLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaGoalLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddThemaGoalLocalize(b, __offset_thema_goal_localize)
 	MinigameTBGThemaExcelAddInstantClearCostAmount(b, fbsutils.Convert(t.InstantClearCostAmount, t.FlatBuffer.TableKey))
 	MinigameTBGThemaExcelAddIsTutorial(b, t.IsTutorial)
 	return MinigameTBGThemaExcelEnd(b)

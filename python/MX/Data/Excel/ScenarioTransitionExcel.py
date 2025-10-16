@@ -73,30 +73,56 @@ class ScenarioTransitionExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def ScenarioTransitionExcelStart(builder): builder.StartObject(7)
+def ScenarioTransitionExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return ScenarioTransitionExcelStart(builder)
-def ScenarioTransitionExcelAddName(builder, name): builder.PrependUint32Slot(0, name, 0)
+    ScenarioTransitionExcelStart(builder)
+
+def ScenarioTransitionExcelAddName(builder, name):
+    builder.PrependUint32Slot(0, name, 0)
+
 def AddName(builder, name):
-    return ScenarioTransitionExcelAddName(builder, name)
-def ScenarioTransitionExcelAddTransitionOut(builder, transitionOut): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(transitionOut), 0)
+    ScenarioTransitionExcelAddName(builder, name)
+
+def ScenarioTransitionExcelAddTransitionOut(builder, transitionOut):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(transitionOut), 0)
+
 def AddTransitionOut(builder, transitionOut):
-    return ScenarioTransitionExcelAddTransitionOut(builder, transitionOut)
-def ScenarioTransitionExcelAddTransitionOutDuration(builder, transitionOutDuration): builder.PrependInt64Slot(2, transitionOutDuration, 0)
+    ScenarioTransitionExcelAddTransitionOut(builder, transitionOut)
+
+def ScenarioTransitionExcelAddTransitionOutDuration(builder, transitionOutDuration):
+    builder.PrependInt64Slot(2, transitionOutDuration, 0)
+
 def AddTransitionOutDuration(builder, transitionOutDuration):
-    return ScenarioTransitionExcelAddTransitionOutDuration(builder, transitionOutDuration)
-def ScenarioTransitionExcelAddTransitionOutResource(builder, transitionOutResource): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(transitionOutResource), 0)
+    ScenarioTransitionExcelAddTransitionOutDuration(builder, transitionOutDuration)
+
+def ScenarioTransitionExcelAddTransitionOutResource(builder, transitionOutResource):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(transitionOutResource), 0)
+
 def AddTransitionOutResource(builder, transitionOutResource):
-    return ScenarioTransitionExcelAddTransitionOutResource(builder, transitionOutResource)
-def ScenarioTransitionExcelAddTransitionIn(builder, transitionIn): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(transitionIn), 0)
+    ScenarioTransitionExcelAddTransitionOutResource(builder, transitionOutResource)
+
+def ScenarioTransitionExcelAddTransitionIn(builder, transitionIn):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(transitionIn), 0)
+
 def AddTransitionIn(builder, transitionIn):
-    return ScenarioTransitionExcelAddTransitionIn(builder, transitionIn)
-def ScenarioTransitionExcelAddTransitionInDuration(builder, transitionInDuration): builder.PrependInt64Slot(5, transitionInDuration, 0)
+    ScenarioTransitionExcelAddTransitionIn(builder, transitionIn)
+
+def ScenarioTransitionExcelAddTransitionInDuration(builder, transitionInDuration):
+    builder.PrependInt64Slot(5, transitionInDuration, 0)
+
 def AddTransitionInDuration(builder, transitionInDuration):
-    return ScenarioTransitionExcelAddTransitionInDuration(builder, transitionInDuration)
-def ScenarioTransitionExcelAddTransitionInResource(builder, transitionInResource): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(transitionInResource), 0)
+    ScenarioTransitionExcelAddTransitionInDuration(builder, transitionInDuration)
+
+def ScenarioTransitionExcelAddTransitionInResource(builder, transitionInResource):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(transitionInResource), 0)
+
 def AddTransitionInResource(builder, transitionInResource):
-    return ScenarioTransitionExcelAddTransitionInResource(builder, transitionInResource)
-def ScenarioTransitionExcelEnd(builder): return builder.EndObject()
+    ScenarioTransitionExcelAddTransitionInResource(builder, transitionInResource)
+
+def ScenarioTransitionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ScenarioTransitionExcelEnd(builder)

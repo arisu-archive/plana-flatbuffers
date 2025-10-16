@@ -17,11 +17,19 @@ func GetRootAsAniStateData(buf []byte, offset flatbuffers.UOffsetT) *AniStateDat
 	return x
 }
 
+func FinishAniStateDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAniStateData(buf []byte, offset flatbuffers.UOffsetT) *AniStateData {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AniStateData{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAniStateDataBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AniStateData) Init(buf []byte, i flatbuffers.UOffsetT) {

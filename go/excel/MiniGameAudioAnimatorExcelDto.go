@@ -25,21 +25,29 @@ type MiniGameAudioAnimatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameAudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_voice_name_prefix := b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey))
+	__offset_state_name := b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey))
+	var __offset_audio_clip_path flatbuffers.UOffsetT
+	__stringOffsets_audio_clip_path := make([]flatbuffers.UOffsetT, len(t.AudioClipPath))
+	for i := range len(t.AudioClipPath) {
+		__stringOffsets_audio_clip_path[i] = b.CreateString(fbsutils.Convert(t.AudioClipPath[i], t.FlatBuffer.TableKey))
+	}
+	MiniGameAudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
+	for i := range len(t.AudioClipPath) {
+		b.PrependUOffsetT(__stringOffsets_audio_clip_path[len(t.AudioClipPath)-i-1])
+	}
+	__offset_audio_clip_path = b.EndVector(len(t.AudioClipPath))
 	MiniGameAudioAnimatorExcelStart(b)
 	MiniGameAudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
+	MiniGameAudioAnimatorExcelAddVoiceNamePrefix(b, __offset_voice_name_prefix)
 	MiniGameAudioAnimatorExcelAddStateNameHash(b, fbsutils.Convert(t.StateNameHash, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
+	MiniGameAudioAnimatorExcelAddStateName(b, __offset_state_name)
 	MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
 	MiniGameAudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
 	MiniGameAudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
 	MiniGameAudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
 	MiniGameAudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
-	for i := range len(t.AudioClipPath) {
-		b.PrependUOffsetT(b.CreateString(t.AudioClipPath[len(t.AudioClipPath)-i-1]))
-	}
-	MiniGameAudioAnimatorExcelAddAudioClipPath(b, b.EndVector(len(t.AudioClipPath)))
+	MiniGameAudioAnimatorExcelAddAudioClipPath(b, __offset_audio_clip_path)
 	MiniGameAudioAnimatorExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))

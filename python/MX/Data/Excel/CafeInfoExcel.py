@@ -52,21 +52,103 @@ class CafeInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CafeInfoExcelStart(builder): builder.StartObject(4)
+    # CafeInfoExcel
+    def SummonParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def SummonParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def SummonParcelAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def CategoryType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def SummonTicketIconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def CafeInfoExcelStart(builder):
+    builder.StartObject(9)
+
 def Start(builder):
-    return CafeInfoExcelStart(builder)
-def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(0, cafeId, 0)
+    CafeInfoExcelStart(builder)
+
+def CafeInfoExcelAddCafeId(builder, cafeId):
+    builder.PrependInt64Slot(0, cafeId, 0)
+
 def AddCafeId(builder, cafeId):
-    return CafeInfoExcelAddCafeId(builder, cafeId)
-def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(1, isDefault, 0)
+    CafeInfoExcelAddCafeId(builder, cafeId)
+
+def CafeInfoExcelAddIsDefault(builder, isDefault):
+    builder.PrependBoolSlot(1, isDefault, 0)
+
 def AddIsDefault(builder, isDefault):
-    return CafeInfoExcelAddIsDefault(builder, isDefault)
-def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(2, openConditionCafeId, 0)
+    CafeInfoExcelAddIsDefault(builder, isDefault)
+
+def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId):
+    builder.PrependInt32Slot(2, openConditionCafeId, 0)
+
 def AddOpenConditionCafeId(builder, openConditionCafeId):
-    return CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
-def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
+    CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
+
+def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite):
+    builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
+
 def AddOpenConditionCafeInvite(builder, openConditionCafeInvite):
-    return CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
-def CafeInfoExcelEnd(builder): return builder.EndObject()
+    CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
+
+def CafeInfoExcelAddSummonParcelType(builder, summonParcelType):
+    builder.PrependInt32Slot(4, summonParcelType, 0)
+
+def AddSummonParcelType(builder, summonParcelType):
+    CafeInfoExcelAddSummonParcelType(builder, summonParcelType)
+
+def CafeInfoExcelAddSummonParcelId(builder, summonParcelId):
+    builder.PrependInt64Slot(5, summonParcelId, 0)
+
+def AddSummonParcelId(builder, summonParcelId):
+    CafeInfoExcelAddSummonParcelId(builder, summonParcelId)
+
+def CafeInfoExcelAddSummonParcelAmount(builder, summonParcelAmount):
+    builder.PrependInt64Slot(6, summonParcelAmount, 0)
+
+def AddSummonParcelAmount(builder, summonParcelAmount):
+    CafeInfoExcelAddSummonParcelAmount(builder, summonParcelAmount)
+
+def CafeInfoExcelAddCategoryType(builder, categoryType):
+    builder.PrependInt32Slot(7, categoryType, 0)
+
+def AddCategoryType(builder, categoryType):
+    CafeInfoExcelAddCategoryType(builder, categoryType)
+
+def CafeInfoExcelAddSummonTicketIconPath(builder, summonTicketIconPath):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(summonTicketIconPath), 0)
+
+def AddSummonTicketIconPath(builder, summonTicketIconPath):
+    CafeInfoExcelAddSummonTicketIconPath(builder, summonTicketIconPath)
+
+def CafeInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CafeInfoExcelEnd(builder)

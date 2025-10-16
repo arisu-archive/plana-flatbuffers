@@ -17,11 +17,19 @@ func GetRootAsMinigameCCGRewardCardRateExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishMinigameCCGRewardCardRateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameCCGRewardCardRateExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameCCGRewardCardRateExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameCCGRewardCardRateExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameCCGRewardCardRateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameCCGRewardCardRateExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

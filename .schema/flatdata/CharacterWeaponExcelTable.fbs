@@ -1,9 +1,0 @@
-include "CharacterWeaponExcel.fbs";
-
-namespace FlatData;
-
-table CharacterWeaponExcelTable {
-    data_list: [CharacterWeaponExcel];
-}
-
-root_type CharacterWeaponExcelTable;

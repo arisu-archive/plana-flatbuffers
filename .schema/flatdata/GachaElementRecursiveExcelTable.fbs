@@ -1,9 +1,0 @@
-include "GachaElementRecursiveExcel.fbs";
-
-namespace FlatData;
-
-table GachaElementRecursiveExcelTable {
-    data_list: [GachaElementRecursiveExcel];
-}
-
-root_type GachaElementRecursiveExcelTable;

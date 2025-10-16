@@ -1,9 +1,0 @@
-include "ShopInfoExcel.fbs";
-
-namespace FlatData;
-
-table ShopInfoExcelTable {
-    data_list: [ShopInfoExcel];
-}
-
-root_type ShopInfoExcelTable;

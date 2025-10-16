@@ -19,9 +19,10 @@ type EventContentTreasureCellRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureCellRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_code_id := b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	EventContentTreasureCellRewardExcelStart(b)
 	EventContentTreasureCellRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentTreasureCellRewardExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	EventContentTreasureCellRewardExcelAddLocalizeCodeId(b, __offset_localize_code_id)
 	EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))

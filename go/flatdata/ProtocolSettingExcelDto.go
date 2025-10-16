@@ -22,8 +22,9 @@ func (t *ProtocolSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
+	__offset_protocol := b.CreateString(fbsutils.Convert(t.Protocol, t.FlatBuffer.TableKey))
 	ProtocolSettingExcelStart(b)
-	ProtocolSettingExcelAddProtocol(b, b.CreateString(fbsutils.Convert(t.Protocol, t.FlatBuffer.TableKey)))
+	ProtocolSettingExcelAddProtocol(b, __offset_protocol)
 	ProtocolSettingExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
 	ProtocolSettingExcelAddCurrency(b, t.Currency)
 	ProtocolSettingExcelAddInventory(b, t.Inventory)

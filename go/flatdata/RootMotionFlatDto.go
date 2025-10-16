@@ -22,21 +22,37 @@ func (t *RootMotionFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RootMotionFlat"))
 	}
-	RootMotionFlatStart(b)
+	var __offset_forms flatbuffers.UOffsetT
+	__nestedOffsets_forms := make([]flatbuffers.UOffsetT, len(t.Forms))
+	for i := range len(t.Forms) {
+		t.Forms[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_forms[i] = t.Forms[i].MarshalModel(b)
+	}
 	RootMotionFlatStartFormsVector(b, len(t.Forms))
 	for i := range len(t.Forms) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Forms[len(t.Forms)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_forms[len(t.Forms)-i-1])
 	}
-	RootMotionFlatAddForms(b, b.EndVector(len(t.Forms)))
+	__offset_forms = b.EndVector(len(t.Forms))
+	var __offset_ex_skills flatbuffers.UOffsetT
+	__nestedOffsets_ex_skills := make([]flatbuffers.UOffsetT, len(t.ExSkills))
+	for i := range len(t.ExSkills) {
+		t.ExSkills[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_ex_skills[i] = t.ExSkills[i].MarshalModel(b)
+	}
 	RootMotionFlatStartExSkillsVector(b, len(t.ExSkills))
 	for i := range len(t.ExSkills) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.ExSkills[len(t.ExSkills)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_ex_skills[len(t.ExSkills)-i-1])
 	}
-	RootMotionFlatAddExSkills(b, b.EndVector(len(t.ExSkills)))
-	RootMotionFlatAddMoveLeft(b, t.MoveLeft.MarshalModel(b))
-	RootMotionFlatAddMoveRight(b, t.MoveRight.MarshalModel(b))
+	__offset_ex_skills = b.EndVector(len(t.ExSkills))
+	t.MoveLeft.InitKey(t.FlatBuffer.TableKey)
+	__offset_move_left := t.MoveLeft.MarshalModel(b)
+	t.MoveRight.InitKey(t.FlatBuffer.TableKey)
+	__offset_move_right := t.MoveRight.MarshalModel(b)
+	RootMotionFlatStart(b)
+	RootMotionFlatAddForms(b, __offset_forms)
+	RootMotionFlatAddExSkills(b, __offset_ex_skills)
+	RootMotionFlatAddMoveLeft(b, __offset_move_left)
+	RootMotionFlatAddMoveRight(b, __offset_move_right)
 	return RootMotionFlatEnd(b)
 }
 

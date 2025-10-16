@@ -22,6 +22,16 @@ type ConquestUnexpectedEventExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_unexpected_event_prefab flatbuffers.UOffsetT
+	__stringOffsets_unexpected_event_prefab := make([]flatbuffers.UOffsetT, len(t.UnexpectedEventPrefab))
+	for i := range len(t.UnexpectedEventPrefab) {
+		__stringOffsets_unexpected_event_prefab[i] = b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab[i], t.FlatBuffer.TableKey))
+	}
+	ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(b, len(t.UnexpectedEventPrefab))
+	for i := range len(t.UnexpectedEventPrefab) {
+		b.PrependUOffsetT(__stringOffsets_unexpected_event_prefab[len(t.UnexpectedEventPrefab)-i-1])
+	}
+	__offset_unexpected_event_prefab = b.EndVector(len(t.UnexpectedEventPrefab))
 	ConquestUnexpectedEventExcelStart(b)
 	ConquestUnexpectedEventExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(b, fbsutils.Convert(t.UnexpectedEventConditionType, t.FlatBuffer.TableKey))
@@ -29,11 +39,7 @@ func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(b, fbsutils.Convert(t.UnexpectedEventConditionAmount, t.FlatBuffer.TableKey))
 	ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(b, fbsutils.Convert(t.UnexpectedEventOccurDailyLimitCount, t.FlatBuffer.TableKey))
 	ConquestUnexpectedEventExcelAddUnitCountPerStep(b, fbsutils.Convert(t.UnitCountPerStep, t.FlatBuffer.TableKey))
-	ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(b, len(t.UnexpectedEventPrefab))
-	for i := range len(t.UnexpectedEventPrefab) {
-		b.PrependUOffsetT(b.CreateString(t.UnexpectedEventPrefab[len(t.UnexpectedEventPrefab)-i-1]))
-	}
-	ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(b, b.EndVector(len(t.UnexpectedEventPrefab)))
+	ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(b, __offset_unexpected_event_prefab)
 	ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitId))
 	for i := range len(t.UnexpectedEventUnitId) {
 		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitId[len(t.UnexpectedEventUnitId)-i-1], t.FlatBuffer.TableKey))

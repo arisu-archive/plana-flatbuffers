@@ -17,10 +17,11 @@ type ShopCashScenarioResourceInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	ShopCashScenarioResourceInfoExcelStart(b)
 	ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(b, fbsutils.Convert(t.ScenarioResrouceInfoId, t.FlatBuffer.TableKey))
 	ShopCashScenarioResourceInfoExcelAddShopCashId(b, fbsutils.Convert(t.ShopCashId, t.FlatBuffer.TableKey))
-	ShopCashScenarioResourceInfoExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	ShopCashScenarioResourceInfoExcelAddIconPath(b, __offset_icon_path)
 	return ShopCashScenarioResourceInfoExcelEnd(b)
 }
 

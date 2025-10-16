@@ -17,11 +17,19 @@ func GetRootAsCharacterVoiceSubtitleExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishCharacterVoiceSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterVoiceSubtitleExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterVoiceSubtitleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterVoiceSubtitleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterVoiceSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

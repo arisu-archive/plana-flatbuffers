@@ -1,9 +1,0 @@
-include "MinigameTBGItemExcel.fbs";
-
-namespace FlatData;
-
-table MinigameTBGItemExcelTable {
-    data_list: [MinigameTBGItemExcel];
-}
-
-root_type MinigameTBGItemExcelTable;

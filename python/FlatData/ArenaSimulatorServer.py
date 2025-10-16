@@ -2,8 +2,4 @@
 
 # namespace: FlatData
 
-class ArenaSimulatorServer(object):
-    Preset = 0
-    Live = 1
-    Dev = 2
-    QA = 3
+# NOTE ArenaSimulatorServer.py does not declare any structs or enums

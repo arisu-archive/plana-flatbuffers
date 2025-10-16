@@ -19,13 +19,19 @@ func (t *AnimationBlendTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimationBlendTable"))
 	}
-	AnimationBlendTableStart(b)
+	var __offset_data_list flatbuffers.UOffsetT
+	__nestedOffsets_data_list := make([]flatbuffers.UOffsetT, len(t.DataList))
+	for i := range len(t.DataList) {
+		t.DataList[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_data_list[i] = t.DataList[i].MarshalModel(b)
+	}
 	AnimationBlendTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.DataList[len(t.DataList)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_data_list[len(t.DataList)-i-1])
 	}
-	AnimationBlendTableAddDataList(b, b.EndVector(len(t.DataList)))
+	__offset_data_list = b.EndVector(len(t.DataList))
+	AnimationBlendTableStart(b)
+	AnimationBlendTableAddDataList(b, __offset_data_list)
 	return AnimationBlendTableEnd(b)
 }
 

@@ -1,9 +1,0 @@
-include "GachaGroupExcel.fbs";
-
-namespace FlatData;
-
-table GachaGroupExcelTable {
-    data_list: [GachaGroupExcel];
-}
-
-root_type GachaGroupExcelTable;

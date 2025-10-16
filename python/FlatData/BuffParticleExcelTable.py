@@ -49,15 +49,26 @@ class BuffParticleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def BuffParticleExcelTableStart(builder): builder.StartObject(1)
+def BuffParticleExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return BuffParticleExcelTableStart(builder)
-def BuffParticleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    BuffParticleExcelTableStart(builder)
+
+def BuffParticleExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return BuffParticleExcelTableAddDataList(builder, dataList)
-def BuffParticleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BuffParticleExcelTableAddDataList(builder, dataList)
+
+def BuffParticleExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return BuffParticleExcelTableStartDataListVector(builder, numElems)
-def BuffParticleExcelTableEnd(builder): return builder.EndObject()
+
+def BuffParticleExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BuffParticleExcelTableEnd(builder)

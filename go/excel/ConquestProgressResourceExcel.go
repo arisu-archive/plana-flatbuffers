@@ -17,11 +17,19 @@ func GetRootAsConquestProgressResourceExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
+func FinishConquestProgressResourceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestProgressResourceExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestProgressResourceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestProgressResourceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestProgressResourceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestProgressResourceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

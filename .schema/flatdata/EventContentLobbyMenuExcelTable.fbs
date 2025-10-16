@@ -1,9 +1,0 @@
-include "EventContentLobbyMenuExcel.fbs";
-
-namespace FlatData;
-
-table EventContentLobbyMenuExcelTable {
-    data_list: [EventContentLobbyMenuExcel];
-}
-
-root_type EventContentLobbyMenuExcelTable;

@@ -73,30 +73,56 @@ class PickupDuplicateBonusExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def PickupDuplicateBonusExcelStart(builder): builder.StartObject(7)
+def PickupDuplicateBonusExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return PickupDuplicateBonusExcelStart(builder)
-def PickupDuplicateBonusExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    PickupDuplicateBonusExcelStart(builder)
+
+def PickupDuplicateBonusExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return PickupDuplicateBonusExcelAddId(builder, id)
-def PickupDuplicateBonusExcelAddShopCategoryType(builder, shopCategoryType): builder.PrependInt32Slot(1, shopCategoryType, 0)
+    PickupDuplicateBonusExcelAddId(builder, id)
+
+def PickupDuplicateBonusExcelAddShopCategoryType(builder, shopCategoryType):
+    builder.PrependInt32Slot(1, shopCategoryType, 0)
+
 def AddShopCategoryType(builder, shopCategoryType):
-    return PickupDuplicateBonusExcelAddShopCategoryType(builder, shopCategoryType)
-def PickupDuplicateBonusExcelAddShopId(builder, shopId): builder.PrependInt64Slot(2, shopId, 0)
+    PickupDuplicateBonusExcelAddShopCategoryType(builder, shopCategoryType)
+
+def PickupDuplicateBonusExcelAddShopId(builder, shopId):
+    builder.PrependInt64Slot(2, shopId, 0)
+
 def AddShopId(builder, shopId):
-    return PickupDuplicateBonusExcelAddShopId(builder, shopId)
-def PickupDuplicateBonusExcelAddPickupCharacterId(builder, pickupCharacterId): builder.PrependInt64Slot(3, pickupCharacterId, 0)
+    PickupDuplicateBonusExcelAddShopId(builder, shopId)
+
+def PickupDuplicateBonusExcelAddPickupCharacterId(builder, pickupCharacterId):
+    builder.PrependInt64Slot(3, pickupCharacterId, 0)
+
 def AddPickupCharacterId(builder, pickupCharacterId):
-    return PickupDuplicateBonusExcelAddPickupCharacterId(builder, pickupCharacterId)
-def PickupDuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(4, rewardParcelType, 0)
+    PickupDuplicateBonusExcelAddPickupCharacterId(builder, pickupCharacterId)
+
+def PickupDuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(4, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return PickupDuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType)
-def PickupDuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(5, rewardParcelId, 0)
+    PickupDuplicateBonusExcelAddRewardParcelType(builder, rewardParcelType)
+
+def PickupDuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependInt64Slot(5, rewardParcelId, 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return PickupDuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId)
-def PickupDuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(6, rewardParcelAmount, 0)
+    PickupDuplicateBonusExcelAddRewardParcelId(builder, rewardParcelId)
+
+def PickupDuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependInt64Slot(6, rewardParcelAmount, 0)
+
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return PickupDuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def PickupDuplicateBonusExcelEnd(builder): return builder.EndObject()
+    PickupDuplicateBonusExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def PickupDuplicateBonusExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PickupDuplicateBonusExcelEnd(builder)

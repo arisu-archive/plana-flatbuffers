@@ -27,12 +27,24 @@ func (t *RecipeCraftExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeCraft"))
 	}
+	__offset_dev_name := b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey))
+	__offset_recipe_ingredient_dev_name := b.CreateString(fbsutils.Convert(t.RecipeIngredientDevName, t.FlatBuffer.TableKey))
+	var __offset_parcel_dev_name flatbuffers.UOffsetT
+	__stringOffsets_parcel_dev_name := make([]flatbuffers.UOffsetT, len(t.ParcelDevName))
+	for i := range len(t.ParcelDevName) {
+		__stringOffsets_parcel_dev_name[i] = b.CreateString(fbsutils.Convert(t.ParcelDevName[i], t.FlatBuffer.TableKey))
+	}
+	RecipeCraftExcelStartParcelDevNameVector(b, len(t.ParcelDevName))
+	for i := range len(t.ParcelDevName) {
+		b.PrependUOffsetT(__stringOffsets_parcel_dev_name[len(t.ParcelDevName)-i-1])
+	}
+	__offset_parcel_dev_name = b.EndVector(len(t.ParcelDevName))
 	RecipeCraftExcelStart(b)
 	RecipeCraftExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	RecipeCraftExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	RecipeCraftExcelAddDevName(b, __offset_dev_name)
 	RecipeCraftExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
 	RecipeCraftExcelAddRecipeIngredientId(b, fbsutils.Convert(t.RecipeIngredientId, t.FlatBuffer.TableKey))
-	RecipeCraftExcelAddRecipeIngredientDevName(b, b.CreateString(fbsutils.Convert(t.RecipeIngredientDevName, t.FlatBuffer.TableKey)))
+	RecipeCraftExcelAddRecipeIngredientDevName(b, __offset_recipe_ingredient_dev_name)
 	RecipeCraftExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -43,11 +55,7 @@ func (t *RecipeCraftExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
 	RecipeCraftExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
-	RecipeCraftExcelStartParcelDevNameVector(b, len(t.ParcelDevName))
-	for i := range len(t.ParcelDevName) {
-		b.PrependUOffsetT(b.CreateString(t.ParcelDevName[len(t.ParcelDevName)-i-1]))
-	}
-	RecipeCraftExcelAddParcelDevName(b, b.EndVector(len(t.ParcelDevName)))
+	RecipeCraftExcelAddParcelDevName(b, __offset_parcel_dev_name)
 	RecipeCraftExcelStartResultAmountMinVector(b, len(t.ResultAmountMin))
 	for i := range len(t.ResultAmountMin) {
 		b.PrependInt64(fbsutils.Convert(t.ResultAmountMin[len(t.ResultAmountMin)-i-1], t.FlatBuffer.TableKey))

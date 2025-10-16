@@ -1,9 +1,0 @@
-include "InformationStrategyObjectExcel.fbs";
-
-namespace FlatData;
-
-table InformationStrategyObjectExcelTable {
-    data_list: [InformationStrategyObjectExcel];
-}
-
-root_type InformationStrategyObjectExcelTable;

@@ -1,9 +1,0 @@
-include "ContentsFeverExcel.fbs";
-
-namespace FlatData;
-
-table ContentsFeverExcelTable {
-    data_list: [ContentsFeverExcel];
-}
-
-root_type ContentsFeverExcelTable;

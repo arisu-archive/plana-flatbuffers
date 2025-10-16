@@ -52,21 +52,38 @@ class LevelExpMasterCoinExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def LevelExpMasterCoinExcelStart(builder): builder.StartObject(4)
+def LevelExpMasterCoinExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return LevelExpMasterCoinExcelStart(builder)
-def LevelExpMasterCoinExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    LevelExpMasterCoinExcelStart(builder)
+
+def LevelExpMasterCoinExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return LevelExpMasterCoinExcelAddId(builder, id)
-def LevelExpMasterCoinExcelAddMinLevel(builder, minLevel): builder.PrependInt32Slot(1, minLevel, 0)
+    LevelExpMasterCoinExcelAddId(builder, id)
+
+def LevelExpMasterCoinExcelAddMinLevel(builder, minLevel):
+    builder.PrependInt32Slot(1, minLevel, 0)
+
 def AddMinLevel(builder, minLevel):
-    return LevelExpMasterCoinExcelAddMinLevel(builder, minLevel)
-def LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel): builder.PrependInt32Slot(2, maxLevel, 0)
+    LevelExpMasterCoinExcelAddMinLevel(builder, minLevel)
+
+def LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel):
+    builder.PrependInt32Slot(2, maxLevel, 0)
+
 def AddMaxLevel(builder, maxLevel):
-    return LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel)
-def LevelExpMasterCoinExcelAddRatio(builder, ratio): builder.PrependInt32Slot(3, ratio, 0)
+    LevelExpMasterCoinExcelAddMaxLevel(builder, maxLevel)
+
+def LevelExpMasterCoinExcelAddRatio(builder, ratio):
+    builder.PrependInt32Slot(3, ratio, 0)
+
 def AddRatio(builder, ratio):
-    return LevelExpMasterCoinExcelAddRatio(builder, ratio)
-def LevelExpMasterCoinExcelEnd(builder): return builder.EndObject()
+    LevelExpMasterCoinExcelAddRatio(builder, ratio)
+
+def LevelExpMasterCoinExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LevelExpMasterCoinExcelEnd(builder)

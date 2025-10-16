@@ -1,9 +1,0 @@
-include "CharacterStatsTransExcel.fbs";
-
-namespace FlatData;
-
-table CharacterStatsTransExcelTable {
-    data_list: [CharacterStatsTransExcel];
-}
-
-root_type CharacterStatsTransExcelTable;

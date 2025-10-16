@@ -17,11 +17,19 @@ func GetRootAsShortcutTypeExcel(buf []byte, offset flatbuffers.UOffsetT) *Shortc
 	return x
 }
 
+func FinishShortcutTypeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsShortcutTypeExcel(buf []byte, offset flatbuffers.UOffsetT) *ShortcutTypeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShortcutTypeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedShortcutTypeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShortcutTypeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

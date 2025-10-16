@@ -45,18 +45,32 @@ class ServiceActionExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ServiceActionExcelStart(builder): builder.StartObject(3)
+def ServiceActionExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return ServiceActionExcelStart(builder)
-def ServiceActionExcelAddServiceActionType(builder, serviceActionType): builder.PrependInt32Slot(0, serviceActionType, 0)
+    ServiceActionExcelStart(builder)
+
+def ServiceActionExcelAddServiceActionType(builder, serviceActionType):
+    builder.PrependInt32Slot(0, serviceActionType, 0)
+
 def AddServiceActionType(builder, serviceActionType):
-    return ServiceActionExcelAddServiceActionType(builder, serviceActionType)
-def ServiceActionExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(1, isLegacy, 0)
+    ServiceActionExcelAddServiceActionType(builder, serviceActionType)
+
+def ServiceActionExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(1, isLegacy, 0)
+
 def AddIsLegacy(builder, isLegacy):
-    return ServiceActionExcelAddIsLegacy(builder, isLegacy)
-def ServiceActionExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(2, goodsId, 0)
+    ServiceActionExcelAddIsLegacy(builder, isLegacy)
+
+def ServiceActionExcelAddGoodsId(builder, goodsId):
+    builder.PrependInt64Slot(2, goodsId, 0)
+
 def AddGoodsId(builder, goodsId):
-    return ServiceActionExcelAddGoodsId(builder, goodsId)
-def ServiceActionExcelEnd(builder): return builder.EndObject()
+    ServiceActionExcelAddGoodsId(builder, goodsId)
+
+def ServiceActionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ServiceActionExcelEnd(builder)

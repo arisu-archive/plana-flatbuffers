@@ -17,11 +17,19 @@ func GetRootAsTutorialCharacterDialogExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishTutorialCharacterDialogExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTutorialCharacterDialogExcel(buf []byte, offset flatbuffers.UOffsetT) *TutorialCharacterDialogExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TutorialCharacterDialogExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTutorialCharacterDialogExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TutorialCharacterDialogExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

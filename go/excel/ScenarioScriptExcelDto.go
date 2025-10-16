@@ -25,17 +25,21 @@ type ScenarioScriptExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioScriptExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_sound := b.CreateString(fbsutils.Convert(t.Sound, t.FlatBuffer.TableKey))
+	__offset_popup_file_name := b.CreateString(fbsutils.Convert(t.PopupFileName, t.FlatBuffer.TableKey))
+	__offset_script_kr := b.CreateString(fbsutils.Convert(t.ScriptKr, t.FlatBuffer.TableKey))
+	__offset_text_jp := b.CreateString(fbsutils.Convert(t.TextJp, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelStart(b)
 	ScenarioScriptExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddSelectionGroup(b, fbsutils.Convert(t.SelectionGroup, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddSound(b, b.CreateString(fbsutils.Convert(t.Sound, t.FlatBuffer.TableKey)))
+	ScenarioScriptExcelAddSound(b, __offset_sound)
 	ScenarioScriptExcelAddTransition(b, fbsutils.Convert(t.Transition, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddBgName(b, fbsutils.Convert(t.BgName, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddBgEffect(b, fbsutils.Convert(t.BgEffect, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddPopupFileName(b, b.CreateString(fbsutils.Convert(t.PopupFileName, t.FlatBuffer.TableKey)))
-	ScenarioScriptExcelAddScriptKr(b, b.CreateString(fbsutils.Convert(t.ScriptKr, t.FlatBuffer.TableKey)))
-	ScenarioScriptExcelAddTextJp(b, b.CreateString(fbsutils.Convert(t.TextJp, t.FlatBuffer.TableKey)))
+	ScenarioScriptExcelAddPopupFileName(b, __offset_popup_file_name)
+	ScenarioScriptExcelAddScriptKr(b, __offset_script_kr)
+	ScenarioScriptExcelAddTextJp(b, __offset_text_jp)
 	ScenarioScriptExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	return ScenarioScriptExcelEnd(b)
 }

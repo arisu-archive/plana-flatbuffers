@@ -37,6 +37,11 @@ type CharacterDialogEventExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogEventExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_action_name := b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey))
+	__offset_animation_name := b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelStart(b)
 	CharacterDialogEventExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddOriginalCharacterId(b, fbsutils.Convert(t.OriginalCharacterId, t.FlatBuffer.TableKey))
@@ -49,11 +54,11 @@ func (t *CharacterDialogEventExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterDialogEventExcelAddDialogConditionDetailValue(b, fbsutils.Convert(t.DialogConditionDetailValue, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
-	CharacterDialogEventExcelAddActionName(b, b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey)))
+	CharacterDialogEventExcelAddActionName(b, __offset_action_name)
 	CharacterDialogEventExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogEventExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
-	CharacterDialogEventExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogEventExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogEventExcelAddAnimationName(b, __offset_animation_name)
+	CharacterDialogEventExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogEventExcelAddLocalizeJp(b, __offset_localize_jp)
 	CharacterDialogEventExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
@@ -64,7 +69,7 @@ func (t *CharacterDialogEventExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterDialogEventExcelAddCvUnlockScenarioType(b, fbsutils.Convert(t.CvUnlockScenarioType, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddUnlockEventSeason(b, fbsutils.Convert(t.UnlockEventSeason, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
-	CharacterDialogEventExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterDialogEventExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	return CharacterDialogEventExcelEnd(b)
 }
 

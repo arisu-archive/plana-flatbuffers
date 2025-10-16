@@ -38,15 +38,26 @@ class ScenarioEffectExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioEffectExcelStart(builder): builder.StartObject(2)
+def ScenarioEffectExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return ScenarioEffectExcelStart(builder)
-def ScenarioEffectExcelAddEffectName(builder, effectName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(effectName), 0)
+    ScenarioEffectExcelStart(builder)
+
+def ScenarioEffectExcelAddEffectName(builder, effectName):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(effectName), 0)
+
 def AddEffectName(builder, effectName):
-    return ScenarioEffectExcelAddEffectName(builder, effectName)
-def ScenarioEffectExcelAddName(builder, name): builder.PrependUint32Slot(1, name, 0)
+    ScenarioEffectExcelAddEffectName(builder, effectName)
+
+def ScenarioEffectExcelAddName(builder, name):
+    builder.PrependUint32Slot(1, name, 0)
+
 def AddName(builder, name):
-    return ScenarioEffectExcelAddName(builder, name)
-def ScenarioEffectExcelEnd(builder): return builder.EndObject()
+    ScenarioEffectExcelAddName(builder, name)
+
+def ScenarioEffectExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ScenarioEffectExcelEnd(builder)

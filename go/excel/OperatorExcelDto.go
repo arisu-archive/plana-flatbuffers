@@ -26,17 +26,20 @@ type OperatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OperatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_group_id := b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	__offset_portrait_path := b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey))
+	__offset_text_localize_key := b.CreateString(fbsutils.Convert(t.TextLocalizeKey, t.FlatBuffer.TableKey))
 	OperatorExcelStart(b)
 	OperatorExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	OperatorExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
+	OperatorExcelAddGroupId(b, __offset_group_id)
 	OperatorExcelAddOperatorCondition(b, fbsutils.Convert(t.OperatorCondition, t.FlatBuffer.TableKey))
 	OperatorExcelAddOutputSequence(b, fbsutils.Convert(t.OutputSequence, t.FlatBuffer.TableKey))
 	OperatorExcelAddRandomWeight(b, fbsutils.Convert(t.RandomWeight, t.FlatBuffer.TableKey))
 	OperatorExcelAddOutputDelay(b, fbsutils.Convert(t.OutputDelay, t.FlatBuffer.TableKey))
 	OperatorExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	OperatorExcelAddOperatorOutputPriority(b, fbsutils.Convert(t.OperatorOutputPriority, t.FlatBuffer.TableKey))
-	OperatorExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
-	OperatorExcelAddTextLocalizeKey(b, b.CreateString(fbsutils.Convert(t.TextLocalizeKey, t.FlatBuffer.TableKey)))
+	OperatorExcelAddPortraitPath(b, __offset_portrait_path)
+	OperatorExcelAddTextLocalizeKey(b, __offset_text_localize_key)
 	OperatorExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))

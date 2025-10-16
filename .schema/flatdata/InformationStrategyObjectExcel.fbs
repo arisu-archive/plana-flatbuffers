@@ -1,8 +1,0 @@
-namespace FlatData;
-
-table InformationStrategyObjectExcel {
-    id: long;
-    stage_id: long;
-    page_name: string;
-    localize_code_id: string;
-}

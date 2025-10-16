@@ -17,8 +17,9 @@ type TacticEntityEffectFilterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticEntityEffectFilterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_target_effect_name := b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey))
 	TacticEntityEffectFilterExcelStart(b)
-	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
+	TacticEntityEffectFilterExcelAddTargetEffectName(b, __offset_target_effect_name)
 	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, t.ShowEffectToVehicle)
 	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, t.ShowEffectToBoss)
 	return TacticEntityEffectFilterExcelEnd(b)

@@ -1,9 +1,0 @@
-include "EventContentChangeExcel.fbs";
-
-namespace FlatData;
-
-table EventContentChangeExcelTable {
-    data_list: [EventContentChangeExcel];
-}
-
-root_type EventContentChangeExcelTable;

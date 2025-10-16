@@ -79,27 +79,50 @@ class ContentsScenarioExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
-def ContentsScenarioExcelStart(builder): builder.StartObject(5)
+def ContentsScenarioExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return ContentsScenarioExcelStart(builder)
-def ContentsScenarioExcelAddId(builder, id): builder.PrependUint32Slot(0, id, 0)
+    ContentsScenarioExcelStart(builder)
+
+def ContentsScenarioExcelAddId(builder, id):
+    builder.PrependUint32Slot(0, id, 0)
+
 def AddId(builder, id):
-    return ContentsScenarioExcelAddId(builder, id)
-def ContentsScenarioExcelAddLocalizeId(builder, localizeId): builder.PrependUint32Slot(1, localizeId, 0)
+    ContentsScenarioExcelAddId(builder, id)
+
+def ContentsScenarioExcelAddLocalizeId(builder, localizeId):
+    builder.PrependUint32Slot(1, localizeId, 0)
+
 def AddLocalizeId(builder, localizeId):
-    return ContentsScenarioExcelAddLocalizeId(builder, localizeId)
-def ContentsScenarioExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
+    ContentsScenarioExcelAddLocalizeId(builder, localizeId)
+
+def ContentsScenarioExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ContentsScenarioExcelAddDisplayOrder(builder, displayOrder)
-def ContentsScenarioExcelAddScenarioContentType(builder, scenarioContentType): builder.PrependInt32Slot(3, scenarioContentType, 0)
+    ContentsScenarioExcelAddDisplayOrder(builder, displayOrder)
+
+def ContentsScenarioExcelAddScenarioContentType(builder, scenarioContentType):
+    builder.PrependInt32Slot(3, scenarioContentType, 0)
+
 def AddScenarioContentType(builder, scenarioContentType):
-    return ContentsScenarioExcelAddScenarioContentType(builder, scenarioContentType)
-def ContentsScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
+    ContentsScenarioExcelAddScenarioContentType(builder, scenarioContentType)
+
+def ContentsScenarioExcelAddScenarioGroupId(builder, scenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
+
 def AddScenarioGroupId(builder, scenarioGroupId):
-    return ContentsScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
-def ContentsScenarioExcelStartScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ContentsScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+
+def ContentsScenarioExcelStartScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartScenarioGroupIdVector(builder, numElems):
     return ContentsScenarioExcelStartScenarioGroupIdVector(builder, numElems)
-def ContentsScenarioExcelEnd(builder): return builder.EndObject()
+
+def ContentsScenarioExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ContentsScenarioExcelEnd(builder)

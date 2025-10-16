@@ -49,15 +49,26 @@ class ConstMinigameRoadPuzzleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstMinigameRoadPuzzleExcelTableStart(builder): builder.StartObject(1)
+def ConstMinigameRoadPuzzleExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConstMinigameRoadPuzzleExcelTableStart(builder)
-def ConstMinigameRoadPuzzleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConstMinigameRoadPuzzleExcelTableStart(builder)
+
+def ConstMinigameRoadPuzzleExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConstMinigameRoadPuzzleExcelTableAddDataList(builder, dataList)
-def ConstMinigameRoadPuzzleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConstMinigameRoadPuzzleExcelTableAddDataList(builder, dataList)
+
+def ConstMinigameRoadPuzzleExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConstMinigameRoadPuzzleExcelTableStartDataListVector(builder, numElems)
-def ConstMinigameRoadPuzzleExcelTableEnd(builder): return builder.EndObject()
+
+def ConstMinigameRoadPuzzleExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstMinigameRoadPuzzleExcelTableEnd(builder)

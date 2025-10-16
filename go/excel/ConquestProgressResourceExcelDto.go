@@ -20,17 +20,19 @@ type ConquestProgressResourceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestProgressResourceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_progress_resource := b.CreateString(fbsutils.Convert(t.ProgressResource, t.FlatBuffer.TableKey))
+	__offset_progress_localize_code := b.CreateString(fbsutils.Convert(t.ProgressLocalizeCode, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelStart(b)
 	ConquestProgressResourceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddGroup(b, fbsutils.Convert(t.Group, t.FlatBuffer.TableKey))
-	ConquestProgressResourceExcelAddProgressResource(b, b.CreateString(fbsutils.Convert(t.ProgressResource, t.FlatBuffer.TableKey)))
+	ConquestProgressResourceExcelAddProgressResource(b, __offset_progress_resource)
 	ConquestProgressResourceExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestProgressResourceExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	ConquestProgressResourceExcelAddProgressLocalizeCode(b, b.CreateString(fbsutils.Convert(t.ProgressLocalizeCode, t.FlatBuffer.TableKey)))
+	ConquestProgressResourceExcelAddProgressLocalizeCode(b, __offset_progress_localize_code)
 	return ConquestProgressResourceExcelEnd(b)
 }
 

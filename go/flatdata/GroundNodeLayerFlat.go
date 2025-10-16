@@ -17,11 +17,19 @@ func GetRootAsGroundNodeLayerFlat(buf []byte, offset flatbuffers.UOffsetT) *Grou
 	return x
 }
 
+func FinishGroundNodeLayerFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGroundNodeLayerFlat(buf []byte, offset flatbuffers.UOffsetT) *GroundNodeLayerFlat {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundNodeLayerFlat{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGroundNodeLayerFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundNodeLayerFlat) Init(buf []byte, i flatbuffers.UOffsetT) {

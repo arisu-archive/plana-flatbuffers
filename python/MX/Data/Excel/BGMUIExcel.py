@@ -59,24 +59,44 @@ class BGMUIExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def BGMUIExcelStart(builder): builder.StartObject(5)
+def BGMUIExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return BGMUIExcelStart(builder)
-def BGMUIExcelAddUiPrefab(builder, uiPrefab): builder.PrependUint32Slot(0, uiPrefab, 0)
+    BGMUIExcelStart(builder)
+
+def BGMUIExcelAddUiPrefab(builder, uiPrefab):
+    builder.PrependUint32Slot(0, uiPrefab, 0)
+
 def AddUiPrefab(builder, uiPrefab):
-    return BGMUIExcelAddUiPrefab(builder, uiPrefab)
-def BGMUIExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(1, bgmId, 0)
+    BGMUIExcelAddUiPrefab(builder, uiPrefab)
+
+def BGMUIExcelAddBgmId(builder, bgmId):
+    builder.PrependInt64Slot(1, bgmId, 0)
+
 def AddBgmId(builder, bgmId):
-    return BGMUIExcelAddBgmId(builder, bgmId)
-def BGMUIExcelAddBgmId2nd(builder, bgmId2nd): builder.PrependInt64Slot(2, bgmId2nd, 0)
+    BGMUIExcelAddBgmId(builder, bgmId)
+
+def BGMUIExcelAddBgmId2nd(builder, bgmId2nd):
+    builder.PrependInt64Slot(2, bgmId2nd, 0)
+
 def AddBgmId2nd(builder, bgmId2nd):
-    return BGMUIExcelAddBgmId2nd(builder, bgmId2nd)
-def BGMUIExcelAddBgmId3rd(builder, bgmId3rd): builder.PrependInt64Slot(3, bgmId3rd, 0)
+    BGMUIExcelAddBgmId2nd(builder, bgmId2nd)
+
+def BGMUIExcelAddBgmId3rd(builder, bgmId3rd):
+    builder.PrependInt64Slot(3, bgmId3rd, 0)
+
 def AddBgmId3rd(builder, bgmId3rd):
-    return BGMUIExcelAddBgmId3rd(builder, bgmId3rd)
-def BGMUIExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
+    BGMUIExcelAddBgmId3rd(builder, bgmId3rd)
+
+def BGMUIExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(4, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return BGMUIExcelAddEventContentId(builder, eventContentId)
-def BGMUIExcelEnd(builder): return builder.EndObject()
+    BGMUIExcelAddEventContentId(builder, eventContentId)
+
+def BGMUIExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BGMUIExcelEnd(builder)

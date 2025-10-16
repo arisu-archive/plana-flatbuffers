@@ -1,9 +1,0 @@
-include "MiniGamePlayGuideExcel.fbs";
-
-namespace FlatData;
-
-table MiniGamePlayGuideExcelTable {
-    data_list: [MiniGamePlayGuideExcel];
-}
-
-root_type MiniGamePlayGuideExcelTable;

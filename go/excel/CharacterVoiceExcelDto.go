@@ -28,6 +28,17 @@ type CharacterVoiceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	var __offset_path flatbuffers.UOffsetT
+	__stringOffsets_path := make([]flatbuffers.UOffsetT, len(t.Path))
+	for i := range len(t.Path) {
+		__stringOffsets_path[i] = b.CreateString(fbsutils.Convert(t.Path[i], t.FlatBuffer.TableKey))
+	}
+	CharacterVoiceExcelStartPathVector(b, len(t.Path))
+	for i := range len(t.Path) {
+		b.PrependUOffsetT(__stringOffsets_path[len(t.Path)-i-1])
+	}
+	__offset_path = b.EndVector(len(t.Path))
 	CharacterVoiceExcelStart(b)
 	CharacterVoiceExcelAddCharacterVoiceUniqueId(b, fbsutils.Convert(t.CharacterVoiceUniqueId, t.FlatBuffer.TableKey))
 	CharacterVoiceExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
@@ -38,7 +49,7 @@ func (t *CharacterVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	CharacterVoiceExcelAddCollectionVisible(b, t.CollectionVisible)
 	CharacterVoiceExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
 	CharacterVoiceExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
-	CharacterVoiceExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterVoiceExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	CharacterVoiceExcelStartNationVector(b, len(t.Nation))
 	for i := range len(t.Nation) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
@@ -54,11 +65,7 @@ func (t *CharacterVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependFloat32(fbsutils.Convert(t.Delay[len(t.Delay)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterVoiceExcelAddDelay(b, b.EndVector(len(t.Delay)))
-	CharacterVoiceExcelStartPathVector(b, len(t.Path))
-	for i := range len(t.Path) {
-		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
-	}
-	CharacterVoiceExcelAddPath(b, b.EndVector(len(t.Path)))
+	CharacterVoiceExcelAddPath(b, __offset_path)
 	return CharacterVoiceExcelEnd(b)
 }
 

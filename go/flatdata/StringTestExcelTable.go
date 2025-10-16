@@ -17,11 +17,19 @@ func GetRootAsStringTestExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Str
 	return x
 }
 
+func FinishStringTestExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStringTestExcelTable(buf []byte, offset flatbuffers.UOffsetT) *StringTestExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StringTestExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStringTestExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StringTestExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

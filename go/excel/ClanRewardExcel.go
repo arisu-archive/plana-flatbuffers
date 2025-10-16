@@ -17,11 +17,19 @@ func GetRootAsClanRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ClanRewa
 	return x
 }
 
+func FinishClanRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsClanRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ClanRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ClanRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedClanRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ClanRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

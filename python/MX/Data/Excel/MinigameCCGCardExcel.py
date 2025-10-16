@@ -155,54 +155,104 @@ class MinigameCCGCardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         return o == 0
 
-def MinigameCCGCardExcelStart(builder): builder.StartObject(13)
+def MinigameCCGCardExcelStart(builder):
+    builder.StartObject(13)
+
 def Start(builder):
-    return MinigameCCGCardExcelStart(builder)
-def MinigameCCGCardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    MinigameCCGCardExcelStart(builder)
+
+def MinigameCCGCardExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return MinigameCCGCardExcelAddId(builder, id)
-def MinigameCCGCardExcelAddType(builder, type): builder.PrependInt32Slot(1, type, 0)
+    MinigameCCGCardExcelAddId(builder, id)
+
+def MinigameCCGCardExcelAddType(builder, type):
+    builder.PrependInt32Slot(1, type, 0)
+
 def AddType(builder, type):
-    return MinigameCCGCardExcelAddType(builder, type)
-def MinigameCCGCardExcelAddIsDisposal(builder, isDisposal): builder.PrependBoolSlot(2, isDisposal, 0)
+    MinigameCCGCardExcelAddType(builder, type)
+
+def MinigameCCGCardExcelAddIsDisposal(builder, isDisposal):
+    builder.PrependBoolSlot(2, isDisposal, 0)
+
 def AddIsDisposal(builder, isDisposal):
-    return MinigameCCGCardExcelAddIsDisposal(builder, isDisposal)
-def MinigameCCGCardExcelAddActiveSkillId(builder, activeSkillId): builder.PrependInt32Slot(3, activeSkillId, 0)
+    MinigameCCGCardExcelAddIsDisposal(builder, isDisposal)
+
+def MinigameCCGCardExcelAddActiveSkillId(builder, activeSkillId):
+    builder.PrependInt32Slot(3, activeSkillId, 0)
+
 def AddActiveSkillId(builder, activeSkillId):
-    return MinigameCCGCardExcelAddActiveSkillId(builder, activeSkillId)
-def MinigameCCGCardExcelAddActiveSkillCost(builder, activeSkillCost): builder.PrependInt32Slot(4, activeSkillCost, 0)
+    MinigameCCGCardExcelAddActiveSkillId(builder, activeSkillId)
+
+def MinigameCCGCardExcelAddActiveSkillCost(builder, activeSkillCost):
+    builder.PrependInt32Slot(4, activeSkillCost, 0)
+
 def AddActiveSkillCost(builder, activeSkillCost):
-    return MinigameCCGCardExcelAddActiveSkillCost(builder, activeSkillCost)
-def MinigameCCGCardExcelAddActiveSkilleCostVisible(builder, activeSkilleCostVisible): builder.PrependBoolSlot(5, activeSkilleCostVisible, 0)
+    MinigameCCGCardExcelAddActiveSkillCost(builder, activeSkillCost)
+
+def MinigameCCGCardExcelAddActiveSkilleCostVisible(builder, activeSkilleCostVisible):
+    builder.PrependBoolSlot(5, activeSkilleCostVisible, 0)
+
 def AddActiveSkilleCostVisible(builder, activeSkilleCostVisible):
-    return MinigameCCGCardExcelAddActiveSkilleCostVisible(builder, activeSkilleCostVisible)
-def MinigameCCGCardExcelAddPassiveSkillId(builder, passiveSkillId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(passiveSkillId), 0)
+    MinigameCCGCardExcelAddActiveSkilleCostVisible(builder, activeSkilleCostVisible)
+
+def MinigameCCGCardExcelAddPassiveSkillId(builder, passiveSkillId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(passiveSkillId), 0)
+
 def AddPassiveSkillId(builder, passiveSkillId):
-    return MinigameCCGCardExcelAddPassiveSkillId(builder, passiveSkillId)
-def MinigameCCGCardExcelStartPassiveSkillIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MinigameCCGCardExcelAddPassiveSkillId(builder, passiveSkillId)
+
+def MinigameCCGCardExcelStartPassiveSkillIdVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartPassiveSkillIdVector(builder, numElems):
     return MinigameCCGCardExcelStartPassiveSkillIdVector(builder, numElems)
-def MinigameCCGCardExcelAddPassiveActivateCount(builder, passiveActivateCount): builder.PrependInt32Slot(7, passiveActivateCount, 0)
+
+def MinigameCCGCardExcelAddPassiveActivateCount(builder, passiveActivateCount):
+    builder.PrependInt32Slot(7, passiveActivateCount, 0)
+
 def AddPassiveActivateCount(builder, passiveActivateCount):
-    return MinigameCCGCardExcelAddPassiveActivateCount(builder, passiveActivateCount)
-def MinigameCCGCardExcelAddName(builder, name): builder.PrependUint32Slot(8, name, 0)
+    MinigameCCGCardExcelAddPassiveActivateCount(builder, passiveActivateCount)
+
+def MinigameCCGCardExcelAddName(builder, name):
+    builder.PrependUint32Slot(8, name, 0)
+
 def AddName(builder, name):
-    return MinigameCCGCardExcelAddName(builder, name)
-def MinigameCCGCardExcelAddDescription(builder, description): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(description), 0)
+    MinigameCCGCardExcelAddName(builder, name)
+
+def MinigameCCGCardExcelAddDescription(builder, description):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(description), 0)
+
 def AddDescription(builder, description):
-    return MinigameCCGCardExcelAddDescription(builder, description)
-def MinigameCCGCardExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+    MinigameCCGCardExcelAddDescription(builder, description)
+
+def MinigameCCGCardExcelAddImagePath(builder, imagePath):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+
 def AddImagePath(builder, imagePath):
-    return MinigameCCGCardExcelAddImagePath(builder, imagePath)
-def MinigameCCGCardExcelAddUiImagePath(builder, uiImagePath): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(uiImagePath), 0)
+    MinigameCCGCardExcelAddImagePath(builder, imagePath)
+
+def MinigameCCGCardExcelAddUiImagePath(builder, uiImagePath):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(uiImagePath), 0)
+
 def AddUiImagePath(builder, uiImagePath):
-    return MinigameCCGCardExcelAddUiImagePath(builder, uiImagePath)
-def MinigameCCGCardExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+    MinigameCCGCardExcelAddUiImagePath(builder, uiImagePath)
+
+def MinigameCCGCardExcelAddTags(builder, tags):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+
 def AddTags(builder, tags):
-    return MinigameCCGCardExcelAddTags(builder, tags)
-def MinigameCCGCardExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MinigameCCGCardExcelAddTags(builder, tags)
+
+def MinigameCCGCardExcelStartTagsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTagsVector(builder, numElems):
     return MinigameCCGCardExcelStartTagsVector(builder, numElems)
-def MinigameCCGCardExcelEnd(builder): return builder.EndObject()
+
+def MinigameCCGCardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGCardExcelEnd(builder)

@@ -33,9 +33,10 @@ func (t *ObstacleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Obstacle"))
 	}
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
 	ObstacleExcelStart(b)
 	ObstacleExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
-	ObstacleExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	ObstacleExcelAddPrefabName(b, __offset_prefab_name)
 	ObstacleExcelAddJumpAble(b, t.JumpAble)
 	ObstacleExcelStartSubOffsetVector(b, len(t.SubOffset))
 	for i := range len(t.SubOffset) {

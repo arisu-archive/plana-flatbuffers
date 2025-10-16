@@ -113,36 +113,68 @@ class AcademyZoneExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def AcademyZoneExcelStart(builder): builder.StartObject(7)
+def AcademyZoneExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return AcademyZoneExcelStart(builder)
-def AcademyZoneExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    AcademyZoneExcelStart(builder)
+
+def AcademyZoneExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return AcademyZoneExcelAddId(builder, id)
-def AcademyZoneExcelAddLocationId(builder, locationId): builder.PrependInt64Slot(1, locationId, 0)
+    AcademyZoneExcelAddId(builder, id)
+
+def AcademyZoneExcelAddLocationId(builder, locationId):
+    builder.PrependInt64Slot(1, locationId, 0)
+
 def AddLocationId(builder, locationId):
-    return AcademyZoneExcelAddLocationId(builder, locationId)
-def AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock): builder.PrependInt64Slot(2, locationRankForUnlock, 0)
+    AcademyZoneExcelAddLocationId(builder, locationId)
+
+def AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock):
+    builder.PrependInt64Slot(2, locationRankForUnlock, 0)
+
 def AddLocationRankForUnlock(builder, locationRankForUnlock):
-    return AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock)
-def AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
+    AcademyZoneExcelAddLocationRankForUnlock(builder, locationRankForUnlock)
+
+def AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(3, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId)
-def AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
+    AcademyZoneExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
+
 def AddStudentVisitProb(builder, studentVisitProb):
-    return AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb)
-def AcademyZoneExcelStartStudentVisitProbVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb)
+
+def AcademyZoneExcelStartStudentVisitProbVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartStudentVisitProbVector(builder, numElems):
     return AcademyZoneExcelStartStudentVisitProbVector(builder, numElems)
-def AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(5, rewardGroupId, 0)
+
+def AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId):
+    builder.PrependInt64Slot(5, rewardGroupId, 0)
+
 def AddRewardGroupId(builder, rewardGroupId):
-    return AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId)
-def AcademyZoneExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+    AcademyZoneExcelAddRewardGroupId(builder, rewardGroupId)
+
+def AcademyZoneExcelAddTags(builder, tags):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+
 def AddTags(builder, tags):
-    return AcademyZoneExcelAddTags(builder, tags)
-def AcademyZoneExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AcademyZoneExcelAddTags(builder, tags)
+
+def AcademyZoneExcelStartTagsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTagsVector(builder, numElems):
     return AcademyZoneExcelStartTagsVector(builder, numElems)
-def AcademyZoneExcelEnd(builder): return builder.EndObject()
+
+def AcademyZoneExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AcademyZoneExcelEnd(builder)

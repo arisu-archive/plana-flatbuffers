@@ -42,19 +42,34 @@ type MissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_toast_image_path := b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey))
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
+	__offset_startable_end_date := b.CreateString(fbsutils.Convert(t.StartableEndDate, t.FlatBuffer.TableKey))
+	var __offset_shortcut_ui flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui := make([]flatbuffers.UOffsetT, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		__stringOffsets_shortcut_ui[i] = b.CreateString(fbsutils.Convert(t.ShortcutUi[i], t.FlatBuffer.TableKey))
+	}
+	MissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui[len(t.ShortcutUi)-i-1])
+	}
+	__offset_shortcut_ui = b.EndVector(len(t.ShortcutUi))
+	__offset_reward_icon := b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey))
 	MissionExcelStart(b)
 	MissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MissionExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
 	MissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	MissionExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
 	MissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	MissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
+	MissionExcelAddToastImagePath(b, __offset_toast_image_path)
 	MissionExcelAddViewFlag(b, t.ViewFlag)
 	MissionExcelAddLimit(b, t.Limit)
-	MissionExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	MissionExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	MissionExcelAddStartDate(b, __offset_start_date)
+	MissionExcelAddEndDate(b, __offset_end_date)
 	MissionExcelAddEndDay(b, fbsutils.Convert(t.EndDay, t.FlatBuffer.TableKey))
-	MissionExcelAddStartableEndDate(b, b.CreateString(fbsutils.Convert(t.StartableEndDate, t.FlatBuffer.TableKey)))
+	MissionExcelAddStartableEndDate(b, __offset_startable_end_date)
 	MissionExcelAddDateAutoRefer(b, fbsutils.Convert(t.DateAutoRefer, t.FlatBuffer.TableKey))
 	MissionExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	MissionExcelStartPreMissionIdVector(b, len(t.PreMissionId))
@@ -69,11 +84,7 @@ func (t *MissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		b.PrependInt32(fbsutils.Convert(int32(t.ContentTags[len(t.ContentTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MissionExcelAddContentTags(b, b.EndVector(len(t.ContentTags)))
-	MissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
-	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
-	}
-	MissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
+	MissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	MissionExcelAddChallengeStageShortcut(b, fbsutils.Convert(t.ChallengeStageShortcut, t.FlatBuffer.TableKey))
 	MissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
 	MissionExcelAddCompleteConditionCount(b, fbsutils.Convert(t.CompleteConditionCount, t.FlatBuffer.TableKey))
@@ -87,7 +98,7 @@ func (t *MissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		b.PrependInt32(fbsutils.Convert(int32(t.CompleteConditionParameterTag[len(t.CompleteConditionParameterTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MissionExcelAddCompleteConditionParameterTag(b, b.EndVector(len(t.CompleteConditionParameterTag)))
-	MissionExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	MissionExcelAddRewardIcon(b, __offset_reward_icon)
 	MissionExcelStartMissionRewardParcelTypeVector(b, len(t.MissionRewardParcelType))
 	for i := range len(t.MissionRewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.MissionRewardParcelType[len(t.MissionRewardParcelType)-i-1]), t.FlatBuffer.TableKey))

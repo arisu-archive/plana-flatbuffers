@@ -25,18 +25,22 @@ type StickerGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_layout := b.CreateString(fbsutils.Convert(t.Layout, t.FlatBuffer.TableKey))
+	__offset_unique_layout_path := b.CreateString(fbsutils.Convert(t.UniqueLayoutPath, t.FlatBuffer.TableKey))
+	__offset_sticker_group_iconpath := b.CreateString(fbsutils.Convert(t.StickerGroupIconpath, t.FlatBuffer.TableKey))
+	__offset_sticker_group_coverpath := b.CreateString(fbsutils.Convert(t.StickerGroupCoverpath, t.FlatBuffer.TableKey))
 	StickerGroupExcelStart(b)
 	StickerGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddLayout(b, b.CreateString(fbsutils.Convert(t.Layout, t.FlatBuffer.TableKey)))
-	StickerGroupExcelAddUniqueLayoutPath(b, b.CreateString(fbsutils.Convert(t.UniqueLayoutPath, t.FlatBuffer.TableKey)))
-	StickerGroupExcelAddStickerGroupIconpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupIconpath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddLayout(b, __offset_layout)
+	StickerGroupExcelAddUniqueLayoutPath(b, __offset_unique_layout_path)
+	StickerGroupExcelAddStickerGroupIconpath(b, __offset_sticker_group_iconpath)
 	StickerGroupExcelAddPageCompleteSlot(b, fbsutils.Convert(t.PageCompleteSlot, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardParcelType(b, fbsutils.Convert(t.PageCompleteRewardParcelType, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardParcelId(b, fbsutils.Convert(t.PageCompleteRewardParcelId, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardAmount(b, fbsutils.Convert(t.PageCompleteRewardAmount, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddLocalizeTitle(b, fbsutils.Convert(t.LocalizeTitle, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddLocalizeDescription(b, fbsutils.Convert(t.LocalizeDescription, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddStickerGroupCoverpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupCoverpath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddStickerGroupCoverpath(b, __offset_sticker_group_coverpath)
 	return StickerGroupExcelEnd(b)
 }
 

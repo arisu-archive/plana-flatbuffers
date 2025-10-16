@@ -80,33 +80,62 @@ class MinigameTBGEncounterRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameTBGEncounterRewardExcelStart(builder): builder.StartObject(8)
+def MinigameTBGEncounterRewardExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return MinigameTBGEncounterRewardExcelStart(builder)
-def MinigameTBGEncounterRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    MinigameTBGEncounterRewardExcelStart(builder)
+
+def MinigameTBGEncounterRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return MinigameTBGEncounterRewardExcelAddGroupId(builder, groupId)
-def MinigameTBGEncounterRewardExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+    MinigameTBGEncounterRewardExcelAddGroupId(builder, groupId)
+
+def MinigameTBGEncounterRewardExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(1, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MinigameTBGEncounterRewardExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder, tbgOptionSuccessType): builder.PrependInt32Slot(2, tbgOptionSuccessType, 0)
+    MinigameTBGEncounterRewardExcelAddUniqueId(builder, uniqueId)
+
+def MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder, tbgOptionSuccessType):
+    builder.PrependInt32Slot(2, tbgOptionSuccessType, 0)
+
 def AddTbgOptionSuccessType(builder, tbgOptionSuccessType):
-    return MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder, tbgOptionSuccessType)
-def MinigameTBGEncounterRewardExcelAddParemeter(builder, paremeter): builder.PrependInt64Slot(3, paremeter, 0)
+    MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder, tbgOptionSuccessType)
+
+def MinigameTBGEncounterRewardExcelAddParemeter(builder, paremeter):
+    builder.PrependInt64Slot(3, paremeter, 0)
+
 def AddParemeter(builder, paremeter):
-    return MinigameTBGEncounterRewardExcelAddParemeter(builder, paremeter)
-def MinigameTBGEncounterRewardExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(4, parcelType, 0)
+    MinigameTBGEncounterRewardExcelAddParemeter(builder, paremeter)
+
+def MinigameTBGEncounterRewardExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(4, parcelType, 0)
+
 def AddParcelType(builder, parcelType):
-    return MinigameTBGEncounterRewardExcelAddParcelType(builder, parcelType)
-def MinigameTBGEncounterRewardExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(5, parcelId, 0)
+    MinigameTBGEncounterRewardExcelAddParcelType(builder, parcelType)
+
+def MinigameTBGEncounterRewardExcelAddParcelId(builder, parcelId):
+    builder.PrependInt64Slot(5, parcelId, 0)
+
 def AddParcelId(builder, parcelId):
-    return MinigameTBGEncounterRewardExcelAddParcelId(builder, parcelId)
-def MinigameTBGEncounterRewardExcelAddAmount(builder, amount): builder.PrependInt64Slot(6, amount, 0)
+    MinigameTBGEncounterRewardExcelAddParcelId(builder, parcelId)
+
+def MinigameTBGEncounterRewardExcelAddAmount(builder, amount):
+    builder.PrependInt64Slot(6, amount, 0)
+
 def AddAmount(builder, amount):
-    return MinigameTBGEncounterRewardExcelAddAmount(builder, amount)
-def MinigameTBGEncounterRewardExcelAddProb(builder, prob): builder.PrependInt32Slot(7, prob, 0)
+    MinigameTBGEncounterRewardExcelAddAmount(builder, amount)
+
+def MinigameTBGEncounterRewardExcelAddProb(builder, prob):
+    builder.PrependInt32Slot(7, prob, 0)
+
 def AddProb(builder, prob):
-    return MinigameTBGEncounterRewardExcelAddProb(builder, prob)
-def MinigameTBGEncounterRewardExcelEnd(builder): return builder.EndObject()
+    MinigameTBGEncounterRewardExcelAddProb(builder, prob)
+
+def MinigameTBGEncounterRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameTBGEncounterRewardExcelEnd(builder)

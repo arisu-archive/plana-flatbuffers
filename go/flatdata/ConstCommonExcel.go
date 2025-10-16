@@ -17,11 +17,19 @@ func GetRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCo
 	return x
 }
 
+func FinishConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -2151,8 +2159,20 @@ func (rcv *ConstCommonExcel) MutateCafeCameraDragThreshold(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(346, n)
 }
 
+func (rcv *ConstCommonExcel) CafeSummonTicketBuyLimitForValidate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(348))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeSummonTicketBuyLimitForValidate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(348, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(172)
+	builder.StartObject(173)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2684,6 +2704,9 @@ func ConstCommonExcelAddBattlePassExpIconPath(builder *flatbuffers.Builder, batt
 }
 func ConstCommonExcelAddCafeCameraDragThreshold(builder *flatbuffers.Builder, cafeCameraDragThreshold float32) {
 	builder.PrependFloat32Slot(171, cafeCameraDragThreshold, 0.0)
+}
+func ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder *flatbuffers.Builder, cafeSummonTicketBuyLimitForValidate int32) {
+	builder.PrependInt32Slot(172, cafeSummonTicketBuyLimitForValidate, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

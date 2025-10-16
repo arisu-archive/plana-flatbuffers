@@ -17,11 +17,19 @@ func GetRootAsArenaSeasonCloseRewardExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishArenaSeasonCloseRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsArenaSeasonCloseRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaSeasonCloseRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaSeasonCloseRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedArenaSeasonCloseRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaSeasonCloseRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -121,25 +129,8 @@ func (rcv *ArenaSeasonCloseRewardExcel) MutateRewardParcelUniqueId(j int, n int6
 	return false
 }
 
-func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelUniqueName(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelUniqueNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -148,7 +139,7 @@ func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelAmount(j int) int64 {
 }
 
 func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -156,7 +147,7 @@ func (rcv *ArenaSeasonCloseRewardExcel) RewardParcelAmountLength() int {
 }
 
 func (rcv *ArenaSeasonCloseRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -165,7 +156,7 @@ func (rcv *ArenaSeasonCloseRewardExcel) MutateRewardParcelAmount(j int, n int64)
 }
 
 func ArenaSeasonCloseRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(6)
 }
 func ArenaSeasonCloseRewardExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
 	builder.PrependInt64Slot(0, seasonId, 0)
@@ -188,14 +179,8 @@ func ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(builder *flatbuffers.Bui
 func ArenaSeasonCloseRewardExcelStartRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(builder *flatbuffers.Builder, rewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelUniqueName), 0)
-}
-func ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func ArenaSeasonCloseRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
 func ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

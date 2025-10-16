@@ -23,13 +23,20 @@ type WorldRaidConditionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	WorldRaidConditionExcelStart(b)
-	WorldRaidConditionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	var __offset_lock_ui flatbuffers.UOffsetT
+	__stringOffsets_lock_ui := make([]flatbuffers.UOffsetT, len(t.LockUi))
+	for i := range len(t.LockUi) {
+		__stringOffsets_lock_ui[i] = b.CreateString(fbsutils.Convert(t.LockUi[i], t.FlatBuffer.TableKey))
+	}
 	WorldRaidConditionExcelStartLockUiVector(b, len(t.LockUi))
 	for i := range len(t.LockUi) {
-		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_lock_ui[len(t.LockUi)-i-1])
 	}
-	WorldRaidConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
+	__offset_lock_ui = b.EndVector(len(t.LockUi))
+	__offset_after_when_date := b.CreateString(fbsutils.Convert(t.AfterWhenDate, t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelStart(b)
+	WorldRaidConditionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelAddLockUi(b, __offset_lock_ui)
 	WorldRaidConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
 	WorldRaidConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	WorldRaidConditionExcelStartScenarioModeIdVector(b, len(t.ScenarioModeId))
@@ -43,7 +50,7 @@ func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	WorldRaidConditionExcelAddCampaignStageId(b, b.EndVector(len(t.CampaignStageId)))
 	WorldRaidConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
-	WorldRaidConditionExcelAddAfterWhenDate(b, b.CreateString(fbsutils.Convert(t.AfterWhenDate, t.FlatBuffer.TableKey)))
+	WorldRaidConditionExcelAddAfterWhenDate(b, __offset_after_when_date)
 	WorldRaidConditionExcelStartWorldRaidBossKillVector(b, len(t.WorldRaidBossKill))
 	for i := range len(t.WorldRaidBossKill) {
 		b.PrependInt64(fbsutils.Convert(t.WorldRaidBossKill[len(t.WorldRaidBossKill)-i-1], t.FlatBuffer.TableKey))

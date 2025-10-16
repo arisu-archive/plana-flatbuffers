@@ -1,9 +1,0 @@
-include "WorldRaidStageExcel.fbs";
-
-namespace FlatData;
-
-table WorldRaidStageExcelTable {
-    data_list: [WorldRaidStageExcel];
-}
-
-root_type WorldRaidStageExcelTable;

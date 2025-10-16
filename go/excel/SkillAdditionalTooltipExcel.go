@@ -17,11 +17,19 @@ func GetRootAsSkillAdditionalTooltipExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishSkillAdditionalTooltipExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSkillAdditionalTooltipExcel(buf []byte, offset flatbuffers.UOffsetT) *SkillAdditionalTooltipExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SkillAdditionalTooltipExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSkillAdditionalTooltipExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SkillAdditionalTooltipExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

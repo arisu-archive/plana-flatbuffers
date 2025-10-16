@@ -17,11 +17,19 @@ func GetRootAsCampaignUnitExcel(buf []byte, offset flatbuffers.UOffsetT) *Campai
 	return x
 }
 
+func FinishCampaignUnitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCampaignUnitExcel(buf []byte, offset flatbuffers.UOffsetT) *CampaignUnitExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CampaignUnitExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCampaignUnitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CampaignUnitExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

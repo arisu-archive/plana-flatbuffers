@@ -1,9 +1,0 @@
-include "CampaignStageRewardExcel.fbs";
-
-namespace FlatData;
-
-table CampaignStageRewardExcelTable {
-    data_list: [CampaignStageRewardExcel];
-}
-
-root_type CampaignStageRewardExcelTable;

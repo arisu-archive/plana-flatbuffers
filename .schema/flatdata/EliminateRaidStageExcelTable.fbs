@@ -1,9 +1,0 @@
-include "EliminateRaidStageExcel.fbs";
-
-namespace FlatData;
-
-table EliminateRaidStageExcelTable {
-    data_list: [EliminateRaidStageExcel];
-}
-
-root_type EliminateRaidStageExcelTable;

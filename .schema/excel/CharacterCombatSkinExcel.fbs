@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table CharacterCombatSkinExcel {
+    group_id: string;
+    unique_id: long;
+    resource_path: string;
+}
+
+root_type CharacterCombatSkinExcel;

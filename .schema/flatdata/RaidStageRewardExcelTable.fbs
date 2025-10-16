@@ -1,9 +1,0 @@
-include "RaidStageRewardExcel.fbs";
-
-namespace FlatData;
-
-table RaidStageRewardExcelTable {
-    data_list: [RaidStageRewardExcel];
-}
-
-root_type RaidStageRewardExcelTable;

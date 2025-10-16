@@ -1,9 +1,0 @@
-include "ArenaLevelSectionExcel.fbs";
-
-namespace FlatData;
-
-table ArenaLevelSectionExcelTable {
-    data_list: [ArenaLevelSectionExcel];
-}
-
-root_type ArenaLevelSectionExcelTable;

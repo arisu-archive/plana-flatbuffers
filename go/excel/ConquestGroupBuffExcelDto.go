@@ -18,6 +18,7 @@ type ConquestGroupBuffExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_skill_group_id := b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelStart(b)
 	ConquestGroupBuffExcelAddConquestBuffId(b, fbsutils.Convert(t.ConquestBuffId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelStartSchoolVector(b, len(t.School))
@@ -26,7 +27,7 @@ func (t *ConquestGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	}
 	ConquestGroupBuffExcelAddSchool(b, b.EndVector(len(t.School)))
 	ConquestGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
-	ConquestGroupBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
+	ConquestGroupBuffExcelAddSkillGroupId(b, __offset_skill_group_id)
 	return ConquestGroupBuffExcelEnd(b)
 }
 

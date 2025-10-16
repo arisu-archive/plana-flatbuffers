@@ -1,9 +1,0 @@
-include "PresetCharacterGroupExcel.fbs";
-
-namespace FlatData;
-
-table PresetCharacterGroupExcelTable {
-    data_list: [PresetCharacterGroupExcel];
-}
-
-root_type PresetCharacterGroupExcelTable;

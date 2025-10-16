@@ -1,9 +1,0 @@
-include "EliminateRaidRankingRewardExcel.fbs";
-
-namespace FlatData;
-
-table EliminateRaidRankingRewardExcelTable {
-    data_list: [EliminateRaidRankingRewardExcel];
-}
-
-root_type EliminateRaidRankingRewardExcelTable;

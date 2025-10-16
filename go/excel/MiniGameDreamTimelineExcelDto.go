@@ -23,6 +23,8 @@ type MiniGameDreamTimelineExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_art_level_path := b.CreateString(fbsutils.Convert(t.ArtLevelPath, t.FlatBuffer.TableKey))
+	__offset_design_level_path := b.CreateString(fbsutils.Convert(t.DesignLevelPath, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelStart(b)
 	MiniGameDreamTimelineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -31,8 +33,8 @@ func (t *MiniGameDreamTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MiniGameDreamTimelineExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelAddEnterScenarioGroupId(b, fbsutils.Convert(t.EnterScenarioGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddArtLevelPath(b, b.CreateString(fbsutils.Convert(t.ArtLevelPath, t.FlatBuffer.TableKey)))
-	MiniGameDreamTimelineExcelAddDesignLevelPath(b, b.CreateString(fbsutils.Convert(t.DesignLevelPath, t.FlatBuffer.TableKey)))
+	MiniGameDreamTimelineExcelAddArtLevelPath(b, __offset_art_level_path)
+	MiniGameDreamTimelineExcelAddDesignLevelPath(b, __offset_design_level_path)
 	return MiniGameDreamTimelineExcelEnd(b)
 }
 

@@ -29,9 +29,10 @@ type ObstacleStatExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ObstacleStatExcelStart(b)
 	ObstacleStatExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	ObstacleStatExcelAddName(b, __offset_name)
 	ObstacleStatExcelAddMaxHp1(b, fbsutils.Convert(t.MaxHp1, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddMaxHp100(b, fbsutils.Convert(t.MaxHp100, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))

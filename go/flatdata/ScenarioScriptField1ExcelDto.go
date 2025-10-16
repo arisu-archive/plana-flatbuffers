@@ -28,18 +28,23 @@ func (t *ScenarioScriptField1ExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioScriptField1"))
 	}
+	__offset_sound := b.CreateString(fbsutils.Convert(t.Sound, t.FlatBuffer.TableKey))
+	__offset_popup_file_name := b.CreateString(fbsutils.Convert(t.PopupFileName, t.FlatBuffer.TableKey))
+	__offset_script_kr := b.CreateString(fbsutils.Convert(t.ScriptKr, t.FlatBuffer.TableKey))
+	__offset_text_jp := b.CreateString(fbsutils.Convert(t.TextJp, t.FlatBuffer.TableKey))
+	__offset_voice_jp := b.CreateString(fbsutils.Convert(t.VoiceJp, t.FlatBuffer.TableKey))
 	ScenarioScriptField1ExcelStart(b)
 	ScenarioScriptField1ExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	ScenarioScriptField1ExcelAddSelectionGroup(b, fbsutils.Convert(t.SelectionGroup, t.FlatBuffer.TableKey))
 	ScenarioScriptField1ExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	ScenarioScriptField1ExcelAddSound(b, b.CreateString(fbsutils.Convert(t.Sound, t.FlatBuffer.TableKey)))
+	ScenarioScriptField1ExcelAddSound(b, __offset_sound)
 	ScenarioScriptField1ExcelAddTransition(b, fbsutils.Convert(t.Transition, t.FlatBuffer.TableKey))
 	ScenarioScriptField1ExcelAddBgName(b, fbsutils.Convert(t.BgName, t.FlatBuffer.TableKey))
 	ScenarioScriptField1ExcelAddBgEffect(b, fbsutils.Convert(t.BgEffect, t.FlatBuffer.TableKey))
-	ScenarioScriptField1ExcelAddPopupFileName(b, b.CreateString(fbsutils.Convert(t.PopupFileName, t.FlatBuffer.TableKey)))
-	ScenarioScriptField1ExcelAddScriptKr(b, b.CreateString(fbsutils.Convert(t.ScriptKr, t.FlatBuffer.TableKey)))
-	ScenarioScriptField1ExcelAddTextJp(b, b.CreateString(fbsutils.Convert(t.TextJp, t.FlatBuffer.TableKey)))
-	ScenarioScriptField1ExcelAddVoiceJp(b, b.CreateString(fbsutils.Convert(t.VoiceJp, t.FlatBuffer.TableKey)))
+	ScenarioScriptField1ExcelAddPopupFileName(b, __offset_popup_file_name)
+	ScenarioScriptField1ExcelAddScriptKr(b, __offset_script_kr)
+	ScenarioScriptField1ExcelAddTextJp(b, __offset_text_jp)
+	ScenarioScriptField1ExcelAddVoiceJp(b, __offset_voice_jp)
 	return ScenarioScriptField1ExcelEnd(b)
 }
 

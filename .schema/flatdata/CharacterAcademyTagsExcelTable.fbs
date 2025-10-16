@@ -1,9 +1,0 @@
-include "CharacterAcademyTagsExcel.fbs";
-
-namespace FlatData;
-
-table CharacterAcademyTagsExcelTable {
-    data_list: [CharacterAcademyTagsExcel];
-}
-
-root_type CharacterAcademyTagsExcelTable;

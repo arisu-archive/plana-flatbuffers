@@ -17,11 +17,19 @@ func GetRootAsSkillSelectExTooltipExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishSkillSelectExTooltipExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSkillSelectExTooltipExcel(buf []byte, offset flatbuffers.UOffsetT) *SkillSelectExTooltipExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SkillSelectExTooltipExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSkillSelectExTooltipExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SkillSelectExTooltipExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

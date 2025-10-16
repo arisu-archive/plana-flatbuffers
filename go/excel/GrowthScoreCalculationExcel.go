@@ -17,11 +17,19 @@ func GetRootAsGrowthScoreCalculationExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishGrowthScoreCalculationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGrowthScoreCalculationExcel(buf []byte, offset flatbuffers.UOffsetT) *GrowthScoreCalculationExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GrowthScoreCalculationExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGrowthScoreCalculationExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GrowthScoreCalculationExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

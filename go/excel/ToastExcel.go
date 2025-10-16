@@ -17,11 +17,19 @@ func GetRootAsToastExcel(buf []byte, offset flatbuffers.UOffsetT) *ToastExcel {
 	return x
 }
 
+func FinishToastExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsToastExcel(buf []byte, offset flatbuffers.UOffsetT) *ToastExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ToastExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedToastExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ToastExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

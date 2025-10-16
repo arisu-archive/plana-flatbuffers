@@ -18,6 +18,7 @@ table ShopRefreshExcel {
     refresh_group: int;
     prob: int;
     buy_report_event_name: string;
+    product_update_time: string;
     display_tag: ProductDisplayTag;
 }
 

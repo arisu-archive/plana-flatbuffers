@@ -1,9 +1,0 @@
-include "AcademyRewardExcel.fbs";
-
-namespace FlatData;
-
-table AcademyRewardExcelTable {
-    data_list: [AcademyRewardExcel];
-}
-
-root_type AcademyRewardExcelTable;

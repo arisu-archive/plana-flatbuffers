@@ -18,10 +18,11 @@ type ShopFreeRecruitPeriodExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopFreeRecruitPeriodExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_interval_date := b.CreateString(fbsutils.Convert(t.IntervalDate, t.FlatBuffer.TableKey))
 	ShopFreeRecruitPeriodExcelStart(b)
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(b, fbsutils.Convert(t.ShopFreeRecruitId, t.FlatBuffer.TableKey))
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(b, fbsutils.Convert(t.ShopFreeRecruitIntervalId, t.FlatBuffer.TableKey))
-	ShopFreeRecruitPeriodExcelAddIntervalDate(b, b.CreateString(fbsutils.Convert(t.IntervalDate, t.FlatBuffer.TableKey)))
+	ShopFreeRecruitPeriodExcelAddIntervalDate(b, __offset_interval_date)
 	ShopFreeRecruitPeriodExcelAddFreeRecruitCount(b, fbsutils.Convert(t.FreeRecruitCount, t.FlatBuffer.TableKey))
 	return ShopFreeRecruitPeriodExcelEnd(b)
 }

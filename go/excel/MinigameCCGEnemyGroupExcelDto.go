@@ -19,9 +19,10 @@ type MinigameCCGEnemyGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGEnemyGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_enemy_ai := b.CreateString(fbsutils.Convert(t.EnemyAi, t.FlatBuffer.TableKey))
 	MinigameCCGEnemyGroupExcelStart(b)
 	MinigameCCGEnemyGroupExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MinigameCCGEnemyGroupExcelAddEnemyAi(b, b.CreateString(fbsutils.Convert(t.EnemyAi, t.FlatBuffer.TableKey)))
+	MinigameCCGEnemyGroupExcelAddEnemyAi(b, __offset_enemy_ai)
 	MinigameCCGEnemyGroupExcelAddEnemyBgm(b, fbsutils.Convert(t.EnemyBgm, t.FlatBuffer.TableKey))
 	MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(b, fbsutils.Convert(t.LocalizeEnemyGroupName, t.FlatBuffer.TableKey))
 	MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupDesc(b, fbsutils.Convert(t.LocalizeEnemyGroupDesc, t.FlatBuffer.TableKey))

@@ -1,9 +1,0 @@
-include "AcademyLocationExcel.fbs";
-
-namespace FlatData;
-
-table AcademyLocationExcelTable {
-    data_list: [AcademyLocationExcel];
-}
-
-root_type AcademyLocationExcelTable;

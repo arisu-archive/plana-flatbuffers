@@ -16,6 +16,7 @@ type MinigameCCGRewardItemExcelDto struct {
 	RewardParcelType   ParcelType `json:"reward_parcel_type"`
 	RewardParcelId     int64      `json:"reward_parcel_id"`
 	RewardParcelAmount int32      `json:"reward_parcel_amount"`
+	DisplayOrder       int64      `json:"display_order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,6 +28,7 @@ func (t *MinigameCCGRewardItemExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MinigameCCGRewardItemExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	MinigameCCGRewardItemExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	MinigameCCGRewardItemExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	MinigameCCGRewardItemExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	return MinigameCCGRewardItemExcelEnd(b)
 }
 
@@ -45,6 +47,7 @@ func (t *MinigameCCGRewardItemExcelDto) UnmarshalMessage(e *MinigameCCGRewardIte
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -39,14 +39,18 @@ type ConquestTileExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
+	__offset_tile_name_localize := b.CreateString(fbsutils.Convert(t.TileNameLocalize, t.FlatBuffer.TableKey))
+	__offset_tile_image_name := b.CreateString(fbsutils.Convert(t.TileImageName, t.FlatBuffer.TableKey))
 	ConquestTileExcelStart(b)
 	ConquestTileExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	ConquestTileExcelAddName(b, __offset_name)
 	ConquestTileExcelAddEventId(b, fbsutils.Convert(t.EventId, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	ConquestTileExcelAddTileNameLocalize(b, b.CreateString(fbsutils.Convert(t.TileNameLocalize, t.FlatBuffer.TableKey)))
-	ConquestTileExcelAddTileImageName(b, b.CreateString(fbsutils.Convert(t.TileImageName, t.FlatBuffer.TableKey)))
+	ConquestTileExcelAddPrefabName(b, __offset_prefab_name)
+	ConquestTileExcelAddTileNameLocalize(b, __offset_tile_name_localize)
+	ConquestTileExcelAddTileImageName(b, __offset_tile_image_name)
 	ConquestTileExcelAddPlayable(b, t.Playable)
 	ConquestTileExcelAddTileType(b, fbsutils.Convert(t.TileType, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddNotMapFog(b, t.NotMapFog)

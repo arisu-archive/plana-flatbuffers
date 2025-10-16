@@ -2,7 +2,4 @@
 
 # namespace: Excel
 
-class AcademyMessageTypes(object):
-    None_ = 0
-    Text = 1
-    Image = 2
+# NOTE AcademyMessageTypes.py does not declare any structs or enums

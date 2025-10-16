@@ -31,24 +31,28 @@ type ShopCashExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
+	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_purchase_report_event_name := b.CreateString(fbsutils.Convert(t.PurchaseReportEventName, t.FlatBuffer.TableKey))
 	ShopCashExcelStart(b)
 	ShopCashExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopCashExcelAddCashProductId(b, fbsutils.Convert(t.CashProductId, t.FlatBuffer.TableKey))
 	ShopCashExcelAddPackageType(b, fbsutils.Convert(t.PackageType, t.FlatBuffer.TableKey))
 	ShopCashExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	ShopCashExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddIconPath(b, __offset_icon_path)
 	ShopCashExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ShopCashExcelAddRenewalDisplayOrder(b, fbsutils.Convert(t.RenewalDisplayOrder, t.FlatBuffer.TableKey))
 	ShopCashExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	ShopCashExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
-	ShopCashExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopCashExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddSalePeriodFrom(b, __offset_sale_period_from)
+	ShopCashExcelAddSalePeriodTo(b, __offset_sale_period_to)
 	ShopCashExcelAddPeriodTag(b, t.PeriodTag)
 	ShopCashExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
 	ShopCashExcelAddAccountLevelHide(b, t.AccountLevelHide)
 	ShopCashExcelAddClearMissionLimit(b, fbsutils.Convert(t.ClearMissionLimit, t.FlatBuffer.TableKey))
 	ShopCashExcelAddClearMissionHide(b, t.ClearMissionHide)
-	ShopCashExcelAddPurchaseReportEventName(b, b.CreateString(fbsutils.Convert(t.PurchaseReportEventName, t.FlatBuffer.TableKey)))
+	ShopCashExcelAddPurchaseReportEventName(b, __offset_purchase_report_event_name)
 	return ShopCashExcelEnd(b)
 }
 

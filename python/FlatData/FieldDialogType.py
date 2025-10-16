@@ -2,23 +2,4 @@
 
 # namespace: FlatData
 
-class FieldDialogType(object):
-    None_ = 0
-    Talk = 1
-    Think = 2
-    Exclaim = 3
-    Question = 4
-    Upset = 5
-    Surprise = 6
-    Bulb = 7
-    Heart = 8
-    Sweat = 9
-    Angry = 10
-    Music = 11
-    Dot = 12
-    Momotalk = 13
-    Phone = 14
-    Keyword = 15
-    Evidence = 16
-    Chat = 17
-    Keyword_843 = 18
+# NOTE FieldDialogType.py does not declare any structs or enums

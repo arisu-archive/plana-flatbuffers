@@ -92,27 +92,50 @@ class FormationLocationExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def FormationLocationExcelStart(builder): builder.StartObject(4)
+def FormationLocationExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return FormationLocationExcelStart(builder)
-def FormationLocationExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    FormationLocationExcelStart(builder)
+
+def FormationLocationExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return FormationLocationExcelAddId(builder, id)
-def FormationLocationExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
+    FormationLocationExcelAddId(builder, id)
+
+def FormationLocationExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(1, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return FormationLocationExcelAddGroupId(builder, groupId)
-def FormationLocationExcelAddSlotZ(builder, slotZ): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(slotZ), 0)
+    FormationLocationExcelAddGroupId(builder, groupId)
+
+def FormationLocationExcelAddSlotZ(builder, slotZ):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(slotZ), 0)
+
 def AddSlotZ(builder, slotZ):
-    return FormationLocationExcelAddSlotZ(builder, slotZ)
-def FormationLocationExcelStartSlotZVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FormationLocationExcelAddSlotZ(builder, slotZ)
+
+def FormationLocationExcelStartSlotZVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartSlotZVector(builder, numElems):
     return FormationLocationExcelStartSlotZVector(builder, numElems)
-def FormationLocationExcelAddSlotX(builder, slotX): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(slotX), 0)
+
+def FormationLocationExcelAddSlotX(builder, slotX):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(slotX), 0)
+
 def AddSlotX(builder, slotX):
-    return FormationLocationExcelAddSlotX(builder, slotX)
-def FormationLocationExcelStartSlotXVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FormationLocationExcelAddSlotX(builder, slotX)
+
+def FormationLocationExcelStartSlotXVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartSlotXVector(builder, numElems):
     return FormationLocationExcelStartSlotXVector(builder, numElems)
-def FormationLocationExcelEnd(builder): return builder.EndObject()
+
+def FormationLocationExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FormationLocationExcelEnd(builder)

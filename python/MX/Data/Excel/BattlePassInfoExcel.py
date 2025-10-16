@@ -177,79 +177,134 @@ class BattlePassInfoExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-    # BattlePassInfoExcel
-    def PurchaseStepBgImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+def BattlePassInfoExcelStart(builder):
+    builder.StartObject(19)
 
-def BattlePassInfoExcelStart(builder): builder.StartObject(20)
 def Start(builder):
-    return BattlePassInfoExcelStart(builder)
-def BattlePassInfoExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    BattlePassInfoExcelStart(builder)
+
+def BattlePassInfoExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return BattlePassInfoExcelAddId(builder, id)
-def BattlePassInfoExcelAddFreeRewardGroupId(builder, freeRewardGroupId): builder.PrependInt64Slot(1, freeRewardGroupId, 0)
+    BattlePassInfoExcelAddId(builder, id)
+
+def BattlePassInfoExcelAddFreeRewardGroupId(builder, freeRewardGroupId):
+    builder.PrependInt64Slot(1, freeRewardGroupId, 0)
+
 def AddFreeRewardGroupId(builder, freeRewardGroupId):
-    return BattlePassInfoExcelAddFreeRewardGroupId(builder, freeRewardGroupId)
-def BattlePassInfoExcelAddPurchaseRewardGroupId(builder, purchaseRewardGroupId): builder.PrependInt64Slot(2, purchaseRewardGroupId, 0)
+    BattlePassInfoExcelAddFreeRewardGroupId(builder, freeRewardGroupId)
+
+def BattlePassInfoExcelAddPurchaseRewardGroupId(builder, purchaseRewardGroupId):
+    builder.PrependInt64Slot(2, purchaseRewardGroupId, 0)
+
 def AddPurchaseRewardGroupId(builder, purchaseRewardGroupId):
-    return BattlePassInfoExcelAddPurchaseRewardGroupId(builder, purchaseRewardGroupId)
-def BattlePassInfoExcelAddNormalProductGroupId(builder, normalProductGroupId): builder.PrependInt64Slot(3, normalProductGroupId, 0)
+    BattlePassInfoExcelAddPurchaseRewardGroupId(builder, purchaseRewardGroupId)
+
+def BattlePassInfoExcelAddNormalProductGroupId(builder, normalProductGroupId):
+    builder.PrependInt64Slot(3, normalProductGroupId, 0)
+
 def AddNormalProductGroupId(builder, normalProductGroupId):
-    return BattlePassInfoExcelAddNormalProductGroupId(builder, normalProductGroupId)
-def BattlePassInfoExcelAddPremiumProductGroupId(builder, premiumProductGroupId): builder.PrependInt64Slot(4, premiumProductGroupId, 0)
+    BattlePassInfoExcelAddNormalProductGroupId(builder, normalProductGroupId)
+
+def BattlePassInfoExcelAddPremiumProductGroupId(builder, premiumProductGroupId):
+    builder.PrependInt64Slot(4, premiumProductGroupId, 0)
+
 def AddPremiumProductGroupId(builder, premiumProductGroupId):
-    return BattlePassInfoExcelAddPremiumProductGroupId(builder, premiumProductGroupId)
-def BattlePassInfoExcelAddDiscountPremiumProductGroupId(builder, discountPremiumProductGroupId): builder.PrependInt64Slot(5, discountPremiumProductGroupId, 0)
+    BattlePassInfoExcelAddPremiumProductGroupId(builder, premiumProductGroupId)
+
+def BattlePassInfoExcelAddDiscountPremiumProductGroupId(builder, discountPremiumProductGroupId):
+    builder.PrependInt64Slot(5, discountPremiumProductGroupId, 0)
+
 def AddDiscountPremiumProductGroupId(builder, discountPremiumProductGroupId):
-    return BattlePassInfoExcelAddDiscountPremiumProductGroupId(builder, discountPremiumProductGroupId)
-def BattlePassInfoExcelAddNextLvNeedExp(builder, nextLvNeedExp): builder.PrependInt32Slot(6, nextLvNeedExp, 0)
+    BattlePassInfoExcelAddDiscountPremiumProductGroupId(builder, discountPremiumProductGroupId)
+
+def BattlePassInfoExcelAddNextLvNeedExp(builder, nextLvNeedExp):
+    builder.PrependInt32Slot(6, nextLvNeedExp, 0)
+
 def AddNextLvNeedExp(builder, nextLvNeedExp):
-    return BattlePassInfoExcelAddNextLvNeedExp(builder, nextLvNeedExp)
-def BattlePassInfoExcelAddPassLvUpGoodsId(builder, passLvUpGoodsId): builder.PrependInt64Slot(7, passLvUpGoodsId, 0)
+    BattlePassInfoExcelAddNextLvNeedExp(builder, nextLvNeedExp)
+
+def BattlePassInfoExcelAddPassLvUpGoodsId(builder, passLvUpGoodsId):
+    builder.PrependInt64Slot(7, passLvUpGoodsId, 0)
+
 def AddPassLvUpGoodsId(builder, passLvUpGoodsId):
-    return BattlePassInfoExcelAddPassLvUpGoodsId(builder, passLvUpGoodsId)
-def BattlePassInfoExcelAddBuyPremiumLvUpAmount(builder, buyPremiumLvUpAmount): builder.PrependInt32Slot(8, buyPremiumLvUpAmount, 0)
+    BattlePassInfoExcelAddPassLvUpGoodsId(builder, passLvUpGoodsId)
+
+def BattlePassInfoExcelAddBuyPremiumLvUpAmount(builder, buyPremiumLvUpAmount):
+    builder.PrependInt32Slot(8, buyPremiumLvUpAmount, 0)
+
 def AddBuyPremiumLvUpAmount(builder, buyPremiumLvUpAmount):
-    return BattlePassInfoExcelAddBuyPremiumLvUpAmount(builder, buyPremiumLvUpAmount)
-def BattlePassInfoExcelAddSalePeriodFrom(builder, salePeriodFrom): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+    BattlePassInfoExcelAddBuyPremiumLvUpAmount(builder, buyPremiumLvUpAmount)
+
+def BattlePassInfoExcelAddSalePeriodFrom(builder, salePeriodFrom):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+
 def AddSalePeriodFrom(builder, salePeriodFrom):
-    return BattlePassInfoExcelAddSalePeriodFrom(builder, salePeriodFrom)
-def BattlePassInfoExcelAddSalePeriodTo(builder, salePeriodTo): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+    BattlePassInfoExcelAddSalePeriodFrom(builder, salePeriodFrom)
+
+def BattlePassInfoExcelAddSalePeriodTo(builder, salePeriodTo):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+
 def AddSalePeriodTo(builder, salePeriodTo):
-    return BattlePassInfoExcelAddSalePeriodTo(builder, salePeriodTo)
-def BattlePassInfoExcelAddVideoId(builder, videoId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(videoId), 0)
+    BattlePassInfoExcelAddSalePeriodTo(builder, salePeriodTo)
+
+def BattlePassInfoExcelAddVideoId(builder, videoId):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(videoId), 0)
+
 def AddVideoId(builder, videoId):
-    return BattlePassInfoExcelAddVideoId(builder, videoId)
-def BattlePassInfoExcelStartVideoIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    BattlePassInfoExcelAddVideoId(builder, videoId)
+
+def BattlePassInfoExcelStartVideoIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartVideoIdVector(builder, numElems):
     return BattlePassInfoExcelStartVideoIdVector(builder, numElems)
-def BattlePassInfoExcelAddFlavorTextGroupId(builder, flavorTextGroupId): builder.PrependInt64Slot(12, flavorTextGroupId, 0)
+
+def BattlePassInfoExcelAddFlavorTextGroupId(builder, flavorTextGroupId):
+    builder.PrependInt64Slot(12, flavorTextGroupId, 0)
+
 def AddFlavorTextGroupId(builder, flavorTextGroupId):
-    return BattlePassInfoExcelAddFlavorTextGroupId(builder, flavorTextGroupId)
-def BattlePassInfoExcelAddExclusiveRewardId(builder, exclusiveRewardId): builder.PrependInt64Slot(13, exclusiveRewardId, 0)
+    BattlePassInfoExcelAddFlavorTextGroupId(builder, flavorTextGroupId)
+
+def BattlePassInfoExcelAddExclusiveRewardId(builder, exclusiveRewardId):
+    builder.PrependInt64Slot(13, exclusiveRewardId, 0)
+
 def AddExclusiveRewardId(builder, exclusiveRewardId):
-    return BattlePassInfoExcelAddExclusiveRewardId(builder, exclusiveRewardId)
-def BattlePassInfoExcelAddExclusiveEmblemId(builder, exclusiveEmblemId): builder.PrependInt64Slot(14, exclusiveEmblemId, 0)
+    BattlePassInfoExcelAddExclusiveRewardId(builder, exclusiveRewardId)
+
+def BattlePassInfoExcelAddExclusiveEmblemId(builder, exclusiveEmblemId):
+    builder.PrependInt64Slot(14, exclusiveEmblemId, 0)
+
 def AddExclusiveEmblemId(builder, exclusiveEmblemId):
-    return BattlePassInfoExcelAddExclusiveEmblemId(builder, exclusiveEmblemId)
-def BattlePassInfoExcelAddPassExpLocalizeEtcId(builder, passExpLocalizeEtcId): builder.PrependUint32Slot(15, passExpLocalizeEtcId, 0)
+    BattlePassInfoExcelAddExclusiveEmblemId(builder, exclusiveEmblemId)
+
+def BattlePassInfoExcelAddPassExpLocalizeEtcId(builder, passExpLocalizeEtcId):
+    builder.PrependUint32Slot(15, passExpLocalizeEtcId, 0)
+
 def AddPassExpLocalizeEtcId(builder, passExpLocalizeEtcId):
-    return BattlePassInfoExcelAddPassExpLocalizeEtcId(builder, passExpLocalizeEtcId)
-def BattlePassInfoExcelAddLobbyBannerPath(builder, lobbyBannerPath): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyBannerPath), 0)
+    BattlePassInfoExcelAddPassExpLocalizeEtcId(builder, passExpLocalizeEtcId)
+
+def BattlePassInfoExcelAddLobbyBannerPath(builder, lobbyBannerPath):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyBannerPath), 0)
+
 def AddLobbyBannerPath(builder, lobbyBannerPath):
-    return BattlePassInfoExcelAddLobbyBannerPath(builder, lobbyBannerPath)
-def BattlePassInfoExcelAddMainIconParcelPath(builder, mainIconParcelPath): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainIconParcelPath), 0)
+    BattlePassInfoExcelAddLobbyBannerPath(builder, lobbyBannerPath)
+
+def BattlePassInfoExcelAddMainIconParcelPath(builder, mainIconParcelPath):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainIconParcelPath), 0)
+
 def AddMainIconParcelPath(builder, mainIconParcelPath):
-    return BattlePassInfoExcelAddMainIconParcelPath(builder, mainIconParcelPath)
-def BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepProductImagePath), 0)
+    BattlePassInfoExcelAddMainIconParcelPath(builder, mainIconParcelPath)
+
+def BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepProductImagePath), 0)
+
 def AddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath):
-    return BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath)
-def BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepBgImagePath), 0)
-def AddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath):
-    return BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath)
-def BattlePassInfoExcelEnd(builder): return builder.EndObject()
+    BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath)
+
+def BattlePassInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattlePassInfoExcelEnd(builder)

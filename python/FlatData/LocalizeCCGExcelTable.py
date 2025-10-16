@@ -49,15 +49,26 @@ class LocalizeCCGExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LocalizeCCGExcelTableStart(builder): builder.StartObject(1)
+def LocalizeCCGExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return LocalizeCCGExcelTableStart(builder)
-def LocalizeCCGExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    LocalizeCCGExcelTableStart(builder)
+
+def LocalizeCCGExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return LocalizeCCGExcelTableAddDataList(builder, dataList)
-def LocalizeCCGExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    LocalizeCCGExcelTableAddDataList(builder, dataList)
+
+def LocalizeCCGExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return LocalizeCCGExcelTableStartDataListVector(builder, numElems)
-def LocalizeCCGExcelTableEnd(builder): return builder.EndObject()
+
+def LocalizeCCGExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LocalizeCCGExcelTableEnd(builder)

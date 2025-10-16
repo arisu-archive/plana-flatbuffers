@@ -49,15 +49,26 @@ class ScenarioScriptField1ExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ScenarioScriptField1ExcelTableStart(builder): builder.StartObject(1)
+def ScenarioScriptField1ExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ScenarioScriptField1ExcelTableStart(builder)
-def ScenarioScriptField1ExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ScenarioScriptField1ExcelTableStart(builder)
+
+def ScenarioScriptField1ExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ScenarioScriptField1ExcelTableAddDataList(builder, dataList)
-def ScenarioScriptField1ExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ScenarioScriptField1ExcelTableAddDataList(builder, dataList)
+
+def ScenarioScriptField1ExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ScenarioScriptField1ExcelTableStartDataListVector(builder, numElems)
-def ScenarioScriptField1ExcelTableEnd(builder): return builder.EndObject()
+
+def ScenarioScriptField1ExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ScenarioScriptField1ExcelTableEnd(builder)

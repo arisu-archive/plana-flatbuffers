@@ -10,17 +10,16 @@ import (
 // EliminateRaidRankingRewardExcelDto represents a FlatBuffers table
 type EliminateRaidRankingRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	RankingRewardGroupId   int64        `json:"ranking_reward_group_id"`
-	Id                     int64        `json:"id"`
-	RankStart              int64        `json:"rank_start"`
-	RankEnd                int64        `json:"rank_end"`
-	PercentRankStart       int64        `json:"percent_rank_start"`
-	PercentRankEnd         int64        `json:"percent_rank_end"`
-	Tier                   int32        `json:"tier"`
-	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
-	RewardParcelUniqueId   []int64      `json:"reward_parcel_unique_id"`
-	RewardParcelUniqueName []string     `json:"reward_parcel_unique_name"`
-	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RankingRewardGroupId int64        `json:"ranking_reward_group_id"`
+	Id                   int64        `json:"id"`
+	RankStart            int64        `json:"rank_start"`
+	RankEnd              int64        `json:"rank_end"`
+	PercentRankStart     int64        `json:"percent_rank_start"`
+	PercentRankEnd       int64        `json:"percent_rank_end"`
+	Tier                 int32        `json:"tier"`
+	RewardParcelType     []ParcelType `json:"reward_parcel_type"`
+	RewardParcelUniqueId []int64      `json:"reward_parcel_unique_id"`
+	RewardParcelAmount   []int64      `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -43,11 +42,6 @@ func (t *EliminateRaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelUniqueId[len(t.RewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
-	EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
-	for i := range len(t.RewardParcelUniqueName) {
-		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
-	}
-	EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
 	EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
@@ -79,10 +73,6 @@ func (t *EliminateRaidRankingRewardExcelDto) UnmarshalMessage(e *EliminateRaidRa
 	t.RewardParcelUniqueId = make([]int64, e.RewardParcelUniqueIdLength())
 	for i := range e.RewardParcelUniqueIdLength() {
 		t.RewardParcelUniqueId[i] = fbsutils.Convert(e.RewardParcelUniqueId(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardParcelUniqueName = make([]string, e.RewardParcelUniqueNameLength())
-	for i := range e.RewardParcelUniqueNameLength() {
-		t.RewardParcelUniqueName[i] = fbsutils.Convert(string(e.RewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {

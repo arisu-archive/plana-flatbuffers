@@ -2,6 +2,4 @@
 
 # namespace: Excel
 
-class MultipleConditionCheckType(object):
-    And = 0
-    Or = 1
+# NOTE MultipleConditionCheckType.py does not declare any structs or enums

@@ -1,9 +1,0 @@
-include "TimeAttackDungeonGeasExcel.fbs";
-
-namespace FlatData;
-
-table TimeAttackDungeonGeasExcelTable {
-    data_list: [TimeAttackDungeonGeasExcel];
-}
-
-root_type TimeAttackDungeonGeasExcelTable;

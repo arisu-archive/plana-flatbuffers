@@ -24,12 +24,14 @@ type ProductExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_product_id := b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey))
+	__offset_price_reference := b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey))
 	ProductExcelStart(b)
 	ProductExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductExcelAddProductId(b, __offset_product_id)
 	ProductExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
-	ProductExcelAddPriceReference(b, b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey)))
+	ProductExcelAddPriceReference(b, __offset_price_reference)
 	ProductExcelAddPurchasePeriodType(b, fbsutils.Convert(t.PurchasePeriodType, t.FlatBuffer.TableKey))
 	ProductExcelAddPurchasePeriodLimit(b, fbsutils.Convert(t.PurchasePeriodLimit, t.FlatBuffer.TableKey))
 	ProductExcelStartParcelTypeVector(b, len(t.ParcelType))

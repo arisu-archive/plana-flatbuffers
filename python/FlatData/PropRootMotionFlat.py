@@ -49,15 +49,26 @@ class PropRootMotionFlat(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def PropRootMotionFlatStart(builder): builder.StartObject(1)
+def PropRootMotionFlatStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return PropRootMotionFlatStart(builder)
-def PropRootMotionFlatAddRootMotions(builder, rootMotions): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rootMotions), 0)
+    PropRootMotionFlatStart(builder)
+
+def PropRootMotionFlatAddRootMotions(builder, rootMotions):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rootMotions), 0)
+
 def AddRootMotions(builder, rootMotions):
-    return PropRootMotionFlatAddRootMotions(builder, rootMotions)
-def PropRootMotionFlatStartRootMotionsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    PropRootMotionFlatAddRootMotions(builder, rootMotions)
+
+def PropRootMotionFlatStartRootMotionsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRootMotionsVector(builder, numElems):
     return PropRootMotionFlatStartRootMotionsVector(builder, numElems)
-def PropRootMotionFlatEnd(builder): return builder.EndObject()
+
+def PropRootMotionFlatEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PropRootMotionFlatEnd(builder)

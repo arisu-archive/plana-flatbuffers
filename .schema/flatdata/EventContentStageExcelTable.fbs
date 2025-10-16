@@ -1,9 +1,0 @@
-include "EventContentStageExcel.fbs";
-
-namespace FlatData;
-
-table EventContentStageExcelTable {
-    data_list: [EventContentStageExcel];
-}
-
-root_type EventContentStageExcelTable;

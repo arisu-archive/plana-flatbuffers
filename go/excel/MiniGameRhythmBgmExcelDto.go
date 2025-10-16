@@ -24,16 +24,20 @@ type MiniGameRhythmBgmExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmBgmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_stage_select_image_path := b.CreateString(fbsutils.Convert(t.StageSelectImagePath, t.FlatBuffer.TableKey))
+	__offset_bgm_name_text := b.CreateString(fbsutils.Convert(t.BgmNameText, t.FlatBuffer.TableKey))
+	__offset_bgm_artist_text := b.CreateString(fbsutils.Convert(t.BgmArtistText, t.FlatBuffer.TableKey))
+	__offset_bgm_composer_text := b.CreateString(fbsutils.Convert(t.BgmComposerText, t.FlatBuffer.TableKey))
 	MiniGameRhythmBgmExcelStart(b)
 	MiniGameRhythmBgmExcelAddRhythmBgmId(b, fbsutils.Convert(t.RhythmBgmId, t.FlatBuffer.TableKey))
 	MiniGameRhythmBgmExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameRhythmBgmExcelAddStageSelectImagePath(b, b.CreateString(fbsutils.Convert(t.StageSelectImagePath, t.FlatBuffer.TableKey)))
+	MiniGameRhythmBgmExcelAddStageSelectImagePath(b, __offset_stage_select_image_path)
 	MiniGameRhythmBgmExcelAddBpm(b, fbsutils.Convert(t.Bpm, t.FlatBuffer.TableKey))
 	MiniGameRhythmBgmExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
-	MiniGameRhythmBgmExcelAddBgmNameText(b, b.CreateString(fbsutils.Convert(t.BgmNameText, t.FlatBuffer.TableKey)))
-	MiniGameRhythmBgmExcelAddBgmArtistText(b, b.CreateString(fbsutils.Convert(t.BgmArtistText, t.FlatBuffer.TableKey)))
+	MiniGameRhythmBgmExcelAddBgmNameText(b, __offset_bgm_name_text)
+	MiniGameRhythmBgmExcelAddBgmArtistText(b, __offset_bgm_artist_text)
 	MiniGameRhythmBgmExcelAddHasLyricist(b, t.HasLyricist)
-	MiniGameRhythmBgmExcelAddBgmComposerText(b, b.CreateString(fbsutils.Convert(t.BgmComposerText, t.FlatBuffer.TableKey)))
+	MiniGameRhythmBgmExcelAddBgmComposerText(b, __offset_bgm_composer_text)
 	MiniGameRhythmBgmExcelAddBgmLength(b, fbsutils.Convert(t.BgmLength, t.FlatBuffer.TableKey))
 	return MiniGameRhythmBgmExcelEnd(b)
 }

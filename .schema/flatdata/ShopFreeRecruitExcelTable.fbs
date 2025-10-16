@@ -1,9 +1,0 @@
-include "ShopFreeRecruitExcel.fbs";
-
-namespace FlatData;
-
-table ShopFreeRecruitExcelTable {
-    data_list: [ShopFreeRecruitExcel];
-}
-
-root_type ShopFreeRecruitExcelTable;

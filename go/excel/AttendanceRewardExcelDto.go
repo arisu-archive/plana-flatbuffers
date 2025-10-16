@@ -20,10 +20,11 @@ type AttendanceRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_reward_icon := b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelStart(b)
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
-	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	AttendanceRewardExcelAddRewardIcon(b, __offset_reward_icon)
 	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))

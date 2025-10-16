@@ -1,9 +1,0 @@
-namespace FlatData;
-
-table StrategyObjectBuffDefineExcel {
-    strategy_object_buff_id: long;
-    strategy_object_turn: int;
-    skill_group_id: string;
-    localize_code_id: uint;
-    icon_path: string;
-}

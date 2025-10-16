@@ -21,15 +21,23 @@ func (t *AnimatorDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorData"))
 	}
-	AnimatorDataStart(b)
-	AnimatorDataAddDefaultStateName(b, b.CreateString(fbsutils.Convert(t.DefaultStateName, t.FlatBuffer.TableKey)))
-	AnimatorDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	__offset_default_state_name := b.CreateString(fbsutils.Convert(t.DefaultStateName, t.FlatBuffer.TableKey))
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	var __offset_data_list flatbuffers.UOffsetT
+	__nestedOffsets_data_list := make([]flatbuffers.UOffsetT, len(t.DataList))
+	for i := range len(t.DataList) {
+		t.DataList[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_data_list[i] = t.DataList[i].MarshalModel(b)
+	}
 	AnimatorDataStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.DataList[len(t.DataList)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_data_list[len(t.DataList)-i-1])
 	}
-	AnimatorDataAddDataList(b, b.EndVector(len(t.DataList)))
+	__offset_data_list = b.EndVector(len(t.DataList))
+	AnimatorDataStart(b)
+	AnimatorDataAddDefaultStateName(b, __offset_default_state_name)
+	AnimatorDataAddName(b, __offset_name)
+	AnimatorDataAddDataList(b, __offset_data_list)
 	return AnimatorDataEnd(b)
 }
 

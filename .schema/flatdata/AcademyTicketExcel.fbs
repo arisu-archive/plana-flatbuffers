@@ -1,6 +1,0 @@
-namespace FlatData;
-
-table AcademyTicketExcel {
-    location_rank_sum: long;
-    schedule_ticktet_max: long;
-}

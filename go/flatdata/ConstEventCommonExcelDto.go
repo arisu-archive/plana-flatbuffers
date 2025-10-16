@@ -31,6 +31,8 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
+	__offset_meetup_scenario_replay_resource := b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey))
+	__offset_meetup_scenario_replay_title_localize := b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelStart(b)
 	ConstEventCommonExcelAddEventContentHardStageCount(b, fbsutils.Convert(t.EventContentHardStageCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.EventStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
@@ -38,8 +40,8 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ConstEventCommonExcelAddSubEventInstantClear(b, t.SubEventInstantClear)
 	ConstEventCommonExcelAddCardShopProbWeightCount(b, fbsutils.Convert(t.CardShopProbWeightCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddCardShopProbWeightRarity(b, fbsutils.Convert(t.CardShopProbWeightRarity, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddMeetupScenarioReplayResource(b, b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey)))
-	ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(b, b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey)))
+	ConstEventCommonExcelAddMeetupScenarioReplayResource(b, __offset_meetup_scenario_replay_resource)
+	ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(b, __offset_meetup_scenario_replay_title_localize)
 	ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(b, fbsutils.Convert(t.SpecialOperactionCollectionGroupId, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureNormalVariationAmount(b, fbsutils.Convert(t.TreasureNormalVariationAmount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLoopVariationAmount(b, fbsutils.Convert(t.TreasureLoopVariationAmount, t.FlatBuffer.TableKey))

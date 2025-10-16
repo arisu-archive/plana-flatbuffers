@@ -22,12 +22,15 @@ func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
+	__offset_name_localize_key := b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey))
+	__offset_description_localize_key := b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey))
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
 	FieldKeywordExcelStart(b)
 	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldKeywordExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
-	FieldKeywordExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
-	FieldKeywordExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	FieldKeywordExcelAddNameLocalizeKey(b, __offset_name_localize_key)
+	FieldKeywordExcelAddDescriptionLocalizeKey(b, __offset_description_localize_key)
+	FieldKeywordExcelAddImagePath(b, __offset_image_path)
 	return FieldKeywordExcelEnd(b)
 }
 

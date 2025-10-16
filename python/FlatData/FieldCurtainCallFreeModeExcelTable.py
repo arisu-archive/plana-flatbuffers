@@ -49,15 +49,26 @@ class FieldCurtainCallFreeModeExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldCurtainCallFreeModeExcelTableStart(builder): builder.StartObject(1)
+def FieldCurtainCallFreeModeExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return FieldCurtainCallFreeModeExcelTableStart(builder)
-def FieldCurtainCallFreeModeExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    FieldCurtainCallFreeModeExcelTableStart(builder)
+
+def FieldCurtainCallFreeModeExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return FieldCurtainCallFreeModeExcelTableAddDataList(builder, dataList)
-def FieldCurtainCallFreeModeExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldCurtainCallFreeModeExcelTableAddDataList(builder, dataList)
+
+def FieldCurtainCallFreeModeExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return FieldCurtainCallFreeModeExcelTableStartDataListVector(builder, numElems)
-def FieldCurtainCallFreeModeExcelTableEnd(builder): return builder.EndObject()
+
+def FieldCurtainCallFreeModeExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldCurtainCallFreeModeExcelTableEnd(builder)

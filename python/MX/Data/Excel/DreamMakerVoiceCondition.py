@@ -2,9 +2,4 @@
 
 # namespace: Excel
 
-class DreamMakerVoiceCondition(object):
-    None_ = 0
-    Fail = 1
-    Success = 2
-    Perfect = 3
-    DailyResult = 4
+# NOTE DreamMakerVoiceCondition.py does not declare any structs or enums

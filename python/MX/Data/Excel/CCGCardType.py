@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class CCGCardType(object):
-    None_ = 0
-    Spell = 1
-    Equipment = 2
-    Zone = 3
+# NOTE CCGCardType.py does not declare any structs or enums

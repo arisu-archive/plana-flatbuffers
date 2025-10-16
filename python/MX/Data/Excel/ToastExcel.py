@@ -59,24 +59,44 @@ class ToastExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ToastExcelStart(builder): builder.StartObject(5)
+def ToastExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return ToastExcelStart(builder)
-def ToastExcelAddId(builder, id): builder.PrependUint32Slot(0, id, 0)
+    ToastExcelStart(builder)
+
+def ToastExcelAddId(builder, id):
+    builder.PrependUint32Slot(0, id, 0)
+
 def AddId(builder, id):
-    return ToastExcelAddId(builder, id)
-def ToastExcelAddToastType(builder, toastType): builder.PrependInt32Slot(1, toastType, 0)
+    ToastExcelAddId(builder, id)
+
+def ToastExcelAddToastType(builder, toastType):
+    builder.PrependInt32Slot(1, toastType, 0)
+
 def AddToastType(builder, toastType):
-    return ToastExcelAddToastType(builder, toastType)
-def ToastExcelAddMissionId(builder, missionId): builder.PrependUint32Slot(2, missionId, 0)
+    ToastExcelAddToastType(builder, toastType)
+
+def ToastExcelAddMissionId(builder, missionId):
+    builder.PrependUint32Slot(2, missionId, 0)
+
 def AddMissionId(builder, missionId):
-    return ToastExcelAddMissionId(builder, missionId)
-def ToastExcelAddTextId(builder, textId): builder.PrependUint32Slot(3, textId, 0)
+    ToastExcelAddMissionId(builder, missionId)
+
+def ToastExcelAddTextId(builder, textId):
+    builder.PrependUint32Slot(3, textId, 0)
+
 def AddTextId(builder, textId):
-    return ToastExcelAddTextId(builder, textId)
-def ToastExcelAddLifeTime(builder, lifeTime): builder.PrependInt64Slot(4, lifeTime, 0)
+    ToastExcelAddTextId(builder, textId)
+
+def ToastExcelAddLifeTime(builder, lifeTime):
+    builder.PrependInt64Slot(4, lifeTime, 0)
+
 def AddLifeTime(builder, lifeTime):
-    return ToastExcelAddLifeTime(builder, lifeTime)
-def ToastExcelEnd(builder): return builder.EndObject()
+    ToastExcelAddLifeTime(builder, lifeTime)
+
+def ToastExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ToastExcelEnd(builder)

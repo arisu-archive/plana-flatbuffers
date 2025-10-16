@@ -1,9 +1,0 @@
-include "WorldRaidSeasonManageExcel.fbs";
-
-namespace FlatData;
-
-table WorldRaidSeasonManageExcelTable {
-    data_list: [WorldRaidSeasonManageExcel];
-}
-
-root_type WorldRaidSeasonManageExcelTable;

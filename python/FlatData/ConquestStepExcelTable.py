@@ -49,15 +49,26 @@ class ConquestStepExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestStepExcelTableStart(builder): builder.StartObject(1)
+def ConquestStepExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConquestStepExcelTableStart(builder)
-def ConquestStepExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConquestStepExcelTableStart(builder)
+
+def ConquestStepExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConquestStepExcelTableAddDataList(builder, dataList)
-def ConquestStepExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConquestStepExcelTableAddDataList(builder, dataList)
+
+def ConquestStepExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConquestStepExcelTableStartDataListVector(builder, numElems)
-def ConquestStepExcelTableEnd(builder): return builder.EndObject()
+
+def ConquestStepExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestStepExcelTableEnd(builder)

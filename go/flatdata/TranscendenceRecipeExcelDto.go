@@ -24,9 +24,10 @@ func (t *TranscendenceRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipe"))
 	}
+	__offset_dev_name := b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey))
 	TranscendenceRecipeExcelStart(b)
 	TranscendenceRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TranscendenceRecipeExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	TranscendenceRecipeExcelAddDevName(b, __offset_dev_name)
 	TranscendenceRecipeExcelAddCostCurrencyType(b, fbsutils.Convert(t.CostCurrencyType, t.FlatBuffer.TableKey))
 	TranscendenceRecipeExcelAddCostCurrencyAmount(b, fbsutils.Convert(t.CostCurrencyAmount, t.FlatBuffer.TableKey))
 	TranscendenceRecipeExcelStartParcelTypeVector(b, len(t.ParcelType))

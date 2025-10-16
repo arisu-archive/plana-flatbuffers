@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class DreamMakerResult(object):
-    None_ = 0
-    Fail = 1
-    Success = 2
-    Perfect = 3
+# NOTE DreamMakerResult.py does not declare any structs or enums

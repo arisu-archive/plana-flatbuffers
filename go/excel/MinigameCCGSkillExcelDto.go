@@ -20,13 +20,16 @@ type MinigameCCGSkillExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_skill_type := b.CreateString(fbsutils.Convert(t.SkillType, t.FlatBuffer.TableKey))
+	__offset_data_load_path := b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey))
+	__offset_skill_icon := b.CreateString(fbsutils.Convert(t.SkillIcon, t.FlatBuffer.TableKey))
 	MinigameCCGSkillExcelStart(b)
 	MinigameCCGSkillExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGSkillExcelAddSkillType(b, b.CreateString(fbsutils.Convert(t.SkillType, t.FlatBuffer.TableKey)))
-	MinigameCCGSkillExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
+	MinigameCCGSkillExcelAddSkillType(b, __offset_skill_type)
+	MinigameCCGSkillExcelAddDataLoadPath(b, __offset_data_load_path)
 	MinigameCCGSkillExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	MinigameCCGSkillExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
-	MinigameCCGSkillExcelAddSkillIcon(b, b.CreateString(fbsutils.Convert(t.SkillIcon, t.FlatBuffer.TableKey)))
+	MinigameCCGSkillExcelAddSkillIcon(b, __offset_skill_icon)
 	return MinigameCCGSkillExcelEnd(b)
 }
 

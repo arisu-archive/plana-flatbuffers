@@ -22,13 +22,14 @@ type MinigameCCGInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_card_back_path := b.CreateString(fbsutils.Convert(t.CardBackPath, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelStart(b)
 	MinigameCCGInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddCostParcelId(b, fbsutils.Convert(t.CostParcelId, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddCostParcelAmount(b, fbsutils.Convert(t.CostParcelAmount, t.FlatBuffer.TableKey))
-	MinigameCCGInfoExcelAddCardBackPath(b, b.CreateString(fbsutils.Convert(t.CardBackPath, t.FlatBuffer.TableKey)))
+	MinigameCCGInfoExcelAddCardBackPath(b, __offset_card_back_path)
 	MinigameCCGInfoExcelAddPerkCostParcelType(b, fbsutils.Convert(t.PerkCostParcelType, t.FlatBuffer.TableKey))
 	MinigameCCGInfoExcelAddPerkCostParcelId(b, fbsutils.Convert(t.PerkCostParcelId, t.FlatBuffer.TableKey))
 	return MinigameCCGInfoExcelEnd(b)

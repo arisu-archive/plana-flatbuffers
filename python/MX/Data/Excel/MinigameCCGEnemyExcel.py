@@ -59,24 +59,44 @@ class MinigameCCGEnemyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MinigameCCGEnemyExcelStart(builder): builder.StartObject(5)
+def MinigameCCGEnemyExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return MinigameCCGEnemyExcelStart(builder)
-def MinigameCCGEnemyExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    MinigameCCGEnemyExcelStart(builder)
+
+def MinigameCCGEnemyExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return MinigameCCGEnemyExcelAddId(builder, id)
-def MinigameCCGEnemyExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
+    MinigameCCGEnemyExcelAddId(builder, id)
+
+def MinigameCCGEnemyExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(1, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return MinigameCCGEnemyExcelAddGroupId(builder, groupId)
-def MinigameCCGEnemyExcelAddCharacterType(builder, characterType): builder.PrependInt32Slot(2, characterType, 0)
+    MinigameCCGEnemyExcelAddGroupId(builder, groupId)
+
+def MinigameCCGEnemyExcelAddCharacterType(builder, characterType):
+    builder.PrependInt32Slot(2, characterType, 0)
+
 def AddCharacterType(builder, characterType):
-    return MinigameCCGEnemyExcelAddCharacterType(builder, characterType)
-def MinigameCCGEnemyExcelAddOrder(builder, order): builder.PrependInt32Slot(3, order, 0)
+    MinigameCCGEnemyExcelAddCharacterType(builder, characterType)
+
+def MinigameCCGEnemyExcelAddOrder(builder, order):
+    builder.PrependInt32Slot(3, order, 0)
+
 def AddOrder(builder, order):
-    return MinigameCCGEnemyExcelAddOrder(builder, order)
-def MinigameCCGEnemyExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(4, characterId, 0)
+    MinigameCCGEnemyExcelAddOrder(builder, order)
+
+def MinigameCCGEnemyExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(4, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return MinigameCCGEnemyExcelAddCharacterId(builder, characterId)
-def MinigameCCGEnemyExcelEnd(builder): return builder.EndObject()
+    MinigameCCGEnemyExcelAddCharacterId(builder, characterId)
+
+def MinigameCCGEnemyExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGEnemyExcelEnd(builder)
