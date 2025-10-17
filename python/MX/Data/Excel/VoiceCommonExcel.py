@@ -65,21 +65,38 @@ class VoiceCommonExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def VoiceCommonExcelStart(builder): builder.StartObject(3)
+def VoiceCommonExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return VoiceCommonExcelStart(builder)
-def VoiceCommonExcelAddVoiceEvent(builder, voiceEvent): builder.PrependInt32Slot(0, voiceEvent, 0)
+    VoiceCommonExcelStart(builder)
+
+def VoiceCommonExcelAddVoiceEvent(builder, voiceEvent):
+    builder.PrependInt32Slot(0, voiceEvent, 0)
+
 def AddVoiceEvent(builder, voiceEvent):
-    return VoiceCommonExcelAddVoiceEvent(builder, voiceEvent)
-def VoiceCommonExcelAddRate(builder, rate): builder.PrependInt64Slot(1, rate, 0)
+    VoiceCommonExcelAddVoiceEvent(builder, voiceEvent)
+
+def VoiceCommonExcelAddRate(builder, rate):
+    builder.PrependInt64Slot(1, rate, 0)
+
 def AddRate(builder, rate):
-    return VoiceCommonExcelAddRate(builder, rate)
-def VoiceCommonExcelAddVoiceHash(builder, voiceHash): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
+    VoiceCommonExcelAddRate(builder, rate)
+
+def VoiceCommonExcelAddVoiceHash(builder, voiceHash):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
+
 def AddVoiceHash(builder, voiceHash):
-    return VoiceCommonExcelAddVoiceHash(builder, voiceHash)
-def VoiceCommonExcelStartVoiceHashVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VoiceCommonExcelAddVoiceHash(builder, voiceHash)
+
+def VoiceCommonExcelStartVoiceHashVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartVoiceHashVector(builder, numElems):
     return VoiceCommonExcelStartVoiceHashVector(builder, numElems)
-def VoiceCommonExcelEnd(builder): return builder.EndObject()
+
+def VoiceCommonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return VoiceCommonExcelEnd(builder)

@@ -22,15 +22,19 @@ type MiniGameDreamScheduleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_loading_resource01 := b.CreateString(fbsutils.Convert(t.LoadingResource01, t.FlatBuffer.TableKey))
+	__offset_loading_resource02 := b.CreateString(fbsutils.Convert(t.LoadingResource02, t.FlatBuffer.TableKey))
+	__offset_animation_name := b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleExcelStart(b)
 	MiniGameDreamScheduleExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(b, fbsutils.Convert(t.DreamMakerScheduleGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	MiniGameDreamScheduleExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	MiniGameDreamScheduleExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	MiniGameDreamScheduleExcelAddLoadingResource01(b, b.CreateString(fbsutils.Convert(t.LoadingResource01, t.FlatBuffer.TableKey)))
-	MiniGameDreamScheduleExcelAddLoadingResource02(b, b.CreateString(fbsutils.Convert(t.LoadingResource02, t.FlatBuffer.TableKey)))
-	MiniGameDreamScheduleExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
+	MiniGameDreamScheduleExcelAddIconPath(b, __offset_icon_path)
+	MiniGameDreamScheduleExcelAddLoadingResource01(b, __offset_loading_resource01)
+	MiniGameDreamScheduleExcelAddLoadingResource02(b, __offset_loading_resource02)
+	MiniGameDreamScheduleExcelAddAnimationName(b, __offset_animation_name)
 	return MiniGameDreamScheduleExcelEnd(b)
 }
 

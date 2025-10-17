@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class DreamMakerMultiplierCondition(object):
-    None_ = 0
-    Round = 1
-    CollectionCount = 2
-    EndingCount = 3
+# NOTE DreamMakerMultiplierCondition.py does not declare any structs or enums

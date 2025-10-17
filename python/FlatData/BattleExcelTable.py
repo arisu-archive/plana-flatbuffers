@@ -49,15 +49,26 @@ class BattleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def BattleExcelTableStart(builder): builder.StartObject(1)
+def BattleExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return BattleExcelTableStart(builder)
-def BattleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    BattleExcelTableStart(builder)
+
+def BattleExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return BattleExcelTableAddDataList(builder, dataList)
-def BattleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BattleExcelTableAddDataList(builder, dataList)
+
+def BattleExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return BattleExcelTableStartDataListVector(builder, numElems)
-def BattleExcelTableEnd(builder): return builder.EndObject()
+
+def BattleExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattleExcelTableEnd(builder)

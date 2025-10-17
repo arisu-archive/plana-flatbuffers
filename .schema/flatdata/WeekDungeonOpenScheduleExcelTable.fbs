@@ -1,9 +1,0 @@
-include "WeekDungeonOpenScheduleExcel.fbs";
-
-namespace FlatData;
-
-table WeekDungeonOpenScheduleExcelTable {
-    data_list: [WeekDungeonOpenScheduleExcel];
-}
-
-root_type WeekDungeonOpenScheduleExcelTable;

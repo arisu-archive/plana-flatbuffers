@@ -1,0 +1,28 @@
+include "EventContentScenarioConditionType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentScenarioExcel {
+    id: long;
+    event_content_id: long;
+    replay_display_group: int;
+    order: long;
+    recollection_number: long;
+    is_recollection: bool;
+    is_meetup: bool;
+    is_omnibus: bool;
+    scenario_group_id: [long];
+    scenario_condition_type: EventContentScenarioConditionType;
+    condition_amount: long;
+    condition_event_content_id: long;
+    cleared_scenario_group_id: long;
+    recollection_summary_localize_scenario_id: uint;
+    recollection_resource: string;
+    is_recollection_horizon: bool;
+    reward_parcel_type: [ParcelType];
+    reward_id: [long];
+    reward_amount: [int];
+}
+
+root_type EventContentScenarioExcel;

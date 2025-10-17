@@ -112,30 +112,56 @@ class EliminateRaidStageLimitedRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def EliminateRaidStageLimitedRewardExcelStart(builder): builder.StartObject(4)
+def EliminateRaidStageLimitedRewardExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return EliminateRaidStageLimitedRewardExcelStart(builder)
-def EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder, limitedRewardId): builder.PrependInt64Slot(0, limitedRewardId, 0)
+    EliminateRaidStageLimitedRewardExcelStart(builder)
+
+def EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder, limitedRewardId):
+    builder.PrependInt64Slot(0, limitedRewardId, 0)
+
 def AddLimitedRewardId(builder, limitedRewardId):
-    return EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder, limitedRewardId)
-def EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder, limitedRewardParcelType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardParcelType), 0)
+    EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder, limitedRewardId)
+
+def EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder, limitedRewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardParcelType), 0)
+
 def AddLimitedRewardParcelType(builder, limitedRewardParcelType):
-    return EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder, limitedRewardParcelType)
-def EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder, limitedRewardParcelType)
+
+def EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartLimitedRewardParcelTypeVector(builder, numElems):
     return EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(builder, numElems)
-def EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardParcelUniqueId), 0)
+
+def EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardParcelUniqueId), 0)
+
 def AddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId):
-    return EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId)
-def EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId)
+
+def EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartLimitedRewardParcelUniqueIdVector(builder, numElems):
     return EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(builder, numElems)
-def EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder, limitedRewardAmount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardAmount), 0)
+
+def EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder, limitedRewardAmount):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(limitedRewardAmount), 0)
+
 def AddLimitedRewardAmount(builder, limitedRewardAmount):
-    return EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder, limitedRewardAmount)
-def EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder, limitedRewardAmount)
+
+def EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartLimitedRewardAmountVector(builder, numElems):
     return EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder, numElems)
-def EliminateRaidStageLimitedRewardExcelEnd(builder): return builder.EndObject()
+
+def EliminateRaidStageLimitedRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EliminateRaidStageLimitedRewardExcelEnd(builder)

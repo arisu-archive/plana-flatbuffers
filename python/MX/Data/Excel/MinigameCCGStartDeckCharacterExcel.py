@@ -38,15 +38,26 @@ class MinigameCCGStartDeckCharacterExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MinigameCCGStartDeckCharacterExcelStart(builder): builder.StartObject(2)
+def MinigameCCGStartDeckCharacterExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return MinigameCCGStartDeckCharacterExcelStart(builder)
-def MinigameCCGStartDeckCharacterExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(0, ccgId, 0)
+    MinigameCCGStartDeckCharacterExcelStart(builder)
+
+def MinigameCCGStartDeckCharacterExcelAddCcgId(builder, ccgId):
+    builder.PrependInt64Slot(0, ccgId, 0)
+
 def AddCcgId(builder, ccgId):
-    return MinigameCCGStartDeckCharacterExcelAddCcgId(builder, ccgId)
-def MinigameCCGStartDeckCharacterExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
+    MinigameCCGStartDeckCharacterExcelAddCcgId(builder, ccgId)
+
+def MinigameCCGStartDeckCharacterExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(1, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return MinigameCCGStartDeckCharacterExcelAddCharacterId(builder, characterId)
-def MinigameCCGStartDeckCharacterExcelEnd(builder): return builder.EndObject()
+    MinigameCCGStartDeckCharacterExcelAddCharacterId(builder, characterId)
+
+def MinigameCCGStartDeckCharacterExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGStartDeckCharacterExcelEnd(builder)

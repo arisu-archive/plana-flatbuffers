@@ -1,9 +1,0 @@
-include "ConquestTileExcel.fbs";
-
-namespace FlatData;
-
-table ConquestTileExcelTable {
-    data_list: [ConquestTileExcel];
-}
-
-root_type ConquestTileExcelTable;

@@ -17,11 +17,19 @@ func GetRootAsShopRefreshExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopRef
 	return x
 }
 
+func FinishShopRefreshExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsShopRefreshExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopRefreshExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopRefreshExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedShopRefreshExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopRefreshExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -185,8 +193,16 @@ func (rcv *ShopRefreshExcel) BuyReportEventName() []byte {
 	return nil
 }
 
-func (rcv *ShopRefreshExcel) DisplayTag() ProductDisplayTag {
+func (rcv *ShopRefreshExcel) ProductUpdateTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopRefreshExcel) DisplayTag() ProductDisplayTag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return ProductDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -194,11 +210,11 @@ func (rcv *ShopRefreshExcel) DisplayTag() ProductDisplayTag {
 }
 
 func (rcv *ShopRefreshExcel) MutateDisplayTag(n ProductDisplayTag) bool {
-	return rcv._tab.MutateInt32Slot(30, int32(n))
+	return rcv._tab.MutateInt32Slot(32, int32(n))
 }
 
 func ShopRefreshExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(14)
+	builder.StartObject(15)
 }
 func ShopRefreshExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -239,8 +255,11 @@ func ShopRefreshExcelAddProb(builder *flatbuffers.Builder, prob int32) {
 func ShopRefreshExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(buyReportEventName), 0)
 }
+func ShopRefreshExcelAddProductUpdateTime(builder *flatbuffers.Builder, productUpdateTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(productUpdateTime), 0)
+}
 func ShopRefreshExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag ProductDisplayTag) {
-	builder.PrependInt32Slot(13, int32(displayTag), 0)
+	builder.PrependInt32Slot(14, int32(displayTag), 0)
 }
 func ShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -17,11 +17,19 @@ func GetRootAsLoadingImageExcel(buf []byte, offset flatbuffers.UOffsetT) *Loadin
 	return x
 }
 
+func FinishLoadingImageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLoadingImageExcel(buf []byte, offset flatbuffers.UOffsetT) *LoadingImageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LoadingImageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLoadingImageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LoadingImageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

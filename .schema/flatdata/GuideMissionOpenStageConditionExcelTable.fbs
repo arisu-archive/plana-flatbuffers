@@ -1,9 +1,0 @@
-include "GuideMissionOpenStageConditionExcel.fbs";
-
-namespace FlatData;
-
-table GuideMissionOpenStageConditionExcelTable {
-    data_list: [GuideMissionOpenStageConditionExcel];
-}
-
-root_type GuideMissionOpenStageConditionExcelTable;

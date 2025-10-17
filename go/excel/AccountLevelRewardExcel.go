@@ -17,11 +17,19 @@ func GetRootAsAccountLevelRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishAccountLevelRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAccountLevelRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *AccountLevelRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AccountLevelRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAccountLevelRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AccountLevelRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

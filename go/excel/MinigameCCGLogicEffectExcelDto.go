@@ -17,10 +17,12 @@ type MinigameCCGLogicEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLogicEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_data_load_path := b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey))
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
 	MinigameCCGLogicEffectExcelStart(b)
 	MinigameCCGLogicEffectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MinigameCCGLogicEffectExcelAddDataLoadPath(b, b.CreateString(fbsutils.Convert(t.DataLoadPath, t.FlatBuffer.TableKey)))
-	MinigameCCGLogicEffectExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	MinigameCCGLogicEffectExcelAddDataLoadPath(b, __offset_data_load_path)
+	MinigameCCGLogicEffectExcelAddIcon(b, __offset_icon)
 	return MinigameCCGLogicEffectExcelEnd(b)
 }
 

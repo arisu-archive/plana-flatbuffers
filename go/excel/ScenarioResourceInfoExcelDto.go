@@ -26,6 +26,10 @@ type ScenarioResourceInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_audio_name := b.CreateString(fbsutils.Convert(t.AudioName, t.FlatBuffer.TableKey))
+	__offset_spine_path := b.CreateString(fbsutils.Convert(t.SpinePath, t.FlatBuffer.TableKey))
+	__offset_lobby_ani_path := b.CreateString(fbsutils.Convert(t.LobbyAniPath, t.FlatBuffer.TableKey))
+	__offset_movie_cg_path := b.CreateString(fbsutils.Convert(t.MovieCgPath, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
@@ -33,11 +37,11 @@ func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	ScenarioResourceInfoExcelAddPvDisplayOrder(b, fbsutils.Convert(t.PvDisplayOrder, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddAudioName(b, b.CreateString(fbsutils.Convert(t.AudioName, t.FlatBuffer.TableKey)))
-	ScenarioResourceInfoExcelAddSpinePath(b, b.CreateString(fbsutils.Convert(t.SpinePath, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddAudioName(b, __offset_audio_name)
+	ScenarioResourceInfoExcelAddSpinePath(b, __offset_spine_path)
 	ScenarioResourceInfoExcelAddRatio(b, fbsutils.Convert(t.Ratio, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddLobbyAniPath(b, b.CreateString(fbsutils.Convert(t.LobbyAniPath, t.FlatBuffer.TableKey)))
-	ScenarioResourceInfoExcelAddMovieCgPath(b, b.CreateString(fbsutils.Convert(t.MovieCgPath, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddLobbyAniPath(b, __offset_lobby_ani_path)
+	ScenarioResourceInfoExcelAddMovieCgPath(b, __offset_movie_cg_path)
 	ScenarioResourceInfoExcelAddLocalizeId(b, fbsutils.Convert(t.LocalizeId, t.FlatBuffer.TableKey))
 	return ScenarioResourceInfoExcelEnd(b)
 }

@@ -17,11 +17,19 @@ func GetRootAsLocalizeEtcExcel(buf []byte, offset flatbuffers.UOffsetT) *Localiz
 	return x
 }
 
+func FinishLocalizeEtcExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLocalizeEtcExcel(buf []byte, offset flatbuffers.UOffsetT) *LocalizeEtcExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeEtcExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLocalizeEtcExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeEtcExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

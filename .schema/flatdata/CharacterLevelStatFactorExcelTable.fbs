@@ -1,9 +1,0 @@
-include "CharacterLevelStatFactorExcel.fbs";
-
-namespace FlatData;
-
-table CharacterLevelStatFactorExcelTable {
-    data_list: [CharacterLevelStatFactorExcel];
-}
-
-root_type CharacterLevelStatFactorExcelTable;

@@ -49,15 +49,26 @@ class DefaultEchelonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def DefaultEchelonExcelTableStart(builder): builder.StartObject(1)
+def DefaultEchelonExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return DefaultEchelonExcelTableStart(builder)
-def DefaultEchelonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    DefaultEchelonExcelTableStart(builder)
+
+def DefaultEchelonExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return DefaultEchelonExcelTableAddDataList(builder, dataList)
-def DefaultEchelonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    DefaultEchelonExcelTableAddDataList(builder, dataList)
+
+def DefaultEchelonExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return DefaultEchelonExcelTableStartDataListVector(builder, numElems)
-def DefaultEchelonExcelTableEnd(builder): return builder.EndObject()
+
+def DefaultEchelonExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return DefaultEchelonExcelTableEnd(builder)

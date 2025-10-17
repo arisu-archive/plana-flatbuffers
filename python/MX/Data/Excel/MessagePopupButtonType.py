@@ -2,7 +2,4 @@
 
 # namespace: Excel
 
-class MessagePopupButtonType(object):
-    Accept = 0
-    Cancel = 1
-    Command = 2
+# NOTE MessagePopupButtonType.py does not declare any structs or enums

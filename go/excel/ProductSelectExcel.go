@@ -17,11 +17,19 @@ func GetRootAsProductSelectExcel(buf []byte, offset flatbuffers.UOffsetT) *Produ
 	return x
 }
 
+func FinishProductSelectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsProductSelectExcel(buf []byte, offset flatbuffers.UOffsetT) *ProductSelectExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ProductSelectExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedProductSelectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ProductSelectExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -22,12 +22,16 @@ func (t *BuffParticleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BuffParticle"))
 	}
+	__offset_unique_name := b.CreateString(fbsutils.Convert(t.UniqueName, t.FlatBuffer.TableKey))
+	__offset_buff_type := b.CreateString(fbsutils.Convert(t.BuffType, t.FlatBuffer.TableKey))
+	__offset_buff_name := b.CreateString(fbsutils.Convert(t.BuffName, t.FlatBuffer.TableKey))
+	__offset_resource_path := b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey))
 	BuffParticleExcelStart(b)
 	BuffParticleExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	BuffParticleExcelAddUniqueName(b, b.CreateString(fbsutils.Convert(t.UniqueName, t.FlatBuffer.TableKey)))
-	BuffParticleExcelAddBuffType(b, b.CreateString(fbsutils.Convert(t.BuffType, t.FlatBuffer.TableKey)))
-	BuffParticleExcelAddBuffName(b, b.CreateString(fbsutils.Convert(t.BuffName, t.FlatBuffer.TableKey)))
-	BuffParticleExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
+	BuffParticleExcelAddUniqueName(b, __offset_unique_name)
+	BuffParticleExcelAddBuffType(b, __offset_buff_type)
+	BuffParticleExcelAddBuffName(b, __offset_buff_name)
+	BuffParticleExcelAddResourcePath(b, __offset_resource_path)
 	return BuffParticleExcelEnd(b)
 }
 

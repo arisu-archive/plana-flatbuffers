@@ -17,11 +17,19 @@ func GetRootAsCharacterDialogEmojiExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishCharacterDialogEmojiExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterDialogEmojiExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogEmojiExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogEmojiExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterDialogEmojiExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogEmojiExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -106,33 +106,62 @@ class CharacterPotentialRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CharacterPotentialRewardExcelStart(builder): builder.StartObject(6)
+def CharacterPotentialRewardExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return CharacterPotentialRewardExcelStart(builder)
-def CharacterPotentialRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    CharacterPotentialRewardExcelStart(builder)
+
+def CharacterPotentialRewardExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return CharacterPotentialRewardExcelAddId(builder, id)
-def CharacterPotentialRewardExcelAddRequirePotentialStatType(builder, requirePotentialStatType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(requirePotentialStatType), 0)
+    CharacterPotentialRewardExcelAddId(builder, id)
+
+def CharacterPotentialRewardExcelAddRequirePotentialStatType(builder, requirePotentialStatType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(requirePotentialStatType), 0)
+
 def AddRequirePotentialStatType(builder, requirePotentialStatType):
-    return CharacterPotentialRewardExcelAddRequirePotentialStatType(builder, requirePotentialStatType)
-def CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterPotentialRewardExcelAddRequirePotentialStatType(builder, requirePotentialStatType)
+
+def CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRequirePotentialStatTypeVector(builder, numElems):
     return CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder, numElems)
-def CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder, requirePotentialStatLevel): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(requirePotentialStatLevel), 0)
+
+def CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder, requirePotentialStatLevel):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(requirePotentialStatLevel), 0)
+
 def AddRequirePotentialStatLevel(builder, requirePotentialStatLevel):
-    return CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder, requirePotentialStatLevel)
-def CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder, requirePotentialStatLevel)
+
+def CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRequirePotentialStatLevelVector(builder, numElems):
     return CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(builder, numElems)
-def CharacterPotentialRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
+
+def CharacterPotentialRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(3, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return CharacterPotentialRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def CharacterPotentialRewardExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(4, rewardId, 0)
+    CharacterPotentialRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def CharacterPotentialRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependInt64Slot(4, rewardId, 0)
+
 def AddRewardId(builder, rewardId):
-    return CharacterPotentialRewardExcelAddRewardId(builder, rewardId)
-def CharacterPotentialRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(5, rewardAmount, 0)
+    CharacterPotentialRewardExcelAddRewardId(builder, rewardId)
+
+def CharacterPotentialRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependInt32Slot(5, rewardAmount, 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return CharacterPotentialRewardExcelAddRewardAmount(builder, rewardAmount)
-def CharacterPotentialRewardExcelEnd(builder): return builder.EndObject()
+    CharacterPotentialRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def CharacterPotentialRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterPotentialRewardExcelEnd(builder)

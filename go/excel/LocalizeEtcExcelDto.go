@@ -19,12 +19,16 @@ type LocalizeEtcExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeEtcExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name_kr := b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
+	__offset_description_kr := b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey))
+	__offset_name_jp := b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey))
+	__offset_description_jp := b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey))
 	LocalizeEtcExcelStart(b)
 	LocalizeEtcExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeEtcExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameKr(b, __offset_name_kr)
+	LocalizeEtcExcelAddDescriptionKr(b, __offset_description_kr)
+	LocalizeEtcExcelAddNameJp(b, __offset_name_jp)
+	LocalizeEtcExcelAddDescriptionJp(b, __offset_description_jp)
 	return LocalizeEtcExcelEnd(b)
 }
 

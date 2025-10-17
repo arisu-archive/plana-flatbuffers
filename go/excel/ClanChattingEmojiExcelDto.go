@@ -19,12 +19,14 @@ type ClanChattingEmojiExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanChattingEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_image_path_kr := b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey))
+	__offset_image_path_jp := b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelStart(b)
 	ClanChattingEmojiExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddTabGroupId(b, fbsutils.Convert(t.TabGroupId, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	ClanChattingEmojiExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	ClanChattingEmojiExcelAddImagePathKr(b, __offset_image_path_kr)
+	ClanChattingEmojiExcelAddImagePathJp(b, __offset_image_path_jp)
 	return ClanChattingEmojiExcelEnd(b)
 }
 

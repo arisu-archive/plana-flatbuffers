@@ -49,15 +49,26 @@ class ConstMiniGameShootingExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstMiniGameShootingExcelTableStart(builder): builder.StartObject(1)
+def ConstMiniGameShootingExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConstMiniGameShootingExcelTableStart(builder)
-def ConstMiniGameShootingExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConstMiniGameShootingExcelTableStart(builder)
+
+def ConstMiniGameShootingExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConstMiniGameShootingExcelTableAddDataList(builder, dataList)
-def ConstMiniGameShootingExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConstMiniGameShootingExcelTableAddDataList(builder, dataList)
+
+def ConstMiniGameShootingExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConstMiniGameShootingExcelTableStartDataListVector(builder, numElems)
-def ConstMiniGameShootingExcelTableEnd(builder): return builder.EndObject()
+
+def ConstMiniGameShootingExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstMiniGameShootingExcelTableEnd(builder)

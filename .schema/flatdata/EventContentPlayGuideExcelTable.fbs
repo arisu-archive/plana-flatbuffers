@@ -1,9 +1,0 @@
-include "EventContentPlayGuideExcel.fbs";
-
-namespace FlatData;
-
-table EventContentPlayGuideExcelTable {
-    data_list: [EventContentPlayGuideExcel];
-}
-
-root_type EventContentPlayGuideExcelTable;

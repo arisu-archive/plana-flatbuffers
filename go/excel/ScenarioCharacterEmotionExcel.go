@@ -17,11 +17,19 @@ func GetRootAsScenarioCharacterEmotionExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
+func FinishScenarioCharacterEmotionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioCharacterEmotionExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioCharacterEmotionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioCharacterEmotionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioCharacterEmotionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioCharacterEmotionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -21,14 +21,17 @@ type CharacterDialogEmojiExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_dialog_type := b.CreateString(fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStart(b)
 	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddDialogType(b, b.CreateString(fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddDialogType(b, __offset_dialog_type)
 	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddHideUi(b, t.HideUi)
-	CharacterDialogEmojiExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogEmojiExcelAddLocalizeJp(b, __offset_localize_jp)
 	return CharacterDialogEmojiExcelEnd(b)
 }
 

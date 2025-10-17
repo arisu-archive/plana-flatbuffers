@@ -1,9 +1,0 @@
-include "MiniGameMissionExcel.fbs";
-
-namespace FlatData;
-
-table MiniGameMissionExcelTable {
-    data_list: [MiniGameMissionExcel];
-}
-
-root_type MiniGameMissionExcelTable;

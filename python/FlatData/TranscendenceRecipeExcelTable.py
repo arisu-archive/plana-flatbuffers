@@ -49,15 +49,26 @@ class TranscendenceRecipeExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def TranscendenceRecipeExcelTableStart(builder): builder.StartObject(1)
+def TranscendenceRecipeExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return TranscendenceRecipeExcelTableStart(builder)
-def TranscendenceRecipeExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    TranscendenceRecipeExcelTableStart(builder)
+
+def TranscendenceRecipeExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return TranscendenceRecipeExcelTableAddDataList(builder, dataList)
-def TranscendenceRecipeExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    TranscendenceRecipeExcelTableAddDataList(builder, dataList)
+
+def TranscendenceRecipeExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return TranscendenceRecipeExcelTableStartDataListVector(builder, numElems)
-def TranscendenceRecipeExcelTableEnd(builder): return builder.EndObject()
+
+def TranscendenceRecipeExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TranscendenceRecipeExcelTableEnd(builder)

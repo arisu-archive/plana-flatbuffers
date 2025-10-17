@@ -23,16 +23,21 @@ type GuideMissionOpenStageConditionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionOpenStageConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_tab_localize_code := b.CreateString(fbsutils.Convert(t.TabLocalizeCode, t.FlatBuffer.TableKey))
+	__offset_lock_scenario_text_locailze_code := b.CreateString(fbsutils.Convert(t.LockScenarioTextLocailzeCode, t.FlatBuffer.TableKey))
+	__offset_shortcut_scenario_ui := b.CreateString(fbsutils.Convert(t.ShortcutScenarioUi, t.FlatBuffer.TableKey))
+	__offset_lock_stage_text_locailze_code := b.CreateString(fbsutils.Convert(t.LockStageTextLocailzeCode, t.FlatBuffer.TableKey))
+	__offset_shortcut_stage_ui := b.CreateString(fbsutils.Convert(t.ShortcutStageUi, t.FlatBuffer.TableKey))
 	GuideMissionOpenStageConditionExcelStart(b)
 	GuideMissionOpenStageConditionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	GuideMissionOpenStageConditionExcelAddOrderNumber(b, fbsutils.Convert(t.OrderNumber, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, b.CreateString(fbsutils.Convert(t.TabLocalizeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, __offset_tab_localize_code)
 	GuideMissionOpenStageConditionExcelAddClearScenarioModeId(b, fbsutils.Convert(t.ClearScenarioModeId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockScenarioTextLocailzeCode, t.FlatBuffer.TableKey)))
-	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, b.CreateString(fbsutils.Convert(t.ShortcutScenarioUi, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, __offset_lock_scenario_text_locailze_code)
+	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, __offset_shortcut_scenario_ui)
 	GuideMissionOpenStageConditionExcelAddClearStageId(b, fbsutils.Convert(t.ClearStageId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockStageTextLocailzeCode, t.FlatBuffer.TableKey)))
-	GuideMissionOpenStageConditionExcelAddShortcutStageUi(b, b.CreateString(fbsutils.Convert(t.ShortcutStageUi, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, __offset_lock_stage_text_locailze_code)
+	GuideMissionOpenStageConditionExcelAddShortcutStageUi(b, __offset_shortcut_stage_ui)
 	return GuideMissionOpenStageConditionExcelEnd(b)
 }
 

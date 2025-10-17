@@ -17,11 +17,19 @@ func GetRootAsConstMinigameCCGExcelTable(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishConstMinigameCCGExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstMinigameCCGExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstMinigameCCGExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstMinigameCCGExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstMinigameCCGExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstMinigameCCGExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

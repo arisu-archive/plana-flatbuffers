@@ -1,9 +1,0 @@
-include "ConquestGroupBonusExcel.fbs";
-
-namespace FlatData;
-
-table ConquestGroupBonusExcelTable {
-    data_list: [ConquestGroupBonusExcel];
-}
-
-root_type ConquestGroupBonusExcelTable;

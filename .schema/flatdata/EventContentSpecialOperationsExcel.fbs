@@ -1,6 +1,0 @@
-namespace FlatData;
-
-table EventContentSpecialOperationsExcel {
-    event_content_id: long;
-    point_item_id: long;
-}

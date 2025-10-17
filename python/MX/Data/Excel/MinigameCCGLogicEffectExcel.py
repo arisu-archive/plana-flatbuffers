@@ -45,18 +45,32 @@ class MinigameCCGLogicEffectExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MinigameCCGLogicEffectExcelStart(builder): builder.StartObject(3)
+def MinigameCCGLogicEffectExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return MinigameCCGLogicEffectExcelStart(builder)
-def MinigameCCGLogicEffectExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    MinigameCCGLogicEffectExcelStart(builder)
+
+def MinigameCCGLogicEffectExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return MinigameCCGLogicEffectExcelAddId(builder, id)
-def MinigameCCGLogicEffectExcelAddDataLoadPath(builder, dataLoadPath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(dataLoadPath), 0)
+    MinigameCCGLogicEffectExcelAddId(builder, id)
+
+def MinigameCCGLogicEffectExcelAddDataLoadPath(builder, dataLoadPath):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(dataLoadPath), 0)
+
 def AddDataLoadPath(builder, dataLoadPath):
-    return MinigameCCGLogicEffectExcelAddDataLoadPath(builder, dataLoadPath)
-def MinigameCCGLogicEffectExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+    MinigameCCGLogicEffectExcelAddDataLoadPath(builder, dataLoadPath)
+
+def MinigameCCGLogicEffectExcelAddIcon(builder, icon):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+
 def AddIcon(builder, icon):
-    return MinigameCCGLogicEffectExcelAddIcon(builder, icon)
-def MinigameCCGLogicEffectExcelEnd(builder): return builder.EndObject()
+    MinigameCCGLogicEffectExcelAddIcon(builder, icon)
+
+def MinigameCCGLogicEffectExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGLogicEffectExcelEnd(builder)

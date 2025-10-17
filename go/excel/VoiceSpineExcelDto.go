@@ -19,6 +19,16 @@ type VoiceSpineExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceSpineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_path flatbuffers.UOffsetT
+	__stringOffsets_path := make([]flatbuffers.UOffsetT, len(t.Path))
+	for i := range len(t.Path) {
+		__stringOffsets_path[i] = b.CreateString(fbsutils.Convert(t.Path[i], t.FlatBuffer.TableKey))
+	}
+	VoiceSpineExcelStartPathVector(b, len(t.Path))
+	for i := range len(t.Path) {
+		b.PrependUOffsetT(__stringOffsets_path[len(t.Path)-i-1])
+	}
+	__offset_path = b.EndVector(len(t.Path))
 	VoiceSpineExcelStart(b)
 	VoiceSpineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceSpineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -27,11 +37,7 @@ func (t *VoiceSpineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
 	}
 	VoiceSpineExcelAddNation(b, b.EndVector(len(t.Nation)))
-	VoiceSpineExcelStartPathVector(b, len(t.Path))
-	for i := range len(t.Path) {
-		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
-	}
-	VoiceSpineExcelAddPath(b, b.EndVector(len(t.Path)))
+	VoiceSpineExcelAddPath(b, __offset_path)
 	VoiceSpineExcelStartSoundVolumeVector(b, len(t.SoundVolume))
 	for i := range len(t.SoundVolume) {
 		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))

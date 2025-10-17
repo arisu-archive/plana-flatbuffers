@@ -1,9 +1,0 @@
-include "SkillExcel.fbs";
-
-namespace FlatData;
-
-table SkillExcelTable {
-    data_list: [SkillExcel];
-}
-
-root_type SkillExcelTable;

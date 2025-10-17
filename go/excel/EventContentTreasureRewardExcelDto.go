@@ -25,9 +25,13 @@ type EventContentTreasureRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_code_id := b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
+	__offset_cell_under_image_path := b.CreateString(fbsutils.Convert(t.CellUnderImagePath, t.FlatBuffer.TableKey))
+	__offset_treasure_small_image_path := b.CreateString(fbsutils.Convert(t.TreasureSmallImagePath, t.FlatBuffer.TableKey))
+	__offset_treasure_size_icon_path := b.CreateString(fbsutils.Convert(t.TreasureSizeIconPath, t.FlatBuffer.TableKey))
 	EventContentTreasureRewardExcelStart(b)
 	EventContentTreasureRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentTreasureRewardExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddLocalizeCodeId(b, __offset_localize_code_id)
 	EventContentTreasureRewardExcelAddCellUnderImageWidth(b, fbsutils.Convert(t.CellUnderImageWidth, t.FlatBuffer.TableKey))
 	EventContentTreasureRewardExcelAddCellUnderImageHeight(b, fbsutils.Convert(t.CellUnderImageHeight, t.FlatBuffer.TableKey))
 	EventContentTreasureRewardExcelAddHiddenImage(b, t.HiddenImage)
@@ -46,9 +50,9 @@ func (t *EventContentTreasureRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentTreasureRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
-	EventContentTreasureRewardExcelAddCellUnderImagePath(b, b.CreateString(fbsutils.Convert(t.CellUnderImagePath, t.FlatBuffer.TableKey)))
-	EventContentTreasureRewardExcelAddTreasureSmallImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureSmallImagePath, t.FlatBuffer.TableKey)))
-	EventContentTreasureRewardExcelAddTreasureSizeIconPath(b, b.CreateString(fbsutils.Convert(t.TreasureSizeIconPath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddCellUnderImagePath(b, __offset_cell_under_image_path)
+	EventContentTreasureRewardExcelAddTreasureSmallImagePath(b, __offset_treasure_small_image_path)
+	EventContentTreasureRewardExcelAddTreasureSizeIconPath(b, __offset_treasure_size_icon_path)
 	return EventContentTreasureRewardExcelEnd(b)
 }
 

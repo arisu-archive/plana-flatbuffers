@@ -16,8 +16,9 @@ type ScenarioEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_effect_name := b.CreateString(fbsutils.Convert(t.EffectName, t.FlatBuffer.TableKey))
 	ScenarioEffectExcelStart(b)
-	ScenarioEffectExcelAddEffectName(b, b.CreateString(fbsutils.Convert(t.EffectName, t.FlatBuffer.TableKey)))
+	ScenarioEffectExcelAddEffectName(b, __offset_effect_name)
 	ScenarioEffectExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	return ScenarioEffectExcelEnd(b)
 }

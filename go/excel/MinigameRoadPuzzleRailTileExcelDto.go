@@ -20,12 +20,13 @@ type MinigameRoadPuzzleRailTileExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameRoadPuzzleRailTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleRailTileExcelStart(b)
 	MinigameRoadPuzzleRailTileExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleRailTileExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleRailTileExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleRailTileExcelAddOriginalTile(b, t.OriginalTile)
-	MinigameRoadPuzzleRailTileExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	MinigameRoadPuzzleRailTileExcelAddPrefabName(b, __offset_prefab_name)
 	MinigameRoadPuzzleRailTileExcelAddRailTileType(b, fbsutils.Convert(t.RailTileType, t.FlatBuffer.TableKey))
 	return MinigameRoadPuzzleRailTileExcelEnd(b)
 }

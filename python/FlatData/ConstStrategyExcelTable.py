@@ -49,15 +49,26 @@ class ConstStrategyExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConstStrategyExcelTableStart(builder): builder.StartObject(1)
+def ConstStrategyExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConstStrategyExcelTableStart(builder)
-def ConstStrategyExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConstStrategyExcelTableStart(builder)
+
+def ConstStrategyExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConstStrategyExcelTableAddDataList(builder, dataList)
-def ConstStrategyExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConstStrategyExcelTableAddDataList(builder, dataList)
+
+def ConstStrategyExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConstStrategyExcelTableStartDataListVector(builder, numElems)
-def ConstStrategyExcelTableEnd(builder): return builder.EndObject()
+
+def ConstStrategyExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstStrategyExcelTableEnd(builder)

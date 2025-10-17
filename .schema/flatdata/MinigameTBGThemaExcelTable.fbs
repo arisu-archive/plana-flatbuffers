@@ -1,9 +1,0 @@
-include "MinigameTBGThemaExcel.fbs";
-
-namespace FlatData;
-
-table MinigameTBGThemaExcelTable {
-    data_list: [MinigameTBGThemaExcel];
-}
-
-root_type MinigameTBGThemaExcelTable;

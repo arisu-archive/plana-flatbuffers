@@ -17,11 +17,19 @@ func GetRootAsArenaNPCExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaNPCEx
 	return x
 }
 
+func FinishArenaNPCExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsArenaNPCExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaNPCExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaNPCExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedArenaNPCExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaNPCExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -49,15 +49,26 @@ class GachaSelectPickupGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GachaSelectPickupGroupExcelTableStart(builder): builder.StartObject(1)
+def GachaSelectPickupGroupExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return GachaSelectPickupGroupExcelTableStart(builder)
-def GachaSelectPickupGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    GachaSelectPickupGroupExcelTableStart(builder)
+
+def GachaSelectPickupGroupExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return GachaSelectPickupGroupExcelTableAddDataList(builder, dataList)
-def GachaSelectPickupGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GachaSelectPickupGroupExcelTableAddDataList(builder, dataList)
+
+def GachaSelectPickupGroupExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return GachaSelectPickupGroupExcelTableStartDataListVector(builder, numElems)
-def GachaSelectPickupGroupExcelTableEnd(builder): return builder.EndObject()
+
+def GachaSelectPickupGroupExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GachaSelectPickupGroupExcelTableEnd(builder)

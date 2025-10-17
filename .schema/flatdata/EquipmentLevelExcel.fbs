@@ -1,7 +1,0 @@
-namespace FlatData;
-
-table EquipmentLevelExcel {
-    level: int;
-    tier_level_exp: [long];
-    total_exp: [long];
-}

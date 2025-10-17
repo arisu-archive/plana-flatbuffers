@@ -23,10 +23,12 @@ type MinigameTBGObjectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_key := b.CreateString(fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	__offset_prefab_name := b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelStart(b)
 	MinigameTBGObjectExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGObjectExcelAddKey(b, b.CreateString(fbsutils.Convert(t.Key, t.FlatBuffer.TableKey)))
-	MinigameTBGObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	MinigameTBGObjectExcelAddKey(b, __offset_key)
+	MinigameTBGObjectExcelAddPrefabName(b, __offset_prefab_name)
 	MinigameTBGObjectExcelAddObjectType(b, fbsutils.Convert(t.ObjectType, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelAddObjectCostType(b, fbsutils.Convert(t.ObjectCostType, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelAddObjectCostId(b, fbsutils.Convert(t.ObjectCostId, t.FlatBuffer.TableKey))

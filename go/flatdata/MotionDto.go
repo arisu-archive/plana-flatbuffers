@@ -20,14 +20,21 @@ func (t *MotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
 	}
-	MotionStart(b)
-	MotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	var __offset_positions flatbuffers.UOffsetT
+	__nestedOffsets_positions := make([]flatbuffers.UOffsetT, len(t.Positions))
+	for i := range len(t.Positions) {
+		t.Positions[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_positions[i] = t.Positions[i].MarshalModel(b)
+	}
 	MotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Positions[len(t.Positions)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_positions[len(t.Positions)-i-1])
 	}
-	MotionAddPositions(b, b.EndVector(len(t.Positions)))
+	__offset_positions = b.EndVector(len(t.Positions))
+	MotionStart(b)
+	MotionAddName(b, __offset_name)
+	MotionAddPositions(b, __offset_positions)
 	return MotionEnd(b)
 }
 

@@ -66,27 +66,50 @@ class CharacterDialogSubtitleExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def CharacterDialogSubtitleExcelStart(builder): builder.StartObject(6)
+def CharacterDialogSubtitleExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return CharacterDialogSubtitleExcelStart(builder)
-def CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
+    CharacterDialogSubtitleExcelStart(builder)
+
+def CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
+
 def AddLocalizeCvGroup(builder, localizeCvGroup):
-    return CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup)
-def CharacterDialogSubtitleExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
+    CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+
+def CharacterDialogSubtitleExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(1, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return CharacterDialogSubtitleExcelAddCharacterId(builder, characterId)
-def CharacterDialogSubtitleExcelAddDuration(builder, duration): builder.PrependInt64Slot(2, duration, 0)
+    CharacterDialogSubtitleExcelAddCharacterId(builder, characterId)
+
+def CharacterDialogSubtitleExcelAddDuration(builder, duration):
+    builder.PrependInt64Slot(2, duration, 0)
+
 def AddDuration(builder, duration):
-    return CharacterDialogSubtitleExcelAddDuration(builder, duration)
-def CharacterDialogSubtitleExcelAddSeparate(builder, separate): builder.PrependBoolSlot(3, separate, 0)
+    CharacterDialogSubtitleExcelAddDuration(builder, duration)
+
+def CharacterDialogSubtitleExcelAddSeparate(builder, separate):
+    builder.PrependBoolSlot(3, separate, 0)
+
 def AddSeparate(builder, separate):
-    return CharacterDialogSubtitleExcelAddSeparate(builder, separate)
-def CharacterDialogSubtitleExcelAddLocalizeKr(builder, localizeKr): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+    CharacterDialogSubtitleExcelAddSeparate(builder, separate)
+
+def CharacterDialogSubtitleExcelAddLocalizeKr(builder, localizeKr):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+
 def AddLocalizeKr(builder, localizeKr):
-    return CharacterDialogSubtitleExcelAddLocalizeKr(builder, localizeKr)
-def CharacterDialogSubtitleExcelAddLocalizeJp(builder, localizeJp): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+    CharacterDialogSubtitleExcelAddLocalizeKr(builder, localizeKr)
+
+def CharacterDialogSubtitleExcelAddLocalizeJp(builder, localizeJp):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+
 def AddLocalizeJp(builder, localizeJp):
-    return CharacterDialogSubtitleExcelAddLocalizeJp(builder, localizeJp)
-def CharacterDialogSubtitleExcelEnd(builder): return builder.EndObject()
+    CharacterDialogSubtitleExcelAddLocalizeJp(builder, localizeJp)
+
+def CharacterDialogSubtitleExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterDialogSubtitleExcelEnd(builder)

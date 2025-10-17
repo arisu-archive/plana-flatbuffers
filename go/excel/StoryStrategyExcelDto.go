@@ -28,21 +28,26 @@ type StoryStrategyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StoryStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_localize := b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey))
+	__offset_strategy_map := b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey))
+	__offset_strategy_map_bg := b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey))
+	__offset_first_clear_report_event_name := b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey))
 	StoryStrategyExcelStart(b)
 	StoryStrategyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	StoryStrategyExcelAddLocalize(b, b.CreateString(fbsutils.Convert(t.Localize, t.FlatBuffer.TableKey)))
+	StoryStrategyExcelAddName(b, __offset_name)
+	StoryStrategyExcelAddLocalize(b, __offset_localize)
 	StoryStrategyExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddWhiteListId(b, fbsutils.Convert(t.WhiteListId, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
-	StoryStrategyExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
+	StoryStrategyExcelAddStrategyMap(b, __offset_strategy_map)
+	StoryStrategyExcelAddStrategyMapBg(b, __offset_strategy_map_bg)
 	StoryStrategyExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddFirstClearReportEventName(b, b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey)))
+	StoryStrategyExcelAddFirstClearReportEventName(b, __offset_first_clear_report_event_name)
 	return StoryStrategyExcelEnd(b)
 }
 

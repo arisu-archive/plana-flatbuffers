@@ -1,6 +1,0 @@
-namespace FlatData;
-
-table BattleLevelFactorExcel {
-    level_diff: int;
-    damage_rate: long;
-}

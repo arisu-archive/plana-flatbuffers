@@ -1,9 +1,0 @@
-include "CharacterTranscendenceExcel.fbs";
-
-namespace FlatData;
-
-table CharacterTranscendenceExcelTable {
-    data_list: [CharacterTranscendenceExcel];
-}
-
-root_type CharacterTranscendenceExcelTable;

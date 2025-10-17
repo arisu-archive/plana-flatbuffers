@@ -45,18 +45,32 @@ class BattlePassFlavorTextExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def BattlePassFlavorTextExcelStart(builder): builder.StartObject(3)
+def BattlePassFlavorTextExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return BattlePassFlavorTextExcelStart(builder)
-def BattlePassFlavorTextExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    BattlePassFlavorTextExcelStart(builder)
+
+def BattlePassFlavorTextExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return BattlePassFlavorTextExcelAddGroupId(builder, groupId)
-def BattlePassFlavorTextExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    BattlePassFlavorTextExcelAddGroupId(builder, groupId)
+
+def BattlePassFlavorTextExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return BattlePassFlavorTextExcelAddId(builder, id)
-def BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(2, localizeCodeId, 0)
+    BattlePassFlavorTextExcelAddId(builder, id)
+
+def BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUint32Slot(2, localizeCodeId, 0)
+
 def AddLocalizeCodeId(builder, localizeCodeId):
-    return BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId)
-def BattlePassFlavorTextExcelEnd(builder): return builder.EndObject()
+    BattlePassFlavorTextExcelAddLocalizeCodeId(builder, localizeCodeId)
+
+def BattlePassFlavorTextExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattlePassFlavorTextExcelEnd(builder)

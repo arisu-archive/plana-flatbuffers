@@ -17,11 +17,19 @@ func GetRootAsEliminateRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishEliminateRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEliminateRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *EliminateRaidStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EliminateRaidStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEliminateRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EliminateRaidStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

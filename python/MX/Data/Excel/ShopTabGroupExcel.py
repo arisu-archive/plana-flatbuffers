@@ -72,24 +72,44 @@ class ShopTabGroupExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def ShopTabGroupExcelStart(builder): builder.StartObject(4)
+def ShopTabGroupExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return ShopTabGroupExcelStart(builder)
-def ShopTabGroupExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    ShopTabGroupExcelStart(builder)
+
+def ShopTabGroupExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return ShopTabGroupExcelAddId(builder, id)
-def ShopTabGroupExcelAddShopGroupType(builder, shopGroupType): builder.PrependInt32Slot(1, shopGroupType, 0)
+    ShopTabGroupExcelAddId(builder, id)
+
+def ShopTabGroupExcelAddShopGroupType(builder, shopGroupType):
+    builder.PrependInt32Slot(1, shopGroupType, 0)
+
 def AddShopGroupType(builder, shopGroupType):
-    return ShopTabGroupExcelAddShopGroupType(builder, shopGroupType)
-def ShopTabGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
+    ShopTabGroupExcelAddShopGroupType(builder, shopGroupType)
+
+def ShopTabGroupExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ShopTabGroupExcelAddDisplayOrder(builder, displayOrder)
-def ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategoryTypes), 0)
+    ShopTabGroupExcelAddDisplayOrder(builder, displayOrder)
+
+def ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategoryTypes), 0)
+
 def AddShopCategoryTypes(builder, shopCategoryTypes):
-    return ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes)
-def ShopTabGroupExcelStartShopCategoryTypesVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes)
+
+def ShopTabGroupExcelStartShopCategoryTypesVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartShopCategoryTypesVector(builder, numElems):
     return ShopTabGroupExcelStartShopCategoryTypesVector(builder, numElems)
-def ShopTabGroupExcelEnd(builder): return builder.EndObject()
+
+def ShopTabGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShopTabGroupExcelEnd(builder)

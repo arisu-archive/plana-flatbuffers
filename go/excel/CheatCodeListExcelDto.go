@@ -18,19 +18,32 @@ type CheatCodeListExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CheatCodeListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	CheatCodeListExcelStart(b)
-	CheatCodeListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	var __offset_cheat_code flatbuffers.UOffsetT
+	__stringOffsets_cheat_code := make([]flatbuffers.UOffsetT, len(t.CheatCode))
+	for i := range len(t.CheatCode) {
+		__stringOffsets_cheat_code[i] = b.CreateString(fbsutils.Convert(t.CheatCode[i], t.FlatBuffer.TableKey))
+	}
 	CheatCodeListExcelStartCheatCodeVector(b, len(t.CheatCode))
 	for i := range len(t.CheatCode) {
-		b.PrependUOffsetT(b.CreateString(t.CheatCode[len(t.CheatCode)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_cheat_code[len(t.CheatCode)-i-1])
 	}
-	CheatCodeListExcelAddCheatCode(b, b.EndVector(len(t.CheatCode)))
+	__offset_cheat_code = b.EndVector(len(t.CheatCode))
+	var __offset_input_title flatbuffers.UOffsetT
+	__stringOffsets_input_title := make([]flatbuffers.UOffsetT, len(t.InputTitle))
+	for i := range len(t.InputTitle) {
+		__stringOffsets_input_title[i] = b.CreateString(fbsutils.Convert(t.InputTitle[i], t.FlatBuffer.TableKey))
+	}
 	CheatCodeListExcelStartInputTitleVector(b, len(t.InputTitle))
 	for i := range len(t.InputTitle) {
-		b.PrependUOffsetT(b.CreateString(t.InputTitle[len(t.InputTitle)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_input_title[len(t.InputTitle)-i-1])
 	}
-	CheatCodeListExcelAddInputTitle(b, b.EndVector(len(t.InputTitle)))
-	CheatCodeListExcelAddDesc(b, b.CreateString(fbsutils.Convert(t.Desc, t.FlatBuffer.TableKey)))
+	__offset_input_title = b.EndVector(len(t.InputTitle))
+	__offset_desc := b.CreateString(fbsutils.Convert(t.Desc, t.FlatBuffer.TableKey))
+	CheatCodeListExcelStart(b)
+	CheatCodeListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CheatCodeListExcelAddCheatCode(b, __offset_cheat_code)
+	CheatCodeListExcelAddInputTitle(b, __offset_input_title)
+	CheatCodeListExcelAddDesc(b, __offset_desc)
 	return CheatCodeListExcelEnd(b)
 }
 

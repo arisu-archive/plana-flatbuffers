@@ -80,33 +80,62 @@ class MinigameCCGInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MinigameCCGInfoExcelStart(builder): builder.StartObject(8)
+def MinigameCCGInfoExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return MinigameCCGInfoExcelStart(builder)
-def MinigameCCGInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    MinigameCCGInfoExcelStart(builder)
+
+def MinigameCCGInfoExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MinigameCCGInfoExcelAddEventContentId(builder, eventContentId)
-def MinigameCCGInfoExcelAddCcgId(builder, ccgId): builder.PrependInt64Slot(1, ccgId, 0)
+    MinigameCCGInfoExcelAddEventContentId(builder, eventContentId)
+
+def MinigameCCGInfoExcelAddCcgId(builder, ccgId):
+    builder.PrependInt64Slot(1, ccgId, 0)
+
 def AddCcgId(builder, ccgId):
-    return MinigameCCGInfoExcelAddCcgId(builder, ccgId)
-def MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType): builder.PrependInt32Slot(2, costParcelType, 0)
+    MinigameCCGInfoExcelAddCcgId(builder, ccgId)
+
+def MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType):
+    builder.PrependInt32Slot(2, costParcelType, 0)
+
 def AddCostParcelType(builder, costParcelType):
-    return MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType)
-def MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId): builder.PrependInt64Slot(3, costParcelId, 0)
+    MinigameCCGInfoExcelAddCostParcelType(builder, costParcelType)
+
+def MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId):
+    builder.PrependInt64Slot(3, costParcelId, 0)
+
 def AddCostParcelId(builder, costParcelId):
-    return MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId)
-def MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount): builder.PrependInt32Slot(4, costParcelAmount, 0)
+    MinigameCCGInfoExcelAddCostParcelId(builder, costParcelId)
+
+def MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount):
+    builder.PrependInt32Slot(4, costParcelAmount, 0)
+
 def AddCostParcelAmount(builder, costParcelAmount):
-    return MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount)
-def MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(cardBackPath), 0)
+    MinigameCCGInfoExcelAddCostParcelAmount(builder, costParcelAmount)
+
+def MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(cardBackPath), 0)
+
 def AddCardBackPath(builder, cardBackPath):
-    return MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath)
-def MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType): builder.PrependInt32Slot(6, perkCostParcelType, 0)
+    MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath)
+
+def MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType):
+    builder.PrependInt32Slot(6, perkCostParcelType, 0)
+
 def AddPerkCostParcelType(builder, perkCostParcelType):
-    return MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType)
-def MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId): builder.PrependInt64Slot(7, perkCostParcelId, 0)
+    MinigameCCGInfoExcelAddPerkCostParcelType(builder, perkCostParcelType)
+
+def MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId):
+    builder.PrependInt64Slot(7, perkCostParcelId, 0)
+
 def AddPerkCostParcelId(builder, perkCostParcelId):
-    return MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId)
-def MinigameCCGInfoExcelEnd(builder): return builder.EndObject()
+    MinigameCCGInfoExcelAddPerkCostParcelId(builder, perkCostParcelId)
+
+def MinigameCCGInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGInfoExcelEnd(builder)

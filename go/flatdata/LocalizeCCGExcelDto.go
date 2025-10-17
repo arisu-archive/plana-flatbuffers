@@ -20,10 +20,12 @@ func (t *LocalizeCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCCG"))
 	}
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
 	LocalizeCCGExcelStart(b)
 	LocalizeCCGExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeCCGExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeCCGExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	LocalizeCCGExcelAddKr(b, __offset_kr)
+	LocalizeCCGExcelAddJp(b, __offset_jp)
 	return LocalizeCCGExcelEnd(b)
 }
 

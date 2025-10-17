@@ -22,9 +22,10 @@ type UnderCoverStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *UnderCoverStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_stage_name_file := b.CreateString(fbsutils.Convert(t.StageNameFile, t.FlatBuffer.TableKey))
 	UnderCoverStageExcelStart(b)
 	UnderCoverStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	UnderCoverStageExcelAddStageNameFile(b, b.CreateString(fbsutils.Convert(t.StageNameFile, t.FlatBuffer.TableKey)))
+	UnderCoverStageExcelAddStageNameFile(b, __offset_stage_name_file)
 	UnderCoverStageExcelAddStageTryCount(b, fbsutils.Convert(t.StageTryCount, t.FlatBuffer.TableKey))
 	UnderCoverStageExcelAddApplySkip(b, t.ApplySkip)
 	UnderCoverStageExcelAddSkipCount(b, fbsutils.Convert(t.SkipCount, t.FlatBuffer.TableKey))

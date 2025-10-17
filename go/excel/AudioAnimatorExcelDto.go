@@ -28,11 +28,23 @@ type AudioAnimatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_voice_name_prefix := b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey))
+	__offset_state_name := b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey))
+	var __offset_audio_clip_path flatbuffers.UOffsetT
+	__stringOffsets_audio_clip_path := make([]flatbuffers.UOffsetT, len(t.AudioClipPath))
+	for i := range len(t.AudioClipPath) {
+		__stringOffsets_audio_clip_path[i] = b.CreateString(fbsutils.Convert(t.AudioClipPath[i], t.FlatBuffer.TableKey))
+	}
+	AudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
+	for i := range len(t.AudioClipPath) {
+		b.PrependUOffsetT(__stringOffsets_audio_clip_path[len(t.AudioClipPath)-i-1])
+	}
+	__offset_audio_clip_path = b.EndVector(len(t.AudioClipPath))
 	AudioAnimatorExcelStart(b)
 	AudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
+	AudioAnimatorExcelAddVoiceNamePrefix(b, __offset_voice_name_prefix)
 	AudioAnimatorExcelAddStateNameHash(b, fbsutils.Convert(t.StateNameHash, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
+	AudioAnimatorExcelAddStateName(b, __offset_state_name)
 	AudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
 	AudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
 	AudioAnimatorExcelAddIgnoreVelocity(b, t.IgnoreVelocity)
@@ -41,11 +53,7 @@ func (t *AudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	AudioAnimatorExcelAddRandomPitchMin(b, fbsutils.Convert(t.RandomPitchMin, t.FlatBuffer.TableKey))
 	AudioAnimatorExcelAddRandomPitchMax(b, fbsutils.Convert(t.RandomPitchMax, t.FlatBuffer.TableKey))
 	AudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
-	for i := range len(t.AudioClipPath) {
-		b.PrependUOffsetT(b.CreateString(t.AudioClipPath[len(t.AudioClipPath)-i-1]))
-	}
-	AudioAnimatorExcelAddAudioClipPath(b, b.EndVector(len(t.AudioClipPath)))
+	AudioAnimatorExcelAddAudioClipPath(b, __offset_audio_clip_path)
 	AudioAnimatorExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))

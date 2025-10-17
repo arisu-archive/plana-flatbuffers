@@ -24,15 +24,18 @@ type FarmingDungeonLocationManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FarmingDungeonLocationManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_open_start_date_time := b.CreateString(fbsutils.Convert(t.OpenStartDateTime, t.FlatBuffer.TableKey))
+	__offset_open_end_date_time := b.CreateString(fbsutils.Convert(t.OpenEndDateTime, t.FlatBuffer.TableKey))
+	__offset_location_button_image_path := b.CreateString(fbsutils.Convert(t.LocationButtonImagePath, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelStart(b)
 	FarmingDungeonLocationManageExcelAddFarmingDungeonLocationId(b, fbsutils.Convert(t.FarmingDungeonLocationId, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddWeekDungeonType(b, fbsutils.Convert(t.WeekDungeonType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddSchoolDungeonType(b, fbsutils.Convert(t.SchoolDungeonType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddOpenStartDateTime(b, b.CreateString(fbsutils.Convert(t.OpenStartDateTime, t.FlatBuffer.TableKey)))
-	FarmingDungeonLocationManageExcelAddOpenEndDateTime(b, b.CreateString(fbsutils.Convert(t.OpenEndDateTime, t.FlatBuffer.TableKey)))
-	FarmingDungeonLocationManageExcelAddLocationButtonImagePath(b, b.CreateString(fbsutils.Convert(t.LocationButtonImagePath, t.FlatBuffer.TableKey)))
+	FarmingDungeonLocationManageExcelAddOpenStartDateTime(b, __offset_open_start_date_time)
+	FarmingDungeonLocationManageExcelAddOpenEndDateTime(b, __offset_open_end_date_time)
+	FarmingDungeonLocationManageExcelAddLocationButtonImagePath(b, __offset_location_button_image_path)
 	FarmingDungeonLocationManageExcelAddLocalizeCodeTitle(b, fbsutils.Convert(t.LocalizeCodeTitle, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddLocalizeCodeInfo(b, fbsutils.Convert(t.LocalizeCodeInfo, t.FlatBuffer.TableKey))
 	return FarmingDungeonLocationManageExcelEnd(b)

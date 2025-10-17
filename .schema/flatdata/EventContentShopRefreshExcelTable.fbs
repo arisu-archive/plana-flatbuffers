@@ -1,9 +1,0 @@
-include "EventContentShopRefreshExcel.fbs";
-
-namespace FlatData;
-
-table EventContentShopRefreshExcelTable {
-    data_list: [EventContentShopRefreshExcel];
-}
-
-root_type EventContentShopRefreshExcelTable;

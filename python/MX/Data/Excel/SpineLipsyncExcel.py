@@ -38,15 +38,26 @@ class SpineLipsyncExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def SpineLipsyncExcelStart(builder): builder.StartObject(2)
+def SpineLipsyncExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return SpineLipsyncExcelStart(builder)
-def SpineLipsyncExcelAddVoiceId(builder, voiceId): builder.PrependUint32Slot(0, voiceId, 0)
+    SpineLipsyncExcelStart(builder)
+
+def SpineLipsyncExcelAddVoiceId(builder, voiceId):
+    builder.PrependUint32Slot(0, voiceId, 0)
+
 def AddVoiceId(builder, voiceId):
-    return SpineLipsyncExcelAddVoiceId(builder, voiceId)
-def SpineLipsyncExcelAddAnimJson(builder, animJson): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
+    SpineLipsyncExcelAddVoiceId(builder, voiceId)
+
+def SpineLipsyncExcelAddAnimJson(builder, animJson):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
+
 def AddAnimJson(builder, animJson):
-    return SpineLipsyncExcelAddAnimJson(builder, animJson)
-def SpineLipsyncExcelEnd(builder): return builder.EndObject()
+    SpineLipsyncExcelAddAnimJson(builder, animJson)
+
+def SpineLipsyncExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return SpineLipsyncExcelEnd(builder)

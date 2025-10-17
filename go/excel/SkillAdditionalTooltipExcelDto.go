@@ -17,10 +17,12 @@ type SkillAdditionalTooltipExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SkillAdditionalTooltipExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_additional_skill_group_id := b.CreateString(fbsutils.Convert(t.AdditionalSkillGroupId, t.FlatBuffer.TableKey))
+	__offset_show_skill_slot := b.CreateString(fbsutils.Convert(t.ShowSkillSlot, t.FlatBuffer.TableKey))
 	SkillAdditionalTooltipExcelStart(b)
 	SkillAdditionalTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(b, b.CreateString(fbsutils.Convert(t.AdditionalSkillGroupId, t.FlatBuffer.TableKey)))
-	SkillAdditionalTooltipExcelAddShowSkillSlot(b, b.CreateString(fbsutils.Convert(t.ShowSkillSlot, t.FlatBuffer.TableKey)))
+	SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(b, __offset_additional_skill_group_id)
+	SkillAdditionalTooltipExcelAddShowSkillSlot(b, __offset_show_skill_slot)
 	return SkillAdditionalTooltipExcelEnd(b)
 }
 

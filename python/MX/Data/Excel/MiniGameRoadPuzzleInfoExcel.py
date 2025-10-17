@@ -66,27 +66,50 @@ class MiniGameRoadPuzzleInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameRoadPuzzleInfoExcelStart(builder): builder.StartObject(6)
+def MiniGameRoadPuzzleInfoExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return MiniGameRoadPuzzleInfoExcelStart(builder)
-def MiniGameRoadPuzzleInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    MiniGameRoadPuzzleInfoExcelStart(builder)
+
+def MiniGameRoadPuzzleInfoExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MiniGameRoadPuzzleInfoExcelAddEventContentId(builder, eventContentId)
-def MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder, eventUseCostType): builder.PrependInt32Slot(1, eventUseCostType, 0)
+    MiniGameRoadPuzzleInfoExcelAddEventContentId(builder, eventContentId)
+
+def MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder, eventUseCostType):
+    builder.PrependInt32Slot(1, eventUseCostType, 0)
+
 def AddEventUseCostType(builder, eventUseCostType):
-    return MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder, eventUseCostType)
-def MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder, eventUseCostId): builder.PrependInt64Slot(2, eventUseCostId, 0)
+    MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder, eventUseCostType)
+
+def MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder, eventUseCostId):
+    builder.PrependInt64Slot(2, eventUseCostId, 0)
+
 def AddEventUseCostId(builder, eventUseCostId):
-    return MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder, eventUseCostId)
-def MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder, costGoodsId): builder.PrependInt64Slot(3, costGoodsId, 0)
+    MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder, eventUseCostId)
+
+def MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder, costGoodsId):
+    builder.PrependInt64Slot(3, costGoodsId, 0)
+
 def AddCostGoodsId(builder, costGoodsId):
-    return MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder, costGoodsId)
-def MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder, railSetRewardId): builder.PrependInt64Slot(4, railSetRewardId, 0)
+    MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder, costGoodsId)
+
+def MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder, railSetRewardId):
+    builder.PrependInt64Slot(4, railSetRewardId, 0)
+
 def AddRailSetRewardId(builder, railSetRewardId):
-    return MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder, railSetRewardId)
-def MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder, instantClearRound): builder.PrependInt32Slot(5, instantClearRound, 0)
+    MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder, railSetRewardId)
+
+def MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder, instantClearRound):
+    builder.PrependInt32Slot(5, instantClearRound, 0)
+
 def AddInstantClearRound(builder, instantClearRound):
-    return MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder, instantClearRound)
-def MiniGameRoadPuzzleInfoExcelEnd(builder): return builder.EndObject()
+    MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder, instantClearRound)
+
+def MiniGameRoadPuzzleInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameRoadPuzzleInfoExcelEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsGachaSelectPickupGroupExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishGachaSelectPickupGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGachaSelectPickupGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaSelectPickupGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaSelectPickupGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGachaSelectPickupGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaSelectPickupGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

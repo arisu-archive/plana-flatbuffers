@@ -19,11 +19,12 @@ type TimeAttackDungeonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	TimeAttackDungeonExcelStart(b)
 	TimeAttackDungeonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
 	TimeAttackDungeonExcelAddLocalizeEtcKey(b, fbsutils.Convert(t.LocalizeEtcKey, t.FlatBuffer.TableKey))
-	TimeAttackDungeonExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonExcelAddIconPath(b, __offset_icon_path)
 	TimeAttackDungeonExcelAddInformationGroupId(b, fbsutils.Convert(t.InformationGroupId, t.FlatBuffer.TableKey))
 	return TimeAttackDungeonExcelEnd(b)
 }

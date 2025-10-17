@@ -45,18 +45,32 @@ class GrowthScoreCalculationExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def GrowthScoreCalculationExcelStart(builder): builder.StartObject(3)
+def GrowthScoreCalculationExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return GrowthScoreCalculationExcelStart(builder)
-def GrowthScoreCalculationExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    GrowthScoreCalculationExcelStart(builder)
+
+def GrowthScoreCalculationExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return GrowthScoreCalculationExcelAddId(builder, id)
-def GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder, includeGrowthFactor): builder.PrependInt32Slot(1, includeGrowthFactor, 0)
+    GrowthScoreCalculationExcelAddId(builder, id)
+
+def GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder, includeGrowthFactor):
+    builder.PrependInt32Slot(1, includeGrowthFactor, 0)
+
 def AddIncludeGrowthFactor(builder, includeGrowthFactor):
-    return GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder, includeGrowthFactor)
-def GrowthScoreCalculationExcelAddConversionCoefficient(builder, conversionCoefficient): builder.PrependInt64Slot(2, conversionCoefficient, 0)
+    GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder, includeGrowthFactor)
+
+def GrowthScoreCalculationExcelAddConversionCoefficient(builder, conversionCoefficient):
+    builder.PrependInt64Slot(2, conversionCoefficient, 0)
+
 def AddConversionCoefficient(builder, conversionCoefficient):
-    return GrowthScoreCalculationExcelAddConversionCoefficient(builder, conversionCoefficient)
-def GrowthScoreCalculationExcelEnd(builder): return builder.EndObject()
+    GrowthScoreCalculationExcelAddConversionCoefficient(builder, conversionCoefficient)
+
+def GrowthScoreCalculationExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GrowthScoreCalculationExcelEnd(builder)

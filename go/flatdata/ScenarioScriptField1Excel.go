@@ -17,11 +17,19 @@ func GetRootAsScenarioScriptField1Excel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishScenarioScriptField1ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioScriptField1Excel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioScriptField1Excel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioScriptField1Excel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioScriptField1ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioScriptField1Excel) Init(buf []byte, i flatbuffers.UOffsetT) {

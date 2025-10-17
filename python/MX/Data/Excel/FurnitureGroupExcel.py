@@ -99,30 +99,56 @@ class FurnitureGroupExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
-def FurnitureGroupExcelStart(builder): builder.StartObject(5)
+def FurnitureGroupExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return FurnitureGroupExcelStart(builder)
-def FurnitureGroupExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    FurnitureGroupExcelStart(builder)
+
+def FurnitureGroupExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return FurnitureGroupExcelAddId(builder, id)
-def FurnitureGroupExcelAddGroupNameLocalize(builder, groupNameLocalize): builder.PrependUint32Slot(1, groupNameLocalize, 0)
+    FurnitureGroupExcelAddId(builder, id)
+
+def FurnitureGroupExcelAddGroupNameLocalize(builder, groupNameLocalize):
+    builder.PrependUint32Slot(1, groupNameLocalize, 0)
+
 def AddGroupNameLocalize(builder, groupNameLocalize):
-    return FurnitureGroupExcelAddGroupNameLocalize(builder, groupNameLocalize)
-def FurnitureGroupExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(2, localizeEtcId, 0)
+    FurnitureGroupExcelAddGroupNameLocalize(builder, groupNameLocalize)
+
+def FurnitureGroupExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(2, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return FurnitureGroupExcelAddLocalizeEtcId(builder, localizeEtcId)
-def FurnitureGroupExcelAddRequiredFurnitureCount(builder, requiredFurnitureCount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(requiredFurnitureCount), 0)
+    FurnitureGroupExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def FurnitureGroupExcelAddRequiredFurnitureCount(builder, requiredFurnitureCount):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(requiredFurnitureCount), 0)
+
 def AddRequiredFurnitureCount(builder, requiredFurnitureCount):
-    return FurnitureGroupExcelAddRequiredFurnitureCount(builder, requiredFurnitureCount)
-def FurnitureGroupExcelStartRequiredFurnitureCountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FurnitureGroupExcelAddRequiredFurnitureCount(builder, requiredFurnitureCount)
+
+def FurnitureGroupExcelStartRequiredFurnitureCountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRequiredFurnitureCountVector(builder, numElems):
     return FurnitureGroupExcelStartRequiredFurnitureCountVector(builder, numElems)
-def FurnitureGroupExcelAddComfortBonus(builder, comfortBonus): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(comfortBonus), 0)
+
+def FurnitureGroupExcelAddComfortBonus(builder, comfortBonus):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(comfortBonus), 0)
+
 def AddComfortBonus(builder, comfortBonus):
-    return FurnitureGroupExcelAddComfortBonus(builder, comfortBonus)
-def FurnitureGroupExcelStartComfortBonusVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FurnitureGroupExcelAddComfortBonus(builder, comfortBonus)
+
+def FurnitureGroupExcelStartComfortBonusVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartComfortBonusVector(builder, numElems):
     return FurnitureGroupExcelStartComfortBonusVector(builder, numElems)
-def FurnitureGroupExcelEnd(builder): return builder.EndObject()
+
+def FurnitureGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FurnitureGroupExcelEnd(builder)

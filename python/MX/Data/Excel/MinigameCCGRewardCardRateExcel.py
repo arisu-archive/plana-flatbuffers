@@ -45,18 +45,32 @@ class MinigameCCGRewardCardRateExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameCCGRewardCardRateExcelStart(builder): builder.StartObject(3)
+def MinigameCCGRewardCardRateExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return MinigameCCGRewardCardRateExcelStart(builder)
-def MinigameCCGRewardCardRateExcelAddRarityGroupId(builder, rarityGroupId): builder.PrependInt64Slot(0, rarityGroupId, 0)
+    MinigameCCGRewardCardRateExcelStart(builder)
+
+def MinigameCCGRewardCardRateExcelAddRarityGroupId(builder, rarityGroupId):
+    builder.PrependInt64Slot(0, rarityGroupId, 0)
+
 def AddRarityGroupId(builder, rarityGroupId):
-    return MinigameCCGRewardCardRateExcelAddRarityGroupId(builder, rarityGroupId)
-def MinigameCCGRewardCardRateExcelAddCardRarity(builder, cardRarity): builder.PrependInt32Slot(1, cardRarity, 0)
+    MinigameCCGRewardCardRateExcelAddRarityGroupId(builder, rarityGroupId)
+
+def MinigameCCGRewardCardRateExcelAddCardRarity(builder, cardRarity):
+    builder.PrependInt32Slot(1, cardRarity, 0)
+
 def AddCardRarity(builder, cardRarity):
-    return MinigameCCGRewardCardRateExcelAddCardRarity(builder, cardRarity)
-def MinigameCCGRewardCardRateExcelAddRate(builder, rate): builder.PrependInt32Slot(2, rate, 0)
+    MinigameCCGRewardCardRateExcelAddCardRarity(builder, cardRarity)
+
+def MinigameCCGRewardCardRateExcelAddRate(builder, rate):
+    builder.PrependInt32Slot(2, rate, 0)
+
 def AddRate(builder, rate):
-    return MinigameCCGRewardCardRateExcelAddRate(builder, rate)
-def MinigameCCGRewardCardRateExcelEnd(builder): return builder.EndObject()
+    MinigameCCGRewardCardRateExcelAddRate(builder, rate)
+
+def MinigameCCGRewardCardRateExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGRewardCardRateExcelEnd(builder)

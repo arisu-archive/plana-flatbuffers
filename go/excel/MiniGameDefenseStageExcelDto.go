@@ -41,9 +41,11 @@ type MiniGameDefenseStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_defense_formation_bg_prefab := b.CreateString(fbsutils.Convert(t.DefenseFormationBgPrefab, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelStart(b)
 	MiniGameDefenseStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MiniGameDefenseStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	MiniGameDefenseStageExcelAddName(b, __offset_name)
 	MiniGameDefenseStageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddStageDifficultyLocalize(b, fbsutils.Convert(t.StageDifficultyLocalize, t.FlatBuffer.TableKey))
@@ -80,7 +82,7 @@ func (t *MiniGameDefenseStageExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[len(t.StarGoalAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDefenseStageExcelAddStarGoalAmount(b, b.EndVector(len(t.StarGoalAmount)))
-	MiniGameDefenseStageExcelAddDefenseFormationBgPrefab(b, b.CreateString(fbsutils.Convert(t.DefenseFormationBgPrefab, t.FlatBuffer.TableKey)))
+	MiniGameDefenseStageExcelAddDefenseFormationBgPrefab(b, __offset_defense_formation_bg_prefab)
 	MiniGameDefenseStageExcelAddDefenseFormationBgPrefabScale(b, fbsutils.Convert(t.DefenseFormationBgPrefabScale, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddFixedEchelon(b, fbsutils.Convert(t.FixedEchelon, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddMininageDefenseFixedStatId(b, fbsutils.Convert(t.MininageDefenseFixedStatId, t.FlatBuffer.TableKey))

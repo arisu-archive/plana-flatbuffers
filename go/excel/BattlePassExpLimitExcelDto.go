@@ -18,10 +18,12 @@ type BattlePassExpLimitExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassExpLimitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_limit_start_time := b.CreateString(fbsutils.Convert(t.LimitStartTime, t.FlatBuffer.TableKey))
+	__offset_limit_end_time := b.CreateString(fbsutils.Convert(t.LimitEndTime, t.FlatBuffer.TableKey))
 	BattlePassExpLimitExcelStart(b)
 	BattlePassExpLimitExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
-	BattlePassExpLimitExcelAddLimitStartTime(b, b.CreateString(fbsutils.Convert(t.LimitStartTime, t.FlatBuffer.TableKey)))
-	BattlePassExpLimitExcelAddLimitEndTime(b, b.CreateString(fbsutils.Convert(t.LimitEndTime, t.FlatBuffer.TableKey)))
+	BattlePassExpLimitExcelAddLimitStartTime(b, __offset_limit_start_time)
+	BattlePassExpLimitExcelAddLimitEndTime(b, __offset_limit_end_time)
 	BattlePassExpLimitExcelAddExpLimitAmount(b, fbsutils.Convert(t.ExpLimitAmount, t.FlatBuffer.TableKey))
 	return BattlePassExpLimitExcelEnd(b)
 }

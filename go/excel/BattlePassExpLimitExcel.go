@@ -17,11 +17,19 @@ func GetRootAsBattlePassExpLimitExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishBattlePassExpLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBattlePassExpLimitExcel(buf []byte, offset flatbuffers.UOffsetT) *BattlePassExpLimitExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BattlePassExpLimitExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBattlePassExpLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BattlePassExpLimitExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -17,11 +17,19 @@ func GetRootAsEmblemExcel(buf []byte, offset flatbuffers.UOffsetT) *EmblemExcel 
 	return x
 }
 
+func FinishEmblemExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEmblemExcel(buf []byte, offset flatbuffers.UOffsetT) *EmblemExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EmblemExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEmblemExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EmblemExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

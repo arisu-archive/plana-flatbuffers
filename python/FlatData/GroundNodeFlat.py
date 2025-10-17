@@ -70,27 +70,50 @@ class GroundNodeFlat(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def GroundNodeFlatStart(builder): builder.StartObject(6)
+def GroundNodeFlatStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return GroundNodeFlatStart(builder)
-def GroundNodeFlatAddX(builder, x): builder.PrependInt32Slot(0, x, 0)
+    GroundNodeFlatStart(builder)
+
+def GroundNodeFlatAddX(builder, x):
+    builder.PrependInt32Slot(0, x, 0)
+
 def AddX(builder, x):
-    return GroundNodeFlatAddX(builder, x)
-def GroundNodeFlatAddY(builder, y): builder.PrependInt32Slot(1, y, 0)
+    GroundNodeFlatAddX(builder, x)
+
+def GroundNodeFlatAddY(builder, y):
+    builder.PrependInt32Slot(1, y, 0)
+
 def AddY(builder, y):
-    return GroundNodeFlatAddY(builder, y)
-def GroundNodeFlatAddIsCanNotUseSkill(builder, isCanNotUseSkill): builder.PrependBoolSlot(2, isCanNotUseSkill, 0)
+    GroundNodeFlatAddY(builder, y)
+
+def GroundNodeFlatAddIsCanNotUseSkill(builder, isCanNotUseSkill):
+    builder.PrependBoolSlot(2, isCanNotUseSkill, 0)
+
 def AddIsCanNotUseSkill(builder, isCanNotUseSkill):
-    return GroundNodeFlatAddIsCanNotUseSkill(builder, isCanNotUseSkill)
-def GroundNodeFlatAddPosition(builder, position): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(position), 0)
+    GroundNodeFlatAddIsCanNotUseSkill(builder, isCanNotUseSkill)
+
+def GroundNodeFlatAddPosition(builder, position):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(position), 0)
+
 def AddPosition(builder, position):
-    return GroundNodeFlatAddPosition(builder, position)
-def GroundNodeFlatAddNodeType(builder, nodeType): builder.PrependInt32Slot(4, nodeType, 0)
+    GroundNodeFlatAddPosition(builder, position)
+
+def GroundNodeFlatAddNodeType(builder, nodeType):
+    builder.PrependInt32Slot(4, nodeType, 0)
+
 def AddNodeType(builder, nodeType):
-    return GroundNodeFlatAddNodeType(builder, nodeType)
-def GroundNodeFlatAddOriginalNodeType(builder, originalNodeType): builder.PrependInt32Slot(5, originalNodeType, 0)
+    GroundNodeFlatAddNodeType(builder, nodeType)
+
+def GroundNodeFlatAddOriginalNodeType(builder, originalNodeType):
+    builder.PrependInt32Slot(5, originalNodeType, 0)
+
 def AddOriginalNodeType(builder, originalNodeType):
-    return GroundNodeFlatAddOriginalNodeType(builder, originalNodeType)
-def GroundNodeFlatEnd(builder): return builder.EndObject()
+    GroundNodeFlatAddOriginalNodeType(builder, originalNodeType)
+
+def GroundNodeFlatEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GroundNodeFlatEnd(builder)

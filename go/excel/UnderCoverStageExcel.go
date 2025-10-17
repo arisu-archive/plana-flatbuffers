@@ -17,11 +17,19 @@ func GetRootAsUnderCoverStageExcel(buf []byte, offset flatbuffers.UOffsetT) *Und
 	return x
 }
 
+func FinishUnderCoverStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsUnderCoverStageExcel(buf []byte, offset flatbuffers.UOffsetT) *UnderCoverStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &UnderCoverStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedUnderCoverStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *UnderCoverStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

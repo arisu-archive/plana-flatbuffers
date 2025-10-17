@@ -17,11 +17,19 @@ func GetRootAsRecipeSelectionAutoUseExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishRecipeSelectionAutoUseExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsRecipeSelectionAutoUseExcel(buf []byte, offset flatbuffers.UOffsetT) *RecipeSelectionAutoUseExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RecipeSelectionAutoUseExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedRecipeSelectionAutoUseExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RecipeSelectionAutoUseExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

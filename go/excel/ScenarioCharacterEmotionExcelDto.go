@@ -16,8 +16,9 @@ type ScenarioCharacterEmotionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterEmotionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_emoticon_name := b.CreateString(fbsutils.Convert(t.EmoticonName, t.FlatBuffer.TableKey))
 	ScenarioCharacterEmotionExcelStart(b)
-	ScenarioCharacterEmotionExcelAddEmoticonName(b, b.CreateString(fbsutils.Convert(t.EmoticonName, t.FlatBuffer.TableKey)))
+	ScenarioCharacterEmotionExcelAddEmoticonName(b, __offset_emoticon_name)
 	ScenarioCharacterEmotionExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	return ScenarioCharacterEmotionExcelEnd(b)
 }

@@ -19,12 +19,15 @@ type EventContentTreasureExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_title_localize := b.CreateString(fbsutils.Convert(t.TitleLocalize, t.FlatBuffer.TableKey))
+	__offset_use_prefab_name := b.CreateString(fbsutils.Convert(t.UsePrefabName, t.FlatBuffer.TableKey))
+	__offset_treasure_bg_image_path := b.CreateString(fbsutils.Convert(t.TreasureBgImagePath, t.FlatBuffer.TableKey))
 	EventContentTreasureExcelStart(b)
 	EventContentTreasureExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddTitleLocalize(b, b.CreateString(fbsutils.Convert(t.TitleLocalize, t.FlatBuffer.TableKey)))
+	EventContentTreasureExcelAddTitleLocalize(b, __offset_title_localize)
 	EventContentTreasureExcelAddLoopRound(b, fbsutils.Convert(t.LoopRound, t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddUsePrefabName(b, b.CreateString(fbsutils.Convert(t.UsePrefabName, t.FlatBuffer.TableKey)))
-	EventContentTreasureExcelAddTreasureBgImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureBgImagePath, t.FlatBuffer.TableKey)))
+	EventContentTreasureExcelAddUsePrefabName(b, __offset_use_prefab_name)
+	EventContentTreasureExcelAddTreasureBgImagePath(b, __offset_treasure_bg_image_path)
 	return EventContentTreasureExcelEnd(b)
 }
 

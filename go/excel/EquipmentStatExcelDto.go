@@ -28,6 +28,7 @@ type EquipmentStatExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_damage_factor_group_id := b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey))
 	EquipmentStatExcelStart(b)
 	EquipmentStatExcelAddEquipmentId(b, fbsutils.Convert(t.EquipmentId, t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
@@ -54,7 +55,7 @@ func (t *EquipmentStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	EquipmentStatExcelAddLevelUpFeedAddExp(b, fbsutils.Convert(t.LevelUpFeedAddExp, t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddDefaultMaxLevel(b, fbsutils.Convert(t.DefaultMaxLevel, t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddTranscendenceMax(b, fbsutils.Convert(t.TranscendenceMax, t.FlatBuffer.TableKey))
-	EquipmentStatExcelAddDamageFactorGroupId(b, b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey)))
+	EquipmentStatExcelAddDamageFactorGroupId(b, __offset_damage_factor_group_id)
 	return EquipmentStatExcelEnd(b)
 }
 

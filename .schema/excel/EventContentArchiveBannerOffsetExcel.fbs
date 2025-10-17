@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table EventContentArchiveBannerOffsetExcel {
+    event_content_id: long;
+    offset_x: float;
+    offset_y: float;
+    scale_x: float;
+    scale_y: float;
+}
+
+root_type EventContentArchiveBannerOffsetExcel;

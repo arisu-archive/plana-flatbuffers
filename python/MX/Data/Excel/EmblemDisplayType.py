@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class EmblemDisplayType(object):
-    Always = 0
-    Time = 1
-    Favor = 2
-    Potential = 3
+# NOTE EmblemDisplayType.py does not declare any structs or enums

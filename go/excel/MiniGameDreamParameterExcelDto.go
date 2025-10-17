@@ -23,12 +23,13 @@ type MiniGameDreamParameterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamParameterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelStart(b)
 	MiniGameDreamParameterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddParameterType(b, fbsutils.Convert(t.ParameterType, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	MiniGameDreamParameterExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	MiniGameDreamParameterExcelAddIconPath(b, __offset_icon_path)
 	MiniGameDreamParameterExcelAddParameterBase(b, fbsutils.Convert(t.ParameterBase, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddParameterBaseMax(b, fbsutils.Convert(t.ParameterBaseMax, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddParameterMin(b, fbsutils.Convert(t.ParameterMin, t.FlatBuffer.TableKey))

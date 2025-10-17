@@ -17,11 +17,19 @@ func GetRootAsTagExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TagExcelTa
 	return x
 }
 
+func FinishTagExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTagExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TagExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TagExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTagExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TagExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

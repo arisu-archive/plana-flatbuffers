@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum EventChangeType: int {
+    MainSub = 0,
+    SubMain = 1,
+}

@@ -20,10 +20,12 @@ func (t *LocalizeFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeField"))
 	}
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
 	LocalizeFieldExcelStart(b)
 	LocalizeFieldExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeFieldExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeFieldExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	LocalizeFieldExcelAddKr(b, __offset_kr)
+	LocalizeFieldExcelAddJp(b, __offset_jp)
 	return LocalizeFieldExcelEnd(b)
 }
 

@@ -1,9 +1,0 @@
-include "AcademyFavorScheduleExcel.fbs";
-
-namespace FlatData;
-
-table AcademyFavorScheduleExcelTable {
-    data_list: [AcademyFavorScheduleExcel];
-}
-
-root_type AcademyFavorScheduleExcelTable;

@@ -17,11 +17,19 @@ func GetRootAsMessagePopupExcel(buf []byte, offset flatbuffers.UOffsetT) *Messag
 	return x
 }
 
+func FinishMessagePopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMessagePopupExcel(buf []byte, offset flatbuffers.UOffsetT) *MessagePopupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MessagePopupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMessagePopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MessagePopupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

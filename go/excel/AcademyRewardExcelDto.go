@@ -34,12 +34,14 @@ type AcademyRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_location := b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey))
+	__offset_progress_texture := b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey))
 	AcademyRewardExcelStart(b)
-	AcademyRewardExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
+	AcademyRewardExcelAddLocation(b, __offset_location)
 	AcademyRewardExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AcademyRewardExcelAddProgressTexture(b, b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey)))
+	AcademyRewardExcelAddProgressTexture(b, __offset_progress_texture)
 	AcademyRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddLocationRank(b, fbsutils.Convert(t.LocationRank, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))

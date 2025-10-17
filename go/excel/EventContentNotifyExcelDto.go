@@ -21,10 +21,11 @@ type EventContentNotifyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentNotifyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelStart(b)
 	EventContentNotifyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentNotifyExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EventContentNotifyExcelAddIconPath(b, __offset_icon_path)
 	EventContentNotifyExcelAddEventNotifyType(b, fbsutils.Convert(t.EventNotifyType, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddEventTargetType(b, fbsutils.Convert(t.EventTargetType, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddShortcutEventTargetType(b, fbsutils.Convert(t.ShortcutEventTargetType, t.FlatBuffer.TableKey))

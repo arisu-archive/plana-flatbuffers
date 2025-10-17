@@ -1,9 +1,0 @@
-include "MinigameTBGVoiceExcel.fbs";
-
-namespace FlatData;
-
-table MinigameTBGVoiceExcelTable {
-    data_list: [MinigameTBGVoiceExcel];
-}
-
-root_type MinigameTBGVoiceExcelTable;

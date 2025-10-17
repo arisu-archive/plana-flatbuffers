@@ -1,9 +1,0 @@
-include "TimeAttackDungeonRewardExcel.fbs";
-
-namespace FlatData;
-
-table TimeAttackDungeonRewardExcelTable {
-    data_list: [TimeAttackDungeonRewardExcel];
-}
-
-root_type TimeAttackDungeonRewardExcelTable;

@@ -20,13 +20,16 @@ type ConquestPlayGuideExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_guide_title := b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey))
+	__offset_guide_image_path := b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey))
+	__offset_guide_text := b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelStart(b)
 	ConquestPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ConquestPlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
-	ConquestPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
-	ConquestPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
+	ConquestPlayGuideExcelAddGuideTitle(b, __offset_guide_title)
+	ConquestPlayGuideExcelAddGuideImagePath(b, __offset_guide_image_path)
+	ConquestPlayGuideExcelAddGuideText(b, __offset_guide_text)
 	return ConquestPlayGuideExcelEnd(b)
 }
 

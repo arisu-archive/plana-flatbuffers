@@ -1,0 +1,15 @@
+include "AssistRewardType.fbs";
+include "EchelonType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table AssistRewardExcel {
+    reward_type: AssistRewardType;
+    echelon_type: EchelonType;
+    reward_parcel_type: ParcelType;
+    reward_parcel_id: long;
+    reward_parcel_amount: long;
+}
+
+root_type AssistRewardExcel;

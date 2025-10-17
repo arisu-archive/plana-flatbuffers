@@ -32,6 +32,17 @@ type GuideMissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_toast_image_path := b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey))
+	var __offset_shortcut_ui flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui := make([]flatbuffers.UOffsetT, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		__stringOffsets_shortcut_ui[i] = b.CreateString(fbsutils.Convert(t.ShortcutUi[i], t.FlatBuffer.TableKey))
+	}
+	GuideMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui[len(t.ShortcutUi)-i-1])
+	}
+	__offset_shortcut_ui = b.EndVector(len(t.ShortcutUi))
 	GuideMissionExcelStart(b)
 	GuideMissionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -45,12 +56,8 @@ func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	GuideMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
 	GuideMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	GuideMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
-	GuideMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
-	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
-	}
-	GuideMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
+	GuideMissionExcelAddToastImagePath(b, __offset_toast_image_path)
+	GuideMissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	GuideMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddCompleteConditionCount(b, fbsutils.Convert(t.CompleteConditionCount, t.FlatBuffer.TableKey))
 	GuideMissionExcelStartCompleteConditionParameterVector(b, len(t.CompleteConditionParameter))

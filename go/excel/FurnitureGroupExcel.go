@@ -17,11 +17,19 @@ func GetRootAsFurnitureGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *Furn
 	return x
 }
 
+func FinishFurnitureGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFurnitureGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *FurnitureGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FurnitureGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFurnitureGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FurnitureGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

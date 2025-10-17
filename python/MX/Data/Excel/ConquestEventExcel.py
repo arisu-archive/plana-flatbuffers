@@ -206,87 +206,170 @@ class ConquestEventExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ConquestEventExcelStart(builder): builder.StartObject(26)
+def ConquestEventExcelStart(builder):
+    builder.StartObject(26)
+
 def Start(builder):
-    return ConquestEventExcelStart(builder)
-def ConquestEventExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    ConquestEventExcelStart(builder)
+
+def ConquestEventExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return ConquestEventExcelAddEventContentId(builder, eventContentId)
-def ConquestEventExcelAddMainStoryEventContentId(builder, mainStoryEventContentId): builder.PrependInt64Slot(1, mainStoryEventContentId, 0)
+    ConquestEventExcelAddEventContentId(builder, eventContentId)
+
+def ConquestEventExcelAddMainStoryEventContentId(builder, mainStoryEventContentId):
+    builder.PrependInt64Slot(1, mainStoryEventContentId, 0)
+
 def AddMainStoryEventContentId(builder, mainStoryEventContentId):
-    return ConquestEventExcelAddMainStoryEventContentId(builder, mainStoryEventContentId)
-def ConquestEventExcelAddConquestEventType(builder, conquestEventType): builder.PrependInt32Slot(2, conquestEventType, 0)
+    ConquestEventExcelAddMainStoryEventContentId(builder, mainStoryEventContentId)
+
+def ConquestEventExcelAddConquestEventType(builder, conquestEventType):
+    builder.PrependInt32Slot(2, conquestEventType, 0)
+
 def AddConquestEventType(builder, conquestEventType):
-    return ConquestEventExcelAddConquestEventType(builder, conquestEventType)
-def ConquestEventExcelAddUseErosion(builder, useErosion): builder.PrependBoolSlot(3, useErosion, 0)
+    ConquestEventExcelAddConquestEventType(builder, conquestEventType)
+
+def ConquestEventExcelAddUseErosion(builder, useErosion):
+    builder.PrependBoolSlot(3, useErosion, 0)
+
 def AddUseErosion(builder, useErosion):
-    return ConquestEventExcelAddUseErosion(builder, useErosion)
-def ConquestEventExcelAddUseUnexpectedEvent(builder, useUnexpectedEvent): builder.PrependBoolSlot(4, useUnexpectedEvent, 0)
+    ConquestEventExcelAddUseErosion(builder, useErosion)
+
+def ConquestEventExcelAddUseUnexpectedEvent(builder, useUnexpectedEvent):
+    builder.PrependBoolSlot(4, useUnexpectedEvent, 0)
+
 def AddUseUnexpectedEvent(builder, useUnexpectedEvent):
-    return ConquestEventExcelAddUseUnexpectedEvent(builder, useUnexpectedEvent)
-def ConquestEventExcelAddUseCalculate(builder, useCalculate): builder.PrependBoolSlot(5, useCalculate, 0)
+    ConquestEventExcelAddUseUnexpectedEvent(builder, useUnexpectedEvent)
+
+def ConquestEventExcelAddUseCalculate(builder, useCalculate):
+    builder.PrependBoolSlot(5, useCalculate, 0)
+
 def AddUseCalculate(builder, useCalculate):
-    return ConquestEventExcelAddUseCalculate(builder, useCalculate)
-def ConquestEventExcelAddUseConquestObject(builder, useConquestObject): builder.PrependBoolSlot(6, useConquestObject, 0)
+    ConquestEventExcelAddUseCalculate(builder, useCalculate)
+
+def ConquestEventExcelAddUseConquestObject(builder, useConquestObject):
+    builder.PrependBoolSlot(6, useConquestObject, 0)
+
 def AddUseConquestObject(builder, useConquestObject):
-    return ConquestEventExcelAddUseConquestObject(builder, useConquestObject)
-def ConquestEventExcelAddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(evnetMapGoalLocalize), 0)
+    ConquestEventExcelAddUseConquestObject(builder, useConquestObject)
+
+def ConquestEventExcelAddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(evnetMapGoalLocalize), 0)
+
 def AddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize):
-    return ConquestEventExcelAddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize)
-def ConquestEventExcelAddEvnetMapNameLocalize(builder, evnetMapNameLocalize): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(evnetMapNameLocalize), 0)
+    ConquestEventExcelAddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize)
+
+def ConquestEventExcelAddEvnetMapNameLocalize(builder, evnetMapNameLocalize):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(evnetMapNameLocalize), 0)
+
 def AddEvnetMapNameLocalize(builder, evnetMapNameLocalize):
-    return ConquestEventExcelAddEvnetMapNameLocalize(builder, evnetMapNameLocalize)
-def ConquestEventExcelAddMapEnterScenarioGroupId(builder, mapEnterScenarioGroupId): builder.PrependInt64Slot(9, mapEnterScenarioGroupId, 0)
+    ConquestEventExcelAddEvnetMapNameLocalize(builder, evnetMapNameLocalize)
+
+def ConquestEventExcelAddMapEnterScenarioGroupId(builder, mapEnterScenarioGroupId):
+    builder.PrependInt64Slot(9, mapEnterScenarioGroupId, 0)
+
 def AddMapEnterScenarioGroupId(builder, mapEnterScenarioGroupId):
-    return ConquestEventExcelAddMapEnterScenarioGroupId(builder, mapEnterScenarioGroupId)
-def ConquestEventExcelAddEvnetScenarioBg(builder, evnetScenarioBg): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(evnetScenarioBg), 0)
+    ConquestEventExcelAddMapEnterScenarioGroupId(builder, mapEnterScenarioGroupId)
+
+def ConquestEventExcelAddEvnetScenarioBg(builder, evnetScenarioBg):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(evnetScenarioBg), 0)
+
 def AddEvnetScenarioBg(builder, evnetScenarioBg):
-    return ConquestEventExcelAddEvnetScenarioBg(builder, evnetScenarioBg)
-def ConquestEventExcelAddManageUnitChange(builder, manageUnitChange): builder.PrependInt32Slot(11, manageUnitChange, 0)
+    ConquestEventExcelAddEvnetScenarioBg(builder, evnetScenarioBg)
+
+def ConquestEventExcelAddManageUnitChange(builder, manageUnitChange):
+    builder.PrependInt32Slot(11, manageUnitChange, 0)
+
 def AddManageUnitChange(builder, manageUnitChange):
-    return ConquestEventExcelAddManageUnitChange(builder, manageUnitChange)
-def ConquestEventExcelAddAssistCount(builder, assistCount): builder.PrependInt32Slot(12, assistCount, 0)
+    ConquestEventExcelAddManageUnitChange(builder, manageUnitChange)
+
+def ConquestEventExcelAddAssistCount(builder, assistCount):
+    builder.PrependInt32Slot(12, assistCount, 0)
+
 def AddAssistCount(builder, assistCount):
-    return ConquestEventExcelAddAssistCount(builder, assistCount)
-def ConquestEventExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt32Slot(13, playTimeLimitInSeconds, 0)
+    ConquestEventExcelAddAssistCount(builder, assistCount)
+
+def ConquestEventExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
+    builder.PrependInt32Slot(13, playTimeLimitInSeconds, 0)
+
 def AddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    return ConquestEventExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
-def ConquestEventExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin): builder.PrependInt32Slot(14, animationUnitAmountMin, 0)
+    ConquestEventExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
+
+def ConquestEventExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin):
+    builder.PrependInt32Slot(14, animationUnitAmountMin, 0)
+
 def AddAnimationUnitAmountMin(builder, animationUnitAmountMin):
-    return ConquestEventExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin)
-def ConquestEventExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax): builder.PrependInt32Slot(15, animationUnitAmountMax, 0)
+    ConquestEventExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin)
+
+def ConquestEventExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax):
+    builder.PrependInt32Slot(15, animationUnitAmountMax, 0)
+
 def AddAnimationUnitAmountMax(builder, animationUnitAmountMax):
-    return ConquestEventExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax)
-def ConquestEventExcelAddAnimationUnitDelay(builder, animationUnitDelay): builder.PrependFloat32Slot(16, animationUnitDelay, 0.0)
+    ConquestEventExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax)
+
+def ConquestEventExcelAddAnimationUnitDelay(builder, animationUnitDelay):
+    builder.PrependFloat32Slot(16, animationUnitDelay, 0.0)
+
 def AddAnimationUnitDelay(builder, animationUnitDelay):
-    return ConquestEventExcelAddAnimationUnitDelay(builder, animationUnitDelay)
-def ConquestEventExcelAddLocalizeUnexpected(builder, localizeUnexpected): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeUnexpected), 0)
+    ConquestEventExcelAddAnimationUnitDelay(builder, animationUnitDelay)
+
+def ConquestEventExcelAddLocalizeUnexpected(builder, localizeUnexpected):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeUnexpected), 0)
+
 def AddLocalizeUnexpected(builder, localizeUnexpected):
-    return ConquestEventExcelAddLocalizeUnexpected(builder, localizeUnexpected)
-def ConquestEventExcelAddLocalizeErosions(builder, localizeErosions): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeErosions), 0)
+    ConquestEventExcelAddLocalizeUnexpected(builder, localizeUnexpected)
+
+def ConquestEventExcelAddLocalizeErosions(builder, localizeErosions):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeErosions), 0)
+
 def AddLocalizeErosions(builder, localizeErosions):
-    return ConquestEventExcelAddLocalizeErosions(builder, localizeErosions)
-def ConquestEventExcelAddLocalizeStep(builder, localizeStep): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeStep), 0)
+    ConquestEventExcelAddLocalizeErosions(builder, localizeErosions)
+
+def ConquestEventExcelAddLocalizeStep(builder, localizeStep):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeStep), 0)
+
 def AddLocalizeStep(builder, localizeStep):
-    return ConquestEventExcelAddLocalizeStep(builder, localizeStep)
-def ConquestEventExcelAddLocalizeTile(builder, localizeTile): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTile), 0)
+    ConquestEventExcelAddLocalizeStep(builder, localizeStep)
+
+def ConquestEventExcelAddLocalizeTile(builder, localizeTile):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTile), 0)
+
 def AddLocalizeTile(builder, localizeTile):
-    return ConquestEventExcelAddLocalizeTile(builder, localizeTile)
-def ConquestEventExcelAddLocalizeMapInfo(builder, localizeMapInfo): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(localizeMapInfo), 0)
+    ConquestEventExcelAddLocalizeTile(builder, localizeTile)
+
+def ConquestEventExcelAddLocalizeMapInfo(builder, localizeMapInfo):
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(localizeMapInfo), 0)
+
 def AddLocalizeMapInfo(builder, localizeMapInfo):
-    return ConquestEventExcelAddLocalizeMapInfo(builder, localizeMapInfo)
-def ConquestEventExcelAddLocalizeManage(builder, localizeManage): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(localizeManage), 0)
+    ConquestEventExcelAddLocalizeMapInfo(builder, localizeMapInfo)
+
+def ConquestEventExcelAddLocalizeManage(builder, localizeManage):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(localizeManage), 0)
+
 def AddLocalizeManage(builder, localizeManage):
-    return ConquestEventExcelAddLocalizeManage(builder, localizeManage)
-def ConquestEventExcelAddLocalizeUpgrade(builder, localizeUpgrade): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(localizeUpgrade), 0)
+    ConquestEventExcelAddLocalizeManage(builder, localizeManage)
+
+def ConquestEventExcelAddLocalizeUpgrade(builder, localizeUpgrade):
+    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(localizeUpgrade), 0)
+
 def AddLocalizeUpgrade(builder, localizeUpgrade):
-    return ConquestEventExcelAddLocalizeUpgrade(builder, localizeUpgrade)
-def ConquestEventExcelAddLocalizeTreasureBox(builder, localizeTreasureBox): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTreasureBox), 0)
+    ConquestEventExcelAddLocalizeUpgrade(builder, localizeUpgrade)
+
+def ConquestEventExcelAddLocalizeTreasureBox(builder, localizeTreasureBox):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTreasureBox), 0)
+
 def AddLocalizeTreasureBox(builder, localizeTreasureBox):
-    return ConquestEventExcelAddLocalizeTreasureBox(builder, localizeTreasureBox)
-def ConquestEventExcelAddIndividualErosionDailyCount(builder, individualErosionDailyCount): builder.PrependInt64Slot(25, individualErosionDailyCount, 0)
+    ConquestEventExcelAddLocalizeTreasureBox(builder, localizeTreasureBox)
+
+def ConquestEventExcelAddIndividualErosionDailyCount(builder, individualErosionDailyCount):
+    builder.PrependInt64Slot(25, individualErosionDailyCount, 0)
+
 def AddIndividualErosionDailyCount(builder, individualErosionDailyCount):
-    return ConquestEventExcelAddIndividualErosionDailyCount(builder, individualErosionDailyCount)
-def ConquestEventExcelEnd(builder): return builder.EndObject()
+    ConquestEventExcelAddIndividualErosionDailyCount(builder, individualErosionDailyCount)
+
+def ConquestEventExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestEventExcelEnd(builder)

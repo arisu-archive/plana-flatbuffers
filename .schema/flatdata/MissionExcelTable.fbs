@@ -1,9 +1,0 @@
-include "MissionExcel.fbs";
-
-namespace FlatData;
-
-table MissionExcelTable {
-    data_list: [MissionExcel];
-}
-
-root_type MissionExcelTable;

@@ -27,17 +27,20 @@ func (t *CharacterDialogFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
+	__offset_motion_name := b.CreateString(fbsutils.Convert(t.MotionName, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelStart(b)
 	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddMotionName(b, b.CreateString(fbsutils.Convert(t.MotionName, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddMotionName(b, __offset_motion_name)
 	CharacterDialogFieldExcelAddIsInteractionDialog(b, t.IsInteractionDialog)
 	CharacterDialogFieldExcelAddHideUi(b, t.HideUi)
-	CharacterDialogFieldExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogFieldExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogFieldExcelAddLocalizeJp(b, __offset_localize_jp)
 	return CharacterDialogFieldExcelEnd(b)
 }
 

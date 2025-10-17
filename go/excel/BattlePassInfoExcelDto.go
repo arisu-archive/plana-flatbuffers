@@ -29,11 +29,15 @@ type BattlePassInfoExcelDto struct {
 	LobbyBannerPath               string  `json:"lobby_banner_path"`
 	MainIconParcelPath            string  `json:"main_icon_parcel_path"`
 	PurchaseStepProductImagePath  string  `json:"purchase_step_product_image_path"`
-	PurchaseStepBgImagePath       string  `json:"purchase_step_bg_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
+	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_lobby_banner_path := b.CreateString(fbsutils.Convert(t.LobbyBannerPath, t.FlatBuffer.TableKey))
+	__offset_main_icon_parcel_path := b.CreateString(fbsutils.Convert(t.MainIconParcelPath, t.FlatBuffer.TableKey))
+	__offset_purchase_step_product_image_path := b.CreateString(fbsutils.Convert(t.PurchaseStepProductImagePath, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelStart(b)
 	BattlePassInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddFreeRewardGroupId(b, fbsutils.Convert(t.FreeRewardGroupId, t.FlatBuffer.TableKey))
@@ -44,8 +48,8 @@ func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	BattlePassInfoExcelAddNextLvNeedExp(b, fbsutils.Convert(t.NextLvNeedExp, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddPassLvUpGoodsId(b, fbsutils.Convert(t.PassLvUpGoodsId, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddBuyPremiumLvUpAmount(b, fbsutils.Convert(t.BuyPremiumLvUpAmount, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	BattlePassInfoExcelAddSalePeriodFrom(b, __offset_sale_period_from)
+	BattlePassInfoExcelAddSalePeriodTo(b, __offset_sale_period_to)
 	BattlePassInfoExcelStartVideoIdVector(b, len(t.VideoId))
 	for i := range len(t.VideoId) {
 		b.PrependInt64(fbsutils.Convert(t.VideoId[len(t.VideoId)-i-1], t.FlatBuffer.TableKey))
@@ -55,10 +59,9 @@ func (t *BattlePassInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	BattlePassInfoExcelAddExclusiveRewardId(b, fbsutils.Convert(t.ExclusiveRewardId, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddExclusiveEmblemId(b, fbsutils.Convert(t.ExclusiveEmblemId, t.FlatBuffer.TableKey))
 	BattlePassInfoExcelAddPassExpLocalizeEtcId(b, fbsutils.Convert(t.PassExpLocalizeEtcId, t.FlatBuffer.TableKey))
-	BattlePassInfoExcelAddLobbyBannerPath(b, b.CreateString(fbsutils.Convert(t.LobbyBannerPath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddMainIconParcelPath(b, b.CreateString(fbsutils.Convert(t.MainIconParcelPath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddPurchaseStepProductImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepProductImagePath, t.FlatBuffer.TableKey)))
-	BattlePassInfoExcelAddPurchaseStepBgImagePath(b, b.CreateString(fbsutils.Convert(t.PurchaseStepBgImagePath, t.FlatBuffer.TableKey)))
+	BattlePassInfoExcelAddLobbyBannerPath(b, __offset_lobby_banner_path)
+	BattlePassInfoExcelAddMainIconParcelPath(b, __offset_main_icon_parcel_path)
+	BattlePassInfoExcelAddPurchaseStepProductImagePath(b, __offset_purchase_step_product_image_path)
 	return BattlePassInfoExcelEnd(b)
 }
 
@@ -93,7 +96,6 @@ func (t *BattlePassInfoExcelDto) UnmarshalMessage(e *BattlePassInfoExcel) error 
 	t.LobbyBannerPath = fbsutils.Convert(string(e.LobbyBannerPath()), t.FlatBuffer.TableKey)
 	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
 	t.PurchaseStepProductImagePath = fbsutils.Convert(string(e.PurchaseStepProductImagePath()), t.FlatBuffer.TableKey)
-	t.PurchaseStepBgImagePath = fbsutils.Convert(string(e.PurchaseStepBgImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

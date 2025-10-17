@@ -17,11 +17,19 @@ func GetRootAsVideoExcel(buf []byte, offset flatbuffers.UOffsetT) *VideoExcel {
 	return x
 }
 
+func FinishVideoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsVideoExcel(buf []byte, offset flatbuffers.UOffsetT) *VideoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &VideoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedVideoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *VideoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

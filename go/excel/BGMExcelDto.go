@@ -22,6 +22,16 @@ type BGMExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_path flatbuffers.UOffsetT
+	__stringOffsets_path := make([]flatbuffers.UOffsetT, len(t.Path))
+	for i := range len(t.Path) {
+		__stringOffsets_path[i] = b.CreateString(fbsutils.Convert(t.Path[i], t.FlatBuffer.TableKey))
+	}
+	BGMExcelStartPathVector(b, len(t.Path))
+	for i := range len(t.Path) {
+		b.PrependUOffsetT(__stringOffsets_path[len(t.Path)-i-1])
+	}
+	__offset_path = b.EndVector(len(t.Path))
 	BGMExcelStart(b)
 	BGMExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BGMExcelStartNationVector(b, len(t.Nation))
@@ -29,11 +39,7 @@ func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
 	}
 	BGMExcelAddNation(b, b.EndVector(len(t.Nation)))
-	BGMExcelStartPathVector(b, len(t.Path))
-	for i := range len(t.Path) {
-		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
-	}
-	BGMExcelAddPath(b, b.EndVector(len(t.Path)))
+	BGMExcelAddPath(b, __offset_path)
 	BGMExcelStartVolumeVector(b, len(t.Volume))
 	for i := range len(t.Volume) {
 		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))

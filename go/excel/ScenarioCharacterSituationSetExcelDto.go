@@ -21,12 +21,16 @@ type ScenarioCharacterSituationSetExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterSituationSetExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_face := b.CreateString(fbsutils.Convert(t.Face, t.FlatBuffer.TableKey))
+	__offset_behavior := b.CreateString(fbsutils.Convert(t.Behavior, t.FlatBuffer.TableKey))
+	__offset_action := b.CreateString(fbsutils.Convert(t.Action, t.FlatBuffer.TableKey))
+	__offset_shape := b.CreateString(fbsutils.Convert(t.Shape, t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelStart(b)
 	ScenarioCharacterSituationSetExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	ScenarioCharacterSituationSetExcelAddFace(b, b.CreateString(fbsutils.Convert(t.Face, t.FlatBuffer.TableKey)))
-	ScenarioCharacterSituationSetExcelAddBehavior(b, b.CreateString(fbsutils.Convert(t.Behavior, t.FlatBuffer.TableKey)))
-	ScenarioCharacterSituationSetExcelAddAction(b, b.CreateString(fbsutils.Convert(t.Action, t.FlatBuffer.TableKey)))
-	ScenarioCharacterSituationSetExcelAddShape(b, b.CreateString(fbsutils.Convert(t.Shape, t.FlatBuffer.TableKey)))
+	ScenarioCharacterSituationSetExcelAddFace(b, __offset_face)
+	ScenarioCharacterSituationSetExcelAddBehavior(b, __offset_behavior)
+	ScenarioCharacterSituationSetExcelAddAction(b, __offset_action)
+	ScenarioCharacterSituationSetExcelAddShape(b, __offset_shape)
 	ScenarioCharacterSituationSetExcelAddEffect(b, fbsutils.Convert(t.Effect, t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelAddEmotion(b, fbsutils.Convert(t.Emotion, t.FlatBuffer.TableKey))
 	return ScenarioCharacterSituationSetExcelEnd(b)

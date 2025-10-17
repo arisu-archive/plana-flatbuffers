@@ -1,9 +1,0 @@
-include "MiniGameRhythmExcel.fbs";
-
-namespace FlatData;
-
-table MiniGameRhythmExcelTable {
-    data_list: [MiniGameRhythmExcel];
-}
-
-root_type MiniGameRhythmExcelTable;

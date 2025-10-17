@@ -1,9 +1,0 @@
-include "ProductExcel.fbs";
-
-namespace FlatData;
-
-table ProductExcelTable {
-    data_list: [ProductExcel];
-}
-
-root_type ProductExcelTable;

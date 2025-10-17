@@ -78,27 +78,50 @@ class CheatCodeListExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def CheatCodeListExcelStart(builder): builder.StartObject(4)
+def CheatCodeListExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return CheatCodeListExcelStart(builder)
-def CheatCodeListExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    CheatCodeListExcelStart(builder)
+
+def CheatCodeListExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return CheatCodeListExcelAddId(builder, id)
-def CheatCodeListExcelAddCheatCode(builder, cheatCode): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(cheatCode), 0)
+    CheatCodeListExcelAddId(builder, id)
+
+def CheatCodeListExcelAddCheatCode(builder, cheatCode):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(cheatCode), 0)
+
 def AddCheatCode(builder, cheatCode):
-    return CheatCodeListExcelAddCheatCode(builder, cheatCode)
-def CheatCodeListExcelStartCheatCodeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CheatCodeListExcelAddCheatCode(builder, cheatCode)
+
+def CheatCodeListExcelStartCheatCodeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartCheatCodeVector(builder, numElems):
     return CheatCodeListExcelStartCheatCodeVector(builder, numElems)
-def CheatCodeListExcelAddInputTitle(builder, inputTitle): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(inputTitle), 0)
+
+def CheatCodeListExcelAddInputTitle(builder, inputTitle):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(inputTitle), 0)
+
 def AddInputTitle(builder, inputTitle):
-    return CheatCodeListExcelAddInputTitle(builder, inputTitle)
-def CheatCodeListExcelStartInputTitleVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CheatCodeListExcelAddInputTitle(builder, inputTitle)
+
+def CheatCodeListExcelStartInputTitleVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartInputTitleVector(builder, numElems):
     return CheatCodeListExcelStartInputTitleVector(builder, numElems)
-def CheatCodeListExcelAddDesc(builder, desc): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(desc), 0)
+
+def CheatCodeListExcelAddDesc(builder, desc):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(desc), 0)
+
 def AddDesc(builder, desc):
-    return CheatCodeListExcelAddDesc(builder, desc)
-def CheatCodeListExcelEnd(builder): return builder.EndObject()
+    CheatCodeListExcelAddDesc(builder, desc)
+
+def CheatCodeListExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CheatCodeListExcelEnd(builder)

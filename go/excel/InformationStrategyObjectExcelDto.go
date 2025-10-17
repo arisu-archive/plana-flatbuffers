@@ -18,11 +18,13 @@ type InformationStrategyObjectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *InformationStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_page_name := b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey))
+	__offset_localize_code_id := b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	InformationStrategyObjectExcelStart(b)
 	InformationStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	InformationStrategyObjectExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
-	InformationStrategyObjectExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
-	InformationStrategyObjectExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	InformationStrategyObjectExcelAddPageName(b, __offset_page_name)
+	InformationStrategyObjectExcelAddLocalizeCodeId(b, __offset_localize_code_id)
 	return InformationStrategyObjectExcelEnd(b)
 }
 

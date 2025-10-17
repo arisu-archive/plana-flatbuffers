@@ -47,9 +47,10 @@ type PresetCharacterGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PresetCharacterGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_get_preset_type := b.CreateString(fbsutils.Convert(t.GetPresetType, t.FlatBuffer.TableKey))
 	PresetCharacterGroupExcelStart(b)
 	PresetCharacterGroupExcelAddPresetCharacterGroupId(b, fbsutils.Convert(t.PresetCharacterGroupId, t.FlatBuffer.TableKey))
-	PresetCharacterGroupExcelAddGetPresetType(b, b.CreateString(fbsutils.Convert(t.GetPresetType, t.FlatBuffer.TableKey)))
+	PresetCharacterGroupExcelAddGetPresetType(b, __offset_get_preset_type)
 	PresetCharacterGroupExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	PresetCharacterGroupExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
 	PresetCharacterGroupExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))

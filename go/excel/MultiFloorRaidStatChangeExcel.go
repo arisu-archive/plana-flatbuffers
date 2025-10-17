@@ -17,11 +17,19 @@ func GetRootAsMultiFloorRaidStatChangeExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
+func FinishMultiFloorRaidStatChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMultiFloorRaidStatChangeExcel(buf []byte, offset flatbuffers.UOffsetT) *MultiFloorRaidStatChangeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MultiFloorRaidStatChangeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMultiFloorRaidStatChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MultiFloorRaidStatChangeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,9 +1,0 @@
-include "GachaCraftNodeGroupExcel.fbs";
-
-namespace FlatData;
-
-table GachaCraftNodeGroupExcelTable {
-    data_list: [GachaCraftNodeGroupExcel];
-}
-
-root_type GachaCraftNodeGroupExcelTable;

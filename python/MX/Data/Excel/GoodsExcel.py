@@ -370,96 +370,188 @@ class GoodsExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         return o == 0
 
-def GoodsExcelStart(builder): builder.StartObject(18)
+def GoodsExcelStart(builder):
+    builder.StartObject(18)
+
 def Start(builder):
-    return GoodsExcelStart(builder)
-def GoodsExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    GoodsExcelStart(builder)
+
+def GoodsExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return GoodsExcelAddId(builder, id)
-def GoodsExcelAddType(builder, type): builder.PrependInt32Slot(1, type, 0)
+    GoodsExcelAddId(builder, id)
+
+def GoodsExcelAddType(builder, type):
+    builder.PrependInt32Slot(1, type, 0)
+
 def AddType(builder, type):
-    return GoodsExcelAddType(builder, type)
-def GoodsExcelAddRarity(builder, rarity): builder.PrependInt32Slot(2, rarity, 0)
+    GoodsExcelAddType(builder, type)
+
+def GoodsExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(2, rarity, 0)
+
 def AddRarity(builder, rarity):
-    return GoodsExcelAddRarity(builder, rarity)
-def GoodsExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+    GoodsExcelAddRarity(builder, rarity)
+
+def GoodsExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+
 def AddIconPath(builder, iconPath):
-    return GoodsExcelAddIconPath(builder, iconPath)
-def GoodsExcelAddConsumeParcelType(builder, consumeParcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelType), 0)
+    GoodsExcelAddIconPath(builder, iconPath)
+
+def GoodsExcelAddConsumeParcelType(builder, consumeParcelType):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelType), 0)
+
 def AddConsumeParcelType(builder, consumeParcelType):
-    return GoodsExcelAddConsumeParcelType(builder, consumeParcelType)
-def GoodsExcelStartConsumeParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GoodsExcelAddConsumeParcelType(builder, consumeParcelType)
+
+def GoodsExcelStartConsumeParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartConsumeParcelTypeVector(builder, numElems):
     return GoodsExcelStartConsumeParcelTypeVector(builder, numElems)
-def GoodsExcelAddConsumeParcelId(builder, consumeParcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelId), 0)
+
+def GoodsExcelAddConsumeParcelId(builder, consumeParcelId):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelId), 0)
+
 def AddConsumeParcelId(builder, consumeParcelId):
-    return GoodsExcelAddConsumeParcelId(builder, consumeParcelId)
-def GoodsExcelStartConsumeParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddConsumeParcelId(builder, consumeParcelId)
+
+def GoodsExcelStartConsumeParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConsumeParcelIdVector(builder, numElems):
     return GoodsExcelStartConsumeParcelIdVector(builder, numElems)
-def GoodsExcelAddConsumeParcelAmount(builder, consumeParcelAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelAmount), 0)
+
+def GoodsExcelAddConsumeParcelAmount(builder, consumeParcelAmount):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(consumeParcelAmount), 0)
+
 def AddConsumeParcelAmount(builder, consumeParcelAmount):
-    return GoodsExcelAddConsumeParcelAmount(builder, consumeParcelAmount)
-def GoodsExcelStartConsumeParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddConsumeParcelAmount(builder, consumeParcelAmount)
+
+def GoodsExcelStartConsumeParcelAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConsumeParcelAmountVector(builder, numElems):
     return GoodsExcelStartConsumeParcelAmountVector(builder, numElems)
-def GoodsExcelAddConsumeCondition(builder, consumeCondition): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(consumeCondition), 0)
+
+def GoodsExcelAddConsumeCondition(builder, consumeCondition):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(consumeCondition), 0)
+
 def AddConsumeCondition(builder, consumeCondition):
-    return GoodsExcelAddConsumeCondition(builder, consumeCondition)
-def GoodsExcelStartConsumeConditionVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GoodsExcelAddConsumeCondition(builder, consumeCondition)
+
+def GoodsExcelStartConsumeConditionVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartConsumeConditionVector(builder, numElems):
     return GoodsExcelStartConsumeConditionVector(builder, numElems)
-def GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketType), 0)
+
+def GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketType), 0)
+
 def AddConsumeGachaTicketType(builder, consumeGachaTicketType):
-    return GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType)
-def GoodsExcelStartConsumeGachaTicketTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType)
+
+def GoodsExcelStartConsumeGachaTicketTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartConsumeGachaTicketTypeVector(builder, numElems):
     return GoodsExcelStartConsumeGachaTicketTypeVector(builder, numElems)
-def GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketTypeAmount), 0)
+
+def GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(consumeGachaTicketTypeAmount), 0)
+
 def AddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount):
-    return GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount)
-def GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount)
+
+def GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConsumeGachaTicketTypeAmountVector(builder, numElems):
     return GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems)
-def GoodsExcelAddProductIdAos(builder, productIdAos): builder.PrependInt64Slot(10, productIdAos, 0)
+
+def GoodsExcelAddProductIdAos(builder, productIdAos):
+    builder.PrependInt64Slot(10, productIdAos, 0)
+
 def AddProductIdAos(builder, productIdAos):
-    return GoodsExcelAddProductIdAos(builder, productIdAos)
-def GoodsExcelAddProductIdiOs(builder, productIdiOs): builder.PrependInt64Slot(11, productIdiOs, 0)
+    GoodsExcelAddProductIdAos(builder, productIdAos)
+
+def GoodsExcelAddProductIdiOs(builder, productIdiOs):
+    builder.PrependInt64Slot(11, productIdiOs, 0)
+
 def AddProductIdiOs(builder, productIdiOs):
-    return GoodsExcelAddProductIdiOs(builder, productIdiOs)
-def GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraStep), 0)
+    GoodsExcelAddProductIdiOs(builder, productIdiOs)
+
+def GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraStep), 0)
+
 def AddConsumeExtraStep(builder, consumeExtraStep):
-    return GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep)
-def GoodsExcelStartConsumeExtraStepVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep)
+
+def GoodsExcelStartConsumeExtraStepVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConsumeExtraStepVector(builder, numElems):
     return GoodsExcelStartConsumeExtraStepVector(builder, numElems)
-def GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraAmount), 0)
+
+def GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraAmount), 0)
+
 def AddConsumeExtraAmount(builder, consumeExtraAmount):
-    return GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount)
-def GoodsExcelStartConsumeExtraAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount)
+
+def GoodsExcelStartConsumeExtraAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConsumeExtraAmountVector(builder, numElems):
     return GoodsExcelStartConsumeExtraAmountVector(builder, numElems)
-def GoodsExcelAddState(builder, state): builder.PrependInt32Slot(14, state, 0)
+
+def GoodsExcelAddState(builder, state):
+    builder.PrependInt32Slot(14, state, 0)
+
 def AddState(builder, state):
-    return GoodsExcelAddState(builder, state)
-def GoodsExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+    GoodsExcelAddState(builder, state)
+
+def GoodsExcelAddParcelType(builder, parcelType):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+
 def AddParcelType(builder, parcelType):
-    return GoodsExcelAddParcelType(builder, parcelType)
-def GoodsExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GoodsExcelAddParcelType(builder, parcelType)
+
+def GoodsExcelStartParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartParcelTypeVector(builder, numElems):
     return GoodsExcelStartParcelTypeVector(builder, numElems)
-def GoodsExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+
+def GoodsExcelAddParcelId(builder, parcelId):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+
 def AddParcelId(builder, parcelId):
-    return GoodsExcelAddParcelId(builder, parcelId)
-def GoodsExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddParcelId(builder, parcelId)
+
+def GoodsExcelStartParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartParcelIdVector(builder, numElems):
     return GoodsExcelStartParcelIdVector(builder, numElems)
-def GoodsExcelAddParcelAmount(builder, parcelAmount): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
+
+def GoodsExcelAddParcelAmount(builder, parcelAmount):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
+
 def AddParcelAmount(builder, parcelAmount):
-    return GoodsExcelAddParcelAmount(builder, parcelAmount)
-def GoodsExcelStartParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    GoodsExcelAddParcelAmount(builder, parcelAmount)
+
+def GoodsExcelStartParcelAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartParcelAmountVector(builder, numElems):
     return GoodsExcelStartParcelAmountVector(builder, numElems)
-def GoodsExcelEnd(builder): return builder.EndObject()
+
+def GoodsExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GoodsExcelEnd(builder)

@@ -115,48 +115,92 @@ class MiniGameDreamInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameDreamInfoExcelStart(builder): builder.StartObject(13)
+def MiniGameDreamInfoExcelStart(builder):
+    builder.StartObject(13)
+
 def Start(builder):
-    return MiniGameDreamInfoExcelStart(builder)
-def MiniGameDreamInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    MiniGameDreamInfoExcelStart(builder)
+
+def MiniGameDreamInfoExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MiniGameDreamInfoExcelAddEventContentId(builder, eventContentId)
-def MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(builder, dreamMakerMultiplierCondition): builder.PrependInt32Slot(1, dreamMakerMultiplierCondition, 0)
+    MiniGameDreamInfoExcelAddEventContentId(builder, eventContentId)
+
+def MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(builder, dreamMakerMultiplierCondition):
+    builder.PrependInt32Slot(1, dreamMakerMultiplierCondition, 0)
+
 def AddDreamMakerMultiplierCondition(builder, dreamMakerMultiplierCondition):
-    return MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(builder, dreamMakerMultiplierCondition)
-def MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(builder, dreamMakerMultiplierConditionValue): builder.PrependInt64Slot(2, dreamMakerMultiplierConditionValue, 0)
+    MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(builder, dreamMakerMultiplierCondition)
+
+def MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(builder, dreamMakerMultiplierConditionValue):
+    builder.PrependInt64Slot(2, dreamMakerMultiplierConditionValue, 0)
+
 def AddDreamMakerMultiplierConditionValue(builder, dreamMakerMultiplierConditionValue):
-    return MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(builder, dreamMakerMultiplierConditionValue)
-def MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(builder, dreamMakerMultiplierMax): builder.PrependInt64Slot(3, dreamMakerMultiplierMax, 0)
+    MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(builder, dreamMakerMultiplierConditionValue)
+
+def MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(builder, dreamMakerMultiplierMax):
+    builder.PrependInt64Slot(3, dreamMakerMultiplierMax, 0)
+
 def AddDreamMakerMultiplierMax(builder, dreamMakerMultiplierMax):
-    return MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(builder, dreamMakerMultiplierMax)
-def MiniGameDreamInfoExcelAddDreamMakerDays(builder, dreamMakerDays): builder.PrependInt64Slot(4, dreamMakerDays, 0)
+    MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(builder, dreamMakerMultiplierMax)
+
+def MiniGameDreamInfoExcelAddDreamMakerDays(builder, dreamMakerDays):
+    builder.PrependInt64Slot(4, dreamMakerDays, 0)
+
 def AddDreamMakerDays(builder, dreamMakerDays):
-    return MiniGameDreamInfoExcelAddDreamMakerDays(builder, dreamMakerDays)
-def MiniGameDreamInfoExcelAddDreamMakerActionPoint(builder, dreamMakerActionPoint): builder.PrependInt64Slot(5, dreamMakerActionPoint, 0)
+    MiniGameDreamInfoExcelAddDreamMakerDays(builder, dreamMakerDays)
+
+def MiniGameDreamInfoExcelAddDreamMakerActionPoint(builder, dreamMakerActionPoint):
+    builder.PrependInt64Slot(5, dreamMakerActionPoint, 0)
+
 def AddDreamMakerActionPoint(builder, dreamMakerActionPoint):
-    return MiniGameDreamInfoExcelAddDreamMakerActionPoint(builder, dreamMakerActionPoint)
-def MiniGameDreamInfoExcelAddDreamMakerParcelType(builder, dreamMakerParcelType): builder.PrependInt32Slot(6, dreamMakerParcelType, 0)
+    MiniGameDreamInfoExcelAddDreamMakerActionPoint(builder, dreamMakerActionPoint)
+
+def MiniGameDreamInfoExcelAddDreamMakerParcelType(builder, dreamMakerParcelType):
+    builder.PrependInt32Slot(6, dreamMakerParcelType, 0)
+
 def AddDreamMakerParcelType(builder, dreamMakerParcelType):
-    return MiniGameDreamInfoExcelAddDreamMakerParcelType(builder, dreamMakerParcelType)
-def MiniGameDreamInfoExcelAddDreamMakerParcelId(builder, dreamMakerParcelId): builder.PrependInt64Slot(7, dreamMakerParcelId, 0)
+    MiniGameDreamInfoExcelAddDreamMakerParcelType(builder, dreamMakerParcelType)
+
+def MiniGameDreamInfoExcelAddDreamMakerParcelId(builder, dreamMakerParcelId):
+    builder.PrependInt64Slot(7, dreamMakerParcelId, 0)
+
 def AddDreamMakerParcelId(builder, dreamMakerParcelId):
-    return MiniGameDreamInfoExcelAddDreamMakerParcelId(builder, dreamMakerParcelId)
-def MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(builder, dreamMakerDailyPointParcelType): builder.PrependInt32Slot(8, dreamMakerDailyPointParcelType, 0)
+    MiniGameDreamInfoExcelAddDreamMakerParcelId(builder, dreamMakerParcelId)
+
+def MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(builder, dreamMakerDailyPointParcelType):
+    builder.PrependInt32Slot(8, dreamMakerDailyPointParcelType, 0)
+
 def AddDreamMakerDailyPointParcelType(builder, dreamMakerDailyPointParcelType):
-    return MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(builder, dreamMakerDailyPointParcelType)
-def MiniGameDreamInfoExcelAddDreamMakerDailyPointId(builder, dreamMakerDailyPointId): builder.PrependInt64Slot(9, dreamMakerDailyPointId, 0)
+    MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(builder, dreamMakerDailyPointParcelType)
+
+def MiniGameDreamInfoExcelAddDreamMakerDailyPointId(builder, dreamMakerDailyPointId):
+    builder.PrependInt64Slot(9, dreamMakerDailyPointId, 0)
+
 def AddDreamMakerDailyPointId(builder, dreamMakerDailyPointId):
-    return MiniGameDreamInfoExcelAddDreamMakerDailyPointId(builder, dreamMakerDailyPointId)
-def MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(builder, dreamMakerParameterTransfer): builder.PrependInt64Slot(10, dreamMakerParameterTransfer, 0)
+    MiniGameDreamInfoExcelAddDreamMakerDailyPointId(builder, dreamMakerDailyPointId)
+
+def MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(builder, dreamMakerParameterTransfer):
+    builder.PrependInt64Slot(10, dreamMakerParameterTransfer, 0)
+
 def AddDreamMakerParameterTransfer(builder, dreamMakerParameterTransfer):
-    return MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(builder, dreamMakerParameterTransfer)
-def MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder, scheduleCostGoodsId): builder.PrependInt64Slot(11, scheduleCostGoodsId, 0)
+    MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(builder, dreamMakerParameterTransfer)
+
+def MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder, scheduleCostGoodsId):
+    builder.PrependInt64Slot(11, scheduleCostGoodsId, 0)
+
 def AddScheduleCostGoodsId(builder, scheduleCostGoodsId):
-    return MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder, scheduleCostGoodsId)
-def MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(builder, lobbyBgmChangeScenarioId): builder.PrependInt64Slot(12, lobbyBgmChangeScenarioId, 0)
+    MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder, scheduleCostGoodsId)
+
+def MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(builder, lobbyBgmChangeScenarioId):
+    builder.PrependInt64Slot(12, lobbyBgmChangeScenarioId, 0)
+
 def AddLobbyBgmChangeScenarioId(builder, lobbyBgmChangeScenarioId):
-    return MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(builder, lobbyBgmChangeScenarioId)
-def MiniGameDreamInfoExcelEnd(builder): return builder.EndObject()
+    MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(builder, lobbyBgmChangeScenarioId)
+
+def MiniGameDreamInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameDreamInfoExcelEnd(builder)

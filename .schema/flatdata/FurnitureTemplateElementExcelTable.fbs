@@ -1,9 +1,0 @@
-include "FurnitureTemplateElementExcel.fbs";
-
-namespace FlatData;
-
-table FurnitureTemplateElementExcelTable {
-    data_list: [FurnitureTemplateElementExcel];
-}
-
-root_type FurnitureTemplateElementExcelTable;

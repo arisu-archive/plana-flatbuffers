@@ -1,9 +1,0 @@
-include "CampaignUnitExcel.fbs";
-
-namespace FlatData;
-
-table CampaignUnitExcelTable {
-    data_list: [CampaignUnitExcel];
-}
-
-root_type CampaignUnitExcelTable;

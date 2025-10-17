@@ -21,22 +21,35 @@ type TutorialExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_completion_report_event_name := b.CreateString(fbsutils.Convert(t.CompletionReportEventName, t.FlatBuffer.TableKey))
+	var __offset_ui_name flatbuffers.UOffsetT
+	__stringOffsets_ui_name := make([]flatbuffers.UOffsetT, len(t.UiName))
+	for i := range len(t.UiName) {
+		__stringOffsets_ui_name[i] = b.CreateString(fbsutils.Convert(t.UiName[i], t.FlatBuffer.TableKey))
+	}
+	TutorialExcelStartUiNameVector(b, len(t.UiName))
+	for i := range len(t.UiName) {
+		b.PrependUOffsetT(__stringOffsets_ui_name[len(t.UiName)-i-1])
+	}
+	__offset_ui_name = b.EndVector(len(t.UiName))
+	var __offset_tutorial_parent_name flatbuffers.UOffsetT
+	__stringOffsets_tutorial_parent_name := make([]flatbuffers.UOffsetT, len(t.TutorialParentName))
+	for i := range len(t.TutorialParentName) {
+		__stringOffsets_tutorial_parent_name[i] = b.CreateString(fbsutils.Convert(t.TutorialParentName[i], t.FlatBuffer.TableKey))
+	}
+	TutorialExcelStartTutorialParentNameVector(b, len(t.TutorialParentName))
+	for i := range len(t.TutorialParentName) {
+		b.PrependUOffsetT(__stringOffsets_tutorial_parent_name[len(t.TutorialParentName)-i-1])
+	}
+	__offset_tutorial_parent_name = b.EndVector(len(t.TutorialParentName))
 	TutorialExcelStart(b)
 	TutorialExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TutorialExcelAddCompletionReportEventName(b, b.CreateString(fbsutils.Convert(t.CompletionReportEventName, t.FlatBuffer.TableKey)))
+	TutorialExcelAddCompletionReportEventName(b, __offset_completion_report_event_name)
 	TutorialExcelAddCompulsoryTutorial(b, t.CompulsoryTutorial)
 	TutorialExcelAddDescriptionTutorial(b, t.DescriptionTutorial)
 	TutorialExcelAddTutorialStageId(b, fbsutils.Convert(t.TutorialStageId, t.FlatBuffer.TableKey))
-	TutorialExcelStartUiNameVector(b, len(t.UiName))
-	for i := range len(t.UiName) {
-		b.PrependUOffsetT(b.CreateString(t.UiName[len(t.UiName)-i-1]))
-	}
-	TutorialExcelAddUiName(b, b.EndVector(len(t.UiName)))
-	TutorialExcelStartTutorialParentNameVector(b, len(t.TutorialParentName))
-	for i := range len(t.TutorialParentName) {
-		b.PrependUOffsetT(b.CreateString(t.TutorialParentName[len(t.TutorialParentName)-i-1]))
-	}
-	TutorialExcelAddTutorialParentName(b, b.EndVector(len(t.TutorialParentName)))
+	TutorialExcelAddUiName(b, __offset_ui_name)
+	TutorialExcelAddTutorialParentName(b, __offset_tutorial_parent_name)
 	return TutorialExcelEnd(b)
 }
 

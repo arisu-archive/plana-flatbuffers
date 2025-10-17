@@ -20,13 +20,16 @@ type MiniGamePlayGuideExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGamePlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_guide_title := b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey))
+	__offset_guide_image_path := b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey))
+	__offset_guide_text := b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelStart(b)
 	MiniGamePlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	MiniGamePlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
-	MiniGamePlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
-	MiniGamePlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
+	MiniGamePlayGuideExcelAddGuideTitle(b, __offset_guide_title)
+	MiniGamePlayGuideExcelAddGuideImagePath(b, __offset_guide_image_path)
+	MiniGamePlayGuideExcelAddGuideText(b, __offset_guide_text)
 	return MiniGamePlayGuideExcelEnd(b)
 }
 

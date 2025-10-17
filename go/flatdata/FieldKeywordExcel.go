@@ -17,11 +17,19 @@ func GetRootAsFieldKeywordExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldK
 	return x
 }
 
+func FinishFieldKeywordExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldKeywordExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldKeywordExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldKeywordExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldKeywordExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldKeywordExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

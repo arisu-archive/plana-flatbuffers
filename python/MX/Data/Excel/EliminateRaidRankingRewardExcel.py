@@ -128,28 +128,8 @@ class EliminateRaidRankingRewardExcel(object):
         return o == 0
 
     # EliminateRaidRankingRewardExcel
-    def RewardParcelUniqueName(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # EliminateRaidRankingRewardExcel
-    def RewardParcelUniqueNameLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EliminateRaidRankingRewardExcel
-    def RewardParcelUniqueNameIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        return o == 0
-
-    # EliminateRaidRankingRewardExcel
     def RewardParcelAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -157,71 +137,109 @@ class EliminateRaidRankingRewardExcel(object):
 
     # EliminateRaidRankingRewardExcel
     def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EliminateRaidRankingRewardExcel
     def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EliminateRaidRankingRewardExcel
     def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
-def EliminateRaidRankingRewardExcelStart(builder): builder.StartObject(11)
+def EliminateRaidRankingRewardExcelStart(builder):
+    builder.StartObject(10)
+
 def Start(builder):
-    return EliminateRaidRankingRewardExcelStart(builder)
-def EliminateRaidRankingRewardExcelAddRankingRewardGroupId(builder, rankingRewardGroupId): builder.PrependInt64Slot(0, rankingRewardGroupId, 0)
+    EliminateRaidRankingRewardExcelStart(builder)
+
+def EliminateRaidRankingRewardExcelAddRankingRewardGroupId(builder, rankingRewardGroupId):
+    builder.PrependInt64Slot(0, rankingRewardGroupId, 0)
+
 def AddRankingRewardGroupId(builder, rankingRewardGroupId):
-    return EliminateRaidRankingRewardExcelAddRankingRewardGroupId(builder, rankingRewardGroupId)
-def EliminateRaidRankingRewardExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    EliminateRaidRankingRewardExcelAddRankingRewardGroupId(builder, rankingRewardGroupId)
+
+def EliminateRaidRankingRewardExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return EliminateRaidRankingRewardExcelAddId(builder, id)
-def EliminateRaidRankingRewardExcelAddRankStart(builder, rankStart): builder.PrependInt64Slot(2, rankStart, 0)
+    EliminateRaidRankingRewardExcelAddId(builder, id)
+
+def EliminateRaidRankingRewardExcelAddRankStart(builder, rankStart):
+    builder.PrependInt64Slot(2, rankStart, 0)
+
 def AddRankStart(builder, rankStart):
-    return EliminateRaidRankingRewardExcelAddRankStart(builder, rankStart)
-def EliminateRaidRankingRewardExcelAddRankEnd(builder, rankEnd): builder.PrependInt64Slot(3, rankEnd, 0)
+    EliminateRaidRankingRewardExcelAddRankStart(builder, rankStart)
+
+def EliminateRaidRankingRewardExcelAddRankEnd(builder, rankEnd):
+    builder.PrependInt64Slot(3, rankEnd, 0)
+
 def AddRankEnd(builder, rankEnd):
-    return EliminateRaidRankingRewardExcelAddRankEnd(builder, rankEnd)
-def EliminateRaidRankingRewardExcelAddPercentRankStart(builder, percentRankStart): builder.PrependInt64Slot(4, percentRankStart, 0)
+    EliminateRaidRankingRewardExcelAddRankEnd(builder, rankEnd)
+
+def EliminateRaidRankingRewardExcelAddPercentRankStart(builder, percentRankStart):
+    builder.PrependInt64Slot(4, percentRankStart, 0)
+
 def AddPercentRankStart(builder, percentRankStart):
-    return EliminateRaidRankingRewardExcelAddPercentRankStart(builder, percentRankStart)
-def EliminateRaidRankingRewardExcelAddPercentRankEnd(builder, percentRankEnd): builder.PrependInt64Slot(5, percentRankEnd, 0)
+    EliminateRaidRankingRewardExcelAddPercentRankStart(builder, percentRankStart)
+
+def EliminateRaidRankingRewardExcelAddPercentRankEnd(builder, percentRankEnd):
+    builder.PrependInt64Slot(5, percentRankEnd, 0)
+
 def AddPercentRankEnd(builder, percentRankEnd):
-    return EliminateRaidRankingRewardExcelAddPercentRankEnd(builder, percentRankEnd)
-def EliminateRaidRankingRewardExcelAddTier(builder, tier): builder.PrependInt32Slot(6, tier, 0)
+    EliminateRaidRankingRewardExcelAddPercentRankEnd(builder, percentRankEnd)
+
+def EliminateRaidRankingRewardExcelAddTier(builder, tier):
+    builder.PrependInt32Slot(6, tier, 0)
+
 def AddTier(builder, tier):
-    return EliminateRaidRankingRewardExcelAddTier(builder, tier)
-def EliminateRaidRankingRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+    EliminateRaidRankingRewardExcelAddTier(builder, tier)
+
+def EliminateRaidRankingRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EliminateRaidRankingRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EliminateRaidRankingRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardParcelTypeVector(builder, numElems):
     return EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueId), 0)
+
+def EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueId), 0)
+
 def AddRewardParcelUniqueId(builder, rewardParcelUniqueId):
-    return EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
-def EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
+
+def EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardParcelUniqueIdVector(builder, numElems):
     return EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder, numElems)
-def EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueName), 0)
-def AddRewardParcelUniqueName(builder, rewardParcelUniqueName):
-    return EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName)
-def EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardParcelUniqueNameVector(builder, numElems):
-    return EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(builder, numElems)
-def EliminateRaidRankingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+
+def EliminateRaidRankingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return EliminateRaidRankingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidRankingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardParcelAmountVector(builder, numElems):
     return EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(builder, numElems)
-def EliminateRaidRankingRewardExcelEnd(builder): return builder.EndObject()
+
+def EliminateRaidRankingRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EliminateRaidRankingRewardExcelEnd(builder)

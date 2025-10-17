@@ -1,9 +1,0 @@
-include "EliminateRaidStageLimitedRewardExcel.fbs";
-
-namespace FlatData;
-
-table EliminateRaidStageLimitedRewardExcelTable {
-    data_list: [EliminateRaidStageLimitedRewardExcel];
-}
-
-root_type EliminateRaidStageLimitedRewardExcelTable;

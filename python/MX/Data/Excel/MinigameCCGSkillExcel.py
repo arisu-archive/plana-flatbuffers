@@ -66,27 +66,50 @@ class MinigameCCGSkillExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MinigameCCGSkillExcelStart(builder): builder.StartObject(6)
+def MinigameCCGSkillExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return MinigameCCGSkillExcelStart(builder)
-def MinigameCCGSkillExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    MinigameCCGSkillExcelStart(builder)
+
+def MinigameCCGSkillExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return MinigameCCGSkillExcelAddId(builder, id)
-def MinigameCCGSkillExcelAddSkillType(builder, skillType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(skillType), 0)
+    MinigameCCGSkillExcelAddId(builder, id)
+
+def MinigameCCGSkillExcelAddSkillType(builder, skillType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(skillType), 0)
+
 def AddSkillType(builder, skillType):
-    return MinigameCCGSkillExcelAddSkillType(builder, skillType)
-def MinigameCCGSkillExcelAddDataLoadPath(builder, dataLoadPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dataLoadPath), 0)
+    MinigameCCGSkillExcelAddSkillType(builder, skillType)
+
+def MinigameCCGSkillExcelAddDataLoadPath(builder, dataLoadPath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dataLoadPath), 0)
+
 def AddDataLoadPath(builder, dataLoadPath):
-    return MinigameCCGSkillExcelAddDataLoadPath(builder, dataLoadPath)
-def MinigameCCGSkillExcelAddName(builder, name): builder.PrependUint32Slot(3, name, 0)
+    MinigameCCGSkillExcelAddDataLoadPath(builder, dataLoadPath)
+
+def MinigameCCGSkillExcelAddName(builder, name):
+    builder.PrependUint32Slot(3, name, 0)
+
 def AddName(builder, name):
-    return MinigameCCGSkillExcelAddName(builder, name)
-def MinigameCCGSkillExcelAddDescription(builder, description): builder.PrependUint32Slot(4, description, 0)
+    MinigameCCGSkillExcelAddName(builder, name)
+
+def MinigameCCGSkillExcelAddDescription(builder, description):
+    builder.PrependUint32Slot(4, description, 0)
+
 def AddDescription(builder, description):
-    return MinigameCCGSkillExcelAddDescription(builder, description)
-def MinigameCCGSkillExcelAddSkillIcon(builder, skillIcon): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(skillIcon), 0)
+    MinigameCCGSkillExcelAddDescription(builder, description)
+
+def MinigameCCGSkillExcelAddSkillIcon(builder, skillIcon):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(skillIcon), 0)
+
 def AddSkillIcon(builder, skillIcon):
-    return MinigameCCGSkillExcelAddSkillIcon(builder, skillIcon)
-def MinigameCCGSkillExcelEnd(builder): return builder.EndObject()
+    MinigameCCGSkillExcelAddSkillIcon(builder, skillIcon)
+
+def MinigameCCGSkillExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameCCGSkillExcelEnd(builder)

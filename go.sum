@@ -1,15 +1,9 @@
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250319110048-96c9d6738543 h1:MXBBWdAunKk8q54zr50VMEY7zjJAo526rMlSY02gCp0=
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250319110048-96c9d6738543/go.mod h1:9leyiUSF/NN9kOCCQY+zn5asiafAW+dg1yJwL5LlkLw=
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250519175016-2dbe82043f5f h1:H8YW3yAXtFBNWXs8YNOTOdBkuqGvg3wPXuX2FL6TvSk=
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250519175016-2dbe82043f5f/go.mod h1:9leyiUSF/NN9kOCCQY+zn5asiafAW+dg1yJwL5LlkLw=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250523141606-65e055cdb50b h1:aSw1k4pyb+CBLpfREiiZfAVbF7TBLRHijzIoP1Ib/5U=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250523141606-65e055cdb50b/go.mod h1:TcA0pAoioBOjVpqKszcgRZl23YJGG33cjbRIvxRSMKI=
 github.com/go-logr/logr v1.4.2 h1:6pFjapn8bFcIbiKo3XT4j/BhANplGihG6tvd+8rYgrY=
 github.com/go-logr/logr v1.4.2/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1vB6EwHI=
 github.com/go-task/slim-sprig/v3 v3.0.0/go.mod h1:W848ghGpv3Qj3dhTPRyJypKRiqCdHZiAzKg9hl15HA8=
-github.com/google/flatbuffers v24.3.25+incompatible h1:CX395cjN9Kke9mmalRoL3d81AtFUxJM+yDthflgJGkI=
-github.com/google/flatbuffers v24.3.25+incompatible/go.mod h1:1AeVuKshWv4vARoZatz6mlQ0JxURH0Kv5+zNeJKJCa8=
 github.com/google/flatbuffers v25.2.10+incompatible h1:F3vclr7C3HpB1k9mxCGRMXq6FdUalZ6H/pNX4FP1v0Q=
 github.com/google/flatbuffers v25.2.10+incompatible/go.mod h1:1AeVuKshWv4vARoZatz6mlQ0JxURH0Kv5+zNeJKJCa8=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=

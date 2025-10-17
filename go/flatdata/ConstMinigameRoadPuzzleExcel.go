@@ -17,11 +17,19 @@ func GetRootAsConstMinigameRoadPuzzleExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishConstMinigameRoadPuzzleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstMinigameRoadPuzzleExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstMinigameRoadPuzzleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstMinigameRoadPuzzleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstMinigameRoadPuzzleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstMinigameRoadPuzzleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

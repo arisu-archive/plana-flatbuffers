@@ -1,9 +1,0 @@
-include "ConquestProgressResourceExcel.fbs";
-
-namespace FlatData;
-
-table ConquestProgressResourceExcelTable {
-    data_list: [ConquestProgressResourceExcel];
-}
-
-root_type ConquestProgressResourceExcelTable;

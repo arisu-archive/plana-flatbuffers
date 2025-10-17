@@ -21,13 +21,14 @@ type MiniGameDreamReplayScenarioExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamReplayScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_replay_scenario_resource := b.CreateString(fbsutils.Convert(t.ReplayScenarioResource, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelStart(b)
 	MiniGameDreamReplayScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(b, fbsutils.Convert(t.ReplaySummaryTitleLocalize, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(b, fbsutils.Convert(t.ReplaySummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, b.CreateString(fbsutils.Convert(t.ReplayScenarioResource, t.FlatBuffer.TableKey)))
+	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, __offset_replay_scenario_resource)
 	MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(b, t.IsReplayScenarioHorizon)
 	return MiniGameDreamReplayScenarioExcelEnd(b)
 }

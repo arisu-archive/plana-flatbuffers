@@ -30,9 +30,20 @@ type CharacterWeaponExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
+	var __offset_learn_skill_slot flatbuffers.UOffsetT
+	__stringOffsets_learn_skill_slot := make([]flatbuffers.UOffsetT, len(t.LearnSkillSlot))
+	for i := range len(t.LearnSkillSlot) {
+		__stringOffsets_learn_skill_slot[i] = b.CreateString(fbsutils.Convert(t.LearnSkillSlot[i], t.FlatBuffer.TableKey))
+	}
+	CharacterWeaponExcelStartLearnSkillSlotVector(b, len(t.LearnSkillSlot))
+	for i := range len(t.LearnSkillSlot) {
+		b.PrependUOffsetT(__stringOffsets_learn_skill_slot[len(t.LearnSkillSlot)-i-1])
+	}
+	__offset_learn_skill_slot = b.EndVector(len(t.LearnSkillSlot))
 	CharacterWeaponExcelStart(b)
 	CharacterWeaponExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterWeaponExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	CharacterWeaponExcelAddImagePath(b, __offset_image_path)
 	CharacterWeaponExcelAddSetRecipe(b, fbsutils.Convert(t.SetRecipe, t.FlatBuffer.TableKey))
 	CharacterWeaponExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
 	CharacterWeaponExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
@@ -56,11 +67,7 @@ func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		b.PrependInt32(fbsutils.Convert(t.MaxLevel[len(t.MaxLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterWeaponExcelAddMaxLevel(b, b.EndVector(len(t.MaxLevel)))
-	CharacterWeaponExcelStartLearnSkillSlotVector(b, len(t.LearnSkillSlot))
-	for i := range len(t.LearnSkillSlot) {
-		b.PrependUOffsetT(b.CreateString(t.LearnSkillSlot[len(t.LearnSkillSlot)-i-1]))
-	}
-	CharacterWeaponExcelAddLearnSkillSlot(b, b.EndVector(len(t.LearnSkillSlot)))
+	CharacterWeaponExcelAddLearnSkillSlot(b, __offset_learn_skill_slot)
 	CharacterWeaponExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))

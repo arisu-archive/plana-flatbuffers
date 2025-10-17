@@ -2,9 +2,4 @@
 
 # namespace: Excel
 
-class Nation(object):
-    None_ = 0
-    All = 1
-    JP = 2
-    GL = 3
-    KR = 4
+# NOTE Nation.py does not declare any structs or enums

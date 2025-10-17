@@ -2,9 +2,4 @@
 
 # namespace: Excel
 
-class CraftNodeTier(object):
-    Base = 0
-    Node01 = 1
-    Node02 = 2
-    Node03 = 3
-    Max = 4
+# NOTE CraftNodeTier.py does not declare any structs or enums

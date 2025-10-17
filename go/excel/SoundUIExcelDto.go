@@ -17,10 +17,12 @@ type SoundUIExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SoundUIExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_sound_unique_id := b.CreateString(fbsutils.Convert(t.SoundUniqueId, t.FlatBuffer.TableKey))
+	__offset_path := b.CreateString(fbsutils.Convert(t.Path, t.FlatBuffer.TableKey))
 	SoundUIExcelStart(b)
 	SoundUIExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	SoundUIExcelAddSoundUniqueId(b, b.CreateString(fbsutils.Convert(t.SoundUniqueId, t.FlatBuffer.TableKey)))
-	SoundUIExcelAddPath(b, b.CreateString(fbsutils.Convert(t.Path, t.FlatBuffer.TableKey)))
+	SoundUIExcelAddSoundUniqueId(b, __offset_sound_unique_id)
+	SoundUIExcelAddPath(b, __offset_path)
 	return SoundUIExcelEnd(b)
 }
 

@@ -1,9 +1,0 @@
-include "MiniGameShootingStageRewardExcel.fbs";
-
-namespace FlatData;
-
-table MiniGameShootingStageRewardExcelTable {
-    data_list: [MiniGameShootingStageRewardExcel];
-}
-
-root_type MiniGameShootingStageRewardExcelTable;

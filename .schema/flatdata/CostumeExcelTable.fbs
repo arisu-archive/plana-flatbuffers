@@ -1,9 +1,0 @@
-include "CostumeExcel.fbs";
-
-namespace FlatData;
-
-table CostumeExcelTable {
-    data_list: [CostumeExcel];
-}
-
-root_type CostumeExcelTable;

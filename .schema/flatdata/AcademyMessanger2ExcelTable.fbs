@@ -1,9 +1,0 @@
-include "AcademyMessanger2Excel.fbs";
-
-namespace FlatData;
-
-table AcademyMessanger2ExcelTable {
-    data_list: [AcademyMessanger2Excel];
-}
-
-root_type AcademyMessanger2ExcelTable;

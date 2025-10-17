@@ -17,11 +17,19 @@ func GetRootAsArenaMapExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaMapEx
 	return x
 }
 
+func FinishArenaMapExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsArenaMapExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaMapExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaMapExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedArenaMapExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaMapExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

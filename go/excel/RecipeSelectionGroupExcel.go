@@ -17,11 +17,19 @@ func GetRootAsRecipeSelectionGroupExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishRecipeSelectionGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsRecipeSelectionGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *RecipeSelectionGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RecipeSelectionGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedRecipeSelectionGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RecipeSelectionGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

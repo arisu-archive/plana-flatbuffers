@@ -125,36 +125,68 @@ class VideoExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
-def VideoExcelStart(builder): builder.StartObject(5)
+def VideoExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return VideoExcelStart(builder)
-def VideoExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    VideoExcelStart(builder)
+
+def VideoExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return VideoExcelAddId(builder, id)
-def VideoExcelAddNation(builder, nation): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
+    VideoExcelAddId(builder, id)
+
+def VideoExcelAddNation(builder, nation):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
+
 def AddNation(builder, nation):
-    return VideoExcelAddNation(builder, nation)
-def VideoExcelStartNationVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VideoExcelAddNation(builder, nation)
+
+def VideoExcelStartNationVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartNationVector(builder, numElems):
     return VideoExcelStartNationVector(builder, numElems)
-def VideoExcelAddVideoPath(builder, videoPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(videoPath), 0)
+
+def VideoExcelAddVideoPath(builder, videoPath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(videoPath), 0)
+
 def AddVideoPath(builder, videoPath):
-    return VideoExcelAddVideoPath(builder, videoPath)
-def VideoExcelStartVideoPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VideoExcelAddVideoPath(builder, videoPath)
+
+def VideoExcelStartVideoPathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartVideoPathVector(builder, numElems):
     return VideoExcelStartVideoPathVector(builder, numElems)
-def VideoExcelAddSoundPath(builder, soundPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(soundPath), 0)
+
+def VideoExcelAddSoundPath(builder, soundPath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(soundPath), 0)
+
 def AddSoundPath(builder, soundPath):
-    return VideoExcelAddSoundPath(builder, soundPath)
-def VideoExcelStartSoundPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VideoExcelAddSoundPath(builder, soundPath)
+
+def VideoExcelStartSoundPathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartSoundPathVector(builder, numElems):
     return VideoExcelStartSoundPathVector(builder, numElems)
-def VideoExcelAddSoundVolume(builder, soundVolume): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(soundVolume), 0)
+
+def VideoExcelAddSoundVolume(builder, soundVolume):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(soundVolume), 0)
+
 def AddSoundVolume(builder, soundVolume):
-    return VideoExcelAddSoundVolume(builder, soundVolume)
-def VideoExcelStartSoundVolumeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VideoExcelAddSoundVolume(builder, soundVolume)
+
+def VideoExcelStartSoundVolumeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartSoundVolumeVector(builder, numElems):
     return VideoExcelStartSoundVolumeVector(builder, numElems)
-def VideoExcelEnd(builder): return builder.EndObject()
+
+def VideoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return VideoExcelEnd(builder)

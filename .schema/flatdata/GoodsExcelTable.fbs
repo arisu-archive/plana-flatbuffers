@@ -1,9 +1,0 @@
-include "GoodsExcel.fbs";
-
-namespace FlatData;
-
-table GoodsExcelTable {
-    data_list: [GoodsExcel];
-}
-
-root_type GoodsExcelTable;

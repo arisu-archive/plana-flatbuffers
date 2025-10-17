@@ -80,33 +80,62 @@ class ProductSelectionGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ProductSelectionGroupExcelStart(builder): builder.StartObject(8)
+def ProductSelectionGroupExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return ProductSelectionGroupExcelStart(builder)
-def ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId): builder.PrependInt64Slot(0, productSelectionGroupId, 0)
+    ProductSelectionGroupExcelStart(builder)
+
+def ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId):
+    builder.PrependInt64Slot(0, productSelectionGroupId, 0)
+
 def AddProductSelectionGroupId(builder, productSelectionGroupId):
-    return ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId)
-def ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId): builder.PrependInt64Slot(1, productSelectionGroupComponentId, 0)
+    ProductSelectionGroupExcelAddProductSelectionGroupId(builder, productSelectionGroupId)
+
+def ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId):
+    builder.PrependInt64Slot(1, productSelectionGroupComponentId, 0)
+
 def AddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId):
-    return ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId)
-def ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
+    ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, productSelectionGroupComponentId)
+
+def ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder)
-def ProductSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(3, parcelType, 0)
+    ProductSelectionGroupExcelAddDisplayOrder(builder, displayOrder)
+
+def ProductSelectionGroupExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(3, parcelType, 0)
+
 def AddParcelType(builder, parcelType):
-    return ProductSelectionGroupExcelAddParcelType(builder, parcelType)
-def ProductSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(4, parcelId, 0)
+    ProductSelectionGroupExcelAddParcelType(builder, parcelType)
+
+def ProductSelectionGroupExcelAddParcelId(builder, parcelId):
+    builder.PrependInt64Slot(4, parcelId, 0)
+
 def AddParcelId(builder, parcelId):
-    return ProductSelectionGroupExcelAddParcelId(builder, parcelId)
-def ProductSelectionGroupExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(5, resultAmount, 0)
+    ProductSelectionGroupExcelAddParcelId(builder, parcelId)
+
+def ProductSelectionGroupExcelAddResultAmount(builder, resultAmount):
+    builder.PrependInt64Slot(5, resultAmount, 0)
+
 def AddResultAmount(builder, resultAmount):
-    return ProductSelectionGroupExcelAddResultAmount(builder, resultAmount)
-def ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType): builder.PrependInt32Slot(6, conditionParcelType, 0)
+    ProductSelectionGroupExcelAddResultAmount(builder, resultAmount)
+
+def ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType):
+    builder.PrependInt32Slot(6, conditionParcelType, 0)
+
 def AddConditionParcelType(builder, conditionParcelType):
-    return ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType)
-def ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId): builder.PrependInt64Slot(7, conditionParcelId, 0)
+    ProductSelectionGroupExcelAddConditionParcelType(builder, conditionParcelType)
+
+def ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId):
+    builder.PrependInt64Slot(7, conditionParcelId, 0)
+
 def AddConditionParcelId(builder, conditionParcelId):
-    return ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId)
-def ProductSelectionGroupExcelEnd(builder): return builder.EndObject()
+    ProductSelectionGroupExcelAddConditionParcelId(builder, conditionParcelId)
+
+def ProductSelectionGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ProductSelectionGroupExcelEnd(builder)

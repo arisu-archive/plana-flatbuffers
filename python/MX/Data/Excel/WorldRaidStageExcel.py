@@ -375,132 +375,260 @@ class WorldRaidStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def WorldRaidStageExcelStart(builder): builder.StartObject(35)
+def WorldRaidStageExcelStart(builder):
+    builder.StartObject(35)
+
 def Start(builder):
-    return WorldRaidStageExcelStart(builder)
-def WorldRaidStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    WorldRaidStageExcelStart(builder)
+
+def WorldRaidStageExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return WorldRaidStageExcelAddId(builder, id)
-def WorldRaidStageExcelAddUseBossIndex(builder, useBossIndex): builder.PrependBoolSlot(1, useBossIndex, 0)
+    WorldRaidStageExcelAddId(builder, id)
+
+def WorldRaidStageExcelAddUseBossIndex(builder, useBossIndex):
+    builder.PrependBoolSlot(1, useBossIndex, 0)
+
 def AddUseBossIndex(builder, useBossIndex):
-    return WorldRaidStageExcelAddUseBossIndex(builder, useBossIndex)
-def WorldRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync): builder.PrependBoolSlot(2, useBossAiPhaseSync, 0)
+    WorldRaidStageExcelAddUseBossIndex(builder, useBossIndex)
+
+def WorldRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
+    builder.PrependBoolSlot(2, useBossAiPhaseSync, 0)
+
 def AddUseBossAiPhaseSync(builder, useBossAiPhaseSync):
-    return WorldRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
-def WorldRaidStageExcelAddWorldRaidBossGroupId(builder, worldRaidBossGroupId): builder.PrependInt64Slot(3, worldRaidBossGroupId, 0)
+    WorldRaidStageExcelAddUseBossAiPhaseSync(builder, useBossAiPhaseSync)
+
+def WorldRaidStageExcelAddWorldRaidBossGroupId(builder, worldRaidBossGroupId):
+    builder.PrependInt64Slot(3, worldRaidBossGroupId, 0)
+
 def AddWorldRaidBossGroupId(builder, worldRaidBossGroupId):
-    return WorldRaidStageExcelAddWorldRaidBossGroupId(builder, worldRaidBossGroupId)
-def WorldRaidStageExcelAddPortraitPath(builder, portraitPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(portraitPath), 0)
+    WorldRaidStageExcelAddWorldRaidBossGroupId(builder, worldRaidBossGroupId)
+
+def WorldRaidStageExcelAddPortraitPath(builder, portraitPath):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(portraitPath), 0)
+
 def AddPortraitPath(builder, portraitPath):
-    return WorldRaidStageExcelAddPortraitPath(builder, portraitPath)
-def WorldRaidStageExcelAddBgPath(builder, bgPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+    WorldRaidStageExcelAddPortraitPath(builder, portraitPath)
+
+def WorldRaidStageExcelAddBgPath(builder, bgPath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+
 def AddBgPath(builder, bgPath):
-    return WorldRaidStageExcelAddBgPath(builder, bgPath)
-def WorldRaidStageExcelAddRaidCharacterId(builder, raidCharacterId): builder.PrependInt64Slot(6, raidCharacterId, 0)
+    WorldRaidStageExcelAddBgPath(builder, bgPath)
+
+def WorldRaidStageExcelAddRaidCharacterId(builder, raidCharacterId):
+    builder.PrependInt64Slot(6, raidCharacterId, 0)
+
 def AddRaidCharacterId(builder, raidCharacterId):
-    return WorldRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
-def WorldRaidStageExcelAddBossCharacterId(builder, bossCharacterId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
+    WorldRaidStageExcelAddRaidCharacterId(builder, raidCharacterId)
+
+def WorldRaidStageExcelAddBossCharacterId(builder, bossCharacterId):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(bossCharacterId), 0)
+
 def AddBossCharacterId(builder, bossCharacterId):
-    return WorldRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
-def WorldRaidStageExcelStartBossCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    WorldRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+
+def WorldRaidStageExcelStartBossCharacterIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartBossCharacterIdVector(builder, numElems):
     return WorldRaidStageExcelStartBossCharacterIdVector(builder, numElems)
-def WorldRaidStageExcelAddAssistCharacterLimitCount(builder, assistCharacterLimitCount): builder.PrependInt64Slot(8, assistCharacterLimitCount, 0)
+
+def WorldRaidStageExcelAddAssistCharacterLimitCount(builder, assistCharacterLimitCount):
+    builder.PrependInt64Slot(8, assistCharacterLimitCount, 0)
+
 def AddAssistCharacterLimitCount(builder, assistCharacterLimitCount):
-    return WorldRaidStageExcelAddAssistCharacterLimitCount(builder, assistCharacterLimitCount)
-def WorldRaidStageExcelAddWorldRaidDifficulty(builder, worldRaidDifficulty): builder.PrependInt32Slot(9, worldRaidDifficulty, 0)
+    WorldRaidStageExcelAddAssistCharacterLimitCount(builder, assistCharacterLimitCount)
+
+def WorldRaidStageExcelAddWorldRaidDifficulty(builder, worldRaidDifficulty):
+    builder.PrependInt32Slot(9, worldRaidDifficulty, 0)
+
 def AddWorldRaidDifficulty(builder, worldRaidDifficulty):
-    return WorldRaidStageExcelAddWorldRaidDifficulty(builder, worldRaidDifficulty)
-def WorldRaidStageExcelAddDifficultyOpenCondition(builder, difficultyOpenCondition): builder.PrependBoolSlot(10, difficultyOpenCondition, 0)
+    WorldRaidStageExcelAddWorldRaidDifficulty(builder, worldRaidDifficulty)
+
+def WorldRaidStageExcelAddDifficultyOpenCondition(builder, difficultyOpenCondition):
+    builder.PrependBoolSlot(10, difficultyOpenCondition, 0)
+
 def AddDifficultyOpenCondition(builder, difficultyOpenCondition):
-    return WorldRaidStageExcelAddDifficultyOpenCondition(builder, difficultyOpenCondition)
-def WorldRaidStageExcelAddRaidEnterAmount(builder, raidEnterAmount): builder.PrependInt64Slot(11, raidEnterAmount, 0)
+    WorldRaidStageExcelAddDifficultyOpenCondition(builder, difficultyOpenCondition)
+
+def WorldRaidStageExcelAddRaidEnterAmount(builder, raidEnterAmount):
+    builder.PrependInt64Slot(11, raidEnterAmount, 0)
+
 def AddRaidEnterAmount(builder, raidEnterAmount):
-    return WorldRaidStageExcelAddRaidEnterAmount(builder, raidEnterAmount)
-def WorldRaidStageExcelAddReEnterAmount(builder, reEnterAmount): builder.PrependInt64Slot(12, reEnterAmount, 0)
+    WorldRaidStageExcelAddRaidEnterAmount(builder, raidEnterAmount)
+
+def WorldRaidStageExcelAddReEnterAmount(builder, reEnterAmount):
+    builder.PrependInt64Slot(12, reEnterAmount, 0)
+
 def AddReEnterAmount(builder, reEnterAmount):
-    return WorldRaidStageExcelAddReEnterAmount(builder, reEnterAmount)
-def WorldRaidStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(13, battleDuration, 0)
+    WorldRaidStageExcelAddReEnterAmount(builder, reEnterAmount)
+
+def WorldRaidStageExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(13, battleDuration, 0)
+
 def AddBattleDuration(builder, battleDuration):
-    return WorldRaidStageExcelAddBattleDuration(builder, battleDuration)
-def WorldRaidStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(14, groundId, 0)
+    WorldRaidStageExcelAddBattleDuration(builder, battleDuration)
+
+def WorldRaidStageExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(14, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return WorldRaidStageExcelAddGroundId(builder, groundId)
-def WorldRaidStageExcelAddRaidBattleEndRewardGroupId(builder, raidBattleEndRewardGroupId): builder.PrependInt64Slot(15, raidBattleEndRewardGroupId, 0)
+    WorldRaidStageExcelAddGroundId(builder, groundId)
+
+def WorldRaidStageExcelAddRaidBattleEndRewardGroupId(builder, raidBattleEndRewardGroupId):
+    builder.PrependInt64Slot(15, raidBattleEndRewardGroupId, 0)
+
 def AddRaidBattleEndRewardGroupId(builder, raidBattleEndRewardGroupId):
-    return WorldRaidStageExcelAddRaidBattleEndRewardGroupId(builder, raidBattleEndRewardGroupId)
-def WorldRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId): builder.PrependInt64Slot(16, raidRewardGroupId, 0)
+    WorldRaidStageExcelAddRaidBattleEndRewardGroupId(builder, raidBattleEndRewardGroupId)
+
+def WorldRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId):
+    builder.PrependInt64Slot(16, raidRewardGroupId, 0)
+
 def AddRaidRewardGroupId(builder, raidRewardGroupId):
-    return WorldRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId)
-def WorldRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
+    WorldRaidStageExcelAddRaidRewardGroupId(builder, raidRewardGroupId)
+
+def WorldRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
+
 def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
-    return WorldRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
-def WorldRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+
+def WorldRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartBattleReadyTimelinePathVector(builder, numElems):
     return WorldRaidStageExcelStartBattleReadyTimelinePathVector(builder, numElems)
-def WorldRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
+
+def WorldRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseStart), 0)
+
 def AddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart):
-    return WorldRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
-def WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+
+def WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartBattleReadyTimelinePhaseStartVector(builder, numElems):
     return WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, numElems)
-def WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
+
+def WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePhaseEnd), 0)
+
 def AddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd):
-    return WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
-def WorldRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
+
+def WorldRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartBattleReadyTimelinePhaseEndVector(builder, numElems):
     return WorldRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, numElems)
-def WorldRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
+
+def WorldRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
+
 def AddVictoryTimelinePath(builder, victoryTimelinePath):
-    return WorldRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
-def WorldRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(phaseChangeTimelinePath), 0)
+    WorldRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
+
+def WorldRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath):
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(phaseChangeTimelinePath), 0)
+
 def AddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath):
-    return WorldRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
-def WorldRaidStageExcelAddTimeLinePhase(builder, timeLinePhase): builder.PrependInt64Slot(22, timeLinePhase, 0)
+    WorldRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
+
+def WorldRaidStageExcelAddTimeLinePhase(builder, timeLinePhase):
+    builder.PrependInt64Slot(22, timeLinePhase, 0)
+
 def AddTimeLinePhase(builder, timeLinePhase):
-    return WorldRaidStageExcelAddTimeLinePhase(builder, timeLinePhase)
-def WorldRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey): builder.PrependInt64Slot(23, enterScenarioKey, 0)
+    WorldRaidStageExcelAddTimeLinePhase(builder, timeLinePhase)
+
+def WorldRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey):
+    builder.PrependInt64Slot(23, enterScenarioKey, 0)
+
 def AddEnterScenarioKey(builder, enterScenarioKey):
-    return WorldRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey)
-def WorldRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey): builder.PrependInt64Slot(24, clearScenarioKey, 0)
+    WorldRaidStageExcelAddEnterScenarioKey(builder, enterScenarioKey)
+
+def WorldRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey):
+    builder.PrependInt64Slot(24, clearScenarioKey, 0)
+
 def AddClearScenarioKey(builder, clearScenarioKey):
-    return WorldRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey)
-def WorldRaidStageExcelAddUseFixedEchelon(builder, useFixedEchelon): builder.PrependBoolSlot(25, useFixedEchelon, 0)
+    WorldRaidStageExcelAddClearScenarioKey(builder, clearScenarioKey)
+
+def WorldRaidStageExcelAddUseFixedEchelon(builder, useFixedEchelon):
+    builder.PrependBoolSlot(25, useFixedEchelon, 0)
+
 def AddUseFixedEchelon(builder, useFixedEchelon):
-    return WorldRaidStageExcelAddUseFixedEchelon(builder, useFixedEchelon)
-def WorldRaidStageExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(26, fixedEchelonId, 0)
+    WorldRaidStageExcelAddUseFixedEchelon(builder, useFixedEchelon)
+
+def WorldRaidStageExcelAddFixedEchelonId(builder, fixedEchelonId):
+    builder.PrependInt64Slot(26, fixedEchelonId, 0)
+
 def AddFixedEchelonId(builder, fixedEchelonId):
-    return WorldRaidStageExcelAddFixedEchelonId(builder, fixedEchelonId)
-def WorldRaidStageExcelAddIsRaidScenarioBattle(builder, isRaidScenarioBattle): builder.PrependBoolSlot(27, isRaidScenarioBattle, 0)
+    WorldRaidStageExcelAddFixedEchelonId(builder, fixedEchelonId)
+
+def WorldRaidStageExcelAddIsRaidScenarioBattle(builder, isRaidScenarioBattle):
+    builder.PrependBoolSlot(27, isRaidScenarioBattle, 0)
+
 def AddIsRaidScenarioBattle(builder, isRaidScenarioBattle):
-    return WorldRaidStageExcelAddIsRaidScenarioBattle(builder, isRaidScenarioBattle)
-def WorldRaidStageExcelAddShowSkillCard(builder, showSkillCard): builder.PrependBoolSlot(28, showSkillCard, 0)
+    WorldRaidStageExcelAddIsRaidScenarioBattle(builder, isRaidScenarioBattle)
+
+def WorldRaidStageExcelAddShowSkillCard(builder, showSkillCard):
+    builder.PrependBoolSlot(28, showSkillCard, 0)
+
 def AddShowSkillCard(builder, showSkillCard):
-    return WorldRaidStageExcelAddShowSkillCard(builder, showSkillCard)
-def WorldRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey): builder.PrependUint32Slot(29, bossBgInfoKey, 0)
+    WorldRaidStageExcelAddShowSkillCard(builder, showSkillCard)
+
+def WorldRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey):
+    builder.PrependUint32Slot(29, bossBgInfoKey, 0)
+
 def AddBossBgInfoKey(builder, bossBgInfoKey):
-    return WorldRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey)
-def WorldRaidStageExcelAddDamageToWorldBoss(builder, damageToWorldBoss): builder.PrependInt64Slot(30, damageToWorldBoss, 0)
+    WorldRaidStageExcelAddBossBgInfoKey(builder, bossBgInfoKey)
+
+def WorldRaidStageExcelAddDamageToWorldBoss(builder, damageToWorldBoss):
+    builder.PrependInt64Slot(30, damageToWorldBoss, 0)
+
 def AddDamageToWorldBoss(builder, damageToWorldBoss):
-    return WorldRaidStageExcelAddDamageToWorldBoss(builder, damageToWorldBoss)
-def WorldRaidStageExcelAddAllyPassiveSkill(builder, allyPassiveSkill): builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkill), 0)
+    WorldRaidStageExcelAddDamageToWorldBoss(builder, damageToWorldBoss)
+
+def WorldRaidStageExcelAddAllyPassiveSkill(builder, allyPassiveSkill):
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkill), 0)
+
 def AddAllyPassiveSkill(builder, allyPassiveSkill):
-    return WorldRaidStageExcelAddAllyPassiveSkill(builder, allyPassiveSkill)
-def WorldRaidStageExcelStartAllyPassiveSkillVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidStageExcelAddAllyPassiveSkill(builder, allyPassiveSkill)
+
+def WorldRaidStageExcelStartAllyPassiveSkillVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartAllyPassiveSkillVector(builder, numElems):
     return WorldRaidStageExcelStartAllyPassiveSkillVector(builder, numElems)
-def WorldRaidStageExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel): builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillLevel), 0)
+
+def WorldRaidStageExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel):
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillLevel), 0)
+
 def AddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel):
-    return WorldRaidStageExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
-def WorldRaidStageExcelStartAllyPassiveSkillLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidStageExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
+
+def WorldRaidStageExcelStartAllyPassiveSkillLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartAllyPassiveSkillLevelVector(builder, numElems):
     return WorldRaidStageExcelStartAllyPassiveSkillLevelVector(builder, numElems)
-def WorldRaidStageExcelAddSaveCurrentLocalBossHp(builder, saveCurrentLocalBossHp): builder.PrependBoolSlot(33, saveCurrentLocalBossHp, 0)
+
+def WorldRaidStageExcelAddSaveCurrentLocalBossHp(builder, saveCurrentLocalBossHp):
+    builder.PrependBoolSlot(33, saveCurrentLocalBossHp, 0)
+
 def AddSaveCurrentLocalBossHp(builder, saveCurrentLocalBossHp):
-    return WorldRaidStageExcelAddSaveCurrentLocalBossHp(builder, saveCurrentLocalBossHp)
-def WorldRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(34, echelonExtensionType, 0)
+    WorldRaidStageExcelAddSaveCurrentLocalBossHp(builder, saveCurrentLocalBossHp)
+
+def WorldRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType):
+    builder.PrependInt32Slot(34, echelonExtensionType, 0)
+
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    return WorldRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
-def WorldRaidStageExcelEnd(builder): return builder.EndObject()
+    WorldRaidStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
+
+def WorldRaidStageExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WorldRaidStageExcelEnd(builder)

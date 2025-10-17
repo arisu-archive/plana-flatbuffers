@@ -20,14 +20,22 @@ func (t *StringTestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTest"))
 	}
-	StringTestExcelStart(b)
+	var __offset_string flatbuffers.UOffsetT
+	__stringOffsets_string := make([]flatbuffers.UOffsetT, len(t.String))
+	for i := range len(t.String) {
+		__stringOffsets_string[i] = b.CreateString(fbsutils.Convert(t.String[i], t.FlatBuffer.TableKey))
+	}
 	StringTestExcelStartStringVector(b, len(t.String))
 	for i := range len(t.String) {
-		b.PrependUOffsetT(b.CreateString(t.String[len(t.String)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_string[len(t.String)-i-1])
 	}
-	StringTestExcelAddString(b, b.EndVector(len(t.String)))
-	StringTestExcelAddSentence1(b, b.CreateString(fbsutils.Convert(t.Sentence1, t.FlatBuffer.TableKey)))
-	StringTestExcelAddScript(b, b.CreateString(fbsutils.Convert(t.Script, t.FlatBuffer.TableKey)))
+	__offset_string = b.EndVector(len(t.String))
+	__offset_sentence1 := b.CreateString(fbsutils.Convert(t.Sentence1, t.FlatBuffer.TableKey))
+	__offset_script := b.CreateString(fbsutils.Convert(t.Script, t.FlatBuffer.TableKey))
+	StringTestExcelStart(b)
+	StringTestExcelAddString(b, __offset_string)
+	StringTestExcelAddSentence1(b, __offset_sentence1)
+	StringTestExcelAddScript(b, __offset_script)
 	return StringTestExcelEnd(b)
 }
 

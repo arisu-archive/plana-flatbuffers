@@ -66,27 +66,50 @@ class MinigameRoadPuzzleRailTileExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameRoadPuzzleRailTileExcelStart(builder): builder.StartObject(6)
+def MinigameRoadPuzzleRailTileExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return MinigameRoadPuzzleRailTileExcelStart(builder)
-def MinigameRoadPuzzleRailTileExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    MinigameRoadPuzzleRailTileExcelStart(builder)
+
+def MinigameRoadPuzzleRailTileExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MinigameRoadPuzzleRailTileExcelAddEventContentId(builder, eventContentId)
-def MinigameRoadPuzzleRailTileExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+    MinigameRoadPuzzleRailTileExcelAddEventContentId(builder, eventContentId)
+
+def MinigameRoadPuzzleRailTileExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(1, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MinigameRoadPuzzleRailTileExcelAddUniqueId(builder, uniqueId)
-def MinigameRoadPuzzleRailTileExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
+    MinigameRoadPuzzleRailTileExcelAddUniqueId(builder, uniqueId)
+
+def MinigameRoadPuzzleRailTileExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(2, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return MinigameRoadPuzzleRailTileExcelAddGroupId(builder, groupId)
-def MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder, originalTile): builder.PrependBoolSlot(3, originalTile, 0)
+    MinigameRoadPuzzleRailTileExcelAddGroupId(builder, groupId)
+
+def MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder, originalTile):
+    builder.PrependBoolSlot(3, originalTile, 0)
+
 def AddOriginalTile(builder, originalTile):
-    return MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder, originalTile)
-def MinigameRoadPuzzleRailTileExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+    MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder, originalTile)
+
+def MinigameRoadPuzzleRailTileExcelAddPrefabName(builder, prefabName):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+
 def AddPrefabName(builder, prefabName):
-    return MinigameRoadPuzzleRailTileExcelAddPrefabName(builder, prefabName)
-def MinigameRoadPuzzleRailTileExcelAddRailTileType(builder, railTileType): builder.PrependInt32Slot(5, railTileType, 0)
+    MinigameRoadPuzzleRailTileExcelAddPrefabName(builder, prefabName)
+
+def MinigameRoadPuzzleRailTileExcelAddRailTileType(builder, railTileType):
+    builder.PrependInt32Slot(5, railTileType, 0)
+
 def AddRailTileType(builder, railTileType):
-    return MinigameRoadPuzzleRailTileExcelAddRailTileType(builder, railTileType)
-def MinigameRoadPuzzleRailTileExcelEnd(builder): return builder.EndObject()
+    MinigameRoadPuzzleRailTileExcelAddRailTileType(builder, railTileType)
+
+def MinigameRoadPuzzleRailTileExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameRoadPuzzleRailTileExcelEnd(builder)

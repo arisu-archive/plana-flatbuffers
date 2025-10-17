@@ -17,11 +17,19 @@ func GetRootAsEquipmentLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *Equi
 	return x
 }
 
+func FinishEquipmentLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEquipmentLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *EquipmentLevelExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EquipmentLevelExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEquipmentLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EquipmentLevelExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

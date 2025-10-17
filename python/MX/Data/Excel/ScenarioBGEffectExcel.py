@@ -73,30 +73,56 @@ class ScenarioBGEffectExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioBGEffectExcelStart(builder): builder.StartObject(7)
+def ScenarioBGEffectExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return ScenarioBGEffectExcelStart(builder)
-def ScenarioBGEffectExcelAddName(builder, name): builder.PrependUint32Slot(0, name, 0)
+    ScenarioBGEffectExcelStart(builder)
+
+def ScenarioBGEffectExcelAddName(builder, name):
+    builder.PrependUint32Slot(0, name, 0)
+
 def AddName(builder, name):
-    return ScenarioBGEffectExcelAddName(builder, name)
-def ScenarioBGEffectExcelAddEffect(builder, effect): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(effect), 0)
+    ScenarioBGEffectExcelAddName(builder, name)
+
+def ScenarioBGEffectExcelAddEffect(builder, effect):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(effect), 0)
+
 def AddEffect(builder, effect):
-    return ScenarioBGEffectExcelAddEffect(builder, effect)
-def ScenarioBGEffectExcelAddEffect2(builder, effect2): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(effect2), 0)
+    ScenarioBGEffectExcelAddEffect(builder, effect)
+
+def ScenarioBGEffectExcelAddEffect2(builder, effect2):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(effect2), 0)
+
 def AddEffect2(builder, effect2):
-    return ScenarioBGEffectExcelAddEffect2(builder, effect2)
-def ScenarioBGEffectExcelAddScroll(builder, scroll): builder.PrependInt32Slot(3, scroll, 0)
+    ScenarioBGEffectExcelAddEffect2(builder, effect2)
+
+def ScenarioBGEffectExcelAddScroll(builder, scroll):
+    builder.PrependInt32Slot(3, scroll, 0)
+
 def AddScroll(builder, scroll):
-    return ScenarioBGEffectExcelAddScroll(builder, scroll)
-def ScenarioBGEffectExcelAddScrollTime(builder, scrollTime): builder.PrependInt64Slot(4, scrollTime, 0)
+    ScenarioBGEffectExcelAddScroll(builder, scroll)
+
+def ScenarioBGEffectExcelAddScrollTime(builder, scrollTime):
+    builder.PrependInt64Slot(4, scrollTime, 0)
+
 def AddScrollTime(builder, scrollTime):
-    return ScenarioBGEffectExcelAddScrollTime(builder, scrollTime)
-def ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom): builder.PrependInt64Slot(5, scrollFrom, 0)
+    ScenarioBGEffectExcelAddScrollTime(builder, scrollTime)
+
+def ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom):
+    builder.PrependInt64Slot(5, scrollFrom, 0)
+
 def AddScrollFrom(builder, scrollFrom):
-    return ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom)
-def ScenarioBGEffectExcelAddScrollTo(builder, scrollTo): builder.PrependInt64Slot(6, scrollTo, 0)
+    ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom)
+
+def ScenarioBGEffectExcelAddScrollTo(builder, scrollTo):
+    builder.PrependInt64Slot(6, scrollTo, 0)
+
 def AddScrollTo(builder, scrollTo):
-    return ScenarioBGEffectExcelAddScrollTo(builder, scrollTo)
-def ScenarioBGEffectExcelEnd(builder): return builder.EndObject()
+    ScenarioBGEffectExcelAddScrollTo(builder, scrollTo)
+
+def ScenarioBGEffectExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ScenarioBGEffectExcelEnd(builder)

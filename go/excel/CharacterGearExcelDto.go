@@ -29,6 +29,8 @@ type CharacterGearExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterGearExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_learn_skill_slot := b.CreateString(fbsutils.Convert(t.LearnSkillSlot, t.FlatBuffer.TableKey))
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
 	CharacterGearExcelStart(b)
 	CharacterGearExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterGearExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -38,7 +40,7 @@ func (t *CharacterGearExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterGearExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
 	CharacterGearExcelAddOpenFavorLevel(b, fbsutils.Convert(t.OpenFavorLevel, t.FlatBuffer.TableKey))
 	CharacterGearExcelAddMaxLevel(b, fbsutils.Convert(t.MaxLevel, t.FlatBuffer.TableKey))
-	CharacterGearExcelAddLearnSkillSlot(b, b.CreateString(fbsutils.Convert(t.LearnSkillSlot, t.FlatBuffer.TableKey)))
+	CharacterGearExcelAddLearnSkillSlot(b, __offset_learn_skill_slot)
 	CharacterGearExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
@@ -54,7 +56,7 @@ func (t *CharacterGearExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		b.PrependInt64(fbsutils.Convert(t.MaxStatValue[len(t.MaxStatValue)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterGearExcelAddMaxStatValue(b, b.EndVector(len(t.MaxStatValue)))
-	CharacterGearExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	CharacterGearExcelAddIcon(b, __offset_icon)
 	CharacterGearExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	CharacterGearExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {

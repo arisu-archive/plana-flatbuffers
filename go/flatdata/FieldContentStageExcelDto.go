@@ -38,6 +38,7 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	FieldContentStageExcelStart(b)
 	FieldContentStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
@@ -45,7 +46,7 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	FieldContentStageExcelAddName(b, __offset_name)
 	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))

@@ -17,11 +17,19 @@ func GetRootAsPropVector3(buf []byte, offset flatbuffers.UOffsetT) *PropVector3 
 	return x
 }
 
+func FinishPropVector3Buffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPropVector3(buf []byte, offset flatbuffers.UOffsetT) *PropVector3 {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PropVector3{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPropVector3Buffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PropVector3) Init(buf []byte, i flatbuffers.UOffsetT) {

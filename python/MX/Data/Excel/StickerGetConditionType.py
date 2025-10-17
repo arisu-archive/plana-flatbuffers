@@ -2,7 +2,4 @@
 
 # namespace: Excel
 
-class StickerGetConditionType(object):
-    None_ = 0
-    StickerCheckPass = 1
-    GetStickerCondition = 2
+# NOTE StickerGetConditionType.py does not declare any structs or enums

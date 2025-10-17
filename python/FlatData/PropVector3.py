@@ -45,18 +45,32 @@ class PropVector3(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def PropVector3Start(builder): builder.StartObject(3)
+def PropVector3Start(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return PropVector3Start(builder)
-def PropVector3AddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
+    PropVector3Start(builder)
+
+def PropVector3AddX(builder, x):
+    builder.PrependFloat32Slot(0, x, 0.0)
+
 def AddX(builder, x):
-    return PropVector3AddX(builder, x)
-def PropVector3AddY(builder, y): builder.PrependFloat32Slot(1, y, 0.0)
+    PropVector3AddX(builder, x)
+
+def PropVector3AddY(builder, y):
+    builder.PrependFloat32Slot(1, y, 0.0)
+
 def AddY(builder, y):
-    return PropVector3AddY(builder, y)
-def PropVector3AddZ(builder, z): builder.PrependFloat32Slot(2, z, 0.0)
+    PropVector3AddY(builder, y)
+
+def PropVector3AddZ(builder, z):
+    builder.PrependFloat32Slot(2, z, 0.0)
+
 def AddZ(builder, z):
-    return PropVector3AddZ(builder, z)
-def PropVector3End(builder): return builder.EndObject()
+    PropVector3AddZ(builder, z)
+
+def PropVector3End(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PropVector3End(builder)

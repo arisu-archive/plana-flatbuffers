@@ -1,9 +1,0 @@
-include "LocalizeGachaShopExcel.fbs";
-
-namespace FlatData;
-
-table LocalizeGachaShopExcelTable {
-    data_list: [LocalizeGachaShopExcel];
-}
-
-root_type LocalizeGachaShopExcelTable;

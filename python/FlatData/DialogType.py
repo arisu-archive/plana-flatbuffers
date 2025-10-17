@@ -2,7 +2,4 @@
 
 # namespace: FlatData
 
-class DialogType(object):
-    Talk = 0
-    Think = 1
-    UITalk = 2
+# NOTE DialogType.py does not declare any structs or enums

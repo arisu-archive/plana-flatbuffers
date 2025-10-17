@@ -52,21 +52,38 @@ class CharacterPotentialStatExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterPotentialStatExcelStart(builder): builder.StartObject(4)
+def CharacterPotentialStatExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return CharacterPotentialStatExcelStart(builder)
-def CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId): builder.PrependInt64Slot(0, potentialStatGroupId, 0)
+    CharacterPotentialStatExcelStart(builder)
+
+def CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId):
+    builder.PrependInt64Slot(0, potentialStatGroupId, 0)
+
 def AddPotentialStatGroupId(builder, potentialStatGroupId):
-    return CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
-def CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel): builder.PrependInt32Slot(1, potentialLevel, 0)
+    CharacterPotentialStatExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
+
+def CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel):
+    builder.PrependInt32Slot(1, potentialLevel, 0)
+
 def AddPotentialLevel(builder, potentialLevel):
-    return CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel)
-def CharacterPotentialStatExcelAddRecipeId(builder, recipeId): builder.PrependInt64Slot(2, recipeId, 0)
+    CharacterPotentialStatExcelAddPotentialLevel(builder, potentialLevel)
+
+def CharacterPotentialStatExcelAddRecipeId(builder, recipeId):
+    builder.PrependInt64Slot(2, recipeId, 0)
+
 def AddRecipeId(builder, recipeId):
-    return CharacterPotentialStatExcelAddRecipeId(builder, recipeId)
-def CharacterPotentialStatExcelAddStatBonusRate(builder, statBonusRate): builder.PrependInt64Slot(3, statBonusRate, 0)
+    CharacterPotentialStatExcelAddRecipeId(builder, recipeId)
+
+def CharacterPotentialStatExcelAddStatBonusRate(builder, statBonusRate):
+    builder.PrependInt64Slot(3, statBonusRate, 0)
+
 def AddStatBonusRate(builder, statBonusRate):
-    return CharacterPotentialStatExcelAddStatBonusRate(builder, statBonusRate)
-def CharacterPotentialStatExcelEnd(builder): return builder.EndObject()
+    CharacterPotentialStatExcelAddStatBonusRate(builder, statBonusRate)
+
+def CharacterPotentialStatExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterPotentialStatExcelEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsScenarioBGEffectExcel(buf []byte, offset flatbuffers.UOffsetT) *Sc
 	return x
 }
 
+func FinishScenarioBGEffectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioBGEffectExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioBGEffectExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioBGEffectExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioBGEffectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioBGEffectExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

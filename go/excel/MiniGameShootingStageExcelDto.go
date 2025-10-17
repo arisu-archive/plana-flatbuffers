@@ -25,6 +25,9 @@ type MiniGameShootingStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_design_level := b.CreateString(fbsutils.Convert(t.DesignLevel, t.FlatBuffer.TableKey))
+	__offset_art_level := b.CreateString(fbsutils.Convert(t.ArtLevel, t.FlatBuffer.TableKey))
+	__offset_default_logic_effect := b.CreateString(fbsutils.Convert(t.DefaultLogicEffect, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelStart(b)
 	MiniGameShootingStageExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelStartBgmIdVector(b, len(t.BgmId))
@@ -34,11 +37,11 @@ func (t *MiniGameShootingStageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MiniGameShootingStageExcelAddBgmId(b, b.EndVector(len(t.BgmId)))
 	MiniGameShootingStageExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDesignLevel(b, b.CreateString(fbsutils.Convert(t.DesignLevel, t.FlatBuffer.TableKey)))
-	MiniGameShootingStageExcelAddArtLevel(b, b.CreateString(fbsutils.Convert(t.ArtLevel, t.FlatBuffer.TableKey)))
+	MiniGameShootingStageExcelAddDesignLevel(b, __offset_design_level)
+	MiniGameShootingStageExcelAddArtLevel(b, __offset_art_level)
 	MiniGameShootingStageExcelAddStartBattleDuration(b, fbsutils.Convert(t.StartBattleDuration, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDefaultBattleDuration(b, fbsutils.Convert(t.DefaultBattleDuration, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDefaultLogicEffect(b, b.CreateString(fbsutils.Convert(t.DefaultLogicEffect, t.FlatBuffer.TableKey)))
+	MiniGameShootingStageExcelAddDefaultLogicEffect(b, __offset_default_logic_effect)
 	MiniGameShootingStageExcelAddCameraSizeRate(b, fbsutils.Convert(t.CameraSizeRate, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
 	return MiniGameShootingStageExcelEnd(b)

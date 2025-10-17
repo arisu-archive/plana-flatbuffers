@@ -182,6 +182,7 @@ type ConstCommonExcelDto struct {
 	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
 	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
 	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
+	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -189,6 +190,10 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCommon"))
 	}
+	__offset_ui_label_character_wrap := b.CreateString(fbsutils.Convert(t.UiLabelCharacterWrap, t.FlatBuffer.TableKey))
+	__offset_time_attack_dungeon_scenario_id := b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey))
+	__offset_birthday_mail_start_date := b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey))
+	__offset_battle_pass_exp_icon_path := b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey))
 	ConstCommonExcelStart(b)
 	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
@@ -280,7 +285,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddPostExpiredDayAttendance(b, fbsutils.Convert(t.PostExpiredDayAttendance, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPostExpiredDayInventoryOverflow(b, fbsutils.Convert(t.PostExpiredDayInventoryOverflow, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPostExpiredDayGameManager(b, fbsutils.Convert(t.PostExpiredDayGameManager, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddUiLabelCharacterWrap(b, b.CreateString(fbsutils.Convert(t.UiLabelCharacterWrap, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddUiLabelCharacterWrap(b, __offset_ui_label_character_wrap)
 	ConstCommonExcelAddRequestTimeOut(b, fbsutils.Convert(t.RequestTimeOut, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageSoftCap(b, fbsutils.Convert(t.MailStorageSoftCap, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageHardCap(b, fbsutils.Convert(t.MailStorageHardCap, t.FlatBuffer.TableKey))
@@ -308,7 +313,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddRaidEnterCostType(b, fbsutils.Convert(t.RaidEnterCostType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidEnterCostId(b, fbsutils.Convert(t.RaidEnterCostId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidTicketCost(b, fbsutils.Convert(t.RaidTicketCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, __offset_time_attack_dungeon_scenario_id)
 	ConstCommonExcelAddTimeAttackDungoenPlayCountPerTicket(b, fbsutils.Convert(t.TimeAttackDungoenPlayCountPerTicket, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddTimeAttackDungeonEnterCostType(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddTimeAttackDungeonEnterCostId(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostId, t.FlatBuffer.TableKey))
@@ -351,7 +356,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Convert(t.BeforehandGachaGroupId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Convert(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Convert(t.EmblemDefaultId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailStartDate(b, b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddBirthdayMailStartDate(b, __offset_birthday_mail_start_date)
 	ConstCommonExcelAddBirthdayMailRemainDate(b, fbsutils.Convert(t.BirthdayMailRemainDate, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailParcelType(b, fbsutils.Convert(t.BirthdayMailParcelType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailParcelId(b, fbsutils.Convert(t.BirthdayMailParcelId, t.FlatBuffer.TableKey))
@@ -380,8 +385,9 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddExpiryBattlePassItemReceiveDay(b, fbsutils.Convert(t.ExpiryBattlePassItemReceiveDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBattlePassFlavorTextIdleDurationMilliSec(b, fbsutils.Convert(t.BattlePassFlavorTextIdleDurationMilliSec, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBattlePassEndImminentDay(b, fbsutils.Convert(t.BattlePassEndImminentDay, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBattlePassExpIconPath(b, b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey)))
+	ConstCommonExcelAddBattlePassExpIconPath(b, __offset_battle_pass_exp_icon_path)
 	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(b, fbsutils.Convert(t.CafeSummonTicketBuyLimitForValidate, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -584,6 +590,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.BattlePassEndImminentDay = fbsutils.Convert(e.BattlePassEndImminentDay(), t.FlatBuffer.TableKey)
 	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
 	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
+	t.CafeSummonTicketBuyLimitForValidate = fbsutils.Convert(e.CafeSummonTicketBuyLimitForValidate(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,9 +1,0 @@
-include "CharacterSkillListExcel.fbs";
-
-namespace FlatData;
-
-table CharacterSkillListExcelTable {
-    data_list: [CharacterSkillListExcel];
-}
-
-root_type CharacterSkillListExcelTable;

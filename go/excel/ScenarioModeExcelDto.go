@@ -53,6 +53,9 @@ type ScenarioModeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_exposed_time := b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey))
+	__offset_event_icon_parcel_path := b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey))
+	__offset_complete_report_event_name := b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey))
 	ScenarioModeExcelStart(b)
 	ScenarioModeExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
@@ -60,7 +63,7 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddEpisodeId(b, fbsutils.Convert(t.EpisodeId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddExposedTime(b, b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddExposedTime(b, __offset_exposed_time)
 	ScenarioModeExcelAddHide(b, t.Hide)
 	ScenarioModeExcelAddOpen(b, t.Open)
 	ScenarioModeExcelAddIsContinue(b, t.IsContinue)
@@ -97,12 +100,12 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddEventIconParcelPath(b, b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddEventIconParcelPath(b, __offset_event_icon_parcel_path)
 	ScenarioModeExcelAddEventBannerTitle(b, fbsutils.Convert(t.EventBannerTitle, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddLof(b, t.Lof)
 	ScenarioModeExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddCompleteReportEventName(b, b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddCompleteReportEventName(b, __offset_complete_report_event_name)
 	ScenarioModeExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddCollectionGroupId(b, fbsutils.Convert(t.CollectionGroupId, t.FlatBuffer.TableKey))
 	return ScenarioModeExcelEnd(b)

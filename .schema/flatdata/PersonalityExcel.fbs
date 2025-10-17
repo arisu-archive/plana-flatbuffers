@@ -1,6 +1,0 @@
-namespace FlatData;
-
-table PersonalityExcel {
-    id: long;
-    name: string;
-}

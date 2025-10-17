@@ -20,13 +20,16 @@ type CharacterVoiceSubtitleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelStart(b)
-	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddSeparate(b, t.Separate)
-	CharacterVoiceSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterVoiceSubtitleExcelAddLocalizeJp(b, __offset_localize_jp)
 	return CharacterVoiceSubtitleExcelEnd(b)
 }
 

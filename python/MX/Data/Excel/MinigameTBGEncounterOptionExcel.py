@@ -108,45 +108,86 @@ class MinigameTBGEncounterOptionExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def MinigameTBGEncounterOptionExcelStart(builder): builder.StartObject(12)
+def MinigameTBGEncounterOptionExcelStart(builder):
+    builder.StartObject(12)
+
 def Start(builder):
-    return MinigameTBGEncounterOptionExcelStart(builder)
-def MinigameTBGEncounterOptionExcelAddOptionGroupId(builder, optionGroupId): builder.PrependInt64Slot(0, optionGroupId, 0)
+    MinigameTBGEncounterOptionExcelStart(builder)
+
+def MinigameTBGEncounterOptionExcelAddOptionGroupId(builder, optionGroupId):
+    builder.PrependInt64Slot(0, optionGroupId, 0)
+
 def AddOptionGroupId(builder, optionGroupId):
-    return MinigameTBGEncounterOptionExcelAddOptionGroupId(builder, optionGroupId)
-def MinigameTBGEncounterOptionExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+    MinigameTBGEncounterOptionExcelAddOptionGroupId(builder, optionGroupId)
+
+def MinigameTBGEncounterOptionExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(1, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MinigameTBGEncounterOptionExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGEncounterOptionExcelAddSlotIndex(builder, slotIndex): builder.PrependInt32Slot(2, slotIndex, 0)
+    MinigameTBGEncounterOptionExcelAddUniqueId(builder, uniqueId)
+
+def MinigameTBGEncounterOptionExcelAddSlotIndex(builder, slotIndex):
+    builder.PrependInt32Slot(2, slotIndex, 0)
+
 def AddSlotIndex(builder, slotIndex):
-    return MinigameTBGEncounterOptionExcelAddSlotIndex(builder, slotIndex)
-def MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder, optionTitleLocalize): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(optionTitleLocalize), 0)
+    MinigameTBGEncounterOptionExcelAddSlotIndex(builder, slotIndex)
+
+def MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder, optionTitleLocalize):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(optionTitleLocalize), 0)
+
 def AddOptionTitleLocalize(builder, optionTitleLocalize):
-    return MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder, optionTitleLocalize)
-def MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder, optionSuccessLocalize): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(optionSuccessLocalize), 0)
+    MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder, optionTitleLocalize)
+
+def MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder, optionSuccessLocalize):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(optionSuccessLocalize), 0)
+
 def AddOptionSuccessLocalize(builder, optionSuccessLocalize):
-    return MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder, optionSuccessLocalize)
-def MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder, optionSuccessRewardGroupId): builder.PrependInt64Slot(5, optionSuccessRewardGroupId, 0)
+    MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder, optionSuccessLocalize)
+
+def MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder, optionSuccessRewardGroupId):
+    builder.PrependInt64Slot(5, optionSuccessRewardGroupId, 0)
+
 def AddOptionSuccessRewardGroupId(builder, optionSuccessRewardGroupId):
-    return MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder, optionSuccessRewardGroupId)
-def MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder, optionSuccessOrHigherDiceCount): builder.PrependInt32Slot(6, optionSuccessOrHigherDiceCount, 0)
+    MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder, optionSuccessRewardGroupId)
+
+def MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder, optionSuccessOrHigherDiceCount):
+    builder.PrependInt32Slot(6, optionSuccessOrHigherDiceCount, 0)
+
 def AddOptionSuccessOrHigherDiceCount(builder, optionSuccessOrHigherDiceCount):
-    return MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder, optionSuccessOrHigherDiceCount)
-def MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder, optionGreatSuccessOrHigherDiceCount): builder.PrependInt32Slot(7, optionGreatSuccessOrHigherDiceCount, 0)
+    MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder, optionSuccessOrHigherDiceCount)
+
+def MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder, optionGreatSuccessOrHigherDiceCount):
+    builder.PrependInt32Slot(7, optionGreatSuccessOrHigherDiceCount, 0)
+
 def AddOptionGreatSuccessOrHigherDiceCount(builder, optionGreatSuccessOrHigherDiceCount):
-    return MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder, optionGreatSuccessOrHigherDiceCount)
-def MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder, optionFailLocalize): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(optionFailLocalize), 0)
+    MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder, optionGreatSuccessOrHigherDiceCount)
+
+def MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder, optionFailLocalize):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(optionFailLocalize), 0)
+
 def AddOptionFailLocalize(builder, optionFailLocalize):
-    return MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder, optionFailLocalize)
-def MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder, optionFailLessDiceCount): builder.PrependInt32Slot(9, optionFailLessDiceCount, 0)
+    MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder, optionFailLocalize)
+
+def MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder, optionFailLessDiceCount):
+    builder.PrependInt32Slot(9, optionFailLessDiceCount, 0)
+
 def AddOptionFailLessDiceCount(builder, optionFailLessDiceCount):
-    return MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder, optionFailLessDiceCount)
-def MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder, runawayOrHigherDiceCount): builder.PrependInt32Slot(10, runawayOrHigherDiceCount, 0)
+    MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder, optionFailLessDiceCount)
+
+def MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder, runawayOrHigherDiceCount):
+    builder.PrependInt32Slot(10, runawayOrHigherDiceCount, 0)
+
 def AddRunawayOrHigherDiceCount(builder, runawayOrHigherDiceCount):
-    return MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder, runawayOrHigherDiceCount)
-def MinigameTBGEncounterOptionExcelAddRewardHide(builder, rewardHide): builder.PrependBoolSlot(11, rewardHide, 0)
+    MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder, runawayOrHigherDiceCount)
+
+def MinigameTBGEncounterOptionExcelAddRewardHide(builder, rewardHide):
+    builder.PrependBoolSlot(11, rewardHide, 0)
+
 def AddRewardHide(builder, rewardHide):
-    return MinigameTBGEncounterOptionExcelAddRewardHide(builder, rewardHide)
-def MinigameTBGEncounterOptionExcelEnd(builder): return builder.EndObject()
+    MinigameTBGEncounterOptionExcelAddRewardHide(builder, rewardHide)
+
+def MinigameTBGEncounterOptionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameTBGEncounterOptionExcelEnd(builder)

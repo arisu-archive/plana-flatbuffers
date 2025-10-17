@@ -17,11 +17,19 @@ func GetRootAsConstArenaExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Con
 	return x
 }
 
+func FinishConstArenaExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstArenaExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstArenaExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstArenaExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstArenaExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstArenaExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

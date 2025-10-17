@@ -1,9 +1,0 @@
-include "CharacterStatLimitExcel.fbs";
-
-namespace FlatData;
-
-table CharacterStatLimitExcelTable {
-    data_list: [CharacterStatLimitExcel];
-}
-
-root_type CharacterStatLimitExcelTable;

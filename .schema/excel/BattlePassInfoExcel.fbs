@@ -20,7 +20,6 @@ table BattlePassInfoExcel {
     lobby_banner_path: string;
     main_icon_parcel_path: string;
     purchase_step_product_image_path: string;
-    purchase_step_bg_image_path: string;
 }
 
 root_type BattlePassInfoExcel;

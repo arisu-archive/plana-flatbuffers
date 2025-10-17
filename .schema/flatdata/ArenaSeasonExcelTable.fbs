@@ -1,9 +1,0 @@
-include "ArenaSeasonExcel.fbs";
-
-namespace FlatData;
-
-table ArenaSeasonExcelTable {
-    data_list: [ArenaSeasonExcel];
-}
-
-root_type ArenaSeasonExcelTable;

@@ -96,27 +96,50 @@ class RootMotionFlat(object):
             return obj
         return None
 
-def RootMotionFlatStart(builder): builder.StartObject(4)
+def RootMotionFlatStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return RootMotionFlatStart(builder)
-def RootMotionFlatAddForms(builder, forms): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(forms), 0)
+    RootMotionFlatStart(builder)
+
+def RootMotionFlatAddForms(builder, forms):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(forms), 0)
+
 def AddForms(builder, forms):
-    return RootMotionFlatAddForms(builder, forms)
-def RootMotionFlatStartFormsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    RootMotionFlatAddForms(builder, forms)
+
+def RootMotionFlatStartFormsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartFormsVector(builder, numElems):
     return RootMotionFlatStartFormsVector(builder, numElems)
-def RootMotionFlatAddExSkills(builder, exSkills): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exSkills), 0)
+
+def RootMotionFlatAddExSkills(builder, exSkills):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exSkills), 0)
+
 def AddExSkills(builder, exSkills):
-    return RootMotionFlatAddExSkills(builder, exSkills)
-def RootMotionFlatStartExSkillsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    RootMotionFlatAddExSkills(builder, exSkills)
+
+def RootMotionFlatStartExSkillsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartExSkillsVector(builder, numElems):
     return RootMotionFlatStartExSkillsVector(builder, numElems)
-def RootMotionFlatAddMoveLeft(builder, moveLeft): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(moveLeft), 0)
+
+def RootMotionFlatAddMoveLeft(builder, moveLeft):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(moveLeft), 0)
+
 def AddMoveLeft(builder, moveLeft):
-    return RootMotionFlatAddMoveLeft(builder, moveLeft)
-def RootMotionFlatAddMoveRight(builder, moveRight): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(moveRight), 0)
+    RootMotionFlatAddMoveLeft(builder, moveLeft)
+
+def RootMotionFlatAddMoveRight(builder, moveRight):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(moveRight), 0)
+
 def AddMoveRight(builder, moveRight):
-    return RootMotionFlatAddMoveRight(builder, moveRight)
-def RootMotionFlatEnd(builder): return builder.EndObject()
+    RootMotionFlatAddMoveRight(builder, moveRight)
+
+def RootMotionFlatEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return RootMotionFlatEnd(builder)

@@ -66,27 +66,50 @@ class MiniGamePlayGuideExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MiniGamePlayGuideExcelStart(builder): builder.StartObject(6)
+def MiniGamePlayGuideExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return MiniGamePlayGuideExcelStart(builder)
-def MiniGamePlayGuideExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    MiniGamePlayGuideExcelStart(builder)
+
+def MiniGamePlayGuideExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return MiniGamePlayGuideExcelAddId(builder, id)
-def MiniGamePlayGuideExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+    MiniGamePlayGuideExcelAddId(builder, id)
+
+def MiniGamePlayGuideExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(1, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MiniGamePlayGuideExcelAddEventContentId(builder, eventContentId)
-def MiniGamePlayGuideExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
+    MiniGamePlayGuideExcelAddEventContentId(builder, eventContentId)
+
+def MiniGamePlayGuideExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return MiniGamePlayGuideExcelAddDisplayOrder(builder, displayOrder)
-def MiniGamePlayGuideExcelAddGuideTitle(builder, guideTitle): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+    MiniGamePlayGuideExcelAddDisplayOrder(builder, displayOrder)
+
+def MiniGamePlayGuideExcelAddGuideTitle(builder, guideTitle):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+
 def AddGuideTitle(builder, guideTitle):
-    return MiniGamePlayGuideExcelAddGuideTitle(builder, guideTitle)
-def MiniGamePlayGuideExcelAddGuideImagePath(builder, guideImagePath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+    MiniGamePlayGuideExcelAddGuideTitle(builder, guideTitle)
+
+def MiniGamePlayGuideExcelAddGuideImagePath(builder, guideImagePath):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+
 def AddGuideImagePath(builder, guideImagePath):
-    return MiniGamePlayGuideExcelAddGuideImagePath(builder, guideImagePath)
-def MiniGamePlayGuideExcelAddGuideText(builder, guideText): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+    MiniGamePlayGuideExcelAddGuideImagePath(builder, guideImagePath)
+
+def MiniGamePlayGuideExcelAddGuideText(builder, guideText):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+
 def AddGuideText(builder, guideText):
-    return MiniGamePlayGuideExcelAddGuideText(builder, guideText)
-def MiniGamePlayGuideExcelEnd(builder): return builder.EndObject()
+    MiniGamePlayGuideExcelAddGuideText(builder, guideText)
+
+def MiniGamePlayGuideExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGamePlayGuideExcelEnd(builder)

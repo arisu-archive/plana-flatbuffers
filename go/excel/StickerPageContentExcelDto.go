@@ -28,6 +28,9 @@ type StickerPageContentExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerPageContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_packed_sticker_icon_path := b.CreateString(fbsutils.Convert(t.PackedStickerIconPath, t.FlatBuffer.TableKey))
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_sticker_detail_path := b.CreateString(fbsutils.Convert(t.StickerDetailPath, t.FlatBuffer.TableKey))
 	StickerPageContentExcelStart(b)
 	StickerPageContentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	StickerPageContentExcelAddStickerGroupId(b, fbsutils.Convert(t.StickerGroupId, t.FlatBuffer.TableKey))
@@ -48,9 +51,9 @@ func (t *StickerPageContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	StickerPageContentExcelAddStickerGetConditionParameterTag(b, b.EndVector(len(t.StickerGetConditionParameterTag)))
 	StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(b, fbsutils.Convert(t.PackedStickerIconLocalizeEtcId, t.FlatBuffer.TableKey))
-	StickerPageContentExcelAddPackedStickerIconPath(b, b.CreateString(fbsutils.Convert(t.PackedStickerIconPath, t.FlatBuffer.TableKey)))
-	StickerPageContentExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	StickerPageContentExcelAddStickerDetailPath(b, b.CreateString(fbsutils.Convert(t.StickerDetailPath, t.FlatBuffer.TableKey)))
+	StickerPageContentExcelAddPackedStickerIconPath(b, __offset_packed_sticker_icon_path)
+	StickerPageContentExcelAddIconPath(b, __offset_icon_path)
+	StickerPageContentExcelAddStickerDetailPath(b, __offset_sticker_detail_path)
 	return StickerPageContentExcelEnd(b)
 }
 

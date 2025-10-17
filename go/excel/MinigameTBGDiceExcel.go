@@ -17,11 +17,19 @@ func GetRootAsMinigameTBGDiceExcel(buf []byte, offset flatbuffers.UOffsetT) *Min
 	return x
 }
 
+func FinishMinigameTBGDiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameTBGDiceExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameTBGDiceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameTBGDiceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameTBGDiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameTBGDiceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

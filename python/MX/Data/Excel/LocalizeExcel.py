@@ -45,18 +45,32 @@ class LocalizeExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def LocalizeExcelStart(builder): builder.StartObject(3)
+def LocalizeExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return LocalizeExcelStart(builder)
-def LocalizeExcelAddKey(builder, key): builder.PrependUint32Slot(0, key, 0)
+    LocalizeExcelStart(builder)
+
+def LocalizeExcelAddKey(builder, key):
+    builder.PrependUint32Slot(0, key, 0)
+
 def AddKey(builder, key):
-    return LocalizeExcelAddKey(builder, key)
-def LocalizeExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+    LocalizeExcelAddKey(builder, key)
+
+def LocalizeExcelAddKr(builder, kr):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+
 def AddKr(builder, kr):
-    return LocalizeExcelAddKr(builder, kr)
-def LocalizeExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+    LocalizeExcelAddKr(builder, kr)
+
+def LocalizeExcelAddJp(builder, jp):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+
 def AddJp(builder, jp):
-    return LocalizeExcelAddJp(builder, jp)
-def LocalizeExcelEnd(builder): return builder.EndObject()
+    LocalizeExcelAddJp(builder, jp)
+
+def LocalizeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LocalizeExcelEnd(builder)

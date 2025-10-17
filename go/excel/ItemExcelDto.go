@@ -46,6 +46,9 @@ type ItemExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
+	__offset_sprite_name := b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey))
+	__offset_expiration_date_time := b.CreateString(fbsutils.Convert(t.ExpirationDateTime, t.FlatBuffer.TableKey))
 	ItemExcelStart(b)
 	ItemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ItemExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -54,8 +57,8 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	ItemExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	ItemExcelAddItemCategory(b, fbsutils.Convert(t.ItemCategory, t.FlatBuffer.TableKey))
 	ItemExcelAddQuality(b, fbsutils.Convert(t.Quality, t.FlatBuffer.TableKey))
-	ItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
-	ItemExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
+	ItemExcelAddIcon(b, __offset_icon)
+	ItemExcelAddSpriteName(b, __offset_sprite_name)
 	ItemExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
 	ItemExcelAddStackableFunction(b, fbsutils.Convert(t.StackableFunction, t.FlatBuffer.TableKey))
 	ItemExcelAddImmediateUse(b, t.ImmediateUse)
@@ -83,7 +86,7 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 		b.PrependInt32(fbsutils.Convert(int32(t.ShopCategory[len(t.ShopCategory)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ItemExcelAddShopCategory(b, b.EndVector(len(t.ShopCategory)))
-	ItemExcelAddExpirationDateTime(b, b.CreateString(fbsutils.Convert(t.ExpirationDateTime, t.FlatBuffer.TableKey)))
+	ItemExcelAddExpirationDateTime(b, __offset_expiration_date_time)
 	ItemExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
 	ItemExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
 	ItemExcelAddGachaTicket(b, fbsutils.Convert(t.GachaTicket, t.FlatBuffer.TableKey))

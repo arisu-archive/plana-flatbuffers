@@ -17,14 +17,20 @@ type PresetCharacterGroupSettingExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PresetCharacterGroupSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_preset_type flatbuffers.UOffsetT
+	__stringOffsets_preset_type := make([]flatbuffers.UOffsetT, len(t.PresetType))
+	for i := range len(t.PresetType) {
+		__stringOffsets_preset_type[i] = b.CreateString(fbsutils.Convert(t.PresetType[i], t.FlatBuffer.TableKey))
+	}
+	PresetCharacterGroupSettingExcelStartPresetTypeVector(b, len(t.PresetType))
+	for i := range len(t.PresetType) {
+		b.PrependUOffsetT(__stringOffsets_preset_type[len(t.PresetType)-i-1])
+	}
+	__offset_preset_type = b.EndVector(len(t.PresetType))
 	PresetCharacterGroupSettingExcelStart(b)
 	PresetCharacterGroupSettingExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(b, t.ArenaSimulatorFixed)
-	PresetCharacterGroupSettingExcelStartPresetTypeVector(b, len(t.PresetType))
-	for i := range len(t.PresetType) {
-		b.PrependUOffsetT(b.CreateString(t.PresetType[len(t.PresetType)-i-1]))
-	}
-	PresetCharacterGroupSettingExcelAddPresetType(b, b.EndVector(len(t.PresetType)))
+	PresetCharacterGroupSettingExcelAddPresetType(b, __offset_preset_type)
 	return PresetCharacterGroupSettingExcelEnd(b)
 }
 

@@ -27,6 +27,9 @@ type MinigameCCGCharacterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_description := b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
+	__offset_ui_image_path := b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey))
 	MinigameCCGCharacterExcelStart(b)
 	MinigameCCGCharacterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MinigameCCGCharacterExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
@@ -41,9 +44,9 @@ func (t *MinigameCCGCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	MinigameCCGCharacterExcelAddPassiveSkillId(b, b.EndVector(len(t.PassiveSkillId)))
 	MinigameCCGCharacterExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	MinigameCCGCharacterExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
-	MinigameCCGCharacterExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	MinigameCCGCharacterExcelAddUiImagePath(b, b.CreateString(fbsutils.Convert(t.UiImagePath, t.FlatBuffer.TableKey)))
+	MinigameCCGCharacterExcelAddDescription(b, __offset_description)
+	MinigameCCGCharacterExcelAddImagePath(b, __offset_image_path)
+	MinigameCCGCharacterExcelAddUiImagePath(b, __offset_ui_image_path)
 	MinigameCCGCharacterExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))

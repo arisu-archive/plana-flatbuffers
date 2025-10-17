@@ -17,11 +17,19 @@ func GetRootAsConquestUnexpectedEventExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishConquestUnexpectedEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestUnexpectedEventExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestUnexpectedEventExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestUnexpectedEventExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestUnexpectedEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestUnexpectedEventExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

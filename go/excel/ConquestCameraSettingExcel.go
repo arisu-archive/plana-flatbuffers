@@ -17,11 +17,19 @@ func GetRootAsConquestCameraSettingExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishConquestCameraSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestCameraSettingExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestCameraSettingExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestCameraSettingExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestCameraSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestCameraSettingExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

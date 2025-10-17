@@ -17,11 +17,19 @@ func GetRootAsPropRootMotionFlat(buf []byte, offset flatbuffers.UOffsetT) *PropR
 	return x
 }
 
+func FinishPropRootMotionFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPropRootMotionFlat(buf []byte, offset flatbuffers.UOffsetT) *PropRootMotionFlat {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PropRootMotionFlat{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPropRootMotionFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PropRootMotionFlat) Init(buf []byte, i flatbuffers.UOffsetT) {

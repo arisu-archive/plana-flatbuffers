@@ -37,19 +37,44 @@ type WorldRaidSeasonManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_world_raid_lobby_scene := b.CreateString(fbsutils.Convert(t.WorldRaidLobbyScene, t.FlatBuffer.TableKey))
+	__offset_world_raid_lobby_banner := b.CreateString(fbsutils.Convert(t.WorldRaidLobbyBanner, t.FlatBuffer.TableKey))
+	__offset_world_raid_lobby_bg := b.CreateString(fbsutils.Convert(t.WorldRaidLobbyBg, t.FlatBuffer.TableKey))
+	__offset_world_raid_unique_theme_name := b.CreateString(fbsutils.Convert(t.WorldRaidUniqueThemeName, t.FlatBuffer.TableKey))
+	var __offset_boss_spawn_time flatbuffers.UOffsetT
+	__stringOffsets_boss_spawn_time := make([]flatbuffers.UOffsetT, len(t.BossSpawnTime))
+	for i := range len(t.BossSpawnTime) {
+		__stringOffsets_boss_spawn_time[i] = b.CreateString(fbsutils.Convert(t.BossSpawnTime[i], t.FlatBuffer.TableKey))
+	}
+	WorldRaidSeasonManageExcelStartBossSpawnTimeVector(b, len(t.BossSpawnTime))
+	for i := range len(t.BossSpawnTime) {
+		b.PrependUOffsetT(__stringOffsets_boss_spawn_time[len(t.BossSpawnTime)-i-1])
+	}
+	__offset_boss_spawn_time = b.EndVector(len(t.BossSpawnTime))
+	var __offset_eliminate_time flatbuffers.UOffsetT
+	__stringOffsets_eliminate_time := make([]flatbuffers.UOffsetT, len(t.EliminateTime))
+	for i := range len(t.EliminateTime) {
+		__stringOffsets_eliminate_time[i] = b.CreateString(fbsutils.Convert(t.EliminateTime[i], t.FlatBuffer.TableKey))
+	}
+	WorldRaidSeasonManageExcelStartEliminateTimeVector(b, len(t.EliminateTime))
+	for i := range len(t.EliminateTime) {
+		b.PrependUOffsetT(__stringOffsets_eliminate_time[len(t.EliminateTime)-i-1])
+	}
+	__offset_eliminate_time = b.EndVector(len(t.EliminateTime))
+	__offset_world_raid_map_enter_operator := b.CreateString(fbsutils.Convert(t.WorldRaidMapEnterOperator, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelStart(b)
 	WorldRaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddEnterTicket(b, fbsutils.Convert(t.EnterTicket, t.FlatBuffer.TableKey))
-	WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(b, b.CreateString(fbsutils.Convert(t.WorldRaidLobbyScene, t.FlatBuffer.TableKey)))
-	WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(b, b.CreateString(fbsutils.Convert(t.WorldRaidLobbyBanner, t.FlatBuffer.TableKey)))
-	WorldRaidSeasonManageExcelAddWorldRaidLobbyBg(b, b.CreateString(fbsutils.Convert(t.WorldRaidLobbyBg, t.FlatBuffer.TableKey)))
+	WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(b, __offset_world_raid_lobby_scene)
+	WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(b, __offset_world_raid_lobby_banner)
+	WorldRaidSeasonManageExcelAddWorldRaidLobbyBg(b, __offset_world_raid_lobby_bg)
 	WorldRaidSeasonManageExcelAddWorldRaidLobbyBannerShow(b, t.WorldRaidLobbyBannerShow)
 	WorldRaidSeasonManageExcelAddSeasonOpenCondition(b, fbsutils.Convert(t.SeasonOpenCondition, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddWorldRaidLobbyEnterScenario(b, fbsutils.Convert(t.WorldRaidLobbyEnterScenario, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddCanPlayNotSeasonTime(b, t.CanPlayNotSeasonTime)
 	WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeLobbyUi(b, t.WorldRaidUniqueThemeLobbyUi)
-	WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(b, b.CreateString(fbsutils.Convert(t.WorldRaidUniqueThemeName, t.FlatBuffer.TableKey)))
+	WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(b, __offset_world_raid_unique_theme_name)
 	WorldRaidSeasonManageExcelAddCanWorldRaidGemEnter(b, t.CanWorldRaidGemEnter)
 	WorldRaidSeasonManageExcelAddHideWorldRaidTicketUi(b, t.HideWorldRaidTicketUi)
 	WorldRaidSeasonManageExcelAddHideWorldRaidBossCompleteRewardUi(b, t.HideWorldRaidBossCompleteRewardUi)
@@ -59,16 +84,8 @@ func (t *WorldRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependInt64(fbsutils.Convert(t.OpenRaidBossGroupId[len(t.OpenRaidBossGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidSeasonManageExcelAddOpenRaidBossGroupId(b, b.EndVector(len(t.OpenRaidBossGroupId)))
-	WorldRaidSeasonManageExcelStartBossSpawnTimeVector(b, len(t.BossSpawnTime))
-	for i := range len(t.BossSpawnTime) {
-		b.PrependUOffsetT(b.CreateString(t.BossSpawnTime[len(t.BossSpawnTime)-i-1]))
-	}
-	WorldRaidSeasonManageExcelAddBossSpawnTime(b, b.EndVector(len(t.BossSpawnTime)))
-	WorldRaidSeasonManageExcelStartEliminateTimeVector(b, len(t.EliminateTime))
-	for i := range len(t.EliminateTime) {
-		b.PrependUOffsetT(b.CreateString(t.EliminateTime[len(t.EliminateTime)-i-1]))
-	}
-	WorldRaidSeasonManageExcelAddEliminateTime(b, b.EndVector(len(t.EliminateTime)))
+	WorldRaidSeasonManageExcelAddBossSpawnTime(b, __offset_boss_spawn_time)
+	WorldRaidSeasonManageExcelAddEliminateTime(b, __offset_eliminate_time)
 	WorldRaidSeasonManageExcelStartScenarioOutputConditionIdVector(b, len(t.ScenarioOutputConditionId))
 	for i := range len(t.ScenarioOutputConditionId) {
 		b.PrependInt64(fbsutils.Convert(t.ScenarioOutputConditionId[len(t.ScenarioOutputConditionId)-i-1], t.FlatBuffer.TableKey))
@@ -79,7 +96,7 @@ func (t *WorldRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependInt64(fbsutils.Convert(t.ConditionScenarioGroupid[len(t.ConditionScenarioGroupid)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidSeasonManageExcelAddConditionScenarioGroupid(b, b.EndVector(len(t.ConditionScenarioGroupid)))
-	WorldRaidSeasonManageExcelAddWorldRaidMapEnterOperator(b, b.CreateString(fbsutils.Convert(t.WorldRaidMapEnterOperator, t.FlatBuffer.TableKey)))
+	WorldRaidSeasonManageExcelAddWorldRaidMapEnterOperator(b, __offset_world_raid_map_enter_operator)
 	WorldRaidSeasonManageExcelAddUseFavorRankBuff(b, t.UseFavorRankBuff)
 	return WorldRaidSeasonManageExcelEnd(b)
 }

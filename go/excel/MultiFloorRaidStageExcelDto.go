@@ -39,10 +39,24 @@ type MultiFloorRaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_boss_group_id := b.CreateString(fbsutils.Convert(t.BossGroupId, t.FlatBuffer.TableKey))
+	__offset_floor_list_img_path := b.CreateString(fbsutils.Convert(t.FloorListImgPath, t.FlatBuffer.TableKey))
+	__offset_floor_img_path := b.CreateString(fbsutils.Convert(t.FloorImgPath, t.FlatBuffer.TableKey))
+	var __offset_battle_ready_timeline_path flatbuffers.UOffsetT
+	__stringOffsets_battle_ready_timeline_path := make([]flatbuffers.UOffsetT, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		__stringOffsets_battle_ready_timeline_path[i] = b.CreateString(fbsutils.Convert(t.BattleReadyTimelinePath[i], t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		b.PrependUOffsetT(__stringOffsets_battle_ready_timeline_path[len(t.BattleReadyTimelinePath)-i-1])
+	}
+	__offset_battle_ready_timeline_path = b.EndVector(len(t.BattleReadyTimelinePath))
+	__offset_victory_timeline_path := b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelStart(b)
 	MultiFloorRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddBossGroupId(b, b.CreateString(fbsutils.Convert(t.BossGroupId, t.FlatBuffer.TableKey)))
+	MultiFloorRaidStageExcelAddBossGroupId(b, __offset_boss_group_id)
 	MultiFloorRaidStageExcelAddAssistSlot(b, fbsutils.Convert(t.AssistSlot, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddStageOpenCondition(b, fbsutils.Convert(t.StageOpenCondition, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddFloorListSection(b, t.FloorListSection)
@@ -51,8 +65,8 @@ func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	MultiFloorRaidStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddUseBossIndex(b, t.UseBossIndex)
 	MultiFloorRaidStageExcelAddUseBossAiPhaseSync(b, t.UseBossAiPhaseSync)
-	MultiFloorRaidStageExcelAddFloorListImgPath(b, b.CreateString(fbsutils.Convert(t.FloorListImgPath, t.FlatBuffer.TableKey)))
-	MultiFloorRaidStageExcelAddFloorImgPath(b, b.CreateString(fbsutils.Convert(t.FloorImgPath, t.FlatBuffer.TableKey)))
+	MultiFloorRaidStageExcelAddFloorListImgPath(b, __offset_floor_list_img_path)
+	MultiFloorRaidStageExcelAddFloorImgPath(b, __offset_floor_img_path)
 	MultiFloorRaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelStartBossCharacterIdVector(b, len(t.BossCharacterId))
 	for i := range len(t.BossCharacterId) {
@@ -68,11 +82,7 @@ func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	MultiFloorRaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
-	for i := range len(t.BattleReadyTimelinePath) {
-		b.PrependUOffsetT(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]))
-	}
-	MultiFloorRaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
+	MultiFloorRaidStageExcelAddBattleReadyTimelinePath(b, __offset_battle_ready_timeline_path)
 	MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
 	for i := range len(t.BattleReadyTimelinePhaseStart) {
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseStart[len(t.BattleReadyTimelinePhaseStart)-i-1], t.FlatBuffer.TableKey))
@@ -83,7 +93,7 @@ func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
 	}
 	MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
-	MultiFloorRaidStageExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
+	MultiFloorRaidStageExcelAddVictoryTimelinePath(b, __offset_victory_timeline_path)
 	MultiFloorRaidStageExcelAddShowSkillCard(b, t.ShowSkillCard)
 	return MultiFloorRaidStageExcelEnd(b)
 }

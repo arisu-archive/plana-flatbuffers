@@ -21,11 +21,15 @@ func (t *ConstAudioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
+	__offset_default_snap_shot_name := b.CreateString(fbsutils.Convert(t.DefaultSnapShotName, t.FlatBuffer.TableKey))
+	__offset_battle_snap_shot_name := b.CreateString(fbsutils.Convert(t.BattleSnapShotName, t.FlatBuffer.TableKey))
+	__offset_raid_snap_shot_name := b.CreateString(fbsutils.Convert(t.RaidSnapShotName, t.FlatBuffer.TableKey))
+	__offset_ex_skill_cut_in_snap_shot_name := b.CreateString(fbsutils.Convert(t.ExSkillCutInSnapShotName, t.FlatBuffer.TableKey))
 	ConstAudioExcelStart(b)
-	ConstAudioExcelAddDefaultSnapShotName(b, b.CreateString(fbsutils.Convert(t.DefaultSnapShotName, t.FlatBuffer.TableKey)))
-	ConstAudioExcelAddBattleSnapShotName(b, b.CreateString(fbsutils.Convert(t.BattleSnapShotName, t.FlatBuffer.TableKey)))
-	ConstAudioExcelAddRaidSnapShotName(b, b.CreateString(fbsutils.Convert(t.RaidSnapShotName, t.FlatBuffer.TableKey)))
-	ConstAudioExcelAddExSkillCutInSnapShotName(b, b.CreateString(fbsutils.Convert(t.ExSkillCutInSnapShotName, t.FlatBuffer.TableKey)))
+	ConstAudioExcelAddDefaultSnapShotName(b, __offset_default_snap_shot_name)
+	ConstAudioExcelAddBattleSnapShotName(b, __offset_battle_snap_shot_name)
+	ConstAudioExcelAddRaidSnapShotName(b, __offset_raid_snap_shot_name)
+	ConstAudioExcelAddExSkillCutInSnapShotName(b, __offset_ex_skill_cut_in_snap_shot_name)
 	return ConstAudioExcelEnd(b)
 }
 

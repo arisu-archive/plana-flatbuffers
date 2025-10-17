@@ -65,21 +65,38 @@ class TrophyCollectionExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def TrophyCollectionExcelStart(builder): builder.StartObject(3)
+def TrophyCollectionExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return TrophyCollectionExcelStart(builder)
-def TrophyCollectionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    TrophyCollectionExcelStart(builder)
+
+def TrophyCollectionExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return TrophyCollectionExcelAddGroupId(builder, groupId)
-def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(1, localizeCodeId, 0)
+    TrophyCollectionExcelAddGroupId(builder, groupId)
+
+def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUint32Slot(1, localizeCodeId, 0)
+
 def AddLocalizeCodeId(builder, localizeCodeId):
-    return TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
-def TrophyCollectionExcelAddFurnitureId(builder, furnitureId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
+    TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
+
+def TrophyCollectionExcelAddFurnitureId(builder, furnitureId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
+
 def AddFurnitureId(builder, furnitureId):
-    return TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
-def TrophyCollectionExcelStartFurnitureIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
+
+def TrophyCollectionExcelStartFurnitureIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartFurnitureIdVector(builder, numElems):
     return TrophyCollectionExcelStartFurnitureIdVector(builder, numElems)
-def TrophyCollectionExcelEnd(builder): return builder.EndObject()
+
+def TrophyCollectionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TrophyCollectionExcelEnd(builder)

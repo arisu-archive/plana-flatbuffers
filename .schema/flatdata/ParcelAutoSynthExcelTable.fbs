@@ -1,9 +1,0 @@
-include "ParcelAutoSynthExcel.fbs";
-
-namespace FlatData;
-
-table ParcelAutoSynthExcelTable {
-    data_list: [ParcelAutoSynthExcel];
-}
-
-root_type ParcelAutoSynthExcelTable;

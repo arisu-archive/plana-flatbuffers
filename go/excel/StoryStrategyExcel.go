@@ -17,11 +17,19 @@ func GetRootAsStoryStrategyExcel(buf []byte, offset flatbuffers.UOffsetT) *Story
 	return x
 }
 
+func FinishStoryStrategyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStoryStrategyExcel(buf []byte, offset flatbuffers.UOffsetT) *StoryStrategyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StoryStrategyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStoryStrategyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StoryStrategyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

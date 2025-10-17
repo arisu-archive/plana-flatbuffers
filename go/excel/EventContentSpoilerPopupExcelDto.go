@@ -19,10 +19,12 @@ type EventContentSpoilerPopupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_spoiler_popup_title := b.CreateString(fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey))
+	__offset_spoiler_popup_description := b.CreateString(fbsutils.Convert(t.SpoilerPopupDescription, t.FlatBuffer.TableKey))
 	EventContentSpoilerPopupExcelStart(b)
 	EventContentSpoilerPopupExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentSpoilerPopupExcelAddSpoilerPopupTitle(b, b.CreateString(fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey)))
-	EventContentSpoilerPopupExcelAddSpoilerPopupDescription(b, b.CreateString(fbsutils.Convert(t.SpoilerPopupDescription, t.FlatBuffer.TableKey)))
+	EventContentSpoilerPopupExcelAddSpoilerPopupTitle(b, __offset_spoiler_popup_title)
+	EventContentSpoilerPopupExcelAddSpoilerPopupDescription(b, __offset_spoiler_popup_description)
 	EventContentSpoilerPopupExcelAddIsWarningPopUp(b, t.IsWarningPopUp)
 	EventContentSpoilerPopupExcelAddConditionScenarioModeId(b, fbsutils.Convert(t.ConditionScenarioModeId, t.FlatBuffer.TableKey))
 	return EventContentSpoilerPopupExcelEnd(b)

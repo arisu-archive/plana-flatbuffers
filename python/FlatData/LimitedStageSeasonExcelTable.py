@@ -49,15 +49,26 @@ class LimitedStageSeasonExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def LimitedStageSeasonExcelTableStart(builder): builder.StartObject(1)
+def LimitedStageSeasonExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return LimitedStageSeasonExcelTableStart(builder)
-def LimitedStageSeasonExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    LimitedStageSeasonExcelTableStart(builder)
+
+def LimitedStageSeasonExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return LimitedStageSeasonExcelTableAddDataList(builder, dataList)
-def LimitedStageSeasonExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    LimitedStageSeasonExcelTableAddDataList(builder, dataList)
+
+def LimitedStageSeasonExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return LimitedStageSeasonExcelTableStartDataListVector(builder, numElems)
-def LimitedStageSeasonExcelTableEnd(builder): return builder.EndObject()
+
+def LimitedStageSeasonExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LimitedStageSeasonExcelTableEnd(builder)

@@ -213,54 +213,104 @@ class BGMExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
-def BGMExcelStart(builder): builder.StartObject(8)
+def BGMExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return BGMExcelStart(builder)
-def BGMExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    BGMExcelStart(builder)
+
+def BGMExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return BGMExcelAddId(builder, id)
-def BGMExcelAddNation(builder, nation): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
+    BGMExcelAddId(builder, id)
+
+def BGMExcelAddNation(builder, nation):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
+
 def AddNation(builder, nation):
-    return BGMExcelAddNation(builder, nation)
-def BGMExcelStartNationVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddNation(builder, nation)
+
+def BGMExcelStartNationVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartNationVector(builder, numElems):
     return BGMExcelStartNationVector(builder, numElems)
-def BGMExcelAddPath(builder, path): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
+
+def BGMExcelAddPath(builder, path):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
+
 def AddPath(builder, path):
-    return BGMExcelAddPath(builder, path)
-def BGMExcelStartPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddPath(builder, path)
+
+def BGMExcelStartPathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartPathVector(builder, numElems):
     return BGMExcelStartPathVector(builder, numElems)
-def BGMExcelAddVolume(builder, volume): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(volume), 0)
+
+def BGMExcelAddVolume(builder, volume):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(volume), 0)
+
 def AddVolume(builder, volume):
-    return BGMExcelAddVolume(builder, volume)
-def BGMExcelStartVolumeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddVolume(builder, volume)
+
+def BGMExcelStartVolumeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartVolumeVector(builder, numElems):
     return BGMExcelStartVolumeVector(builder, numElems)
-def BGMExcelAddLoopStartTime(builder, loopStartTime): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(loopStartTime), 0)
+
+def BGMExcelAddLoopStartTime(builder, loopStartTime):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(loopStartTime), 0)
+
 def AddLoopStartTime(builder, loopStartTime):
-    return BGMExcelAddLoopStartTime(builder, loopStartTime)
-def BGMExcelStartLoopStartTimeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddLoopStartTime(builder, loopStartTime)
+
+def BGMExcelStartLoopStartTimeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartLoopStartTimeVector(builder, numElems):
     return BGMExcelStartLoopStartTimeVector(builder, numElems)
-def BGMExcelAddLoopEndTime(builder, loopEndTime): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(loopEndTime), 0)
+
+def BGMExcelAddLoopEndTime(builder, loopEndTime):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(loopEndTime), 0)
+
 def AddLoopEndTime(builder, loopEndTime):
-    return BGMExcelAddLoopEndTime(builder, loopEndTime)
-def BGMExcelStartLoopEndTimeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddLoopEndTime(builder, loopEndTime)
+
+def BGMExcelStartLoopEndTimeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartLoopEndTimeVector(builder, numElems):
     return BGMExcelStartLoopEndTimeVector(builder, numElems)
-def BGMExcelAddLoopTranstionTime(builder, loopTranstionTime): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(loopTranstionTime), 0)
+
+def BGMExcelAddLoopTranstionTime(builder, loopTranstionTime):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(loopTranstionTime), 0)
+
 def AddLoopTranstionTime(builder, loopTranstionTime):
-    return BGMExcelAddLoopTranstionTime(builder, loopTranstionTime)
-def BGMExcelStartLoopTranstionTimeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddLoopTranstionTime(builder, loopTranstionTime)
+
+def BGMExcelStartLoopTranstionTimeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartLoopTranstionTimeVector(builder, numElems):
     return BGMExcelStartLoopTranstionTimeVector(builder, numElems)
-def BGMExcelAddLoopOffsetTime(builder, loopOffsetTime): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(loopOffsetTime), 0)
+
+def BGMExcelAddLoopOffsetTime(builder, loopOffsetTime):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(loopOffsetTime), 0)
+
 def AddLoopOffsetTime(builder, loopOffsetTime):
-    return BGMExcelAddLoopOffsetTime(builder, loopOffsetTime)
-def BGMExcelStartLoopOffsetTimeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BGMExcelAddLoopOffsetTime(builder, loopOffsetTime)
+
+def BGMExcelStartLoopOffsetTimeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartLoopOffsetTimeVector(builder, numElems):
     return BGMExcelStartLoopOffsetTimeVector(builder, numElems)
-def BGMExcelEnd(builder): return builder.EndObject()
+
+def BGMExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BGMExcelEnd(builder)

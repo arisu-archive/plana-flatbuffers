@@ -1,6 +1,0 @@
-namespace FlatData;
-
-table TacticSkipExcel {
-    level_diff: int;
-    hp_result: long;
-}

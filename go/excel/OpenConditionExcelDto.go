@@ -34,21 +34,35 @@ type OpenConditionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	OpenConditionExcelStart(b)
-	OpenConditionExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
+	var __offset_lock_ui flatbuffers.UOffsetT
+	__stringOffsets_lock_ui := make([]flatbuffers.UOffsetT, len(t.LockUi))
+	for i := range len(t.LockUi) {
+		__stringOffsets_lock_ui[i] = b.CreateString(fbsutils.Convert(t.LockUi[i], t.FlatBuffer.TableKey))
+	}
 	OpenConditionExcelStartLockUiVector(b, len(t.LockUi))
 	for i := range len(t.LockUi) {
-		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_lock_ui[len(t.LockUi)-i-1])
 	}
-	OpenConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
-	OpenConditionExcelAddShortcutPopupPriority(b, fbsutils.Convert(t.ShortcutPopupPriority, t.FlatBuffer.TableKey))
+	__offset_lock_ui = b.EndVector(len(t.LockUi))
+	var __offset_shortcut_ui_name flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui_name := make([]flatbuffers.UOffsetT, len(t.ShortcutUiName))
+	for i := range len(t.ShortcutUiName) {
+		__stringOffsets_shortcut_ui_name[i] = b.CreateString(fbsutils.Convert(t.ShortcutUiName[i], t.FlatBuffer.TableKey))
+	}
 	OpenConditionExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
 	for i := range len(t.ShortcutUiName) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui_name[len(t.ShortcutUiName)-i-1])
 	}
-	OpenConditionExcelAddShortcutUiName(b, b.EndVector(len(t.ShortcutUiName)))
+	__offset_shortcut_ui_name = b.EndVector(len(t.ShortcutUiName))
+	__offset_scene := b.CreateString(fbsutils.Convert(t.Scene, t.FlatBuffer.TableKey))
+	__offset_contents_open_shortcut_ui := b.CreateString(fbsutils.Convert(t.ContentsOpenShortcutUi, t.FlatBuffer.TableKey))
+	OpenConditionExcelStart(b)
+	OpenConditionExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddLockUi(b, __offset_lock_ui)
+	OpenConditionExcelAddShortcutPopupPriority(b, fbsutils.Convert(t.ShortcutPopupPriority, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddShortcutUiName(b, __offset_shortcut_ui_name)
 	OpenConditionExcelAddShortcutParam(b, fbsutils.Convert(t.ShortcutParam, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddScene(b, b.CreateString(fbsutils.Convert(t.Scene, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddScene(b, __offset_scene)
 	OpenConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
 	OpenConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
@@ -62,7 +76,7 @@ func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	OpenConditionExcelAddCafeIdforCafeRank(b, fbsutils.Convert(t.CafeIdforCafeRank, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddCafeRank(b, fbsutils.Convert(t.CafeRank, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddContentsOpenShow(b, t.ContentsOpenShow)
-	OpenConditionExcelAddContentsOpenShortcutUi(b, b.CreateString(fbsutils.Convert(t.ContentsOpenShortcutUi, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddContentsOpenShortcutUi(b, __offset_contents_open_shortcut_ui)
 	return OpenConditionExcelEnd(b)
 }
 

@@ -21,20 +21,33 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
 	}
-	PropMotionStart(b)
-	PropMotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	var __offset_positions flatbuffers.UOffsetT
+	__nestedOffsets_positions := make([]flatbuffers.UOffsetT, len(t.Positions))
+	for i := range len(t.Positions) {
+		t.Positions[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_positions[i] = t.Positions[i].MarshalModel(b)
+	}
 	PropMotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Positions[len(t.Positions)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_positions[len(t.Positions)-i-1])
 	}
-	PropMotionAddPositions(b, b.EndVector(len(t.Positions)))
+	__offset_positions = b.EndVector(len(t.Positions))
+	var __offset_rotations flatbuffers.UOffsetT
+	__nestedOffsets_rotations := make([]flatbuffers.UOffsetT, len(t.Rotations))
+	for i := range len(t.Rotations) {
+		t.Rotations[i].InitKey(t.FlatBuffer.TableKey)
+		__nestedOffsets_rotations[i] = t.Rotations[i].MarshalModel(b)
+	}
 	PropMotionStartRotationsVector(b, len(t.Rotations))
 	for i := range len(t.Rotations) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Rotations[len(t.Rotations)-i-1].MarshalModel(b))
+		b.PrependUOffsetT(__nestedOffsets_rotations[len(t.Rotations)-i-1])
 	}
-	PropMotionAddRotations(b, b.EndVector(len(t.Rotations)))
+	__offset_rotations = b.EndVector(len(t.Rotations))
+	PropMotionStart(b)
+	PropMotionAddName(b, __offset_name)
+	PropMotionAddPositions(b, __offset_positions)
+	PropMotionAddRotations(b, __offset_rotations)
 	return PropMotionEnd(b)
 }
 

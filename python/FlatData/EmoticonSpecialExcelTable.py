@@ -49,15 +49,26 @@ class EmoticonSpecialExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EmoticonSpecialExcelTableStart(builder): builder.StartObject(1)
+def EmoticonSpecialExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EmoticonSpecialExcelTableStart(builder)
-def EmoticonSpecialExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EmoticonSpecialExcelTableStart(builder)
+
+def EmoticonSpecialExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EmoticonSpecialExcelTableAddDataList(builder, dataList)
-def EmoticonSpecialExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EmoticonSpecialExcelTableAddDataList(builder, dataList)
+
+def EmoticonSpecialExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EmoticonSpecialExcelTableStartDataListVector(builder, numElems)
-def EmoticonSpecialExcelTableEnd(builder): return builder.EndObject()
+
+def EmoticonSpecialExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EmoticonSpecialExcelTableEnd(builder)

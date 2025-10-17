@@ -49,15 +49,26 @@ class FieldWorldMapZoneExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FieldWorldMapZoneExcelTableStart(builder): builder.StartObject(1)
+def FieldWorldMapZoneExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return FieldWorldMapZoneExcelTableStart(builder)
-def FieldWorldMapZoneExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    FieldWorldMapZoneExcelTableStart(builder)
+
+def FieldWorldMapZoneExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return FieldWorldMapZoneExcelTableAddDataList(builder, dataList)
-def FieldWorldMapZoneExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldWorldMapZoneExcelTableAddDataList(builder, dataList)
+
+def FieldWorldMapZoneExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return FieldWorldMapZoneExcelTableStartDataListVector(builder, numElems)
-def FieldWorldMapZoneExcelTableEnd(builder): return builder.EndObject()
+
+def FieldWorldMapZoneExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldWorldMapZoneExcelTableEnd(builder)

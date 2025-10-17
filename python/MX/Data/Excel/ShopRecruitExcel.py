@@ -149,190 +149,292 @@ class ShopRecruitExcel(object):
         return o == 0
 
     # ShopRecruitExcel
-    def SalePeriodFrom(self):
+    def SalePeriodVisible(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ShopRecruitExcel
-    def SalePeriodTo(self):
+    def SalePeriodFrom(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopRecruitExcel
-    def RecruitCoinId(self):
+    def SalePeriodTo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ShopRecruitExcel
-    def RecruitSellectionShopId(self):
+    def RecruitCoinId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def PurchaseCooltimeMin(self):
+    def RecruitSellectionShopId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def PurchaseCountLimit(self):
+    def PurchaseCooltimeMin(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def PurchaseCountResetType(self):
+    def PurchaseCountLimit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRecruitExcel
+    def PurchaseCountResetType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
     def IsNewbie(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ShopRecruitExcel
-    def IsSelectRecruit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ShopRecruitExcel
-    def DirectPayInvisibleTokenId(self):
+    def IsSelectRecruit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ShopRecruitExcel
-    def DirectPayAndroidShopCashId(self):
+    def DirectPayInvisibleTokenId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def DirectPayAppleShopCashId(self):
+    def DirectPayAndroidShopCashId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def SelectAbleGachaGroupId(self):
+    def DirectPayAppleShopCashId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def MaxSelectCharacterNum(self):
+    def SelectAbleGachaGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ShopRecruitExcelStart(builder): builder.StartObject(26)
+    # ShopRecruitExcel
+    def MaxSelectCharacterNum(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+def ShopRecruitExcelStart(builder):
+    builder.StartObject(27)
+
 def Start(builder):
-    return ShopRecruitExcelStart(builder)
-def ShopRecruitExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    ShopRecruitExcelStart(builder)
+
+def ShopRecruitExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return ShopRecruitExcelAddId(builder, id)
-def ShopRecruitExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
+    ShopRecruitExcelAddId(builder, id)
+
+def ShopRecruitExcelAddCategoryType(builder, categoryType):
+    builder.PrependInt32Slot(1, categoryType, 0)
+
 def AddCategoryType(builder, categoryType):
-    return ShopRecruitExcelAddCategoryType(builder, categoryType)
-def ShopRecruitExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(2, isLegacy, 0)
+    ShopRecruitExcelAddCategoryType(builder, categoryType)
+
+def ShopRecruitExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(2, isLegacy, 0)
+
 def AddIsLegacy(builder, isLegacy):
-    return ShopRecruitExcelAddIsLegacy(builder, isLegacy)
-def ShopRecruitExcelAddOneGachaGoodsId(builder, oneGachaGoodsId): builder.PrependInt64Slot(3, oneGachaGoodsId, 0)
+    ShopRecruitExcelAddIsLegacy(builder, isLegacy)
+
+def ShopRecruitExcelAddOneGachaGoodsId(builder, oneGachaGoodsId):
+    builder.PrependInt64Slot(3, oneGachaGoodsId, 0)
+
 def AddOneGachaGoodsId(builder, oneGachaGoodsId):
-    return ShopRecruitExcelAddOneGachaGoodsId(builder, oneGachaGoodsId)
-def ShopRecruitExcelAddTenGachaGoodsId(builder, tenGachaGoodsId): builder.PrependInt64Slot(4, tenGachaGoodsId, 0)
+    ShopRecruitExcelAddOneGachaGoodsId(builder, oneGachaGoodsId)
+
+def ShopRecruitExcelAddTenGachaGoodsId(builder, tenGachaGoodsId):
+    builder.PrependInt64Slot(4, tenGachaGoodsId, 0)
+
 def AddTenGachaGoodsId(builder, tenGachaGoodsId):
-    return ShopRecruitExcelAddTenGachaGoodsId(builder, tenGachaGoodsId)
-def ShopRecruitExcelAddGoodsDevName(builder, goodsDevName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(goodsDevName), 0)
+    ShopRecruitExcelAddTenGachaGoodsId(builder, tenGachaGoodsId)
+
+def ShopRecruitExcelAddGoodsDevName(builder, goodsDevName):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(goodsDevName), 0)
+
 def AddGoodsDevName(builder, goodsDevName):
-    return ShopRecruitExcelAddGoodsDevName(builder, goodsDevName)
-def ShopRecruitExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(6, displayTag, 0)
+    ShopRecruitExcelAddGoodsDevName(builder, goodsDevName)
+
+def ShopRecruitExcelAddDisplayTag(builder, displayTag):
+    builder.PrependInt32Slot(6, displayTag, 0)
+
 def AddDisplayTag(builder, displayTag):
-    return ShopRecruitExcelAddDisplayTag(builder, displayTag)
-def ShopRecruitExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(7, displayOrder, 0)
+    ShopRecruitExcelAddDisplayTag(builder, displayTag)
+
+def ShopRecruitExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(7, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ShopRecruitExcelAddDisplayOrder(builder, displayOrder)
-def ShopRecruitExcelAddGachaBannerPath(builder, gachaBannerPath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(gachaBannerPath), 0)
+    ShopRecruitExcelAddDisplayOrder(builder, displayOrder)
+
+def ShopRecruitExcelAddGachaBannerPath(builder, gachaBannerPath):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(gachaBannerPath), 0)
+
 def AddGachaBannerPath(builder, gachaBannerPath):
-    return ShopRecruitExcelAddGachaBannerPath(builder, gachaBannerPath)
-def ShopRecruitExcelAddVideoId(builder, videoId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(videoId), 0)
+    ShopRecruitExcelAddGachaBannerPath(builder, gachaBannerPath)
+
+def ShopRecruitExcelAddVideoId(builder, videoId):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(videoId), 0)
+
 def AddVideoId(builder, videoId):
-    return ShopRecruitExcelAddVideoId(builder, videoId)
-def ShopRecruitExcelStartVideoIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ShopRecruitExcelAddVideoId(builder, videoId)
+
+def ShopRecruitExcelStartVideoIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartVideoIdVector(builder, numElems):
     return ShopRecruitExcelStartVideoIdVector(builder, numElems)
-def ShopRecruitExcelAddLinkedRobbyBannerId(builder, linkedRobbyBannerId): builder.PrependInt64Slot(10, linkedRobbyBannerId, 0)
+
+def ShopRecruitExcelAddLinkedRobbyBannerId(builder, linkedRobbyBannerId):
+    builder.PrependInt64Slot(10, linkedRobbyBannerId, 0)
+
 def AddLinkedRobbyBannerId(builder, linkedRobbyBannerId):
-    return ShopRecruitExcelAddLinkedRobbyBannerId(builder, linkedRobbyBannerId)
-def ShopRecruitExcelAddInfoCharacterId(builder, infoCharacterId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(infoCharacterId), 0)
+    ShopRecruitExcelAddLinkedRobbyBannerId(builder, linkedRobbyBannerId)
+
+def ShopRecruitExcelAddInfoCharacterId(builder, infoCharacterId):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(infoCharacterId), 0)
+
 def AddInfoCharacterId(builder, infoCharacterId):
-    return ShopRecruitExcelAddInfoCharacterId(builder, infoCharacterId)
-def ShopRecruitExcelStartInfoCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ShopRecruitExcelAddInfoCharacterId(builder, infoCharacterId)
+
+def ShopRecruitExcelStartInfoCharacterIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartInfoCharacterIdVector(builder, numElems):
     return ShopRecruitExcelStartInfoCharacterIdVector(builder, numElems)
-def ShopRecruitExcelAddSalePeriodFrom(builder, salePeriodFrom): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+
+def ShopRecruitExcelAddSalePeriodVisible(builder, salePeriodVisible):
+    builder.PrependBoolSlot(12, salePeriodVisible, 0)
+
+def AddSalePeriodVisible(builder, salePeriodVisible):
+    ShopRecruitExcelAddSalePeriodVisible(builder, salePeriodVisible)
+
+def ShopRecruitExcelAddSalePeriodFrom(builder, salePeriodFrom):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+
 def AddSalePeriodFrom(builder, salePeriodFrom):
-    return ShopRecruitExcelAddSalePeriodFrom(builder, salePeriodFrom)
-def ShopRecruitExcelAddSalePeriodTo(builder, salePeriodTo): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+    ShopRecruitExcelAddSalePeriodFrom(builder, salePeriodFrom)
+
+def ShopRecruitExcelAddSalePeriodTo(builder, salePeriodTo):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+
 def AddSalePeriodTo(builder, salePeriodTo):
-    return ShopRecruitExcelAddSalePeriodTo(builder, salePeriodTo)
-def ShopRecruitExcelAddRecruitCoinId(builder, recruitCoinId): builder.PrependInt64Slot(14, recruitCoinId, 0)
+    ShopRecruitExcelAddSalePeriodTo(builder, salePeriodTo)
+
+def ShopRecruitExcelAddRecruitCoinId(builder, recruitCoinId):
+    builder.PrependInt64Slot(15, recruitCoinId, 0)
+
 def AddRecruitCoinId(builder, recruitCoinId):
-    return ShopRecruitExcelAddRecruitCoinId(builder, recruitCoinId)
-def ShopRecruitExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId): builder.PrependInt64Slot(15, recruitSellectionShopId, 0)
+    ShopRecruitExcelAddRecruitCoinId(builder, recruitCoinId)
+
+def ShopRecruitExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId):
+    builder.PrependInt64Slot(16, recruitSellectionShopId, 0)
+
 def AddRecruitSellectionShopId(builder, recruitSellectionShopId):
-    return ShopRecruitExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId)
-def ShopRecruitExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin): builder.PrependInt64Slot(16, purchaseCooltimeMin, 0)
+    ShopRecruitExcelAddRecruitSellectionShopId(builder, recruitSellectionShopId)
+
+def ShopRecruitExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
+    builder.PrependInt64Slot(17, purchaseCooltimeMin, 0)
+
 def AddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
-    return ShopRecruitExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin)
-def ShopRecruitExcelAddPurchaseCountLimit(builder, purchaseCountLimit): builder.PrependInt64Slot(17, purchaseCountLimit, 0)
+    ShopRecruitExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin)
+
+def ShopRecruitExcelAddPurchaseCountLimit(builder, purchaseCountLimit):
+    builder.PrependInt64Slot(18, purchaseCountLimit, 0)
+
 def AddPurchaseCountLimit(builder, purchaseCountLimit):
-    return ShopRecruitExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
-def ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType): builder.PrependInt32Slot(18, purchaseCountResetType, 0)
+    ShopRecruitExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
+
+def ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType):
+    builder.PrependInt32Slot(19, purchaseCountResetType, 0)
+
 def AddPurchaseCountResetType(builder, purchaseCountResetType):
-    return ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
-def ShopRecruitExcelAddIsNewbie(builder, isNewbie): builder.PrependBoolSlot(19, isNewbie, 0)
+    ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
+
+def ShopRecruitExcelAddIsNewbie(builder, isNewbie):
+    builder.PrependBoolSlot(20, isNewbie, 0)
+
 def AddIsNewbie(builder, isNewbie):
-    return ShopRecruitExcelAddIsNewbie(builder, isNewbie)
-def ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit): builder.PrependBoolSlot(20, isSelectRecruit, 0)
+    ShopRecruitExcelAddIsNewbie(builder, isNewbie)
+
+def ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit):
+    builder.PrependBoolSlot(21, isSelectRecruit, 0)
+
 def AddIsSelectRecruit(builder, isSelectRecruit):
-    return ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit)
-def ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId): builder.PrependInt64Slot(21, directPayInvisibleTokenId, 0)
+    ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit)
+
+def ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId):
+    builder.PrependInt64Slot(22, directPayInvisibleTokenId, 0)
+
 def AddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId):
-    return ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId)
-def ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId): builder.PrependInt64Slot(22, directPayAndroidShopCashId, 0)
+    ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId)
+
+def ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId):
+    builder.PrependInt64Slot(23, directPayAndroidShopCashId, 0)
+
 def AddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId):
-    return ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId)
-def ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId): builder.PrependInt64Slot(23, directPayAppleShopCashId, 0)
+    ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId)
+
+def ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId):
+    builder.PrependInt64Slot(24, directPayAppleShopCashId, 0)
+
 def AddDirectPayAppleShopCashId(builder, directPayAppleShopCashId):
-    return ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId)
-def ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId): builder.PrependInt64Slot(24, selectAbleGachaGroupId, 0)
+    ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId)
+
+def ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId):
+    builder.PrependInt64Slot(25, selectAbleGachaGroupId, 0)
+
 def AddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId):
-    return ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId)
-def ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum): builder.PrependInt64Slot(25, maxSelectCharacterNum, 0)
+    ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId)
+
+def ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum):
+    builder.PrependInt64Slot(26, maxSelectCharacterNum, 0)
+
 def AddMaxSelectCharacterNum(builder, maxSelectCharacterNum):
-    return ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum)
-def ShopRecruitExcelEnd(builder): return builder.EndObject()
+    ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum)
+
+def ShopRecruitExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShopRecruitExcelEnd(builder)

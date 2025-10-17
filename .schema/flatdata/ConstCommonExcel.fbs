@@ -177,4 +177,5 @@ table ConstCommonExcel {
     battle_pass_end_imminent_day: int;
     battle_pass_exp_icon_path: string;
     cafe_camera_drag_threshold: float;
+    cafe_summon_ticket_buy_limit_for_validate: int;
 }

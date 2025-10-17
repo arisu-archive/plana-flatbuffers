@@ -17,11 +17,19 @@ func GetRootAsMotion(buf []byte, offset flatbuffers.UOffsetT) *Motion {
 	return x
 }
 
+func FinishMotionBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMotion(buf []byte, offset flatbuffers.UOffsetT) *Motion {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &Motion{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMotionBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *Motion) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -255,108 +255,212 @@ class PresetCharacterGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def PresetCharacterGroupExcelStart(builder): builder.StartObject(33)
+def PresetCharacterGroupExcelStart(builder):
+    builder.StartObject(33)
+
 def Start(builder):
-    return PresetCharacterGroupExcelStart(builder)
-def PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, presetCharacterGroupId): builder.PrependInt64Slot(0, presetCharacterGroupId, 0)
+    PresetCharacterGroupExcelStart(builder)
+
+def PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, presetCharacterGroupId):
+    builder.PrependInt64Slot(0, presetCharacterGroupId, 0)
+
 def AddPresetCharacterGroupId(builder, presetCharacterGroupId):
-    return PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, presetCharacterGroupId)
-def PresetCharacterGroupExcelAddGetPresetType(builder, getPresetType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(getPresetType), 0)
+    PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, presetCharacterGroupId)
+
+def PresetCharacterGroupExcelAddGetPresetType(builder, getPresetType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(getPresetType), 0)
+
 def AddGetPresetType(builder, getPresetType):
-    return PresetCharacterGroupExcelAddGetPresetType(builder, getPresetType)
-def PresetCharacterGroupExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+    PresetCharacterGroupExcelAddGetPresetType(builder, getPresetType)
+
+def PresetCharacterGroupExcelAddLevel(builder, level):
+    builder.PrependInt32Slot(2, level, 0)
+
 def AddLevel(builder, level):
-    return PresetCharacterGroupExcelAddLevel(builder, level)
-def PresetCharacterGroupExcelAddExp(builder, exp): builder.PrependInt32Slot(3, exp, 0)
+    PresetCharacterGroupExcelAddLevel(builder, level)
+
+def PresetCharacterGroupExcelAddExp(builder, exp):
+    builder.PrependInt32Slot(3, exp, 0)
+
 def AddExp(builder, exp):
-    return PresetCharacterGroupExcelAddExp(builder, exp)
-def PresetCharacterGroupExcelAddFavorExp(builder, favorExp): builder.PrependInt32Slot(4, favorExp, 0)
+    PresetCharacterGroupExcelAddExp(builder, exp)
+
+def PresetCharacterGroupExcelAddFavorExp(builder, favorExp):
+    builder.PrependInt32Slot(4, favorExp, 0)
+
 def AddFavorExp(builder, favorExp):
-    return PresetCharacterGroupExcelAddFavorExp(builder, favorExp)
-def PresetCharacterGroupExcelAddFavorRank(builder, favorRank): builder.PrependInt32Slot(5, favorRank, 0)
+    PresetCharacterGroupExcelAddFavorExp(builder, favorExp)
+
+def PresetCharacterGroupExcelAddFavorRank(builder, favorRank):
+    builder.PrependInt32Slot(5, favorRank, 0)
+
 def AddFavorRank(builder, favorRank):
-    return PresetCharacterGroupExcelAddFavorRank(builder, favorRank)
-def PresetCharacterGroupExcelAddStarGrade(builder, starGrade): builder.PrependInt32Slot(6, starGrade, 0)
+    PresetCharacterGroupExcelAddFavorRank(builder, favorRank)
+
+def PresetCharacterGroupExcelAddStarGrade(builder, starGrade):
+    builder.PrependInt32Slot(6, starGrade, 0)
+
 def AddStarGrade(builder, starGrade):
-    return PresetCharacterGroupExcelAddStarGrade(builder, starGrade)
-def PresetCharacterGroupExcelAddExSkillLevel(builder, exSkillLevel): builder.PrependInt32Slot(7, exSkillLevel, 0)
+    PresetCharacterGroupExcelAddStarGrade(builder, starGrade)
+
+def PresetCharacterGroupExcelAddExSkillLevel(builder, exSkillLevel):
+    builder.PrependInt32Slot(7, exSkillLevel, 0)
+
 def AddExSkillLevel(builder, exSkillLevel):
-    return PresetCharacterGroupExcelAddExSkillLevel(builder, exSkillLevel)
-def PresetCharacterGroupExcelAddPassiveSkillLevel(builder, passiveSkillLevel): builder.PrependInt32Slot(8, passiveSkillLevel, 0)
+    PresetCharacterGroupExcelAddExSkillLevel(builder, exSkillLevel)
+
+def PresetCharacterGroupExcelAddPassiveSkillLevel(builder, passiveSkillLevel):
+    builder.PrependInt32Slot(8, passiveSkillLevel, 0)
+
 def AddPassiveSkillLevel(builder, passiveSkillLevel):
-    return PresetCharacterGroupExcelAddPassiveSkillLevel(builder, passiveSkillLevel)
-def PresetCharacterGroupExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel): builder.PrependInt32Slot(9, extraPassiveSkillLevel, 0)
+    PresetCharacterGroupExcelAddPassiveSkillLevel(builder, passiveSkillLevel)
+
+def PresetCharacterGroupExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel):
+    builder.PrependInt32Slot(9, extraPassiveSkillLevel, 0)
+
 def AddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel):
-    return PresetCharacterGroupExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel)
-def PresetCharacterGroupExcelAddCommonSkillLevel(builder, commonSkillLevel): builder.PrependInt32Slot(10, commonSkillLevel, 0)
+    PresetCharacterGroupExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel)
+
+def PresetCharacterGroupExcelAddCommonSkillLevel(builder, commonSkillLevel):
+    builder.PrependInt32Slot(10, commonSkillLevel, 0)
+
 def AddCommonSkillLevel(builder, commonSkillLevel):
-    return PresetCharacterGroupExcelAddCommonSkillLevel(builder, commonSkillLevel)
-def PresetCharacterGroupExcelAddLeaderSkillLevel(builder, leaderSkillLevel): builder.PrependInt32Slot(11, leaderSkillLevel, 0)
+    PresetCharacterGroupExcelAddCommonSkillLevel(builder, commonSkillLevel)
+
+def PresetCharacterGroupExcelAddLeaderSkillLevel(builder, leaderSkillLevel):
+    builder.PrependInt32Slot(11, leaderSkillLevel, 0)
+
 def AddLeaderSkillLevel(builder, leaderSkillLevel):
-    return PresetCharacterGroupExcelAddLeaderSkillLevel(builder, leaderSkillLevel)
-def PresetCharacterGroupExcelAddEquipSlot01(builder, equipSlot01): builder.PrependBoolSlot(12, equipSlot01, 0)
+    PresetCharacterGroupExcelAddLeaderSkillLevel(builder, leaderSkillLevel)
+
+def PresetCharacterGroupExcelAddEquipSlot01(builder, equipSlot01):
+    builder.PrependBoolSlot(12, equipSlot01, 0)
+
 def AddEquipSlot01(builder, equipSlot01):
-    return PresetCharacterGroupExcelAddEquipSlot01(builder, equipSlot01)
-def PresetCharacterGroupExcelAddEquipSlotTier01(builder, equipSlotTier01): builder.PrependInt32Slot(13, equipSlotTier01, 0)
+    PresetCharacterGroupExcelAddEquipSlot01(builder, equipSlot01)
+
+def PresetCharacterGroupExcelAddEquipSlotTier01(builder, equipSlotTier01):
+    builder.PrependInt32Slot(13, equipSlotTier01, 0)
+
 def AddEquipSlotTier01(builder, equipSlotTier01):
-    return PresetCharacterGroupExcelAddEquipSlotTier01(builder, equipSlotTier01)
-def PresetCharacterGroupExcelAddEquipSlotLevel01(builder, equipSlotLevel01): builder.PrependInt32Slot(14, equipSlotLevel01, 0)
+    PresetCharacterGroupExcelAddEquipSlotTier01(builder, equipSlotTier01)
+
+def PresetCharacterGroupExcelAddEquipSlotLevel01(builder, equipSlotLevel01):
+    builder.PrependInt32Slot(14, equipSlotLevel01, 0)
+
 def AddEquipSlotLevel01(builder, equipSlotLevel01):
-    return PresetCharacterGroupExcelAddEquipSlotLevel01(builder, equipSlotLevel01)
-def PresetCharacterGroupExcelAddEquipSlot02(builder, equipSlot02): builder.PrependBoolSlot(15, equipSlot02, 0)
+    PresetCharacterGroupExcelAddEquipSlotLevel01(builder, equipSlotLevel01)
+
+def PresetCharacterGroupExcelAddEquipSlot02(builder, equipSlot02):
+    builder.PrependBoolSlot(15, equipSlot02, 0)
+
 def AddEquipSlot02(builder, equipSlot02):
-    return PresetCharacterGroupExcelAddEquipSlot02(builder, equipSlot02)
-def PresetCharacterGroupExcelAddEquipSlotTier02(builder, equipSlotTier02): builder.PrependInt32Slot(16, equipSlotTier02, 0)
+    PresetCharacterGroupExcelAddEquipSlot02(builder, equipSlot02)
+
+def PresetCharacterGroupExcelAddEquipSlotTier02(builder, equipSlotTier02):
+    builder.PrependInt32Slot(16, equipSlotTier02, 0)
+
 def AddEquipSlotTier02(builder, equipSlotTier02):
-    return PresetCharacterGroupExcelAddEquipSlotTier02(builder, equipSlotTier02)
-def PresetCharacterGroupExcelAddEquipSlotLevel02(builder, equipSlotLevel02): builder.PrependInt32Slot(17, equipSlotLevel02, 0)
+    PresetCharacterGroupExcelAddEquipSlotTier02(builder, equipSlotTier02)
+
+def PresetCharacterGroupExcelAddEquipSlotLevel02(builder, equipSlotLevel02):
+    builder.PrependInt32Slot(17, equipSlotLevel02, 0)
+
 def AddEquipSlotLevel02(builder, equipSlotLevel02):
-    return PresetCharacterGroupExcelAddEquipSlotLevel02(builder, equipSlotLevel02)
-def PresetCharacterGroupExcelAddEquipSlot03(builder, equipSlot03): builder.PrependBoolSlot(18, equipSlot03, 0)
+    PresetCharacterGroupExcelAddEquipSlotLevel02(builder, equipSlotLevel02)
+
+def PresetCharacterGroupExcelAddEquipSlot03(builder, equipSlot03):
+    builder.PrependBoolSlot(18, equipSlot03, 0)
+
 def AddEquipSlot03(builder, equipSlot03):
-    return PresetCharacterGroupExcelAddEquipSlot03(builder, equipSlot03)
-def PresetCharacterGroupExcelAddEquipSlotTier03(builder, equipSlotTier03): builder.PrependInt32Slot(19, equipSlotTier03, 0)
+    PresetCharacterGroupExcelAddEquipSlot03(builder, equipSlot03)
+
+def PresetCharacterGroupExcelAddEquipSlotTier03(builder, equipSlotTier03):
+    builder.PrependInt32Slot(19, equipSlotTier03, 0)
+
 def AddEquipSlotTier03(builder, equipSlotTier03):
-    return PresetCharacterGroupExcelAddEquipSlotTier03(builder, equipSlotTier03)
-def PresetCharacterGroupExcelAddEquipSlotLevel03(builder, equipSlotLevel03): builder.PrependInt32Slot(20, equipSlotLevel03, 0)
+    PresetCharacterGroupExcelAddEquipSlotTier03(builder, equipSlotTier03)
+
+def PresetCharacterGroupExcelAddEquipSlotLevel03(builder, equipSlotLevel03):
+    builder.PrependInt32Slot(20, equipSlotLevel03, 0)
+
 def AddEquipSlotLevel03(builder, equipSlotLevel03):
-    return PresetCharacterGroupExcelAddEquipSlotLevel03(builder, equipSlotLevel03)
-def PresetCharacterGroupExcelAddEquipCharacterWeapon(builder, equipCharacterWeapon): builder.PrependBoolSlot(21, equipCharacterWeapon, 0)
+    PresetCharacterGroupExcelAddEquipSlotLevel03(builder, equipSlotLevel03)
+
+def PresetCharacterGroupExcelAddEquipCharacterWeapon(builder, equipCharacterWeapon):
+    builder.PrependBoolSlot(21, equipCharacterWeapon, 0)
+
 def AddEquipCharacterWeapon(builder, equipCharacterWeapon):
-    return PresetCharacterGroupExcelAddEquipCharacterWeapon(builder, equipCharacterWeapon)
-def PresetCharacterGroupExcelAddEquipCharacterWeaponTier(builder, equipCharacterWeaponTier): builder.PrependInt32Slot(22, equipCharacterWeaponTier, 0)
+    PresetCharacterGroupExcelAddEquipCharacterWeapon(builder, equipCharacterWeapon)
+
+def PresetCharacterGroupExcelAddEquipCharacterWeaponTier(builder, equipCharacterWeaponTier):
+    builder.PrependInt32Slot(22, equipCharacterWeaponTier, 0)
+
 def AddEquipCharacterWeaponTier(builder, equipCharacterWeaponTier):
-    return PresetCharacterGroupExcelAddEquipCharacterWeaponTier(builder, equipCharacterWeaponTier)
-def PresetCharacterGroupExcelAddEquipCharacterWeaponLevel(builder, equipCharacterWeaponLevel): builder.PrependInt32Slot(23, equipCharacterWeaponLevel, 0)
+    PresetCharacterGroupExcelAddEquipCharacterWeaponTier(builder, equipCharacterWeaponTier)
+
+def PresetCharacterGroupExcelAddEquipCharacterWeaponLevel(builder, equipCharacterWeaponLevel):
+    builder.PrependInt32Slot(23, equipCharacterWeaponLevel, 0)
+
 def AddEquipCharacterWeaponLevel(builder, equipCharacterWeaponLevel):
-    return PresetCharacterGroupExcelAddEquipCharacterWeaponLevel(builder, equipCharacterWeaponLevel)
-def PresetCharacterGroupExcelAddEquipCharacterGear(builder, equipCharacterGear): builder.PrependBoolSlot(24, equipCharacterGear, 0)
+    PresetCharacterGroupExcelAddEquipCharacterWeaponLevel(builder, equipCharacterWeaponLevel)
+
+def PresetCharacterGroupExcelAddEquipCharacterGear(builder, equipCharacterGear):
+    builder.PrependBoolSlot(24, equipCharacterGear, 0)
+
 def AddEquipCharacterGear(builder, equipCharacterGear):
-    return PresetCharacterGroupExcelAddEquipCharacterGear(builder, equipCharacterGear)
-def PresetCharacterGroupExcelAddEquipCharacterGearTier(builder, equipCharacterGearTier): builder.PrependInt32Slot(25, equipCharacterGearTier, 0)
+    PresetCharacterGroupExcelAddEquipCharacterGear(builder, equipCharacterGear)
+
+def PresetCharacterGroupExcelAddEquipCharacterGearTier(builder, equipCharacterGearTier):
+    builder.PrependInt32Slot(25, equipCharacterGearTier, 0)
+
 def AddEquipCharacterGearTier(builder, equipCharacterGearTier):
-    return PresetCharacterGroupExcelAddEquipCharacterGearTier(builder, equipCharacterGearTier)
-def PresetCharacterGroupExcelAddEquipCharacterGearLevel(builder, equipCharacterGearLevel): builder.PrependInt32Slot(26, equipCharacterGearLevel, 0)
+    PresetCharacterGroupExcelAddEquipCharacterGearTier(builder, equipCharacterGearTier)
+
+def PresetCharacterGroupExcelAddEquipCharacterGearLevel(builder, equipCharacterGearLevel):
+    builder.PrependInt32Slot(26, equipCharacterGearLevel, 0)
+
 def AddEquipCharacterGearLevel(builder, equipCharacterGearLevel):
-    return PresetCharacterGroupExcelAddEquipCharacterGearLevel(builder, equipCharacterGearLevel)
-def PresetCharacterGroupExcelAddPotentialType01(builder, potentialType01): builder.PrependInt32Slot(27, potentialType01, 0)
+    PresetCharacterGroupExcelAddEquipCharacterGearLevel(builder, equipCharacterGearLevel)
+
+def PresetCharacterGroupExcelAddPotentialType01(builder, potentialType01):
+    builder.PrependInt32Slot(27, potentialType01, 0)
+
 def AddPotentialType01(builder, potentialType01):
-    return PresetCharacterGroupExcelAddPotentialType01(builder, potentialType01)
-def PresetCharacterGroupExcelAddPotentialLevel01(builder, potentialLevel01): builder.PrependInt32Slot(28, potentialLevel01, 0)
+    PresetCharacterGroupExcelAddPotentialType01(builder, potentialType01)
+
+def PresetCharacterGroupExcelAddPotentialLevel01(builder, potentialLevel01):
+    builder.PrependInt32Slot(28, potentialLevel01, 0)
+
 def AddPotentialLevel01(builder, potentialLevel01):
-    return PresetCharacterGroupExcelAddPotentialLevel01(builder, potentialLevel01)
-def PresetCharacterGroupExcelAddPotentialType02(builder, potentialType02): builder.PrependInt32Slot(29, potentialType02, 0)
+    PresetCharacterGroupExcelAddPotentialLevel01(builder, potentialLevel01)
+
+def PresetCharacterGroupExcelAddPotentialType02(builder, potentialType02):
+    builder.PrependInt32Slot(29, potentialType02, 0)
+
 def AddPotentialType02(builder, potentialType02):
-    return PresetCharacterGroupExcelAddPotentialType02(builder, potentialType02)
-def PresetCharacterGroupExcelAddPotentialLevel02(builder, potentialLevel02): builder.PrependInt32Slot(30, potentialLevel02, 0)
+    PresetCharacterGroupExcelAddPotentialType02(builder, potentialType02)
+
+def PresetCharacterGroupExcelAddPotentialLevel02(builder, potentialLevel02):
+    builder.PrependInt32Slot(30, potentialLevel02, 0)
+
 def AddPotentialLevel02(builder, potentialLevel02):
-    return PresetCharacterGroupExcelAddPotentialLevel02(builder, potentialLevel02)
-def PresetCharacterGroupExcelAddPotentialType03(builder, potentialType03): builder.PrependInt32Slot(31, potentialType03, 0)
+    PresetCharacterGroupExcelAddPotentialLevel02(builder, potentialLevel02)
+
+def PresetCharacterGroupExcelAddPotentialType03(builder, potentialType03):
+    builder.PrependInt32Slot(31, potentialType03, 0)
+
 def AddPotentialType03(builder, potentialType03):
-    return PresetCharacterGroupExcelAddPotentialType03(builder, potentialType03)
-def PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03): builder.PrependInt32Slot(32, potentialLevel03, 0)
+    PresetCharacterGroupExcelAddPotentialType03(builder, potentialType03)
+
+def PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03):
+    builder.PrependInt32Slot(32, potentialLevel03, 0)
+
 def AddPotentialLevel03(builder, potentialLevel03):
-    return PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03)
-def PresetCharacterGroupExcelEnd(builder): return builder.EndObject()
+    PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03)
+
+def PresetCharacterGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PresetCharacterGroupExcelEnd(builder)

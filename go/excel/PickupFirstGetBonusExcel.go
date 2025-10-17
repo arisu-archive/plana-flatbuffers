@@ -17,11 +17,19 @@ func GetRootAsPickupFirstGetBonusExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishPickupFirstGetBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPickupFirstGetBonusExcel(buf []byte, offset flatbuffers.UOffsetT) *PickupFirstGetBonusExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PickupFirstGetBonusExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPickupFirstGetBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PickupFirstGetBonusExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

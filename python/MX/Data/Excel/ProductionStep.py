@@ -2,8 +2,4 @@
 
 # namespace: Excel
 
-class ProductionStep(object):
-    ToDo = 0
-    Doing = 1
-    Complete = 2
-    Release = 3
+# NOTE ProductionStep.py does not declare any structs or enums

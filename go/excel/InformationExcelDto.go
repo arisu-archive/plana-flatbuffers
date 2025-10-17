@@ -19,20 +19,34 @@ type InformationExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *InformationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	InformationExcelStart(b)
-	InformationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	InformationExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
-	InformationExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	__offset_page_name := b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey))
+	__offset_localize_code_id := b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
+	var __offset_tutorial_parent_name flatbuffers.UOffsetT
+	__stringOffsets_tutorial_parent_name := make([]flatbuffers.UOffsetT, len(t.TutorialParentName))
+	for i := range len(t.TutorialParentName) {
+		__stringOffsets_tutorial_parent_name[i] = b.CreateString(fbsutils.Convert(t.TutorialParentName[i], t.FlatBuffer.TableKey))
+	}
 	InformationExcelStartTutorialParentNameVector(b, len(t.TutorialParentName))
 	for i := range len(t.TutorialParentName) {
-		b.PrependUOffsetT(b.CreateString(t.TutorialParentName[len(t.TutorialParentName)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_tutorial_parent_name[len(t.TutorialParentName)-i-1])
 	}
-	InformationExcelAddTutorialParentName(b, b.EndVector(len(t.TutorialParentName)))
+	__offset_tutorial_parent_name = b.EndVector(len(t.TutorialParentName))
+	var __offset_ui_name flatbuffers.UOffsetT
+	__stringOffsets_ui_name := make([]flatbuffers.UOffsetT, len(t.UiName))
+	for i := range len(t.UiName) {
+		__stringOffsets_ui_name[i] = b.CreateString(fbsutils.Convert(t.UiName[i], t.FlatBuffer.TableKey))
+	}
 	InformationExcelStartUiNameVector(b, len(t.UiName))
 	for i := range len(t.UiName) {
-		b.PrependUOffsetT(b.CreateString(t.UiName[len(t.UiName)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_ui_name[len(t.UiName)-i-1])
 	}
-	InformationExcelAddUiName(b, b.EndVector(len(t.UiName)))
+	__offset_ui_name = b.EndVector(len(t.UiName))
+	InformationExcelStart(b)
+	InformationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	InformationExcelAddPageName(b, __offset_page_name)
+	InformationExcelAddLocalizeCodeId(b, __offset_localize_code_id)
+	InformationExcelAddTutorialParentName(b, __offset_tutorial_parent_name)
+	InformationExcelAddUiName(b, __offset_ui_name)
 	return InformationExcelEnd(b)
 }
 

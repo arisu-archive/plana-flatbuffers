@@ -1,9 +1,0 @@
-include "ShiftingCraftRecipeExcel.fbs";
-
-namespace FlatData;
-
-table ShiftingCraftRecipeExcelTable {
-    data_list: [ShiftingCraftRecipeExcel];
-}
-
-root_type ShiftingCraftRecipeExcelTable;

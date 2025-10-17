@@ -18,11 +18,13 @@ type FurnitureTemplateExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_thumbnail_image_path := b.CreateString(fbsutils.Convert(t.ThumbnailImagePath, t.FlatBuffer.TableKey))
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
 	FurnitureTemplateExcelStart(b)
 	FurnitureTemplateExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
 	FurnitureTemplateExcelAddFunitureTemplateTitle(b, fbsutils.Convert(t.FunitureTemplateTitle, t.FlatBuffer.TableKey))
-	FurnitureTemplateExcelAddThumbnailImagePath(b, b.CreateString(fbsutils.Convert(t.ThumbnailImagePath, t.FlatBuffer.TableKey)))
-	FurnitureTemplateExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	FurnitureTemplateExcelAddThumbnailImagePath(b, __offset_thumbnail_image_path)
+	FurnitureTemplateExcelAddImagePath(b, __offset_image_path)
 	return FurnitureTemplateExcelEnd(b)
 }
 

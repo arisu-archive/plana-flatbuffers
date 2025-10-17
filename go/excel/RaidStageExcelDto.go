@@ -49,13 +49,30 @@ type RaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_raid_boss_group := b.CreateString(fbsutils.Convert(t.RaidBossGroup, t.FlatBuffer.TableKey))
+	__offset_portrait_path := b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey))
+	__offset_bg_path := b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey))
+	__offset_ground_dev_name := b.CreateString(fbsutils.Convert(t.GroundDevName, t.FlatBuffer.TableKey))
+	__offset_enter_time_line := b.CreateString(fbsutils.Convert(t.EnterTimeLine, t.FlatBuffer.TableKey))
+	var __offset_battle_ready_timeline_path flatbuffers.UOffsetT
+	__stringOffsets_battle_ready_timeline_path := make([]flatbuffers.UOffsetT, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		__stringOffsets_battle_ready_timeline_path[i] = b.CreateString(fbsutils.Convert(t.BattleReadyTimelinePath[i], t.FlatBuffer.TableKey))
+	}
+	RaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		b.PrependUOffsetT(__stringOffsets_battle_ready_timeline_path[len(t.BattleReadyTimelinePath)-i-1])
+	}
+	__offset_battle_ready_timeline_path = b.EndVector(len(t.BattleReadyTimelinePath))
+	__offset_victory_timeline_path := b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
+	__offset_phase_change_timeline_path := b.CreateString(fbsutils.Convert(t.PhaseChangeTimelinePath, t.FlatBuffer.TableKey))
 	RaidStageExcelStart(b)
 	RaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RaidStageExcelAddUseBossIndex(b, t.UseBossIndex)
 	RaidStageExcelAddUseBossAiPhaseSync(b, t.UseBossAiPhaseSync)
-	RaidStageExcelAddRaidBossGroup(b, b.CreateString(fbsutils.Convert(t.RaidBossGroup, t.FlatBuffer.TableKey)))
-	RaidStageExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
-	RaidStageExcelAddBgPath(b, b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey)))
+	RaidStageExcelAddRaidBossGroup(b, __offset_raid_boss_group)
+	RaidStageExcelAddPortraitPath(b, __offset_portrait_path)
+	RaidStageExcelAddBgPath(b, __offset_bg_path)
 	RaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
 	RaidStageExcelStartBossCharacterIdVector(b, len(t.BossCharacterId))
 	for i := range len(t.BossCharacterId) {
@@ -68,8 +85,8 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	RaidStageExcelAddRaidRoomLifeTime(b, fbsutils.Convert(t.RaidRoomLifeTime, t.FlatBuffer.TableKey))
 	RaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	RaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	RaidStageExcelAddGroundDevName(b, b.CreateString(fbsutils.Convert(t.GroundDevName, t.FlatBuffer.TableKey)))
-	RaidStageExcelAddEnterTimeLine(b, b.CreateString(fbsutils.Convert(t.EnterTimeLine, t.FlatBuffer.TableKey)))
+	RaidStageExcelAddGroundDevName(b, __offset_ground_dev_name)
+	RaidStageExcelAddEnterTimeLine(b, __offset_enter_time_line)
 	RaidStageExcelAddTacticEnvironment(b, fbsutils.Convert(t.TacticEnvironment, t.FlatBuffer.TableKey))
 	RaidStageExcelAddDefaultClearScore(b, fbsutils.Convert(t.DefaultClearScore, t.FlatBuffer.TableKey))
 	RaidStageExcelAddMaximumScore(b, fbsutils.Convert(t.MaximumScore, t.FlatBuffer.TableKey))
@@ -78,11 +95,7 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	RaidStageExcelAddMinimumAcquisitionScore(b, fbsutils.Convert(t.MinimumAcquisitionScore, t.FlatBuffer.TableKey))
 	RaidStageExcelAddMaximumAcquisitionScore(b, fbsutils.Convert(t.MaximumAcquisitionScore, t.FlatBuffer.TableKey))
 	RaidStageExcelAddRaidRewardGroupId(b, fbsutils.Convert(t.RaidRewardGroupId, t.FlatBuffer.TableKey))
-	RaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
-	for i := range len(t.BattleReadyTimelinePath) {
-		b.PrependUOffsetT(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]))
-	}
-	RaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
+	RaidStageExcelAddBattleReadyTimelinePath(b, __offset_battle_ready_timeline_path)
 	RaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
 	for i := range len(t.BattleReadyTimelinePhaseStart) {
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseStart[len(t.BattleReadyTimelinePhaseStart)-i-1], t.FlatBuffer.TableKey))
@@ -93,8 +106,8 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
 	}
 	RaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
-	RaidStageExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
-	RaidStageExcelAddPhaseChangeTimelinePath(b, b.CreateString(fbsutils.Convert(t.PhaseChangeTimelinePath, t.FlatBuffer.TableKey)))
+	RaidStageExcelAddVictoryTimelinePath(b, __offset_victory_timeline_path)
+	RaidStageExcelAddPhaseChangeTimelinePath(b, __offset_phase_change_timeline_path)
 	RaidStageExcelAddTimeLinePhase(b, fbsutils.Convert(t.TimeLinePhase, t.FlatBuffer.TableKey))
 	RaidStageExcelAddEnterScenarioKey(b, fbsutils.Convert(t.EnterScenarioKey, t.FlatBuffer.TableKey))
 	RaidStageExcelAddClearScenarioKey(b, fbsutils.Convert(t.ClearScenarioKey, t.FlatBuffer.TableKey))

@@ -18,6 +18,7 @@ table GuideMissionSeasonExcel {
     close_banner_after_completion: bool;
     maximum_login_count: long;
     expiry_date: long;
+    icon_order: long;
     spine_character_id: long;
     requirement_parcel_image: string;
     reward_image: string;

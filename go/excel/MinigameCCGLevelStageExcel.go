@@ -17,11 +17,19 @@ func GetRootAsMinigameCCGLevelStageExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishMinigameCCGLevelStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameCCGLevelStageExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameCCGLevelStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameCCGLevelStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameCCGLevelStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameCCGLevelStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

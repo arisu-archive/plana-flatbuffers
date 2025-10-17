@@ -7,27 +7,39 @@ import "strconv"
 type ConquestConditionType int32
 
 const (
-	ConquestConditionTypeNone           ConquestConditionType = 0
-	ConquestConditionTypeOpenDateOffset ConquestConditionType = 1
-	ConquestConditionTypeItemAcquire    ConquestConditionType = 2
-	ConquestConditionTypeParcelUse      ConquestConditionType = 3
-	ConquestConditionTypeKillUnit       ConquestConditionType = 4
+	ConquestConditionTypeNone                  ConquestConditionType = 0
+	ConquestConditionTypeTileFriendlyTerritory ConquestConditionType = 1
+	ConquestConditionTypeStepTileComplete      ConquestConditionType = 2
+	ConquestConditionTypeStepBossDead          ConquestConditionType = 3
+	ConquestConditionTypeStepOpen              ConquestConditionType = 4
+	ConquestConditionTypeDeadUnitLeader        ConquestConditionType = 5
+	ConquestConditionTypeTileUniqueId          ConquestConditionType = 6
+	ConquestConditionTypeUnitOpen              ConquestConditionType = 7
+	ConquestConditionTypeStepObjectComplete    ConquestConditionType = 8
 )
 
 var EnumNamesConquestConditionType = map[ConquestConditionType]string{
-	ConquestConditionTypeNone:           "None",
-	ConquestConditionTypeOpenDateOffset: "OpenDateOffset",
-	ConquestConditionTypeItemAcquire:    "ItemAcquire",
-	ConquestConditionTypeParcelUse:      "ParcelUse",
-	ConquestConditionTypeKillUnit:       "KillUnit",
+	ConquestConditionTypeNone:                  "None",
+	ConquestConditionTypeTileFriendlyTerritory: "TileFriendlyTerritory",
+	ConquestConditionTypeStepTileComplete:      "StepTileComplete",
+	ConquestConditionTypeStepBossDead:          "StepBossDead",
+	ConquestConditionTypeStepOpen:              "StepOpen",
+	ConquestConditionTypeDeadUnitLeader:        "DeadUnitLeader",
+	ConquestConditionTypeTileUniqueId:          "TileUniqueId",
+	ConquestConditionTypeUnitOpen:              "UnitOpen",
+	ConquestConditionTypeStepObjectComplete:    "StepObjectComplete",
 }
 
 var EnumValuesConquestConditionType = map[string]ConquestConditionType{
-	"None":           ConquestConditionTypeNone,
-	"OpenDateOffset": ConquestConditionTypeOpenDateOffset,
-	"ItemAcquire":    ConquestConditionTypeItemAcquire,
-	"ParcelUse":      ConquestConditionTypeParcelUse,
-	"KillUnit":       ConquestConditionTypeKillUnit,
+	"None":                  ConquestConditionTypeNone,
+	"TileFriendlyTerritory": ConquestConditionTypeTileFriendlyTerritory,
+	"StepTileComplete":      ConquestConditionTypeStepTileComplete,
+	"StepBossDead":          ConquestConditionTypeStepBossDead,
+	"StepOpen":              ConquestConditionTypeStepOpen,
+	"DeadUnitLeader":        ConquestConditionTypeDeadUnitLeader,
+	"TileUniqueId":          ConquestConditionTypeTileUniqueId,
+	"UnitOpen":              ConquestConditionTypeUnitOpen,
+	"StepObjectComplete":    ConquestConditionTypeStepObjectComplete,
 }
 
 func (v ConquestConditionType) String() string {

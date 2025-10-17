@@ -17,11 +17,19 @@ func GetRootAsFieldMasteryLevelExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishFieldMasteryLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldMasteryLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldMasteryLevelExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldMasteryLevelExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldMasteryLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldMasteryLevelExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

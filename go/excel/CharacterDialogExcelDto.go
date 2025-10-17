@@ -39,6 +39,13 @@ type CharacterDialogExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
+	__offset_action_name := b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey))
+	__offset_animation_name := b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
 	CharacterDialogExcelStart(b)
 	CharacterDialogExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
@@ -47,15 +54,15 @@ func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	CharacterDialogExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddDialogCondition(b, fbsutils.Convert(t.DialogCondition, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddAnniversary(b, fbsutils.Convert(t.Anniversary, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddStartDate(b, __offset_start_date)
+	CharacterDialogExcelAddEndDate(b, __offset_end_date)
 	CharacterDialogExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddActionName(b, b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddActionName(b, __offset_action_name)
 	CharacterDialogExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddAnimationName(b, __offset_animation_name)
+	CharacterDialogExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogExcelAddLocalizeJp(b, __offset_localize_jp)
 	CharacterDialogExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
@@ -68,7 +75,7 @@ func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	CharacterDialogExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddUnlockEquipWeapon(b, t.UnlockEquipWeapon)
-	CharacterDialogExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	return CharacterDialogExcelEnd(b)
 }
 

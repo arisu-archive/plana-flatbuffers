@@ -2,9 +2,4 @@
 
 # namespace: Excel
 
-class FurnitureLocation(object):
-    None_ = 0
-    Inventory = 1
-    Floor = 2
-    WallLeft = 3
-    WallRight = 4
+# NOTE FurnitureLocation.py does not declare any structs or enums

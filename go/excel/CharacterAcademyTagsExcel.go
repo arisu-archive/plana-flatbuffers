@@ -17,11 +17,19 @@ func GetRootAsCharacterAcademyTagsExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishCharacterAcademyTagsExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterAcademyTagsExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterAcademyTagsExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterAcademyTagsExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterAcademyTagsExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterAcademyTagsExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -49,15 +49,26 @@ class SpecialLobbyIllustExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def SpecialLobbyIllustExcelTableStart(builder): builder.StartObject(1)
+def SpecialLobbyIllustExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return SpecialLobbyIllustExcelTableStart(builder)
-def SpecialLobbyIllustExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    SpecialLobbyIllustExcelTableStart(builder)
+
+def SpecialLobbyIllustExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return SpecialLobbyIllustExcelTableAddDataList(builder, dataList)
-def SpecialLobbyIllustExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    SpecialLobbyIllustExcelTableAddDataList(builder, dataList)
+
+def SpecialLobbyIllustExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return SpecialLobbyIllustExcelTableStartDataListVector(builder, numElems)
-def SpecialLobbyIllustExcelTableEnd(builder): return builder.EndObject()
+
+def SpecialLobbyIllustExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return SpecialLobbyIllustExcelTableEnd(builder)

@@ -21,14 +21,18 @@ type ScenarioTransitionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioTransitionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_transition_out := b.CreateString(fbsutils.Convert(t.TransitionOut, t.FlatBuffer.TableKey))
+	__offset_transition_out_resource := b.CreateString(fbsutils.Convert(t.TransitionOutResource, t.FlatBuffer.TableKey))
+	__offset_transition_in := b.CreateString(fbsutils.Convert(t.TransitionIn, t.FlatBuffer.TableKey))
+	__offset_transition_in_resource := b.CreateString(fbsutils.Convert(t.TransitionInResource, t.FlatBuffer.TableKey))
 	ScenarioTransitionExcelStart(b)
 	ScenarioTransitionExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	ScenarioTransitionExcelAddTransitionOut(b, b.CreateString(fbsutils.Convert(t.TransitionOut, t.FlatBuffer.TableKey)))
+	ScenarioTransitionExcelAddTransitionOut(b, __offset_transition_out)
 	ScenarioTransitionExcelAddTransitionOutDuration(b, fbsutils.Convert(t.TransitionOutDuration, t.FlatBuffer.TableKey))
-	ScenarioTransitionExcelAddTransitionOutResource(b, b.CreateString(fbsutils.Convert(t.TransitionOutResource, t.FlatBuffer.TableKey)))
-	ScenarioTransitionExcelAddTransitionIn(b, b.CreateString(fbsutils.Convert(t.TransitionIn, t.FlatBuffer.TableKey)))
+	ScenarioTransitionExcelAddTransitionOutResource(b, __offset_transition_out_resource)
+	ScenarioTransitionExcelAddTransitionIn(b, __offset_transition_in)
 	ScenarioTransitionExcelAddTransitionInDuration(b, fbsutils.Convert(t.TransitionInDuration, t.FlatBuffer.TableKey))
-	ScenarioTransitionExcelAddTransitionInResource(b, b.CreateString(fbsutils.Convert(t.TransitionInResource, t.FlatBuffer.TableKey)))
+	ScenarioTransitionExcelAddTransitionInResource(b, __offset_transition_in_resource)
 	return ScenarioTransitionExcelEnd(b)
 }
 

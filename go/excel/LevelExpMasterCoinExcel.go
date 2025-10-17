@@ -17,11 +17,19 @@ func GetRootAsLevelExpMasterCoinExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishLevelExpMasterCoinExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLevelExpMasterCoinExcel(buf []byte, offset flatbuffers.UOffsetT) *LevelExpMasterCoinExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LevelExpMasterCoinExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLevelExpMasterCoinExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LevelExpMasterCoinExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,9 +1,0 @@
-include "EquipmentLevelExcel.fbs";
-
-namespace FlatData;
-
-table EquipmentLevelExcelTable {
-    data_list: [EquipmentLevelExcel];
-}
-
-root_type EquipmentLevelExcelTable;

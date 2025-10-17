@@ -17,11 +17,19 @@ func GetRootAsArenaRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaRe
 	return x
 }
 
+func FinishArenaRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsArenaRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ArenaRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedArenaRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -141,25 +149,8 @@ func (rcv *ArenaRewardExcel) MutateRewardParcelUniqueId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *ArenaRewardExcel) RewardParcelUniqueName(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *ArenaRewardExcel) RewardParcelUniqueNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *ArenaRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -168,7 +159,7 @@ func (rcv *ArenaRewardExcel) RewardParcelAmount(j int) int64 {
 }
 
 func (rcv *ArenaRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -176,7 +167,7 @@ func (rcv *ArenaRewardExcel) RewardParcelAmountLength() int {
 }
 
 func (rcv *ArenaRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -185,7 +176,7 @@ func (rcv *ArenaRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
 }
 
 func ArenaRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(9)
+	builder.StartObject(8)
 }
 func ArenaRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
@@ -214,14 +205,8 @@ func ArenaRewardExcelAddRewardParcelUniqueId(builder *flatbuffers.Builder, rewar
 func ArenaRewardExcelStartRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ArenaRewardExcelAddRewardParcelUniqueName(builder *flatbuffers.Builder, rewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelUniqueName), 0)
-}
-func ArenaRewardExcelStartRewardParcelUniqueNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func ArenaRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
 func ArenaRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

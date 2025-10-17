@@ -14,15 +14,26 @@ type CafeInfoExcelDto struct {
 	IsDefault               bool                 `json:"is_default"`
 	OpenConditionCafeId     OpenConditionContent `json:"open_condition_cafe_id"`
 	OpenConditionCafeInvite OpenConditionContent `json:"open_condition_cafe_invite"`
+	SummonParcelType        ParcelType           `json:"summon_parcel_type"`
+	SummonParcelId          int64                `json:"summon_parcel_id"`
+	SummonParcelAmount      int64                `json:"summon_parcel_amount"`
+	CategoryType            ShopCategoryType     `json:"category_type"`
+	SummonTicketIconPath    string               `json:"summon_ticket_icon_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_summon_ticket_icon_path := b.CreateString(fbsutils.Convert(t.SummonTicketIconPath, t.FlatBuffer.TableKey))
 	CafeInfoExcelStart(b)
 	CafeInfoExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
 	CafeInfoExcelAddIsDefault(b, t.IsDefault)
 	CafeInfoExcelAddOpenConditionCafeId(b, fbsutils.Convert(t.OpenConditionCafeId, t.FlatBuffer.TableKey))
 	CafeInfoExcelAddOpenConditionCafeInvite(b, fbsutils.Convert(t.OpenConditionCafeInvite, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddSummonParcelType(b, fbsutils.Convert(t.SummonParcelType, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddSummonParcelId(b, fbsutils.Convert(t.SummonParcelId, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddSummonParcelAmount(b, fbsutils.Convert(t.SummonParcelAmount, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddSummonTicketIconPath(b, __offset_summon_ticket_icon_path)
 	return CafeInfoExcelEnd(b)
 }
 
@@ -39,6 +50,11 @@ func (t *CafeInfoExcelDto) UnmarshalMessage(e *CafeInfoExcel) error {
 	t.IsDefault = e.IsDefault()
 	t.OpenConditionCafeId = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeId()), t.FlatBuffer.TableKey))
 	t.OpenConditionCafeInvite = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeInvite()), t.FlatBuffer.TableKey))
+	t.SummonParcelType = ParcelType(fbsutils.Convert(int32(e.SummonParcelType()), t.FlatBuffer.TableKey))
+	t.SummonParcelId = fbsutils.Convert(e.SummonParcelId(), t.FlatBuffer.TableKey)
+	t.SummonParcelAmount = fbsutils.Convert(e.SummonParcelAmount(), t.FlatBuffer.TableKey)
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.SummonTicketIconPath = fbsutils.Convert(string(e.SummonTicketIconPath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

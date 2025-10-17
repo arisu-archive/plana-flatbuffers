@@ -17,11 +17,19 @@ func GetRootAsFieldContentStageExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishFieldContentStageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldContentStageExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldContentStageExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldContentStageExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldContentStageExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldContentStageExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

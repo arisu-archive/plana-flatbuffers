@@ -23,6 +23,7 @@ type EventContentTreasureRoundExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureRoundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_treasure_cell_image_path := b.CreateString(fbsutils.Convert(t.TreasureCellImagePath, t.FlatBuffer.TableKey))
 	EventContentTreasureRoundExcelStart(b)
 	EventContentTreasureRoundExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentTreasureRoundExcelAddTreasureRound(b, fbsutils.Convert(t.TreasureRound, t.FlatBuffer.TableKey))
@@ -44,7 +45,7 @@ func (t *EventContentTreasureRoundExcelDto) MarshalModel(b *flatbuffers.Builder)
 		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentTreasureRoundExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
-	EventContentTreasureRoundExcelAddTreasureCellImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureCellImagePath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRoundExcelAddTreasureCellImagePath(b, __offset_treasure_cell_image_path)
 	return EventContentTreasureRoundExcelEnd(b)
 }
 

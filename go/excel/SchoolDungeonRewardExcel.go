@@ -17,11 +17,19 @@ func GetRootAsSchoolDungeonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishSchoolDungeonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSchoolDungeonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *SchoolDungeonRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SchoolDungeonRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSchoolDungeonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SchoolDungeonRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

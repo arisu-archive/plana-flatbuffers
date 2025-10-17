@@ -30,6 +30,36 @@ type TimeAttackDungeonGeasExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_ally_passive_skill_id flatbuffers.UOffsetT
+	__stringOffsets_ally_passive_skill_id := make([]flatbuffers.UOffsetT, len(t.AllyPassiveSkillId))
+	for i := range len(t.AllyPassiveSkillId) {
+		__stringOffsets_ally_passive_skill_id[i] = b.CreateString(fbsutils.Convert(t.AllyPassiveSkillId[i], t.FlatBuffer.TableKey))
+	}
+	TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
+	for i := range len(t.AllyPassiveSkillId) {
+		b.PrependUOffsetT(__stringOffsets_ally_passive_skill_id[len(t.AllyPassiveSkillId)-i-1])
+	}
+	__offset_ally_passive_skill_id = b.EndVector(len(t.AllyPassiveSkillId))
+	var __offset_enemy_passive_skill_id flatbuffers.UOffsetT
+	__stringOffsets_enemy_passive_skill_id := make([]flatbuffers.UOffsetT, len(t.EnemyPassiveSkillId))
+	for i := range len(t.EnemyPassiveSkillId) {
+		__stringOffsets_enemy_passive_skill_id[i] = b.CreateString(fbsutils.Convert(t.EnemyPassiveSkillId[i], t.FlatBuffer.TableKey))
+	}
+	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
+	for i := range len(t.EnemyPassiveSkillId) {
+		b.PrependUOffsetT(__stringOffsets_enemy_passive_skill_id[len(t.EnemyPassiveSkillId)-i-1])
+	}
+	__offset_enemy_passive_skill_id = b.EndVector(len(t.EnemyPassiveSkillId))
+	var __offset_geas_icon_path flatbuffers.UOffsetT
+	__stringOffsets_geas_icon_path := make([]flatbuffers.UOffsetT, len(t.GeasIconPath))
+	for i := range len(t.GeasIconPath) {
+		__stringOffsets_geas_icon_path[i] = b.CreateString(fbsutils.Convert(t.GeasIconPath[i], t.FlatBuffer.TableKey))
+	}
+	TimeAttackDungeonGeasExcelStartGeasIconPathVector(b, len(t.GeasIconPath))
+	for i := range len(t.GeasIconPath) {
+		b.PrependUOffsetT(__stringOffsets_geas_icon_path[len(t.GeasIconPath)-i-1])
+	}
+	__offset_geas_icon_path = b.EndVector(len(t.GeasIconPath))
 	TimeAttackDungeonGeasExcelStart(b)
 	TimeAttackDungeonGeasExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelAddTimeAttackDungeonType(b, fbsutils.Convert(t.TimeAttackDungeonType, t.FlatBuffer.TableKey))
@@ -41,31 +71,19 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	TimeAttackDungeonGeasExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
-	for i := range len(t.AllyPassiveSkillId) {
-		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkillId[len(t.AllyPassiveSkillId)-i-1]))
-	}
-	TimeAttackDungeonGeasExcelAddAllyPassiveSkillId(b, b.EndVector(len(t.AllyPassiveSkillId)))
+	TimeAttackDungeonGeasExcelAddAllyPassiveSkillId(b, __offset_ally_passive_skill_id)
 	TimeAttackDungeonGeasExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
 	for i := range len(t.AllyPassiveSkillLevel) {
 		b.PrependInt32(fbsutils.Convert(t.AllyPassiveSkillLevel[len(t.AllyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonGeasExcelAddAllyPassiveSkillLevel(b, b.EndVector(len(t.AllyPassiveSkillLevel)))
-	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
-	for i := range len(t.EnemyPassiveSkillId) {
-		b.PrependUOffsetT(b.CreateString(t.EnemyPassiveSkillId[len(t.EnemyPassiveSkillId)-i-1]))
-	}
-	TimeAttackDungeonGeasExcelAddEnemyPassiveSkillId(b, b.EndVector(len(t.EnemyPassiveSkillId)))
+	TimeAttackDungeonGeasExcelAddEnemyPassiveSkillId(b, __offset_enemy_passive_skill_id)
 	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillLevelVector(b, len(t.EnemyPassiveSkillLevel))
 	for i := range len(t.EnemyPassiveSkillLevel) {
 		b.PrependInt32(fbsutils.Convert(t.EnemyPassiveSkillLevel[len(t.EnemyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonGeasExcelAddEnemyPassiveSkillLevel(b, b.EndVector(len(t.EnemyPassiveSkillLevel)))
-	TimeAttackDungeonGeasExcelStartGeasIconPathVector(b, len(t.GeasIconPath))
-	for i := range len(t.GeasIconPath) {
-		b.PrependUOffsetT(b.CreateString(t.GeasIconPath[len(t.GeasIconPath)-i-1]))
-	}
-	TimeAttackDungeonGeasExcelAddGeasIconPath(b, b.EndVector(len(t.GeasIconPath)))
+	TimeAttackDungeonGeasExcelAddGeasIconPath(b, __offset_geas_icon_path)
 	TimeAttackDungeonGeasExcelStartGeasLocalizeEtcKeyVector(b, len(t.GeasLocalizeEtcKey))
 	for i := range len(t.GeasLocalizeEtcKey) {
 		b.PrependUint32(fbsutils.Convert(t.GeasLocalizeEtcKey[len(t.GeasLocalizeEtcKey)-i-1], t.FlatBuffer.TableKey))

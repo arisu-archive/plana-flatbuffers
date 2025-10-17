@@ -27,11 +27,32 @@ type MessagePopupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_image := b.CreateString(fbsutils.Convert(t.Image, t.FlatBuffer.TableKey))
+	var __offset_button_command flatbuffers.UOffsetT
+	__stringOffsets_button_command := make([]flatbuffers.UOffsetT, len(t.ButtonCommand))
+	for i := range len(t.ButtonCommand) {
+		__stringOffsets_button_command[i] = b.CreateString(fbsutils.Convert(t.ButtonCommand[i], t.FlatBuffer.TableKey))
+	}
+	MessagePopupExcelStartButtonCommandVector(b, len(t.ButtonCommand))
+	for i := range len(t.ButtonCommand) {
+		b.PrependUOffsetT(__stringOffsets_button_command[len(t.ButtonCommand)-i-1])
+	}
+	__offset_button_command = b.EndVector(len(t.ButtonCommand))
+	var __offset_button_parameter flatbuffers.UOffsetT
+	__stringOffsets_button_parameter := make([]flatbuffers.UOffsetT, len(t.ButtonParameter))
+	for i := range len(t.ButtonParameter) {
+		__stringOffsets_button_parameter[i] = b.CreateString(fbsutils.Convert(t.ButtonParameter[i], t.FlatBuffer.TableKey))
+	}
+	MessagePopupExcelStartButtonParameterVector(b, len(t.ButtonParameter))
+	for i := range len(t.ButtonParameter) {
+		b.PrependUOffsetT(__stringOffsets_button_parameter[len(t.ButtonParameter)-i-1])
+	}
+	__offset_button_parameter = b.EndVector(len(t.ButtonParameter))
 	MessagePopupExcelStart(b)
 	MessagePopupExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
 	MessagePopupExcelAddMessagePopupLayout(b, fbsutils.Convert(t.MessagePopupLayout, t.FlatBuffer.TableKey))
 	MessagePopupExcelAddOrderType(b, fbsutils.Convert(t.OrderType, t.FlatBuffer.TableKey))
-	MessagePopupExcelAddImage(b, b.CreateString(fbsutils.Convert(t.Image, t.FlatBuffer.TableKey)))
+	MessagePopupExcelAddImage(b, __offset_image)
 	MessagePopupExcelAddTitleText(b, fbsutils.Convert(t.TitleText, t.FlatBuffer.TableKey))
 	MessagePopupExcelAddSubTitleText(b, fbsutils.Convert(t.SubTitleText, t.FlatBuffer.TableKey))
 	MessagePopupExcelAddMessageText(b, fbsutils.Convert(t.MessageText, t.FlatBuffer.TableKey))
@@ -51,16 +72,8 @@ func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		b.PrependUint32(fbsutils.Convert(t.ButtonText[len(t.ButtonText)-i-1], t.FlatBuffer.TableKey))
 	}
 	MessagePopupExcelAddButtonText(b, b.EndVector(len(t.ButtonText)))
-	MessagePopupExcelStartButtonCommandVector(b, len(t.ButtonCommand))
-	for i := range len(t.ButtonCommand) {
-		b.PrependUOffsetT(b.CreateString(t.ButtonCommand[len(t.ButtonCommand)-i-1]))
-	}
-	MessagePopupExcelAddButtonCommand(b, b.EndVector(len(t.ButtonCommand)))
-	MessagePopupExcelStartButtonParameterVector(b, len(t.ButtonParameter))
-	for i := range len(t.ButtonParameter) {
-		b.PrependUOffsetT(b.CreateString(t.ButtonParameter[len(t.ButtonParameter)-i-1]))
-	}
-	MessagePopupExcelAddButtonParameter(b, b.EndVector(len(t.ButtonParameter)))
+	MessagePopupExcelAddButtonCommand(b, __offset_button_command)
+	MessagePopupExcelAddButtonParameter(b, __offset_button_parameter)
 	return MessagePopupExcelEnd(b)
 }
 

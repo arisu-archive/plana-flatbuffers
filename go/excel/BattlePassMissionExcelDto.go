@@ -31,6 +31,17 @@ type BattlePassMissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattlePassMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_toast_image_path := b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey))
+	var __offset_shortcut_ui flatbuffers.UOffsetT
+	__stringOffsets_shortcut_ui := make([]flatbuffers.UOffsetT, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		__stringOffsets_shortcut_ui[i] = b.CreateString(fbsutils.Convert(t.ShortcutUi[i], t.FlatBuffer.TableKey))
+	}
+	BattlePassMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
+	for i := range len(t.ShortcutUi) {
+		b.PrependUOffsetT(__stringOffsets_shortcut_ui[len(t.ShortcutUi)-i-1])
+	}
+	__offset_shortcut_ui = b.EndVector(len(t.ShortcutUi))
 	BattlePassMissionExcelStart(b)
 	BattlePassMissionExcelAddBattlePassId(b, fbsutils.Convert(t.BattlePassId, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -43,14 +54,10 @@ func (t *BattlePassMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	BattlePassMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddResetType(b, fbsutils.Convert(t.ResetType, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
+	BattlePassMissionExcelAddToastImagePath(b, __offset_toast_image_path)
 	BattlePassMissionExcelAddViewFlag(b, t.ViewFlag)
 	BattlePassMissionExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	BattlePassMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
-	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
-	}
-	BattlePassMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
+	BattlePassMissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	BattlePassMissionExcelAddChallengeStageShortcut(b, fbsutils.Convert(t.ChallengeStageShortcut, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
 	BattlePassMissionExcelAddCompleteConditionCount(b, fbsutils.Convert(t.CompleteConditionCount, t.FlatBuffer.TableKey))

@@ -218,81 +218,158 @@ class EliminateRaidSeasonManageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EliminateRaidSeasonManageExcelStart(builder): builder.StartObject(22)
+def EliminateRaidSeasonManageExcelStart(builder):
+    builder.StartObject(22)
+
 def Start(builder):
-    return EliminateRaidSeasonManageExcelStart(builder)
-def EliminateRaidSeasonManageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
+    EliminateRaidSeasonManageExcelStart(builder)
+
+def EliminateRaidSeasonManageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(0, seasonId, 0)
+
 def AddSeasonId(builder, seasonId):
-    return EliminateRaidSeasonManageExcelAddSeasonId(builder, seasonId)
-def EliminateRaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay): builder.PrependInt64Slot(1, seasonDisplay, 0)
+    EliminateRaidSeasonManageExcelAddSeasonId(builder, seasonId)
+
+def EliminateRaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay):
+    builder.PrependInt64Slot(1, seasonDisplay, 0)
+
 def AddSeasonDisplay(builder, seasonDisplay):
-    return EliminateRaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay)
-def EliminateRaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartData), 0)
+    EliminateRaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay)
+
+def EliminateRaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartData), 0)
+
 def AddSeasonStartData(builder, seasonStartData):
-    return EliminateRaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData)
-def EliminateRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(endNoteLabelStartDate), 0)
+    EliminateRaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData)
+
+def EliminateRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(endNoteLabelStartDate), 0)
+
 def AddEndNoteLabelStartDate(builder, endNoteLabelStartDate):
-    return EliminateRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
-def EliminateRaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndData), 0)
+    EliminateRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+
+def EliminateRaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndData), 0)
+
 def AddSeasonEndData(builder, seasonEndData):
-    return EliminateRaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData)
-def EliminateRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
+    EliminateRaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData)
+
+def EliminateRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
+
 def AddSettlementEndDate(builder, settlementEndDate):
-    return EliminateRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
-def EliminateRaidSeasonManageExcelAddLobbyTableBgPath(builder, lobbyTableBgPath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyTableBgPath), 0)
+    EliminateRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
+
+def EliminateRaidSeasonManageExcelAddLobbyTableBgPath(builder, lobbyTableBgPath):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyTableBgPath), 0)
+
 def AddLobbyTableBgPath(builder, lobbyTableBgPath):
-    return EliminateRaidSeasonManageExcelAddLobbyTableBgPath(builder, lobbyTableBgPath)
-def EliminateRaidSeasonManageExcelAddLobbyScreenBgPath(builder, lobbyScreenBgPath): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyScreenBgPath), 0)
+    EliminateRaidSeasonManageExcelAddLobbyTableBgPath(builder, lobbyTableBgPath)
+
+def EliminateRaidSeasonManageExcelAddLobbyScreenBgPath(builder, lobbyScreenBgPath):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyScreenBgPath), 0)
+
 def AddLobbyScreenBgPath(builder, lobbyScreenBgPath):
-    return EliminateRaidSeasonManageExcelAddLobbyScreenBgPath(builder, lobbyScreenBgPath)
-def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup01(builder, openRaidBossGroup01): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup01), 0)
+    EliminateRaidSeasonManageExcelAddLobbyScreenBgPath(builder, lobbyScreenBgPath)
+
+def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup01(builder, openRaidBossGroup01):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup01), 0)
+
 def AddOpenRaidBossGroup01(builder, openRaidBossGroup01):
-    return EliminateRaidSeasonManageExcelAddOpenRaidBossGroup01(builder, openRaidBossGroup01)
-def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup02(builder, openRaidBossGroup02): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup02), 0)
+    EliminateRaidSeasonManageExcelAddOpenRaidBossGroup01(builder, openRaidBossGroup01)
+
+def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup02(builder, openRaidBossGroup02):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup02), 0)
+
 def AddOpenRaidBossGroup02(builder, openRaidBossGroup02):
-    return EliminateRaidSeasonManageExcelAddOpenRaidBossGroup02(builder, openRaidBossGroup02)
-def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup03(builder, openRaidBossGroup03): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup03), 0)
+    EliminateRaidSeasonManageExcelAddOpenRaidBossGroup02(builder, openRaidBossGroup02)
+
+def EliminateRaidSeasonManageExcelAddOpenRaidBossGroup03(builder, openRaidBossGroup03):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup03), 0)
+
 def AddOpenRaidBossGroup03(builder, openRaidBossGroup03):
-    return EliminateRaidSeasonManageExcelAddOpenRaidBossGroup03(builder, openRaidBossGroup03)
-def EliminateRaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId): builder.PrependInt64Slot(11, rankingRewardGroupId, 0)
+    EliminateRaidSeasonManageExcelAddOpenRaidBossGroup03(builder, openRaidBossGroup03)
+
+def EliminateRaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId):
+    builder.PrependInt64Slot(11, rankingRewardGroupId, 0)
+
 def AddRankingRewardGroupId(builder, rankingRewardGroupId):
-    return EliminateRaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId)
-def EliminateRaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage): builder.PrependInt32Slot(12, maxSeasonRewardGauage, 0)
+    EliminateRaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId)
+
+def EliminateRaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
+    builder.PrependInt32Slot(12, maxSeasonRewardGauage, 0)
+
 def AddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
-    return EliminateRaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage)
-def EliminateRaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(stackedSeasonRewardGauge), 0)
+    EliminateRaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage)
+
+def EliminateRaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(stackedSeasonRewardGauge), 0)
+
 def AddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge):
-    return EliminateRaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge)
-def EliminateRaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge)
+
+def EliminateRaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartStackedSeasonRewardGaugeVector(builder, numElems):
     return EliminateRaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, numElems)
-def EliminateRaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardId), 0)
+
+def EliminateRaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardId), 0)
+
 def AddSeasonRewardId(builder, seasonRewardId):
-    return EliminateRaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId)
-def EliminateRaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EliminateRaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId)
+
+def EliminateRaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartSeasonRewardIdVector(builder, numElems):
     return EliminateRaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdNormal(builder, limitedRewardIdNormal): builder.PrependInt64Slot(15, limitedRewardIdNormal, 0)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdNormal(builder, limitedRewardIdNormal):
+    builder.PrependInt64Slot(15, limitedRewardIdNormal, 0)
+
 def AddLimitedRewardIdNormal(builder, limitedRewardIdNormal):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdNormal(builder, limitedRewardIdNormal)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdHard(builder, limitedRewardIdHard): builder.PrependInt64Slot(16, limitedRewardIdHard, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdNormal(builder, limitedRewardIdNormal)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdHard(builder, limitedRewardIdHard):
+    builder.PrependInt64Slot(16, limitedRewardIdHard, 0)
+
 def AddLimitedRewardIdHard(builder, limitedRewardIdHard):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdHard(builder, limitedRewardIdHard)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdVeryhard(builder, limitedRewardIdVeryhard): builder.PrependInt64Slot(17, limitedRewardIdVeryhard, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdHard(builder, limitedRewardIdHard)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdVeryhard(builder, limitedRewardIdVeryhard):
+    builder.PrependInt64Slot(17, limitedRewardIdVeryhard, 0)
+
 def AddLimitedRewardIdVeryhard(builder, limitedRewardIdVeryhard):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdVeryhard(builder, limitedRewardIdVeryhard)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdHardcore(builder, limitedRewardIdHardcore): builder.PrependInt64Slot(18, limitedRewardIdHardcore, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdVeryhard(builder, limitedRewardIdVeryhard)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdHardcore(builder, limitedRewardIdHardcore):
+    builder.PrependInt64Slot(18, limitedRewardIdHardcore, 0)
+
 def AddLimitedRewardIdHardcore(builder, limitedRewardIdHardcore):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdHardcore(builder, limitedRewardIdHardcore)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdExtreme(builder, limitedRewardIdExtreme): builder.PrependInt64Slot(19, limitedRewardIdExtreme, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdHardcore(builder, limitedRewardIdHardcore)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdExtreme(builder, limitedRewardIdExtreme):
+    builder.PrependInt64Slot(19, limitedRewardIdExtreme, 0)
+
 def AddLimitedRewardIdExtreme(builder, limitedRewardIdExtreme):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdExtreme(builder, limitedRewardIdExtreme)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdInsane(builder, limitedRewardIdInsane): builder.PrependInt64Slot(20, limitedRewardIdInsane, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdExtreme(builder, limitedRewardIdExtreme)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdInsane(builder, limitedRewardIdInsane):
+    builder.PrependInt64Slot(20, limitedRewardIdInsane, 0)
+
 def AddLimitedRewardIdInsane(builder, limitedRewardIdInsane):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdInsane(builder, limitedRewardIdInsane)
-def EliminateRaidSeasonManageExcelAddLimitedRewardIdTorment(builder, limitedRewardIdTorment): builder.PrependInt64Slot(21, limitedRewardIdTorment, 0)
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdInsane(builder, limitedRewardIdInsane)
+
+def EliminateRaidSeasonManageExcelAddLimitedRewardIdTorment(builder, limitedRewardIdTorment):
+    builder.PrependInt64Slot(21, limitedRewardIdTorment, 0)
+
 def AddLimitedRewardIdTorment(builder, limitedRewardIdTorment):
-    return EliminateRaidSeasonManageExcelAddLimitedRewardIdTorment(builder, limitedRewardIdTorment)
-def EliminateRaidSeasonManageExcelEnd(builder): return builder.EndObject()
+    EliminateRaidSeasonManageExcelAddLimitedRewardIdTorment(builder, limitedRewardIdTorment)
+
+def EliminateRaidSeasonManageExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EliminateRaidSeasonManageExcelEnd(builder)

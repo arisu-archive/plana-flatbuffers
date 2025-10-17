@@ -1,9 +1,0 @@
-include "EventContentFortuneGachaShopExcel.fbs";
-
-namespace FlatData;
-
-table EventContentFortuneGachaShopExcelTable {
-    data_list: [EventContentFortuneGachaShopExcel];
-}
-
-root_type EventContentFortuneGachaShopExcelTable;

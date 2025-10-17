@@ -22,15 +22,17 @@ type IdCardBackgroundExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *IdCardBackgroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_bg_path := b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey))
+	__offset_icon := b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelStart(b)
 	IdCardBackgroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddCollectionVisible(b, t.CollectionVisible)
 	IdCardBackgroundExcelAddIsDefault(b, t.IsDefault)
-	IdCardBackgroundExcelAddBgPath(b, b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey)))
+	IdCardBackgroundExcelAddBgPath(b, __offset_bg_path)
 	IdCardBackgroundExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	IdCardBackgroundExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	IdCardBackgroundExcelAddIcon(b, __offset_icon)
 	return IdCardBackgroundExcelEnd(b)
 }
 

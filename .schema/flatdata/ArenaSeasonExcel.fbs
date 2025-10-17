@@ -1,9 +1,0 @@
-namespace FlatData;
-
-table ArenaSeasonExcel {
-    unique_id: long;
-    season_start_date: string;
-    season_end_date: string;
-    season_group_limit: long;
-    prev_season_id: long;
-}

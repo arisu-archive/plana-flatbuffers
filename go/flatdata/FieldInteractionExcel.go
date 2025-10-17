@@ -17,11 +17,19 @@ func GetRootAsFieldInteractionExcel(buf []byte, offset flatbuffers.UOffsetT) *Fi
 	return x
 }
 
+func FinishFieldInteractionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldInteractionExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldInteractionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldInteractionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldInteractionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldInteractionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

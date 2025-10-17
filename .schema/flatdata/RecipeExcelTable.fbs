@@ -1,9 +1,0 @@
-include "RecipeExcel.fbs";
-
-namespace FlatData;
-
-table RecipeExcelTable {
-    data_list: [RecipeExcel];
-}
-
-root_type RecipeExcelTable;

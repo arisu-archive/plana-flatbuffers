@@ -1,9 +1,0 @@
-include "EventContentMeetupExcel.fbs";
-
-namespace FlatData;
-
-table EventContentMeetupExcelTable {
-    data_list: [EventContentMeetupExcel];
-}
-
-root_type EventContentMeetupExcelTable;

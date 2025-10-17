@@ -19,11 +19,12 @@ type MinigameCCGLevelExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameCCGLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_background_path := b.CreateString(fbsutils.Convert(t.BackgroundPath, t.FlatBuffer.TableKey))
 	MinigameCCGLevelExcelStart(b)
 	MinigameCCGLevelExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
 	MinigameCCGLevelExcelAddCcgId(b, fbsutils.Convert(t.CcgId, t.FlatBuffer.TableKey))
 	MinigameCCGLevelExcelAddFloorIndex(b, fbsutils.Convert(t.FloorIndex, t.FlatBuffer.TableKey))
-	MinigameCCGLevelExcelAddBackgroundPath(b, b.CreateString(fbsutils.Convert(t.BackgroundPath, t.FlatBuffer.TableKey)))
+	MinigameCCGLevelExcelAddBackgroundPath(b, __offset_background_path)
 	MinigameCCGLevelExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	return MinigameCCGLevelExcelEnd(b)
 }

@@ -27,6 +27,10 @@ type ScenarioContentCollectionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_emblem_resource := b.CreateString(fbsutils.Convert(t.EmblemResource, t.FlatBuffer.TableKey))
+	__offset_thumb_resource := b.CreateString(fbsutils.Convert(t.ThumbResource, t.FlatBuffer.TableKey))
+	__offset_full_resource := b.CreateString(fbsutils.Convert(t.FullResource, t.FlatBuffer.TableKey))
+	__offset_sub_name_localize_code_id := b.CreateString(fbsutils.Convert(t.SubNameLocalizeCodeId, t.FlatBuffer.TableKey))
 	ScenarioContentCollectionExcelStart(b)
 	ScenarioContentCollectionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioContentCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -40,11 +44,11 @@ func (t *ScenarioContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder)
 	ScenarioContentCollectionExcelAddUnlockConditionCount(b, fbsutils.Convert(t.UnlockConditionCount, t.FlatBuffer.TableKey))
 	ScenarioContentCollectionExcelAddIsObject(b, t.IsObject)
 	ScenarioContentCollectionExcelAddIsHorizon(b, t.IsHorizon)
-	ScenarioContentCollectionExcelAddEmblemResource(b, b.CreateString(fbsutils.Convert(t.EmblemResource, t.FlatBuffer.TableKey)))
-	ScenarioContentCollectionExcelAddThumbResource(b, b.CreateString(fbsutils.Convert(t.ThumbResource, t.FlatBuffer.TableKey)))
-	ScenarioContentCollectionExcelAddFullResource(b, b.CreateString(fbsutils.Convert(t.FullResource, t.FlatBuffer.TableKey)))
+	ScenarioContentCollectionExcelAddEmblemResource(b, __offset_emblem_resource)
+	ScenarioContentCollectionExcelAddThumbResource(b, __offset_thumb_resource)
+	ScenarioContentCollectionExcelAddFullResource(b, __offset_full_resource)
 	ScenarioContentCollectionExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.SubNameLocalizeCodeId, t.FlatBuffer.TableKey)))
+	ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(b, __offset_sub_name_localize_code_id)
 	return ScenarioContentCollectionExcelEnd(b)
 }
 

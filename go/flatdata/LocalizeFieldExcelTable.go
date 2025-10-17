@@ -17,11 +17,19 @@ func GetRootAsLocalizeFieldExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishLocalizeFieldExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLocalizeFieldExcelTable(buf []byte, offset flatbuffers.UOffsetT) *LocalizeFieldExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeFieldExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLocalizeFieldExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeFieldExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

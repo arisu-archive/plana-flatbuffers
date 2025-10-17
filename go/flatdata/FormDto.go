@@ -19,9 +19,13 @@ func (t *FormDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Form"))
 	}
+	t.MoveEnd.InitKey(t.FlatBuffer.TableKey)
+	__offset_move_end := t.MoveEnd.MarshalModel(b)
+	t.PublicSkill.InitKey(t.FlatBuffer.TableKey)
+	__offset_public_skill := t.PublicSkill.MarshalModel(b)
 	FormStart(b)
-	FormAddMoveEnd(b, t.MoveEnd.MarshalModel(b))
-	FormAddPublicSkill(b, t.PublicSkill.MarshalModel(b))
+	FormAddMoveEnd(b, __offset_move_end)
+	FormAddPublicSkill(b, __offset_public_skill)
 	return FormEnd(b)
 }
 

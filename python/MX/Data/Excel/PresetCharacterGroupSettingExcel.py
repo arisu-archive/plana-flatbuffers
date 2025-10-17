@@ -58,21 +58,38 @@ class PresetCharacterGroupSettingExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def PresetCharacterGroupSettingExcelStart(builder): builder.StartObject(3)
+def PresetCharacterGroupSettingExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return PresetCharacterGroupSettingExcelStart(builder)
-def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
+    PresetCharacterGroupSettingExcelStart(builder)
+
+def PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(0, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
-def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed): builder.PrependBoolSlot(1, arenaSimulatorFixed, 0)
+    PresetCharacterGroupSettingExcelAddCharacterId(builder, characterId)
+
+def PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed):
+    builder.PrependBoolSlot(1, arenaSimulatorFixed, 0)
+
 def AddArenaSimulatorFixed(builder, arenaSimulatorFixed):
-    return PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed)
-def PresetCharacterGroupSettingExcelAddPresetType(builder, presetType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(presetType), 0)
+    PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, arenaSimulatorFixed)
+
+def PresetCharacterGroupSettingExcelAddPresetType(builder, presetType):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(presetType), 0)
+
 def AddPresetType(builder, presetType):
-    return PresetCharacterGroupSettingExcelAddPresetType(builder, presetType)
-def PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    PresetCharacterGroupSettingExcelAddPresetType(builder, presetType)
+
+def PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartPresetTypeVector(builder, numElems):
     return PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, numElems)
-def PresetCharacterGroupSettingExcelEnd(builder): return builder.EndObject()
+
+def PresetCharacterGroupSettingExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PresetCharacterGroupSettingExcelEnd(builder)
