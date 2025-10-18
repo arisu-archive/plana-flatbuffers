@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  release:
+    if: |
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'release/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Extract version from branch
+        id: version
+        run: |
+          branch="${{ github.event.pull_request.head.ref }}"
+          version="${branch#release/}"
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "::notice::Completing release for $version"
+
+      - name: Create and push tag
+        run: |
+          version="${{ steps.version.outputs.version }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag -a "$version" -m "Release $version"
+          git push origin "$version"
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.version.outputs.version }}
+          generateReleaseNotes: true
+
+      - name: Delete release branch
+        run: |
+          branch="${{ github.event.pull_request.head.ref }}"
+          git push origin --delete "$branch" || true

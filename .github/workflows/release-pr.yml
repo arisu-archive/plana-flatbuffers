@@ -1,0 +1,130 @@
+name: Prepare Release PR
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - develop
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: false
+        type: choice
+        options:
+          - minor
+          - patch
+          - major
+        default: 'minor'
+
+jobs:
+  prepare:
+    if: |
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       contains(github.event.pull_request.labels.*.name, 'auto-release')) ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: develop
+
+      - name: Determine release type
+        id: release-type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            release_type="${{ inputs.release_type }}"
+          else
+            if git diff HEAD~1 HEAD --name-only | grep -q "version.txt"; then
+              apk_current=$(cat version.txt)
+              apk_previous=$(git show HEAD~1:version.txt 2>/dev/null || echo "")
+
+              if [ "$apk_current" != "$apk_previous" ]; then
+                release_type="minor"
+              else
+                release_type="patch"
+              fi
+            else
+              release_type="patch"
+            fi
+          fi
+
+          echo "release_type=$release_type" >> $GITHUB_OUTPUT
+          echo "apk_version=$(cat version.txt)" >> $GITHUB_OUTPUT
+
+      - name: Validate changes
+        if: github.event_name == 'pull_request'
+        run: |
+          if ! git diff --name-only HEAD~1 HEAD | grep -qE '(\.schema/|go/excel/|go/flatdata/|python/FlatData/|python/MX/)'; then
+            echo "::error::No schema or generated code changes"
+            exit 1
+          fi
+
+      - name: Calculate next version
+        id: version
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          latest_version="${latest_tag#v}"
+
+          IFS='.' read -r major minor patch <<< "$latest_version"
+
+          release_type="${{ steps.release-type.outputs.release_type }}"
+
+          if [ "$release_type" = "major" ]; then
+            new_version="$((major + 1)).0.0"
+          elif [ "$release_type" = "minor" ]; then
+            new_version="${major}.$((minor + 1)).0"
+          else
+            new_version="${major}.${minor}.$((patch + 1))"
+          fi
+
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          echo "::notice::Next version will be v$new_version"
+
+      - name: Create release branch
+        run: |
+          version="${{ steps.version.outputs.new_version }}"
+          branch_name="release/v${version}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$branch_name"
+          git push origin "$branch_name"
+
+          echo "branch_name=$branch_name" >> $GITHUB_ENV
+
+      - name: Create release PR
+        run: |
+          version="${{ steps.version.outputs.new_version }}"
+          apk="${{ steps.release-type.outputs.apk_version }}"
+          branch_name="release/v${version}"
+
+          gh pr create -B master -H "$branch_name" \
+            --title "Release v${version}" \
+            --body "## Release v${version}
+
+          **APK Version:** \`${apk}\`
+          **Type:** ${{ steps.release-type.outputs.release_type }}
+
+          Merge this PR to complete the release." \
+            --label release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on source PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 Release PR created for v${{ steps.version.outputs.new_version }}`
+            })
