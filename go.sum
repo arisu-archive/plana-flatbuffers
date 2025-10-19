@@ -1,5 +1,7 @@
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250523141606-65e055cdb50b h1:aSw1k4pyb+CBLpfREiiZfAVbF7TBLRHijzIoP1Ib/5U=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250523141606-65e055cdb50b/go.mod h1:TcA0pAoioBOjVpqKszcgRZl23YJGG33cjbRIvxRSMKI=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251019213209-c3e999aecf41 h1:+jkRBe72y2DBgKfVWoOdjvF5S5kpKd5pP3AauGdR3yE=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251019213209-c3e999aecf41/go.mod h1:Hl8k/iLfhmN8pikDdk77NUFD/MsG2z1wzDT57xE4LyM=
 github.com/go-logr/logr v1.4.2 h1:6pFjapn8bFcIbiKo3XT4j/BhANplGihG6tvd+8rYgrY=
 github.com/go-logr/logr v1.4.2/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1vB6EwHI=
