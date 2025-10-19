@@ -142,6 +142,7 @@ jobs:
           gh pr create -B develop -H $branch_name \
                         --title 'chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}' \
                         --body '* Version: ${{ needs.determine-version.outputs.version }}' \
-                        --label needs-review
+                        --label needs-review \
+                        --label auto-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
