@@ -111,10 +111,6 @@ jobs:
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
           go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
           go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
-      - name: Install FlatBuffers compiler
-        run: |
-          sudo apt update
-          sudo apt install flatbuffers-compiler
       - name: Compile the schema into code
         env:
           GOPRIVATE: github.com/arisu-archive
