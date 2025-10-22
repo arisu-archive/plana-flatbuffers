@@ -1,3 +1,4 @@
+include "CharacterVoiceOverridePriority.fbs";
 include "OperatorCondition.fbs";
 
 namespace MX.Data.Excel;
@@ -15,6 +16,7 @@ table OperatorExcel {
     text_localize_key: string;
     voice_id: [uint];
     operator_wait_queue: bool;
+    character_voice_override_priority: CharacterVoiceOverridePriority;
 }
 
 root_type OperatorExcel;

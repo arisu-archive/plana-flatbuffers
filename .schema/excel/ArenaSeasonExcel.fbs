@@ -6,6 +6,7 @@ table ArenaSeasonExcel {
     season_end_date: string;
     season_group_limit: long;
     prev_season_id: long;
+    information_group_id: long;
 }
 
 root_type ArenaSeasonExcel;

@@ -7,6 +7,7 @@ table EventContentConcentrationExcel {
     max_card_open_count: int;
     instant_clear_round: int;
     card_board_prefabs: string;
+    back_image_path: string;
 }
 
 root_type EventContentConcentrationExcel;

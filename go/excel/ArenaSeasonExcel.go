@@ -93,8 +93,20 @@ func (rcv *ArenaSeasonExcel) MutatePrevSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
+func (rcv *ArenaSeasonExcel) InformationGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ArenaSeasonExcel) MutateInformationGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func ArenaSeasonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(6)
 }
 func ArenaSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
@@ -110,6 +122,9 @@ func ArenaSeasonExcelAddSeasonGroupLimit(builder *flatbuffers.Builder, seasonGro
 }
 func ArenaSeasonExcelAddPrevSeasonId(builder *flatbuffers.Builder, prevSeasonId int64) {
 	builder.PrependInt64Slot(4, prevSeasonId, 0)
+}
+func ArenaSeasonExcelAddInformationGroupId(builder *flatbuffers.Builder, informationGroupId int64) {
+	builder.PrependInt64Slot(5, informationGroupId, 0)
 }
 func ArenaSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

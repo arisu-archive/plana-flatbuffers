@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum EchelonSlot: int {
+    None = 0,
+    StrikerEchelon = 1,
+    SpecialEchelon = 2,
+}

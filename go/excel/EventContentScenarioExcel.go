@@ -65,8 +65,20 @@ func (rcv *EventContentScenarioExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentScenarioExcel) ReplayDisplayGroup() int32 {
+func (rcv *EventContentScenarioExcel) ReturnScenarioPlay() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentScenarioExcel) MutateReturnScenarioPlay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *EventContentScenarioExcel) ReplayDisplayGroup() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -74,22 +86,10 @@ func (rcv *EventContentScenarioExcel) ReplayDisplayGroup() int32 {
 }
 
 func (rcv *EventContentScenarioExcel) MutateReplayDisplayGroup(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
 func (rcv *EventContentScenarioExcel) Order() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentScenarioExcel) MutateOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *EventContentScenarioExcel) RecollectionNumber() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -97,23 +97,23 @@ func (rcv *EventContentScenarioExcel) RecollectionNumber() int64 {
 	return 0
 }
 
-func (rcv *EventContentScenarioExcel) MutateRecollectionNumber(n int64) bool {
+func (rcv *EventContentScenarioExcel) MutateOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *EventContentScenarioExcel) IsRecollection() bool {
+func (rcv *EventContentScenarioExcel) RecollectionNumber() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *EventContentScenarioExcel) MutateIsRecollection(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+func (rcv *EventContentScenarioExcel) MutateRecollectionNumber(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *EventContentScenarioExcel) IsMeetup() bool {
+func (rcv *EventContentScenarioExcel) IsRecollection() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -121,11 +121,11 @@ func (rcv *EventContentScenarioExcel) IsMeetup() bool {
 	return false
 }
 
-func (rcv *EventContentScenarioExcel) MutateIsMeetup(n bool) bool {
+func (rcv *EventContentScenarioExcel) MutateIsRecollection(n bool) bool {
 	return rcv._tab.MutateBoolSlot(16, n)
 }
 
-func (rcv *EventContentScenarioExcel) IsOmnibus() bool {
+func (rcv *EventContentScenarioExcel) IsMeetup() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -133,12 +133,24 @@ func (rcv *EventContentScenarioExcel) IsOmnibus() bool {
 	return false
 }
 
-func (rcv *EventContentScenarioExcel) MutateIsOmnibus(n bool) bool {
+func (rcv *EventContentScenarioExcel) MutateIsMeetup(n bool) bool {
 	return rcv._tab.MutateBoolSlot(18, n)
 }
 
-func (rcv *EventContentScenarioExcel) ScenarioGroupId(j int) int64 {
+func (rcv *EventContentScenarioExcel) IsOmnibus() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentScenarioExcel) MutateIsOmnibus(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *EventContentScenarioExcel) ScenarioGroupId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -147,7 +159,7 @@ func (rcv *EventContentScenarioExcel) ScenarioGroupId(j int) int64 {
 }
 
 func (rcv *EventContentScenarioExcel) ScenarioGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -155,7 +167,7 @@ func (rcv *EventContentScenarioExcel) ScenarioGroupIdLength() int {
 }
 
 func (rcv *EventContentScenarioExcel) MutateScenarioGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -164,7 +176,7 @@ func (rcv *EventContentScenarioExcel) MutateScenarioGroupId(j int, n int64) bool
 }
 
 func (rcv *EventContentScenarioExcel) ScenarioConditionType() EventContentScenarioConditionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return EventContentScenarioConditionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -172,22 +184,10 @@ func (rcv *EventContentScenarioExcel) ScenarioConditionType() EventContentScenar
 }
 
 func (rcv *EventContentScenarioExcel) MutateScenarioConditionType(n EventContentScenarioConditionType) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
+	return rcv._tab.MutateInt32Slot(24, int32(n))
 }
 
 func (rcv *EventContentScenarioExcel) ConditionAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentScenarioExcel) MutateConditionAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *EventContentScenarioExcel) ConditionEventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -195,11 +195,11 @@ func (rcv *EventContentScenarioExcel) ConditionEventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentScenarioExcel) MutateConditionEventContentId(n int64) bool {
+func (rcv *EventContentScenarioExcel) MutateConditionAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *EventContentScenarioExcel) ClearedScenarioGroupId() int64 {
+func (rcv *EventContentScenarioExcel) ConditionEventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -207,12 +207,24 @@ func (rcv *EventContentScenarioExcel) ClearedScenarioGroupId() int64 {
 	return 0
 }
 
-func (rcv *EventContentScenarioExcel) MutateClearedScenarioGroupId(n int64) bool {
+func (rcv *EventContentScenarioExcel) MutateConditionEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(28, n)
 }
 
-func (rcv *EventContentScenarioExcel) RecollectionSummaryLocalizeScenarioId() uint32 {
+func (rcv *EventContentScenarioExcel) ClearedScenarioGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentScenarioExcel) MutateClearedScenarioGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *EventContentScenarioExcel) RecollectionSummaryLocalizeScenarioId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -220,11 +232,11 @@ func (rcv *EventContentScenarioExcel) RecollectionSummaryLocalizeScenarioId() ui
 }
 
 func (rcv *EventContentScenarioExcel) MutateRecollectionSummaryLocalizeScenarioId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(30, n)
+	return rcv._tab.MutateUint32Slot(32, n)
 }
 
 func (rcv *EventContentScenarioExcel) RecollectionResource() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -232,7 +244,7 @@ func (rcv *EventContentScenarioExcel) RecollectionResource() []byte {
 }
 
 func (rcv *EventContentScenarioExcel) IsRecollectionHorizon() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -240,11 +252,11 @@ func (rcv *EventContentScenarioExcel) IsRecollectionHorizon() bool {
 }
 
 func (rcv *EventContentScenarioExcel) MutateIsRecollectionHorizon(n bool) bool {
-	return rcv._tab.MutateBoolSlot(34, n)
+	return rcv._tab.MutateBoolSlot(36, n)
 }
 
 func (rcv *EventContentScenarioExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -253,7 +265,7 @@ func (rcv *EventContentScenarioExcel) RewardParcelType(j int) ParcelType {
 }
 
 func (rcv *EventContentScenarioExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -261,7 +273,7 @@ func (rcv *EventContentScenarioExcel) RewardParcelTypeLength() int {
 }
 
 func (rcv *EventContentScenarioExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -270,7 +282,7 @@ func (rcv *EventContentScenarioExcel) MutateRewardParcelType(j int, n ParcelType
 }
 
 func (rcv *EventContentScenarioExcel) RewardId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -279,7 +291,7 @@ func (rcv *EventContentScenarioExcel) RewardId(j int) int64 {
 }
 
 func (rcv *EventContentScenarioExcel) RewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -287,7 +299,7 @@ func (rcv *EventContentScenarioExcel) RewardIdLength() int {
 }
 
 func (rcv *EventContentScenarioExcel) MutateRewardId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -296,7 +308,7 @@ func (rcv *EventContentScenarioExcel) MutateRewardId(j int, n int64) bool {
 }
 
 func (rcv *EventContentScenarioExcel) RewardAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -305,7 +317,7 @@ func (rcv *EventContentScenarioExcel) RewardAmount(j int) int32 {
 }
 
 func (rcv *EventContentScenarioExcel) RewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -313,7 +325,7 @@ func (rcv *EventContentScenarioExcel) RewardAmountLength() int {
 }
 
 func (rcv *EventContentScenarioExcel) MutateRewardAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -322,7 +334,7 @@ func (rcv *EventContentScenarioExcel) MutateRewardAmount(j int, n int32) bool {
 }
 
 func EventContentScenarioExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(19)
+	builder.StartObject(20)
 }
 func EventContentScenarioExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -330,65 +342,68 @@ func EventContentScenarioExcelAddId(builder *flatbuffers.Builder, id int64) {
 func EventContentScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(1, eventContentId, 0)
 }
+func EventContentScenarioExcelAddReturnScenarioPlay(builder *flatbuffers.Builder, returnScenarioPlay bool) {
+	builder.PrependBoolSlot(2, returnScenarioPlay, false)
+}
 func EventContentScenarioExcelAddReplayDisplayGroup(builder *flatbuffers.Builder, replayDisplayGroup int32) {
-	builder.PrependInt32Slot(2, replayDisplayGroup, 0)
+	builder.PrependInt32Slot(3, replayDisplayGroup, 0)
 }
 func EventContentScenarioExcelAddOrder(builder *flatbuffers.Builder, order int64) {
-	builder.PrependInt64Slot(3, order, 0)
+	builder.PrependInt64Slot(4, order, 0)
 }
 func EventContentScenarioExcelAddRecollectionNumber(builder *flatbuffers.Builder, recollectionNumber int64) {
-	builder.PrependInt64Slot(4, recollectionNumber, 0)
+	builder.PrependInt64Slot(5, recollectionNumber, 0)
 }
 func EventContentScenarioExcelAddIsRecollection(builder *flatbuffers.Builder, isRecollection bool) {
-	builder.PrependBoolSlot(5, isRecollection, false)
+	builder.PrependBoolSlot(6, isRecollection, false)
 }
 func EventContentScenarioExcelAddIsMeetup(builder *flatbuffers.Builder, isMeetup bool) {
-	builder.PrependBoolSlot(6, isMeetup, false)
+	builder.PrependBoolSlot(7, isMeetup, false)
 }
 func EventContentScenarioExcelAddIsOmnibus(builder *flatbuffers.Builder, isOmnibus bool) {
-	builder.PrependBoolSlot(7, isOmnibus, false)
+	builder.PrependBoolSlot(8, isOmnibus, false)
 }
 func EventContentScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(scenarioGroupId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(scenarioGroupId), 0)
 }
 func EventContentScenarioExcelStartScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentScenarioExcelAddScenarioConditionType(builder *flatbuffers.Builder, scenarioConditionType EventContentScenarioConditionType) {
-	builder.PrependInt32Slot(9, int32(scenarioConditionType), 0)
+	builder.PrependInt32Slot(10, int32(scenarioConditionType), 0)
 }
 func EventContentScenarioExcelAddConditionAmount(builder *flatbuffers.Builder, conditionAmount int64) {
-	builder.PrependInt64Slot(10, conditionAmount, 0)
+	builder.PrependInt64Slot(11, conditionAmount, 0)
 }
 func EventContentScenarioExcelAddConditionEventContentId(builder *flatbuffers.Builder, conditionEventContentId int64) {
-	builder.PrependInt64Slot(11, conditionEventContentId, 0)
+	builder.PrependInt64Slot(12, conditionEventContentId, 0)
 }
 func EventContentScenarioExcelAddClearedScenarioGroupId(builder *flatbuffers.Builder, clearedScenarioGroupId int64) {
-	builder.PrependInt64Slot(12, clearedScenarioGroupId, 0)
+	builder.PrependInt64Slot(13, clearedScenarioGroupId, 0)
 }
 func EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder *flatbuffers.Builder, recollectionSummaryLocalizeScenarioId uint32) {
-	builder.PrependUint32Slot(13, recollectionSummaryLocalizeScenarioId, 0)
+	builder.PrependUint32Slot(14, recollectionSummaryLocalizeScenarioId, 0)
 }
 func EventContentScenarioExcelAddRecollectionResource(builder *flatbuffers.Builder, recollectionResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(recollectionResource), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(recollectionResource), 0)
 }
 func EventContentScenarioExcelAddIsRecollectionHorizon(builder *flatbuffers.Builder, isRecollectionHorizon bool) {
-	builder.PrependBoolSlot(15, isRecollectionHorizon, false)
+	builder.PrependBoolSlot(16, isRecollectionHorizon, false)
 }
 func EventContentScenarioExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(rewardParcelType), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
 func EventContentScenarioExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentScenarioExcelAddRewardId(builder *flatbuffers.Builder, rewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(rewardId), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(rewardId), 0)
 }
 func EventContentScenarioExcelStartRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentScenarioExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(rewardAmount), 0)
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(rewardAmount), 0)
 }
 func EventContentScenarioExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

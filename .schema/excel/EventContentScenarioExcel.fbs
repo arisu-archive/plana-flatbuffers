@@ -6,6 +6,7 @@ namespace MX.Data.Excel;
 table EventContentScenarioExcel {
     id: long;
     event_content_id: long;
+    return_scenario_play: bool;
     replay_display_group: int;
     order: long;
     recollection_number: long;

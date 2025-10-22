@@ -217,8 +217,20 @@ func (rcv *ObstacleStatExcel) MutateReduceExDamagedRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(32, n)
 }
 
+func (rcv *ObstacleStatExcel) ReduceBasicsDamagedRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleStatExcel) MutateReduceBasicsDamagedRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
 func ObstacleStatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(15)
+	builder.StartObject(16)
 }
 func ObstacleStatExcelAddStringId(builder *flatbuffers.Builder, stringId uint32) {
 	builder.PrependUint32Slot(0, stringId, 0)
@@ -264,6 +276,9 @@ func ObstacleStatExcelAddEnhanceNormalArmorRate(builder *flatbuffers.Builder, en
 }
 func ObstacleStatExcelAddReduceExDamagedRate(builder *flatbuffers.Builder, reduceExDamagedRate int64) {
 	builder.PrependInt64Slot(14, reduceExDamagedRate, 0)
+}
+func ObstacleStatExcelAddReduceBasicsDamagedRate(builder *flatbuffers.Builder, reduceBasicsDamagedRate int64) {
+	builder.PrependInt64Slot(15, reduceBasicsDamagedRate, 0)
 }
 func ObstacleStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

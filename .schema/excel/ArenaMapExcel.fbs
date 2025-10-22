@@ -1,6 +1,7 @@
 namespace MX.Data.Excel;
 
 table ArenaMapExcel {
+    arena_season_id: long;
     unique_id: long;
     terrain_type: long;
     terrain_type_localize_key: string;

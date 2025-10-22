@@ -109,8 +109,16 @@ func (rcv *EventContentConcentrationExcel) CardBoardPrefabs() []byte {
 	return nil
 }
 
+func (rcv *EventContentConcentrationExcel) BackImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentConcentrationExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func EventContentConcentrationExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -129,6 +137,9 @@ func EventContentConcentrationExcelAddInstantClearRound(builder *flatbuffers.Bui
 }
 func EventContentConcentrationExcelAddCardBoardPrefabs(builder *flatbuffers.Builder, cardBoardPrefabs flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(cardBoardPrefabs), 0)
+}
+func EventContentConcentrationExcelAddBackImagePath(builder *flatbuffers.Builder, backImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(backImagePath), 0)
 }
 func EventContentConcentrationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

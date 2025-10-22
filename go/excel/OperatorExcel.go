@@ -187,8 +187,20 @@ func (rcv *OperatorExcel) MutateOperatorWaitQueue(n bool) bool {
 	return rcv._tab.MutateBoolSlot(26, n)
 }
 
+func (rcv *OperatorExcel) CharacterVoiceOverridePriority() CharacterVoiceOverridePriority {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return CharacterVoiceOverridePriority(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *OperatorExcel) MutateCharacterVoiceOverridePriority(n CharacterVoiceOverridePriority) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
+}
+
 func OperatorExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(12)
+	builder.StartObject(13)
 }
 func OperatorExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
@@ -228,6 +240,9 @@ func OperatorExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int)
 }
 func OperatorExcelAddOperatorWaitQueue(builder *flatbuffers.Builder, operatorWaitQueue bool) {
 	builder.PrependBoolSlot(11, operatorWaitQueue, false)
+}
+func OperatorExcelAddCharacterVoiceOverridePriority(builder *flatbuffers.Builder, characterVoiceOverridePriority CharacterVoiceOverridePriority) {
+	builder.PrependInt32Slot(12, int32(characterVoiceOverridePriority), 0)
 }
 func OperatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

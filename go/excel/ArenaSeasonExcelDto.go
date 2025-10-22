@@ -10,11 +10,12 @@ import (
 // ArenaSeasonExcelDto represents a FlatBuffers table
 type ArenaSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId         int64  `json:"unique_id"`
-	SeasonStartDate  string `json:"season_start_date"`
-	SeasonEndDate    string `json:"season_end_date"`
-	SeasonGroupLimit int64  `json:"season_group_limit"`
-	PrevSeasonId     int64  `json:"prev_season_id"`
+	UniqueId           int64  `json:"unique_id"`
+	SeasonStartDate    string `json:"season_start_date"`
+	SeasonEndDate      string `json:"season_end_date"`
+	SeasonGroupLimit   int64  `json:"season_group_limit"`
+	PrevSeasonId       int64  `json:"prev_season_id"`
+	InformationGroupId int64  `json:"information_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,6 +28,7 @@ func (t *ArenaSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ArenaSeasonExcelAddSeasonEndDate(b, __offset_season_end_date)
 	ArenaSeasonExcelAddSeasonGroupLimit(b, fbsutils.Convert(t.SeasonGroupLimit, t.FlatBuffer.TableKey))
 	ArenaSeasonExcelAddPrevSeasonId(b, fbsutils.Convert(t.PrevSeasonId, t.FlatBuffer.TableKey))
+	ArenaSeasonExcelAddInformationGroupId(b, fbsutils.Convert(t.InformationGroupId, t.FlatBuffer.TableKey))
 	return ArenaSeasonExcelEnd(b)
 }
 
@@ -44,6 +46,7 @@ func (t *ArenaSeasonExcelDto) UnmarshalMessage(e *ArenaSeasonExcel) error {
 	t.SeasonEndDate = fbsutils.Convert(string(e.SeasonEndDate()), t.FlatBuffer.TableKey)
 	t.SeasonGroupLimit = fbsutils.Convert(e.SeasonGroupLimit(), t.FlatBuffer.TableKey)
 	t.PrevSeasonId = fbsutils.Convert(e.PrevSeasonId(), t.FlatBuffer.TableKey)
+	t.InformationGroupId = fbsutils.Convert(e.InformationGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

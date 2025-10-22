@@ -16,6 +16,7 @@ table ObstacleStatExcel {
     enhance_structure_rate: long;
     enhance_normal_armor_rate: long;
     reduce_ex_damaged_rate: long;
+    reduce_basics_damaged_rate: long;
 }
 
 root_type ObstacleStatExcel;
