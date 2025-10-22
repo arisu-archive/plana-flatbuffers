@@ -12,6 +12,7 @@ type EventContentScenarioExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                                    int64                             `json:"id"`
 	EventContentId                        int64                             `json:"event_content_id"`
+	ReturnScenarioPlay                    bool                              `json:"return_scenario_play"`
 	ReplayDisplayGroup                    int32                             `json:"replay_display_group"`
 	Order                                 int64                             `json:"order"`
 	RecollectionNumber                    int64                             `json:"recollection_number"`
@@ -37,6 +38,7 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentScenarioExcelStart(b)
 	EventContentScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddReturnScenarioPlay(b, t.ReturnScenarioPlay)
 	EventContentScenarioExcelAddReplayDisplayGroup(b, fbsutils.Convert(t.ReplayDisplayGroup, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddRecollectionNumber(b, fbsutils.Convert(t.RecollectionNumber, t.FlatBuffer.TableKey))
@@ -84,6 +86,7 @@ func (t *EventContentScenarioExcelDto) Marshal() ([]byte, error) {
 func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ReturnScenarioPlay = e.ReturnScenarioPlay()
 	t.ReplayDisplayGroup = fbsutils.Convert(e.ReplayDisplayGroup(), t.FlatBuffer.TableKey)
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.RecollectionNumber = fbsutils.Convert(e.RecollectionNumber(), t.FlatBuffer.TableKey)

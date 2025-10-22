@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum CharacterVoiceOverridePriority: int {
+    None = 0,
+    High = 1,
+    Low = 2,
+}

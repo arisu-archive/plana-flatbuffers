@@ -2171,8 +2171,32 @@ func (rcv *ConstCommonExcel) MutateCafeSummonTicketBuyLimitForValidate(n int32) 
 	return rcv._tab.MutateInt32Slot(348, n)
 }
 
+func (rcv *ConstCommonExcel) AutoCraftPresetCountLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(350))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateAutoCraftPresetCountLimit(n int32) bool {
+	return rcv._tab.MutateInt32Slot(350, n)
+}
+
+func (rcv *ConstCommonExcel) AutoCraftNodeSelectCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(352))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateAutoCraftNodeSelectCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(352, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(173)
+	builder.StartObject(175)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2707,6 +2731,12 @@ func ConstCommonExcelAddCafeCameraDragThreshold(builder *flatbuffers.Builder, ca
 }
 func ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder *flatbuffers.Builder, cafeSummonTicketBuyLimitForValidate int32) {
 	builder.PrependInt32Slot(172, cafeSummonTicketBuyLimitForValidate, 0)
+}
+func ConstCommonExcelAddAutoCraftPresetCountLimit(builder *flatbuffers.Builder, autoCraftPresetCountLimit int32) {
+	builder.PrependInt32Slot(173, autoCraftPresetCountLimit, 0)
+}
+func ConstCommonExcelAddAutoCraftNodeSelectCount(builder *flatbuffers.Builder, autoCraftNodeSelectCount int32) {
+	builder.PrependInt32Slot(174, autoCraftNodeSelectCount, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

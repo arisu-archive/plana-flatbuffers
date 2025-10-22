@@ -74,6 +74,8 @@ type CharacterStatExcelDto struct {
 	ExDamagedRatioDecrease      int64                 `json:"ex_damaged_ratio_decrease"`
 	EnhanceExDamageRate         int64                 `json:"enhance_ex_damage_rate"`
 	ReduceExDamagedRate         int64                 `json:"reduce_ex_damaged_rate"`
+	EnhanceBasicsDamageRate     int64                 `json:"enhance_basics_damage_rate"`
+	ReduceBasicsDamagedRate     int64                 `json:"reduce_basics_damaged_rate"`
 	HealRate                    int64                 `json:"heal_rate"`
 	HealLightArmorRate          int64                 `json:"heal_light_armor_rate"`
 	HealHeavyArmorRate          int64                 `json:"heal_heavy_armor_rate"`
@@ -158,6 +160,8 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddExDamagedRatioDecrease(b, fbsutils.Convert(t.ExDamagedRatioDecrease, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceExDamageRate(b, fbsutils.Convert(t.EnhanceExDamageRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddEnhanceBasicsDamageRate(b, fbsutils.Convert(t.EnhanceBasicsDamageRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealRate(b, fbsutils.Convert(t.HealRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealLightArmorRate(b, fbsutils.Convert(t.HealLightArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealHeavyArmorRate(b, fbsutils.Convert(t.HealHeavyArmorRate, t.FlatBuffer.TableKey))
@@ -249,6 +253,8 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.ExDamagedRatioDecrease = fbsutils.Convert(e.ExDamagedRatioDecrease(), t.FlatBuffer.TableKey)
 	t.EnhanceExDamageRate = fbsutils.Convert(e.EnhanceExDamageRate(), t.FlatBuffer.TableKey)
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
+	t.EnhanceBasicsDamageRate = fbsutils.Convert(e.EnhanceBasicsDamageRate(), t.FlatBuffer.TableKey)
+	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
 	t.HealRate = fbsutils.Convert(e.HealRate(), t.FlatBuffer.TableKey)
 	t.HealLightArmorRate = fbsutils.Convert(e.HealLightArmorRate(), t.FlatBuffer.TableKey)
 	t.HealHeavyArmorRate = fbsutils.Convert(e.HealHeavyArmorRate(), t.FlatBuffer.TableKey)

@@ -178,4 +178,6 @@ table ConstCommonExcel {
     battle_pass_exp_icon_path: string;
     cafe_camera_drag_threshold: float;
     cafe_summon_ticket_buy_limit_for_validate: int;
+    auto_craft_preset_count_limit: int;
+    auto_craft_node_select_count: int;
 }

@@ -85,16 +85,8 @@ func (rcv *EventContentConcentrationCardExcel) ImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentConcentrationCardExcel) BackImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func EventContentConcentrationCardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(4)
 }
 func EventContentConcentrationCardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -107,9 +99,6 @@ func EventContentConcentrationCardExcelAddRarity(builder *flatbuffers.Builder, r
 }
 func EventContentConcentrationCardExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(imagePath), 0)
-}
-func EventContentConcentrationCardExcelAddBackImagePath(builder *flatbuffers.Builder, backImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(backImagePath), 0)
 }
 func EventContentConcentrationCardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

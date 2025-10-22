@@ -1,0 +1,13 @@
+include "DialogCategory.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentSpineDisplayPeriodExcel {
+    event_content_id: long;
+    dialog_category: DialogCategory;
+    costume_unique_id: long;
+    show_period_from: string;
+    show_period_to: string;
+}
+
+root_type EventContentSpineDisplayPeriodExcel;

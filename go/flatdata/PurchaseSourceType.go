@@ -7,27 +7,30 @@ import "strconv"
 type PurchaseSourceType int32
 
 const (
-	PurchaseSourceTypeNone              PurchaseSourceType = 0
-	PurchaseSourceTypeProduct           PurchaseSourceType = 1
-	PurchaseSourceTypeProductMonthly    PurchaseSourceType = 2
-	PurchaseSourceTypeProductBattlePass PurchaseSourceType = 3
-	PurchaseSourceTypeProductSelect     PurchaseSourceType = 4
+	PurchaseSourceTypeNone               PurchaseSourceType = 0
+	PurchaseSourceTypeProduct            PurchaseSourceType = 1
+	PurchaseSourceTypeProductMonthly     PurchaseSourceType = 2
+	PurchaseSourceTypeProductBattlePass  PurchaseSourceType = 3
+	PurchaseSourceTypeProductSelect      PurchaseSourceType = 4
+	PurchaseSourceTypeProductGooglePoint PurchaseSourceType = 5
 )
 
 var EnumNamesPurchaseSourceType = map[PurchaseSourceType]string{
-	PurchaseSourceTypeNone:              "None",
-	PurchaseSourceTypeProduct:           "Product",
-	PurchaseSourceTypeProductMonthly:    "ProductMonthly",
-	PurchaseSourceTypeProductBattlePass: "ProductBattlePass",
-	PurchaseSourceTypeProductSelect:     "ProductSelect",
+	PurchaseSourceTypeNone:               "None",
+	PurchaseSourceTypeProduct:            "Product",
+	PurchaseSourceTypeProductMonthly:     "ProductMonthly",
+	PurchaseSourceTypeProductBattlePass:  "ProductBattlePass",
+	PurchaseSourceTypeProductSelect:      "ProductSelect",
+	PurchaseSourceTypeProductGooglePoint: "ProductGooglePoint",
 }
 
 var EnumValuesPurchaseSourceType = map[string]PurchaseSourceType{
-	"None":              PurchaseSourceTypeNone,
-	"Product":           PurchaseSourceTypeProduct,
-	"ProductMonthly":    PurchaseSourceTypeProductMonthly,
-	"ProductBattlePass": PurchaseSourceTypeProductBattlePass,
-	"ProductSelect":     PurchaseSourceTypeProductSelect,
+	"None":               PurchaseSourceTypeNone,
+	"Product":            PurchaseSourceTypeProduct,
+	"ProductMonthly":     PurchaseSourceTypeProductMonthly,
+	"ProductBattlePass":  PurchaseSourceTypeProductBattlePass,
+	"ProductSelect":      PurchaseSourceTypeProductSelect,
+	"ProductGooglePoint": PurchaseSourceTypeProductGooglePoint,
 }
 
 func (v PurchaseSourceType) String() string {

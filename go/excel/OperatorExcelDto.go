@@ -10,18 +10,19 @@ import (
 // OperatorExcelDto represents a FlatBuffers table
 type OperatorExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId               int64             `json:"unique_id"`
-	GroupId                string            `json:"group_id"`
-	OperatorCondition      OperatorCondition `json:"operator_condition"`
-	OutputSequence         int32             `json:"output_sequence"`
-	RandomWeight           int32             `json:"random_weight"`
-	OutputDelay            int32             `json:"output_delay"`
-	Duration               int32             `json:"duration"`
-	OperatorOutputPriority int32             `json:"operator_output_priority"`
-	PortraitPath           string            `json:"portrait_path"`
-	TextLocalizeKey        string            `json:"text_localize_key"`
-	VoiceId                []uint32          `json:"voice_id"`
-	OperatorWaitQueue      bool              `json:"operator_wait_queue"`
+	UniqueId                       int64                          `json:"unique_id"`
+	GroupId                        string                         `json:"group_id"`
+	OperatorCondition              OperatorCondition              `json:"operator_condition"`
+	OutputSequence                 int32                          `json:"output_sequence"`
+	RandomWeight                   int32                          `json:"random_weight"`
+	OutputDelay                    int32                          `json:"output_delay"`
+	Duration                       int32                          `json:"duration"`
+	OperatorOutputPriority         int32                          `json:"operator_output_priority"`
+	PortraitPath                   string                         `json:"portrait_path"`
+	TextLocalizeKey                string                         `json:"text_localize_key"`
+	VoiceId                        []uint32                       `json:"voice_id"`
+	OperatorWaitQueue              bool                           `json:"operator_wait_queue"`
+	CharacterVoiceOverridePriority CharacterVoiceOverridePriority `json:"character_voice_override_priority"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -46,6 +47,7 @@ func (t *OperatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	}
 	OperatorExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
 	OperatorExcelAddOperatorWaitQueue(b, t.OperatorWaitQueue)
+	OperatorExcelAddCharacterVoiceOverridePriority(b, fbsutils.Convert(t.CharacterVoiceOverridePriority, t.FlatBuffer.TableKey))
 	return OperatorExcelEnd(b)
 }
 
@@ -73,6 +75,7 @@ func (t *OperatorExcelDto) UnmarshalMessage(e *OperatorExcel) error {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.OperatorWaitQueue = e.OperatorWaitQueue()
+	t.CharacterVoiceOverridePriority = CharacterVoiceOverridePriority(fbsutils.Convert(int32(e.CharacterVoiceOverridePriority()), t.FlatBuffer.TableKey))
 	return nil
 }
 
