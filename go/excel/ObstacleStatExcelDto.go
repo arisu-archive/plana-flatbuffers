@@ -25,6 +25,7 @@ type ObstacleStatExcelDto struct {
 	EnhanceStructureRate    int64   `json:"enhance_structure_rate"`
 	EnhanceNormalArmorRate  int64   `json:"enhance_normal_armor_rate"`
 	ReduceExDamagedRate     int64   `json:"reduce_ex_damaged_rate"`
+	ReduceBasicsDamagedRate int64   `json:"reduce_basics_damaged_rate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -46,6 +47,7 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ObstacleStatExcelAddEnhanceStructureRate(b, fbsutils.Convert(t.EnhanceStructureRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddEnhanceNormalArmorRate(b, fbsutils.Convert(t.EnhanceNormalArmorRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
 	return ObstacleStatExcelEnd(b)
 }
 
@@ -73,6 +75,7 @@ func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
 	t.EnhanceStructureRate = fbsutils.Convert(e.EnhanceStructureRate(), t.FlatBuffer.TableKey)
 	t.EnhanceNormalArmorRate = fbsutils.Convert(e.EnhanceNormalArmorRate(), t.FlatBuffer.TableKey)
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
+	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
 	return nil
 }
 

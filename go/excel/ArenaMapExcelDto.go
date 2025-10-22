@@ -10,6 +10,7 @@ import (
 // ArenaMapExcelDto represents a FlatBuffers table
 type ArenaMapExcelDto struct {
 	fbsutils.FlatBuffer
+	ArenaSeasonId              int64  `json:"arena_season_id"`
 	UniqueId                   int64  `json:"unique_id"`
 	TerrainType                int64  `json:"terrain_type"`
 	TerrainTypeLocalizeKey     string `json:"terrain_type_localize_key"`
@@ -27,6 +28,7 @@ func (t *ArenaMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
 	__offset_ground_group_name_localize_key := b.CreateString(fbsutils.Convert(t.GroundGroupNameLocalizeKey, t.FlatBuffer.TableKey))
 	ArenaMapExcelStart(b)
+	ArenaMapExcelAddArenaSeasonId(b, fbsutils.Convert(t.ArenaSeasonId, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddTerrainType(b, fbsutils.Convert(t.TerrainType, t.FlatBuffer.TableKey))
 	ArenaMapExcelAddTerrainTypeLocalizeKey(b, __offset_terrain_type_localize_key)
@@ -48,6 +50,7 @@ func (t *ArenaMapExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaMapExcelDto) UnmarshalMessage(e *ArenaMapExcel) error {
+	t.ArenaSeasonId = fbsutils.Convert(e.ArenaSeasonId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.TerrainType = fbsutils.Convert(e.TerrainType(), t.FlatBuffer.TableKey)
 	t.TerrainTypeLocalizeKey = fbsutils.Convert(string(e.TerrainTypeLocalizeKey()), t.FlatBuffer.TableKey)

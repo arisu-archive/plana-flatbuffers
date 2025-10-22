@@ -16,11 +16,13 @@ type EventContentConcentrationExcelDto struct {
 	MaxCardOpenCount  int32  `json:"max_card_open_count"`
 	InstantClearRound int32  `json:"instant_clear_round"`
 	CardBoardPrefabs  string `json:"card_board_prefabs"`
+	BackImagePath     string `json:"back_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentConcentrationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	__offset_card_board_prefabs := b.CreateString(fbsutils.Convert(t.CardBoardPrefabs, t.FlatBuffer.TableKey))
+	__offset_back_image_path := b.CreateString(fbsutils.Convert(t.BackImagePath, t.FlatBuffer.TableKey))
 	EventContentConcentrationExcelStart(b)
 	EventContentConcentrationExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentConcentrationExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
@@ -28,6 +30,7 @@ func (t *EventContentConcentrationExcelDto) MarshalModel(b *flatbuffers.Builder)
 	EventContentConcentrationExcelAddMaxCardOpenCount(b, fbsutils.Convert(t.MaxCardOpenCount, t.FlatBuffer.TableKey))
 	EventContentConcentrationExcelAddInstantClearRound(b, fbsutils.Convert(t.InstantClearRound, t.FlatBuffer.TableKey))
 	EventContentConcentrationExcelAddCardBoardPrefabs(b, __offset_card_board_prefabs)
+	EventContentConcentrationExcelAddBackImagePath(b, __offset_back_image_path)
 	return EventContentConcentrationExcelEnd(b)
 }
 
@@ -46,6 +49,7 @@ func (t *EventContentConcentrationExcelDto) UnmarshalMessage(e *EventContentConc
 	t.MaxCardOpenCount = fbsutils.Convert(e.MaxCardOpenCount(), t.FlatBuffer.TableKey)
 	t.InstantClearRound = fbsutils.Convert(e.InstantClearRound(), t.FlatBuffer.TableKey)
 	t.CardBoardPrefabs = fbsutils.Convert(string(e.CardBoardPrefabs()), t.FlatBuffer.TableKey)
+	t.BackImagePath = fbsutils.Convert(string(e.BackImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

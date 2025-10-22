@@ -56,4 +56,5 @@ enum Club: int {
     OccultClub = 52,
     PrefectBrigade = 53,
     FreeTradeCartel = 54,
+    NicomediasTroop = 55,
 }

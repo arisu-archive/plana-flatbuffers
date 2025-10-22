@@ -7,7 +7,6 @@ table EventContentConcentrationCardExcel {
     card_id: long;
     rarity: Rarity;
     image_path: string;
-    back_image_path: string;
 }
 
 root_type EventContentConcentrationCardExcel;

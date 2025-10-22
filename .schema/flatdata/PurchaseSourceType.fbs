@@ -6,4 +6,5 @@ enum PurchaseSourceType: int {
     ProductMonthly = 2,
     ProductBattlePass = 3,
     ProductSelect = 4,
+    ProductGooglePoint = 5,
 }

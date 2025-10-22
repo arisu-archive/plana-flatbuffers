@@ -28,4 +28,8 @@ enum MailType: int {
     ExpiryChangeCurrency = 24,
     ExpiryBattlePassItem = 25,
     FreeProductReward = 26,
+    Temp_4 = 27,
+    Temp_5 = 28,
+    Temp_6 = 29,
+    ProductGooglePointReward = 30,
 }

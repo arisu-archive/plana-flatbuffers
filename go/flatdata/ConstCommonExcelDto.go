@@ -183,6 +183,8 @@ type ConstCommonExcelDto struct {
 	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
 	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
 	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
+	AutoCraftPresetCountLimit                  int32            `json:"auto_craft_preset_count_limit"`
+	AutoCraftNodeSelectCount                   int32            `json:"auto_craft_node_select_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -388,6 +390,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddBattlePassExpIconPath(b, __offset_battle_pass_exp_icon_path)
 	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(b, fbsutils.Convert(t.CafeSummonTicketBuyLimitForValidate, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAutoCraftPresetCountLimit(b, fbsutils.Convert(t.AutoCraftPresetCountLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAutoCraftNodeSelectCount(b, fbsutils.Convert(t.AutoCraftNodeSelectCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -591,6 +595,8 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
 	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
 	t.CafeSummonTicketBuyLimitForValidate = fbsutils.Convert(e.CafeSummonTicketBuyLimitForValidate(), t.FlatBuffer.TableKey)
+	t.AutoCraftPresetCountLimit = fbsutils.Convert(e.AutoCraftPresetCountLimit(), t.FlatBuffer.TableKey)
+	t.AutoCraftNodeSelectCount = fbsutils.Convert(e.AutoCraftNodeSelectCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,0 +1,16 @@
+include "GachaTicketType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table GachaCombinedCostExcel {
+    group_id: long;
+    priority: long;
+    consume_gacha_ticket_type: GachaTicketType;
+    consume_gacha_ticket_type_amount: long;
+    consume_parcel_type: ParcelType;
+    consume_parcel_id: long;
+    consume_parcel_amount: long;
+}
+
+root_type GachaCombinedCostExcel;

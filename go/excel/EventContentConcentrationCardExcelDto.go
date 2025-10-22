@@ -14,19 +14,16 @@ type EventContentConcentrationCardExcelDto struct {
 	CardId         int64  `json:"card_id"`
 	Rarity         Rarity `json:"rarity"`
 	ImagePath      string `json:"image_path"`
-	BackImagePath  string `json:"back_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentConcentrationCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
-	__offset_back_image_path := b.CreateString(fbsutils.Convert(t.BackImagePath, t.FlatBuffer.TableKey))
 	EventContentConcentrationCardExcelStart(b)
 	EventContentConcentrationCardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentConcentrationCardExcelAddCardId(b, fbsutils.Convert(t.CardId, t.FlatBuffer.TableKey))
 	EventContentConcentrationCardExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	EventContentConcentrationCardExcelAddImagePath(b, __offset_image_path)
-	EventContentConcentrationCardExcelAddBackImagePath(b, __offset_back_image_path)
 	return EventContentConcentrationCardExcelEnd(b)
 }
 
@@ -43,7 +40,6 @@ func (t *EventContentConcentrationCardExcelDto) UnmarshalMessage(e *EventContent
 	t.CardId = fbsutils.Convert(e.CardId(), t.FlatBuffer.TableKey)
 	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.BackImagePath = fbsutils.Convert(string(e.BackImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 
