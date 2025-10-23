@@ -16,7 +16,6 @@ Plana Flatbuffers is a tool that generates and maintains Flatbuffers schema defi
 This repository provides:
 - FlatBuffers schema files (`.fbs`)
 - Pre-generated Go code with `flatdata` namespace
-- Pre-generated Python bindings
 
 You can directly use these generated files in your projects without needing to compile the schemas yourself.
 
@@ -28,10 +27,6 @@ You can directly use these generated files in your projects without needing to c
 ```go
 import "github.com/arisu-archive/plana-flatbuffers/go/flatdata"
 ```
-
-### For Python Projects
-
-1. Copy the generated Python files from the `python/` directory to your project
 
 ## Development Prerequisites
 
@@ -46,7 +41,6 @@ If you want to contribute or regenerate the code:
 ├── .schema/          # FlatBuffers schema files
 ├── .scripts/         # Utility scripts for code generation
 ├── go/              # Generated Go code
-├── python/          # Generated Python bindings
 └── version.txt      # Current APK version tracker
 ```
 
