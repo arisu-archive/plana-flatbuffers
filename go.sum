@@ -4,6 +4,8 @@ github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251019213209-c3e999aecf4
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251019213209-c3e999aecf41/go.mod h1:Hl8k/iLfhmN8pikDdk77NUFD/MsG2z1wzDT57xE4LyM=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251025193505-8e0d5e7baff5 h1:XSk7xahyNnYkp4UZlfoFSLqlZZZXx2lMe07yjbFeGU4=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251025193505-8e0d5e7baff5/go.mod h1:n9PFVpzLtcrThjXgFe1TLTdGdZZ/WrSewzzMCS4IDrs=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251110184023-ba9536ab2fc6 h1:webcm0H/3a7jukGg2fkBuSiVLzwEOEo6YeyWY29saCw=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251110184023-ba9536ab2fc6/go.mod h1:gUBNsmHrRvP/jo3omzC2/oUvHGwP7qTIRC+LJqbvxvY=
 github.com/go-logr/logr v1.4.2 h1:6pFjapn8bFcIbiKo3XT4j/BhANplGihG6tvd+8rYgrY=
 github.com/go-logr/logr v1.4.2/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1vB6EwHI=
