@@ -149,8 +149,44 @@ func (rcv *ShiftingCraftRecipeExcel) MutateRequireGold(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *ShiftingCraftRecipeExcel) IngredientTag(j int) Tag {
+func (rcv *ShiftingCraftRecipeExcel) AdditionalCostParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShiftingCraftRecipeExcel) MutateAdditionalCostParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *ShiftingCraftRecipeExcel) AdditionalCostParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShiftingCraftRecipeExcel) MutateAdditionalCostParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *ShiftingCraftRecipeExcel) AdditionalCostParcelAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShiftingCraftRecipeExcel) MutateAdditionalCostParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *ShiftingCraftRecipeExcel) IngredientTag(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -159,7 +195,7 @@ func (rcv *ShiftingCraftRecipeExcel) IngredientTag(j int) Tag {
 }
 
 func (rcv *ShiftingCraftRecipeExcel) IngredientTagLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -167,7 +203,7 @@ func (rcv *ShiftingCraftRecipeExcel) IngredientTagLength() int {
 }
 
 func (rcv *ShiftingCraftRecipeExcel) MutateIngredientTag(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -176,7 +212,7 @@ func (rcv *ShiftingCraftRecipeExcel) MutateIngredientTag(j int, n Tag) bool {
 }
 
 func (rcv *ShiftingCraftRecipeExcel) IngredientExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -184,11 +220,23 @@ func (rcv *ShiftingCraftRecipeExcel) IngredientExp() int64 {
 }
 
 func (rcv *ShiftingCraftRecipeExcel) MutateIngredientExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *ShiftingCraftRecipeExcel) RecipeDisplayOptions() RecipeDisplayOptions {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return RecipeDisplayOptions(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShiftingCraftRecipeExcel) MutateRecipeDisplayOptions(n RecipeDisplayOptions) bool {
+	return rcv._tab.MutateInt32Slot(32, int32(n))
 }
 
 func ShiftingCraftRecipeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
+	builder.StartObject(15)
 }
 func ShiftingCraftRecipeExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -217,14 +265,26 @@ func ShiftingCraftRecipeExcelAddRequireItemAmount(builder *flatbuffers.Builder, 
 func ShiftingCraftRecipeExcelAddRequireGold(builder *flatbuffers.Builder, requireGold int64) {
 	builder.PrependInt64Slot(8, requireGold, 0)
 }
+func ShiftingCraftRecipeExcelAddAdditionalCostParcelType(builder *flatbuffers.Builder, additionalCostParcelType ParcelType) {
+	builder.PrependInt32Slot(9, int32(additionalCostParcelType), 0)
+}
+func ShiftingCraftRecipeExcelAddAdditionalCostParcelId(builder *flatbuffers.Builder, additionalCostParcelId int64) {
+	builder.PrependInt64Slot(10, additionalCostParcelId, 0)
+}
+func ShiftingCraftRecipeExcelAddAdditionalCostParcelAmount(builder *flatbuffers.Builder, additionalCostParcelAmount int64) {
+	builder.PrependInt64Slot(11, additionalCostParcelAmount, 0)
+}
 func ShiftingCraftRecipeExcelAddIngredientTag(builder *flatbuffers.Builder, ingredientTag flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(ingredientTag), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(ingredientTag), 0)
 }
 func ShiftingCraftRecipeExcelStartIngredientTagVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func ShiftingCraftRecipeExcelAddIngredientExp(builder *flatbuffers.Builder, ingredientExp int64) {
-	builder.PrependInt64Slot(10, ingredientExp, 0)
+	builder.PrependInt64Slot(13, ingredientExp, 0)
+}
+func ShiftingCraftRecipeExcelAddRecipeDisplayOptions(builder *flatbuffers.Builder, recipeDisplayOptions RecipeDisplayOptions) {
+	builder.PrependInt32Slot(14, int32(recipeDisplayOptions), 0)
 }
 func ShiftingCraftRecipeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

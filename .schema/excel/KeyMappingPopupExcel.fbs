@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table KeyMappingPopupExcel {
+    prefab_name: string;
+    button_name01: string;
+    key_mapping_id01: string;
+    button_name02: string;
+    key_mapping_id02: string;
+    button_name03: string;
+    key_mapping_id03: string;
+    button_name04: string;
+    key_mapping_id04: string;
+    button_name05: string;
+    key_mapping_id05: string;
+}
+
+root_type KeyMappingPopupExcel;

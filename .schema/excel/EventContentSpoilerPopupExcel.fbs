@@ -1,10 +1,12 @@
+include "SpoilerPopupType.fbs";
+
 namespace MX.Data.Excel;
 
 table EventContentSpoilerPopupExcel {
     event_content_id: long;
-    spoiler_popup_title: string;
-    spoiler_popup_description: string;
-    is_warning_pop_up: bool;
+    spoiler_popup_title: uint;
+    spoiler_popup_description: uint;
+    popup_type: SpoilerPopupType;
     condition_scenario_mode_id: long;
 }
 

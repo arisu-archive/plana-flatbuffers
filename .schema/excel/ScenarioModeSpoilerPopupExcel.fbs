@@ -1,0 +1,16 @@
+include "ScenarioModeTypes.fbs";
+include "SpoilerPopupType.fbs";
+
+namespace MX.Data.Excel;
+
+table ScenarioModeSpoilerPopupExcel {
+    mode_type: ScenarioModeTypes;
+    volume_id: long;
+    chapter_id: long;
+    spoiler_popup_title: uint;
+    spoiler_popup_description: uint;
+    popup_type: SpoilerPopupType;
+    condition_scenario_mode_id: long;
+}
+
+root_type ScenarioModeSpoilerPopupExcel;

@@ -10,17 +10,21 @@ import (
 // ShiftingCraftRecipeExcelDto represents a FlatBuffers table
 type ShiftingCraftRecipeExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64      `json:"id"`
-	DisplayOrder      int64      `json:"display_order"`
-	NotificationId    int32      `json:"notification_id"`
-	ResultParcel      ParcelType `json:"result_parcel"`
-	ResultId          int64      `json:"result_id"`
-	ResultAmount      int64      `json:"result_amount"`
-	RequireItemId     int64      `json:"require_item_id"`
-	RequireItemAmount int64      `json:"require_item_amount"`
-	RequireGold       int64      `json:"require_gold"`
-	IngredientTag     []Tag      `json:"ingredient_tag"`
-	IngredientExp     int64      `json:"ingredient_exp"`
+	Id                         int64                `json:"id"`
+	DisplayOrder               int64                `json:"display_order"`
+	NotificationId             int32                `json:"notification_id"`
+	ResultParcel               ParcelType           `json:"result_parcel"`
+	ResultId                   int64                `json:"result_id"`
+	ResultAmount               int64                `json:"result_amount"`
+	RequireItemId              int64                `json:"require_item_id"`
+	RequireItemAmount          int64                `json:"require_item_amount"`
+	RequireGold                int64                `json:"require_gold"`
+	AdditionalCostParcelType   ParcelType           `json:"additional_cost_parcel_type"`
+	AdditionalCostParcelId     int64                `json:"additional_cost_parcel_id"`
+	AdditionalCostParcelAmount int64                `json:"additional_cost_parcel_amount"`
+	IngredientTag              []Tag                `json:"ingredient_tag"`
+	IngredientExp              int64                `json:"ingredient_exp"`
+	RecipeDisplayOptions       RecipeDisplayOptions `json:"recipe_display_options"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,12 +39,16 @@ func (t *ShiftingCraftRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	ShiftingCraftRecipeExcelAddRequireItemId(b, fbsutils.Convert(t.RequireItemId, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelAddRequireItemAmount(b, fbsutils.Convert(t.RequireItemAmount, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelAddRequireGold(b, fbsutils.Convert(t.RequireGold, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddAdditionalCostParcelType(b, fbsutils.Convert(t.AdditionalCostParcelType, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddAdditionalCostParcelId(b, fbsutils.Convert(t.AdditionalCostParcelId, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddAdditionalCostParcelAmount(b, fbsutils.Convert(t.AdditionalCostParcelAmount, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelStartIngredientTagVector(b, len(t.IngredientTag))
 	for i := range len(t.IngredientTag) {
 		b.PrependInt32(fbsutils.Convert(int32(t.IngredientTag[len(t.IngredientTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ShiftingCraftRecipeExcelAddIngredientTag(b, b.EndVector(len(t.IngredientTag)))
 	ShiftingCraftRecipeExcelAddIngredientExp(b, fbsutils.Convert(t.IngredientExp, t.FlatBuffer.TableKey))
+	ShiftingCraftRecipeExcelAddRecipeDisplayOptions(b, fbsutils.Convert(t.RecipeDisplayOptions, t.FlatBuffer.TableKey))
 	return ShiftingCraftRecipeExcelEnd(b)
 }
 
@@ -62,11 +70,15 @@ func (t *ShiftingCraftRecipeExcelDto) UnmarshalMessage(e *ShiftingCraftRecipeExc
 	t.RequireItemId = fbsutils.Convert(e.RequireItemId(), t.FlatBuffer.TableKey)
 	t.RequireItemAmount = fbsutils.Convert(e.RequireItemAmount(), t.FlatBuffer.TableKey)
 	t.RequireGold = fbsutils.Convert(e.RequireGold(), t.FlatBuffer.TableKey)
+	t.AdditionalCostParcelType = ParcelType(fbsutils.Convert(int32(e.AdditionalCostParcelType()), t.FlatBuffer.TableKey))
+	t.AdditionalCostParcelId = fbsutils.Convert(e.AdditionalCostParcelId(), t.FlatBuffer.TableKey)
+	t.AdditionalCostParcelAmount = fbsutils.Convert(e.AdditionalCostParcelAmount(), t.FlatBuffer.TableKey)
 	t.IngredientTag = make([]Tag, e.IngredientTagLength())
 	for i := range e.IngredientTagLength() {
 		t.IngredientTag[i] = Tag(fbsutils.Convert(int32(e.IngredientTag(i)), t.FlatBuffer.TableKey))
 	}
 	t.IngredientExp = fbsutils.Convert(e.IngredientExp(), t.FlatBuffer.TableKey)
+	t.RecipeDisplayOptions = RecipeDisplayOptions(fbsutils.Convert(int32(e.RecipeDisplayOptions()), t.FlatBuffer.TableKey))
 	return nil
 }
 
