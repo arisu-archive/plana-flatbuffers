@@ -13,7 +13,6 @@ type EventContentConcentrationRewardExcelDto struct {
 	EventContentId          int64                   `json:"event_content_id"`
 	UniqueId                int64                   `json:"unique_id"`
 	ConcentrationRewardType ConcentrationRewardType `json:"concentration_reward_type"`
-	LocalizePrefabId        string                  `json:"localize_prefab_id"`
 	Rarity                  Rarity                  `json:"rarity"`
 	Round                   int32                   `json:"round"`
 	IsLoop                  bool                    `json:"is_loop"`
@@ -24,12 +23,10 @@ type EventContentConcentrationRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentConcentrationRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	__offset_localize_prefab_id := b.CreateString(fbsutils.Convert(t.LocalizePrefabId, t.FlatBuffer.TableKey))
 	EventContentConcentrationRewardExcelStart(b)
 	EventContentConcentrationRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentConcentrationRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	EventContentConcentrationRewardExcelAddConcentrationRewardType(b, fbsutils.Convert(t.ConcentrationRewardType, t.FlatBuffer.TableKey))
-	EventContentConcentrationRewardExcelAddLocalizePrefabId(b, __offset_localize_prefab_id)
 	EventContentConcentrationRewardExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	EventContentConcentrationRewardExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
 	EventContentConcentrationRewardExcelAddIsLoop(b, t.IsLoop)
@@ -63,7 +60,6 @@ func (t *EventContentConcentrationRewardExcelDto) UnmarshalMessage(e *EventConte
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ConcentrationRewardType = ConcentrationRewardType(fbsutils.Convert(int32(e.ConcentrationRewardType()), t.FlatBuffer.TableKey))
-	t.LocalizePrefabId = fbsutils.Convert(string(e.LocalizePrefabId()), t.FlatBuffer.TableKey)
 	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
 	t.IsLoop = e.IsLoop()

@@ -53,7 +53,6 @@ table ConstCommonExcel {
     beforehand_gacha_shop_id: int;
     tutorial_gacha_goods_id: int;
     equipment_slot_open_level: [int];
-    scenario_auto_delay_millisec: float;
     join_or_create_clan_cool_time_from_hour: long;
     clan_max_member: long;
     clan_search_result_count: long;
@@ -180,4 +179,12 @@ table ConstCommonExcel {
     cafe_summon_ticket_buy_limit_for_validate: int;
     auto_craft_preset_count_limit: int;
     auto_craft_node_select_count: int;
+    craft_preset_name_max_length: int;
+    selection_wait_time: long;
+    reward_wait_time: long;
+    episode_continue_wait_time: long;
+    scenario_auto_delay_millisec_long: float;
+    scenario_auto_delay_millisec: float;
+    scenario_auto_delay_millisec_short: float;
+    scenario_auto_delay_millisec_very_short: float;
 }

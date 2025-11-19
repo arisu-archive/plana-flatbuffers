@@ -15,6 +15,7 @@ const (
 	EventContentItemTypeEventToken5       EventContentItemType = 5
 	EventContentItemTypeEventMeetUpTicket EventContentItemType = 6
 	EventContentItemTypeEventEtcItem      EventContentItemType = 7
+	EventContentItemTypeConcentration     EventContentItemType = 8
 )
 
 var EnumNamesEventContentItemType = map[EventContentItemType]string{
@@ -26,6 +27,7 @@ var EnumNamesEventContentItemType = map[EventContentItemType]string{
 	EventContentItemTypeEventToken5:       "EventToken5",
 	EventContentItemTypeEventMeetUpTicket: "EventMeetUpTicket",
 	EventContentItemTypeEventEtcItem:      "EventEtcItem",
+	EventContentItemTypeConcentration:     "Concentration",
 }
 
 var EnumValuesEventContentItemType = map[string]EventContentItemType{
@@ -37,6 +39,7 @@ var EnumValuesEventContentItemType = map[string]EventContentItemType{
 	"EventToken5":       EventContentItemTypeEventToken5,
 	"EventMeetUpTicket": EventContentItemTypeEventMeetUpTicket,
 	"EventEtcItem":      EventContentItemTypeEventEtcItem,
+	"Concentration":     EventContentItemTypeConcentration,
 }
 
 func (v EventContentItemType) String() string {

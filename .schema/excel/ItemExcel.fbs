@@ -42,6 +42,8 @@ table ItemExcel {
     expiration_notify_date_in: int;
     shortcut_type_id: long;
     gacha_ticket: GachaTicketType;
+    alert_popup_id: long;
+    shifting_craft_recipe: long;
 }
 
 root_type ItemExcel;

@@ -42,6 +42,8 @@ var fbs = map[string]reflect.Type{
 	"consteventcommonexceltable": reflect.TypeOf((*ConstEventCommonExcelTableDto)(nil)).Elem(),
 	"constfieldexcel": reflect.TypeOf((*ConstFieldExcelDto)(nil)).Elem(),
 	"constfieldexceltable": reflect.TypeOf((*ConstFieldExcelTableDto)(nil)).Elem(),
+	"constkeymappingexcel": reflect.TypeOf((*ConstKeyMappingExcelDto)(nil)).Elem(),
+	"constkeymappingexceltable": reflect.TypeOf((*ConstKeyMappingExcelTableDto)(nil)).Elem(),
 	"constminigameccgexcel": reflect.TypeOf((*ConstMinigameCCGExcelDto)(nil)).Elem(),
 	"constminigameccgexceltable": reflect.TypeOf((*ConstMinigameCCGExcelTableDto)(nil)).Elem(),
 	"constminigameroadpuzzleexcel": reflect.TypeOf((*ConstMinigameRoadPuzzleExcelDto)(nil)).Elem(),

@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+table KeyMappingExcel {
+    id: string;
+    target_key_code: string;
+    is_display: bool;
+    is_used: bool;
+    is_long_press: bool;
+    ignore_pos_check: bool;
+    icon_position_x: float;
+    icon_position_y: float;
+    icon_scale_x: float;
+    icon_scale_y: float;
+}
+
+root_type KeyMappingExcel;

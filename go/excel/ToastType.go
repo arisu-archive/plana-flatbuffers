@@ -14,6 +14,7 @@ const (
 	ToastTypeSocial_Mission ToastType = 4
 	ToastTypeSocial_Right   ToastType = 5
 	ToastTypeNotice_Center  ToastType = 6
+	ToastTypePC_LeftCenter  ToastType = 7
 )
 
 var EnumNamesToastType = map[ToastType]string{
@@ -24,6 +25,7 @@ var EnumNamesToastType = map[ToastType]string{
 	ToastTypeSocial_Mission: "Social_Mission",
 	ToastTypeSocial_Right:   "Social_Right",
 	ToastTypeNotice_Center:  "Notice_Center",
+	ToastTypePC_LeftCenter:  "PC_LeftCenter",
 }
 
 var EnumValuesToastType = map[string]ToastType{
@@ -34,6 +36,7 @@ var EnumValuesToastType = map[string]ToastType{
 	"Social_Mission": ToastTypeSocial_Mission,
 	"Social_Right":   ToastTypeSocial_Right,
 	"Notice_Center":  ToastTypeNotice_Center,
+	"PC_LeftCenter":  ToastTypePC_LeftCenter,
 }
 
 func (v ToastType) String() string {

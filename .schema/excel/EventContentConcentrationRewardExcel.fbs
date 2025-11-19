@@ -8,7 +8,6 @@ table EventContentConcentrationRewardExcel {
     event_content_id: long;
     unique_id: long;
     concentration_reward_type: ConcentrationRewardType;
-    localize_prefab_id: string;
     rarity: Rarity;
     round: int;
     is_loop: bool;

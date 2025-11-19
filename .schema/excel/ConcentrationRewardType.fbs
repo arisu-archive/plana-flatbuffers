@@ -2,7 +2,6 @@ namespace MX.Data.Excel;
 
 enum ConcentrationRewardType: int {
     None = 0,
-    CardOpen = 1,
-    PairMatch = 2,
-    RoundRenewal = 3,
+    PairMatch = 1,
+    RoundRenewal = 2,
 }

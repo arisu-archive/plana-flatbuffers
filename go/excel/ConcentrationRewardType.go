@@ -8,21 +8,18 @@ type ConcentrationRewardType int32
 
 const (
 	ConcentrationRewardTypeNone         ConcentrationRewardType = 0
-	ConcentrationRewardTypeCardOpen     ConcentrationRewardType = 1
-	ConcentrationRewardTypePairMatch    ConcentrationRewardType = 2
-	ConcentrationRewardTypeRoundRenewal ConcentrationRewardType = 3
+	ConcentrationRewardTypePairMatch    ConcentrationRewardType = 1
+	ConcentrationRewardTypeRoundRenewal ConcentrationRewardType = 2
 )
 
 var EnumNamesConcentrationRewardType = map[ConcentrationRewardType]string{
 	ConcentrationRewardTypeNone:         "None",
-	ConcentrationRewardTypeCardOpen:     "CardOpen",
 	ConcentrationRewardTypePairMatch:    "PairMatch",
 	ConcentrationRewardTypeRoundRenewal: "RoundRenewal",
 }
 
 var EnumValuesConcentrationRewardType = map[string]ConcentrationRewardType{
 	"None":         ConcentrationRewardTypeNone,
-	"CardOpen":     ConcentrationRewardTypeCardOpen,
 	"PairMatch":    ConcentrationRewardTypePairMatch,
 	"RoundRenewal": ConcentrationRewardTypeRoundRenewal,
 }
