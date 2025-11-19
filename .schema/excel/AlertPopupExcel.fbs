@@ -1,0 +1,15 @@
+include "SpoilerPopupType.fbs";
+
+namespace MX.Data.Excel;
+
+table AlertPopupExcel {
+    id: long;
+    check_confirm_able: bool;
+    system_popup_title: uint;
+    system_popup_description: uint;
+    spoiler_popup_title: uint;
+    spoiler_popup_description: uint;
+    popup_type: SpoilerPopupType;
+}
+
+root_type AlertPopupExcel;

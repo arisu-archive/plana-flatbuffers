@@ -42,6 +42,8 @@ type ItemExcelDto struct {
 	ExpirationNotifyDateIn   int32              `json:"expiration_notify_date_in"`
 	ShortcutTypeId           int64              `json:"shortcut_type_id"`
 	GachaTicket              GachaTicketType    `json:"gacha_ticket"`
+	AlertPopupId             int64              `json:"alert_popup_id"`
+	ShiftingCraftRecipe      int64              `json:"shifting_craft_recipe"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -90,6 +92,8 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	ItemExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
 	ItemExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
 	ItemExcelAddGachaTicket(b, fbsutils.Convert(t.GachaTicket, t.FlatBuffer.TableKey))
+	ItemExcelAddAlertPopupId(b, fbsutils.Convert(t.AlertPopupId, t.FlatBuffer.TableKey))
+	ItemExcelAddShiftingCraftRecipe(b, fbsutils.Convert(t.ShiftingCraftRecipe, t.FlatBuffer.TableKey))
 	return ItemExcelEnd(b)
 }
 
@@ -140,6 +144,8 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
 	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
 	t.GachaTicket = GachaTicketType(fbsutils.Convert(int32(e.GachaTicket()), t.FlatBuffer.TableKey))
+	t.AlertPopupId = fbsutils.Convert(e.AlertPopupId(), t.FlatBuffer.TableKey)
+	t.ShiftingCraftRecipe = fbsutils.Convert(e.ShiftingCraftRecipe(), t.FlatBuffer.TableKey)
 	return nil
 }
 

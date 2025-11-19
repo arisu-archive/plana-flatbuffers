@@ -10,22 +10,20 @@ import (
 // ContentSpoilerPopupExcelDto represents a FlatBuffers table
 type ContentSpoilerPopupExcelDto struct {
 	fbsutils.FlatBuffer
-	ContentType             ContentType `json:"content_type"`
-	SpoilerPopupTitle       string      `json:"spoiler_popup_title"`
-	SpoilerPopupDescription string      `json:"spoiler_popup_description"`
-	IsWarningPopUp          bool        `json:"is_warning_pop_up"`
-	ConditionScenarioModeId int64       `json:"condition_scenario_mode_id"`
+	ContentType             ContentType      `json:"content_type"`
+	SpoilerPopupTitle       uint32           `json:"spoiler_popup_title"`
+	SpoilerPopupDescription uint32           `json:"spoiler_popup_description"`
+	PopupType               SpoilerPopupType `json:"popup_type"`
+	ConditionScenarioModeId int64            `json:"condition_scenario_mode_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	__offset_spoiler_popup_title := b.CreateString(fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey))
-	__offset_spoiler_popup_description := b.CreateString(fbsutils.Convert(t.SpoilerPopupDescription, t.FlatBuffer.TableKey))
 	ContentSpoilerPopupExcelStart(b)
 	ContentSpoilerPopupExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	ContentSpoilerPopupExcelAddSpoilerPopupTitle(b, __offset_spoiler_popup_title)
-	ContentSpoilerPopupExcelAddSpoilerPopupDescription(b, __offset_spoiler_popup_description)
-	ContentSpoilerPopupExcelAddIsWarningPopUp(b, t.IsWarningPopUp)
+	ContentSpoilerPopupExcelAddSpoilerPopupTitle(b, fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey))
+	ContentSpoilerPopupExcelAddSpoilerPopupDescription(b, fbsutils.Convert(t.SpoilerPopupDescription, t.FlatBuffer.TableKey))
+	ContentSpoilerPopupExcelAddPopupType(b, fbsutils.Convert(t.PopupType, t.FlatBuffer.TableKey))
 	ContentSpoilerPopupExcelAddConditionScenarioModeId(b, fbsutils.Convert(t.ConditionScenarioModeId, t.FlatBuffer.TableKey))
 	return ContentSpoilerPopupExcelEnd(b)
 }
@@ -40,9 +38,9 @@ func (t *ContentSpoilerPopupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentSpoilerPopupExcelDto) UnmarshalMessage(e *ContentSpoilerPopupExcel) error {
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.SpoilerPopupTitle = fbsutils.Convert(string(e.SpoilerPopupTitle()), t.FlatBuffer.TableKey)
-	t.SpoilerPopupDescription = fbsutils.Convert(string(e.SpoilerPopupDescription()), t.FlatBuffer.TableKey)
-	t.IsWarningPopUp = e.IsWarningPopUp()
+	t.SpoilerPopupTitle = fbsutils.Convert(e.SpoilerPopupTitle(), t.FlatBuffer.TableKey)
+	t.SpoilerPopupDescription = fbsutils.Convert(e.SpoilerPopupDescription(), t.FlatBuffer.TableKey)
+	t.PopupType = SpoilerPopupType(fbsutils.Convert(int32(e.PopupType()), t.FlatBuffer.TableKey))
 	t.ConditionScenarioModeId = fbsutils.Convert(e.ConditionScenarioModeId(), t.FlatBuffer.TableKey)
 	return nil
 }

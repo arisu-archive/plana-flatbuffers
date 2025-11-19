@@ -77,16 +77,8 @@ func (rcv *EventContentConcentrationRewardExcel) MutateConcentrationRewardType(n
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *EventContentConcentrationRewardExcel) LocalizePrefabId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *EventContentConcentrationRewardExcel) Rarity() Rarity {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -94,11 +86,11 @@ func (rcv *EventContentConcentrationRewardExcel) Rarity() Rarity {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateRarity(n Rarity) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *EventContentConcentrationRewardExcel) Round() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -106,11 +98,11 @@ func (rcv *EventContentConcentrationRewardExcel) Round() int32 {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateRound(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func (rcv *EventContentConcentrationRewardExcel) IsLoop() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -118,11 +110,11 @@ func (rcv *EventContentConcentrationRewardExcel) IsLoop() bool {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateIsLoop(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+	return rcv._tab.MutateBoolSlot(14, n)
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -131,7 +123,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelType(j int) ParcelT
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -139,7 +131,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelTypeLength() int {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -148,7 +140,7 @@ func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelType(j int, n
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -157,7 +149,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelId(j int) int64 {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -165,7 +157,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelIdLength() int {
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -174,7 +166,7 @@ func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelId(j int, n i
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelAmount(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -183,7 +175,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelAmount(j int) int32
 }
 
 func (rcv *EventContentConcentrationRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -191,7 +183,7 @@ func (rcv *EventContentConcentrationRewardExcel) RewardParcelAmountLength() int 
 }
 
 func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelAmount(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -200,7 +192,7 @@ func (rcv *EventContentConcentrationRewardExcel) MutateRewardParcelAmount(j int,
 }
 
 func EventContentConcentrationRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(9)
 }
 func EventContentConcentrationRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -211,32 +203,29 @@ func EventContentConcentrationRewardExcelAddUniqueId(builder *flatbuffers.Builde
 func EventContentConcentrationRewardExcelAddConcentrationRewardType(builder *flatbuffers.Builder, concentrationRewardType ConcentrationRewardType) {
 	builder.PrependInt32Slot(2, int32(concentrationRewardType), 0)
 }
-func EventContentConcentrationRewardExcelAddLocalizePrefabId(builder *flatbuffers.Builder, localizePrefabId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizePrefabId), 0)
-}
 func EventContentConcentrationRewardExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(4, int32(rarity), 0)
+	builder.PrependInt32Slot(3, int32(rarity), 0)
 }
 func EventContentConcentrationRewardExcelAddRound(builder *flatbuffers.Builder, round int32) {
-	builder.PrependInt32Slot(5, round, 0)
+	builder.PrependInt32Slot(4, round, 0)
 }
 func EventContentConcentrationRewardExcelAddIsLoop(builder *flatbuffers.Builder, isLoop bool) {
-	builder.PrependBoolSlot(6, isLoop, false)
+	builder.PrependBoolSlot(5, isLoop, false)
 }
 func EventContentConcentrationRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelType), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
 func EventContentConcentrationRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentConcentrationRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func EventContentConcentrationRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentConcentrationRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
 func EventContentConcentrationRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

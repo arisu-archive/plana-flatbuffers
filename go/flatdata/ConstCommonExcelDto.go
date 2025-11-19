@@ -58,7 +58,6 @@ type ConstCommonExcelDto struct {
 	BeforehandGachaShopId                      int32            `json:"beforehand_gacha_shop_id"`
 	TutorialGachaGoodsId                       int32            `json:"tutorial_gacha_goods_id"`
 	EquipmentSlotOpenLevel                     []int32          `json:"equipment_slot_open_level"`
-	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
 	JoinOrCreateClanCoolTimeFromHour           int64            `json:"join_or_create_clan_cool_time_from_hour"`
 	ClanMaxMember                              int64            `json:"clan_max_member"`
 	ClanSearchResultCount                      int64            `json:"clan_search_result_count"`
@@ -185,6 +184,14 @@ type ConstCommonExcelDto struct {
 	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
 	AutoCraftPresetCountLimit                  int32            `json:"auto_craft_preset_count_limit"`
 	AutoCraftNodeSelectCount                   int32            `json:"auto_craft_node_select_count"`
+	CraftPresetNameMaxLength                   int32            `json:"craft_preset_name_max_length"`
+	SelectionWaitTime                          int64            `json:"selection_wait_time"`
+	RewardWaitTime                             int64            `json:"reward_wait_time"`
+	EpisodeContinueWaitTime                    int64            `json:"episode_continue_wait_time"`
+	ScenarioAutoDelayMillisecLong              float32          `json:"scenario_auto_delay_millisec_long"`
+	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
+	ScenarioAutoDelayMillisecShort             float32          `json:"scenario_auto_delay_millisec_short"`
+	ScenarioAutoDelayMillisecVeryShort         float32          `json:"scenario_auto_delay_millisec_very_short"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -257,7 +264,6 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt32(fbsutils.Convert(t.EquipmentSlotOpenLevel[len(t.EquipmentSlotOpenLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConstCommonExcelAddEquipmentSlotOpenLevel(b, b.EndVector(len(t.EquipmentSlotOpenLevel)))
-	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddJoinOrCreateClanCoolTimeFromHour(b, fbsutils.Convert(t.JoinOrCreateClanCoolTimeFromHour, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanMaxMember(b, fbsutils.Convert(t.ClanMaxMember, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Convert(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
@@ -392,6 +398,14 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(b, fbsutils.Convert(t.CafeSummonTicketBuyLimitForValidate, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAutoCraftPresetCountLimit(b, fbsutils.Convert(t.AutoCraftPresetCountLimit, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAutoCraftNodeSelectCount(b, fbsutils.Convert(t.AutoCraftNodeSelectCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftPresetNameMaxLength(b, fbsutils.Convert(t.CraftPresetNameMaxLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddSelectionWaitTime(b, fbsutils.Convert(t.SelectionWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRewardWaitTime(b, fbsutils.Convert(t.RewardWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEpisodeContinueWaitTime(b, fbsutils.Convert(t.EpisodeContinueWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecLong(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecLong, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecShort, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecVeryShort, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -464,7 +478,6 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	for i := range e.EquipmentSlotOpenLevelLength() {
 		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
 	}
-	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
 	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
 	t.ClanMaxMember = fbsutils.Convert(e.ClanMaxMember(), t.FlatBuffer.TableKey)
 	t.ClanSearchResultCount = fbsutils.Convert(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
@@ -597,6 +610,14 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.CafeSummonTicketBuyLimitForValidate = fbsutils.Convert(e.CafeSummonTicketBuyLimitForValidate(), t.FlatBuffer.TableKey)
 	t.AutoCraftPresetCountLimit = fbsutils.Convert(e.AutoCraftPresetCountLimit(), t.FlatBuffer.TableKey)
 	t.AutoCraftNodeSelectCount = fbsutils.Convert(e.AutoCraftNodeSelectCount(), t.FlatBuffer.TableKey)
+	t.CraftPresetNameMaxLength = fbsutils.Convert(e.CraftPresetNameMaxLength(), t.FlatBuffer.TableKey)
+	t.SelectionWaitTime = fbsutils.Convert(e.SelectionWaitTime(), t.FlatBuffer.TableKey)
+	t.RewardWaitTime = fbsutils.Convert(e.RewardWaitTime(), t.FlatBuffer.TableKey)
+	t.EpisodeContinueWaitTime = fbsutils.Convert(e.EpisodeContinueWaitTime(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecLong = fbsutils.Convert(e.ScenarioAutoDelayMillisecLong(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecShort(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecVeryShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecVeryShort(), t.FlatBuffer.TableKey)
 	return nil
 }
 

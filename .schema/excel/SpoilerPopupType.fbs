@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum SpoilerPopupType: int {
+    None = 0,
+    Default = 1,
+    Warning = 2,
+    WarningNoGo = 3,
+}

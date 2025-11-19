@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum RecipeDisplayOptions: int {
+    None = 0,
+    Always = 1,
+    HideNoMaterials = 2,
+}

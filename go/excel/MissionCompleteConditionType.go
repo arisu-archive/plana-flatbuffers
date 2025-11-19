@@ -191,6 +191,8 @@ const (
 	MissionCompleteConditionTypeReset_CCGActivatePerkCount                            MissionCompleteConditionType = 181
 	MissionCompleteConditionTypeReset_ClearMultiFloorRaid                             MissionCompleteConditionType = 182
 	MissionCompleteConditionTypeReset_DayCompleteMission                              MissionCompleteConditionType = 183
+	MissionCompleteConditionTypeReset_ConcentrationCardMatchCount                     MissionCompleteConditionType = 184
+	MissionCompleteConditionTypeReset_ConcentrationClearCount                         MissionCompleteConditionType = 185
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -378,6 +380,8 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_CCGActivatePerkCount:                            "Reset_CCGActivatePerkCount",
 	MissionCompleteConditionTypeReset_ClearMultiFloorRaid:                             "Reset_ClearMultiFloorRaid",
 	MissionCompleteConditionTypeReset_DayCompleteMission:                              "Reset_DayCompleteMission",
+	MissionCompleteConditionTypeReset_ConcentrationCardMatchCount:                     "Reset_ConcentrationCardMatchCount",
+	MissionCompleteConditionTypeReset_ConcentrationClearCount:                         "Reset_ConcentrationClearCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -565,6 +569,8 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_CCGActivatePerkCount":                            MissionCompleteConditionTypeReset_CCGActivatePerkCount,
 	"Reset_ClearMultiFloorRaid":                             MissionCompleteConditionTypeReset_ClearMultiFloorRaid,
 	"Reset_DayCompleteMission":                              MissionCompleteConditionTypeReset_DayCompleteMission,
+	"Reset_ConcentrationCardMatchCount":                     MissionCompleteConditionTypeReset_ConcentrationCardMatchCount,
+	"Reset_ConcentrationClearCount":                         MissionCompleteConditionTypeReset_ConcentrationClearCount,
 }
 
 func (v MissionCompleteConditionType) String() string {
