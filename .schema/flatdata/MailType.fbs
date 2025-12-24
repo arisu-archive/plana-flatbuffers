@@ -32,4 +32,8 @@ enum MailType: int {
     Temp_5 = 28,
     Temp_6 = 29,
     ProductGooglePointReward = 30,
+    PCStoreProduct = 31,
+    ProductFreeReward = 32,
+    ProductBattlePass = 33,
+    ProductAttendance = 34,
 }

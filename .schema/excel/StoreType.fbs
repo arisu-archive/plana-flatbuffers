@@ -9,4 +9,5 @@ enum StoreType: int {
     GalaxyStore = 5,
     STEAM = 6,
     FreeProduct = 7,
+    PCStore = 8,
 }

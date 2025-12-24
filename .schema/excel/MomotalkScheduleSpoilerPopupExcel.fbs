@@ -1,0 +1,13 @@
+include "SpoilerPopupType.fbs";
+
+namespace MX.Data.Excel;
+
+table MomotalkScheduleSpoilerPopupExcel {
+    favor_schedule_id: long;
+    spoiler_popup_title: uint;
+    spoiler_popup_description: uint;
+    popup_type: SpoilerPopupType;
+    condition_scenario_mode_id: long;
+}
+
+root_type MomotalkScheduleSpoilerPopupExcel;

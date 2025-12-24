@@ -192,6 +192,8 @@ type ConstCommonExcelDto struct {
 	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
 	ScenarioAutoDelayMillisecShort             float32          `json:"scenario_auto_delay_millisec_short"`
 	ScenarioAutoDelayMillisecVeryShort         float32          `json:"scenario_auto_delay_millisec_very_short"`
+	PcBuildEnterInformation                    int32            `json:"pc_build_enter_information"`
+	CafeCopyPresetSlotCount                    int32            `json:"cafe_copy_preset_slot_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -406,6 +408,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddScenarioAutoDelayMillisecShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecShort, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecVeryShort, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPcBuildEnterInformation(b, fbsutils.Convert(t.PcBuildEnterInformation, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeCopyPresetSlotCount(b, fbsutils.Convert(t.CafeCopyPresetSlotCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -618,6 +622,8 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
 	t.ScenarioAutoDelayMillisecShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecShort(), t.FlatBuffer.TableKey)
 	t.ScenarioAutoDelayMillisecVeryShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecVeryShort(), t.FlatBuffer.TableKey)
+	t.PcBuildEnterInformation = fbsutils.Convert(e.PcBuildEnterInformation(), t.FlatBuffer.TableKey)
+	t.CafeCopyPresetSlotCount = fbsutils.Convert(e.CafeCopyPresetSlotCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 
