@@ -3,6 +3,7 @@ namespace MX.Data.Excel;
 table MiniGamePlayGuideExcel {
     id: long;
     event_content_id: long;
+    is_pc_build: bool;
     display_order: int;
     guide_title: string;
     guide_image_path: string;

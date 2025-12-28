@@ -13,6 +13,7 @@ const (
 	PurchaseSourceTypeProductBattlePass  PurchaseSourceType = 3
 	PurchaseSourceTypeProductSelect      PurchaseSourceType = 4
 	PurchaseSourceTypeProductGooglePoint PurchaseSourceType = 5
+	PurchaseSourceTypeProductDailyRecord PurchaseSourceType = 6
 )
 
 var EnumNamesPurchaseSourceType = map[PurchaseSourceType]string{
@@ -22,6 +23,7 @@ var EnumNamesPurchaseSourceType = map[PurchaseSourceType]string{
 	PurchaseSourceTypeProductBattlePass:  "ProductBattlePass",
 	PurchaseSourceTypeProductSelect:      "ProductSelect",
 	PurchaseSourceTypeProductGooglePoint: "ProductGooglePoint",
+	PurchaseSourceTypeProductDailyRecord: "ProductDailyRecord",
 }
 
 var EnumValuesPurchaseSourceType = map[string]PurchaseSourceType{
@@ -31,6 +33,7 @@ var EnumValuesPurchaseSourceType = map[string]PurchaseSourceType{
 	"ProductBattlePass":  PurchaseSourceTypeProductBattlePass,
 	"ProductSelect":      PurchaseSourceTypeProductSelect,
 	"ProductGooglePoint": PurchaseSourceTypeProductGooglePoint,
+	"ProductDailyRecord": PurchaseSourceTypeProductDailyRecord,
 }
 
 func (v PurchaseSourceType) String() string {

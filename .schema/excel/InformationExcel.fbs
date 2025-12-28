@@ -3,6 +3,7 @@ namespace MX.Data.Excel;
 table InformationExcel {
     group_id: long;
     page_name: string;
+    is_pc_build: bool;
     localize_code_id: string;
     tutorial_parent_name: [string];
     ui_name: [string];

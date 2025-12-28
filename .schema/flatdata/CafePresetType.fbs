@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum CafePresetType: int {
+    None = 0,
+    Preset = 1,
+    CopyPreset = 2,
+}

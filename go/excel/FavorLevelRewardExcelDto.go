@@ -10,13 +10,10 @@ import (
 // FavorLevelRewardExcelDto represents a FlatBuffers table
 type FavorLevelRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId      int64                 `json:"character_id"`
-	FavorLevel       int64                 `json:"favor_level"`
-	StatType         []EquipmentOptionType `json:"stat_type"`
-	StatValue        []int64               `json:"stat_value"`
-	RewardParcelType []ParcelType          `json:"reward_parcel_type"`
-	RewardParcelId   []int64               `json:"reward_parcel_id"`
-	RewardAmount     []int64               `json:"reward_amount"`
+	CharacterId int64                 `json:"character_id"`
+	FavorLevel  int64                 `json:"favor_level"`
+	StatType    []EquipmentOptionType `json:"stat_type"`
+	StatValue   []int64               `json:"stat_value"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -34,21 +31,6 @@ func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		b.PrependInt64(fbsutils.Convert(t.StatValue[len(t.StatValue)-i-1], t.FlatBuffer.TableKey))
 	}
 	FavorLevelRewardExcelAddStatValue(b, b.EndVector(len(t.StatValue)))
-	FavorLevelRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	FavorLevelRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	FavorLevelRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	FavorLevelRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
-	FavorLevelRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
-	for i := range len(t.RewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	FavorLevelRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
 	return FavorLevelRewardExcelEnd(b)
 }
 
@@ -70,18 +52,6 @@ func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) er
 	t.StatValue = make([]int64, e.StatValueLength())
 	for i := range e.StatValueLength() {
 		t.StatValue[i] = fbsutils.Convert(e.StatValue(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
-	}
-	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
-	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardAmount = make([]int64, e.RewardAmountLength())
-	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

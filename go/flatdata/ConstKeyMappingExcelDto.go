@@ -11,7 +11,6 @@ import (
 type ConstKeyMappingExcelDto struct {
 	fbsutils.FlatBuffer
 	DragSensitivity        float32 `json:"drag_sensitivity"`
-	PcInformationGroupId   int64   `json:"pc_information_group_id"`
 	ScrollWheelFactor      float32 `json:"scroll_wheel_factor"`
 	RemoveKeycodeWord      string  `json:"remove_keycode_word"`
 	TutorialDialogTouchKey string  `json:"tutorial_dialog_touch_key"`
@@ -26,7 +25,6 @@ func (t *ConstKeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	__offset_tutorial_dialog_touch_key := b.CreateString(fbsutils.Convert(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelStart(b)
 	ConstKeyMappingExcelAddDragSensitivity(b, fbsutils.Convert(t.DragSensitivity, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddPcInformationGroupId(b, fbsutils.Convert(t.PcInformationGroupId, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddScrollWheelFactor(b, fbsutils.Convert(t.ScrollWheelFactor, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddRemoveKeycodeWord(b, __offset_remove_keycode_word)
 	ConstKeyMappingExcelAddTutorialDialogTouchKey(b, __offset_tutorial_dialog_touch_key)
@@ -46,7 +44,6 @@ func (t *ConstKeyMappingExcelDto) UnmarshalMessage(e *ConstKeyMappingExcel) erro
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstKeyMapping"))
 	}
 	t.DragSensitivity = fbsutils.Convert(e.DragSensitivity(), t.FlatBuffer.TableKey)
-	t.PcInformationGroupId = fbsutils.Convert(e.PcInformationGroupId(), t.FlatBuffer.TableKey)
 	t.ScrollWheelFactor = fbsutils.Convert(e.ScrollWheelFactor(), t.FlatBuffer.TableKey)
 	t.RemoveKeycodeWord = fbsutils.Convert(string(e.RemoveKeycodeWord()), t.FlatBuffer.TableKey)
 	t.TutorialDialogTouchKey = fbsutils.Convert(string(e.TutorialDialogTouchKey()), t.FlatBuffer.TableKey)

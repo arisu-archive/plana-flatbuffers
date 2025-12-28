@@ -12,6 +12,7 @@ type InformationExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupId            int64    `json:"group_id"`
 	PageName           string   `json:"page_name"`
+	IsPcBuild          bool     `json:"is_pc_build"`
 	LocalizeCodeId     string   `json:"localize_code_id"`
 	TutorialParentName []string `json:"tutorial_parent_name"`
 	UiName             []string `json:"ui_name"`
@@ -44,6 +45,7 @@ func (t *InformationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	InformationExcelStart(b)
 	InformationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	InformationExcelAddPageName(b, __offset_page_name)
+	InformationExcelAddIsPcBuild(b, t.IsPcBuild)
 	InformationExcelAddLocalizeCodeId(b, __offset_localize_code_id)
 	InformationExcelAddTutorialParentName(b, __offset_tutorial_parent_name)
 	InformationExcelAddUiName(b, __offset_ui_name)
@@ -61,6 +63,7 @@ func (t *InformationExcelDto) Marshal() ([]byte, error) {
 func (t *InformationExcelDto) UnmarshalMessage(e *InformationExcel) error {
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.PageName = fbsutils.Convert(string(e.PageName()), t.FlatBuffer.TableKey)
+	t.IsPcBuild = e.IsPcBuild()
 	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
 	t.TutorialParentName = make([]string, e.TutorialParentNameLength())
 	for i := range e.TutorialParentNameLength() {

@@ -17,6 +17,7 @@ const (
 	ShopGroupTypeTimeAttack        ShopGroupType = 7
 	ShopGroupTypeEliminateRaid     ShopGroupType = 8
 	ShopGroupTypeGem               ShopGroupType = 9
+	ShopGroupTypeChaser            ShopGroupType = 10
 )
 
 var EnumNamesShopGroupType = map[ShopGroupType]string{
@@ -30,6 +31,7 @@ var EnumNamesShopGroupType = map[ShopGroupType]string{
 	ShopGroupTypeTimeAttack:        "TimeAttack",
 	ShopGroupTypeEliminateRaid:     "EliminateRaid",
 	ShopGroupTypeGem:               "Gem",
+	ShopGroupTypeChaser:            "Chaser",
 }
 
 var EnumValuesShopGroupType = map[string]ShopGroupType{
@@ -43,6 +45,7 @@ var EnumValuesShopGroupType = map[string]ShopGroupType{
 	"TimeAttack":        ShopGroupTypeTimeAttack,
 	"EliminateRaid":     ShopGroupTypeEliminateRaid,
 	"Gem":               ShopGroupTypeGem,
+	"Chaser":            ShopGroupTypeChaser,
 }
 
 func (v ShopGroupType) String() string {

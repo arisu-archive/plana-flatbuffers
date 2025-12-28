@@ -16,6 +16,7 @@ const (
 	GachaDisplayTagFes              GachaDisplayTag = 6
 	GachaDisplayTagSelectRecruit    GachaDisplayTag = 7
 	GachaDisplayTagLimitedThreeStar GachaDisplayTag = 8
+	GachaDisplayTagRevival          GachaDisplayTag = 9
 )
 
 var EnumNamesGachaDisplayTag = map[GachaDisplayTag]string{
@@ -28,6 +29,7 @@ var EnumNamesGachaDisplayTag = map[GachaDisplayTag]string{
 	GachaDisplayTagFes:              "Fes",
 	GachaDisplayTagSelectRecruit:    "SelectRecruit",
 	GachaDisplayTagLimitedThreeStar: "LimitedThreeStar",
+	GachaDisplayTagRevival:          "Revival",
 }
 
 var EnumValuesGachaDisplayTag = map[string]GachaDisplayTag{
@@ -40,6 +42,7 @@ var EnumValuesGachaDisplayTag = map[string]GachaDisplayTag{
 	"Fes":              GachaDisplayTagFes,
 	"SelectRecruit":    GachaDisplayTagSelectRecruit,
 	"LimitedThreeStar": GachaDisplayTagLimitedThreeStar,
+	"Revival":          GachaDisplayTagRevival,
 }
 
 func (v GachaDisplayTag) String() string {

@@ -157,8 +157,16 @@ func (rcv *EventContentShopRefreshExcel) BuyReportEventName() []byte {
 	return nil
 }
 
+func (rcv *EventContentShopRefreshExcel) ProductUpdateTime() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentShopRefreshExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func EventContentShopRefreshExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -189,6 +197,9 @@ func EventContentShopRefreshExcelAddProb(builder *flatbuffers.Builder, prob int3
 }
 func EventContentShopRefreshExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(buyReportEventName), 0)
+}
+func EventContentShopRefreshExcelAddProductUpdateTime(builder *flatbuffers.Builder, productUpdateTime flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(productUpdateTime), 0)
 }
 func EventContentShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

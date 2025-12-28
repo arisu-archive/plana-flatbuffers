@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductDailyRecordRewardExcel {
+    id: long;
+    day: int;
+    reward_parcel_type: [ParcelType];
+    reward_id: [long];
+    reward_amount: [long];
+}
+
+root_type ProductDailyRecordRewardExcel;

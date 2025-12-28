@@ -1,5 +1,4 @@
 include "EquipmentOptionType.fbs";
-include "ParcelType.fbs";
 
 namespace MX.Data.Excel;
 
@@ -8,9 +7,6 @@ table FavorLevelRewardExcel {
     favor_level: long;
     stat_type: [EquipmentOptionType];
     stat_value: [long];
-    reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
-    reward_amount: [long];
 }
 
 root_type FavorLevelRewardExcel;
