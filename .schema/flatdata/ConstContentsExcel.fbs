@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table ConstContentsExcel {
+    use_search_field_optimize: bool;
+    search_update_time: float;
+}

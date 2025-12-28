@@ -2279,8 +2279,32 @@ func (rcv *ConstCommonExcel) MutateScenarioAutoDelayMillisecVeryShort(n float32)
 	return rcv._tab.MutateFloat32Slot(366, n)
 }
 
+func (rcv *ConstCommonExcel) PcBuildEnterInformation() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(368))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutatePcBuildEnterInformation(n int32) bool {
+	return rcv._tab.MutateInt32Slot(368, n)
+}
+
+func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(370))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeCopyPresetSlotCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(370, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(182)
+	builder.StartObject(184)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2842,6 +2866,12 @@ func ConstCommonExcelAddScenarioAutoDelayMillisecShort(builder *flatbuffers.Buil
 }
 func ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(builder *flatbuffers.Builder, scenarioAutoDelayMillisecVeryShort float32) {
 	builder.PrependFloat32Slot(181, scenarioAutoDelayMillisecVeryShort, 0.0)
+}
+func ConstCommonExcelAddPcBuildEnterInformation(builder *flatbuffers.Builder, pcBuildEnterInformation int32) {
+	builder.PrependInt32Slot(182, pcBuildEnterInformation, 0)
+}
+func ConstCommonExcelAddCafeCopyPresetSlotCount(builder *flatbuffers.Builder, cafeCopyPresetSlotCount int32) {
+	builder.PrependInt32Slot(183, cafeCopyPresetSlotCount, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -38,6 +38,8 @@ var fbs = map[string]reflect.Type{
 	"constcommonexceltable": reflect.TypeOf((*ConstCommonExcelTableDto)(nil)).Elem(),
 	"constconquestexcel": reflect.TypeOf((*ConstConquestExcelDto)(nil)).Elem(),
 	"constconquestexceltable": reflect.TypeOf((*ConstConquestExcelTableDto)(nil)).Elem(),
+	"constcontentsexcel": reflect.TypeOf((*ConstContentsExcelDto)(nil)).Elem(),
+	"constcontentsexceltable": reflect.TypeOf((*ConstContentsExcelTableDto)(nil)).Elem(),
 	"consteventcommonexcel": reflect.TypeOf((*ConstEventCommonExcelDto)(nil)).Elem(),
 	"consteventcommonexceltable": reflect.TypeOf((*ConstEventCommonExcelTableDto)(nil)).Elem(),
 	"constfieldexcel": reflect.TypeOf((*ConstFieldExcelDto)(nil)).Elem(),

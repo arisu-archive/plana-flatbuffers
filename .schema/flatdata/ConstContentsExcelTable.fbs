@@ -1,0 +1,9 @@
+include "ConstContentsExcel.fbs";
+
+namespace FlatData;
+
+table ConstContentsExcelTable {
+    data_list: [ConstContentsExcel];
+}
+
+root_type ConstContentsExcelTable;

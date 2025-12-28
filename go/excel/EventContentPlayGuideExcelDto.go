@@ -12,6 +12,7 @@ type EventContentPlayGuideExcelDto struct {
 	fbsutils.FlatBuffer
 	Id             int64  `json:"id"`
 	EventContentId int64  `json:"event_content_id"`
+	IsPcBuild      bool   `json:"is_pc_build"`
 	DisplayOrder   int32  `json:"display_order"`
 	GuideTitle     string `json:"guide_title"`
 	GuideImagePath string `json:"guide_image_path"`
@@ -26,6 +27,7 @@ func (t *EventContentPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	EventContentPlayGuideExcelStart(b)
 	EventContentPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentPlayGuideExcelAddIsPcBuild(b, t.IsPcBuild)
 	EventContentPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddGuideTitle(b, __offset_guide_title)
 	EventContentPlayGuideExcelAddGuideImagePath(b, __offset_guide_image_path)
@@ -44,6 +46,7 @@ func (t *EventContentPlayGuideExcelDto) Marshal() ([]byte, error) {
 func (t *EventContentPlayGuideExcelDto) UnmarshalMessage(e *EventContentPlayGuideExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.IsPcBuild = e.IsPcBuild()
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.GuideTitle = fbsutils.Convert(string(e.GuideTitle()), t.FlatBuffer.TableKey)
 	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)

@@ -38,6 +38,10 @@ const (
 	MailTypeTemp_5                   MailType = 28
 	MailTypeTemp_6                   MailType = 29
 	MailTypeProductGooglePointReward MailType = 30
+	MailTypePCStoreProduct           MailType = 31
+	MailTypeProductFreeReward        MailType = 32
+	MailTypeProductBattlePass        MailType = 33
+	MailTypeProductAttendance        MailType = 34
 )
 
 var EnumNamesMailType = map[MailType]string{
@@ -72,6 +76,10 @@ var EnumNamesMailType = map[MailType]string{
 	MailTypeTemp_5:                   "Temp_5",
 	MailTypeTemp_6:                   "Temp_6",
 	MailTypeProductGooglePointReward: "ProductGooglePointReward",
+	MailTypePCStoreProduct:           "PCStoreProduct",
+	MailTypeProductFreeReward:        "ProductFreeReward",
+	MailTypeProductBattlePass:        "ProductBattlePass",
+	MailTypeProductAttendance:        "ProductAttendance",
 }
 
 var EnumValuesMailType = map[string]MailType{
@@ -106,6 +114,10 @@ var EnumValuesMailType = map[string]MailType{
 	"Temp_5":                   MailTypeTemp_5,
 	"Temp_6":                   MailTypeTemp_6,
 	"ProductGooglePointReward": MailTypeProductGooglePointReward,
+	"PCStoreProduct":           MailTypePCStoreProduct,
+	"ProductFreeReward":        MailTypeProductFreeReward,
+	"ProductBattlePass":        MailTypeProductBattlePass,
+	"ProductAttendance":        MailTypeProductAttendance,
 }
 
 func (v MailType) String() string {

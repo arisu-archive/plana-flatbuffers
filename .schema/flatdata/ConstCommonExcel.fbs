@@ -187,4 +187,6 @@ table ConstCommonExcel {
     scenario_auto_delay_millisec: float;
     scenario_auto_delay_millisec_short: float;
     scenario_auto_delay_millisec_very_short: float;
+    pc_build_enter_information: int;
+    cafe_copy_preset_slot_count: int;
 }
