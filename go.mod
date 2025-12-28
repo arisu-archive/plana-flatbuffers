@@ -6,5 +6,5 @@ toolchain go1.25.5
 
 require (
 	github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251204154751-651482551f83
-	github.com/google/flatbuffers v25.9.23+incompatible
+	github.com/google/flatbuffers v25.12.19+incompatible
 )
