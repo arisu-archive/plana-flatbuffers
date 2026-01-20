@@ -117,6 +117,8 @@ var fbs = map[string]reflect.Type{
 	"groundnodeflat": reflect.TypeOf((*GroundNodeFlatDto)(nil)).Elem(),
 	"groundnodelayerflat": reflect.TypeOf((*GroundNodeLayerFlatDto)(nil)).Elem(),
 	"groundvector3": reflect.TypeOf((*GroundVector3Dto)(nil)).Elem(),
+	"iaworldraidskilldescriptionlistexcel": reflect.TypeOf((*IAWorldRaidSkillDescriptionListExcelDto)(nil)).Elem(),
+	"iaworldraidskilldescriptionlistexceltable": reflect.TypeOf((*IAWorldRaidSkillDescriptionListExcelTableDto)(nil)).Elem(),
 	"knockbackexcel": reflect.TypeOf((*KnockBackExcelDto)(nil)).Elem(),
 	"knockbackexceltable": reflect.TypeOf((*KnockBackExcelTableDto)(nil)).Elem(),
 	"limitedstageexcel": reflect.TypeOf((*LimitedStageExcelDto)(nil)).Elem(),

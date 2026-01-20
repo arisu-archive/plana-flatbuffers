@@ -10,29 +10,30 @@ import (
 // CharacterDialogEventExcelDto represents a FlatBuffers table
 type CharacterDialogEventExcelDto struct {
 	fbsutils.FlatBuffer
-	CostumeUniqueId            int64                 `json:"costume_unique_id"`
-	OriginalCharacterId        int64                 `json:"original_character_id"`
-	DisplayOrder               int64                 `json:"display_order"`
-	EventId                    int64                 `json:"event_id"`
-	ProductionStep             ProductionStep        `json:"production_step"`
-	DialogCategory             DialogCategory        `json:"dialog_category"`
-	DialogCondition            DialogCondition       `json:"dialog_condition"`
-	DialogConditionDetail      DialogConditionDetail `json:"dialog_condition_detail"`
-	DialogConditionDetailValue int64                 `json:"dialog_condition_detail_value"`
-	GroupId                    int64                 `json:"group_id"`
-	DialogType                 DialogType            `json:"dialog_type"`
-	ActionName                 string                `json:"action_name"`
-	Duration                   int64                 `json:"duration"`
-	AnimationName              string                `json:"animation_name"`
-	LocalizeKr                 string                `json:"localize_kr"`
-	LocalizeJp                 string                `json:"localize_jp"`
-	VoiceId                    []uint32              `json:"voice_id"`
-	CollectionVisible          bool                  `json:"collection_visible"`
-	CvCollectionType           CVCollectionType      `json:"cv_collection_type"`
-	CvUnlockScenarioType       CVUnlockScenarioType  `json:"cv_unlock_scenario_type"`
-	UnlockEventSeason          int64                 `json:"unlock_event_season"`
-	ScenarioGroupId            int64                 `json:"scenario_group_id"`
-	LocalizeCvGroup            string                `json:"localize_cv_group"`
+	CostumeUniqueId            int64                   `json:"costume_unique_id"`
+	OriginalCharacterId        int64                   `json:"original_character_id"`
+	DisplayOrder               int64                   `json:"display_order"`
+	EventId                    int64                   `json:"event_id"`
+	ProductionStep             ProductionStep          `json:"production_step"`
+	DialogCategory             DialogCategory          `json:"dialog_category"`
+	DialogCondition            DialogCondition         `json:"dialog_condition"`
+	DialogConditionDetail      DialogConditionDetail   `json:"dialog_condition_detail"`
+	DialogConditionDetailValue int64                   `json:"dialog_condition_detail_value"`
+	GroupId                    int64                   `json:"group_id"`
+	DialogType                 DialogType              `json:"dialog_type"`
+	ActionName                 string                  `json:"action_name"`
+	Duration                   int64                   `json:"duration"`
+	AnimationName              string                  `json:"animation_name"`
+	LocalizeKr                 string                  `json:"localize_kr"`
+	LocalizeJp                 string                  `json:"localize_jp"`
+	VoiceId                    []uint32                `json:"voice_id"`
+	CollectionVisible          bool                    `json:"collection_visible"`
+	CvCollectionType           CVCollectionType        `json:"cv_collection_type"`
+	CvUnlockScenarioType       CVUnlockScenarioType    `json:"cv_unlock_scenario_type"`
+	UnlockEventSeason          int64                   `json:"unlock_event_season"`
+	ScenarioGroupId            int64                   `json:"scenario_group_id"`
+	LocalizeCvGroup            string                  `json:"localize_cv_group"`
+	ScenarioCharacterShapes    ScenarioCharacterShapes `json:"scenario_character_shapes"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -70,6 +71,7 @@ func (t *CharacterDialogEventExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterDialogEventExcelAddUnlockEventSeason(b, fbsutils.Convert(t.UnlockEventSeason, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
+	CharacterDialogEventExcelAddScenarioCharacterShapes(b, fbsutils.Convert(t.ScenarioCharacterShapes, t.FlatBuffer.TableKey))
 	return CharacterDialogEventExcelEnd(b)
 }
 
@@ -108,6 +110,7 @@ func (t *CharacterDialogEventExcelDto) UnmarshalMessage(e *CharacterDialogEventE
 	t.UnlockEventSeason = fbsutils.Convert(e.UnlockEventSeason(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
+	t.ScenarioCharacterShapes = ScenarioCharacterShapes(fbsutils.Convert(int32(e.ScenarioCharacterShapes()), t.FlatBuffer.TableKey))
 	return nil
 }
 

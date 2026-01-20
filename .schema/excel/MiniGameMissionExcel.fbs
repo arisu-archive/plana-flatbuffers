@@ -1,10 +1,10 @@
-include "AccountState.fbs";
 include "MissionCategory.fbs";
 include "MissionCompleteConditionType.fbs";
 include "MissionResetType.fbs";
 include "MissionToastDisplayConditionType.fbs";
 include "ParcelType.fbs";
 include "Tag.fbs";
+include "TargetGroup.fbs";
 
 namespace MX.Data.Excel;
 
@@ -21,7 +21,7 @@ table MiniGameMissionExcel {
     view_flag: bool;
     display_order: long;
     pre_mission_id: [long];
-    account_type: AccountState;
+    target_group: TargetGroup;
     account_level: long;
     shortcut_ui: [string];
     complete_condition_type: MissionCompleteConditionType;

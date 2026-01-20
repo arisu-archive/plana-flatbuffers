@@ -24,7 +24,7 @@ type RaidStageExcelDto struct {
 	RaidRoomLifeTime              int32                `json:"raid_room_life_time"`
 	BattleDuration                int64                `json:"battle_duration"`
 	GroundId                      int64                `json:"ground_id"`
-	GroundDevName                 string               `json:"ground_dev_name"`
+	RaidBossGroupType             RaidBossGroupType    `json:"raid_boss_group_type"`
 	EnterTimeLine                 string               `json:"enter_time_line"`
 	TacticEnvironment             TacticEnvironment    `json:"tactic_environment"`
 	DefaultClearScore             int64                `json:"default_clear_score"`
@@ -52,7 +52,6 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	__offset_raid_boss_group := b.CreateString(fbsutils.Convert(t.RaidBossGroup, t.FlatBuffer.TableKey))
 	__offset_portrait_path := b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey))
 	__offset_bg_path := b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey))
-	__offset_ground_dev_name := b.CreateString(fbsutils.Convert(t.GroundDevName, t.FlatBuffer.TableKey))
 	__offset_enter_time_line := b.CreateString(fbsutils.Convert(t.EnterTimeLine, t.FlatBuffer.TableKey))
 	var __offset_battle_ready_timeline_path flatbuffers.UOffsetT
 	__stringOffsets_battle_ready_timeline_path := make([]flatbuffers.UOffsetT, len(t.BattleReadyTimelinePath))
@@ -85,7 +84,7 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	RaidStageExcelAddRaidRoomLifeTime(b, fbsutils.Convert(t.RaidRoomLifeTime, t.FlatBuffer.TableKey))
 	RaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	RaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	RaidStageExcelAddGroundDevName(b, __offset_ground_dev_name)
+	RaidStageExcelAddRaidBossGroupType(b, fbsutils.Convert(t.RaidBossGroupType, t.FlatBuffer.TableKey))
 	RaidStageExcelAddEnterTimeLine(b, __offset_enter_time_line)
 	RaidStageExcelAddTacticEnvironment(b, fbsutils.Convert(t.TacticEnvironment, t.FlatBuffer.TableKey))
 	RaidStageExcelAddDefaultClearScore(b, fbsutils.Convert(t.DefaultClearScore, t.FlatBuffer.TableKey))
@@ -143,7 +142,7 @@ func (t *RaidStageExcelDto) UnmarshalMessage(e *RaidStageExcel) error {
 	t.RaidRoomLifeTime = fbsutils.Convert(e.RaidRoomLifeTime(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.GroundDevName = fbsutils.Convert(string(e.GroundDevName()), t.FlatBuffer.TableKey)
+	t.RaidBossGroupType = RaidBossGroupType(fbsutils.Convert(int32(e.RaidBossGroupType()), t.FlatBuffer.TableKey))
 	t.EnterTimeLine = fbsutils.Convert(string(e.EnterTimeLine()), t.FlatBuffer.TableKey)
 	t.TacticEnvironment = TacticEnvironment(fbsutils.Convert(int32(e.TacticEnvironment()), t.FlatBuffer.TableKey))
 	t.DefaultClearScore = fbsutils.Convert(e.DefaultClearScore(), t.FlatBuffer.TableKey)

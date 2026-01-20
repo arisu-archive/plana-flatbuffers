@@ -1,4 +1,3 @@
-include "AccountState.fbs";
 include "ContentType.fbs";
 include "MissionCategory.fbs";
 include "MissionCompleteConditionType.fbs";
@@ -7,6 +6,7 @@ include "MissionToastDisplayConditionType.fbs";
 include "ParcelType.fbs";
 include "SuddenMissionContentType.fbs";
 include "Tag.fbs";
+include "TargetGroup.fbs";
 
 namespace MX.Data.Excel;
 
@@ -26,7 +26,7 @@ table MissionExcel {
     date_auto_refer: ContentType;
     display_order: long;
     pre_mission_id: [long];
-    account_type: AccountState;
+    target_group: TargetGroup;
     account_level: long;
     content_tags: [SuddenMissionContentType];
     shortcut_ui: [string];

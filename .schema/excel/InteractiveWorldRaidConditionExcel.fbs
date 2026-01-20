@@ -1,0 +1,17 @@
+include "MultipleConditionCheckType.fbs";
+include "WorldRaidConditionType.fbs";
+
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidConditionExcel {
+    id: long;
+    world_raid_season_id: long;
+    world_raid_phase_id: long;
+    priority: long;
+    multiple_condition_check_type: MultipleConditionCheckType;
+    multiple_condition_check_parameter: long;
+    condition_type: [WorldRaidConditionType];
+    condition_value: [long];
+}
+
+root_type InteractiveWorldRaidConditionExcel;

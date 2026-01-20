@@ -1,3 +1,6 @@
+include "CVCollectionType.fbs";
+include "CVUnlockScenarioType.fbs";
+
 namespace FlatData;
 
 table CharacterDialogEmojiExcel {
@@ -5,9 +8,20 @@ table CharacterDialogEmojiExcel {
     target_index: int;
     dialog_type: string;
     duration: long;
+    duration_add: long;
     hide_ui: bool;
     localize_kr: string;
     localize_jp: string;
+    voice_id: [uint];
+    character_id: long;
+    costume_unique_id: long;
+    display_order: long;
+    collection_visible: bool;
+    cv_collection_type: CVCollectionType;
+    cv_unlock_scenario_type: CVUnlockScenarioType;
+    scenario_group_id: long;
+    unlock_event_season: long;
+    localize_cv_group: string;
 }
 
 root_type CharacterDialogEmojiExcel;

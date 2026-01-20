@@ -97,6 +97,8 @@ type ConstCombatExcelDto struct {
 	ExcessiveTouchCheckCount                        int32   `json:"excessive_touch_check_count"`
 	CampaignAlertPopupLevelGap                      int32   `json:"campaign_alert_popup_level_gap"`
 	MoveCorrectionSkipRatio                         int32   `json:"move_correction_skip_ratio"`
+	ObstacleColliderHeightJumpable                  float32 `json:"obstacle_collider_height_jumpable"`
+	ObstacleColliderHeightNotJumpable               float32 `json:"obstacle_collider_height_not_jumpable"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -201,6 +203,8 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddExcessiveTouchCheckCount(b, fbsutils.Convert(t.ExcessiveTouchCheckCount, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCampaignAlertPopupLevelGap(b, fbsutils.Convert(t.CampaignAlertPopupLevelGap, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddMoveCorrectionSkipRatio(b, fbsutils.Convert(t.MoveCorrectionSkipRatio, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddObstacleColliderHeightJumpable(b, fbsutils.Convert(t.ObstacleColliderHeightJumpable, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddObstacleColliderHeightNotJumpable(b, fbsutils.Convert(t.ObstacleColliderHeightNotJumpable, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -303,6 +307,8 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.ExcessiveTouchCheckCount = fbsutils.Convert(e.ExcessiveTouchCheckCount(), t.FlatBuffer.TableKey)
 	t.CampaignAlertPopupLevelGap = fbsutils.Convert(e.CampaignAlertPopupLevelGap(), t.FlatBuffer.TableKey)
 	t.MoveCorrectionSkipRatio = fbsutils.Convert(e.MoveCorrectionSkipRatio(), t.FlatBuffer.TableKey)
+	t.ObstacleColliderHeightJumpable = fbsutils.Convert(e.ObstacleColliderHeightJumpable(), t.FlatBuffer.TableKey)
+	t.ObstacleColliderHeightNotJumpable = fbsutils.Convert(e.ObstacleColliderHeightNotJumpable(), t.FlatBuffer.TableKey)
 	return nil
 }
 

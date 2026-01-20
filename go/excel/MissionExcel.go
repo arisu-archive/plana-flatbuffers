@@ -219,15 +219,15 @@ func (rcv *MissionExcel) MutatePreMissionId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *MissionExcel) AccountType() AccountState {
+func (rcv *MissionExcel) TargetGroup() TargetGroup {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
-		return AccountState(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return TargetGroup(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MissionExcel) MutateAccountType(n AccountState) bool {
+func (rcv *MissionExcel) MutateTargetGroup(n TargetGroup) bool {
 	return rcv._tab.MutateInt32Slot(34, int32(n))
 }
 
@@ -511,8 +511,8 @@ func MissionExcelAddPreMissionId(builder *flatbuffers.Builder, preMissionId flat
 func MissionExcelStartPreMissionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MissionExcelAddAccountType(builder *flatbuffers.Builder, accountType AccountState) {
-	builder.PrependInt32Slot(15, int32(accountType), 0)
+func MissionExcelAddTargetGroup(builder *flatbuffers.Builder, targetGroup TargetGroup) {
+	builder.PrependInt32Slot(15, int32(targetGroup), 0)
 }
 func MissionExcelAddAccountLevel(builder *flatbuffers.Builder, accountLevel int64) {
 	builder.PrependInt64Slot(16, accountLevel, 0)

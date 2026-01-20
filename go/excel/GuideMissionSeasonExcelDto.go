@@ -14,7 +14,7 @@ type GuideMissionSeasonExcelDto struct {
 	TitleLocalizeCode               string              `json:"title_localize_code"`
 	PermanentInfomationLocalizeCode string              `json:"permanent_infomation_localize_code"`
 	InfomationLocalizeCode          string              `json:"infomation_localize_code"`
-	AccountType                     AccountState        `json:"account_type"`
+	TargetGroup                     TargetGroup         `json:"target_group"`
 	Enabled                         bool                `json:"enabled"`
 	BannerOpenDate                  string              `json:"banner_open_date"`
 	StartDate                       string              `json:"start_date"`
@@ -57,7 +57,7 @@ func (t *GuideMissionSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	GuideMissionSeasonExcelAddTitleLocalizeCode(b, __offset_title_localize_code)
 	GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(b, __offset_permanent_infomation_localize_code)
 	GuideMissionSeasonExcelAddInfomationLocalizeCode(b, __offset_infomation_localize_code)
-	GuideMissionSeasonExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddTargetGroup(b, fbsutils.Convert(t.TargetGroup, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddEnabled(b, t.Enabled)
 	GuideMissionSeasonExcelAddBannerOpenDate(b, __offset_banner_open_date)
 	GuideMissionSeasonExcelAddStartDate(b, __offset_start_date)
@@ -95,7 +95,7 @@ func (t *GuideMissionSeasonExcelDto) UnmarshalMessage(e *GuideMissionSeasonExcel
 	t.TitleLocalizeCode = fbsutils.Convert(string(e.TitleLocalizeCode()), t.FlatBuffer.TableKey)
 	t.PermanentInfomationLocalizeCode = fbsutils.Convert(string(e.PermanentInfomationLocalizeCode()), t.FlatBuffer.TableKey)
 	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)
-	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
+	t.TargetGroup = TargetGroup(fbsutils.Convert(int32(e.TargetGroup()), t.FlatBuffer.TableKey))
 	t.Enabled = e.Enabled()
 	t.BannerOpenDate = fbsutils.Convert(string(e.BannerOpenDate()), t.FlatBuffer.TableKey)
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)

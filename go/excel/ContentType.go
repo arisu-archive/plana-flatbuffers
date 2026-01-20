@@ -30,6 +30,8 @@ const (
 	ContentTypeFieldContentStage           ContentType = 20
 	ContentTypeMultiFloorRaid              ContentType = 21
 	ContentTypeMinigameDefense             ContentType = 22
+	ContentTypeInteractiveWorldRaid        ContentType = 23
+	ContentTypePermanentRaid               ContentType = 24
 )
 
 var EnumNamesContentType = map[ContentType]string{
@@ -56,6 +58,8 @@ var EnumNamesContentType = map[ContentType]string{
 	ContentTypeFieldContentStage:           "FieldContentStage",
 	ContentTypeMultiFloorRaid:              "MultiFloorRaid",
 	ContentTypeMinigameDefense:             "MinigameDefense",
+	ContentTypeInteractiveWorldRaid:        "InteractiveWorldRaid",
+	ContentTypePermanentRaid:               "PermanentRaid",
 }
 
 var EnumValuesContentType = map[string]ContentType{
@@ -82,6 +86,8 @@ var EnumValuesContentType = map[string]ContentType{
 	"FieldContentStage":           ContentTypeFieldContentStage,
 	"MultiFloorRaid":              ContentTypeMultiFloorRaid,
 	"MinigameDefense":             ContentTypeMinigameDefense,
+	"InteractiveWorldRaid":        ContentTypeInteractiveWorldRaid,
+	"PermanentRaid":               ContentTypePermanentRaid,
 }
 
 func (v ContentType) String() string {

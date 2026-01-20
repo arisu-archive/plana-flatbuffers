@@ -193,6 +193,9 @@ const (
 	MissionCompleteConditionTypeReset_DayCompleteMission                              MissionCompleteConditionType = 183
 	MissionCompleteConditionTypeReset_ConcentrationCardMatchCount                     MissionCompleteConditionType = 184
 	MissionCompleteConditionTypeReset_ConcentrationClearCount                         MissionCompleteConditionType = 185
+	MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear                      MissionCompleteConditionType = 186
+	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount                      MissionCompleteConditionType = 187
+	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount                       MissionCompleteConditionType = 188
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -382,6 +385,9 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_DayCompleteMission:                              "Reset_DayCompleteMission",
 	MissionCompleteConditionTypeReset_ConcentrationCardMatchCount:                     "Reset_ConcentrationCardMatchCount",
 	MissionCompleteConditionTypeReset_ConcentrationClearCount:                         "Reset_ConcentrationClearCount",
+	MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear:                      "Reset_WorldRaidSpecificBossClear",
+	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount:                      "Reset_WorldRaidActivateCoreCount",
+	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount:                       "Reset_WorldRaidActivateUSBCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -571,6 +577,9 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_DayCompleteMission":                              MissionCompleteConditionTypeReset_DayCompleteMission,
 	"Reset_ConcentrationCardMatchCount":                     MissionCompleteConditionTypeReset_ConcentrationCardMatchCount,
 	"Reset_ConcentrationClearCount":                         MissionCompleteConditionTypeReset_ConcentrationClearCount,
+	"Reset_WorldRaidSpecificBossClear":                      MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear,
+	"Reset_WorldRaidActivateCoreCount":                      MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount,
+	"Reset_WorldRaidActivateUSBCount":                       MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount,
 }
 
 func (v MissionCompleteConditionType) String() string {

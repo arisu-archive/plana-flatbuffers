@@ -29,6 +29,7 @@ type EquipmentExcelDto struct {
 	ShiftingCraftQuality int64              `json:"shifting_craft_quality"`
 	ShopCategory         []ShopCategoryType `json:"shop_category"`
 	ShortcutTypeId       int64              `json:"shortcut_type_id"`
+	RedirectItemId       int64              `json:"redirect_item_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -63,6 +64,7 @@ func (t *EquipmentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	}
 	EquipmentExcelAddShopCategory(b, b.EndVector(len(t.ShopCategory)))
 	EquipmentExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
+	EquipmentExcelAddRedirectItemId(b, fbsutils.Convert(t.RedirectItemId, t.FlatBuffer.TableKey))
 	return EquipmentExcelEnd(b)
 }
 
@@ -100,6 +102,7 @@ func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
 		t.ShopCategory[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategory(i)), t.FlatBuffer.TableKey))
 	}
 	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
+	t.RedirectItemId = fbsutils.Convert(e.RedirectItemId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

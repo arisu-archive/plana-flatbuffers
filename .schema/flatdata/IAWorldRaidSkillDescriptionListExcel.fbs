@@ -1,0 +1,12 @@
+include "SkillSlotHighLightType.fbs";
+
+namespace FlatData;
+
+table IAWorldRaidSkillDescriptionListExcel {
+    id: long;
+    global_skill_group_id: [string];
+    global_skill_remove_condition: [long];
+    global_skill_highlight_resource: [SkillSlotHighLightType];
+    skill_group_id: [string];
+    highlight_resource: [SkillSlotHighLightType];
+}

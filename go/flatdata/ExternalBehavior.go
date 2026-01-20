@@ -25,6 +25,8 @@ const (
 	ExternalBehaviorSelectTargetToUseSkillAlly ExternalBehavior = 15
 	ExternalBehaviorForceChangePhase           ExternalBehavior = 16
 	ExternalBehaviorClearUseSkillEndGroupId    ExternalBehavior = 17
+	ExternalBehaviorChangePhaseKeepATG         ExternalBehavior = 18
+	ExternalBehaviorForceChangePhaseKeepATG    ExternalBehavior = 19
 )
 
 var EnumNamesExternalBehavior = map[ExternalBehavior]string{
@@ -46,6 +48,8 @@ var EnumNamesExternalBehavior = map[ExternalBehavior]string{
 	ExternalBehaviorSelectTargetToUseSkillAlly: "SelectTargetToUseSkillAlly",
 	ExternalBehaviorForceChangePhase:           "ForceChangePhase",
 	ExternalBehaviorClearUseSkillEndGroupId:    "ClearUseSkillEndGroupId",
+	ExternalBehaviorChangePhaseKeepATG:         "ChangePhaseKeepATG",
+	ExternalBehaviorForceChangePhaseKeepATG:    "ForceChangePhaseKeepATG",
 }
 
 var EnumValuesExternalBehavior = map[string]ExternalBehavior{
@@ -67,6 +71,8 @@ var EnumValuesExternalBehavior = map[string]ExternalBehavior{
 	"SelectTargetToUseSkillAlly": ExternalBehaviorSelectTargetToUseSkillAlly,
 	"ForceChangePhase":           ExternalBehaviorForceChangePhase,
 	"ClearUseSkillEndGroupId":    ExternalBehaviorClearUseSkillEndGroupId,
+	"ChangePhaseKeepATG":         ExternalBehaviorChangePhaseKeepATG,
+	"ForceChangePhaseKeepATG":    ExternalBehaviorForceChangePhaseKeepATG,
 }
 
 func (v ExternalBehavior) String() string {

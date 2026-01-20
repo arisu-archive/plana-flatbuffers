@@ -39,12 +39,14 @@ type CharacterStatExcelDto struct {
 	EnhancePierceRate           int64                 `json:"enhance_pierce_rate"`
 	EnhanceMysticRate           int64                 `json:"enhance_mystic_rate"`
 	EnhanceSonicRate            int64                 `json:"enhance_sonic_rate"`
+	EnhanceChemicalRate         int64                 `json:"enhance_chemical_rate"`
 	EnhanceSiegeRate            int64                 `json:"enhance_siege_rate"`
 	EnhanceNormalRate           int64                 `json:"enhance_normal_rate"`
 	EnhanceLightArmorRate       int64                 `json:"enhance_light_armor_rate"`
 	EnhanceHeavyArmorRate       int64                 `json:"enhance_heavy_armor_rate"`
 	EnhanceUnarmedRate          int64                 `json:"enhance_unarmed_rate"`
 	EnhanceElasticArmorRate     int64                 `json:"enhance_elastic_armor_rate"`
+	EnhanceCompositeArmorRate   int64                 `json:"enhance_composite_armor_rate"`
 	EnhanceStructureRate        int64                 `json:"enhance_structure_rate"`
 	EnhanceNormalArmorRate      int64                 `json:"enhance_normal_armor_rate"`
 	ExtendBuffDuration          int64                 `json:"extend_buff_duration"`
@@ -76,6 +78,8 @@ type CharacterStatExcelDto struct {
 	ReduceExDamagedRate         int64                 `json:"reduce_ex_damaged_rate"`
 	EnhanceBasicsDamageRate     int64                 `json:"enhance_basics_damage_rate"`
 	ReduceBasicsDamagedRate     int64                 `json:"reduce_basics_damaged_rate"`
+	EnhanceWeakDamageRate       int64                 `json:"enhance_weak_damage_rate"`
+	ReduceWeakDamagedRate       int64                 `json:"reduce_weak_damaged_rate"`
 	HealRate                    int64                 `json:"heal_rate"`
 	HealLightArmorRate          int64                 `json:"heal_light_armor_rate"`
 	HealHeavyArmorRate          int64                 `json:"heal_heavy_armor_rate"`
@@ -125,12 +129,14 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddEnhancePierceRate(b, fbsutils.Convert(t.EnhancePierceRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceMysticRate(b, fbsutils.Convert(t.EnhanceMysticRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceSonicRate(b, fbsutils.Convert(t.EnhanceSonicRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddEnhanceChemicalRate(b, fbsutils.Convert(t.EnhanceChemicalRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceSiegeRate(b, fbsutils.Convert(t.EnhanceSiegeRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceNormalRate(b, fbsutils.Convert(t.EnhanceNormalRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceLightArmorRate(b, fbsutils.Convert(t.EnhanceLightArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceHeavyArmorRate(b, fbsutils.Convert(t.EnhanceHeavyArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceUnarmedRate(b, fbsutils.Convert(t.EnhanceUnarmedRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceElasticArmorRate(b, fbsutils.Convert(t.EnhanceElasticArmorRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddEnhanceCompositeArmorRate(b, fbsutils.Convert(t.EnhanceCompositeArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceStructureRate(b, fbsutils.Convert(t.EnhanceStructureRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceNormalArmorRate(b, fbsutils.Convert(t.EnhanceNormalArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddExtendBuffDuration(b, fbsutils.Convert(t.ExtendBuffDuration, t.FlatBuffer.TableKey))
@@ -162,6 +168,8 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceBasicsDamageRate(b, fbsutils.Convert(t.EnhanceBasicsDamageRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddEnhanceWeakDamageRate(b, fbsutils.Convert(t.EnhanceWeakDamageRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddReduceWeakDamagedRate(b, fbsutils.Convert(t.ReduceWeakDamagedRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealRate(b, fbsutils.Convert(t.HealRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealLightArmorRate(b, fbsutils.Convert(t.HealLightArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealHeavyArmorRate(b, fbsutils.Convert(t.HealHeavyArmorRate, t.FlatBuffer.TableKey))
@@ -218,12 +226,14 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.EnhancePierceRate = fbsutils.Convert(e.EnhancePierceRate(), t.FlatBuffer.TableKey)
 	t.EnhanceMysticRate = fbsutils.Convert(e.EnhanceMysticRate(), t.FlatBuffer.TableKey)
 	t.EnhanceSonicRate = fbsutils.Convert(e.EnhanceSonicRate(), t.FlatBuffer.TableKey)
+	t.EnhanceChemicalRate = fbsutils.Convert(e.EnhanceChemicalRate(), t.FlatBuffer.TableKey)
 	t.EnhanceSiegeRate = fbsutils.Convert(e.EnhanceSiegeRate(), t.FlatBuffer.TableKey)
 	t.EnhanceNormalRate = fbsutils.Convert(e.EnhanceNormalRate(), t.FlatBuffer.TableKey)
 	t.EnhanceLightArmorRate = fbsutils.Convert(e.EnhanceLightArmorRate(), t.FlatBuffer.TableKey)
 	t.EnhanceHeavyArmorRate = fbsutils.Convert(e.EnhanceHeavyArmorRate(), t.FlatBuffer.TableKey)
 	t.EnhanceUnarmedRate = fbsutils.Convert(e.EnhanceUnarmedRate(), t.FlatBuffer.TableKey)
 	t.EnhanceElasticArmorRate = fbsutils.Convert(e.EnhanceElasticArmorRate(), t.FlatBuffer.TableKey)
+	t.EnhanceCompositeArmorRate = fbsutils.Convert(e.EnhanceCompositeArmorRate(), t.FlatBuffer.TableKey)
 	t.EnhanceStructureRate = fbsutils.Convert(e.EnhanceStructureRate(), t.FlatBuffer.TableKey)
 	t.EnhanceNormalArmorRate = fbsutils.Convert(e.EnhanceNormalArmorRate(), t.FlatBuffer.TableKey)
 	t.ExtendBuffDuration = fbsutils.Convert(e.ExtendBuffDuration(), t.FlatBuffer.TableKey)
@@ -255,6 +265,8 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
 	t.EnhanceBasicsDamageRate = fbsutils.Convert(e.EnhanceBasicsDamageRate(), t.FlatBuffer.TableKey)
 	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
+	t.EnhanceWeakDamageRate = fbsutils.Convert(e.EnhanceWeakDamageRate(), t.FlatBuffer.TableKey)
+	t.ReduceWeakDamagedRate = fbsutils.Convert(e.ReduceWeakDamagedRate(), t.FlatBuffer.TableKey)
 	t.HealRate = fbsutils.Convert(e.HealRate(), t.FlatBuffer.TableKey)
 	t.HealLightArmorRate = fbsutils.Convert(e.HealLightArmorRate(), t.FlatBuffer.TableKey)
 	t.HealHeavyArmorRate = fbsutils.Convert(e.HealHeavyArmorRate(), t.FlatBuffer.TableKey)

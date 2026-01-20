@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum BulletTimeType: int {
+    All = 0,
+    SkillCard = 1,
+    CarrierSkillCard = 2,
+}

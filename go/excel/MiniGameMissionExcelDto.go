@@ -22,7 +22,7 @@ type MiniGameMissionExcelDto struct {
 	ViewFlag                      bool                             `json:"view_flag"`
 	DisplayOrder                  int64                            `json:"display_order"`
 	PreMissionId                  []int64                          `json:"pre_mission_id"`
-	AccountType                   AccountState                     `json:"account_type"`
+	TargetGroup                   TargetGroup                      `json:"target_group"`
 	AccountLevel                  int64                            `json:"account_level"`
 	ShortcutUi                    []string                         `json:"shortcut_ui"`
 	CompleteConditionType         MissionCompleteConditionType     `json:"complete_condition_type"`
@@ -73,7 +73,7 @@ func (t *MiniGameMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		b.PrependInt64(fbsutils.Convert(t.PreMissionId[len(t.PreMissionId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
-	MiniGameMissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	MiniGameMissionExcelAddTargetGroup(b, fbsutils.Convert(t.TargetGroup, t.FlatBuffer.TableKey))
 	MiniGameMissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	MiniGameMissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	MiniGameMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
@@ -153,7 +153,7 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 	for i := range e.PreMissionIdLength() {
 		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
 	}
-	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
+	t.TargetGroup = TargetGroup(fbsutils.Convert(int32(e.TargetGroup()), t.FlatBuffer.TableKey))
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ShortcutUi = make([]string, e.ShortcutUiLength())
 	for i := range e.ShortcutUiLength() {

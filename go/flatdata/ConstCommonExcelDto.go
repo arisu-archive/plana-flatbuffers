@@ -193,7 +193,11 @@ type ConstCommonExcelDto struct {
 	ScenarioAutoDelayMillisecShort             float32          `json:"scenario_auto_delay_millisec_short"`
 	ScenarioAutoDelayMillisecVeryShort         float32          `json:"scenario_auto_delay_millisec_very_short"`
 	PcBuildEnterInformation                    int32            `json:"pc_build_enter_information"`
+	ComebackUserStandardDay                    int32            `json:"comeback_user_standard_day"`
+	ComebackUserLogSaveDay                     int32            `json:"comeback_user_log_save_day"`
+	ComeBackActivateCooldown                   int32            `json:"come_back_activate_cooldown"`
 	CafeCopyPresetSlotCount                    int32            `json:"cafe_copy_preset_slot_count"`
+	ExpiryProductDailyRecordItemReceiveDay     int32            `json:"expiry_product_daily_record_item_receive_day"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -409,7 +413,11 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddScenarioAutoDelayMillisecShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecShort, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecVeryShort, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPcBuildEnterInformation(b, fbsutils.Convert(t.PcBuildEnterInformation, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddComebackUserStandardDay(b, fbsutils.Convert(t.ComebackUserStandardDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddComebackUserLogSaveDay(b, fbsutils.Convert(t.ComebackUserLogSaveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddComeBackActivateCooldown(b, fbsutils.Convert(t.ComeBackActivateCooldown, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeCopyPresetSlotCount(b, fbsutils.Convert(t.CafeCopyPresetSlotCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(b, fbsutils.Convert(t.ExpiryProductDailyRecordItemReceiveDay, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -623,7 +631,11 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ScenarioAutoDelayMillisecShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecShort(), t.FlatBuffer.TableKey)
 	t.ScenarioAutoDelayMillisecVeryShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecVeryShort(), t.FlatBuffer.TableKey)
 	t.PcBuildEnterInformation = fbsutils.Convert(e.PcBuildEnterInformation(), t.FlatBuffer.TableKey)
+	t.ComebackUserStandardDay = fbsutils.Convert(e.ComebackUserStandardDay(), t.FlatBuffer.TableKey)
+	t.ComebackUserLogSaveDay = fbsutils.Convert(e.ComebackUserLogSaveDay(), t.FlatBuffer.TableKey)
+	t.ComeBackActivateCooldown = fbsutils.Convert(e.ComeBackActivateCooldown(), t.FlatBuffer.TableKey)
 	t.CafeCopyPresetSlotCount = fbsutils.Convert(e.CafeCopyPresetSlotCount(), t.FlatBuffer.TableKey)
+	t.ExpiryProductDailyRecordItemReceiveDay = fbsutils.Convert(e.ExpiryProductDailyRecordItemReceiveDay(), t.FlatBuffer.TableKey)
 	return nil
 }
 

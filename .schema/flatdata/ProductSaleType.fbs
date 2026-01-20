@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ProductSaleType: int {
+    Limited = 0,
+    SaleDay = 1,
+}

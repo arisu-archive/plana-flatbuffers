@@ -63,6 +63,7 @@ table GroundExcel {
     ui_emoji_scale: float;
     ui_skill_main_log_scale: float;
     effect_count_limit: int;
+    carrier_skill_group_id: long;
     ally_passive_skill_id: [string];
     ally_passive_skill_level: [int];
     enemy_passive_skill_id: [string];

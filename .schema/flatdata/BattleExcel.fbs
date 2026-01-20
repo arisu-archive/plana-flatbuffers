@@ -47,7 +47,7 @@ table BattleExcel {
     ally_self: ReArrangeTargetType;
     light_armor: ArmorType;
     wood: EntityMaterialType;
-    all: CoverMotionType;
+    all: [CoverMotionType];
     distance: TargetSortBy;
     close_to_obstacle: PositioningType;
     students: FormationLine;

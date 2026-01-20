@@ -10,11 +10,12 @@ import (
 // TutorialFailureImageExcelDto represents a FlatBuffers table
 type TutorialFailureImageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id          int64                      `json:"id"`
-	Contents    TutorialFailureContentType `json:"contents"`
-	Type        string                     `json:"type"`
-	ImagePathKr string                     `json:"image_path_kr"`
-	ImagePathJp string                     `json:"image_path_jp"`
+	Id                 int64                      `json:"id"`
+	Contents           TutorialFailureContentType `json:"contents"`
+	Type               string                     `json:"type"`
+	ImagePathKr        string                     `json:"image_path_kr"`
+	ImagePathJp        string                     `json:"image_path_jp"`
+	ReplaceLocalizeKey string                     `json:"replace_localize_key"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,12 +23,14 @@ func (t *TutorialFailureImageExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	__offset_type := b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	__offset_image_path_kr := b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey))
 	__offset_image_path_jp := b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey))
+	__offset_replace_localize_key := b.CreateString(fbsutils.Convert(t.ReplaceLocalizeKey, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelStart(b)
 	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelAddType(b, __offset_type)
 	TutorialFailureImageExcelAddImagePathKr(b, __offset_image_path_kr)
 	TutorialFailureImageExcelAddImagePathJp(b, __offset_image_path_jp)
+	TutorialFailureImageExcelAddReplaceLocalizeKey(b, __offset_replace_localize_key)
 	return TutorialFailureImageExcelEnd(b)
 }
 
@@ -45,6 +48,7 @@ func (t *TutorialFailureImageExcelDto) UnmarshalMessage(e *TutorialFailureImageE
 	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)
 	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
 	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.ReplaceLocalizeKey = fbsutils.Convert(string(e.ReplaceLocalizeKey()), t.FlatBuffer.TableKey)
 	return nil
 }
 

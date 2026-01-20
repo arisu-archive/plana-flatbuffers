@@ -7,18 +7,21 @@ import "strconv"
 type MultipleConditionCheckType int32
 
 const (
-	MultipleConditionCheckTypeAnd MultipleConditionCheckType = 0
-	MultipleConditionCheckTypeOr  MultipleConditionCheckType = 1
+	MultipleConditionCheckTypeAnd   MultipleConditionCheckType = 0
+	MultipleConditionCheckTypeOr    MultipleConditionCheckType = 1
+	MultipleConditionCheckTypeCount MultipleConditionCheckType = 2
 )
 
 var EnumNamesMultipleConditionCheckType = map[MultipleConditionCheckType]string{
-	MultipleConditionCheckTypeAnd: "And",
-	MultipleConditionCheckTypeOr:  "Or",
+	MultipleConditionCheckTypeAnd:   "And",
+	MultipleConditionCheckTypeOr:    "Or",
+	MultipleConditionCheckTypeCount: "Count",
 }
 
 var EnumValuesMultipleConditionCheckType = map[string]MultipleConditionCheckType{
-	"And": MultipleConditionCheckTypeAnd,
-	"Or":  MultipleConditionCheckTypeOr,
+	"And":   MultipleConditionCheckTypeAnd,
+	"Or":    MultipleConditionCheckTypeOr,
+	"Count": MultipleConditionCheckTypeCount,
 }
 
 func (v MultipleConditionCheckType) String() string {

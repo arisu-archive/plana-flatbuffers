@@ -1,0 +1,29 @@
+include "WorldRaidMapType.fbs";
+
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidCarrierMapExcel {
+    id: long;
+    condition_id: long;
+    world_raid_season_id: long;
+    world_raid_phase_id: long;
+    replay_season_group_id: long;
+    replay_season_original_phase_id: long;
+    recent_clear_boss_group_id: long;
+    recent_clear_event_stage_id: long;
+    change_target: WorldRaidMapType;
+    priority: long;
+    art_level_path: string;
+    design_level_path: string;
+    bridge_bgm: long;
+    hangar_bgm: long;
+    lobby_bgm: long;
+    world_map_bgm: long;
+    information_group_id_world_map: long;
+    information_group_id_uc_popup: long;
+    information_group_id_bridge: long;
+    information_group_id_hangar: long;
+    information_group_id_lobby: long;
+}
+
+root_type InteractiveWorldRaidCarrierMapExcel;

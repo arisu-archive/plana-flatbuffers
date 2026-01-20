@@ -15,7 +15,10 @@ const (
 	StoreTypeGalaxyStore    StoreType = 5
 	StoreTypeSTEAM          StoreType = 6
 	StoreTypeFreeProduct    StoreType = 7
-	StoreTypePCStore        StoreType = 8
+	StoreTypeTwitch         StoreType = 8
+	StoreTypeChzzk          StoreType = 9
+	StoreTypePaymentCenter  StoreType = 10
+	StoreTypePCStore        StoreType = 11
 )
 
 var EnumNamesStoreType = map[StoreType]string{
@@ -27,6 +30,9 @@ var EnumNamesStoreType = map[StoreType]string{
 	StoreTypeGalaxyStore:    "GalaxyStore",
 	StoreTypeSTEAM:          "STEAM",
 	StoreTypeFreeProduct:    "FreeProduct",
+	StoreTypeTwitch:         "Twitch",
+	StoreTypeChzzk:          "Chzzk",
+	StoreTypePaymentCenter:  "PaymentCenter",
 	StoreTypePCStore:        "PCStore",
 }
 
@@ -39,6 +45,9 @@ var EnumValuesStoreType = map[string]StoreType{
 	"GalaxyStore":    StoreTypeGalaxyStore,
 	"STEAM":          StoreTypeSTEAM,
 	"FreeProduct":    StoreTypeFreeProduct,
+	"Twitch":         StoreTypeTwitch,
+	"Chzzk":          StoreTypeChzzk,
+	"PaymentCenter":  StoreTypePaymentCenter,
 	"PCStore":        StoreTypePCStore,
 }
 

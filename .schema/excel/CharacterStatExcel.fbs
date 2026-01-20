@@ -32,12 +32,14 @@ table CharacterStatExcel {
     enhance_pierce_rate: long;
     enhance_mystic_rate: long;
     enhance_sonic_rate: long;
+    enhance_chemical_rate: long;
     enhance_siege_rate: long;
     enhance_normal_rate: long;
     enhance_light_armor_rate: long;
     enhance_heavy_armor_rate: long;
     enhance_unarmed_rate: long;
     enhance_elastic_armor_rate: long;
+    enhance_composite_armor_rate: long;
     enhance_structure_rate: long;
     enhance_normal_armor_rate: long;
     extend_buff_duration: long;
@@ -69,6 +71,8 @@ table CharacterStatExcel {
     reduce_ex_damaged_rate: long;
     enhance_basics_damage_rate: long;
     reduce_basics_damaged_rate: long;
+    enhance_weak_damage_rate: long;
+    reduce_weak_damaged_rate: long;
     heal_rate: long;
     heal_light_armor_rate: long;
     heal_heavy_armor_rate: long;

@@ -10,19 +10,20 @@ import (
 // ContentsShortcutExcelDto represents a FlatBuffers table
 type ContentsShortcutExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId              int64           `json:"unique_id"`
-	ContentType           ContentType     `json:"content_type"`
-	EventContentId        int64           `json:"event_content_id"`
-	ScenarioModeVolume    int64           `json:"scenario_mode_volume"`
-	ScenarioModeChapter   int64           `json:"scenario_mode_chapter"`
-	ShortcutOpenTime      string          `json:"shortcut_open_time"`
-	ShortcutCloseTime     string          `json:"shortcut_close_time"`
-	ConditionContentId    int64           `json:"condition_content_id"`
-	ConquestMapDifficulty StageDifficulty `json:"conquest_map_difficulty"`
-	ConquestStepIndex     int32           `json:"conquest_step_index"`
-	ShortcutContentId     int64           `json:"shortcut_content_id"`
-	ShortcutUiName        []string        `json:"shortcut_ui_name"`
-	Localize              string          `json:"localize"`
+	UniqueId              int64             `json:"unique_id"`
+	ContentType           ContentType       `json:"content_type"`
+	EventContentId        int64             `json:"event_content_id"`
+	ScenarioModeType      ScenarioModeTypes `json:"scenario_mode_type"`
+	ScenarioModeVolume    int64             `json:"scenario_mode_volume"`
+	ScenarioModeChapter   int64             `json:"scenario_mode_chapter"`
+	ShortcutOpenTime      string            `json:"shortcut_open_time"`
+	ShortcutCloseTime     string            `json:"shortcut_close_time"`
+	ConditionContentId    int64             `json:"condition_content_id"`
+	ConquestMapDifficulty StageDifficulty   `json:"conquest_map_difficulty"`
+	ConquestStepIndex     int32             `json:"conquest_step_index"`
+	ShortcutContentId     int64             `json:"shortcut_content_id"`
+	ShortcutUiName        []string          `json:"shortcut_ui_name"`
+	Localize              string            `json:"localize"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -44,6 +45,7 @@ func (t *ContentsShortcutExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ContentsShortcutExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ContentsShortcutExcelAddScenarioModeType(b, fbsutils.Convert(t.ScenarioModeType, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddScenarioModeVolume(b, fbsutils.Convert(t.ScenarioModeVolume, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddScenarioModeChapter(b, fbsutils.Convert(t.ScenarioModeChapter, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddShortcutOpenTime(b, __offset_shortcut_open_time)
@@ -69,6 +71,7 @@ func (t *ContentsShortcutExcelDto) UnmarshalMessage(e *ContentsShortcutExcel) er
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ScenarioModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ScenarioModeType()), t.FlatBuffer.TableKey))
 	t.ScenarioModeVolume = fbsutils.Convert(e.ScenarioModeVolume(), t.FlatBuffer.TableKey)
 	t.ScenarioModeChapter = fbsutils.Convert(e.ScenarioModeChapter(), t.FlatBuffer.TableKey)
 	t.ShortcutOpenTime = fbsutils.Convert(string(e.ShortcutOpenTime()), t.FlatBuffer.TableKey)

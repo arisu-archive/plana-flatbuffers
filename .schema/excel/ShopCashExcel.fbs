@@ -1,6 +1,8 @@
 include "ProductCategory.fbs";
 include "ProductDisplayTag.fbs";
+include "ProductSaleType.fbs";
 include "PurchaseSourceType.fbs";
+include "TargetGroup.fbs";
 
 namespace MX.Data.Excel;
 
@@ -8,14 +10,19 @@ table ShopCashExcel {
     id: long;
     cash_product_id: long;
     package_type: PurchaseSourceType;
+    target_group: TargetGroup;
     localize_etc_id: uint;
+    in_mail_purchase_lock: bool;
+    use_mail_parcel: bool;
     icon_path: string;
     display_order: long;
     renewal_display_order: long;
     category_type: ProductCategory;
     display_tag: ProductDisplayTag;
+    product_sale_type: ProductSaleType;
     sale_period_from: string;
     sale_period_to: string;
+    product_sale_day: long;
     period_tag: bool;
     account_level_limit: long;
     account_level_hide: bool;

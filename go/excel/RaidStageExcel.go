@@ -211,12 +211,16 @@ func (rcv *RaidStageExcel) MutateGroundId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(30, n)
 }
 
-func (rcv *RaidStageExcel) GroundDevName() []byte {
+func (rcv *RaidStageExcel) RaidBossGroupType() RaidBossGroupType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return RaidBossGroupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *RaidStageExcel) MutateRaidBossGroupType(n RaidBossGroupType) bool {
+	return rcv._tab.MutateInt32Slot(32, int32(n))
 }
 
 func (rcv *RaidStageExcel) EnterTimeLine() []byte {
@@ -528,8 +532,8 @@ func RaidStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuratio
 func RaidStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
 	builder.PrependInt64Slot(13, groundId, 0)
 }
-func RaidStageExcelAddGroundDevName(builder *flatbuffers.Builder, groundDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(groundDevName), 0)
+func RaidStageExcelAddRaidBossGroupType(builder *flatbuffers.Builder, raidBossGroupType RaidBossGroupType) {
+	builder.PrependInt32Slot(14, int32(raidBossGroupType), 0)
 }
 func RaidStageExcelAddEnterTimeLine(builder *flatbuffers.Builder, enterTimeLine flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(enterTimeLine), 0)

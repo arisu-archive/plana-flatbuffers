@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidStatusPresetExcel {
+    id: long;
+    world_raid_season_id: long;
+    world_raid_phase_id: long;
+    scenario_mode_id: long;
+    ia_world_raid_group_id: [long];
+    event_content_stage_id: [long];
+    event_content_scenario_id: [long];
+}
+
+root_type InteractiveWorldRaidStatusPresetExcel;

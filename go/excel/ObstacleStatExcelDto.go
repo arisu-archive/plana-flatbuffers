@@ -10,22 +10,24 @@ import (
 // ObstacleStatExcelDto represents a FlatBuffers table
 type ObstacleStatExcelDto struct {
 	fbsutils.FlatBuffer
-	StringId                uint32  `json:"string_id"`
-	Name                    string  `json:"name"`
-	MaxHp1                  int64   `json:"max_hp1"`
-	MaxHp100                int64   `json:"max_hp100"`
-	BlockRate               int64   `json:"block_rate"`
-	Dodge                   int64   `json:"dodge"`
-	CanNotStandRange        int64   `json:"can_not_stand_range"`
-	HighlightFloaterHeight  float32 `json:"highlight_floater_height"`
-	EnhanceLightArmorRate   int64   `json:"enhance_light_armor_rate"`
-	EnhanceHeavyArmorRate   int64   `json:"enhance_heavy_armor_rate"`
-	EnhanceUnarmedRate      int64   `json:"enhance_unarmed_rate"`
-	EnhanceElasticArmorRate int64   `json:"enhance_elastic_armor_rate"`
-	EnhanceStructureRate    int64   `json:"enhance_structure_rate"`
-	EnhanceNormalArmorRate  int64   `json:"enhance_normal_armor_rate"`
-	ReduceExDamagedRate     int64   `json:"reduce_ex_damaged_rate"`
-	ReduceBasicsDamagedRate int64   `json:"reduce_basics_damaged_rate"`
+	StringId                  uint32  `json:"string_id"`
+	Name                      string  `json:"name"`
+	MaxHp1                    int64   `json:"max_hp1"`
+	MaxHp100                  int64   `json:"max_hp100"`
+	BlockRate                 int64   `json:"block_rate"`
+	Dodge                     int64   `json:"dodge"`
+	CanNotStandRange          int64   `json:"can_not_stand_range"`
+	HighlightFloaterHeight    float32 `json:"highlight_floater_height"`
+	EnhanceLightArmorRate     int64   `json:"enhance_light_armor_rate"`
+	EnhanceHeavyArmorRate     int64   `json:"enhance_heavy_armor_rate"`
+	EnhanceUnarmedRate        int64   `json:"enhance_unarmed_rate"`
+	EnhanceElasticArmorRate   int64   `json:"enhance_elastic_armor_rate"`
+	EnhanceCompositeArmorRate int64   `json:"enhance_composite_armor_rate"`
+	EnhanceStructureRate      int64   `json:"enhance_structure_rate"`
+	EnhanceNormalArmorRate    int64   `json:"enhance_normal_armor_rate"`
+	ReduceExDamagedRate       int64   `json:"reduce_ex_damaged_rate"`
+	ReduceBasicsDamagedRate   int64   `json:"reduce_basics_damaged_rate"`
+	ReduceWeakDamagedRate     int64   `json:"reduce_weak_damaged_rate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -44,10 +46,12 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ObstacleStatExcelAddEnhanceHeavyArmorRate(b, fbsutils.Convert(t.EnhanceHeavyArmorRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddEnhanceUnarmedRate(b, fbsutils.Convert(t.EnhanceUnarmedRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddEnhanceElasticArmorRate(b, fbsutils.Convert(t.EnhanceElasticArmorRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceCompositeArmorRate(b, fbsutils.Convert(t.EnhanceCompositeArmorRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddEnhanceStructureRate(b, fbsutils.Convert(t.EnhanceStructureRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddEnhanceNormalArmorRate(b, fbsutils.Convert(t.EnhanceNormalArmorRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddReduceWeakDamagedRate(b, fbsutils.Convert(t.ReduceWeakDamagedRate, t.FlatBuffer.TableKey))
 	return ObstacleStatExcelEnd(b)
 }
 
@@ -72,10 +76,12 @@ func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
 	t.EnhanceHeavyArmorRate = fbsutils.Convert(e.EnhanceHeavyArmorRate(), t.FlatBuffer.TableKey)
 	t.EnhanceUnarmedRate = fbsutils.Convert(e.EnhanceUnarmedRate(), t.FlatBuffer.TableKey)
 	t.EnhanceElasticArmorRate = fbsutils.Convert(e.EnhanceElasticArmorRate(), t.FlatBuffer.TableKey)
+	t.EnhanceCompositeArmorRate = fbsutils.Convert(e.EnhanceCompositeArmorRate(), t.FlatBuffer.TableKey)
 	t.EnhanceStructureRate = fbsutils.Convert(e.EnhanceStructureRate(), t.FlatBuffer.TableKey)
 	t.EnhanceNormalArmorRate = fbsutils.Convert(e.EnhanceNormalArmorRate(), t.FlatBuffer.TableKey)
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
 	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
+	t.ReduceWeakDamagedRate = fbsutils.Convert(e.ReduceWeakDamagedRate(), t.FlatBuffer.TableKey)
 	return nil
 }
 

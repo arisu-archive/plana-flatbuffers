@@ -14,6 +14,7 @@ const (
 	BulletTypeMystic    BulletType = 4
 	BulletTypeNone      BulletType = 5
 	BulletTypeSonic     BulletType = 6
+	BulletTypeChemical  BulletType = 7
 )
 
 var EnumNamesBulletType = map[BulletType]string{
@@ -24,6 +25,7 @@ var EnumNamesBulletType = map[BulletType]string{
 	BulletTypeMystic:    "Mystic",
 	BulletTypeNone:      "None",
 	BulletTypeSonic:     "Sonic",
+	BulletTypeChemical:  "Chemical",
 }
 
 var EnumValuesBulletType = map[string]BulletType{
@@ -34,6 +36,7 @@ var EnumValuesBulletType = map[string]BulletType{
 	"Mystic":    BulletTypeMystic,
 	"None":      BulletTypeNone,
 	"Sonic":     BulletTypeSonic,
+	"Chemical":  BulletTypeChemical,
 }
 
 func (v BulletType) String() string {
