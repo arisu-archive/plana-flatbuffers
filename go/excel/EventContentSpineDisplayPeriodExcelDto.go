@@ -10,11 +10,13 @@ import (
 // EventContentSpineDisplayPeriodExcelDto represents a FlatBuffers table
 type EventContentSpineDisplayPeriodExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId  int64          `json:"event_content_id"`
-	DialogCategory  DialogCategory `json:"dialog_category"`
-	CostumeUniqueId int64          `json:"costume_unique_id"`
-	ShowPeriodFrom  string         `json:"show_period_from"`
-	ShowPeriodTo    string         `json:"show_period_to"`
+	EventContentId               int64          `json:"event_content_id"`
+	DialogCategory               DialogCategory `json:"dialog_category"`
+	CostumeUniqueId              int64          `json:"costume_unique_id"`
+	ShowPeriodFrom               string         `json:"show_period_from"`
+	ShowPeriodTo                 string         `json:"show_period_to"`
+	ShowWorldRaidConditionIdFrom int64          `json:"show_world_raid_condition_id_from"`
+	ShowWorldRaidConditionIdTo   int64          `json:"show_world_raid_condition_id_to"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,6 +29,8 @@ func (t *EventContentSpineDisplayPeriodExcelDto) MarshalModel(b *flatbuffers.Bui
 	EventContentSpineDisplayPeriodExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
 	EventContentSpineDisplayPeriodExcelAddShowPeriodFrom(b, __offset_show_period_from)
 	EventContentSpineDisplayPeriodExcelAddShowPeriodTo(b, __offset_show_period_to)
+	EventContentSpineDisplayPeriodExcelAddShowWorldRaidConditionIdFrom(b, fbsutils.Convert(t.ShowWorldRaidConditionIdFrom, t.FlatBuffer.TableKey))
+	EventContentSpineDisplayPeriodExcelAddShowWorldRaidConditionIdTo(b, fbsutils.Convert(t.ShowWorldRaidConditionIdTo, t.FlatBuffer.TableKey))
 	return EventContentSpineDisplayPeriodExcelEnd(b)
 }
 
@@ -44,6 +48,8 @@ func (t *EventContentSpineDisplayPeriodExcelDto) UnmarshalMessage(e *EventConten
 	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.ShowPeriodFrom = fbsutils.Convert(string(e.ShowPeriodFrom()), t.FlatBuffer.TableKey)
 	t.ShowPeriodTo = fbsutils.Convert(string(e.ShowPeriodTo()), t.FlatBuffer.TableKey)
+	t.ShowWorldRaidConditionIdFrom = fbsutils.Convert(e.ShowWorldRaidConditionIdFrom(), t.FlatBuffer.TableKey)
+	t.ShowWorldRaidConditionIdTo = fbsutils.Convert(e.ShowWorldRaidConditionIdTo(), t.FlatBuffer.TableKey)
 	return nil
 }
 

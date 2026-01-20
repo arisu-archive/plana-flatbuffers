@@ -25,6 +25,7 @@ table EquipmentExcel {
     shifting_craft_quality: long;
     shop_category: [ShopCategoryType];
     shortcut_type_id: long;
+    redirect_item_id: long;
 }
 
 root_type EquipmentExcel;

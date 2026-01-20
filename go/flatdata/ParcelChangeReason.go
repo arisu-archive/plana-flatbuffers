@@ -198,9 +198,13 @@ const (
 	ParcelChangeReasonMiniGame_CCGCompleteGame             ParcelChangeReason = 188
 	ParcelChangeReasonMiniGame_CCGBuyPerk                  ParcelChangeReason = 189
 	ParcelChangeReasonCafe_SummonCharacterTicketUse        ParcelChangeReason = 190
-	ParcelChangeReasonConcentration_FlipCard               ParcelChangeReason = 191
-	ParcelChangeReasonConcentration_RoundComplete          ParcelChangeReason = 192
-	ParcelChangeReasonConcentration_RoundSkip              ParcelChangeReason = 193
+	ParcelChangeReasonWorldRaid_UpdateCarrierLevel         ParcelChangeReason = 191
+	ParcelChangeReasonConcentration_FlipCard               ParcelChangeReason = 192
+	ParcelChangeReasonConcentration_RoundComplete          ParcelChangeReason = 193
+	ParcelChangeReasonConcentration_RoundSkip              ParcelChangeReason = 194
+	ParcelChangeReasonMail_ReceiveSemiPermanentMail        ParcelChangeReason = 195
+	ParcelChangeReasonClueSearch_Submit                    ParcelChangeReason = 196
+	ParcelChangeReasonClueSearch_RoundComplete             ParcelChangeReason = 197
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -395,9 +399,13 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonMiniGame_CCGCompleteGame:             "MiniGame_CCGCompleteGame",
 	ParcelChangeReasonMiniGame_CCGBuyPerk:                  "MiniGame_CCGBuyPerk",
 	ParcelChangeReasonCafe_SummonCharacterTicketUse:        "Cafe_SummonCharacterTicketUse",
+	ParcelChangeReasonWorldRaid_UpdateCarrierLevel:         "WorldRaid_UpdateCarrierLevel",
 	ParcelChangeReasonConcentration_FlipCard:               "Concentration_FlipCard",
 	ParcelChangeReasonConcentration_RoundComplete:          "Concentration_RoundComplete",
 	ParcelChangeReasonConcentration_RoundSkip:              "Concentration_RoundSkip",
+	ParcelChangeReasonMail_ReceiveSemiPermanentMail:        "Mail_ReceiveSemiPermanentMail",
+	ParcelChangeReasonClueSearch_Submit:                    "ClueSearch_Submit",
+	ParcelChangeReasonClueSearch_RoundComplete:             "ClueSearch_RoundComplete",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -592,9 +600,13 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"MiniGame_CCGCompleteGame":             ParcelChangeReasonMiniGame_CCGCompleteGame,
 	"MiniGame_CCGBuyPerk":                  ParcelChangeReasonMiniGame_CCGBuyPerk,
 	"Cafe_SummonCharacterTicketUse":        ParcelChangeReasonCafe_SummonCharacterTicketUse,
+	"WorldRaid_UpdateCarrierLevel":         ParcelChangeReasonWorldRaid_UpdateCarrierLevel,
 	"Concentration_FlipCard":               ParcelChangeReasonConcentration_FlipCard,
 	"Concentration_RoundComplete":          ParcelChangeReasonConcentration_RoundComplete,
 	"Concentration_RoundSkip":              ParcelChangeReasonConcentration_RoundSkip,
+	"Mail_ReceiveSemiPermanentMail":        ParcelChangeReasonMail_ReceiveSemiPermanentMail,
+	"ClueSearch_Submit":                    ParcelChangeReasonClueSearch_Submit,
+	"ClueSearch_RoundComplete":             ParcelChangeReasonClueSearch_RoundComplete,
 }
 
 func (v ParcelChangeReason) String() string {

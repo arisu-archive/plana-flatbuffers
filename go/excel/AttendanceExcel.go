@@ -85,15 +85,15 @@ func (rcv *AttendanceExcel) MutateDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *AttendanceExcel) AccountType() AccountState {
+func (rcv *AttendanceExcel) TargetGroup() TargetGroup {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return AccountState(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return TargetGroup(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *AttendanceExcel) MutateAccountType(n AccountState) bool {
+func (rcv *AttendanceExcel) MutateTargetGroup(n TargetGroup) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
@@ -260,8 +260,8 @@ func AttendanceExcelAddCountdownPrefab(builder *flatbuffers.Builder, countdownPr
 func AttendanceExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
 	builder.PrependInt64Slot(3, displayOrder, 0)
 }
-func AttendanceExcelAddAccountType(builder *flatbuffers.Builder, accountType AccountState) {
-	builder.PrependInt32Slot(4, int32(accountType), 0)
+func AttendanceExcelAddTargetGroup(builder *flatbuffers.Builder, targetGroup TargetGroup) {
+	builder.PrependInt32Slot(4, int32(targetGroup), 0)
 }
 func AttendanceExcelAddAccountLevelLimit(builder *flatbuffers.Builder, accountLevelLimit int64) {
 	builder.PrependInt64Slot(5, accountLevelLimit, 0)

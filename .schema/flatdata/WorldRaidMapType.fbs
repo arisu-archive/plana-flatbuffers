@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum WorldRaidMapType: int {
+    None = 0,
+    Carrier = 1,
+    WorldMap = 2,
+}

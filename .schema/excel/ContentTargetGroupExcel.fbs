@@ -1,0 +1,11 @@
+include "AccountState.fbs";
+include "TargetGroup.fbs";
+
+namespace MX.Data.Excel;
+
+table ContentTargetGroupExcel {
+    target_group: TargetGroup;
+    account_type: [AccountState];
+}
+
+root_type ContentTargetGroupExcel;

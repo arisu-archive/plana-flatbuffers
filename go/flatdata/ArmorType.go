@@ -7,30 +7,33 @@ import "strconv"
 type ArmorType int32
 
 const (
-	ArmorTypeLightArmor   ArmorType = 0
-	ArmorTypeHeavyArmor   ArmorType = 1
-	ArmorTypeUnarmed      ArmorType = 2
-	ArmorTypeStructure    ArmorType = 3
-	ArmorTypeNormal       ArmorType = 4
-	ArmorTypeElasticArmor ArmorType = 5
+	ArmorTypeLightArmor     ArmorType = 0
+	ArmorTypeHeavyArmor     ArmorType = 1
+	ArmorTypeUnarmed        ArmorType = 2
+	ArmorTypeStructure      ArmorType = 3
+	ArmorTypeNormal         ArmorType = 4
+	ArmorTypeElasticArmor   ArmorType = 5
+	ArmorTypeCompositeArmor ArmorType = 6
 )
 
 var EnumNamesArmorType = map[ArmorType]string{
-	ArmorTypeLightArmor:   "LightArmor",
-	ArmorTypeHeavyArmor:   "HeavyArmor",
-	ArmorTypeUnarmed:      "Unarmed",
-	ArmorTypeStructure:    "Structure",
-	ArmorTypeNormal:       "Normal",
-	ArmorTypeElasticArmor: "ElasticArmor",
+	ArmorTypeLightArmor:     "LightArmor",
+	ArmorTypeHeavyArmor:     "HeavyArmor",
+	ArmorTypeUnarmed:        "Unarmed",
+	ArmorTypeStructure:      "Structure",
+	ArmorTypeNormal:         "Normal",
+	ArmorTypeElasticArmor:   "ElasticArmor",
+	ArmorTypeCompositeArmor: "CompositeArmor",
 }
 
 var EnumValuesArmorType = map[string]ArmorType{
-	"LightArmor":   ArmorTypeLightArmor,
-	"HeavyArmor":   ArmorTypeHeavyArmor,
-	"Unarmed":      ArmorTypeUnarmed,
-	"Structure":    ArmorTypeStructure,
-	"Normal":       ArmorTypeNormal,
-	"ElasticArmor": ArmorTypeElasticArmor,
+	"LightArmor":     ArmorTypeLightArmor,
+	"HeavyArmor":     ArmorTypeHeavyArmor,
+	"Unarmed":        ArmorTypeUnarmed,
+	"Structure":      ArmorTypeStructure,
+	"Normal":         ArmorTypeNormal,
+	"ElasticArmor":   ArmorTypeElasticArmor,
+	"CompositeArmor": ArmorTypeCompositeArmor,
 }
 
 func (v ArmorType) String() string {

@@ -1,6 +1,7 @@
 include "Difficulty.fbs";
 include "EchelonExtensionType.fbs";
 include "ParcelType.fbs";
+include "RaidBossGroupType.fbs";
 include "TacticEnvironment.fbs";
 
 namespace MX.Data.Excel;
@@ -24,7 +25,7 @@ table EliminateRaidStageExcel {
     raid_room_life_time: int;
     battle_duration: long;
     ground_id: long;
-    ground_dev_name: string;
+    raid_boss_group_type: RaidBossGroupType;
     enter_time_line: string;
     tactic_environment: TacticEnvironment;
     default_clear_score: long;

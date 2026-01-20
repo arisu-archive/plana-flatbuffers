@@ -1,0 +1,23 @@
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidCarrierExcel {
+    carrier_skill_list_group_id: long;
+    event_content_id: long;
+    character_id: long;
+    character_level: int;
+    character_grade: int;
+    ex_skill_group_id: [string];
+    ex_skill_card_texture: [string];
+    fixed_ex_skill_level: [int];
+    passive_skill_group_id: [string];
+    passive_skill_card_texture: [string];
+    fixed_passive_skill_level: [int];
+    extra_passive_skill_group_id: [string];
+    extra_passive_skill_card_texture: [string];
+    fixed_extra_passive_skill_level: [int];
+    hidden_passive_skill_group_id: [string];
+    hidden_passive_skill_card_texture: [string];
+    fixed_hidden_passive_skill_level: [int];
+}
+
+root_type InteractiveWorldRaidCarrierExcel;

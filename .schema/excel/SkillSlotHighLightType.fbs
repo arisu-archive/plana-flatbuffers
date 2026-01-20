@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum SkillSlotHighLightType: int {
+    None = 0,
+    New = 1,
+    Upgrade = 2,
+}

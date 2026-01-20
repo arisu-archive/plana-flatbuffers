@@ -8,6 +8,7 @@ table TutorialFailureImageExcel {
     type: string;
     image_path_kr: string;
     image_path_jp: string;
+    replace_localize_key: string;
 }
 
 root_type TutorialFailureImageExcel;

@@ -682,8 +682,20 @@ func (rcv *GroundExcel) MutateEffectCountLimit(n int32) bool {
 	return rcv._tab.MutateInt32Slot(110, n)
 }
 
-func (rcv *GroundExcel) AllyPassiveSkillId(j int) []byte {
+func (rcv *GroundExcel) CarrierSkillGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *GroundExcel) MutateCarrierSkillGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(112, n)
+}
+
+func (rcv *GroundExcel) AllyPassiveSkillId(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -692,7 +704,7 @@ func (rcv *GroundExcel) AllyPassiveSkillId(j int) []byte {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -700,7 +712,7 @@ func (rcv *GroundExcel) AllyPassiveSkillIdLength() int {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillLevel(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -709,7 +721,7 @@ func (rcv *GroundExcel) AllyPassiveSkillLevel(j int) int32 {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -717,7 +729,7 @@ func (rcv *GroundExcel) AllyPassiveSkillLevelLength() int {
 }
 
 func (rcv *GroundExcel) MutateAllyPassiveSkillLevel(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -726,7 +738,7 @@ func (rcv *GroundExcel) MutateAllyPassiveSkillLevel(j int, n int32) bool {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -735,7 +747,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillId(j int) []byte {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -743,7 +755,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillIdLength() int {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillLevel(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -752,7 +764,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillLevel(j int) int32 {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -760,7 +772,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillLevelLength() int {
 }
 
 func (rcv *GroundExcel) MutateEnemyPassiveSkillLevel(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -769,7 +781,7 @@ func (rcv *GroundExcel) MutateEnemyPassiveSkillLevel(j int, n int32) bool {
 }
 
 func GroundExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(58)
+	builder.StartObject(59)
 }
 func GroundExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -936,26 +948,29 @@ func GroundExcelAddUiSkillMainLogScale(builder *flatbuffers.Builder, uiSkillMain
 func GroundExcelAddEffectCountLimit(builder *flatbuffers.Builder, effectCountLimit int32) {
 	builder.PrependInt32Slot(53, effectCountLimit, 0)
 }
+func GroundExcelAddCarrierSkillGroupId(builder *flatbuffers.Builder, carrierSkillGroupId int64) {
+	builder.PrependInt64Slot(54, carrierSkillGroupId, 0)
+}
 func GroundExcelAddAllyPassiveSkillId(builder *flatbuffers.Builder, allyPassiveSkillId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(54, flatbuffers.UOffsetT(allyPassiveSkillId), 0)
+	builder.PrependUOffsetTSlot(55, flatbuffers.UOffsetT(allyPassiveSkillId), 0)
 }
 func GroundExcelStartAllyPassiveSkillIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddAllyPassiveSkillLevel(builder *flatbuffers.Builder, allyPassiveSkillLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(55, flatbuffers.UOffsetT(allyPassiveSkillLevel), 0)
+	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(allyPassiveSkillLevel), 0)
 }
 func GroundExcelStartAllyPassiveSkillLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddEnemyPassiveSkillId(builder *flatbuffers.Builder, enemyPassiveSkillId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(enemyPassiveSkillId), 0)
+	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(enemyPassiveSkillId), 0)
 }
 func GroundExcelStartEnemyPassiveSkillIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddEnemyPassiveSkillLevel(builder *flatbuffers.Builder, enemyPassiveSkillLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(enemyPassiveSkillLevel), 0)
+	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(enemyPassiveSkillLevel), 0)
 }
 func GroundExcelStartEnemyPassiveSkillLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

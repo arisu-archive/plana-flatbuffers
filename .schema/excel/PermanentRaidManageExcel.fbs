@@ -1,0 +1,11 @@
+include "RaidBossGroupType.fbs";
+
+namespace MX.Data.Excel;
+
+table PermanentRaidManageExcel {
+    type: RaidBossGroupType;
+    open_raid_boss_group: [string];
+    open_date: string;
+}
+
+root_type PermanentRaidManageExcel;

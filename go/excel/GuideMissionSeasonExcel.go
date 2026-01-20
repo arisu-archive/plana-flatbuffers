@@ -77,15 +77,15 @@ func (rcv *GuideMissionSeasonExcel) InfomationLocalizeCode() []byte {
 	return nil
 }
 
-func (rcv *GuideMissionSeasonExcel) AccountType() AccountState {
+func (rcv *GuideMissionSeasonExcel) TargetGroup() TargetGroup {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return AccountState(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return TargetGroup(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *GuideMissionSeasonExcel) MutateAccountType(n AccountState) bool {
+func (rcv *GuideMissionSeasonExcel) MutateTargetGroup(n TargetGroup) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
@@ -320,8 +320,8 @@ func GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(builder *flatbuff
 func GuideMissionSeasonExcelAddInfomationLocalizeCode(builder *flatbuffers.Builder, infomationLocalizeCode flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(infomationLocalizeCode), 0)
 }
-func GuideMissionSeasonExcelAddAccountType(builder *flatbuffers.Builder, accountType AccountState) {
-	builder.PrependInt32Slot(4, int32(accountType), 0)
+func GuideMissionSeasonExcelAddTargetGroup(builder *flatbuffers.Builder, targetGroup TargetGroup) {
+	builder.PrependInt32Slot(4, int32(targetGroup), 0)
 }
 func GuideMissionSeasonExcelAddEnabled(builder *flatbuffers.Builder, enabled bool) {
 	builder.PrependBoolSlot(5, enabled, false)

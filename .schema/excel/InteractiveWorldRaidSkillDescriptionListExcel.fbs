@@ -1,0 +1,17 @@
+include "SkillSlotHighLightType.fbs";
+include "SkillSlotShowType.fbs";
+
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidSkillDescriptionListExcel {
+    id: long;
+    global_skill_group_id: [string];
+    global_skill_remove_condition: [long];
+    global_skill_show_skill_slot: [SkillSlotShowType];
+    global_skill_highlight_resource: [SkillSlotHighLightType];
+    skill_group_id: [string];
+    show_skill_slot: [SkillSlotShowType];
+    highlight_resource: [SkillSlotHighLightType];
+}
+
+root_type InteractiveWorldRaidSkillDescriptionListExcel;

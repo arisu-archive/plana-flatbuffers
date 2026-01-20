@@ -22,7 +22,7 @@ type EventContentMissionExcelDto struct {
 	ViewFlag                      bool                             `json:"view_flag"`
 	DisplayOrder                  int64                            `json:"display_order"`
 	PreMissionId                  []int64                          `json:"pre_mission_id"`
-	AccountType                   AccountState                     `json:"account_type"`
+	TargetGroup                   TargetGroup                      `json:"target_group"`
 	AccountLevel                  int64                            `json:"account_level"`
 	ShortcutUi                    []string                         `json:"shortcut_ui"`
 	ChallengeStageShortcut        int64                            `json:"challenge_stage_shortcut"`
@@ -74,7 +74,7 @@ func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependInt64(fbsutils.Convert(t.PreMissionId[len(t.PreMissionId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
-	EventContentMissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	EventContentMissionExcelAddTargetGroup(b, fbsutils.Convert(t.TargetGroup, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddShortcutUi(b, __offset_shortcut_ui)
 	EventContentMissionExcelAddChallengeStageShortcut(b, fbsutils.Convert(t.ChallengeStageShortcut, t.FlatBuffer.TableKey))
@@ -155,7 +155,7 @@ func (t *EventContentMissionExcelDto) UnmarshalMessage(e *EventContentMissionExc
 	for i := range e.PreMissionIdLength() {
 		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
 	}
-	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
+	t.TargetGroup = TargetGroup(fbsutils.Convert(int32(e.TargetGroup()), t.FlatBuffer.TableKey))
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ShortcutUi = make([]string, e.ShortcutUiLength())
 	for i := range e.ShortcutUiLength() {

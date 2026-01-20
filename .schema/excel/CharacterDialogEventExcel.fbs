@@ -5,6 +5,7 @@ include "DialogCondition.fbs";
 include "DialogConditionDetail.fbs";
 include "DialogType.fbs";
 include "ProductionStep.fbs";
+include "ScenarioCharacterShapes.fbs";
 
 namespace MX.Data.Excel;
 
@@ -32,6 +33,7 @@ table CharacterDialogEventExcel {
     unlock_event_season: long;
     scenario_group_id: long;
     localize_cv_group: string;
+    scenario_character_shapes: ScenarioCharacterShapes;
 }
 
 root_type CharacterDialogEventExcel;

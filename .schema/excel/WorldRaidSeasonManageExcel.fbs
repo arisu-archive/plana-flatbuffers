@@ -4,7 +4,7 @@ namespace MX.Data.Excel;
 
 table WorldRaidSeasonManageExcel {
     season_id: long;
-    event_content_id: long;
+    phase_id: long;
     enter_ticket: CurrencyTypes;
     world_raid_lobby_scene: string;
     world_raid_lobby_banner: string;

@@ -188,5 +188,9 @@ table ConstCommonExcel {
     scenario_auto_delay_millisec_short: float;
     scenario_auto_delay_millisec_very_short: float;
     pc_build_enter_information: int;
+    comeback_user_standard_day: int;
+    comeback_user_log_save_day: int;
+    come_back_activate_cooldown: int;
     cafe_copy_preset_slot_count: int;
+    expiry_product_daily_record_item_receive_day: int;
 }

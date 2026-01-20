@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ConcentratedTargetType: int {
+    None = 0,
+    InvokerOnly = 1,
+}

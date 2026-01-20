@@ -7,69 +7,93 @@ import "strconv"
 type FieldDialogType int32
 
 const (
-	FieldDialogTypeNone        FieldDialogType = 0
-	FieldDialogTypeTalk        FieldDialogType = 1
-	FieldDialogTypeThink       FieldDialogType = 2
-	FieldDialogTypeExclaim     FieldDialogType = 3
-	FieldDialogTypeQuestion    FieldDialogType = 4
-	FieldDialogTypeUpset       FieldDialogType = 5
-	FieldDialogTypeSurprise    FieldDialogType = 6
-	FieldDialogTypeBulb        FieldDialogType = 7
-	FieldDialogTypeHeart       FieldDialogType = 8
-	FieldDialogTypeSweat       FieldDialogType = 9
-	FieldDialogTypeAngry       FieldDialogType = 10
-	FieldDialogTypeMusic       FieldDialogType = 11
-	FieldDialogTypeDot         FieldDialogType = 12
-	FieldDialogTypeMomotalk    FieldDialogType = 13
-	FieldDialogTypePhone       FieldDialogType = 14
-	FieldDialogTypeKeyword     FieldDialogType = 15
-	FieldDialogTypeEvidence    FieldDialogType = 16
-	FieldDialogTypeChat        FieldDialogType = 17
-	FieldDialogTypeKeyword_843 FieldDialogType = 18
+	FieldDialogTypeNone             FieldDialogType = 0
+	FieldDialogTypeTalk             FieldDialogType = 1
+	FieldDialogTypeThink            FieldDialogType = 2
+	FieldDialogTypeExclaim          FieldDialogType = 3
+	FieldDialogTypeQuestion         FieldDialogType = 4
+	FieldDialogTypeUpset            FieldDialogType = 5
+	FieldDialogTypeSurprise         FieldDialogType = 6
+	FieldDialogTypeBulb             FieldDialogType = 7
+	FieldDialogTypeHeart            FieldDialogType = 8
+	FieldDialogTypeSweat            FieldDialogType = 9
+	FieldDialogTypeAngry            FieldDialogType = 10
+	FieldDialogTypeMusic            FieldDialogType = 11
+	FieldDialogTypeDot              FieldDialogType = 12
+	FieldDialogTypeMomotalk         FieldDialogType = 13
+	FieldDialogTypePhone            FieldDialogType = 14
+	FieldDialogTypeKeyword          FieldDialogType = 15
+	FieldDialogTypeEvidence         FieldDialogType = 16
+	FieldDialogTypeChat             FieldDialogType = 17
+	FieldDialogTypeKeyword_843      FieldDialogType = 18
+	FieldDialogTypeAngry_Nobubble   FieldDialogType = 19
+	FieldDialogTypeSad_Nobubble     FieldDialogType = 20
+	FieldDialogTypeSteam_Nobubble   FieldDialogType = 21
+	FieldDialogTypeRespond_Nobubble FieldDialogType = 22
+	FieldDialogTypeSweat_Nobubble   FieldDialogType = 23
+	FieldDialogTypeTwinkle_Nobubble FieldDialogType = 24
+	FieldDialogTypeZZZ_Nobubble     FieldDialogType = 25
+	FieldDialogTypeChat_Nobubble    FieldDialogType = 26
 )
 
 var EnumNamesFieldDialogType = map[FieldDialogType]string{
-	FieldDialogTypeNone:        "None",
-	FieldDialogTypeTalk:        "Talk",
-	FieldDialogTypeThink:       "Think",
-	FieldDialogTypeExclaim:     "Exclaim",
-	FieldDialogTypeQuestion:    "Question",
-	FieldDialogTypeUpset:       "Upset",
-	FieldDialogTypeSurprise:    "Surprise",
-	FieldDialogTypeBulb:        "Bulb",
-	FieldDialogTypeHeart:       "Heart",
-	FieldDialogTypeSweat:       "Sweat",
-	FieldDialogTypeAngry:       "Angry",
-	FieldDialogTypeMusic:       "Music",
-	FieldDialogTypeDot:         "Dot",
-	FieldDialogTypeMomotalk:    "Momotalk",
-	FieldDialogTypePhone:       "Phone",
-	FieldDialogTypeKeyword:     "Keyword",
-	FieldDialogTypeEvidence:    "Evidence",
-	FieldDialogTypeChat:        "Chat",
-	FieldDialogTypeKeyword_843: "Keyword_843",
+	FieldDialogTypeNone:             "None",
+	FieldDialogTypeTalk:             "Talk",
+	FieldDialogTypeThink:            "Think",
+	FieldDialogTypeExclaim:          "Exclaim",
+	FieldDialogTypeQuestion:         "Question",
+	FieldDialogTypeUpset:            "Upset",
+	FieldDialogTypeSurprise:         "Surprise",
+	FieldDialogTypeBulb:             "Bulb",
+	FieldDialogTypeHeart:            "Heart",
+	FieldDialogTypeSweat:            "Sweat",
+	FieldDialogTypeAngry:            "Angry",
+	FieldDialogTypeMusic:            "Music",
+	FieldDialogTypeDot:              "Dot",
+	FieldDialogTypeMomotalk:         "Momotalk",
+	FieldDialogTypePhone:            "Phone",
+	FieldDialogTypeKeyword:          "Keyword",
+	FieldDialogTypeEvidence:         "Evidence",
+	FieldDialogTypeChat:             "Chat",
+	FieldDialogTypeKeyword_843:      "Keyword_843",
+	FieldDialogTypeAngry_Nobubble:   "Angry_Nobubble",
+	FieldDialogTypeSad_Nobubble:     "Sad_Nobubble",
+	FieldDialogTypeSteam_Nobubble:   "Steam_Nobubble",
+	FieldDialogTypeRespond_Nobubble: "Respond_Nobubble",
+	FieldDialogTypeSweat_Nobubble:   "Sweat_Nobubble",
+	FieldDialogTypeTwinkle_Nobubble: "Twinkle_Nobubble",
+	FieldDialogTypeZZZ_Nobubble:     "ZZZ_Nobubble",
+	FieldDialogTypeChat_Nobubble:    "Chat_Nobubble",
 }
 
 var EnumValuesFieldDialogType = map[string]FieldDialogType{
-	"None":        FieldDialogTypeNone,
-	"Talk":        FieldDialogTypeTalk,
-	"Think":       FieldDialogTypeThink,
-	"Exclaim":     FieldDialogTypeExclaim,
-	"Question":    FieldDialogTypeQuestion,
-	"Upset":       FieldDialogTypeUpset,
-	"Surprise":    FieldDialogTypeSurprise,
-	"Bulb":        FieldDialogTypeBulb,
-	"Heart":       FieldDialogTypeHeart,
-	"Sweat":       FieldDialogTypeSweat,
-	"Angry":       FieldDialogTypeAngry,
-	"Music":       FieldDialogTypeMusic,
-	"Dot":         FieldDialogTypeDot,
-	"Momotalk":    FieldDialogTypeMomotalk,
-	"Phone":       FieldDialogTypePhone,
-	"Keyword":     FieldDialogTypeKeyword,
-	"Evidence":    FieldDialogTypeEvidence,
-	"Chat":        FieldDialogTypeChat,
-	"Keyword_843": FieldDialogTypeKeyword_843,
+	"None":             FieldDialogTypeNone,
+	"Talk":             FieldDialogTypeTalk,
+	"Think":            FieldDialogTypeThink,
+	"Exclaim":          FieldDialogTypeExclaim,
+	"Question":         FieldDialogTypeQuestion,
+	"Upset":            FieldDialogTypeUpset,
+	"Surprise":         FieldDialogTypeSurprise,
+	"Bulb":             FieldDialogTypeBulb,
+	"Heart":            FieldDialogTypeHeart,
+	"Sweat":            FieldDialogTypeSweat,
+	"Angry":            FieldDialogTypeAngry,
+	"Music":            FieldDialogTypeMusic,
+	"Dot":              FieldDialogTypeDot,
+	"Momotalk":         FieldDialogTypeMomotalk,
+	"Phone":            FieldDialogTypePhone,
+	"Keyword":          FieldDialogTypeKeyword,
+	"Evidence":         FieldDialogTypeEvidence,
+	"Chat":             FieldDialogTypeChat,
+	"Keyword_843":      FieldDialogTypeKeyword_843,
+	"Angry_Nobubble":   FieldDialogTypeAngry_Nobubble,
+	"Sad_Nobubble":     FieldDialogTypeSad_Nobubble,
+	"Steam_Nobubble":   FieldDialogTypeSteam_Nobubble,
+	"Respond_Nobubble": FieldDialogTypeRespond_Nobubble,
+	"Sweat_Nobubble":   FieldDialogTypeSweat_Nobubble,
+	"Twinkle_Nobubble": FieldDialogTypeTwinkle_Nobubble,
+	"ZZZ_Nobubble":     FieldDialogTypeZZZ_Nobubble,
+	"Chat_Nobubble":    FieldDialogTypeChat_Nobubble,
 }
 
 func (v FieldDialogType) String() string {

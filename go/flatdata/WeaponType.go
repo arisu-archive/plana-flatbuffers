@@ -7,75 +7,78 @@ import "strconv"
 type WeaponType int32
 
 const (
-	WeaponTypeNone    WeaponType = 0
-	WeaponTypeSG      WeaponType = 1
-	WeaponTypeSMG     WeaponType = 2
-	WeaponTypeAR      WeaponType = 3
-	WeaponTypeGL      WeaponType = 4
-	WeaponTypeHG      WeaponType = 5
-	WeaponTypeRL      WeaponType = 6
-	WeaponTypeSR      WeaponType = 7
-	WeaponTypeDSMG    WeaponType = 8
-	WeaponTypeRG      WeaponType = 9
-	WeaponTypeDSG     WeaponType = 10
-	WeaponTypeVulcan  WeaponType = 11
-	WeaponTypeMissile WeaponType = 12
-	WeaponTypeCannon  WeaponType = 13
-	WeaponTypeTaser   WeaponType = 14
-	WeaponTypeMG      WeaponType = 15
-	WeaponTypeBinah   WeaponType = 16
-	WeaponTypeMT      WeaponType = 17
-	WeaponTypeRelic   WeaponType = 18
-	WeaponTypeFT      WeaponType = 19
-	WeaponTypeAkemi   WeaponType = 20
+	WeaponTypeNone         WeaponType = 0
+	WeaponTypeSG           WeaponType = 1
+	WeaponTypeSMG          WeaponType = 2
+	WeaponTypeAR           WeaponType = 3
+	WeaponTypeGL           WeaponType = 4
+	WeaponTypeHG           WeaponType = 5
+	WeaponTypeRL           WeaponType = 6
+	WeaponTypeSR           WeaponType = 7
+	WeaponTypeDSMG         WeaponType = 8
+	WeaponTypeRG           WeaponType = 9
+	WeaponTypeDSG          WeaponType = 10
+	WeaponTypeVulcan       WeaponType = 11
+	WeaponTypeMissile      WeaponType = 12
+	WeaponTypeCannon       WeaponType = 13
+	WeaponTypeTaser        WeaponType = 14
+	WeaponTypeMG           WeaponType = 15
+	WeaponTypeBinah        WeaponType = 16
+	WeaponTypeMT           WeaponType = 17
+	WeaponTypeRelic        WeaponType = 18
+	WeaponTypeFT           WeaponType = 19
+	WeaponTypeAkemi        WeaponType = 20
+	WeaponTypeKetherCannon WeaponType = 21
 )
 
 var EnumNamesWeaponType = map[WeaponType]string{
-	WeaponTypeNone:    "None",
-	WeaponTypeSG:      "SG",
-	WeaponTypeSMG:     "SMG",
-	WeaponTypeAR:      "AR",
-	WeaponTypeGL:      "GL",
-	WeaponTypeHG:      "HG",
-	WeaponTypeRL:      "RL",
-	WeaponTypeSR:      "SR",
-	WeaponTypeDSMG:    "DSMG",
-	WeaponTypeRG:      "RG",
-	WeaponTypeDSG:     "DSG",
-	WeaponTypeVulcan:  "Vulcan",
-	WeaponTypeMissile: "Missile",
-	WeaponTypeCannon:  "Cannon",
-	WeaponTypeTaser:   "Taser",
-	WeaponTypeMG:      "MG",
-	WeaponTypeBinah:   "Binah",
-	WeaponTypeMT:      "MT",
-	WeaponTypeRelic:   "Relic",
-	WeaponTypeFT:      "FT",
-	WeaponTypeAkemi:   "Akemi",
+	WeaponTypeNone:         "None",
+	WeaponTypeSG:           "SG",
+	WeaponTypeSMG:          "SMG",
+	WeaponTypeAR:           "AR",
+	WeaponTypeGL:           "GL",
+	WeaponTypeHG:           "HG",
+	WeaponTypeRL:           "RL",
+	WeaponTypeSR:           "SR",
+	WeaponTypeDSMG:         "DSMG",
+	WeaponTypeRG:           "RG",
+	WeaponTypeDSG:          "DSG",
+	WeaponTypeVulcan:       "Vulcan",
+	WeaponTypeMissile:      "Missile",
+	WeaponTypeCannon:       "Cannon",
+	WeaponTypeTaser:        "Taser",
+	WeaponTypeMG:           "MG",
+	WeaponTypeBinah:        "Binah",
+	WeaponTypeMT:           "MT",
+	WeaponTypeRelic:        "Relic",
+	WeaponTypeFT:           "FT",
+	WeaponTypeAkemi:        "Akemi",
+	WeaponTypeKetherCannon: "KetherCannon",
 }
 
 var EnumValuesWeaponType = map[string]WeaponType{
-	"None":    WeaponTypeNone,
-	"SG":      WeaponTypeSG,
-	"SMG":     WeaponTypeSMG,
-	"AR":      WeaponTypeAR,
-	"GL":      WeaponTypeGL,
-	"HG":      WeaponTypeHG,
-	"RL":      WeaponTypeRL,
-	"SR":      WeaponTypeSR,
-	"DSMG":    WeaponTypeDSMG,
-	"RG":      WeaponTypeRG,
-	"DSG":     WeaponTypeDSG,
-	"Vulcan":  WeaponTypeVulcan,
-	"Missile": WeaponTypeMissile,
-	"Cannon":  WeaponTypeCannon,
-	"Taser":   WeaponTypeTaser,
-	"MG":      WeaponTypeMG,
-	"Binah":   WeaponTypeBinah,
-	"MT":      WeaponTypeMT,
-	"Relic":   WeaponTypeRelic,
-	"FT":      WeaponTypeFT,
-	"Akemi":   WeaponTypeAkemi,
+	"None":         WeaponTypeNone,
+	"SG":           WeaponTypeSG,
+	"SMG":          WeaponTypeSMG,
+	"AR":           WeaponTypeAR,
+	"GL":           WeaponTypeGL,
+	"HG":           WeaponTypeHG,
+	"RL":           WeaponTypeRL,
+	"SR":           WeaponTypeSR,
+	"DSMG":         WeaponTypeDSMG,
+	"RG":           WeaponTypeRG,
+	"DSG":          WeaponTypeDSG,
+	"Vulcan":       WeaponTypeVulcan,
+	"Missile":      WeaponTypeMissile,
+	"Cannon":       WeaponTypeCannon,
+	"Taser":        WeaponTypeTaser,
+	"MG":           WeaponTypeMG,
+	"Binah":        WeaponTypeBinah,
+	"MT":           WeaponTypeMT,
+	"Relic":        WeaponTypeRelic,
+	"FT":           WeaponTypeFT,
+	"Akemi":        WeaponTypeAkemi,
+	"KetherCannon": WeaponTypeKetherCannon,
 }
 
 func (v WeaponType) String() string {

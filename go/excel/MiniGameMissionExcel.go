@@ -191,15 +191,15 @@ func (rcv *MiniGameMissionExcel) MutatePreMissionId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *MiniGameMissionExcel) AccountType() AccountState {
+func (rcv *MiniGameMissionExcel) TargetGroup() TargetGroup {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return AccountState(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return TargetGroup(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *MiniGameMissionExcel) MutateAccountType(n AccountState) bool {
+func (rcv *MiniGameMissionExcel) MutateTargetGroup(n TargetGroup) bool {
 	return rcv._tab.MutateInt32Slot(28, int32(n))
 }
 
@@ -564,8 +564,8 @@ func MiniGameMissionExcelAddPreMissionId(builder *flatbuffers.Builder, preMissio
 func MiniGameMissionExcelStartPreMissionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func MiniGameMissionExcelAddAccountType(builder *flatbuffers.Builder, accountType AccountState) {
-	builder.PrependInt32Slot(12, int32(accountType), 0)
+func MiniGameMissionExcelAddTargetGroup(builder *flatbuffers.Builder, targetGroup TargetGroup) {
+	builder.PrependInt32Slot(12, int32(targetGroup), 0)
 }
 func MiniGameMissionExcelAddAccountLevel(builder *flatbuffers.Builder, accountLevel int64) {
 	builder.PrependInt64Slot(13, accountLevel, 0)

@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidCarrierRecipeExcel {
+    skill_id: long;
+    skill_slot: string;
+    level: int;
+    recipe_ingredient_id: [long];
+}
+
+root_type InteractiveWorldRaidCarrierRecipeExcel;

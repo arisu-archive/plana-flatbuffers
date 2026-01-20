@@ -1,0 +1,9 @@
+include "IAWorldRaidSkillDescriptionListExcel.fbs";
+
+namespace FlatData;
+
+table IAWorldRaidSkillDescriptionListExcelTable {
+    data_list: [IAWorldRaidSkillDescriptionListExcel];
+}
+
+root_type IAWorldRaidSkillDescriptionListExcelTable;

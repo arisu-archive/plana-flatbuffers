@@ -10,10 +10,12 @@ import (
 // SystemMailExcelDto represents a FlatBuffers table
 type SystemMailExcelDto struct {
 	fbsutils.FlatBuffer
-	MailType   MailType `json:"mail_type"`
-	ExpiredDay int64    `json:"expired_day"`
-	Sender     string   `json:"sender"`
-	Comment    string   `json:"comment"`
+	MailType             MailType `json:"mail_type"`
+	IsProductMail        bool     `json:"is_product_mail"`
+	IsVariableExpiredDay bool     `json:"is_variable_expired_day"`
+	ExpiredDay           int64    `json:"expired_day"`
+	Sender               string   `json:"sender"`
+	Comment              string   `json:"comment"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,6 +27,8 @@ func (t *SystemMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	__offset_comment := b.CreateString(fbsutils.Convert(t.Comment, t.FlatBuffer.TableKey))
 	SystemMailExcelStart(b)
 	SystemMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
+	SystemMailExcelAddIsProductMail(b, t.IsProductMail)
+	SystemMailExcelAddIsVariableExpiredDay(b, t.IsVariableExpiredDay)
 	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
 	SystemMailExcelAddSender(b, __offset_sender)
 	SystemMailExcelAddComment(b, __offset_comment)
@@ -44,6 +48,8 @@ func (t *SystemMailExcelDto) UnmarshalMessage(e *SystemMailExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMail"))
 	}
 	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
+	t.IsProductMail = e.IsProductMail()
+	t.IsVariableExpiredDay = e.IsVariableExpiredDay()
 	t.ExpiredDay = fbsutils.Convert(e.ExpiredDay(), t.FlatBuffer.TableKey)
 	t.Sender = fbsutils.Convert(string(e.Sender()), t.FlatBuffer.TableKey)
 	t.Comment = fbsutils.Convert(string(e.Comment()), t.FlatBuffer.TableKey)

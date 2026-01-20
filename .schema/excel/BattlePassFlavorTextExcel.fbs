@@ -3,7 +3,9 @@ namespace MX.Data.Excel;
 table BattlePassFlavorTextExcel {
     group_id: long;
     id: long;
+    text_group: long;
     localize_code_id: uint;
+    sort: long;
 }
 
 root_type BattlePassFlavorTextExcel;

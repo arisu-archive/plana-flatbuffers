@@ -1,6 +1,6 @@
-include "AccountState.fbs";
 include "GuideMissionTabType.fbs";
 include "ParcelType.fbs";
+include "TargetGroup.fbs";
 
 namespace MX.Data.Excel;
 
@@ -9,7 +9,7 @@ table GuideMissionSeasonExcel {
     title_localize_code: string;
     permanent_infomation_localize_code: string;
     infomation_localize_code: string;
-    account_type: AccountState;
+    target_group: TargetGroup;
     enabled: bool;
     banner_open_date: string;
     start_date: string;
