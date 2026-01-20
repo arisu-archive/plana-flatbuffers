@@ -53,7 +53,7 @@ func (rcv *WorldRaidSeasonManageExcel) MutateSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *WorldRaidSeasonManageExcel) EventContentId() int64 {
+func (rcv *WorldRaidSeasonManageExcel) PhaseId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -61,7 +61,7 @@ func (rcv *WorldRaidSeasonManageExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidSeasonManageExcel) MutateEventContentId(n int64) bool {
+func (rcv *WorldRaidSeasonManageExcel) MutatePhaseId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -355,8 +355,8 @@ func WorldRaidSeasonManageExcelStart(builder *flatbuffers.Builder) {
 func WorldRaidSeasonManageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
 	builder.PrependInt64Slot(0, seasonId, 0)
 }
-func WorldRaidSeasonManageExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
+func WorldRaidSeasonManageExcelAddPhaseId(builder *flatbuffers.Builder, phaseId int64) {
+	builder.PrependInt64Slot(1, phaseId, 0)
 }
 func WorldRaidSeasonManageExcelAddEnterTicket(builder *flatbuffers.Builder, enterTicket CurrencyTypes) {
 	builder.PrependInt32Slot(2, int32(enterTicket), 0)

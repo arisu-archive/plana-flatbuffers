@@ -8,6 +8,8 @@ table EventContentSpineDisplayPeriodExcel {
     costume_unique_id: long;
     show_period_from: string;
     show_period_to: string;
+    show_world_raid_condition_id_from: long;
+    show_world_raid_condition_id_to: long;
 }
 
 root_type EventContentSpineDisplayPeriodExcel;

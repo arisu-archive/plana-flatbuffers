@@ -64,6 +64,7 @@ type GroundExcelDto struct {
 	UiEmojiScale                 float32          `json:"ui_emoji_scale"`
 	UiSkillMainLogScale          float32          `json:"ui_skill_main_log_scale"`
 	EffectCountLimit             int32            `json:"effect_count_limit"`
+	CarrierSkillGroupId          int64            `json:"carrier_skill_group_id"`
 	AllyPassiveSkillId           []string         `json:"ally_passive_skill_id"`
 	AllyPassiveSkillLevel        []int32          `json:"ally_passive_skill_level"`
 	EnemyPassiveSkillId          []string         `json:"enemy_passive_skill_id"`
@@ -160,6 +161,7 @@ func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	GroundExcelAddUiEmojiScale(b, fbsutils.Convert(t.UiEmojiScale, t.FlatBuffer.TableKey))
 	GroundExcelAddUiSkillMainLogScale(b, fbsutils.Convert(t.UiSkillMainLogScale, t.FlatBuffer.TableKey))
 	GroundExcelAddEffectCountLimit(b, fbsutils.Convert(t.EffectCountLimit, t.FlatBuffer.TableKey))
+	GroundExcelAddCarrierSkillGroupId(b, fbsutils.Convert(t.CarrierSkillGroupId, t.FlatBuffer.TableKey))
 	GroundExcelAddAllyPassiveSkillId(b, __offset_ally_passive_skill_id)
 	GroundExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
 	for i := range len(t.AllyPassiveSkillLevel) {
@@ -241,6 +243,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.UiEmojiScale = fbsutils.Convert(e.UiEmojiScale(), t.FlatBuffer.TableKey)
 	t.UiSkillMainLogScale = fbsutils.Convert(e.UiSkillMainLogScale(), t.FlatBuffer.TableKey)
 	t.EffectCountLimit = fbsutils.Convert(e.EffectCountLimit(), t.FlatBuffer.TableKey)
+	t.CarrierSkillGroupId = fbsutils.Convert(e.CarrierSkillGroupId(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {
 		t.AllyPassiveSkillId[i] = fbsutils.Convert(string(e.AllyPassiveSkillId(i)), t.FlatBuffer.TableKey)

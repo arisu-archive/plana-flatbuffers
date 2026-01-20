@@ -93,8 +93,32 @@ func (rcv *EventContentSpineDisplayPeriodExcel) ShowPeriodTo() []byte {
 	return nil
 }
 
+func (rcv *EventContentSpineDisplayPeriodExcel) ShowWorldRaidConditionIdFrom() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSpineDisplayPeriodExcel) MutateShowWorldRaidConditionIdFrom(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *EventContentSpineDisplayPeriodExcel) ShowWorldRaidConditionIdTo() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSpineDisplayPeriodExcel) MutateShowWorldRaidConditionIdTo(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
 func EventContentSpineDisplayPeriodExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(7)
 }
 func EventContentSpineDisplayPeriodExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -110,6 +134,12 @@ func EventContentSpineDisplayPeriodExcelAddShowPeriodFrom(builder *flatbuffers.B
 }
 func EventContentSpineDisplayPeriodExcelAddShowPeriodTo(builder *flatbuffers.Builder, showPeriodTo flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(showPeriodTo), 0)
+}
+func EventContentSpineDisplayPeriodExcelAddShowWorldRaidConditionIdFrom(builder *flatbuffers.Builder, showWorldRaidConditionIdFrom int64) {
+	builder.PrependInt64Slot(5, showWorldRaidConditionIdFrom, 0)
+}
+func EventContentSpineDisplayPeriodExcelAddShowWorldRaidConditionIdTo(builder *flatbuffers.Builder, showWorldRaidConditionIdTo int64) {
+	builder.PrependInt64Slot(6, showWorldRaidConditionIdTo, 0)
 }
 func EventContentSpineDisplayPeriodExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

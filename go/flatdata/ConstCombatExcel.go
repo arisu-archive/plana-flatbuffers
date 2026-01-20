@@ -1049,8 +1049,32 @@ func (rcv *ConstCombatExcel) MutateMoveCorrectionSkipRatio(n int32) bool {
 	return rcv._tab.MutateInt32Slot(176, n)
 }
 
+func (rcv *ConstCombatExcel) ObstacleColliderHeightJumpable() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(178))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstCombatExcel) MutateObstacleColliderHeightJumpable(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(178, n)
+}
+
+func (rcv *ConstCombatExcel) ObstacleColliderHeightNotJumpable() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(180))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstCombatExcel) MutateObstacleColliderHeightNotJumpable(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(180, n)
+}
+
 func ConstCombatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(87)
+	builder.StartObject(89)
 }
 func ConstCombatExcelAddSkillHandCount(builder *flatbuffers.Builder, skillHandCount int32) {
 	builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -1312,6 +1336,12 @@ func ConstCombatExcelAddCampaignAlertPopupLevelGap(builder *flatbuffers.Builder,
 }
 func ConstCombatExcelAddMoveCorrectionSkipRatio(builder *flatbuffers.Builder, moveCorrectionSkipRatio int32) {
 	builder.PrependInt32Slot(86, moveCorrectionSkipRatio, 0)
+}
+func ConstCombatExcelAddObstacleColliderHeightJumpable(builder *flatbuffers.Builder, obstacleColliderHeightJumpable float32) {
+	builder.PrependFloat32Slot(87, obstacleColliderHeightJumpable, 0.0)
+}
+func ConstCombatExcelAddObstacleColliderHeightNotJumpable(builder *flatbuffers.Builder, obstacleColliderHeightNotJumpable float32) {
+	builder.PrependFloat32Slot(88, obstacleColliderHeightNotJumpable, 0.0)
 }
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

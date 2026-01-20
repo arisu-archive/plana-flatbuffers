@@ -201,16 +201,30 @@ func (rcv *BattleExcel) MutateWood(n EntityMaterialType) bool {
 	return rcv._tab.MutateInt32Slot(24, int32(n))
 }
 
-func (rcv *BattleExcel) All() CoverMotionType {
+func (rcv *BattleExcel) All(j int) CoverMotionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
-		return CoverMotionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return CoverMotionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *BattleExcel) MutateAll(n CoverMotionType) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
+func (rcv *BattleExcel) AllLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *BattleExcel) MutateAll(j int, n CoverMotionType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
 }
 
 func (rcv *BattleExcel) Distance() TargetSortBy {
@@ -519,8 +533,11 @@ func BattleExcelAddLightArmor(builder *flatbuffers.Builder, lightArmor ArmorType
 func BattleExcelAddWood(builder *flatbuffers.Builder, wood EntityMaterialType) {
 	builder.PrependInt32Slot(10, int32(wood), 0)
 }
-func BattleExcelAddAll(builder *flatbuffers.Builder, all CoverMotionType) {
-	builder.PrependInt32Slot(11, int32(all), 0)
+func BattleExcelAddAll(builder *flatbuffers.Builder, all flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(all), 0)
+}
+func BattleExcelStartAllVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func BattleExcelAddDistance(builder *flatbuffers.Builder, distance TargetSortBy) {
 	builder.PrependInt32Slot(12, int32(distance), 0)

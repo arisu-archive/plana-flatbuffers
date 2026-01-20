@@ -1,0 +1,17 @@
+include "EventContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table InteractiveWorldRaidArcadeMachineExcel {
+    event_content_id: long;
+    mini_game_type: [EventContentType];
+    mini_game_cost_item_id: [long];
+    mini_game_cost_item_amount: [long];
+    mini_game_soft_limit_item_id: [string];
+    mini_game_soft_limit_item_amount: [string];
+    mini_game_image: [string];
+    localize_title: [uint];
+    localize_desc: [uint];
+}
+
+root_type InteractiveWorldRaidArcadeMachineExcel;

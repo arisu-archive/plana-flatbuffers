@@ -98,6 +98,10 @@ const (
 	EquipmentOptionTypeRegenCost_Coefficient                 EquipmentOptionType = 88
 	EquipmentOptionTypeMaxCostIncrease_Base                  EquipmentOptionType = 89
 	EquipmentOptionTypeHealRate_Base                         EquipmentOptionType = 90
+	EquipmentOptionTypeEnhanceChemicalRate_Base              EquipmentOptionType = 91
+	EquipmentOptionTypeEnhanceChemicalRate_Coefficient       EquipmentOptionType = 92
+	EquipmentOptionTypeEnhanceCompositeArmorRate_Base        EquipmentOptionType = 93
+	EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient EquipmentOptionType = 94
 )
 
 var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
@@ -192,6 +196,10 @@ var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
 	EquipmentOptionTypeRegenCost_Coefficient:                 "RegenCost_Coefficient",
 	EquipmentOptionTypeMaxCostIncrease_Base:                  "MaxCostIncrease_Base",
 	EquipmentOptionTypeHealRate_Base:                         "HealRate_Base",
+	EquipmentOptionTypeEnhanceChemicalRate_Base:              "EnhanceChemicalRate_Base",
+	EquipmentOptionTypeEnhanceChemicalRate_Coefficient:       "EnhanceChemicalRate_Coefficient",
+	EquipmentOptionTypeEnhanceCompositeArmorRate_Base:        "EnhanceCompositeArmorRate_Base",
+	EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient: "EnhanceCompositeArmorRate_Coefficient",
 }
 
 var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
@@ -286,6 +294,10 @@ var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
 	"RegenCost_Coefficient":                 EquipmentOptionTypeRegenCost_Coefficient,
 	"MaxCostIncrease_Base":                  EquipmentOptionTypeMaxCostIncrease_Base,
 	"HealRate_Base":                         EquipmentOptionTypeHealRate_Base,
+	"EnhanceChemicalRate_Base":              EquipmentOptionTypeEnhanceChemicalRate_Base,
+	"EnhanceChemicalRate_Coefficient":       EquipmentOptionTypeEnhanceChemicalRate_Coefficient,
+	"EnhanceCompositeArmorRate_Base":        EquipmentOptionTypeEnhanceCompositeArmorRate_Base,
+	"EnhanceCompositeArmorRate_Coefficient": EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient,
 }
 
 func (v EquipmentOptionType) String() string {

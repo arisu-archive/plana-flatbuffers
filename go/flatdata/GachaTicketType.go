@@ -7,51 +7,63 @@ import "strconv"
 type GachaTicketType int32
 
 const (
-	GachaTicketTypeNone                     GachaTicketType = 0
-	GachaTicketTypePackageThreeStar         GachaTicketType = 1
-	GachaTicketTypeThreeStar                GachaTicketType = 2
-	GachaTicketTypeTwoStar                  GachaTicketType = 3
-	GachaTicketTypeNormal                   GachaTicketType = 4
-	GachaTicketTypeNormalOnce               GachaTicketType = 5
-	GachaTicketTypeSelectRecruit            GachaTicketType = 6
-	GachaTicketTypePackagePropertyThreeStar GachaTicketType = 7
-	GachaTicketTypeTemp_1                   GachaTicketType = 8
-	GachaTicketTypePackageAcademyThreeStar  GachaTicketType = 9
-	GachaTicketTypeSelectPickup             GachaTicketType = 10
-	GachaTicketTypeSelectPickupOnce         GachaTicketType = 11
-	GachaTicketTypePackageLimitedThreeStar  GachaTicketType = 12
+	GachaTicketTypeNone                           GachaTicketType = 0
+	GachaTicketTypePackageThreeStar               GachaTicketType = 1
+	GachaTicketTypeThreeStar                      GachaTicketType = 2
+	GachaTicketTypeTwoStar                        GachaTicketType = 3
+	GachaTicketTypeNormal                         GachaTicketType = 4
+	GachaTicketTypeNormalOnce                     GachaTicketType = 5
+	GachaTicketTypeSelectRecruit                  GachaTicketType = 6
+	GachaTicketTypePackagePropertyThreeStar       GachaTicketType = 7
+	GachaTicketTypeTemp_1                         GachaTicketType = 8
+	GachaTicketTypePackageAcademyThreeStar        GachaTicketType = 9
+	GachaTicketTypeSelectPickup                   GachaTicketType = 10
+	GachaTicketTypeSelectPickupOnce               GachaTicketType = 11
+	GachaTicketTypePackageLimitedThreeStar        GachaTicketType = 12
+	GachaTicketTypePackageThreeStar_R88_Explosion GachaTicketType = 13
+	GachaTicketTypePackageThreeStar_R88_Mystic    GachaTicketType = 14
+	GachaTicketTypePackageThreeStar_R88_Pierce    GachaTicketType = 15
+	GachaTicketTypePackageThreeStar_R88_Sonic     GachaTicketType = 16
 )
 
 var EnumNamesGachaTicketType = map[GachaTicketType]string{
-	GachaTicketTypeNone:                     "None",
-	GachaTicketTypePackageThreeStar:         "PackageThreeStar",
-	GachaTicketTypeThreeStar:                "ThreeStar",
-	GachaTicketTypeTwoStar:                  "TwoStar",
-	GachaTicketTypeNormal:                   "Normal",
-	GachaTicketTypeNormalOnce:               "NormalOnce",
-	GachaTicketTypeSelectRecruit:            "SelectRecruit",
-	GachaTicketTypePackagePropertyThreeStar: "PackagePropertyThreeStar",
-	GachaTicketTypeTemp_1:                   "Temp_1",
-	GachaTicketTypePackageAcademyThreeStar:  "PackageAcademyThreeStar",
-	GachaTicketTypeSelectPickup:             "SelectPickup",
-	GachaTicketTypeSelectPickupOnce:         "SelectPickupOnce",
-	GachaTicketTypePackageLimitedThreeStar:  "PackageLimitedThreeStar",
+	GachaTicketTypeNone:                           "None",
+	GachaTicketTypePackageThreeStar:               "PackageThreeStar",
+	GachaTicketTypeThreeStar:                      "ThreeStar",
+	GachaTicketTypeTwoStar:                        "TwoStar",
+	GachaTicketTypeNormal:                         "Normal",
+	GachaTicketTypeNormalOnce:                     "NormalOnce",
+	GachaTicketTypeSelectRecruit:                  "SelectRecruit",
+	GachaTicketTypePackagePropertyThreeStar:       "PackagePropertyThreeStar",
+	GachaTicketTypeTemp_1:                         "Temp_1",
+	GachaTicketTypePackageAcademyThreeStar:        "PackageAcademyThreeStar",
+	GachaTicketTypeSelectPickup:                   "SelectPickup",
+	GachaTicketTypeSelectPickupOnce:               "SelectPickupOnce",
+	GachaTicketTypePackageLimitedThreeStar:        "PackageLimitedThreeStar",
+	GachaTicketTypePackageThreeStar_R88_Explosion: "PackageThreeStar_R88_Explosion",
+	GachaTicketTypePackageThreeStar_R88_Mystic:    "PackageThreeStar_R88_Mystic",
+	GachaTicketTypePackageThreeStar_R88_Pierce:    "PackageThreeStar_R88_Pierce",
+	GachaTicketTypePackageThreeStar_R88_Sonic:     "PackageThreeStar_R88_Sonic",
 }
 
 var EnumValuesGachaTicketType = map[string]GachaTicketType{
-	"None":                     GachaTicketTypeNone,
-	"PackageThreeStar":         GachaTicketTypePackageThreeStar,
-	"ThreeStar":                GachaTicketTypeThreeStar,
-	"TwoStar":                  GachaTicketTypeTwoStar,
-	"Normal":                   GachaTicketTypeNormal,
-	"NormalOnce":               GachaTicketTypeNormalOnce,
-	"SelectRecruit":            GachaTicketTypeSelectRecruit,
-	"PackagePropertyThreeStar": GachaTicketTypePackagePropertyThreeStar,
-	"Temp_1":                   GachaTicketTypeTemp_1,
-	"PackageAcademyThreeStar":  GachaTicketTypePackageAcademyThreeStar,
-	"SelectPickup":             GachaTicketTypeSelectPickup,
-	"SelectPickupOnce":         GachaTicketTypeSelectPickupOnce,
-	"PackageLimitedThreeStar":  GachaTicketTypePackageLimitedThreeStar,
+	"None":                           GachaTicketTypeNone,
+	"PackageThreeStar":               GachaTicketTypePackageThreeStar,
+	"ThreeStar":                      GachaTicketTypeThreeStar,
+	"TwoStar":                        GachaTicketTypeTwoStar,
+	"Normal":                         GachaTicketTypeNormal,
+	"NormalOnce":                     GachaTicketTypeNormalOnce,
+	"SelectRecruit":                  GachaTicketTypeSelectRecruit,
+	"PackagePropertyThreeStar":       GachaTicketTypePackagePropertyThreeStar,
+	"Temp_1":                         GachaTicketTypeTemp_1,
+	"PackageAcademyThreeStar":        GachaTicketTypePackageAcademyThreeStar,
+	"SelectPickup":                   GachaTicketTypeSelectPickup,
+	"SelectPickupOnce":               GachaTicketTypeSelectPickupOnce,
+	"PackageLimitedThreeStar":        GachaTicketTypePackageLimitedThreeStar,
+	"PackageThreeStar_R88_Explosion": GachaTicketTypePackageThreeStar_R88_Explosion,
+	"PackageThreeStar_R88_Mystic":    GachaTicketTypePackageThreeStar_R88_Mystic,
+	"PackageThreeStar_R88_Pierce":    GachaTicketTypePackageThreeStar_R88_Pierce,
+	"PackageThreeStar_R88_Sonic":     GachaTicketTypePackageThreeStar_R88_Sonic,
 }
 
 func (v GachaTicketType) String() string {

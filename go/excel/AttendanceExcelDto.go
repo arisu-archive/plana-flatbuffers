@@ -14,7 +14,7 @@ type AttendanceExcelDto struct {
 	Type                       AttendanceType      `json:"type"`
 	CountdownPrefab            string              `json:"countdown_prefab"`
 	DisplayOrder               int64               `json:"display_order"`
-	AccountType                AccountState        `json:"account_type"`
+	TargetGroup                TargetGroup         `json:"target_group"`
 	AccountLevelLimit          int64               `json:"account_level_limit"`
 	Title                      string              `json:"title"`
 	InfomationLocalizeCode     string              `json:"infomation_localize_code"`
@@ -48,7 +48,7 @@ func (t *AttendanceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	AttendanceExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	AttendanceExcelAddCountdownPrefab(b, __offset_countdown_prefab)
 	AttendanceExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	AttendanceExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	AttendanceExcelAddTargetGroup(b, fbsutils.Convert(t.TargetGroup, t.FlatBuffer.TableKey))
 	AttendanceExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
 	AttendanceExcelAddTitle(b, __offset_title)
 	AttendanceExcelAddInfomationLocalizeCode(b, __offset_infomation_localize_code)
@@ -80,7 +80,7 @@ func (t *AttendanceExcelDto) UnmarshalMessage(e *AttendanceExcel) error {
 	t.Type = AttendanceType(fbsutils.Convert(int32(e.Type()), t.FlatBuffer.TableKey))
 	t.CountdownPrefab = fbsutils.Convert(string(e.CountdownPrefab()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
+	t.TargetGroup = TargetGroup(fbsutils.Convert(int32(e.TargetGroup()), t.FlatBuffer.TableKey))
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
 	t.Title = fbsutils.Convert(string(e.Title()), t.FlatBuffer.TableKey)
 	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)

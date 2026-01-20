@@ -21,7 +21,7 @@ type BattleExcelDto struct {
 	AllySelf         ReArrangeTargetType      `json:"ally_self"`
 	LightArmor       ArmorType                `json:"light_armor"`
 	Wood             EntityMaterialType       `json:"wood"`
-	All              CoverMotionType          `json:"all"`
+	All              []CoverMotionType        `json:"all"`
 	Distance         TargetSortBy             `json:"distance"`
 	CloseToObstacle  PositioningType          `json:"close_to_obstacle"`
 	Students         FormationLine            `json:"students"`
@@ -71,7 +71,11 @@ func (t *BattleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	BattleExcelAddAllySelf(b, fbsutils.Convert(t.AllySelf, t.FlatBuffer.TableKey))
 	BattleExcelAddLightArmor(b, fbsutils.Convert(t.LightArmor, t.FlatBuffer.TableKey))
 	BattleExcelAddWood(b, fbsutils.Convert(t.Wood, t.FlatBuffer.TableKey))
-	BattleExcelAddAll(b, fbsutils.Convert(t.All, t.FlatBuffer.TableKey))
+	BattleExcelStartAllVector(b, len(t.All))
+	for i := range len(t.All) {
+		b.PrependInt32(fbsutils.Convert(int32(t.All[len(t.All)-i-1]), t.FlatBuffer.TableKey))
+	}
+	BattleExcelAddAll(b, b.EndVector(len(t.All)))
 	BattleExcelAddDistance(b, fbsutils.Convert(t.Distance, t.FlatBuffer.TableKey))
 	BattleExcelAddCloseToObstacle(b, fbsutils.Convert(t.CloseToObstacle, t.FlatBuffer.TableKey))
 	BattleExcelAddStudents(b, fbsutils.Convert(t.Students, t.FlatBuffer.TableKey))
@@ -126,7 +130,10 @@ func (t *BattleExcelDto) UnmarshalMessage(e *BattleExcel) error {
 	t.AllySelf = ReArrangeTargetType(fbsutils.Convert(int32(e.AllySelf()), t.FlatBuffer.TableKey))
 	t.LightArmor = ArmorType(fbsutils.Convert(int32(e.LightArmor()), t.FlatBuffer.TableKey))
 	t.Wood = EntityMaterialType(fbsutils.Convert(int32(e.Wood()), t.FlatBuffer.TableKey))
-	t.All = CoverMotionType(fbsutils.Convert(int32(e.All()), t.FlatBuffer.TableKey))
+	t.All = make([]CoverMotionType, e.AllLength())
+	for i := range e.AllLength() {
+		t.All[i] = CoverMotionType(fbsutils.Convert(int32(e.All(i)), t.FlatBuffer.TableKey))
+	}
 	t.Distance = TargetSortBy(fbsutils.Convert(int32(e.Distance()), t.FlatBuffer.TableKey))
 	t.CloseToObstacle = PositioningType(fbsutils.Convert(int32(e.CloseToObstacle()), t.FlatBuffer.TableKey))
 	t.Students = FormationLine(fbsutils.Convert(int32(e.Students()), t.FlatBuffer.TableKey))

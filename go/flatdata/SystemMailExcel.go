@@ -53,8 +53,32 @@ func (rcv *SystemMailExcel) MutateMailType(n MailType) bool {
 	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *SystemMailExcel) ExpiredDay() int64 {
+func (rcv *SystemMailExcel) IsProductMail() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *SystemMailExcel) MutateIsProductMail(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *SystemMailExcel) IsVariableExpiredDay() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *SystemMailExcel) MutateIsVariableExpiredDay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *SystemMailExcel) ExpiredDay() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,11 +86,11 @@ func (rcv *SystemMailExcel) ExpiredDay() int64 {
 }
 
 func (rcv *SystemMailExcel) MutateExpiredDay(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *SystemMailExcel) Sender() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,7 +98,7 @@ func (rcv *SystemMailExcel) Sender() []byte {
 }
 
 func (rcv *SystemMailExcel) Comment() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -82,19 +106,25 @@ func (rcv *SystemMailExcel) Comment() []byte {
 }
 
 func SystemMailExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(6)
 }
 func SystemMailExcelAddMailType(builder *flatbuffers.Builder, mailType MailType) {
 	builder.PrependInt32Slot(0, int32(mailType), 0)
 }
+func SystemMailExcelAddIsProductMail(builder *flatbuffers.Builder, isProductMail bool) {
+	builder.PrependBoolSlot(1, isProductMail, false)
+}
+func SystemMailExcelAddIsVariableExpiredDay(builder *flatbuffers.Builder, isVariableExpiredDay bool) {
+	builder.PrependBoolSlot(2, isVariableExpiredDay, false)
+}
 func SystemMailExcelAddExpiredDay(builder *flatbuffers.Builder, expiredDay int64) {
-	builder.PrependInt64Slot(1, expiredDay, 0)
+	builder.PrependInt64Slot(3, expiredDay, 0)
 }
 func SystemMailExcelAddSender(builder *flatbuffers.Builder, sender flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(sender), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(sender), 0)
 }
 func SystemMailExcelAddComment(builder *flatbuffers.Builder, comment flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(comment), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(comment), 0)
 }
 func SystemMailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

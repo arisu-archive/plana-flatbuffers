@@ -4,6 +4,8 @@ namespace FlatData;
 
 table SystemMailExcel {
     mail_type: MailType;
+    is_product_mail: bool;
+    is_variable_expired_day: bool;
     expired_day: long;
     sender: string;
     comment: string;

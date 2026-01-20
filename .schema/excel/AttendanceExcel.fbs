@@ -1,9 +1,9 @@
-include "AccountState.fbs";
 include "AttendanceCountRule.fbs";
 include "AttendanceResetType.fbs";
 include "AttendanceType.fbs";
 include "DialogCategory.fbs";
 include "MailType.fbs";
+include "TargetGroup.fbs";
 
 namespace MX.Data.Excel;
 
@@ -12,7 +12,7 @@ table AttendanceExcel {
     type: AttendanceType;
     countdown_prefab: string;
     display_order: long;
-    account_type: AccountState;
+    target_group: TargetGroup;
     account_level_limit: long;
     title: string;
     infomation_localize_code: string;

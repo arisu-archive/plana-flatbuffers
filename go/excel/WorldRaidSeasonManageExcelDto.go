@@ -11,7 +11,7 @@ import (
 type WorldRaidSeasonManageExcelDto struct {
 	fbsutils.FlatBuffer
 	SeasonId                          int64         `json:"season_id"`
-	EventContentId                    int64         `json:"event_content_id"`
+	PhaseId                           int64         `json:"phase_id"`
 	EnterTicket                       CurrencyTypes `json:"enter_ticket"`
 	WorldRaidLobbyScene               string        `json:"world_raid_lobby_scene"`
 	WorldRaidLobbyBanner              string        `json:"world_raid_lobby_banner"`
@@ -64,7 +64,7 @@ func (t *WorldRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	__offset_world_raid_map_enter_operator := b.CreateString(fbsutils.Convert(t.WorldRaidMapEnterOperator, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelStart(b)
 	WorldRaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	WorldRaidSeasonManageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	WorldRaidSeasonManageExcelAddPhaseId(b, fbsutils.Convert(t.PhaseId, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddEnterTicket(b, fbsutils.Convert(t.EnterTicket, t.FlatBuffer.TableKey))
 	WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(b, __offset_world_raid_lobby_scene)
 	WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(b, __offset_world_raid_lobby_banner)
@@ -111,7 +111,7 @@ func (t *WorldRaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManageExcel) error {
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.PhaseId = fbsutils.Convert(e.PhaseId(), t.FlatBuffer.TableKey)
 	t.EnterTicket = CurrencyTypes(fbsutils.Convert(int32(e.EnterTicket()), t.FlatBuffer.TableKey))
 	t.WorldRaidLobbyScene = fbsutils.Convert(string(e.WorldRaidLobbyScene()), t.FlatBuffer.TableKey)
 	t.WorldRaidLobbyBanner = fbsutils.Convert(string(e.WorldRaidLobbyBanner()), t.FlatBuffer.TableKey)

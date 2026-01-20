@@ -191,15 +191,15 @@ func (rcv *EventContentMissionExcel) MutatePreMissionId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *EventContentMissionExcel) AccountType() AccountState {
+func (rcv *EventContentMissionExcel) TargetGroup() TargetGroup {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return AccountState(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return TargetGroup(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EventContentMissionExcel) MutateAccountType(n AccountState) bool {
+func (rcv *EventContentMissionExcel) MutateTargetGroup(n TargetGroup) bool {
 	return rcv._tab.MutateInt32Slot(28, int32(n))
 }
 
@@ -576,8 +576,8 @@ func EventContentMissionExcelAddPreMissionId(builder *flatbuffers.Builder, preMi
 func EventContentMissionExcelStartPreMissionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentMissionExcelAddAccountType(builder *flatbuffers.Builder, accountType AccountState) {
-	builder.PrependInt32Slot(12, int32(accountType), 0)
+func EventContentMissionExcelAddTargetGroup(builder *flatbuffers.Builder, targetGroup TargetGroup) {
+	builder.PrependInt32Slot(12, int32(targetGroup), 0)
 }
 func EventContentMissionExcelAddAccountLevel(builder *flatbuffers.Builder, accountLevel int64) {
 	builder.PrependInt64Slot(13, accountLevel, 0)

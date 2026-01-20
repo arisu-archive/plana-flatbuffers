@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table EventContentClueSearchExcel {
+    event_content_id: long;
+    title_localize: uint;
+    use_prefab_name: string;
+    clue_bg_image_path: string;
+}
+
+root_type EventContentClueSearchExcel;

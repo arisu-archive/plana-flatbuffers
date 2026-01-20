@@ -88,4 +88,6 @@ table ConstCombatExcel {
     excessive_touch_check_count: int;
     campaign_alert_popup_level_gap: int;
     move_correction_skip_ratio: int;
+    obstacle_collider_height_jumpable: float;
+    obstacle_collider_height_not_jumpable: float;
 }

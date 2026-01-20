@@ -289,8 +289,20 @@ func (rcv *EquipmentExcel) MutateShortcutTypeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(40, n)
 }
 
+func (rcv *EquipmentExcel) RedirectItemId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EquipmentExcel) MutateRedirectItemId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
+}
+
 func EquipmentExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(19)
+	builder.StartObject(20)
 }
 func EquipmentExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -354,6 +366,9 @@ func EquipmentExcelStartShopCategoryVector(builder *flatbuffers.Builder, numElem
 }
 func EquipmentExcelAddShortcutTypeId(builder *flatbuffers.Builder, shortcutTypeId int64) {
 	builder.PrependInt64Slot(18, shortcutTypeId, 0)
+}
+func EquipmentExcelAddRedirectItemId(builder *flatbuffers.Builder, redirectItemId int64) {
+	builder.PrependInt64Slot(19, redirectItemId, 0)
 }
 func EquipmentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -25,7 +25,7 @@ type MissionExcelDto struct {
 	DateAutoRefer                 ContentType                      `json:"date_auto_refer"`
 	DisplayOrder                  int64                            `json:"display_order"`
 	PreMissionId                  []int64                          `json:"pre_mission_id"`
-	AccountType                   AccountState                     `json:"account_type"`
+	TargetGroup                   TargetGroup                      `json:"target_group"`
 	AccountLevel                  int64                            `json:"account_level"`
 	ContentTags                   []SuddenMissionContentType       `json:"content_tags"`
 	ShortcutUi                    []string                         `json:"shortcut_ui"`
@@ -77,7 +77,7 @@ func (t *MissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		b.PrependInt64(fbsutils.Convert(t.PreMissionId[len(t.PreMissionId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
-	MissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	MissionExcelAddTargetGroup(b, fbsutils.Convert(t.TargetGroup, t.FlatBuffer.TableKey))
 	MissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	MissionExcelStartContentTagsVector(b, len(t.ContentTags))
 	for i := range len(t.ContentTags) {
@@ -144,7 +144,7 @@ func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 	for i := range e.PreMissionIdLength() {
 		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
 	}
-	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
+	t.TargetGroup = TargetGroup(fbsutils.Convert(int32(e.TargetGroup()), t.FlatBuffer.TableKey))
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ContentTags = make([]SuddenMissionContentType, e.ContentTagsLength())
 	for i := range e.ContentTagsLength() {

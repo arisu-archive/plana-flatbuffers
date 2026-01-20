@@ -311,8 +311,20 @@ func (rcv *CharacterDialogEventExcel) LocalizeCvGroup() []byte {
 	return nil
 }
 
+func (rcv *CharacterDialogEventExcel) ScenarioCharacterShapes() ScenarioCharacterShapes {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return ScenarioCharacterShapes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogEventExcel) MutateScenarioCharacterShapes(n ScenarioCharacterShapes) bool {
+	return rcv._tab.MutateInt32Slot(50, int32(n))
+}
+
 func CharacterDialogEventExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(23)
+	builder.StartObject(24)
 }
 func CharacterDialogEventExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
 	builder.PrependInt64Slot(0, costumeUniqueId, 0)
@@ -385,6 +397,9 @@ func CharacterDialogEventExcelAddScenarioGroupId(builder *flatbuffers.Builder, s
 }
 func CharacterDialogEventExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(localizeCvGroup), 0)
+}
+func CharacterDialogEventExcelAddScenarioCharacterShapes(builder *flatbuffers.Builder, scenarioCharacterShapes ScenarioCharacterShapes) {
+	builder.PrependInt32Slot(23, int32(scenarioCharacterShapes), 0)
 }
 func CharacterDialogEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

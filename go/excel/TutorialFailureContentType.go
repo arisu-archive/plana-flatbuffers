@@ -7,39 +7,42 @@ import "strconv"
 type TutorialFailureContentType int32
 
 const (
-	TutorialFailureContentTypeNone              TutorialFailureContentType = 0
-	TutorialFailureContentTypeCampaign          TutorialFailureContentType = 1
-	TutorialFailureContentTypeWeekDungeon       TutorialFailureContentType = 2
-	TutorialFailureContentTypeRaid              TutorialFailureContentType = 3
-	TutorialFailureContentTypeTimeAttackDungeon TutorialFailureContentType = 4
-	TutorialFailureContentTypeWorldRaid         TutorialFailureContentType = 5
-	TutorialFailureContentTypeConquest          TutorialFailureContentType = 6
-	TutorialFailureContentTypeEliminateRaid     TutorialFailureContentType = 7
-	TutorialFailureContentTypeMultiFloorRaid    TutorialFailureContentType = 8
+	TutorialFailureContentTypeNone                 TutorialFailureContentType = 0
+	TutorialFailureContentTypeCampaign             TutorialFailureContentType = 1
+	TutorialFailureContentTypeWeekDungeon          TutorialFailureContentType = 2
+	TutorialFailureContentTypeRaid                 TutorialFailureContentType = 3
+	TutorialFailureContentTypeTimeAttackDungeon    TutorialFailureContentType = 4
+	TutorialFailureContentTypeWorldRaid            TutorialFailureContentType = 5
+	TutorialFailureContentTypeConquest             TutorialFailureContentType = 6
+	TutorialFailureContentTypeEliminateRaid        TutorialFailureContentType = 7
+	TutorialFailureContentTypeMultiFloorRaid       TutorialFailureContentType = 8
+	TutorialFailureContentTypeInteractiveWorldRaid TutorialFailureContentType = 9
 )
 
 var EnumNamesTutorialFailureContentType = map[TutorialFailureContentType]string{
-	TutorialFailureContentTypeNone:              "None",
-	TutorialFailureContentTypeCampaign:          "Campaign",
-	TutorialFailureContentTypeWeekDungeon:       "WeekDungeon",
-	TutorialFailureContentTypeRaid:              "Raid",
-	TutorialFailureContentTypeTimeAttackDungeon: "TimeAttackDungeon",
-	TutorialFailureContentTypeWorldRaid:         "WorldRaid",
-	TutorialFailureContentTypeConquest:          "Conquest",
-	TutorialFailureContentTypeEliminateRaid:     "EliminateRaid",
-	TutorialFailureContentTypeMultiFloorRaid:    "MultiFloorRaid",
+	TutorialFailureContentTypeNone:                 "None",
+	TutorialFailureContentTypeCampaign:             "Campaign",
+	TutorialFailureContentTypeWeekDungeon:          "WeekDungeon",
+	TutorialFailureContentTypeRaid:                 "Raid",
+	TutorialFailureContentTypeTimeAttackDungeon:    "TimeAttackDungeon",
+	TutorialFailureContentTypeWorldRaid:            "WorldRaid",
+	TutorialFailureContentTypeConquest:             "Conquest",
+	TutorialFailureContentTypeEliminateRaid:        "EliminateRaid",
+	TutorialFailureContentTypeMultiFloorRaid:       "MultiFloorRaid",
+	TutorialFailureContentTypeInteractiveWorldRaid: "InteractiveWorldRaid",
 }
 
 var EnumValuesTutorialFailureContentType = map[string]TutorialFailureContentType{
-	"None":              TutorialFailureContentTypeNone,
-	"Campaign":          TutorialFailureContentTypeCampaign,
-	"WeekDungeon":       TutorialFailureContentTypeWeekDungeon,
-	"Raid":              TutorialFailureContentTypeRaid,
-	"TimeAttackDungeon": TutorialFailureContentTypeTimeAttackDungeon,
-	"WorldRaid":         TutorialFailureContentTypeWorldRaid,
-	"Conquest":          TutorialFailureContentTypeConquest,
-	"EliminateRaid":     TutorialFailureContentTypeEliminateRaid,
-	"MultiFloorRaid":    TutorialFailureContentTypeMultiFloorRaid,
+	"None":                 TutorialFailureContentTypeNone,
+	"Campaign":             TutorialFailureContentTypeCampaign,
+	"WeekDungeon":          TutorialFailureContentTypeWeekDungeon,
+	"Raid":                 TutorialFailureContentTypeRaid,
+	"TimeAttackDungeon":    TutorialFailureContentTypeTimeAttackDungeon,
+	"WorldRaid":            TutorialFailureContentTypeWorldRaid,
+	"Conquest":             TutorialFailureContentTypeConquest,
+	"EliminateRaid":        TutorialFailureContentTypeEliminateRaid,
+	"MultiFloorRaid":       TutorialFailureContentTypeMultiFloorRaid,
+	"InteractiveWorldRaid": TutorialFailureContentTypeInteractiveWorldRaid,
 }
 
 func (v TutorialFailureContentType) String() string {

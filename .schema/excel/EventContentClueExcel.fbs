@@ -1,0 +1,17 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table EventContentClueExcel {
+    event_content_id: long;
+    clue_id: long;
+    localize_etc_id: uint;
+    clue_image_path: string;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [long];
+    hint_use: bool;
+    hintlocalizeid: uint;
+}
+
+root_type EventContentClueExcel;
