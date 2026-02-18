@@ -77,8 +77,16 @@ func (rcv *EventContentClueSearchRoundExcel) MutateIsLoop(n bool) bool {
 	return rcv._tab.MutateBoolSlot(8, n)
 }
 
-func (rcv *EventContentClueSearchRoundExcel) Localizeld() uint32 {
+func (rcv *EventContentClueSearchRoundExcel) TargetImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentClueSearchRoundExcel) Localizeld() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -86,11 +94,11 @@ func (rcv *EventContentClueSearchRoundExcel) Localizeld() uint32 {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) MutateLocalizeld(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(12, n)
 }
 
 func (rcv *EventContentClueSearchRoundExcel) RewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -98,11 +106,11 @@ func (rcv *EventContentClueSearchRoundExcel) RewardId() int64 {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueSlotNumber(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -111,7 +119,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueSlotNumber(j int) int32 {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueSlotNumberLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -119,7 +127,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueSlotNumberLength() int {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) MutateClueSlotNumber(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -128,7 +136,7 @@ func (rcv *EventContentClueSearchRoundExcel) MutateClueSlotNumber(j int, n int32
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -137,7 +145,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueId(j int) int64 {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -145,7 +153,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueIdLength() int {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) MutateClueId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -154,7 +162,7 @@ func (rcv *EventContentClueSearchRoundExcel) MutateClueId(j int, n int64) bool {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueCostAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -163,7 +171,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueCostAmount(j int) int64 {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) ClueCostAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -171,7 +179,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueCostAmountLength() int {
 }
 
 func (rcv *EventContentClueSearchRoundExcel) MutateClueCostAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -180,18 +188,6 @@ func (rcv *EventContentClueSearchRoundExcel) MutateClueCostAmount(j int, n int64
 }
 
 func (rcv *EventContentClueSearchRoundExcel) HintlocalizeId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentClueSearchRoundExcel) MutateHintlocalizeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(20, n)
-}
-
-func (rcv *EventContentClueSearchRoundExcel) ClearlocalizeId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -199,12 +195,24 @@ func (rcv *EventContentClueSearchRoundExcel) ClearlocalizeId() uint32 {
 	return 0
 }
 
-func (rcv *EventContentClueSearchRoundExcel) MutateClearlocalizeId(n uint32) bool {
+func (rcv *EventContentClueSearchRoundExcel) MutateHintlocalizeId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(22, n)
 }
 
-func (rcv *EventContentClueSearchRoundExcel) ClueimagePath() []byte {
+func (rcv *EventContentClueSearchRoundExcel) ClearlocalizeId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentClueSearchRoundExcel) MutateClearlocalizeId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(24, n)
+}
+
+func (rcv *EventContentClueSearchRoundExcel) ClearPageImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -212,7 +220,7 @@ func (rcv *EventContentClueSearchRoundExcel) ClueimagePath() []byte {
 }
 
 func EventContentClueSearchRoundExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
+	builder.StartObject(12)
 }
 func EventContentClueSearchRoundExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -223,38 +231,41 @@ func EventContentClueSearchRoundExcelAddRound(builder *flatbuffers.Builder, roun
 func EventContentClueSearchRoundExcelAddIsLoop(builder *flatbuffers.Builder, isLoop bool) {
 	builder.PrependBoolSlot(2, isLoop, false)
 }
+func EventContentClueSearchRoundExcelAddTargetImagePath(builder *flatbuffers.Builder, targetImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(targetImagePath), 0)
+}
 func EventContentClueSearchRoundExcelAddLocalizeld(builder *flatbuffers.Builder, localizeld uint32) {
-	builder.PrependUint32Slot(3, localizeld, 0)
+	builder.PrependUint32Slot(4, localizeld, 0)
 }
 func EventContentClueSearchRoundExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(4, rewardId, 0)
+	builder.PrependInt64Slot(5, rewardId, 0)
 }
 func EventContentClueSearchRoundExcelAddClueSlotNumber(builder *flatbuffers.Builder, clueSlotNumber flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(clueSlotNumber), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(clueSlotNumber), 0)
 }
 func EventContentClueSearchRoundExcelStartClueSlotNumberVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentClueSearchRoundExcelAddClueId(builder *flatbuffers.Builder, clueId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(clueId), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(clueId), 0)
 }
 func EventContentClueSearchRoundExcelStartClueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentClueSearchRoundExcelAddClueCostAmount(builder *flatbuffers.Builder, clueCostAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(clueCostAmount), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(clueCostAmount), 0)
 }
 func EventContentClueSearchRoundExcelStartClueCostAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentClueSearchRoundExcelAddHintlocalizeId(builder *flatbuffers.Builder, hintlocalizeId uint32) {
-	builder.PrependUint32Slot(8, hintlocalizeId, 0)
+	builder.PrependUint32Slot(9, hintlocalizeId, 0)
 }
 func EventContentClueSearchRoundExcelAddClearlocalizeId(builder *flatbuffers.Builder, clearlocalizeId uint32) {
-	builder.PrependUint32Slot(9, clearlocalizeId, 0)
+	builder.PrependUint32Slot(10, clearlocalizeId, 0)
 }
-func EventContentClueSearchRoundExcelAddClueimagePath(builder *flatbuffers.Builder, clueimagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(clueimagePath), 0)
+func EventContentClueSearchRoundExcelAddClearPageImagePath(builder *flatbuffers.Builder, clearPageImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(clearPageImagePath), 0)
 }
 func EventContentClueSearchRoundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

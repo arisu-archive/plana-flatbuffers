@@ -6,6 +6,7 @@ table EventContentClueExcel {
     event_content_id: long;
     clue_id: long;
     localize_etc_id: uint;
+    slot_clue_image_path: string;
     clue_image_path: string;
     reward_parcel_type: [ParcelType];
     reward_parcel_id: [long];

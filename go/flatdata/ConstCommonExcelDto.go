@@ -198,6 +198,8 @@ type ConstCommonExcelDto struct {
 	ComeBackActivateCooldown                   int32            `json:"come_back_activate_cooldown"`
 	CafeCopyPresetSlotCount                    int32            `json:"cafe_copy_preset_slot_count"`
 	ExpiryProductDailyRecordItemReceiveDay     int32            `json:"expiry_product_daily_record_item_receive_day"`
+	NewbieUserStandardDay                      int32            `json:"newbie_user_standard_day"`
+	NewbieStateHoldDay                         int32            `json:"newbie_state_hold_day"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -418,6 +420,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddComeBackActivateCooldown(b, fbsutils.Convert(t.ComeBackActivateCooldown, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeCopyPresetSlotCount(b, fbsutils.Convert(t.CafeCopyPresetSlotCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(b, fbsutils.Convert(t.ExpiryProductDailyRecordItemReceiveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddNewbieUserStandardDay(b, fbsutils.Convert(t.NewbieUserStandardDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddNewbieStateHoldDay(b, fbsutils.Convert(t.NewbieStateHoldDay, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -636,6 +640,8 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ComeBackActivateCooldown = fbsutils.Convert(e.ComeBackActivateCooldown(), t.FlatBuffer.TableKey)
 	t.CafeCopyPresetSlotCount = fbsutils.Convert(e.CafeCopyPresetSlotCount(), t.FlatBuffer.TableKey)
 	t.ExpiryProductDailyRecordItemReceiveDay = fbsutils.Convert(e.ExpiryProductDailyRecordItemReceiveDay(), t.FlatBuffer.TableKey)
+	t.NewbieUserStandardDay = fbsutils.Convert(e.NewbieUserStandardDay(), t.FlatBuffer.TableKey)
+	t.NewbieStateHoldDay = fbsutils.Convert(e.NewbieStateHoldDay(), t.FlatBuffer.TableKey)
 	return nil
 }
 

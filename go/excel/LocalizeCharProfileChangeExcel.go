@@ -77,8 +77,20 @@ func (rcv *LocalizeCharProfileChangeExcel) MutateChangeCharacterId(n int64) bool
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
+func (rcv *LocalizeCharProfileChangeExcel) OverrideClub() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *LocalizeCharProfileChangeExcel) MutateOverrideClub(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
 func LocalizeCharProfileChangeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func LocalizeCharProfileChangeExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(0, characterId, 0)
@@ -88,6 +100,9 @@ func LocalizeCharProfileChangeExcelAddScenarioModeId(builder *flatbuffers.Builde
 }
 func LocalizeCharProfileChangeExcelAddChangeCharacterId(builder *flatbuffers.Builder, changeCharacterId int64) {
 	builder.PrependInt64Slot(2, changeCharacterId, 0)
+}
+func LocalizeCharProfileChangeExcelAddOverrideClub(builder *flatbuffers.Builder, overrideClub bool) {
+	builder.PrependBoolSlot(3, overrideClub, false)
 }
 func LocalizeCharProfileChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

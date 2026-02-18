@@ -2351,8 +2351,32 @@ func (rcv *ConstCommonExcel) MutateExpiryProductDailyRecordItemReceiveDay(n int3
 	return rcv._tab.MutateInt32Slot(378, n)
 }
 
+func (rcv *ConstCommonExcel) NewbieUserStandardDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(380))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieUserStandardDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(380, n)
+}
+
+func (rcv *ConstCommonExcel) NewbieStateHoldDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(382))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieStateHoldDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(382, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(188)
+	builder.StartObject(190)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2932,6 +2956,12 @@ func ConstCommonExcelAddCafeCopyPresetSlotCount(builder *flatbuffers.Builder, ca
 }
 func ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(builder *flatbuffers.Builder, expiryProductDailyRecordItemReceiveDay int32) {
 	builder.PrependInt32Slot(187, expiryProductDailyRecordItemReceiveDay, 0)
+}
+func ConstCommonExcelAddNewbieUserStandardDay(builder *flatbuffers.Builder, newbieUserStandardDay int32) {
+	builder.PrependInt32Slot(188, newbieUserStandardDay, 0)
+}
+func ConstCommonExcelAddNewbieStateHoldDay(builder *flatbuffers.Builder, newbieStateHoldDay int32) {
+	builder.PrependInt32Slot(189, newbieStateHoldDay, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

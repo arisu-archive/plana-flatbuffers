@@ -53,8 +53,20 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateId(n int64) bool
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillGroupId(j int) []byte {
+func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) SkillParcelEchelonType() EchelonExtensionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateSkillParcelEchelonType(n EchelonExtensionType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillGroupId(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -63,7 +75,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillGroupId(j i
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -71,7 +83,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillGroupIdLeng
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillRemoveCondition(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -80,7 +92,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillRemoveCondi
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillRemoveConditionLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -88,7 +100,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillRemoveCondi
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillRemoveCondition(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -97,7 +109,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillRemov
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillShowSkillSlot(j int) SkillSlotShowType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return SkillSlotShowType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -106,7 +118,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillShowSkillSl
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillShowSkillSlotLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -114,7 +126,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillShowSkillSl
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillShowSkillSlot(j int, n SkillSlotShowType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -123,7 +135,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillShowS
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillHighlightResource(j int) SkillSlotHighLightType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return SkillSlotHighLightType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -132,7 +144,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillHighlightRe
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillHighlightResourceLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -140,7 +152,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) GlobalSkillHighlightRe
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillHighlightResource(j int, n SkillSlotHighLightType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -149,7 +161,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateGlobalSkillHighl
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) SkillGroupId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -158,7 +170,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) SkillGroupId(j int) []
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) SkillGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -166,7 +178,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) SkillGroupIdLength() i
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) ShowSkillSlot(j int) SkillSlotShowType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return SkillSlotShowType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -175,7 +187,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) ShowSkillSlot(j int) S
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) ShowSkillSlotLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -183,7 +195,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) ShowSkillSlotLength() 
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateShowSkillSlot(j int, n SkillSlotShowType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -192,7 +204,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateShowSkillSlot(j 
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) HighlightResource(j int) SkillSlotHighLightType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return SkillSlotHighLightType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -201,7 +213,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) HighlightResource(j in
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) HighlightResourceLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -209,7 +221,7 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) HighlightResourceLengt
 }
 
 func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateHighlightResource(j int, n SkillSlotHighLightType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -218,49 +230,52 @@ func (rcv *InteractiveWorldRaidSkillDescriptionListExcel) MutateHighlightResourc
 }
 
 func InteractiveWorldRaidSkillDescriptionListExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(8)
+	builder.StartObject(9)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
+func InteractiveWorldRaidSkillDescriptionListExcelAddSkillParcelEchelonType(builder *flatbuffers.Builder, skillParcelEchelonType EchelonExtensionType) {
+	builder.PrependInt32Slot(1, int32(skillParcelEchelonType), 0)
+}
 func InteractiveWorldRaidSkillDescriptionListExcelAddGlobalSkillGroupId(builder *flatbuffers.Builder, globalSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(globalSkillGroupId), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(globalSkillGroupId), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartGlobalSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddGlobalSkillRemoveCondition(builder *flatbuffers.Builder, globalSkillRemoveCondition flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(globalSkillRemoveCondition), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(globalSkillRemoveCondition), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartGlobalSkillRemoveConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddGlobalSkillShowSkillSlot(builder *flatbuffers.Builder, globalSkillShowSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(globalSkillShowSkillSlot), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(globalSkillShowSkillSlot), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartGlobalSkillShowSkillSlotVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddGlobalSkillHighlightResource(builder *flatbuffers.Builder, globalSkillHighlightResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(globalSkillHighlightResource), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(globalSkillHighlightResource), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartGlobalSkillHighlightResourceVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(skillGroupId), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(skillGroupId), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartSkillGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddShowSkillSlot(builder *flatbuffers.Builder, showSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(showSkillSlot), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(showSkillSlot), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartShowSkillSlotVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelAddHighlightResource(builder *flatbuffers.Builder, highlightResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(highlightResource), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(highlightResource), 0)
 }
 func InteractiveWorldRaidSkillDescriptionListExcelStartHighlightResourceVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

@@ -263,8 +263,20 @@ func (rcv *InteractiveWorldRaidBossGroupExcel) RaidScenarioBattleLocalizeKey() [
 	return nil
 }
 
+func (rcv *InteractiveWorldRaidBossGroupExcel) IsSeasonFinalBoss() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *InteractiveWorldRaidBossGroupExcel) MutateIsSeasonFinalBoss(n bool) bool {
+	return rcv._tab.MutateBoolSlot(46, n)
+}
+
 func InteractiveWorldRaidBossGroupExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(21)
+	builder.StartObject(22)
 }
 func InteractiveWorldRaidBossGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -331,6 +343,9 @@ func InteractiveWorldRaidBossGroupExcelAddBossGroupOpenCondition(builder *flatbu
 }
 func InteractiveWorldRaidBossGroupExcelAddRaidScenarioBattleLocalizeKey(builder *flatbuffers.Builder, raidScenarioBattleLocalizeKey flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(raidScenarioBattleLocalizeKey), 0)
+}
+func InteractiveWorldRaidBossGroupExcelAddIsSeasonFinalBoss(builder *flatbuffers.Builder, isSeasonFinalBoss bool) {
+	builder.PrependBoolSlot(21, isSeasonFinalBoss, false)
 }
 func InteractiveWorldRaidBossGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

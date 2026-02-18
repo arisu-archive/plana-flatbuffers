@@ -325,6 +325,7 @@ var fbs = map[string]reflect.Type{
 	"productmonthlyexcel": reflect.TypeOf((*ProductMonthlyExcelDto)(nil)).Elem(),
 	"productselectexcel": reflect.TypeOf((*ProductSelectExcelDto)(nil)).Elem(),
 	"productselectiongroupexcel": reflect.TypeOf((*ProductSelectionGroupExcelDto)(nil)).Elem(),
+	"raidcontentplayguideexcel": reflect.TypeOf((*RaidContentPlayGuideExcelDto)(nil)).Elem(),
 	"raidrankingrewardexcel": reflect.TypeOf((*RaidRankingRewardExcelDto)(nil)).Elem(),
 	"raidseasonmanageexcel": reflect.TypeOf((*RaidSeasonManageExcelDto)(nil)).Elem(),
 	"raidstageexcel": reflect.TypeOf((*RaidStageExcelDto)(nil)).Elem(),

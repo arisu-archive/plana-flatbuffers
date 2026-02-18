@@ -22,6 +22,7 @@ table InteractiveWorldRaidBossGroupExcel {
     exclusive_operator_boss_damaged: string;
     boss_group_open_condition: long;
     raid_scenario_battle_localize_key: string;
+    is_season_final_boss: bool;
 }
 
 root_type InteractiveWorldRaidBossGroupExcel;
