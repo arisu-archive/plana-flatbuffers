@@ -31,6 +31,7 @@ type InteractiveWorldRaidBossGroupExcelDto struct {
 	ExclusiveOperatorBossDamaged    string  `json:"exclusive_operator_boss_damaged"`
 	BossGroupOpenCondition          int64   `json:"boss_group_open_condition"`
 	RaidScenarioBattleLocalizeKey   string  `json:"raid_scenario_battle_localize_key"`
+	IsSeasonFinalBoss               bool    `json:"is_season_final_boss"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -72,6 +73,7 @@ func (t *InteractiveWorldRaidBossGroupExcelDto) MarshalModel(b *flatbuffers.Buil
 	InteractiveWorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(b, __offset_exclusive_operator_boss_damaged)
 	InteractiveWorldRaidBossGroupExcelAddBossGroupOpenCondition(b, fbsutils.Convert(t.BossGroupOpenCondition, t.FlatBuffer.TableKey))
 	InteractiveWorldRaidBossGroupExcelAddRaidScenarioBattleLocalizeKey(b, __offset_raid_scenario_battle_localize_key)
+	InteractiveWorldRaidBossGroupExcelAddIsSeasonFinalBoss(b, t.IsSeasonFinalBoss)
 	return InteractiveWorldRaidBossGroupExcelEnd(b)
 }
 
@@ -108,6 +110,7 @@ func (t *InteractiveWorldRaidBossGroupExcelDto) UnmarshalMessage(e *InteractiveW
 	t.ExclusiveOperatorBossDamaged = fbsutils.Convert(string(e.ExclusiveOperatorBossDamaged()), t.FlatBuffer.TableKey)
 	t.BossGroupOpenCondition = fbsutils.Convert(e.BossGroupOpenCondition(), t.FlatBuffer.TableKey)
 	t.RaidScenarioBattleLocalizeKey = fbsutils.Convert(string(e.RaidScenarioBattleLocalizeKey()), t.FlatBuffer.TableKey)
+	t.IsSeasonFinalBoss = e.IsSeasonFinalBoss()
 	return nil
 }
 

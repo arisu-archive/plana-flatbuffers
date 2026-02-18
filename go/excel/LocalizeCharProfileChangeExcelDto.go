@@ -13,6 +13,7 @@ type LocalizeCharProfileChangeExcelDto struct {
 	CharacterId       int64 `json:"character_id"`
 	ScenarioModeId    int64 `json:"scenario_mode_id"`
 	ChangeCharacterId int64 `json:"change_character_id"`
+	OverrideClub      bool  `json:"override_club"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,6 +22,7 @@ func (t *LocalizeCharProfileChangeExcelDto) MarshalModel(b *flatbuffers.Builder)
 	LocalizeCharProfileChangeExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileChangeExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileChangeExcelAddChangeCharacterId(b, fbsutils.Convert(t.ChangeCharacterId, t.FlatBuffer.TableKey))
+	LocalizeCharProfileChangeExcelAddOverrideClub(b, t.OverrideClub)
 	return LocalizeCharProfileChangeExcelEnd(b)
 }
 
@@ -36,6 +38,7 @@ func (t *LocalizeCharProfileChangeExcelDto) UnmarshalMessage(e *LocalizeCharProf
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.ChangeCharacterId = fbsutils.Convert(e.ChangeCharacterId(), t.FlatBuffer.TableKey)
+	t.OverrideClub = e.OverrideClub()
 	return nil
 }
 

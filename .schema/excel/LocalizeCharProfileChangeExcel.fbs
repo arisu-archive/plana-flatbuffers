@@ -4,6 +4,7 @@ table LocalizeCharProfileChangeExcel {
     character_id: long;
     scenario_mode_id: long;
     change_character_id: long;
+    override_club: bool;
 }
 
 root_type LocalizeCharProfileChangeExcel;

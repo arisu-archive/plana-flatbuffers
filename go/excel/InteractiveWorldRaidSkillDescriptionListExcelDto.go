@@ -11,6 +11,7 @@ import (
 type InteractiveWorldRaidSkillDescriptionListExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                           int64                    `json:"id"`
+	SkillParcelEchelonType       EchelonExtensionType     `json:"skill_parcel_echelon_type"`
 	GlobalSkillGroupId           []string                 `json:"global_skill_group_id"`
 	GlobalSkillRemoveCondition   []int64                  `json:"global_skill_remove_condition"`
 	GlobalSkillShowSkillSlot     []SkillSlotShowType      `json:"global_skill_show_skill_slot"`
@@ -44,6 +45,7 @@ func (t *InteractiveWorldRaidSkillDescriptionListExcelDto) MarshalModel(b *flatb
 	__offset_skill_group_id = b.EndVector(len(t.SkillGroupId))
 	InteractiveWorldRaidSkillDescriptionListExcelStart(b)
 	InteractiveWorldRaidSkillDescriptionListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	InteractiveWorldRaidSkillDescriptionListExcelAddSkillParcelEchelonType(b, fbsutils.Convert(t.SkillParcelEchelonType, t.FlatBuffer.TableKey))
 	InteractiveWorldRaidSkillDescriptionListExcelAddGlobalSkillGroupId(b, __offset_global_skill_group_id)
 	InteractiveWorldRaidSkillDescriptionListExcelStartGlobalSkillRemoveConditionVector(b, len(t.GlobalSkillRemoveCondition))
 	for i := range len(t.GlobalSkillRemoveCondition) {
@@ -84,6 +86,7 @@ func (t *InteractiveWorldRaidSkillDescriptionListExcelDto) Marshal() ([]byte, er
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *InteractiveWorldRaidSkillDescriptionListExcelDto) UnmarshalMessage(e *InteractiveWorldRaidSkillDescriptionListExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.SkillParcelEchelonType = EchelonExtensionType(fbsutils.Convert(int32(e.SkillParcelEchelonType()), t.FlatBuffer.TableKey))
 	t.GlobalSkillGroupId = make([]string, e.GlobalSkillGroupIdLength())
 	for i := range e.GlobalSkillGroupIdLength() {
 		t.GlobalSkillGroupId[i] = fbsutils.Convert(string(e.GlobalSkillGroupId(i)), t.FlatBuffer.TableKey)

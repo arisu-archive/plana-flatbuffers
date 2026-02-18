@@ -13,6 +13,7 @@ type EventContentClueExcelDto struct {
 	EventContentId     int64        `json:"event_content_id"`
 	ClueId             int64        `json:"clue_id"`
 	LocalizeEtcId      uint32       `json:"localize_etc_id"`
+	SlotClueImagePath  string       `json:"slot_clue_image_path"`
 	ClueImagePath      string       `json:"clue_image_path"`
 	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
 	RewardParcelId     []int64      `json:"reward_parcel_id"`
@@ -23,11 +24,13 @@ type EventContentClueExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentClueExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_slot_clue_image_path := b.CreateString(fbsutils.Convert(t.SlotClueImagePath, t.FlatBuffer.TableKey))
 	__offset_clue_image_path := b.CreateString(fbsutils.Convert(t.ClueImagePath, t.FlatBuffer.TableKey))
 	EventContentClueExcelStart(b)
 	EventContentClueExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentClueExcelAddClueId(b, fbsutils.Convert(t.ClueId, t.FlatBuffer.TableKey))
 	EventContentClueExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentClueExcelAddSlotClueImagePath(b, __offset_slot_clue_image_path)
 	EventContentClueExcelAddClueImagePath(b, __offset_clue_image_path)
 	EventContentClueExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
@@ -61,6 +64,7 @@ func (t *EventContentClueExcelDto) UnmarshalMessage(e *EventContentClueExcel) er
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ClueId = fbsutils.Convert(e.ClueId(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.SlotClueImagePath = fbsutils.Convert(string(e.SlotClueImagePath()), t.FlatBuffer.TableKey)
 	t.ClueImagePath = fbsutils.Convert(string(e.ClueImagePath()), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {

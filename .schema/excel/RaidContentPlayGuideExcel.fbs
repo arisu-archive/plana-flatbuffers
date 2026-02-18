@@ -1,0 +1,16 @@
+include "RaidBossGroupType.fbs";
+
+namespace MX.Data.Excel;
+
+table RaidContentPlayGuideExcel {
+    id: long;
+    raid_boss_group_type: RaidBossGroupType;
+    is_pc_build: bool;
+    id_export: bool;
+    display_order: int;
+    guide_title: uint;
+    guide_image_path: string;
+    guide_text: uint;
+}
+
+root_type RaidContentPlayGuideExcel;
