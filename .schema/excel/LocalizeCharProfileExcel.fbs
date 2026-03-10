@@ -1,3 +1,5 @@
+include "Club.fbs";
+
 namespace MX.Data.Excel;
 
 table LocalizeCharProfileExcel {
@@ -14,6 +16,7 @@ table LocalizeCharProfileExcel {
     family_name_ruby_jp: string;
     personal_name_jp: string;
     personal_name_ruby_jp: string;
+    club: Club;
     school_year_kr: string;
     school_year_jp: string;
     character_age_kr: string;

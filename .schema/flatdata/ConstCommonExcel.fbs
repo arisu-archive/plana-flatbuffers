@@ -193,4 +193,6 @@ table ConstCommonExcel {
     come_back_activate_cooldown: int;
     cafe_copy_preset_slot_count: int;
     expiry_product_daily_record_item_receive_day: int;
+    newbie_user_standard_day: int;
+    newbie_state_hold_day: int;
 }

@@ -10,26 +10,29 @@ import (
 // EventContentClueSearchRoundExcelDto represents a FlatBuffers table
 type EventContentClueSearchRoundExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId  int64   `json:"event_content_id"`
-	Round           int64   `json:"round"`
-	IsLoop          bool    `json:"is_loop"`
-	Localizeld      uint32  `json:"localizeld"`
-	RewardId        int64   `json:"reward_id"`
-	ClueSlotNumber  []int32 `json:"clue_slot_number"`
-	ClueId          []int64 `json:"clue_id"`
-	ClueCostAmount  []int64 `json:"clue_cost_amount"`
-	HintlocalizeId  uint32  `json:"hintlocalize_id"`
-	ClearlocalizeId uint32  `json:"clearlocalize_id"`
-	ClueimagePath   string  `json:"clueimage_path"`
+	EventContentId     int64   `json:"event_content_id"`
+	Round              int64   `json:"round"`
+	IsLoop             bool    `json:"is_loop"`
+	TargetImagePath    string  `json:"target_image_path"`
+	Localizeld         uint32  `json:"localizeld"`
+	RewardId           int64   `json:"reward_id"`
+	ClueSlotNumber     []int32 `json:"clue_slot_number"`
+	ClueId             []int64 `json:"clue_id"`
+	ClueCostAmount     []int64 `json:"clue_cost_amount"`
+	HintlocalizeId     uint32  `json:"hintlocalize_id"`
+	ClearlocalizeId    uint32  `json:"clearlocalize_id"`
+	ClearPageImagePath string  `json:"clear_page_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentClueSearchRoundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	__offset_clueimage_path := b.CreateString(fbsutils.Convert(t.ClueimagePath, t.FlatBuffer.TableKey))
+	__offset_target_image_path := b.CreateString(fbsutils.Convert(t.TargetImagePath, t.FlatBuffer.TableKey))
+	__offset_clear_page_image_path := b.CreateString(fbsutils.Convert(t.ClearPageImagePath, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelStart(b)
 	EventContentClueSearchRoundExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelAddIsLoop(b, t.IsLoop)
+	EventContentClueSearchRoundExcelAddTargetImagePath(b, __offset_target_image_path)
 	EventContentClueSearchRoundExcelAddLocalizeld(b, fbsutils.Convert(t.Localizeld, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelStartClueSlotNumberVector(b, len(t.ClueSlotNumber))
@@ -49,7 +52,7 @@ func (t *EventContentClueSearchRoundExcelDto) MarshalModel(b *flatbuffers.Builde
 	EventContentClueSearchRoundExcelAddClueCostAmount(b, b.EndVector(len(t.ClueCostAmount)))
 	EventContentClueSearchRoundExcelAddHintlocalizeId(b, fbsutils.Convert(t.HintlocalizeId, t.FlatBuffer.TableKey))
 	EventContentClueSearchRoundExcelAddClearlocalizeId(b, fbsutils.Convert(t.ClearlocalizeId, t.FlatBuffer.TableKey))
-	EventContentClueSearchRoundExcelAddClueimagePath(b, __offset_clueimage_path)
+	EventContentClueSearchRoundExcelAddClearPageImagePath(b, __offset_clear_page_image_path)
 	return EventContentClueSearchRoundExcelEnd(b)
 }
 
@@ -65,6 +68,7 @@ func (t *EventContentClueSearchRoundExcelDto) UnmarshalMessage(e *EventContentCl
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
 	t.IsLoop = e.IsLoop()
+	t.TargetImagePath = fbsutils.Convert(string(e.TargetImagePath()), t.FlatBuffer.TableKey)
 	t.Localizeld = fbsutils.Convert(e.Localizeld(), t.FlatBuffer.TableKey)
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.ClueSlotNumber = make([]int32, e.ClueSlotNumberLength())
@@ -81,7 +85,7 @@ func (t *EventContentClueSearchRoundExcelDto) UnmarshalMessage(e *EventContentCl
 	}
 	t.HintlocalizeId = fbsutils.Convert(e.HintlocalizeId(), t.FlatBuffer.TableKey)
 	t.ClearlocalizeId = fbsutils.Convert(e.ClearlocalizeId(), t.FlatBuffer.TableKey)
-	t.ClueimagePath = fbsutils.Convert(string(e.ClueimagePath()), t.FlatBuffer.TableKey)
+	t.ClearPageImagePath = fbsutils.Convert(string(e.ClearPageImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

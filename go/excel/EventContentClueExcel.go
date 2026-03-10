@@ -77,7 +77,7 @@ func (rcv *EventContentClueExcel) MutateLocalizeEtcId(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *EventContentClueExcel) ClueImagePath() []byte {
+func (rcv *EventContentClueExcel) SlotClueImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,8 +85,16 @@ func (rcv *EventContentClueExcel) ClueImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentClueExcel) RewardParcelType(j int) ParcelType {
+func (rcv *EventContentClueExcel) ClueImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentClueExcel) RewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -95,7 +103,7 @@ func (rcv *EventContentClueExcel) RewardParcelType(j int) ParcelType {
 }
 
 func (rcv *EventContentClueExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -103,7 +111,7 @@ func (rcv *EventContentClueExcel) RewardParcelTypeLength() int {
 }
 
 func (rcv *EventContentClueExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -112,7 +120,7 @@ func (rcv *EventContentClueExcel) MutateRewardParcelType(j int, n ParcelType) bo
 }
 
 func (rcv *EventContentClueExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -121,7 +129,7 @@ func (rcv *EventContentClueExcel) RewardParcelId(j int) int64 {
 }
 
 func (rcv *EventContentClueExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -129,7 +137,7 @@ func (rcv *EventContentClueExcel) RewardParcelIdLength() int {
 }
 
 func (rcv *EventContentClueExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -138,7 +146,7 @@ func (rcv *EventContentClueExcel) MutateRewardParcelId(j int, n int64) bool {
 }
 
 func (rcv *EventContentClueExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -147,7 +155,7 @@ func (rcv *EventContentClueExcel) RewardParcelAmount(j int) int64 {
 }
 
 func (rcv *EventContentClueExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -155,7 +163,7 @@ func (rcv *EventContentClueExcel) RewardParcelAmountLength() int {
 }
 
 func (rcv *EventContentClueExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -164,7 +172,7 @@ func (rcv *EventContentClueExcel) MutateRewardParcelAmount(j int, n int64) bool 
 }
 
 func (rcv *EventContentClueExcel) HintUse() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -172,11 +180,11 @@ func (rcv *EventContentClueExcel) HintUse() bool {
 }
 
 func (rcv *EventContentClueExcel) MutateHintUse(n bool) bool {
-	return rcv._tab.MutateBoolSlot(18, n)
+	return rcv._tab.MutateBoolSlot(20, n)
 }
 
 func (rcv *EventContentClueExcel) Hintlocalizeid() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -184,11 +192,11 @@ func (rcv *EventContentClueExcel) Hintlocalizeid() uint32 {
 }
 
 func (rcv *EventContentClueExcel) MutateHintlocalizeid(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(20, n)
+	return rcv._tab.MutateUint32Slot(22, n)
 }
 
 func EventContentClueExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(9)
+	builder.StartObject(10)
 }
 func EventContentClueExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -199,32 +207,35 @@ func EventContentClueExcelAddClueId(builder *flatbuffers.Builder, clueId int64) 
 func EventContentClueExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
 	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
+func EventContentClueExcelAddSlotClueImagePath(builder *flatbuffers.Builder, slotClueImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(slotClueImagePath), 0)
+}
 func EventContentClueExcelAddClueImagePath(builder *flatbuffers.Builder, clueImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(clueImagePath), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(clueImagePath), 0)
 }
 func EventContentClueExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelType), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
 func EventContentClueExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentClueExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func EventContentClueExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentClueExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
 func EventContentClueExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentClueExcelAddHintUse(builder *flatbuffers.Builder, hintUse bool) {
-	builder.PrependBoolSlot(7, hintUse, false)
+	builder.PrependBoolSlot(8, hintUse, false)
 }
 func EventContentClueExcelAddHintlocalizeid(builder *flatbuffers.Builder, hintlocalizeid uint32) {
-	builder.PrependUint32Slot(8, hintlocalizeid, 0)
+	builder.PrependUint32Slot(9, hintlocalizeid, 0)
 }
 func EventContentClueExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

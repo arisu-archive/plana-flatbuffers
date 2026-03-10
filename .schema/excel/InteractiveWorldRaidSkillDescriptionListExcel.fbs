@@ -1,3 +1,4 @@
+include "EchelonExtensionType.fbs";
 include "SkillSlotHighLightType.fbs";
 include "SkillSlotShowType.fbs";
 
@@ -5,6 +6,7 @@ namespace MX.Data.Excel;
 
 table InteractiveWorldRaidSkillDescriptionListExcel {
     id: long;
+    skill_parcel_echelon_type: EchelonExtensionType;
     global_skill_group_id: [string];
     global_skill_remove_condition: [long];
     global_skill_show_skill_slot: [SkillSlotShowType];

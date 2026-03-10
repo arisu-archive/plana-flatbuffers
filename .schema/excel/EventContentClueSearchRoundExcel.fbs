@@ -4,6 +4,7 @@ table EventContentClueSearchRoundExcel {
     event_content_id: long;
     round: long;
     is_loop: bool;
+    target_image_path: string;
     localizeld: uint;
     reward_id: long;
     clue_slot_number: [int];
@@ -11,7 +12,7 @@ table EventContentClueSearchRoundExcel {
     clue_cost_amount: [long];
     hintlocalize_id: uint;
     clearlocalize_id: uint;
-    clueimage_path: string;
+    clear_page_image_path: string;
 }
 
 root_type EventContentClueSearchRoundExcel;
