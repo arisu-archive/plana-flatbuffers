@@ -89,7 +89,7 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Setup SSH agent
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: |
             ${{secrets.ARONA_FBS_GENERATOR_PRIVATE_KEY}}
