@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum ProductSelectSubType: int {
+    Select = 0,
+    AutoSelect = 1,
+}
