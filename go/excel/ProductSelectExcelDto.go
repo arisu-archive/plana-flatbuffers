@@ -10,17 +10,18 @@ import (
 // ProductSelectExcelDto represents a FlatBuffers table
 type ProductSelectExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64              `json:"id"`
-	ProductId            string             `json:"product_id"`
-	StoreType            StoreType          `json:"store_type"`
-	Price                int64              `json:"price"`
-	PriceReference       string             `json:"price_reference"`
-	PurchasePeriodType   PurchasePeriodType `json:"purchase_period_type"`
-	PurchasePeriodLimit  int64              `json:"purchase_period_limit"`
-	ParcelType           []ParcelType       `json:"parcel_type"`
-	ParcelId             []int64            `json:"parcel_id"`
-	ParcelAmount         []int64            `json:"parcel_amount"`
-	ProductSelectionSlot []int64            `json:"product_selection_slot"`
+	Id                   int64                `json:"id"`
+	ProductSelectSubType ProductSelectSubType `json:"product_select_sub_type"`
+	ProductId            string               `json:"product_id"`
+	StoreType            StoreType            `json:"store_type"`
+	Price                int64                `json:"price"`
+	PriceReference       string               `json:"price_reference"`
+	PurchasePeriodType   PurchasePeriodType   `json:"purchase_period_type"`
+	PurchasePeriodLimit  int64                `json:"purchase_period_limit"`
+	ParcelType           []ParcelType         `json:"parcel_type"`
+	ParcelId             []int64              `json:"parcel_id"`
+	ParcelAmount         []int64              `json:"parcel_amount"`
+	ProductSelectionSlot []int64              `json:"product_selection_slot"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,6 +30,7 @@ func (t *ProductSelectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	__offset_price_reference := b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey))
 	ProductSelectExcelStart(b)
 	ProductSelectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ProductSelectExcelAddProductSelectSubType(b, fbsutils.Convert(t.ProductSelectSubType, t.FlatBuffer.TableKey))
 	ProductSelectExcelAddProductId(b, __offset_product_id)
 	ProductSelectExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductSelectExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
@@ -68,6 +70,7 @@ func (t *ProductSelectExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProductSelectExcelDto) UnmarshalMessage(e *ProductSelectExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ProductSelectSubType = ProductSelectSubType(fbsutils.Convert(int32(e.ProductSelectSubType()), t.FlatBuffer.TableKey))
 	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
 	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
 	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)
