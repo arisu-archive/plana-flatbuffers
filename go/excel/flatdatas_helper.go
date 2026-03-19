@@ -317,6 +317,7 @@ var fbs = map[string]reflect.Type{
 	"presetcharactergroupexcel": reflect.TypeOf((*PresetCharacterGroupExcelDto)(nil)).Elem(),
 	"presetcharactergroupsettingexcel": reflect.TypeOf((*PresetCharacterGroupSettingExcelDto)(nil)).Elem(),
 	"presetparcelsexcel": reflect.TypeOf((*PresetParcelsExcelDto)(nil)).Elem(),
+	"productautoselectiongroupexcel": reflect.TypeOf((*ProductAutoSelectionGroupExcelDto)(nil)).Elem(),
 	"productbattlepassexcel": reflect.TypeOf((*ProductBattlePassExcelDto)(nil)).Elem(),
 	"productdailyrecordexcel": reflect.TypeOf((*ProductDailyRecordExcelDto)(nil)).Elem(),
 	"productdailyrecordinfoexcel": reflect.TypeOf((*ProductDailyRecordInfoExcelDto)(nil)).Elem(),

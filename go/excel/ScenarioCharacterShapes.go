@@ -13,6 +13,7 @@ const (
 	ScenarioCharacterShapesCloseup         ScenarioCharacterShapes = 4
 	ScenarioCharacterShapesHighlight       ScenarioCharacterShapes = 8
 	ScenarioCharacterShapesWhiteSilhouette ScenarioCharacterShapes = 16
+	ScenarioCharacterShapesGlitch          ScenarioCharacterShapes = 32
 )
 
 var EnumNamesScenarioCharacterShapes = map[ScenarioCharacterShapes]string{
@@ -22,6 +23,7 @@ var EnumNamesScenarioCharacterShapes = map[ScenarioCharacterShapes]string{
 	ScenarioCharacterShapesCloseup:         "Closeup",
 	ScenarioCharacterShapesHighlight:       "Highlight",
 	ScenarioCharacterShapesWhiteSilhouette: "WhiteSilhouette",
+	ScenarioCharacterShapesGlitch:          "Glitch",
 }
 
 var EnumValuesScenarioCharacterShapes = map[string]ScenarioCharacterShapes{
@@ -31,6 +33,7 @@ var EnumValuesScenarioCharacterShapes = map[string]ScenarioCharacterShapes{
 	"Closeup":         ScenarioCharacterShapesCloseup,
 	"Highlight":       ScenarioCharacterShapesHighlight,
 	"WhiteSilhouette": ScenarioCharacterShapesWhiteSilhouette,
+	"Glitch":          ScenarioCharacterShapesGlitch,
 }
 
 func (v ScenarioCharacterShapes) String() string {

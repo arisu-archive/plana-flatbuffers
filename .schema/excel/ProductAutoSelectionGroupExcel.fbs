@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductAutoSelectionGroupExcel {
+    product_auto_selection_group_id: long;
+    character_id: long;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    result_amount: [long];
+    condition_parcel_type: ParcelType;
+    condition_parcel_id: long;
+}
+
+root_type ProductAutoSelectionGroupExcel;

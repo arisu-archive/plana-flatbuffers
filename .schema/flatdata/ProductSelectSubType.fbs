@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum ProductSelectSubType: int {
+    Select = 0,
+    AutoSelect = 1,
+}
