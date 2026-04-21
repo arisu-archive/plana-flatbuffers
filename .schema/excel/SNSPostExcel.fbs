@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table SNSPostExcel {
+    id: long;
+    sns_info_id: long;
+    master_post_id: long;
+    repost_sns_profile_id: long;
+    sns_profile_id: long;
+    post_text_localize_key: uint;
+    post_image_path: [string];
+    repost_min_num: long;
+    repost_max_num: long;
+    favor_min_num: long;
+    favor_max_num: long;
+}
+
+root_type SNSPostExcel;

@@ -70,8 +70,25 @@ func (rcv *PermanentRaidManageExcel) OpenRaidBossGroupLength() int {
 	return 0
 }
 
-func (rcv *PermanentRaidManageExcel) OpenDate() []byte {
+func (rcv *PermanentRaidManageExcel) HideDifficulty(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *PermanentRaidManageExcel) HideDifficultyLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *PermanentRaidManageExcel) OpenDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -79,7 +96,7 @@ func (rcv *PermanentRaidManageExcel) OpenDate() []byte {
 }
 
 func PermanentRaidManageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func PermanentRaidManageExcelAddType(builder *flatbuffers.Builder, type_ RaidBossGroupType) {
 	builder.PrependInt32Slot(0, int32(type_), 0)
@@ -90,8 +107,14 @@ func PermanentRaidManageExcelAddOpenRaidBossGroup(builder *flatbuffers.Builder, 
 func PermanentRaidManageExcelStartOpenRaidBossGroupVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func PermanentRaidManageExcelAddHideDifficulty(builder *flatbuffers.Builder, hideDifficulty flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(hideDifficulty), 0)
+}
+func PermanentRaidManageExcelStartHideDifficultyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
 func PermanentRaidManageExcelAddOpenDate(builder *flatbuffers.Builder, openDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(openDate), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(openDate), 0)
 }
 func PermanentRaidManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

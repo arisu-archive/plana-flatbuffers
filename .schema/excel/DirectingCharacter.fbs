@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum DirectingCharacter: int {
+    None = 0,
+    Arona = 1,
+    Plana = 2,
+    Both = 3,
+}

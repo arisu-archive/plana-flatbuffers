@@ -10,33 +10,32 @@ import (
 // ShopRecruitExcelDto represents a FlatBuffers table
 type ShopRecruitExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                         int64                  `json:"id"`
-	CategoryType               ShopCategoryType       `json:"category_type"`
-	IsLegacy                   bool                   `json:"is_legacy"`
-	OneGachaGoodsId            int64                  `json:"one_gacha_goods_id"`
-	TenGachaGoodsId            int64                  `json:"ten_gacha_goods_id"`
-	GoodsDevName               string                 `json:"goods_dev_name"`
-	DisplayTag                 GachaDisplayTag        `json:"display_tag"`
-	DisplayOrder               int64                  `json:"display_order"`
-	GachaBannerPath            string                 `json:"gacha_banner_path"`
-	VideoId                    []int64                `json:"video_id"`
-	LinkedRobbyBannerId        int64                  `json:"linked_robby_banner_id"`
-	InfoCharacterId            []int64                `json:"info_character_id"`
-	SalePeriodVisible          bool                   `json:"sale_period_visible"`
-	SalePeriodFrom             string                 `json:"sale_period_from"`
-	SalePeriodTo               string                 `json:"sale_period_to"`
-	RecruitCoinId              int64                  `json:"recruit_coin_id"`
-	RecruitSellectionShopId    int64                  `json:"recruit_sellection_shop_id"`
-	PurchaseCooltimeMin        int64                  `json:"purchase_cooltime_min"`
-	PurchaseCountLimit         int64                  `json:"purchase_count_limit"`
-	PurchaseCountResetType     PurchaseCountResetType `json:"purchase_count_reset_type"`
-	IsNewbie                   bool                   `json:"is_newbie"`
-	IsSelectRecruit            bool                   `json:"is_select_recruit"`
-	DirectPayInvisibleTokenId  int64                  `json:"direct_pay_invisible_token_id"`
-	DirectPayAndroidShopCashId int64                  `json:"direct_pay_android_shop_cash_id"`
-	DirectPayAppleShopCashId   int64                  `json:"direct_pay_apple_shop_cash_id"`
-	SelectAbleGachaGroupId     int64                  `json:"select_able_gacha_group_id"`
-	MaxSelectCharacterNum      int64                  `json:"max_select_character_num"`
+	Id                        int64                  `json:"id"`
+	CategoryType              ShopCategoryType       `json:"category_type"`
+	IsLegacy                  bool                   `json:"is_legacy"`
+	OneGachaGoodsId           int64                  `json:"one_gacha_goods_id"`
+	TenGachaGoodsId           int64                  `json:"ten_gacha_goods_id"`
+	GoodsDevName              string                 `json:"goods_dev_name"`
+	DisplayTag                GachaDisplayTag        `json:"display_tag"`
+	DisplayOrder              int64                  `json:"display_order"`
+	GachaBannerPath           string                 `json:"gacha_banner_path"`
+	VideoId                   []int64                `json:"video_id"`
+	LinkedRobbyBannerId       int64                  `json:"linked_robby_banner_id"`
+	InfoCharacterId           []int64                `json:"info_character_id"`
+	SalePeriodVisible         bool                   `json:"sale_period_visible"`
+	SalePeriodFrom            string                 `json:"sale_period_from"`
+	SalePeriodTo              string                 `json:"sale_period_to"`
+	RecruitCoinId             int64                  `json:"recruit_coin_id"`
+	RecruitSellectionShopId   int64                  `json:"recruit_sellection_shop_id"`
+	PurchaseCooltimeMin       int64                  `json:"purchase_cooltime_min"`
+	PurchaseCountLimit        int64                  `json:"purchase_count_limit"`
+	PurchaseCountResetType    PurchaseCountResetType `json:"purchase_count_reset_type"`
+	IsNewbie                  bool                   `json:"is_newbie"`
+	IsSelectRecruit           bool                   `json:"is_select_recruit"`
+	DirectPayInvisibleTokenId int64                  `json:"direct_pay_invisible_token_id"`
+	DirectPayProductId        string                 `json:"direct_pay_product_id"`
+	SelectAbleGachaGroupId    int64                  `json:"select_able_gacha_group_id"`
+	MaxSelectCharacterNum     int64                  `json:"max_select_character_num"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -45,6 +44,7 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	__offset_gacha_banner_path := b.CreateString(fbsutils.Convert(t.GachaBannerPath, t.FlatBuffer.TableKey))
 	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
 	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_direct_pay_product_id := b.CreateString(fbsutils.Convert(t.DirectPayProductId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelStart(b)
 	ShopRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
@@ -77,8 +77,7 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddIsNewbie(b, t.IsNewbie)
 	ShopRecruitExcelAddIsSelectRecruit(b, t.IsSelectRecruit)
 	ShopRecruitExcelAddDirectPayInvisibleTokenId(b, fbsutils.Convert(t.DirectPayInvisibleTokenId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddDirectPayAndroidShopCashId(b, fbsutils.Convert(t.DirectPayAndroidShopCashId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddDirectPayAppleShopCashId(b, fbsutils.Convert(t.DirectPayAppleShopCashId, t.FlatBuffer.TableKey))
+	ShopRecruitExcelAddDirectPayProductId(b, __offset_direct_pay_product_id)
 	ShopRecruitExcelAddSelectAbleGachaGroupId(b, fbsutils.Convert(t.SelectAbleGachaGroupId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddMaxSelectCharacterNum(b, fbsutils.Convert(t.MaxSelectCharacterNum, t.FlatBuffer.TableKey))
 	return ShopRecruitExcelEnd(b)
@@ -122,8 +121,7 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.IsNewbie = e.IsNewbie()
 	t.IsSelectRecruit = e.IsSelectRecruit()
 	t.DirectPayInvisibleTokenId = fbsutils.Convert(e.DirectPayInvisibleTokenId(), t.FlatBuffer.TableKey)
-	t.DirectPayAndroidShopCashId = fbsutils.Convert(e.DirectPayAndroidShopCashId(), t.FlatBuffer.TableKey)
-	t.DirectPayAppleShopCashId = fbsutils.Convert(e.DirectPayAppleShopCashId(), t.FlatBuffer.TableKey)
+	t.DirectPayProductId = fbsutils.Convert(string(e.DirectPayProductId()), t.FlatBuffer.TableKey)
 	t.SelectAbleGachaGroupId = fbsutils.Convert(e.SelectAbleGachaGroupId(), t.FlatBuffer.TableKey)
 	t.MaxSelectCharacterNum = fbsutils.Convert(e.MaxSelectCharacterNum(), t.FlatBuffer.TableKey)
 	return nil

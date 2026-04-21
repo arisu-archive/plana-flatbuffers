@@ -24,6 +24,7 @@ type LocalizeCharProfileExcelDto struct {
 	PersonalNameJp        string `json:"personal_name_jp"`
 	PersonalNameRubyJp    string `json:"personal_name_ruby_jp"`
 	Club                  Club   `json:"club"`
+	ClubNameForGachaJp    string `json:"club_name_for_gacha_jp"`
 	SchoolYearKr          string `json:"school_year_kr"`
 	SchoolYearJp          string `json:"school_year_jp"`
 	CharacterAgeKr        string `json:"character_age_kr"`
@@ -65,6 +66,7 @@ func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	__offset_family_name_ruby_jp := b.CreateString(fbsutils.Convert(t.FamilyNameRubyJp, t.FlatBuffer.TableKey))
 	__offset_personal_name_jp := b.CreateString(fbsutils.Convert(t.PersonalNameJp, t.FlatBuffer.TableKey))
 	__offset_personal_name_ruby_jp := b.CreateString(fbsutils.Convert(t.PersonalNameRubyJp, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_jp := b.CreateString(fbsutils.Convert(t.ClubNameForGachaJp, t.FlatBuffer.TableKey))
 	__offset_school_year_kr := b.CreateString(fbsutils.Convert(t.SchoolYearKr, t.FlatBuffer.TableKey))
 	__offset_school_year_jp := b.CreateString(fbsutils.Convert(t.SchoolYearJp, t.FlatBuffer.TableKey))
 	__offset_character_age_kr := b.CreateString(fbsutils.Convert(t.CharacterAgeKr, t.FlatBuffer.TableKey))
@@ -105,6 +107,7 @@ func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	LocalizeCharProfileExcelAddPersonalNameJp(b, __offset_personal_name_jp)
 	LocalizeCharProfileExcelAddPersonalNameRubyJp(b, __offset_personal_name_ruby_jp)
 	LocalizeCharProfileExcelAddClub(b, fbsutils.Convert(t.Club, t.FlatBuffer.TableKey))
+	LocalizeCharProfileExcelAddClubNameForGachaJp(b, __offset_club_name_for_gacha_jp)
 	LocalizeCharProfileExcelAddSchoolYearKr(b, __offset_school_year_kr)
 	LocalizeCharProfileExcelAddSchoolYearJp(b, __offset_school_year_jp)
 	LocalizeCharProfileExcelAddCharacterAgeKr(b, __offset_character_age_kr)
@@ -156,6 +159,7 @@ func (t *LocalizeCharProfileExcelDto) UnmarshalMessage(e *LocalizeCharProfileExc
 	t.PersonalNameJp = fbsutils.Convert(string(e.PersonalNameJp()), t.FlatBuffer.TableKey)
 	t.PersonalNameRubyJp = fbsutils.Convert(string(e.PersonalNameRubyJp()), t.FlatBuffer.TableKey)
 	t.Club = Club(fbsutils.Convert(int32(e.Club()), t.FlatBuffer.TableKey))
+	t.ClubNameForGachaJp = fbsutils.Convert(string(e.ClubNameForGachaJp()), t.FlatBuffer.TableKey)
 	t.SchoolYearKr = fbsutils.Convert(string(e.SchoolYearKr()), t.FlatBuffer.TableKey)
 	t.SchoolYearJp = fbsutils.Convert(string(e.SchoolYearJp()), t.FlatBuffer.TableKey)
 	t.CharacterAgeKr = fbsutils.Convert(string(e.CharacterAgeKr()), t.FlatBuffer.TableKey)

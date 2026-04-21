@@ -157,8 +157,20 @@ func (rcv *ScenarioResourceInfoExcel) MovieCgPath() []byte {
 	return nil
 }
 
-func (rcv *ScenarioResourceInfoExcel) LocalizeId() uint32 {
+func (rcv *ScenarioResourceInfoExcel) ScenarioForceEnter() ScenarioModeSubTypes {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return ScenarioModeSubTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) MutateScenarioForceEnter(n ScenarioModeSubTypes) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *ScenarioResourceInfoExcel) LocalizeId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -166,11 +178,54 @@ func (rcv *ScenarioResourceInfoExcel) LocalizeId() uint32 {
 }
 
 func (rcv *ScenarioResourceInfoExcel) MutateLocalizeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(26, n)
+	return rcv._tab.MutateUint32Slot(28, n)
+}
+
+func (rcv *ScenarioResourceInfoExcel) AcademyLobbyCharacterId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) AcademyLobbyCharacterIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) MutateAcademyLobbyCharacterId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ScenarioResourceInfoExcel) SweepAnimation(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *ScenarioResourceInfoExcel) SweepAnimationLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func ScenarioResourceInfoExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(12)
+	builder.StartObject(15)
 }
 func ScenarioResourceInfoExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -205,8 +260,23 @@ func ScenarioResourceInfoExcelAddLobbyAniPath(builder *flatbuffers.Builder, lobb
 func ScenarioResourceInfoExcelAddMovieCgPath(builder *flatbuffers.Builder, movieCgPath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(movieCgPath), 0)
 }
+func ScenarioResourceInfoExcelAddScenarioForceEnter(builder *flatbuffers.Builder, scenarioForceEnter ScenarioModeSubTypes) {
+	builder.PrependInt32Slot(11, int32(scenarioForceEnter), 0)
+}
 func ScenarioResourceInfoExcelAddLocalizeId(builder *flatbuffers.Builder, localizeId uint32) {
-	builder.PrependUint32Slot(11, localizeId, 0)
+	builder.PrependUint32Slot(12, localizeId, 0)
+}
+func ScenarioResourceInfoExcelAddAcademyLobbyCharacterId(builder *flatbuffers.Builder, academyLobbyCharacterId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(academyLobbyCharacterId), 0)
+}
+func ScenarioResourceInfoExcelStartAcademyLobbyCharacterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ScenarioResourceInfoExcelAddSweepAnimation(builder *flatbuffers.Builder, sweepAnimation flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(sweepAnimation), 0)
+}
+func ScenarioResourceInfoExcelStartSweepAnimationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func ScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

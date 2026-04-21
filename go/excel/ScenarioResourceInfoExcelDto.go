@@ -10,18 +10,21 @@ import (
 // ScenarioResourceInfoExcelDto represents a FlatBuffers table
 type ScenarioResourceInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	Id             int64  `json:"id"`
-	ScenarioModeId int64  `json:"scenario_mode_id"`
-	PriorityOrder  int64  `json:"priority_order"`
-	PvDisplayOrder int64  `json:"pv_display_order"`
-	VideoId        int64  `json:"video_id"`
-	BgmId          int64  `json:"bgm_id"`
-	AudioName      string `json:"audio_name"`
-	SpinePath      string `json:"spine_path"`
-	Ratio          int32  `json:"ratio"`
-	LobbyAniPath   string `json:"lobby_ani_path"`
-	MovieCgPath    string `json:"movie_cg_path"`
-	LocalizeId     uint32 `json:"localize_id"`
+	Id                      int64                `json:"id"`
+	ScenarioModeId          int64                `json:"scenario_mode_id"`
+	PriorityOrder           int64                `json:"priority_order"`
+	PvDisplayOrder          int64                `json:"pv_display_order"`
+	VideoId                 int64                `json:"video_id"`
+	BgmId                   int64                `json:"bgm_id"`
+	AudioName               string               `json:"audio_name"`
+	SpinePath               string               `json:"spine_path"`
+	Ratio                   int32                `json:"ratio"`
+	LobbyAniPath            string               `json:"lobby_ani_path"`
+	MovieCgPath             string               `json:"movie_cg_path"`
+	ScenarioForceEnter      ScenarioModeSubTypes `json:"scenario_force_enter"`
+	LocalizeId              uint32               `json:"localize_id"`
+	AcademyLobbyCharacterId []int64              `json:"academy_lobby_character_id"`
+	SweepAnimation          []string             `json:"sweep_animation"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,6 +33,16 @@ func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	__offset_spine_path := b.CreateString(fbsutils.Convert(t.SpinePath, t.FlatBuffer.TableKey))
 	__offset_lobby_ani_path := b.CreateString(fbsutils.Convert(t.LobbyAniPath, t.FlatBuffer.TableKey))
 	__offset_movie_cg_path := b.CreateString(fbsutils.Convert(t.MovieCgPath, t.FlatBuffer.TableKey))
+	var __offset_sweep_animation flatbuffers.UOffsetT
+	__stringOffsets_sweep_animation := make([]flatbuffers.UOffsetT, len(t.SweepAnimation))
+	for i := range len(t.SweepAnimation) {
+		__stringOffsets_sweep_animation[i] = b.CreateString(fbsutils.Convert(t.SweepAnimation[i], t.FlatBuffer.TableKey))
+	}
+	ScenarioResourceInfoExcelStartSweepAnimationVector(b, len(t.SweepAnimation))
+	for i := range len(t.SweepAnimation) {
+		b.PrependUOffsetT(__stringOffsets_sweep_animation[len(t.SweepAnimation)-i-1])
+	}
+	__offset_sweep_animation = b.EndVector(len(t.SweepAnimation))
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
@@ -42,7 +55,14 @@ func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	ScenarioResourceInfoExcelAddRatio(b, fbsutils.Convert(t.Ratio, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddLobbyAniPath(b, __offset_lobby_ani_path)
 	ScenarioResourceInfoExcelAddMovieCgPath(b, __offset_movie_cg_path)
+	ScenarioResourceInfoExcelAddScenarioForceEnter(b, fbsutils.Convert(t.ScenarioForceEnter, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddLocalizeId(b, fbsutils.Convert(t.LocalizeId, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelStartAcademyLobbyCharacterIdVector(b, len(t.AcademyLobbyCharacterId))
+	for i := range len(t.AcademyLobbyCharacterId) {
+		b.PrependInt64(fbsutils.Convert(t.AcademyLobbyCharacterId[len(t.AcademyLobbyCharacterId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ScenarioResourceInfoExcelAddAcademyLobbyCharacterId(b, b.EndVector(len(t.AcademyLobbyCharacterId)))
+	ScenarioResourceInfoExcelAddSweepAnimation(b, __offset_sweep_animation)
 	return ScenarioResourceInfoExcelEnd(b)
 }
 
@@ -66,7 +86,16 @@ func (t *ScenarioResourceInfoExcelDto) UnmarshalMessage(e *ScenarioResourceInfoE
 	t.Ratio = fbsutils.Convert(e.Ratio(), t.FlatBuffer.TableKey)
 	t.LobbyAniPath = fbsutils.Convert(string(e.LobbyAniPath()), t.FlatBuffer.TableKey)
 	t.MovieCgPath = fbsutils.Convert(string(e.MovieCgPath()), t.FlatBuffer.TableKey)
+	t.ScenarioForceEnter = ScenarioModeSubTypes(fbsutils.Convert(int32(e.ScenarioForceEnter()), t.FlatBuffer.TableKey))
 	t.LocalizeId = fbsutils.Convert(e.LocalizeId(), t.FlatBuffer.TableKey)
+	t.AcademyLobbyCharacterId = make([]int64, e.AcademyLobbyCharacterIdLength())
+	for i := range e.AcademyLobbyCharacterIdLength() {
+		t.AcademyLobbyCharacterId[i] = fbsutils.Convert(e.AcademyLobbyCharacterId(i), t.FlatBuffer.TableKey)
+	}
+	t.SweepAnimation = make([]string, e.SweepAnimationLength())
+	for i := range e.SweepAnimationLength() {
+		t.SweepAnimation[i] = fbsutils.Convert(string(e.SweepAnimation(i)), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 

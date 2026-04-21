@@ -65,14 +65,44 @@ func (rcv *ConstContentsExcel) MutateSearchUpdateTime(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
+func (rcv *ConstContentsExcel) LobbyDayTimeFrom() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateLobbyDayTimeFrom(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *ConstContentsExcel) LobbyNightTimeFrom() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateLobbyNightTimeFrom(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
 func ConstContentsExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(2)
+	builder.StartObject(4)
 }
 func ConstContentsExcelAddUseSearchFieldOptimize(builder *flatbuffers.Builder, useSearchFieldOptimize bool) {
 	builder.PrependBoolSlot(0, useSearchFieldOptimize, false)
 }
 func ConstContentsExcelAddSearchUpdateTime(builder *flatbuffers.Builder, searchUpdateTime float32) {
 	builder.PrependFloat32Slot(1, searchUpdateTime, 0.0)
+}
+func ConstContentsExcelAddLobbyDayTimeFrom(builder *flatbuffers.Builder, lobbyDayTimeFrom int32) {
+	builder.PrependInt32Slot(2, lobbyDayTimeFrom, 0)
+}
+func ConstContentsExcelAddLobbyNightTimeFrom(builder *flatbuffers.Builder, lobbyNightTimeFrom int32) {
+	builder.PrependInt32Slot(3, lobbyNightTimeFrom, 0)
 }
 func ConstContentsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

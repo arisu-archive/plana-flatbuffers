@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table SNSInfoExcel {
+    id: long;
+    open_scenario_mode_id: long;
+    close_scenario_mode_id: long;
+    open_title_localize_key: uint;
+    close_title_localize_key: uint;
+    open_desc_localize_key: uint;
+    close_desc_localize_key: uint;
+}
+
+root_type SNSInfoExcel;

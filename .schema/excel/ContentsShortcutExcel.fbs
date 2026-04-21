@@ -1,4 +1,5 @@
 include "ContentType.fbs";
+include "ScenarioModeSubTypes.fbs";
 include "ScenarioModeTypes.fbs";
 include "StageDifficulty.fbs";
 
@@ -9,6 +10,7 @@ table ContentsShortcutExcel {
     content_type: ContentType;
     event_content_id: long;
     scenario_mode_type: ScenarioModeTypes;
+    scenario_mode_sub_type: ScenarioModeSubTypes;
     scenario_mode_volume: long;
     scenario_mode_chapter: long;
     shortcut_open_time: string;

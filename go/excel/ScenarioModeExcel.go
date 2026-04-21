@@ -319,8 +319,28 @@ func (rcv *ScenarioModeExcel) MutateIsScenarioSpecialReward(n bool) bool {
 	return rcv._tab.MutateBoolSlot(42, n)
 }
 
-func (rcv *ScenarioModeExcel) AccountLevelLimit() int64 {
+func (rcv *ScenarioModeExcel) SpecialRewardPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ScenarioModeExcel) SpecialRewardLogOut() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ScenarioModeExcel) MutateSpecialRewardLogOut(n bool) bool {
+	return rcv._tab.MutateBoolSlot(46, n)
+}
+
+func (rcv *ScenarioModeExcel) AccountLevelLimit() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -328,11 +348,11 @@ func (rcv *ScenarioModeExcel) AccountLevelLimit() int64 {
 }
 
 func (rcv *ScenarioModeExcel) MutateAccountLevelLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(44, n)
+	return rcv._tab.MutateInt64Slot(48, n)
 }
 
 func (rcv *ScenarioModeExcel) ClearedStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -340,11 +360,11 @@ func (rcv *ScenarioModeExcel) ClearedStageId() int64 {
 }
 
 func (rcv *ScenarioModeExcel) MutateClearedStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
+	return rcv._tab.MutateInt64Slot(50, n)
 }
 
 func (rcv *ScenarioModeExcel) NeedClub() Club {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return Club(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -352,11 +372,11 @@ func (rcv *ScenarioModeExcel) NeedClub() Club {
 }
 
 func (rcv *ScenarioModeExcel) MutateNeedClub(n Club) bool {
-	return rcv._tab.MutateInt32Slot(48, int32(n))
+	return rcv._tab.MutateInt32Slot(52, int32(n))
 }
 
 func (rcv *ScenarioModeExcel) NeedClubStudentCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -364,34 +384,10 @@ func (rcv *ScenarioModeExcel) NeedClubStudentCount() int32 {
 }
 
 func (rcv *ScenarioModeExcel) MutateNeedClubStudentCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(50, n)
+	return rcv._tab.MutateInt32Slot(54, n)
 }
 
 func (rcv *ScenarioModeExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ScenarioModeExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(52, n)
-}
-
-func (rcv *ScenarioModeExcel) EventContentType() EventContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return EventContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ScenarioModeExcel) MutateEventContentType(n EventContentType) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
-}
-
-func (rcv *ScenarioModeExcel) EventContentCondition() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -399,12 +395,36 @@ func (rcv *ScenarioModeExcel) EventContentCondition() int64 {
 	return 0
 }
 
-func (rcv *ScenarioModeExcel) MutateEventContentCondition(n int64) bool {
+func (rcv *ScenarioModeExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(56, n)
 }
 
-func (rcv *ScenarioModeExcel) EventContentConditionGroup() int64 {
+func (rcv *ScenarioModeExcel) EventContentType() EventContentType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return EventContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ScenarioModeExcel) MutateEventContentType(n EventContentType) bool {
+	return rcv._tab.MutateInt32Slot(58, int32(n))
+}
+
+func (rcv *ScenarioModeExcel) EventContentCondition() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioModeExcel) MutateEventContentCondition(n int64) bool {
+	return rcv._tab.MutateInt64Slot(60, n)
+}
+
+func (rcv *ScenarioModeExcel) EventContentConditionGroup() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -412,11 +432,11 @@ func (rcv *ScenarioModeExcel) EventContentConditionGroup() int64 {
 }
 
 func (rcv *ScenarioModeExcel) MutateEventContentConditionGroup(n int64) bool {
-	return rcv._tab.MutateInt64Slot(58, n)
+	return rcv._tab.MutateInt64Slot(62, n)
 }
 
 func (rcv *ScenarioModeExcel) MapDifficulty() StageDifficulty {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return StageDifficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -424,11 +444,11 @@ func (rcv *ScenarioModeExcel) MapDifficulty() StageDifficulty {
 }
 
 func (rcv *ScenarioModeExcel) MutateMapDifficulty(n StageDifficulty) bool {
-	return rcv._tab.MutateInt32Slot(60, int32(n))
+	return rcv._tab.MutateInt32Slot(64, int32(n))
 }
 
 func (rcv *ScenarioModeExcel) StepIndex() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -436,11 +456,11 @@ func (rcv *ScenarioModeExcel) StepIndex() int32 {
 }
 
 func (rcv *ScenarioModeExcel) MutateStepIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(62, n)
+	return rcv._tab.MutateInt32Slot(66, n)
 }
 
 func (rcv *ScenarioModeExcel) RecommendLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -448,11 +468,11 @@ func (rcv *ScenarioModeExcel) RecommendLevel() int32 {
 }
 
 func (rcv *ScenarioModeExcel) MutateRecommendLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(64, n)
+	return rcv._tab.MutateInt32Slot(68, n)
 }
 
 func (rcv *ScenarioModeExcel) EventIconParcelPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -460,7 +480,7 @@ func (rcv *ScenarioModeExcel) EventIconParcelPath() []byte {
 }
 
 func (rcv *ScenarioModeExcel) EventBannerTitle() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -468,11 +488,11 @@ func (rcv *ScenarioModeExcel) EventBannerTitle() uint32 {
 }
 
 func (rcv *ScenarioModeExcel) MutateEventBannerTitle(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(68, n)
+	return rcv._tab.MutateUint32Slot(72, n)
 }
 
 func (rcv *ScenarioModeExcel) Lof() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -480,11 +500,11 @@ func (rcv *ScenarioModeExcel) Lof() bool {
 }
 
 func (rcv *ScenarioModeExcel) MutateLof(n bool) bool {
-	return rcv._tab.MutateBoolSlot(70, n)
+	return rcv._tab.MutateBoolSlot(74, n)
 }
 
 func (rcv *ScenarioModeExcel) StageTopography() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -492,11 +512,11 @@ func (rcv *ScenarioModeExcel) StageTopography() StageTopography {
 }
 
 func (rcv *ScenarioModeExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(72, int32(n))
+	return rcv._tab.MutateInt32Slot(76, int32(n))
 }
 
 func (rcv *ScenarioModeExcel) FixedEchelonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -504,11 +524,11 @@ func (rcv *ScenarioModeExcel) FixedEchelonId() int64 {
 }
 
 func (rcv *ScenarioModeExcel) MutateFixedEchelonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(74, n)
+	return rcv._tab.MutateInt64Slot(78, n)
 }
 
 func (rcv *ScenarioModeExcel) CompleteReportEventName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -516,7 +536,7 @@ func (rcv *ScenarioModeExcel) CompleteReportEventName() []byte {
 }
 
 func (rcv *ScenarioModeExcel) EchelonExtensionType() EchelonExtensionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -524,11 +544,11 @@ func (rcv *ScenarioModeExcel) EchelonExtensionType() EchelonExtensionType {
 }
 
 func (rcv *ScenarioModeExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(78, int32(n))
+	return rcv._tab.MutateInt32Slot(82, int32(n))
 }
 
 func (rcv *ScenarioModeExcel) CollectionGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -536,11 +556,11 @@ func (rcv *ScenarioModeExcel) CollectionGroupId() int64 {
 }
 
 func (rcv *ScenarioModeExcel) MutateCollectionGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(80, n)
+	return rcv._tab.MutateInt64Slot(84, n)
 }
 
 func ScenarioModeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(39)
+	builder.StartObject(41)
 }
 func ScenarioModeExcelAddModeId(builder *flatbuffers.Builder, modeId int64) {
 	builder.PrependInt64Slot(0, modeId, 0)
@@ -611,62 +631,68 @@ func ScenarioModeExcelAddScenarioModeRewardId(builder *flatbuffers.Builder, scen
 func ScenarioModeExcelAddIsScenarioSpecialReward(builder *flatbuffers.Builder, isScenarioSpecialReward bool) {
 	builder.PrependBoolSlot(19, isScenarioSpecialReward, false)
 }
+func ScenarioModeExcelAddSpecialRewardPrefabName(builder *flatbuffers.Builder, specialRewardPrefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(specialRewardPrefabName), 0)
+}
+func ScenarioModeExcelAddSpecialRewardLogOut(builder *flatbuffers.Builder, specialRewardLogOut bool) {
+	builder.PrependBoolSlot(21, specialRewardLogOut, false)
+}
 func ScenarioModeExcelAddAccountLevelLimit(builder *flatbuffers.Builder, accountLevelLimit int64) {
-	builder.PrependInt64Slot(20, accountLevelLimit, 0)
+	builder.PrependInt64Slot(22, accountLevelLimit, 0)
 }
 func ScenarioModeExcelAddClearedStageId(builder *flatbuffers.Builder, clearedStageId int64) {
-	builder.PrependInt64Slot(21, clearedStageId, 0)
+	builder.PrependInt64Slot(23, clearedStageId, 0)
 }
 func ScenarioModeExcelAddNeedClub(builder *flatbuffers.Builder, needClub Club) {
-	builder.PrependInt32Slot(22, int32(needClub), 0)
+	builder.PrependInt32Slot(24, int32(needClub), 0)
 }
 func ScenarioModeExcelAddNeedClubStudentCount(builder *flatbuffers.Builder, needClubStudentCount int32) {
-	builder.PrependInt32Slot(23, needClubStudentCount, 0)
+	builder.PrependInt32Slot(25, needClubStudentCount, 0)
 }
 func ScenarioModeExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(24, eventContentId, 0)
+	builder.PrependInt64Slot(26, eventContentId, 0)
 }
 func ScenarioModeExcelAddEventContentType(builder *flatbuffers.Builder, eventContentType EventContentType) {
-	builder.PrependInt32Slot(25, int32(eventContentType), 0)
+	builder.PrependInt32Slot(27, int32(eventContentType), 0)
 }
 func ScenarioModeExcelAddEventContentCondition(builder *flatbuffers.Builder, eventContentCondition int64) {
-	builder.PrependInt64Slot(26, eventContentCondition, 0)
+	builder.PrependInt64Slot(28, eventContentCondition, 0)
 }
 func ScenarioModeExcelAddEventContentConditionGroup(builder *flatbuffers.Builder, eventContentConditionGroup int64) {
-	builder.PrependInt64Slot(27, eventContentConditionGroup, 0)
+	builder.PrependInt64Slot(29, eventContentConditionGroup, 0)
 }
 func ScenarioModeExcelAddMapDifficulty(builder *flatbuffers.Builder, mapDifficulty StageDifficulty) {
-	builder.PrependInt32Slot(28, int32(mapDifficulty), 0)
+	builder.PrependInt32Slot(30, int32(mapDifficulty), 0)
 }
 func ScenarioModeExcelAddStepIndex(builder *flatbuffers.Builder, stepIndex int32) {
-	builder.PrependInt32Slot(29, stepIndex, 0)
+	builder.PrependInt32Slot(31, stepIndex, 0)
 }
 func ScenarioModeExcelAddRecommendLevel(builder *flatbuffers.Builder, recommendLevel int32) {
-	builder.PrependInt32Slot(30, recommendLevel, 0)
+	builder.PrependInt32Slot(32, recommendLevel, 0)
 }
 func ScenarioModeExcelAddEventIconParcelPath(builder *flatbuffers.Builder, eventIconParcelPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(eventIconParcelPath), 0)
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(eventIconParcelPath), 0)
 }
 func ScenarioModeExcelAddEventBannerTitle(builder *flatbuffers.Builder, eventBannerTitle uint32) {
-	builder.PrependUint32Slot(32, eventBannerTitle, 0)
+	builder.PrependUint32Slot(34, eventBannerTitle, 0)
 }
 func ScenarioModeExcelAddLof(builder *flatbuffers.Builder, lof bool) {
-	builder.PrependBoolSlot(33, lof, false)
+	builder.PrependBoolSlot(35, lof, false)
 }
 func ScenarioModeExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(34, int32(stageTopography), 0)
+	builder.PrependInt32Slot(36, int32(stageTopography), 0)
 }
 func ScenarioModeExcelAddFixedEchelonId(builder *flatbuffers.Builder, fixedEchelonId int64) {
-	builder.PrependInt64Slot(35, fixedEchelonId, 0)
+	builder.PrependInt64Slot(37, fixedEchelonId, 0)
 }
 func ScenarioModeExcelAddCompleteReportEventName(builder *flatbuffers.Builder, completeReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(36, flatbuffers.UOffsetT(completeReportEventName), 0)
+	builder.PrependUOffsetTSlot(38, flatbuffers.UOffsetT(completeReportEventName), 0)
 }
 func ScenarioModeExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(37, int32(echelonExtensionType), 0)
+	builder.PrependInt32Slot(39, int32(echelonExtensionType), 0)
 }
 func ScenarioModeExcelAddCollectionGroupId(builder *flatbuffers.Builder, collectionGroupId int64) {
-	builder.PrependInt64Slot(38, collectionGroupId, 0)
+	builder.PrependInt64Slot(40, collectionGroupId, 0)
 }
 func ScenarioModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

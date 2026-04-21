@@ -1,3 +1,5 @@
+include "ScenarioModeSubTypes.fbs";
+
 namespace MX.Data.Excel;
 
 table ScenarioResourceInfoExcel {
@@ -12,7 +14,10 @@ table ScenarioResourceInfoExcel {
     ratio: int;
     lobby_ani_path: string;
     movie_cg_path: string;
+    scenario_force_enter: ScenarioModeSubTypes;
     localize_id: uint;
+    academy_lobby_character_id: [long];
+    sweep_animation: [string];
 }
 
 root_type ScenarioResourceInfoExcel;
