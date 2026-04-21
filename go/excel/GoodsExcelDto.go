@@ -21,8 +21,7 @@ type GoodsExcelDto struct {
 	ConsumeGachaTicketType       []GachaTicketType  `json:"consume_gacha_ticket_type"`
 	ConsumeGachaTicketTypeAmount []int64            `json:"consume_gacha_ticket_type_amount"`
 	CombinedGachaCostId          int64              `json:"combined_gacha_cost_id"`
-	ProductIdAos                 int64              `json:"product_id_aos"`
-	ProductIdiOs                 int64              `json:"product_idi_os"`
+	ProductId                    string             `json:"product_id"`
 	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
 	ConsumeExtraAmount           []int64            `json:"consume_extra_amount"`
 	State                        int32              `json:"state"`
@@ -34,6 +33,7 @@ type GoodsExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_product_id := b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey))
 	GoodsExcelStart(b)
 	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
@@ -70,8 +70,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	}
 	GoodsExcelAddConsumeGachaTicketTypeAmount(b, b.EndVector(len(t.ConsumeGachaTicketTypeAmount)))
 	GoodsExcelAddCombinedGachaCostId(b, fbsutils.Convert(t.CombinedGachaCostId, t.FlatBuffer.TableKey))
-	GoodsExcelAddProductIdAos(b, fbsutils.Convert(t.ProductIdAos, t.FlatBuffer.TableKey))
-	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
+	GoodsExcelAddProductId(b, __offset_product_id)
 	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
 	for i := range len(t.ConsumeExtraStep) {
 		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraStep[len(t.ConsumeExtraStep)-i-1], t.FlatBuffer.TableKey))
@@ -139,8 +138,7 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 		t.ConsumeGachaTicketTypeAmount[i] = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.CombinedGachaCostId = fbsutils.Convert(e.CombinedGachaCostId(), t.FlatBuffer.TableKey)
-	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
-	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
+	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
 	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
 	for i := range e.ConsumeExtraStepLength() {
 		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)

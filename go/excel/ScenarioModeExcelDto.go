@@ -30,6 +30,8 @@ type ScenarioModeExcelDto struct {
 	ClearedModeId              []int64              `json:"cleared_mode_id"`
 	ScenarioModeRewardId       int64                `json:"scenario_mode_reward_id"`
 	IsScenarioSpecialReward    bool                 `json:"is_scenario_special_reward"`
+	SpecialRewardPrefabName    string               `json:"special_reward_prefab_name"`
+	SpecialRewardLogOut        bool                 `json:"special_reward_log_out"`
 	AccountLevelLimit          int64                `json:"account_level_limit"`
 	ClearedStageId             int64                `json:"cleared_stage_id"`
 	NeedClub                   Club                 `json:"need_club"`
@@ -54,6 +56,7 @@ type ScenarioModeExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	__offset_exposed_time := b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey))
+	__offset_special_reward_prefab_name := b.CreateString(fbsutils.Convert(t.SpecialRewardPrefabName, t.FlatBuffer.TableKey))
 	__offset_event_icon_parcel_path := b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey))
 	__offset_complete_report_event_name := b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey))
 	ScenarioModeExcelStart(b)
@@ -89,6 +92,8 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddClearedModeId(b, b.EndVector(len(t.ClearedModeId)))
 	ScenarioModeExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddIsScenarioSpecialReward(b, t.IsScenarioSpecialReward)
+	ScenarioModeExcelAddSpecialRewardPrefabName(b, __offset_special_reward_prefab_name)
+	ScenarioModeExcelAddSpecialRewardLogOut(b, t.SpecialRewardLogOut)
 	ScenarioModeExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddClearedStageId(b, fbsutils.Convert(t.ClearedStageId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddNeedClub(b, fbsutils.Convert(t.NeedClub, t.FlatBuffer.TableKey))
@@ -149,6 +154,8 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	}
 	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
 	t.IsScenarioSpecialReward = e.IsScenarioSpecialReward()
+	t.SpecialRewardPrefabName = fbsutils.Convert(string(e.SpecialRewardPrefabName()), t.FlatBuffer.TableKey)
+	t.SpecialRewardLogOut = e.SpecialRewardLogOut()
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
 	t.ClearedStageId = fbsutils.Convert(e.ClearedStageId(), t.FlatBuffer.TableKey)
 	t.NeedClub = Club(fbsutils.Convert(int32(e.NeedClub()), t.FlatBuffer.TableKey))

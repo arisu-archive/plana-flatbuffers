@@ -29,6 +29,8 @@ table ScenarioModeExcel {
     cleared_mode_id: [long];
     scenario_mode_reward_id: long;
     is_scenario_special_reward: bool;
+    special_reward_prefab_name: string;
+    special_reward_log_out: bool;
     account_level_limit: long;
     cleared_stage_id: long;
     need_club: Club;

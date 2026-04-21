@@ -10,19 +10,21 @@ import (
 // ScenarioModeSpoilerPopupExcelDto represents a FlatBuffers table
 type ScenarioModeSpoilerPopupExcelDto struct {
 	fbsutils.FlatBuffer
-	ModeType                ScenarioModeTypes `json:"mode_type"`
-	VolumeId                int64             `json:"volume_id"`
-	ChapterId               int64             `json:"chapter_id"`
-	SpoilerPopupTitle       uint32            `json:"spoiler_popup_title"`
-	SpoilerPopupDescription uint32            `json:"spoiler_popup_description"`
-	PopupType               SpoilerPopupType  `json:"popup_type"`
-	ConditionScenarioModeId int64             `json:"condition_scenario_mode_id"`
+	ModeType                ScenarioModeTypes    `json:"mode_type"`
+	SubType                 ScenarioModeSubTypes `json:"sub_type"`
+	VolumeId                int64                `json:"volume_id"`
+	ChapterId               int64                `json:"chapter_id"`
+	SpoilerPopupTitle       uint32               `json:"spoiler_popup_title"`
+	SpoilerPopupDescription uint32               `json:"spoiler_popup_description"`
+	PopupType               SpoilerPopupType     `json:"popup_type"`
+	ConditionScenarioModeId int64                `json:"condition_scenario_mode_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioModeSpoilerPopupExcelStart(b)
 	ScenarioModeSpoilerPopupExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
+	ScenarioModeSpoilerPopupExcelAddSubType(b, fbsutils.Convert(t.SubType, t.FlatBuffer.TableKey))
 	ScenarioModeSpoilerPopupExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
 	ScenarioModeSpoilerPopupExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
 	ScenarioModeSpoilerPopupExcelAddSpoilerPopupTitle(b, fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey))
@@ -42,6 +44,7 @@ func (t *ScenarioModeSpoilerPopupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeSpoilerPopupExcelDto) UnmarshalMessage(e *ScenarioModeSpoilerPopupExcel) error {
 	t.ModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ModeType()), t.FlatBuffer.TableKey))
+	t.SubType = ScenarioModeSubTypes(fbsutils.Convert(int32(e.SubType()), t.FlatBuffer.TableKey))
 	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
 	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
 	t.SpoilerPopupTitle = fbsutils.Convert(e.SpoilerPopupTitle(), t.FlatBuffer.TableKey)

@@ -7,18 +7,24 @@ import "strconv"
 type ScenarioModeSubTypes int32
 
 const (
-	ScenarioModeSubTypesNone ScenarioModeSubTypes = 0
-	ScenarioModeSubTypesClub ScenarioModeSubTypes = 1
+	ScenarioModeSubTypesNone    ScenarioModeSubTypes = 0
+	ScenarioModeSubTypesClub    ScenarioModeSubTypes = 1
+	ScenarioModeSubTypesSeries1 ScenarioModeSubTypes = 2
+	ScenarioModeSubTypesSeries2 ScenarioModeSubTypes = 3
 )
 
 var EnumNamesScenarioModeSubTypes = map[ScenarioModeSubTypes]string{
-	ScenarioModeSubTypesNone: "None",
-	ScenarioModeSubTypesClub: "Club",
+	ScenarioModeSubTypesNone:    "None",
+	ScenarioModeSubTypesClub:    "Club",
+	ScenarioModeSubTypesSeries1: "Series1",
+	ScenarioModeSubTypesSeries2: "Series2",
 }
 
 var EnumValuesScenarioModeSubTypes = map[string]ScenarioModeSubTypes{
-	"None": ScenarioModeSubTypesNone,
-	"Club": ScenarioModeSubTypesClub,
+	"None":    ScenarioModeSubTypesNone,
+	"Club":    ScenarioModeSubTypesClub,
+	"Series1": ScenarioModeSubTypesSeries1,
+	"Series2": ScenarioModeSubTypesSeries2,
 }
 
 func (v ScenarioModeSubTypes) String() string {

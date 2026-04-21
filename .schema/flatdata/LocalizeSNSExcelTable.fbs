@@ -1,0 +1,9 @@
+include "LocalizeSNSExcel.fbs";
+
+namespace FlatData;
+
+table LocalizeSNSExcelTable {
+    data_list: [LocalizeSNSExcel];
+}
+
+root_type LocalizeSNSExcelTable;

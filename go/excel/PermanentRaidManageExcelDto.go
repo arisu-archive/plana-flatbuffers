@@ -12,6 +12,7 @@ type PermanentRaidManageExcelDto struct {
 	fbsutils.FlatBuffer
 	Type              RaidBossGroupType `json:"type"`
 	OpenRaidBossGroup []string          `json:"open_raid_boss_group"`
+	HideDifficulty    []string          `json:"hide_difficulty"`
 	OpenDate          string            `json:"open_date"`
 }
 
@@ -27,10 +28,21 @@ func (t *PermanentRaidManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependUOffsetT(__stringOffsets_open_raid_boss_group[len(t.OpenRaidBossGroup)-i-1])
 	}
 	__offset_open_raid_boss_group = b.EndVector(len(t.OpenRaidBossGroup))
+	var __offset_hide_difficulty flatbuffers.UOffsetT
+	__stringOffsets_hide_difficulty := make([]flatbuffers.UOffsetT, len(t.HideDifficulty))
+	for i := range len(t.HideDifficulty) {
+		__stringOffsets_hide_difficulty[i] = b.CreateString(fbsutils.Convert(t.HideDifficulty[i], t.FlatBuffer.TableKey))
+	}
+	PermanentRaidManageExcelStartHideDifficultyVector(b, len(t.HideDifficulty))
+	for i := range len(t.HideDifficulty) {
+		b.PrependUOffsetT(__stringOffsets_hide_difficulty[len(t.HideDifficulty)-i-1])
+	}
+	__offset_hide_difficulty = b.EndVector(len(t.HideDifficulty))
 	__offset_open_date := b.CreateString(fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
 	PermanentRaidManageExcelStart(b)
 	PermanentRaidManageExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	PermanentRaidManageExcelAddOpenRaidBossGroup(b, __offset_open_raid_boss_group)
+	PermanentRaidManageExcelAddHideDifficulty(b, __offset_hide_difficulty)
 	PermanentRaidManageExcelAddOpenDate(b, __offset_open_date)
 	return PermanentRaidManageExcelEnd(b)
 }
@@ -48,6 +60,10 @@ func (t *PermanentRaidManageExcelDto) UnmarshalMessage(e *PermanentRaidManageExc
 	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())
 	for i := range e.OpenRaidBossGroupLength() {
 		t.OpenRaidBossGroup[i] = fbsutils.Convert(string(e.OpenRaidBossGroup(i)), t.FlatBuffer.TableKey)
+	}
+	t.HideDifficulty = make([]string, e.HideDifficultyLength())
+	for i := range e.HideDifficultyLength() {
+		t.HideDifficulty[i] = fbsutils.Convert(string(e.HideDifficulty(i)), t.FlatBuffer.TableKey)
 	}
 	t.OpenDate = fbsutils.Convert(string(e.OpenDate()), t.FlatBuffer.TableKey)
 	return nil

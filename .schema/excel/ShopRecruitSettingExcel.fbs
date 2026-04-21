@@ -1,0 +1,16 @@
+include "ScenarioModeSubTypes.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRecruitSettingExcel {
+    id: long;
+    recruit_change_scenario_mode_id: long;
+    priority_order: long;
+    together_percentage: int;
+    another_percentage: int;
+    twist_percentage: int;
+    recruit_change_icon: string;
+    series_force_enter: ScenarioModeSubTypes;
+}
+
+root_type ShopRecruitSettingExcel;

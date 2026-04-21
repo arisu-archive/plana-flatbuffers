@@ -66,6 +66,8 @@ const (
 	OpenConditionContentMiniGameDefense                   OpenConditionContent = 56
 	OpenConditionContentMiniGameCCG                       OpenConditionContent = 57
 	OpenConditionContentMain_L_1_5                        OpenConditionContent = 58
+	OpenConditionContentMain_SNS                          OpenConditionContent = 59
+	OpenConditionContentPermanentRaid                     OpenConditionContent = 60
 )
 
 var EnumNamesOpenConditionContent = map[OpenConditionContent]string{
@@ -128,6 +130,8 @@ var EnumNamesOpenConditionContent = map[OpenConditionContent]string{
 	OpenConditionContentMiniGameDefense:                   "MiniGameDefense",
 	OpenConditionContentMiniGameCCG:                       "MiniGameCCG",
 	OpenConditionContentMain_L_1_5:                        "Main_L_1_5",
+	OpenConditionContentMain_SNS:                          "Main_SNS",
+	OpenConditionContentPermanentRaid:                     "PermanentRaid",
 }
 
 var EnumValuesOpenConditionContent = map[string]OpenConditionContent{
@@ -190,6 +194,8 @@ var EnumValuesOpenConditionContent = map[string]OpenConditionContent{
 	"MiniGameDefense":                   OpenConditionContentMiniGameDefense,
 	"MiniGameCCG":                       OpenConditionContentMiniGameCCG,
 	"Main_L_1_5":                        OpenConditionContentMain_L_1_5,
+	"Main_SNS":                          OpenConditionContentMain_SNS,
+	"PermanentRaid":                     OpenConditionContentPermanentRaid,
 }
 
 func (v OpenConditionContent) String() string {

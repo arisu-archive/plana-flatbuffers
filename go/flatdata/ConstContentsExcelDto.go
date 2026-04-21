@@ -12,6 +12,8 @@ type ConstContentsExcelDto struct {
 	fbsutils.FlatBuffer
 	UseSearchFieldOptimize bool    `json:"use_search_field_optimize"`
 	SearchUpdateTime       float32 `json:"search_update_time"`
+	LobbyDayTimeFrom       int32   `json:"lobby_day_time_from"`
+	LobbyNightTimeFrom     int32   `json:"lobby_night_time_from"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,6 +24,8 @@ func (t *ConstContentsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	ConstContentsExcelStart(b)
 	ConstContentsExcelAddUseSearchFieldOptimize(b, t.UseSearchFieldOptimize)
 	ConstContentsExcelAddSearchUpdateTime(b, fbsutils.Convert(t.SearchUpdateTime, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddLobbyDayTimeFrom(b, fbsutils.Convert(t.LobbyDayTimeFrom, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddLobbyNightTimeFrom(b, fbsutils.Convert(t.LobbyNightTimeFrom, t.FlatBuffer.TableKey))
 	return ConstContentsExcelEnd(b)
 }
 
@@ -39,6 +43,8 @@ func (t *ConstContentsExcelDto) UnmarshalMessage(e *ConstContentsExcel) error {
 	}
 	t.UseSearchFieldOptimize = e.UseSearchFieldOptimize()
 	t.SearchUpdateTime = fbsutils.Convert(e.SearchUpdateTime(), t.FlatBuffer.TableKey)
+	t.LobbyDayTimeFrom = fbsutils.Convert(e.LobbyDayTimeFrom(), t.FlatBuffer.TableKey)
+	t.LobbyNightTimeFrom = fbsutils.Convert(e.LobbyNightTimeFrom(), t.FlatBuffer.TableKey)
 	return nil
 }
 

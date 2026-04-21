@@ -53,19 +53,19 @@ func (rcv *ScenarioModeSpoilerPopupExcel) MutateModeType(n ScenarioModeTypes) bo
 	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) VolumeId() int64 {
+func (rcv *ScenarioModeSpoilerPopupExcel) SubType() ScenarioModeSubTypes {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ScenarioModeSubTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) MutateVolumeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *ScenarioModeSpoilerPopupExcel) MutateSubType(n ScenarioModeSubTypes) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) ChapterId() int64 {
+func (rcv *ScenarioModeSpoilerPopupExcel) VolumeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,23 +73,23 @@ func (rcv *ScenarioModeSpoilerPopupExcel) ChapterId() int64 {
 	return 0
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) MutateChapterId(n int64) bool {
+func (rcv *ScenarioModeSpoilerPopupExcel) MutateVolumeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) SpoilerPopupTitle() uint32 {
+func (rcv *ScenarioModeSpoilerPopupExcel) ChapterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) MutateSpoilerPopupTitle(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+func (rcv *ScenarioModeSpoilerPopupExcel) MutateChapterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) SpoilerPopupDescription() uint32 {
+func (rcv *ScenarioModeSpoilerPopupExcel) SpoilerPopupTitle() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -97,12 +97,24 @@ func (rcv *ScenarioModeSpoilerPopupExcel) SpoilerPopupDescription() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) MutateSpoilerPopupDescription(n uint32) bool {
+func (rcv *ScenarioModeSpoilerPopupExcel) MutateSpoilerPopupTitle(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(12, n)
 }
 
-func (rcv *ScenarioModeSpoilerPopupExcel) PopupType() SpoilerPopupType {
+func (rcv *ScenarioModeSpoilerPopupExcel) SpoilerPopupDescription() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioModeSpoilerPopupExcel) MutateSpoilerPopupDescription(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(14, n)
+}
+
+func (rcv *ScenarioModeSpoilerPopupExcel) PopupType() SpoilerPopupType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return SpoilerPopupType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -110,11 +122,11 @@ func (rcv *ScenarioModeSpoilerPopupExcel) PopupType() SpoilerPopupType {
 }
 
 func (rcv *ScenarioModeSpoilerPopupExcel) MutatePopupType(n SpoilerPopupType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func (rcv *ScenarioModeSpoilerPopupExcel) ConditionScenarioModeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -122,32 +134,35 @@ func (rcv *ScenarioModeSpoilerPopupExcel) ConditionScenarioModeId() int64 {
 }
 
 func (rcv *ScenarioModeSpoilerPopupExcel) MutateConditionScenarioModeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func ScenarioModeSpoilerPopupExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func ScenarioModeSpoilerPopupExcelAddModeType(builder *flatbuffers.Builder, modeType ScenarioModeTypes) {
 	builder.PrependInt32Slot(0, int32(modeType), 0)
 }
+func ScenarioModeSpoilerPopupExcelAddSubType(builder *flatbuffers.Builder, subType ScenarioModeSubTypes) {
+	builder.PrependInt32Slot(1, int32(subType), 0)
+}
 func ScenarioModeSpoilerPopupExcelAddVolumeId(builder *flatbuffers.Builder, volumeId int64) {
-	builder.PrependInt64Slot(1, volumeId, 0)
+	builder.PrependInt64Slot(2, volumeId, 0)
 }
 func ScenarioModeSpoilerPopupExcelAddChapterId(builder *flatbuffers.Builder, chapterId int64) {
-	builder.PrependInt64Slot(2, chapterId, 0)
+	builder.PrependInt64Slot(3, chapterId, 0)
 }
 func ScenarioModeSpoilerPopupExcelAddSpoilerPopupTitle(builder *flatbuffers.Builder, spoilerPopupTitle uint32) {
-	builder.PrependUint32Slot(3, spoilerPopupTitle, 0)
+	builder.PrependUint32Slot(4, spoilerPopupTitle, 0)
 }
 func ScenarioModeSpoilerPopupExcelAddSpoilerPopupDescription(builder *flatbuffers.Builder, spoilerPopupDescription uint32) {
-	builder.PrependUint32Slot(4, spoilerPopupDescription, 0)
+	builder.PrependUint32Slot(5, spoilerPopupDescription, 0)
 }
 func ScenarioModeSpoilerPopupExcelAddPopupType(builder *flatbuffers.Builder, popupType SpoilerPopupType) {
-	builder.PrependInt32Slot(5, int32(popupType), 0)
+	builder.PrependInt32Slot(6, int32(popupType), 0)
 }
 func ScenarioModeSpoilerPopupExcelAddConditionScenarioModeId(builder *flatbuffers.Builder, conditionScenarioModeId int64) {
-	builder.PrependInt64Slot(6, conditionScenarioModeId, 0)
+	builder.PrependInt64Slot(7, conditionScenarioModeId, 0)
 }
 func ScenarioModeSpoilerPopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

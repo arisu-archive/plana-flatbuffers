@@ -3,4 +3,6 @@ namespace FlatData;
 enum ScenarioModeSubTypes: int {
     None = 0,
     Club = 1,
+    Series1 = 2,
+    Series2 = 3,
 }

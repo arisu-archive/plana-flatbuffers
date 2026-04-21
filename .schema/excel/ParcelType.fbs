@@ -28,4 +28,7 @@ enum ParcelType: int {
     BattlePassExp = 24,
     SelectedCharacter = 25,
     UnSelectedCharacter = 26,
+    ProductBattlePass = 27,
+    ProductSelect = 28,
+    SNSPost = 29,
 }

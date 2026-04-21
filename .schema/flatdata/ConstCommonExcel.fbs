@@ -11,7 +11,6 @@ table ConstCommonExcel {
     hard_stage_count: int;
     tactic_rank_clear_time: int;
     base_time_scale: long;
-    gacha_percentage: int;
     academy_favor_zone_id: long;
     cafe_preset_slot_count: int;
     cafe_monologue_interval_millisec: long;
@@ -195,4 +194,5 @@ table ConstCommonExcel {
     expiry_product_daily_record_item_receive_day: int;
     newbie_user_standard_day: int;
     newbie_state_hold_day: int;
+    clear_deck_echelon_show_max_count: int;
 }

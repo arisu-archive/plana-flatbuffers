@@ -5,6 +5,7 @@ namespace MX.Data.Excel;
 table PermanentRaidManageExcel {
     type: RaidBossGroupType;
     open_raid_boss_group: [string];
+    hide_difficulty: [string];
     open_date: string;
 }
 

@@ -329,19 +329,15 @@ func (rcv *ShopRecruitExcel) MutateDirectPayInvisibleTokenId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *ShopRecruitExcel) DirectPayAndroidShopCashId() int64 {
+func (rcv *ShopRecruitExcel) DirectPayProductId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ShopRecruitExcel) MutateDirectPayAndroidShopCashId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(50, n)
-}
-
-func (rcv *ShopRecruitExcel) DirectPayAppleShopCashId() int64 {
+func (rcv *ShopRecruitExcel) SelectAbleGachaGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -349,11 +345,11 @@ func (rcv *ShopRecruitExcel) DirectPayAppleShopCashId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateDirectPayAppleShopCashId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateSelectAbleGachaGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *ShopRecruitExcel) SelectAbleGachaGroupId() int64 {
+func (rcv *ShopRecruitExcel) MaxSelectCharacterNum() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -361,24 +357,12 @@ func (rcv *ShopRecruitExcel) SelectAbleGachaGroupId() int64 {
 	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateSelectAbleGachaGroupId(n int64) bool {
+func (rcv *ShopRecruitExcel) MutateMaxSelectCharacterNum(n int64) bool {
 	return rcv._tab.MutateInt64Slot(54, n)
 }
 
-func (rcv *ShopRecruitExcel) MaxSelectCharacterNum() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRecruitExcel) MutateMaxSelectCharacterNum(n int64) bool {
-	return rcv._tab.MutateInt64Slot(56, n)
-}
-
 func ShopRecruitExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(27)
+	builder.StartObject(26)
 }
 func ShopRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -455,17 +439,14 @@ func ShopRecruitExcelAddIsSelectRecruit(builder *flatbuffers.Builder, isSelectRe
 func ShopRecruitExcelAddDirectPayInvisibleTokenId(builder *flatbuffers.Builder, directPayInvisibleTokenId int64) {
 	builder.PrependInt64Slot(22, directPayInvisibleTokenId, 0)
 }
-func ShopRecruitExcelAddDirectPayAndroidShopCashId(builder *flatbuffers.Builder, directPayAndroidShopCashId int64) {
-	builder.PrependInt64Slot(23, directPayAndroidShopCashId, 0)
-}
-func ShopRecruitExcelAddDirectPayAppleShopCashId(builder *flatbuffers.Builder, directPayAppleShopCashId int64) {
-	builder.PrependInt64Slot(24, directPayAppleShopCashId, 0)
+func ShopRecruitExcelAddDirectPayProductId(builder *flatbuffers.Builder, directPayProductId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(directPayProductId), 0)
 }
 func ShopRecruitExcelAddSelectAbleGachaGroupId(builder *flatbuffers.Builder, selectAbleGachaGroupId int64) {
-	builder.PrependInt64Slot(25, selectAbleGachaGroupId, 0)
+	builder.PrependInt64Slot(24, selectAbleGachaGroupId, 0)
 }
 func ShopRecruitExcelAddMaxSelectCharacterNum(builder *flatbuffers.Builder, maxSelectCharacterNum int64) {
-	builder.PrependInt64Slot(26, maxSelectCharacterNum, 0)
+	builder.PrependInt64Slot(25, maxSelectCharacterNum, 0)
 }
 func ShopRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
