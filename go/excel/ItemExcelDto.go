@@ -32,6 +32,7 @@ type ItemExcelDto struct {
 	CanTierUpgrade           bool               `json:"can_tier_upgrade"`
 	TierUpgradeRecipeCraftId int64              `json:"tier_upgrade_recipe_craft_id"`
 	Tags                     []Tag              `json:"tags"`
+	IsCollaboration          bool               `json:"is_collaboration"`
 	CraftQualityTier0        int64              `json:"craft_quality_tier0"`
 	CraftQualityTier1        int64              `json:"craft_quality_tier1"`
 	CraftQualityTier2        int64              `json:"craft_quality_tier2"`
@@ -78,6 +79,7 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ItemExcelAddTags(b, b.EndVector(len(t.Tags)))
+	ItemExcelAddIsCollaboration(b, t.IsCollaboration)
 	ItemExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
 	ItemExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
 	ItemExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
@@ -131,6 +133,7 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	for i := range e.TagsLength() {
 		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.IsCollaboration = e.IsCollaboration()
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)

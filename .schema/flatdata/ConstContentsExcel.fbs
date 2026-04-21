@@ -3,4 +3,6 @@ namespace FlatData;
 table ConstContentsExcel {
     use_search_field_optimize: bool;
     search_update_time: float;
+    lobby_day_time_from: int;
+    lobby_night_time_from: int;
 }

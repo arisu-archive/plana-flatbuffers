@@ -311,19 +311,19 @@ func (rcv *ItemExcel) MutateTags(j int, n Tag) bool {
 	return false
 }
 
-func (rcv *ItemExcel) CraftQualityTier0() int64 {
+func (rcv *ItemExcel) IsCollaboration() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *ItemExcel) MutateCraftQualityTier0(n int64) bool {
-	return rcv._tab.MutateInt64Slot(48, n)
+func (rcv *ItemExcel) MutateIsCollaboration(n bool) bool {
+	return rcv._tab.MutateBoolSlot(48, n)
 }
 
-func (rcv *ItemExcel) CraftQualityTier1() int64 {
+func (rcv *ItemExcel) CraftQualityTier0() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -331,11 +331,11 @@ func (rcv *ItemExcel) CraftQualityTier1() int64 {
 	return 0
 }
 
-func (rcv *ItemExcel) MutateCraftQualityTier1(n int64) bool {
+func (rcv *ItemExcel) MutateCraftQualityTier0(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *ItemExcel) CraftQualityTier2() int64 {
+func (rcv *ItemExcel) CraftQualityTier1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -343,11 +343,11 @@ func (rcv *ItemExcel) CraftQualityTier2() int64 {
 	return 0
 }
 
-func (rcv *ItemExcel) MutateCraftQualityTier2(n int64) bool {
+func (rcv *ItemExcel) MutateCraftQualityTier1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *ItemExcel) ShiftingCraftQuality() int64 {
+func (rcv *ItemExcel) CraftQualityTier2() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -355,12 +355,24 @@ func (rcv *ItemExcel) ShiftingCraftQuality() int64 {
 	return 0
 }
 
-func (rcv *ItemExcel) MutateShiftingCraftQuality(n int64) bool {
+func (rcv *ItemExcel) MutateCraftQualityTier2(n int64) bool {
 	return rcv._tab.MutateInt64Slot(54, n)
 }
 
-func (rcv *ItemExcel) MaxGiftTags() int32 {
+func (rcv *ItemExcel) ShiftingCraftQuality() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ItemExcel) MutateShiftingCraftQuality(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
+}
+
+func (rcv *ItemExcel) MaxGiftTags() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -368,11 +380,11 @@ func (rcv *ItemExcel) MaxGiftTags() int32 {
 }
 
 func (rcv *ItemExcel) MutateMaxGiftTags(n int32) bool {
-	return rcv._tab.MutateInt32Slot(56, n)
+	return rcv._tab.MutateInt32Slot(58, n)
 }
 
 func (rcv *ItemExcel) ShopCategory(j int) ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ShopCategoryType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -381,7 +393,7 @@ func (rcv *ItemExcel) ShopCategory(j int) ShopCategoryType {
 }
 
 func (rcv *ItemExcel) ShopCategoryLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -389,7 +401,7 @@ func (rcv *ItemExcel) ShopCategoryLength() int {
 }
 
 func (rcv *ItemExcel) MutateShopCategory(j int, n ShopCategoryType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -398,7 +410,7 @@ func (rcv *ItemExcel) MutateShopCategory(j int, n ShopCategoryType) bool {
 }
 
 func (rcv *ItemExcel) ExpirationDateTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -406,7 +418,7 @@ func (rcv *ItemExcel) ExpirationDateTime() []byte {
 }
 
 func (rcv *ItemExcel) ExpirationNotifyDateIn() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -414,11 +426,11 @@ func (rcv *ItemExcel) ExpirationNotifyDateIn() int32 {
 }
 
 func (rcv *ItemExcel) MutateExpirationNotifyDateIn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(62, n)
+	return rcv._tab.MutateInt32Slot(64, n)
 }
 
 func (rcv *ItemExcel) ShortcutTypeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -426,11 +438,11 @@ func (rcv *ItemExcel) ShortcutTypeId() int64 {
 }
 
 func (rcv *ItemExcel) MutateShortcutTypeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(64, n)
+	return rcv._tab.MutateInt64Slot(66, n)
 }
 
 func (rcv *ItemExcel) GachaTicket() GachaTicketType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return GachaTicketType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -438,22 +450,10 @@ func (rcv *ItemExcel) GachaTicket() GachaTicketType {
 }
 
 func (rcv *ItemExcel) MutateGachaTicket(n GachaTicketType) bool {
-	return rcv._tab.MutateInt32Slot(66, int32(n))
+	return rcv._tab.MutateInt32Slot(68, int32(n))
 }
 
 func (rcv *ItemExcel) AlertPopupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ItemExcel) MutateAlertPopupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(68, n)
-}
-
-func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -461,12 +461,24 @@ func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
 	return 0
 }
 
-func (rcv *ItemExcel) MutateShiftingCraftRecipe(n int64) bool {
+func (rcv *ItemExcel) MutateAlertPopupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(70, n)
 }
 
+func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ItemExcel) MutateShiftingCraftRecipe(n int64) bool {
+	return rcv._tab.MutateInt64Slot(72, n)
+}
+
 func ItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(34)
+	builder.StartObject(35)
 }
 func ItemExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -537,44 +549,47 @@ func ItemExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
 func ItemExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func ItemExcelAddIsCollaboration(builder *flatbuffers.Builder, isCollaboration bool) {
+	builder.PrependBoolSlot(22, isCollaboration, false)
+}
 func ItemExcelAddCraftQualityTier0(builder *flatbuffers.Builder, craftQualityTier0 int64) {
-	builder.PrependInt64Slot(22, craftQualityTier0, 0)
+	builder.PrependInt64Slot(23, craftQualityTier0, 0)
 }
 func ItemExcelAddCraftQualityTier1(builder *flatbuffers.Builder, craftQualityTier1 int64) {
-	builder.PrependInt64Slot(23, craftQualityTier1, 0)
+	builder.PrependInt64Slot(24, craftQualityTier1, 0)
 }
 func ItemExcelAddCraftQualityTier2(builder *flatbuffers.Builder, craftQualityTier2 int64) {
-	builder.PrependInt64Slot(24, craftQualityTier2, 0)
+	builder.PrependInt64Slot(25, craftQualityTier2, 0)
 }
 func ItemExcelAddShiftingCraftQuality(builder *flatbuffers.Builder, shiftingCraftQuality int64) {
-	builder.PrependInt64Slot(25, shiftingCraftQuality, 0)
+	builder.PrependInt64Slot(26, shiftingCraftQuality, 0)
 }
 func ItemExcelAddMaxGiftTags(builder *flatbuffers.Builder, maxGiftTags int32) {
-	builder.PrependInt32Slot(26, maxGiftTags, 0)
+	builder.PrependInt32Slot(27, maxGiftTags, 0)
 }
 func ItemExcelAddShopCategory(builder *flatbuffers.Builder, shopCategory flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(shopCategory), 0)
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(shopCategory), 0)
 }
 func ItemExcelStartShopCategoryVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func ItemExcelAddExpirationDateTime(builder *flatbuffers.Builder, expirationDateTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(expirationDateTime), 0)
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(expirationDateTime), 0)
 }
 func ItemExcelAddExpirationNotifyDateIn(builder *flatbuffers.Builder, expirationNotifyDateIn int32) {
-	builder.PrependInt32Slot(29, expirationNotifyDateIn, 0)
+	builder.PrependInt32Slot(30, expirationNotifyDateIn, 0)
 }
 func ItemExcelAddShortcutTypeId(builder *flatbuffers.Builder, shortcutTypeId int64) {
-	builder.PrependInt64Slot(30, shortcutTypeId, 0)
+	builder.PrependInt64Slot(31, shortcutTypeId, 0)
 }
 func ItemExcelAddGachaTicket(builder *flatbuffers.Builder, gachaTicket GachaTicketType) {
-	builder.PrependInt32Slot(31, int32(gachaTicket), 0)
+	builder.PrependInt32Slot(32, int32(gachaTicket), 0)
 }
 func ItemExcelAddAlertPopupId(builder *flatbuffers.Builder, alertPopupId int64) {
-	builder.PrependInt64Slot(32, alertPopupId, 0)
+	builder.PrependInt64Slot(33, alertPopupId, 0)
 }
 func ItemExcelAddShiftingCraftRecipe(builder *flatbuffers.Builder, shiftingCraftRecipe int64) {
-	builder.PrependInt64Slot(33, shiftingCraftRecipe, 0)
+	builder.PrependInt64Slot(34, shiftingCraftRecipe, 0)
 }
 func ItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

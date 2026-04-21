@@ -1,0 +1,14 @@
+include "DirectingCharacter.fbs";
+include "GachaPhase.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRecruitDirectingExcel {
+    path: string;
+    phase: GachaPhase;
+    gacha_amount: int;
+    is_ssr: bool;
+    character: DirectingCharacter;
+}
+
+root_type ShopRecruitDirectingExcel;

@@ -32,6 +32,7 @@ table ItemExcel {
     can_tier_upgrade: bool;
     tier_upgrade_recipe_craft_id: long;
     tags: [Tag];
+    is_collaboration: bool;
     craft_quality_tier0: long;
     craft_quality_tier1: long;
     craft_quality_tier2: long;

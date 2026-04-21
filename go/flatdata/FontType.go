@@ -21,6 +21,7 @@ const (
 	FontTypeCriticalWeak      FontType = 11
 	FontTypeEffective         FontType = 12
 	FontTypeCriticalEffective FontType = 13
+	FontTypeShieldHeal        FontType = 14
 )
 
 var EnumNamesFontType = map[FontType]string{
@@ -38,6 +39,7 @@ var EnumNamesFontType = map[FontType]string{
 	FontTypeCriticalWeak:      "CriticalWeak",
 	FontTypeEffective:         "Effective",
 	FontTypeCriticalEffective: "CriticalEffective",
+	FontTypeShieldHeal:        "ShieldHeal",
 }
 
 var EnumValuesFontType = map[string]FontType{
@@ -55,6 +57,7 @@ var EnumValuesFontType = map[string]FontType{
 	"CriticalWeak":      FontTypeCriticalWeak,
 	"Effective":         FontTypeEffective,
 	"CriticalEffective": FontTypeCriticalEffective,
+	"ShieldHeal":        FontTypeShieldHeal,
 }
 
 func (v FontType) String() string {

@@ -16,7 +16,6 @@ type ConstCommonExcelDto struct {
 	HardStageCount                             int32            `json:"hard_stage_count"`
 	TacticRankClearTime                        int32            `json:"tactic_rank_clear_time"`
 	BaseTimeScale                              int64            `json:"base_time_scale"`
-	GachaPercentage                            int32            `json:"gacha_percentage"`
 	AcademyFavorZoneId                         int64            `json:"academy_favor_zone_id"`
 	CafePresetSlotCount                        int32            `json:"cafe_preset_slot_count"`
 	CafeMonologueIntervalMillisec              int64            `json:"cafe_monologue_interval_millisec"`
@@ -200,6 +199,7 @@ type ConstCommonExcelDto struct {
 	ExpiryProductDailyRecordItemReceiveDay     int32            `json:"expiry_product_daily_record_item_receive_day"`
 	NewbieUserStandardDay                      int32            `json:"newbie_user_standard_day"`
 	NewbieStateHoldDay                         int32            `json:"newbie_state_hold_day"`
+	ClearDeckEchelonShowMaxCount               int32            `json:"clear_deck_echelon_show_max_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -218,7 +218,6 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddHardStageCount(b, fbsutils.Convert(t.HardStageCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddTacticRankClearTime(b, fbsutils.Convert(t.TacticRankClearTime, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBaseTimeScale(b, fbsutils.Convert(t.BaseTimeScale, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddGachaPercentage(b, fbsutils.Convert(t.GachaPercentage, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAcademyFavorZoneId(b, fbsutils.Convert(t.AcademyFavorZoneId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafePresetSlotCount(b, fbsutils.Convert(t.CafePresetSlotCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeMonologueIntervalMillisec(b, fbsutils.Convert(t.CafeMonologueIntervalMillisec, t.FlatBuffer.TableKey))
@@ -422,6 +421,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(b, fbsutils.Convert(t.ExpiryProductDailyRecordItemReceiveDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddNewbieUserStandardDay(b, fbsutils.Convert(t.NewbieUserStandardDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddNewbieStateHoldDay(b, fbsutils.Convert(t.NewbieStateHoldDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClearDeckEchelonShowMaxCount(b, fbsutils.Convert(t.ClearDeckEchelonShowMaxCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -443,7 +443,6 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.HardStageCount = fbsutils.Convert(e.HardStageCount(), t.FlatBuffer.TableKey)
 	t.TacticRankClearTime = fbsutils.Convert(e.TacticRankClearTime(), t.FlatBuffer.TableKey)
 	t.BaseTimeScale = fbsutils.Convert(e.BaseTimeScale(), t.FlatBuffer.TableKey)
-	t.GachaPercentage = fbsutils.Convert(e.GachaPercentage(), t.FlatBuffer.TableKey)
 	t.AcademyFavorZoneId = fbsutils.Convert(e.AcademyFavorZoneId(), t.FlatBuffer.TableKey)
 	t.CafePresetSlotCount = fbsutils.Convert(e.CafePresetSlotCount(), t.FlatBuffer.TableKey)
 	t.CafeMonologueIntervalMillisec = fbsutils.Convert(e.CafeMonologueIntervalMillisec(), t.FlatBuffer.TableKey)
@@ -642,6 +641,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ExpiryProductDailyRecordItemReceiveDay = fbsutils.Convert(e.ExpiryProductDailyRecordItemReceiveDay(), t.FlatBuffer.TableKey)
 	t.NewbieUserStandardDay = fbsutils.Convert(e.NewbieUserStandardDay(), t.FlatBuffer.TableKey)
 	t.NewbieStateHoldDay = fbsutils.Convert(e.NewbieStateHoldDay(), t.FlatBuffer.TableKey)
+	t.ClearDeckEchelonShowMaxCount = fbsutils.Convert(e.ClearDeckEchelonShowMaxCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

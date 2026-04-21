@@ -131,6 +131,8 @@ var fbs = map[string]reflect.Type{
 	"localizeccgexceltable": reflect.TypeOf((*LocalizeCCGExcelTableDto)(nil)).Elem(),
 	"localizefieldexcel": reflect.TypeOf((*LocalizeFieldExcelDto)(nil)).Elem(),
 	"localizefieldexceltable": reflect.TypeOf((*LocalizeFieldExcelTableDto)(nil)).Elem(),
+	"localizesnsexcel": reflect.TypeOf((*LocalizeSNSExcelDto)(nil)).Elem(),
+	"localizesnsexceltable": reflect.TypeOf((*LocalizeSNSExcelTableDto)(nil)).Elem(),
 	"minigamecardexcel": reflect.TypeOf((*MinigameCardExcelDto)(nil)).Elem(),
 	"minigamecardexceltable": reflect.TypeOf((*MinigameCardExcelTableDto)(nil)).Elem(),
 	"minigameroadexcel": reflect.TypeOf((*MinigameRoadExcelDto)(nil)).Elem(),

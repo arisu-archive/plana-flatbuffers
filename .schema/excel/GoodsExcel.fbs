@@ -17,8 +17,7 @@ table GoodsExcel {
     consume_gacha_ticket_type: [GachaTicketType];
     consume_gacha_ticket_type_amount: [long];
     combined_gacha_cost_id: long;
-    product_id_aos: long;
-    product_idi_os: long;
+    product_id: string;
     consume_extra_step: [long];
     consume_extra_amount: [long];
     state: int;

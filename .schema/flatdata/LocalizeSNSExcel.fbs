@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table LocalizeSNSExcel {
+    key: uint;
+    kr: string;
+    jp: string;
+}

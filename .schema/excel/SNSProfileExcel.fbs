@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table SNSProfileExcel {
+    id: long;
+    dev_name: string;
+    profile_image_path: string;
+    name_localize_key: uint;
+    id_localize_key: uint;
+    mark_icon_visible: bool;
+}
+
+root_type SNSProfileExcel;
