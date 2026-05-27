@@ -12,6 +12,7 @@ type ProductSelectExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                   int64                `json:"id"`
 	ProductSelectSubType ProductSelectSubType `json:"product_select_sub_type"`
+	AutoSelectPopupType  AutoSelectPopupType  `json:"auto_select_popup_type"`
 	ProductId            string               `json:"product_id"`
 	StoreType            StoreType            `json:"store_type"`
 	Price                int64                `json:"price"`
@@ -31,6 +32,7 @@ func (t *ProductSelectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	ProductSelectExcelStart(b)
 	ProductSelectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ProductSelectExcelAddProductSelectSubType(b, fbsutils.Convert(t.ProductSelectSubType, t.FlatBuffer.TableKey))
+	ProductSelectExcelAddAutoSelectPopupType(b, fbsutils.Convert(t.AutoSelectPopupType, t.FlatBuffer.TableKey))
 	ProductSelectExcelAddProductId(b, __offset_product_id)
 	ProductSelectExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductSelectExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
@@ -71,6 +73,7 @@ func (t *ProductSelectExcelDto) Marshal() ([]byte, error) {
 func (t *ProductSelectExcelDto) UnmarshalMessage(e *ProductSelectExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ProductSelectSubType = ProductSelectSubType(fbsutils.Convert(int32(e.ProductSelectSubType()), t.FlatBuffer.TableKey))
+	t.AutoSelectPopupType = AutoSelectPopupType(fbsutils.Convert(int32(e.AutoSelectPopupType()), t.FlatBuffer.TableKey))
 	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
 	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
 	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)

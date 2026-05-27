@@ -196,6 +196,7 @@ const (
 	MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear                      MissionCompleteConditionType = 186
 	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount                      MissionCompleteConditionType = 187
 	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount                       MissionCompleteConditionType = 188
+	MissionCompleteConditionTypeReset_EnterUICount                                    MissionCompleteConditionType = 189
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -388,6 +389,7 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear:                      "Reset_WorldRaidSpecificBossClear",
 	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount:                      "Reset_WorldRaidActivateCoreCount",
 	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount:                       "Reset_WorldRaidActivateUSBCount",
+	MissionCompleteConditionTypeReset_EnterUICount:                                    "Reset_EnterUICount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -580,6 +582,7 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_WorldRaidSpecificBossClear":                      MissionCompleteConditionTypeReset_WorldRaidSpecificBossClear,
 	"Reset_WorldRaidActivateCoreCount":                      MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount,
 	"Reset_WorldRaidActivateUSBCount":                       MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount,
+	"Reset_EnterUICount":                                    MissionCompleteConditionTypeReset_EnterUICount,
 }
 
 func (v MissionCompleteConditionType) String() string {

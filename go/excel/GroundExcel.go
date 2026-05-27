@@ -126,19 +126,19 @@ func (rcv *GroundExcel) MutateEnemyArmorType(n ArmorType) bool {
 	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *GroundExcel) LevelNpc() int64 {
+func (rcv *GroundExcel) EnemySubArmorType() ArmorType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return ArmorType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *GroundExcel) MutateLevelNpc(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *GroundExcel) MutateEnemySubArmorType(n ArmorType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
-func (rcv *GroundExcel) LevelMinion() int64 {
+func (rcv *GroundExcel) LevelNpc() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -146,11 +146,11 @@ func (rcv *GroundExcel) LevelMinion() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateLevelMinion(n int64) bool {
+func (rcv *GroundExcel) MutateLevelNpc(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *GroundExcel) LevelElite() int64 {
+func (rcv *GroundExcel) LevelMinion() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -158,11 +158,11 @@ func (rcv *GroundExcel) LevelElite() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateLevelElite(n int64) bool {
+func (rcv *GroundExcel) MutateLevelMinion(n int64) bool {
 	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *GroundExcel) LevelChampion() int64 {
+func (rcv *GroundExcel) LevelElite() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -170,11 +170,11 @@ func (rcv *GroundExcel) LevelChampion() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateLevelChampion(n int64) bool {
+func (rcv *GroundExcel) MutateLevelElite(n int64) bool {
 	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *GroundExcel) LevelBoss() int64 {
+func (rcv *GroundExcel) LevelChampion() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -182,11 +182,11 @@ func (rcv *GroundExcel) LevelBoss() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateLevelBoss(n int64) bool {
+func (rcv *GroundExcel) MutateLevelChampion(n int64) bool {
 	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *GroundExcel) ObstacleLevel() int64 {
+func (rcv *GroundExcel) LevelBoss() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -194,11 +194,11 @@ func (rcv *GroundExcel) ObstacleLevel() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateObstacleLevel(n int64) bool {
+func (rcv *GroundExcel) MutateLevelBoss(n int64) bool {
 	return rcv._tab.MutateInt64Slot(28, n)
 }
 
-func (rcv *GroundExcel) GradeNpc() int64 {
+func (rcv *GroundExcel) ObstacleLevel() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -206,11 +206,11 @@ func (rcv *GroundExcel) GradeNpc() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateGradeNpc(n int64) bool {
+func (rcv *GroundExcel) MutateObstacleLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(30, n)
 }
 
-func (rcv *GroundExcel) GradeMinion() int64 {
+func (rcv *GroundExcel) GradeNpc() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -218,11 +218,11 @@ func (rcv *GroundExcel) GradeMinion() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateGradeMinion(n int64) bool {
+func (rcv *GroundExcel) MutateGradeNpc(n int64) bool {
 	return rcv._tab.MutateInt64Slot(32, n)
 }
 
-func (rcv *GroundExcel) GradeElite() int64 {
+func (rcv *GroundExcel) GradeMinion() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -230,11 +230,11 @@ func (rcv *GroundExcel) GradeElite() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateGradeElite(n int64) bool {
+func (rcv *GroundExcel) MutateGradeMinion(n int64) bool {
 	return rcv._tab.MutateInt64Slot(34, n)
 }
 
-func (rcv *GroundExcel) GradeChampion() int64 {
+func (rcv *GroundExcel) GradeElite() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -242,11 +242,11 @@ func (rcv *GroundExcel) GradeChampion() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateGradeChampion(n int64) bool {
+func (rcv *GroundExcel) MutateGradeElite(n int64) bool {
 	return rcv._tab.MutateInt64Slot(36, n)
 }
 
-func (rcv *GroundExcel) GradeBoss() int64 {
+func (rcv *GroundExcel) GradeChampion() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -254,11 +254,11 @@ func (rcv *GroundExcel) GradeBoss() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateGradeBoss(n int64) bool {
+func (rcv *GroundExcel) MutateGradeChampion(n int64) bool {
 	return rcv._tab.MutateInt64Slot(38, n)
 }
 
-func (rcv *GroundExcel) PlayerSightPointAdd() int64 {
+func (rcv *GroundExcel) GradeBoss() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -266,11 +266,11 @@ func (rcv *GroundExcel) PlayerSightPointAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerSightPointAdd(n int64) bool {
+func (rcv *GroundExcel) MutateGradeBoss(n int64) bool {
 	return rcv._tab.MutateInt64Slot(40, n)
 }
 
-func (rcv *GroundExcel) PlayerSightPointRate() int64 {
+func (rcv *GroundExcel) PlayerSightPointAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -278,11 +278,11 @@ func (rcv *GroundExcel) PlayerSightPointRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerSightPointRate(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerSightPointAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(42, n)
 }
 
-func (rcv *GroundExcel) PlayerAttackRangeAdd() int64 {
+func (rcv *GroundExcel) PlayerSightPointRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -290,11 +290,11 @@ func (rcv *GroundExcel) PlayerAttackRangeAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerAttackRangeAdd(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerSightPointRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
-func (rcv *GroundExcel) PlayerAttackRangeRate() int64 {
+func (rcv *GroundExcel) PlayerAttackRangeAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -302,11 +302,11 @@ func (rcv *GroundExcel) PlayerAttackRangeRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerAttackRangeRate(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerAttackRangeAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(46, n)
 }
 
-func (rcv *GroundExcel) EnemySightPointAdd() int64 {
+func (rcv *GroundExcel) PlayerAttackRangeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -314,11 +314,11 @@ func (rcv *GroundExcel) EnemySightPointAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemySightPointAdd(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerAttackRangeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *GroundExcel) EnemySightPointRate() int64 {
+func (rcv *GroundExcel) EnemySightPointAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -326,11 +326,11 @@ func (rcv *GroundExcel) EnemySightPointRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemySightPointRate(n int64) bool {
+func (rcv *GroundExcel) MutateEnemySightPointAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *GroundExcel) EnemyAttackRangeAdd() int64 {
+func (rcv *GroundExcel) EnemySightPointRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -338,11 +338,11 @@ func (rcv *GroundExcel) EnemyAttackRangeAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemyAttackRangeAdd(n int64) bool {
+func (rcv *GroundExcel) MutateEnemySightPointRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *GroundExcel) EnemyAttackRangeRate() int64 {
+func (rcv *GroundExcel) EnemyAttackRangeAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -350,11 +350,11 @@ func (rcv *GroundExcel) EnemyAttackRangeRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemyAttackRangeRate(n int64) bool {
+func (rcv *GroundExcel) MutateEnemyAttackRangeAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(54, n)
 }
 
-func (rcv *GroundExcel) PlayerSkillRangeAdd() int64 {
+func (rcv *GroundExcel) EnemyAttackRangeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -362,11 +362,11 @@ func (rcv *GroundExcel) PlayerSkillRangeAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerSkillRangeAdd(n int64) bool {
+func (rcv *GroundExcel) MutateEnemyAttackRangeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(56, n)
 }
 
-func (rcv *GroundExcel) PlayerSkillRangeRate() int64 {
+func (rcv *GroundExcel) PlayerSkillRangeAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -374,11 +374,11 @@ func (rcv *GroundExcel) PlayerSkillRangeRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerSkillRangeRate(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerSkillRangeAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(58, n)
 }
 
-func (rcv *GroundExcel) EnemySkillRangeAdd() int64 {
+func (rcv *GroundExcel) PlayerSkillRangeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -386,11 +386,11 @@ func (rcv *GroundExcel) EnemySkillRangeAdd() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemySkillRangeAdd(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerSkillRangeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(60, n)
 }
 
-func (rcv *GroundExcel) EnemySkillRangeRate() int64 {
+func (rcv *GroundExcel) EnemySkillRangeAdd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -398,11 +398,11 @@ func (rcv *GroundExcel) EnemySkillRangeRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemySkillRangeRate(n int64) bool {
+func (rcv *GroundExcel) MutateEnemySkillRangeAdd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(62, n)
 }
 
-func (rcv *GroundExcel) PlayerMinimumPositionGapRate() int64 {
+func (rcv *GroundExcel) EnemySkillRangeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -410,11 +410,11 @@ func (rcv *GroundExcel) PlayerMinimumPositionGapRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerMinimumPositionGapRate(n int64) bool {
+func (rcv *GroundExcel) MutateEnemySkillRangeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(64, n)
 }
 
-func (rcv *GroundExcel) EnemyMinimumPositionGapRate() int64 {
+func (rcv *GroundExcel) PlayerMinimumPositionGapRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -422,23 +422,23 @@ func (rcv *GroundExcel) EnemyMinimumPositionGapRate() int64 {
 	return 0
 }
 
-func (rcv *GroundExcel) MutateEnemyMinimumPositionGapRate(n int64) bool {
+func (rcv *GroundExcel) MutatePlayerMinimumPositionGapRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(66, n)
 }
 
-func (rcv *GroundExcel) PlayerSightRangeMax() bool {
+func (rcv *GroundExcel) EnemyMinimumPositionGapRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *GroundExcel) MutatePlayerSightRangeMax(n bool) bool {
-	return rcv._tab.MutateBoolSlot(68, n)
+func (rcv *GroundExcel) MutateEnemyMinimumPositionGapRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(68, n)
 }
 
-func (rcv *GroundExcel) EnemySightRangeMax() bool {
+func (rcv *GroundExcel) PlayerSightRangeMax() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -446,12 +446,24 @@ func (rcv *GroundExcel) EnemySightRangeMax() bool {
 	return false
 }
 
-func (rcv *GroundExcel) MutateEnemySightRangeMax(n bool) bool {
+func (rcv *GroundExcel) MutatePlayerSightRangeMax(n bool) bool {
 	return rcv._tab.MutateBoolSlot(70, n)
 }
 
-func (rcv *GroundExcel) TssAirUnitHeight() int64 {
+func (rcv *GroundExcel) EnemySightRangeMax() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *GroundExcel) MutateEnemySightRangeMax(n bool) bool {
+	return rcv._tab.MutateBoolSlot(72, n)
+}
+
+func (rcv *GroundExcel) TssAirUnitHeight() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -459,11 +471,11 @@ func (rcv *GroundExcel) TssAirUnitHeight() int64 {
 }
 
 func (rcv *GroundExcel) MutateTssAirUnitHeight(n int64) bool {
-	return rcv._tab.MutateInt64Slot(72, n)
+	return rcv._tab.MutateInt64Slot(74, n)
 }
 
 func (rcv *GroundExcel) IsPhaseBgm() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -471,11 +483,11 @@ func (rcv *GroundExcel) IsPhaseBgm() bool {
 }
 
 func (rcv *GroundExcel) MutateIsPhaseBgm(n bool) bool {
-	return rcv._tab.MutateBoolSlot(74, n)
+	return rcv._tab.MutateBoolSlot(76, n)
 }
 
 func (rcv *GroundExcel) BgmId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -483,22 +495,10 @@ func (rcv *GroundExcel) BgmId() int64 {
 }
 
 func (rcv *GroundExcel) MutateBgmId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(76, n)
+	return rcv._tab.MutateInt64Slot(78, n)
 }
 
 func (rcv *GroundExcel) WarningUi() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *GroundExcel) MutateWarningUi(n bool) bool {
-	return rcv._tab.MutateBoolSlot(78, n)
-}
-
-func (rcv *GroundExcel) TssHatchOpen() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -506,12 +506,24 @@ func (rcv *GroundExcel) TssHatchOpen() bool {
 	return false
 }
 
-func (rcv *GroundExcel) MutateTssHatchOpen(n bool) bool {
+func (rcv *GroundExcel) MutateWarningUi(n bool) bool {
 	return rcv._tab.MutateBoolSlot(80, n)
 }
 
-func (rcv *GroundExcel) ForcedTacticSpeed() TacticSpeed {
+func (rcv *GroundExcel) TssHatchOpen() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *GroundExcel) MutateTssHatchOpen(n bool) bool {
+	return rcv._tab.MutateBoolSlot(82, n)
+}
+
+func (rcv *GroundExcel) ForcedTacticSpeed() TacticSpeed {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		return TacticSpeed(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -519,11 +531,11 @@ func (rcv *GroundExcel) ForcedTacticSpeed() TacticSpeed {
 }
 
 func (rcv *GroundExcel) MutateForcedTacticSpeed(n TacticSpeed) bool {
-	return rcv._tab.MutateInt32Slot(82, int32(n))
+	return rcv._tab.MutateInt32Slot(84, int32(n))
 }
 
 func (rcv *GroundExcel) ForcedSkillUse() TacticSkillUse {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
 	if o != 0 {
 		return TacticSkillUse(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -531,11 +543,11 @@ func (rcv *GroundExcel) ForcedSkillUse() TacticSkillUse {
 }
 
 func (rcv *GroundExcel) MutateForcedSkillUse(n TacticSkillUse) bool {
-	return rcv._tab.MutateInt32Slot(84, int32(n))
+	return rcv._tab.MutateInt32Slot(86, int32(n))
 }
 
 func (rcv *GroundExcel) ShowNpcSkillCutIn() ShowSkillCutIn {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
 	if o != 0 {
 		return ShowSkillCutIn(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -543,22 +555,10 @@ func (rcv *GroundExcel) ShowNpcSkillCutIn() ShowSkillCutIn {
 }
 
 func (rcv *GroundExcel) MutateShowNpcSkillCutIn(n ShowSkillCutIn) bool {
-	return rcv._tab.MutateInt32Slot(86, int32(n))
+	return rcv._tab.MutateInt32Slot(88, int32(n))
 }
 
 func (rcv *GroundExcel) ImmuneHitBeforeTimeOutEnd() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *GroundExcel) MutateImmuneHitBeforeTimeOutEnd(n bool) bool {
-	return rcv._tab.MutateBoolSlot(88, n)
-}
-
-func (rcv *GroundExcel) UiBattleHideFromScratch() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -566,12 +566,24 @@ func (rcv *GroundExcel) UiBattleHideFromScratch() bool {
 	return false
 }
 
-func (rcv *GroundExcel) MutateUiBattleHideFromScratch(n bool) bool {
+func (rcv *GroundExcel) MutateImmuneHitBeforeTimeOutEnd(n bool) bool {
 	return rcv._tab.MutateBoolSlot(90, n)
 }
 
-func (rcv *GroundExcel) UiEnemyCount() UIEnemyCountType {
+func (rcv *GroundExcel) UiBattleHideFromScratch() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(92))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *GroundExcel) MutateUiBattleHideFromScratch(n bool) bool {
+	return rcv._tab.MutateBoolSlot(92, n)
+}
+
+func (rcv *GroundExcel) UiEnemyCount() UIEnemyCountType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(94))
 	if o != 0 {
 		return UIEnemyCountType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -579,18 +591,10 @@ func (rcv *GroundExcel) UiEnemyCount() UIEnemyCountType {
 }
 
 func (rcv *GroundExcel) MutateUiEnemyCount(n UIEnemyCountType) bool {
-	return rcv._tab.MutateInt32Slot(92, int32(n))
+	return rcv._tab.MutateInt32Slot(94, int32(n))
 }
 
 func (rcv *GroundExcel) BattleReadyTimelinePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(94))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *GroundExcel) BeforeVictoryTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(96))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -598,19 +602,15 @@ func (rcv *GroundExcel) BeforeVictoryTimelinePath() []byte {
 	return nil
 }
 
-func (rcv *GroundExcel) SkipBattleEnd() bool {
+func (rcv *GroundExcel) BeforeVictoryTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(98))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *GroundExcel) MutateSkipBattleEnd(n bool) bool {
-	return rcv._tab.MutateBoolSlot(98, n)
-}
-
-func (rcv *GroundExcel) HideNpcWhenBattleEnd() bool {
+func (rcv *GroundExcel) SkipBattleEnd() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(100))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -618,11 +618,11 @@ func (rcv *GroundExcel) HideNpcWhenBattleEnd() bool {
 	return false
 }
 
-func (rcv *GroundExcel) MutateHideNpcWhenBattleEnd(n bool) bool {
+func (rcv *GroundExcel) MutateSkipBattleEnd(n bool) bool {
 	return rcv._tab.MutateBoolSlot(100, n)
 }
 
-func (rcv *GroundExcel) CoverPointOff() bool {
+func (rcv *GroundExcel) HideNpcWhenBattleEnd() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(102))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -630,23 +630,23 @@ func (rcv *GroundExcel) CoverPointOff() bool {
 	return false
 }
 
-func (rcv *GroundExcel) MutateCoverPointOff(n bool) bool {
+func (rcv *GroundExcel) MutateHideNpcWhenBattleEnd(n bool) bool {
 	return rcv._tab.MutateBoolSlot(102, n)
 }
 
-func (rcv *GroundExcel) UiHpScale() float32 {
+func (rcv *GroundExcel) CoverPointOff() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(104))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return false
 }
 
-func (rcv *GroundExcel) MutateUiHpScale(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(104, n)
+func (rcv *GroundExcel) MutateCoverPointOff(n bool) bool {
+	return rcv._tab.MutateBoolSlot(104, n)
 }
 
-func (rcv *GroundExcel) UiEmojiScale() float32 {
+func (rcv *GroundExcel) UiHpScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(106))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -654,11 +654,11 @@ func (rcv *GroundExcel) UiEmojiScale() float32 {
 	return 0.0
 }
 
-func (rcv *GroundExcel) MutateUiEmojiScale(n float32) bool {
+func (rcv *GroundExcel) MutateUiHpScale(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(106, n)
 }
 
-func (rcv *GroundExcel) UiSkillMainLogScale() float32 {
+func (rcv *GroundExcel) UiEmojiScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(108))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -666,12 +666,24 @@ func (rcv *GroundExcel) UiSkillMainLogScale() float32 {
 	return 0.0
 }
 
-func (rcv *GroundExcel) MutateUiSkillMainLogScale(n float32) bool {
+func (rcv *GroundExcel) MutateUiEmojiScale(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(108, n)
 }
 
-func (rcv *GroundExcel) EffectCountLimit() int32 {
+func (rcv *GroundExcel) UiSkillMainLogScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(110))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *GroundExcel) MutateUiSkillMainLogScale(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(110, n)
+}
+
+func (rcv *GroundExcel) EffectCountLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -679,11 +691,11 @@ func (rcv *GroundExcel) EffectCountLimit() int32 {
 }
 
 func (rcv *GroundExcel) MutateEffectCountLimit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(110, n)
+	return rcv._tab.MutateInt32Slot(112, n)
 }
 
 func (rcv *GroundExcel) CarrierSkillGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -691,11 +703,11 @@ func (rcv *GroundExcel) CarrierSkillGroupId() int64 {
 }
 
 func (rcv *GroundExcel) MutateCarrierSkillGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(112, n)
+	return rcv._tab.MutateInt64Slot(114, n)
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -704,7 +716,7 @@ func (rcv *GroundExcel) AllyPassiveSkillId(j int) []byte {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -712,7 +724,7 @@ func (rcv *GroundExcel) AllyPassiveSkillIdLength() int {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillLevel(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -721,7 +733,7 @@ func (rcv *GroundExcel) AllyPassiveSkillLevel(j int) int32 {
 }
 
 func (rcv *GroundExcel) AllyPassiveSkillLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -729,7 +741,7 @@ func (rcv *GroundExcel) AllyPassiveSkillLevelLength() int {
 }
 
 func (rcv *GroundExcel) MutateAllyPassiveSkillLevel(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -738,7 +750,7 @@ func (rcv *GroundExcel) MutateAllyPassiveSkillLevel(j int, n int32) bool {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillId(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -747,7 +759,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillId(j int) []byte {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -755,7 +767,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillIdLength() int {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillLevel(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -764,7 +776,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillLevel(j int) int32 {
 }
 
 func (rcv *GroundExcel) EnemyPassiveSkillLevelLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -772,7 +784,7 @@ func (rcv *GroundExcel) EnemyPassiveSkillLevelLength() int {
 }
 
 func (rcv *GroundExcel) MutateEnemyPassiveSkillLevel(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -781,7 +793,7 @@ func (rcv *GroundExcel) MutateEnemyPassiveSkillLevel(j int, n int32) bool {
 }
 
 func GroundExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(59)
+	builder.StartObject(60)
 }
 func GroundExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -807,170 +819,173 @@ func GroundExcelAddEnemyBulletType(builder *flatbuffers.Builder, enemyBulletType
 func GroundExcelAddEnemyArmorType(builder *flatbuffers.Builder, enemyArmorType ArmorType) {
 	builder.PrependInt32Slot(6, int32(enemyArmorType), 0)
 }
+func GroundExcelAddEnemySubArmorType(builder *flatbuffers.Builder, enemySubArmorType ArmorType) {
+	builder.PrependInt32Slot(7, int32(enemySubArmorType), 0)
+}
 func GroundExcelAddLevelNpc(builder *flatbuffers.Builder, levelNpc int64) {
-	builder.PrependInt64Slot(7, levelNpc, 0)
+	builder.PrependInt64Slot(8, levelNpc, 0)
 }
 func GroundExcelAddLevelMinion(builder *flatbuffers.Builder, levelMinion int64) {
-	builder.PrependInt64Slot(8, levelMinion, 0)
+	builder.PrependInt64Slot(9, levelMinion, 0)
 }
 func GroundExcelAddLevelElite(builder *flatbuffers.Builder, levelElite int64) {
-	builder.PrependInt64Slot(9, levelElite, 0)
+	builder.PrependInt64Slot(10, levelElite, 0)
 }
 func GroundExcelAddLevelChampion(builder *flatbuffers.Builder, levelChampion int64) {
-	builder.PrependInt64Slot(10, levelChampion, 0)
+	builder.PrependInt64Slot(11, levelChampion, 0)
 }
 func GroundExcelAddLevelBoss(builder *flatbuffers.Builder, levelBoss int64) {
-	builder.PrependInt64Slot(11, levelBoss, 0)
+	builder.PrependInt64Slot(12, levelBoss, 0)
 }
 func GroundExcelAddObstacleLevel(builder *flatbuffers.Builder, obstacleLevel int64) {
-	builder.PrependInt64Slot(12, obstacleLevel, 0)
+	builder.PrependInt64Slot(13, obstacleLevel, 0)
 }
 func GroundExcelAddGradeNpc(builder *flatbuffers.Builder, gradeNpc int64) {
-	builder.PrependInt64Slot(13, gradeNpc, 0)
+	builder.PrependInt64Slot(14, gradeNpc, 0)
 }
 func GroundExcelAddGradeMinion(builder *flatbuffers.Builder, gradeMinion int64) {
-	builder.PrependInt64Slot(14, gradeMinion, 0)
+	builder.PrependInt64Slot(15, gradeMinion, 0)
 }
 func GroundExcelAddGradeElite(builder *flatbuffers.Builder, gradeElite int64) {
-	builder.PrependInt64Slot(15, gradeElite, 0)
+	builder.PrependInt64Slot(16, gradeElite, 0)
 }
 func GroundExcelAddGradeChampion(builder *flatbuffers.Builder, gradeChampion int64) {
-	builder.PrependInt64Slot(16, gradeChampion, 0)
+	builder.PrependInt64Slot(17, gradeChampion, 0)
 }
 func GroundExcelAddGradeBoss(builder *flatbuffers.Builder, gradeBoss int64) {
-	builder.PrependInt64Slot(17, gradeBoss, 0)
+	builder.PrependInt64Slot(18, gradeBoss, 0)
 }
 func GroundExcelAddPlayerSightPointAdd(builder *flatbuffers.Builder, playerSightPointAdd int64) {
-	builder.PrependInt64Slot(18, playerSightPointAdd, 0)
+	builder.PrependInt64Slot(19, playerSightPointAdd, 0)
 }
 func GroundExcelAddPlayerSightPointRate(builder *flatbuffers.Builder, playerSightPointRate int64) {
-	builder.PrependInt64Slot(19, playerSightPointRate, 0)
+	builder.PrependInt64Slot(20, playerSightPointRate, 0)
 }
 func GroundExcelAddPlayerAttackRangeAdd(builder *flatbuffers.Builder, playerAttackRangeAdd int64) {
-	builder.PrependInt64Slot(20, playerAttackRangeAdd, 0)
+	builder.PrependInt64Slot(21, playerAttackRangeAdd, 0)
 }
 func GroundExcelAddPlayerAttackRangeRate(builder *flatbuffers.Builder, playerAttackRangeRate int64) {
-	builder.PrependInt64Slot(21, playerAttackRangeRate, 0)
+	builder.PrependInt64Slot(22, playerAttackRangeRate, 0)
 }
 func GroundExcelAddEnemySightPointAdd(builder *flatbuffers.Builder, enemySightPointAdd int64) {
-	builder.PrependInt64Slot(22, enemySightPointAdd, 0)
+	builder.PrependInt64Slot(23, enemySightPointAdd, 0)
 }
 func GroundExcelAddEnemySightPointRate(builder *flatbuffers.Builder, enemySightPointRate int64) {
-	builder.PrependInt64Slot(23, enemySightPointRate, 0)
+	builder.PrependInt64Slot(24, enemySightPointRate, 0)
 }
 func GroundExcelAddEnemyAttackRangeAdd(builder *flatbuffers.Builder, enemyAttackRangeAdd int64) {
-	builder.PrependInt64Slot(24, enemyAttackRangeAdd, 0)
+	builder.PrependInt64Slot(25, enemyAttackRangeAdd, 0)
 }
 func GroundExcelAddEnemyAttackRangeRate(builder *flatbuffers.Builder, enemyAttackRangeRate int64) {
-	builder.PrependInt64Slot(25, enemyAttackRangeRate, 0)
+	builder.PrependInt64Slot(26, enemyAttackRangeRate, 0)
 }
 func GroundExcelAddPlayerSkillRangeAdd(builder *flatbuffers.Builder, playerSkillRangeAdd int64) {
-	builder.PrependInt64Slot(26, playerSkillRangeAdd, 0)
+	builder.PrependInt64Slot(27, playerSkillRangeAdd, 0)
 }
 func GroundExcelAddPlayerSkillRangeRate(builder *flatbuffers.Builder, playerSkillRangeRate int64) {
-	builder.PrependInt64Slot(27, playerSkillRangeRate, 0)
+	builder.PrependInt64Slot(28, playerSkillRangeRate, 0)
 }
 func GroundExcelAddEnemySkillRangeAdd(builder *flatbuffers.Builder, enemySkillRangeAdd int64) {
-	builder.PrependInt64Slot(28, enemySkillRangeAdd, 0)
+	builder.PrependInt64Slot(29, enemySkillRangeAdd, 0)
 }
 func GroundExcelAddEnemySkillRangeRate(builder *flatbuffers.Builder, enemySkillRangeRate int64) {
-	builder.PrependInt64Slot(29, enemySkillRangeRate, 0)
+	builder.PrependInt64Slot(30, enemySkillRangeRate, 0)
 }
 func GroundExcelAddPlayerMinimumPositionGapRate(builder *flatbuffers.Builder, playerMinimumPositionGapRate int64) {
-	builder.PrependInt64Slot(30, playerMinimumPositionGapRate, 0)
+	builder.PrependInt64Slot(31, playerMinimumPositionGapRate, 0)
 }
 func GroundExcelAddEnemyMinimumPositionGapRate(builder *flatbuffers.Builder, enemyMinimumPositionGapRate int64) {
-	builder.PrependInt64Slot(31, enemyMinimumPositionGapRate, 0)
+	builder.PrependInt64Slot(32, enemyMinimumPositionGapRate, 0)
 }
 func GroundExcelAddPlayerSightRangeMax(builder *flatbuffers.Builder, playerSightRangeMax bool) {
-	builder.PrependBoolSlot(32, playerSightRangeMax, false)
+	builder.PrependBoolSlot(33, playerSightRangeMax, false)
 }
 func GroundExcelAddEnemySightRangeMax(builder *flatbuffers.Builder, enemySightRangeMax bool) {
-	builder.PrependBoolSlot(33, enemySightRangeMax, false)
+	builder.PrependBoolSlot(34, enemySightRangeMax, false)
 }
 func GroundExcelAddTssAirUnitHeight(builder *flatbuffers.Builder, tssAirUnitHeight int64) {
-	builder.PrependInt64Slot(34, tssAirUnitHeight, 0)
+	builder.PrependInt64Slot(35, tssAirUnitHeight, 0)
 }
 func GroundExcelAddIsPhaseBgm(builder *flatbuffers.Builder, isPhaseBgm bool) {
-	builder.PrependBoolSlot(35, isPhaseBgm, false)
+	builder.PrependBoolSlot(36, isPhaseBgm, false)
 }
 func GroundExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(36, bgmId, 0)
+	builder.PrependInt64Slot(37, bgmId, 0)
 }
 func GroundExcelAddWarningUi(builder *flatbuffers.Builder, warningUi bool) {
-	builder.PrependBoolSlot(37, warningUi, false)
+	builder.PrependBoolSlot(38, warningUi, false)
 }
 func GroundExcelAddTssHatchOpen(builder *flatbuffers.Builder, tssHatchOpen bool) {
-	builder.PrependBoolSlot(38, tssHatchOpen, false)
+	builder.PrependBoolSlot(39, tssHatchOpen, false)
 }
 func GroundExcelAddForcedTacticSpeed(builder *flatbuffers.Builder, forcedTacticSpeed TacticSpeed) {
-	builder.PrependInt32Slot(39, int32(forcedTacticSpeed), 0)
+	builder.PrependInt32Slot(40, int32(forcedTacticSpeed), 0)
 }
 func GroundExcelAddForcedSkillUse(builder *flatbuffers.Builder, forcedSkillUse TacticSkillUse) {
-	builder.PrependInt32Slot(40, int32(forcedSkillUse), 0)
+	builder.PrependInt32Slot(41, int32(forcedSkillUse), 0)
 }
 func GroundExcelAddShowNpcSkillCutIn(builder *flatbuffers.Builder, showNpcSkillCutIn ShowSkillCutIn) {
-	builder.PrependInt32Slot(41, int32(showNpcSkillCutIn), 0)
+	builder.PrependInt32Slot(42, int32(showNpcSkillCutIn), 0)
 }
 func GroundExcelAddImmuneHitBeforeTimeOutEnd(builder *flatbuffers.Builder, immuneHitBeforeTimeOutEnd bool) {
-	builder.PrependBoolSlot(42, immuneHitBeforeTimeOutEnd, false)
+	builder.PrependBoolSlot(43, immuneHitBeforeTimeOutEnd, false)
 }
 func GroundExcelAddUiBattleHideFromScratch(builder *flatbuffers.Builder, uiBattleHideFromScratch bool) {
-	builder.PrependBoolSlot(43, uiBattleHideFromScratch, false)
+	builder.PrependBoolSlot(44, uiBattleHideFromScratch, false)
 }
 func GroundExcelAddUiEnemyCount(builder *flatbuffers.Builder, uiEnemyCount UIEnemyCountType) {
-	builder.PrependInt32Slot(44, int32(uiEnemyCount), 0)
+	builder.PrependInt32Slot(45, int32(uiEnemyCount), 0)
 }
 func GroundExcelAddBattleReadyTimelinePath(builder *flatbuffers.Builder, battleReadyTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(45, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
+	builder.PrependUOffsetTSlot(46, flatbuffers.UOffsetT(battleReadyTimelinePath), 0)
 }
 func GroundExcelAddBeforeVictoryTimelinePath(builder *flatbuffers.Builder, beforeVictoryTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(46, flatbuffers.UOffsetT(beforeVictoryTimelinePath), 0)
+	builder.PrependUOffsetTSlot(47, flatbuffers.UOffsetT(beforeVictoryTimelinePath), 0)
 }
 func GroundExcelAddSkipBattleEnd(builder *flatbuffers.Builder, skipBattleEnd bool) {
-	builder.PrependBoolSlot(47, skipBattleEnd, false)
+	builder.PrependBoolSlot(48, skipBattleEnd, false)
 }
 func GroundExcelAddHideNpcWhenBattleEnd(builder *flatbuffers.Builder, hideNpcWhenBattleEnd bool) {
-	builder.PrependBoolSlot(48, hideNpcWhenBattleEnd, false)
+	builder.PrependBoolSlot(49, hideNpcWhenBattleEnd, false)
 }
 func GroundExcelAddCoverPointOff(builder *flatbuffers.Builder, coverPointOff bool) {
-	builder.PrependBoolSlot(49, coverPointOff, false)
+	builder.PrependBoolSlot(50, coverPointOff, false)
 }
 func GroundExcelAddUiHpScale(builder *flatbuffers.Builder, uiHpScale float32) {
-	builder.PrependFloat32Slot(50, uiHpScale, 0.0)
+	builder.PrependFloat32Slot(51, uiHpScale, 0.0)
 }
 func GroundExcelAddUiEmojiScale(builder *flatbuffers.Builder, uiEmojiScale float32) {
-	builder.PrependFloat32Slot(51, uiEmojiScale, 0.0)
+	builder.PrependFloat32Slot(52, uiEmojiScale, 0.0)
 }
 func GroundExcelAddUiSkillMainLogScale(builder *flatbuffers.Builder, uiSkillMainLogScale float32) {
-	builder.PrependFloat32Slot(52, uiSkillMainLogScale, 0.0)
+	builder.PrependFloat32Slot(53, uiSkillMainLogScale, 0.0)
 }
 func GroundExcelAddEffectCountLimit(builder *flatbuffers.Builder, effectCountLimit int32) {
-	builder.PrependInt32Slot(53, effectCountLimit, 0)
+	builder.PrependInt32Slot(54, effectCountLimit, 0)
 }
 func GroundExcelAddCarrierSkillGroupId(builder *flatbuffers.Builder, carrierSkillGroupId int64) {
-	builder.PrependInt64Slot(54, carrierSkillGroupId, 0)
+	builder.PrependInt64Slot(55, carrierSkillGroupId, 0)
 }
 func GroundExcelAddAllyPassiveSkillId(builder *flatbuffers.Builder, allyPassiveSkillId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(55, flatbuffers.UOffsetT(allyPassiveSkillId), 0)
+	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(allyPassiveSkillId), 0)
 }
 func GroundExcelStartAllyPassiveSkillIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddAllyPassiveSkillLevel(builder *flatbuffers.Builder, allyPassiveSkillLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(allyPassiveSkillLevel), 0)
+	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(allyPassiveSkillLevel), 0)
 }
 func GroundExcelStartAllyPassiveSkillLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddEnemyPassiveSkillId(builder *flatbuffers.Builder, enemyPassiveSkillId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(enemyPassiveSkillId), 0)
+	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(enemyPassiveSkillId), 0)
 }
 func GroundExcelStartEnemyPassiveSkillIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddEnemyPassiveSkillLevel(builder *flatbuffers.Builder, enemyPassiveSkillLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(enemyPassiveSkillLevel), 0)
+	builder.PrependUOffsetTSlot(59, flatbuffers.UOffsetT(enemyPassiveSkillLevel), 0)
 }
 func GroundExcelStartEnemyPassiveSkillLevelVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

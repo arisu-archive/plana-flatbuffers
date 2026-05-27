@@ -69,8 +69,20 @@ func (rcv *SkillAdditionalTooltipExcel) ShowSkillSlot() []byte {
 	return nil
 }
 
+func (rcv *SkillAdditionalTooltipExcel) DisplayIconBg() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *SkillAdditionalTooltipExcel) MutateDisplayIconBg(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
 func SkillAdditionalTooltipExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func SkillAdditionalTooltipExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
 	builder.PrependInt64Slot(0, groupId, 0)
@@ -80,6 +92,9 @@ func SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(builder *flatbuffers.B
 }
 func SkillAdditionalTooltipExcelAddShowSkillSlot(builder *flatbuffers.Builder, showSkillSlot flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(showSkillSlot), 0)
+}
+func SkillAdditionalTooltipExcelAddDisplayIconBg(builder *flatbuffers.Builder, displayIconBg bool) {
+	builder.PrependBoolSlot(3, displayIconBg, false)
 }
 func SkillAdditionalTooltipExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -15,6 +15,7 @@ type FieldQuestExcelDto struct {
 	IsDaily       bool   `json:"is_daily"`
 	FieldDateId   int64  `json:"field_date_id"`
 	Opendate      int64  `json:"opendate"`
+	QuestGroupId  int64  `json:"quest_group_id"`
 	AssetPath     string `json:"asset_path"`
 	RewardId      int64  `json:"reward_id"`
 	Prob          int32  `json:"prob"`
@@ -34,6 +35,7 @@ func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	FieldQuestExcelAddIsDaily(b, t.IsDaily)
 	FieldQuestExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddQuestGroupId(b, fbsutils.Convert(t.QuestGroupId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddAssetPath(b, __offset_asset_path)
 	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
@@ -59,6 +61,7 @@ func (t *FieldQuestExcelDto) UnmarshalMessage(e *FieldQuestExcel) error {
 	t.IsDaily = e.IsDaily()
 	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
 	t.Opendate = fbsutils.Convert(e.Opendate(), t.FlatBuffer.TableKey)
+	t.QuestGroupId = fbsutils.Convert(e.QuestGroupId(), t.FlatBuffer.TableKey)
 	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)

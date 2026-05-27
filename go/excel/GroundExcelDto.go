@@ -17,6 +17,7 @@ type GroundExcelDto struct {
 	StageTopography              StageTopography  `json:"stage_topography"`
 	EnemyBulletType              BulletType       `json:"enemy_bullet_type"`
 	EnemyArmorType               ArmorType        `json:"enemy_armor_type"`
+	EnemySubArmorType            ArmorType        `json:"enemy_sub_armor_type"`
 	LevelNpc                     int64            `json:"level_npc"`
 	LevelMinion                  int64            `json:"level_minion"`
 	LevelElite                   int64            `json:"level_elite"`
@@ -114,6 +115,7 @@ func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	GroundExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	GroundExcelAddEnemyBulletType(b, fbsutils.Convert(t.EnemyBulletType, t.FlatBuffer.TableKey))
 	GroundExcelAddEnemyArmorType(b, fbsutils.Convert(t.EnemyArmorType, t.FlatBuffer.TableKey))
+	GroundExcelAddEnemySubArmorType(b, fbsutils.Convert(t.EnemySubArmorType, t.FlatBuffer.TableKey))
 	GroundExcelAddLevelNpc(b, fbsutils.Convert(t.LevelNpc, t.FlatBuffer.TableKey))
 	GroundExcelAddLevelMinion(b, fbsutils.Convert(t.LevelMinion, t.FlatBuffer.TableKey))
 	GroundExcelAddLevelElite(b, fbsutils.Convert(t.LevelElite, t.FlatBuffer.TableKey))
@@ -196,6 +198,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.EnemyBulletType = BulletType(fbsutils.Convert(int32(e.EnemyBulletType()), t.FlatBuffer.TableKey))
 	t.EnemyArmorType = ArmorType(fbsutils.Convert(int32(e.EnemyArmorType()), t.FlatBuffer.TableKey))
+	t.EnemySubArmorType = ArmorType(fbsutils.Convert(int32(e.EnemySubArmorType()), t.FlatBuffer.TableKey))
 	t.LevelNpc = fbsutils.Convert(e.LevelNpc(), t.FlatBuffer.TableKey)
 	t.LevelMinion = fbsutils.Convert(e.LevelMinion(), t.FlatBuffer.TableKey)
 	t.LevelElite = fbsutils.Convert(e.LevelElite(), t.FlatBuffer.TableKey)

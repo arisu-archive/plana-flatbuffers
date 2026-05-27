@@ -16,6 +16,7 @@ table GroundExcel {
     stage_topography: StageTopography;
     enemy_bullet_type: BulletType;
     enemy_armor_type: ArmorType;
+    enemy_sub_armor_type: ArmorType;
     level_npc: long;
     level_minion: long;
     level_elite: long;

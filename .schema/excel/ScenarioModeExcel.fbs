@@ -12,6 +12,7 @@ table ScenarioModeExcel {
     mode_id: long;
     mode_type: ScenarioModeTypes;
     sub_type: ScenarioModeSubTypes;
+    display_volume_id: string;
     volume_id: long;
     chapter_id: long;
     episode_id: long;
@@ -25,6 +26,7 @@ table ScenarioModeExcel {
     ground_id: long;
     is_defeat_battle: bool;
     battle_duration: long;
+    field_date_id: long;
     back_scenario_group_id: [long];
     cleared_mode_id: [long];
     scenario_mode_reward_id: long;

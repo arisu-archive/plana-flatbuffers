@@ -21,6 +21,7 @@ const (
 	RaidBossGroupTypeEN0006      RaidBossGroupType = 11
 	RaidBossGroupTypeEN0010      RaidBossGroupType = 12
 	RaidBossGroupTypeEN0013      RaidBossGroupType = 13
+	RaidBossGroupTypeEN0022      RaidBossGroupType = 14
 )
 
 var EnumNamesRaidBossGroupType = map[RaidBossGroupType]string{
@@ -38,6 +39,7 @@ var EnumNamesRaidBossGroupType = map[RaidBossGroupType]string{
 	RaidBossGroupTypeEN0006:      "EN0006",
 	RaidBossGroupTypeEN0010:      "EN0010",
 	RaidBossGroupTypeEN0013:      "EN0013",
+	RaidBossGroupTypeEN0022:      "EN0022",
 }
 
 var EnumValuesRaidBossGroupType = map[string]RaidBossGroupType{
@@ -55,6 +57,7 @@ var EnumValuesRaidBossGroupType = map[string]RaidBossGroupType{
 	"EN0006":      RaidBossGroupTypeEN0006,
 	"EN0010":      RaidBossGroupTypeEN0010,
 	"EN0013":      RaidBossGroupTypeEN0013,
+	"EN0022":      RaidBossGroupTypeEN0022,
 }
 
 func (v RaidBossGroupType) String() string {

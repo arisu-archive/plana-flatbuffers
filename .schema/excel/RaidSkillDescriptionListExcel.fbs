@@ -1,0 +1,16 @@
+include "SkillSlotHighLightType.fbs";
+include "SkillSlotShowType.fbs";
+
+namespace MX.Data.Excel;
+
+table RaidSkillDescriptionListExcel {
+    boss_group: string;
+    difficulty: string;
+    phase_name_override_key: string;
+    skill_group_id: [string];
+    skill_use_phase: [long];
+    show_skill_slot: [SkillSlotShowType];
+    highlight_resource: [SkillSlotHighLightType];
+}
+
+root_type RaidSkillDescriptionListExcel;

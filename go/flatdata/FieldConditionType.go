@@ -17,6 +17,8 @@ const (
 	FieldConditionTypeHasEvidence     FieldConditionType = 7
 	FieldConditionTypeOpenDate        FieldConditionType = 8
 	FieldConditionTypeOpenDateAfter   FieldConditionType = 9
+	FieldConditionTypeScenario        FieldConditionType = 10
+	FieldConditionTypeTimeline        FieldConditionType = 11
 )
 
 var EnumNamesFieldConditionType = map[FieldConditionType]string{
@@ -30,6 +32,8 @@ var EnumNamesFieldConditionType = map[FieldConditionType]string{
 	FieldConditionTypeHasEvidence:     "HasEvidence",
 	FieldConditionTypeOpenDate:        "OpenDate",
 	FieldConditionTypeOpenDateAfter:   "OpenDateAfter",
+	FieldConditionTypeScenario:        "Scenario",
+	FieldConditionTypeTimeline:        "Timeline",
 }
 
 var EnumValuesFieldConditionType = map[string]FieldConditionType{
@@ -43,6 +47,8 @@ var EnumValuesFieldConditionType = map[string]FieldConditionType{
 	"HasEvidence":     FieldConditionTypeHasEvidence,
 	"OpenDate":        FieldConditionTypeOpenDate,
 	"OpenDateAfter":   FieldConditionTypeOpenDateAfter,
+	"Scenario":        FieldConditionTypeScenario,
+	"Timeline":        FieldConditionTypeTimeline,
 }
 
 func (v FieldConditionType) String() string {

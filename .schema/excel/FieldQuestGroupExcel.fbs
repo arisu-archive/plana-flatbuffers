@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table FieldQuestGroupExcel {
+    id: long;
+    skip_from_interaction_id: long;
+    skip_to_interaction_id: long;
+    next_scene_id: long;
+    skip_result_ui: bool;
+}
+
+root_type FieldQuestGroupExcel;
