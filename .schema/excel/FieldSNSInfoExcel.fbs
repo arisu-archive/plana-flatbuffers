@@ -1,0 +1,13 @@
+include "FieldSNSStateType.fbs";
+
+namespace MX.Data.Excel;
+
+table FieldSNSInfoExcel {
+    id: long;
+    interaction_group_id: long;
+    sns_state_type: FieldSNSStateType;
+    state_localize_key: uint;
+    desc_localize_key: uint;
+}
+
+root_type FieldSNSInfoExcel;

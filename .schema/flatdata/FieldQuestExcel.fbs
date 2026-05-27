@@ -6,6 +6,7 @@ table FieldQuestExcel {
     is_daily: bool;
     field_date_id: long;
     opendate: long;
+    quest_group_id: long;
     asset_path: string;
     reward_id: long;
     prob: int;

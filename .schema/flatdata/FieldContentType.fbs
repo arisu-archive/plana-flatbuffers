@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum FieldContentType: int {
+    Event = 0,
+    Narrative = 1,
+}

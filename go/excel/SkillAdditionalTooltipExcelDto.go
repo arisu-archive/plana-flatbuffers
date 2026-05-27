@@ -13,6 +13,7 @@ type SkillAdditionalTooltipExcelDto struct {
 	GroupId                int64  `json:"group_id"`
 	AdditionalSkillGroupId string `json:"additional_skill_group_id"`
 	ShowSkillSlot          string `json:"show_skill_slot"`
+	DisplayIconBg          bool   `json:"display_icon_bg"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,6 +24,7 @@ func (t *SkillAdditionalTooltipExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	SkillAdditionalTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(b, __offset_additional_skill_group_id)
 	SkillAdditionalTooltipExcelAddShowSkillSlot(b, __offset_show_skill_slot)
+	SkillAdditionalTooltipExcelAddDisplayIconBg(b, t.DisplayIconBg)
 	return SkillAdditionalTooltipExcelEnd(b)
 }
 
@@ -38,6 +40,7 @@ func (t *SkillAdditionalTooltipExcelDto) UnmarshalMessage(e *SkillAdditionalTool
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.AdditionalSkillGroupId = fbsutils.Convert(string(e.AdditionalSkillGroupId()), t.FlatBuffer.TableKey)
 	t.ShowSkillSlot = fbsutils.Convert(string(e.ShowSkillSlot()), t.FlatBuffer.TableKey)
+	t.DisplayIconBg = e.DisplayIconBg()
 	return nil
 }
 

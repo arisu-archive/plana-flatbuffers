@@ -4,6 +4,7 @@ table SkillAdditionalTooltipExcel {
     group_id: long;
     additional_skill_group_id: string;
     show_skill_slot: string;
+    display_icon_bg: bool;
 }
 
 root_type SkillAdditionalTooltipExcel;

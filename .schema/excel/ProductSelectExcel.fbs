@@ -1,3 +1,4 @@
+include "AutoSelectPopupType.fbs";
 include "ParcelType.fbs";
 include "ProductSelectSubType.fbs";
 include "PurchasePeriodType.fbs";
@@ -8,6 +9,7 @@ namespace MX.Data.Excel;
 table ProductSelectExcel {
     id: long;
     product_select_sub_type: ProductSelectSubType;
+    auto_select_popup_type: AutoSelectPopupType;
     product_id: string;
     store_type: StoreType;
     price: long;

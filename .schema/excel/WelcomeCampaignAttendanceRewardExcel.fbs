@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+include "WelcomeCampaignAttendanceType.fbs";
+
+namespace MX.Data.Excel;
+
+table WelcomeCampaignAttendanceRewardExcel {
+    id: long;
+    season_id: long;
+    count_check_type: WelcomeCampaignAttendanceType;
+    day: long;
+    reward_parcel_type: ParcelType;
+    reward_id: long;
+    reward_amount: long;
+}
+
+root_type WelcomeCampaignAttendanceRewardExcel;

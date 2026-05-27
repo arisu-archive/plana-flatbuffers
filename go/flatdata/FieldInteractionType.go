@@ -19,6 +19,7 @@ const (
 	FieldInteractionTypeActionTrigger   FieldInteractionType = 9
 	FieldInteractionTypeInterplay       FieldInteractionType = 10
 	FieldInteractionTypeUnderCoverStage FieldInteractionType = 11
+	FieldInteractionTypeSNSOpen         FieldInteractionType = 12
 )
 
 var EnumNamesFieldInteractionType = map[FieldInteractionType]string{
@@ -34,6 +35,7 @@ var EnumNamesFieldInteractionType = map[FieldInteractionType]string{
 	FieldInteractionTypeActionTrigger:   "ActionTrigger",
 	FieldInteractionTypeInterplay:       "Interplay",
 	FieldInteractionTypeUnderCoverStage: "UnderCoverStage",
+	FieldInteractionTypeSNSOpen:         "SNSOpen",
 }
 
 var EnumValuesFieldInteractionType = map[string]FieldInteractionType{
@@ -49,6 +51,7 @@ var EnumValuesFieldInteractionType = map[string]FieldInteractionType{
 	"ActionTrigger":   FieldInteractionTypeActionTrigger,
 	"Interplay":       FieldInteractionTypeInterplay,
 	"UnderCoverStage": FieldInteractionTypeUnderCoverStage,
+	"SNSOpen":         FieldInteractionTypeSNSOpen,
 }
 
 func (v FieldInteractionType) String() string {

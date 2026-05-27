@@ -10,6 +10,10 @@ github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251204154751-651482551f8
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20251204154751-651482551f83/go.mod h1:vOvsaBDrAONVArYo9bI/kX+GBw75mRP+J3RDeG9F3SM=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260406083956-7eadd04b03be h1:kDXID1FUlVYIhNb9Wnb4Me0EUvM3C9eTH0N4/50O2Gg=
 github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260406083956-7eadd04b03be/go.mod h1:OUke8NdyWWqWf9yASaq2yWCwAbO7EzlSEWbjYOszxUc=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260414204617-714b4abea647 h1:z0hEA7VHpoce3tffG7XSypZpRY/N0v/cF0jNa10Hino=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260414204617-714b4abea647/go.mod h1:/Edk8MIFEIQhel3DfcceS9O85GSUTY9eN3tByvVIh6o=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260501232406-c0b3ccdb8eaa h1:g9JIeO1WB0oyfbmvADNtJgYsFqnm1HkT53qwn6/klak=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260501232406-c0b3ccdb8eaa/go.mod h1:xVV8J56yx9gEu5a4x/zDMWpYyHuaoKT1pGoVA1za5X8=
 github.com/go-logr/logr v1.4.2 h1:6pFjapn8bFcIbiKo3XT4j/BhANplGihG6tvd+8rYgrY=
 github.com/go-logr/logr v1.4.2/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1vB6EwHI=

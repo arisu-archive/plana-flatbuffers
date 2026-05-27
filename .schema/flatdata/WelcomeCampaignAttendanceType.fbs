@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum WelcomeCampaignAttendanceType: int {
+    Normal = 0,
+    Continuous = 1,
+}

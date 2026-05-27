@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum AutoSelectPopupType: int {
+    None = 0,
+    FavorItem = 1,
+    GrowthItem = 2,
+}

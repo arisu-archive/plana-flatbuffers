@@ -10,18 +10,19 @@ import (
 // FieldSeasonExcelDto represents a FlatBuffers table
 type FieldSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                      int64           `json:"unique_id"`
-	EventContentId                int64           `json:"event_content_id"`
-	EntryDateId                   int64           `json:"entry_date_id"`
-	InstantEntryDateId            int64           `json:"instant_entry_date_id"`
-	StartDate                     string          `json:"start_date"`
-	EndDate                       string          `json:"end_date"`
-	LobbyBgmChangeStageId         int64           `json:"lobby_bgm_change_stage_id"`
-	FieldPrefabControlId          int64           `json:"field_prefab_control_id"`
-	FieldGetKeywordCallDialogEnum FieldDialogType `json:"field_get_keyword_call_dialog_enum"`
-	MasteryImagePath              string          `json:"mastery_image_path"`
-	FieldLobbyTitleImagePath      string          `json:"field_lobby_title_image_path"`
-	KeywordLogoImagePath          string          `json:"keyword_logo_image_path"`
+	UniqueId                      int64            `json:"unique_id"`
+	FieldContentType              FieldContentType `json:"field_content_type"`
+	EventContentId                int64            `json:"event_content_id"`
+	EntryDateId                   int64            `json:"entry_date_id"`
+	InstantEntryDateId            int64            `json:"instant_entry_date_id"`
+	StartDate                     string           `json:"start_date"`
+	EndDate                       string           `json:"end_date"`
+	LobbyBgmChangeStageId         int64            `json:"lobby_bgm_change_stage_id"`
+	FieldPrefabControlId          int64            `json:"field_prefab_control_id"`
+	FieldGetKeywordCallDialogEnum FieldDialogType  `json:"field_get_keyword_call_dialog_enum"`
+	MasteryImagePath              string           `json:"mastery_image_path"`
+	FieldLobbyTitleImagePath      string           `json:"field_lobby_title_image_path"`
+	KeywordLogoImagePath          string           `json:"keyword_logo_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -36,6 +37,7 @@ func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	__offset_keyword_logo_image_path := b.CreateString(fbsutils.Convert(t.KeywordLogoImagePath, t.FlatBuffer.TableKey))
 	FieldSeasonExcelStart(b)
 	FieldSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddFieldContentType(b, fbsutils.Convert(t.FieldContentType, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddEntryDateId(b, fbsutils.Convert(t.EntryDateId, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Convert(t.InstantEntryDateId, t.FlatBuffer.TableKey))
@@ -63,6 +65,7 @@ func (t *FieldSeasonExcelDto) UnmarshalMessage(e *FieldSeasonExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.FieldContentType = FieldContentType(fbsutils.Convert(int32(e.FieldContentType()), t.FlatBuffer.TableKey))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EntryDateId = fbsutils.Convert(e.EntryDateId(), t.FlatBuffer.TableKey)
 	t.InstantEntryDateId = fbsutils.Convert(e.InstantEntryDateId(), t.FlatBuffer.TableKey)

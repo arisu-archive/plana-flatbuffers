@@ -80,6 +80,10 @@ type CharacterStatExcelDto struct {
 	ReduceBasicsDamagedRate     int64                 `json:"reduce_basics_damaged_rate"`
 	EnhanceWeakDamageRate       int64                 `json:"enhance_weak_damage_rate"`
 	ReduceWeakDamagedRate       int64                 `json:"reduce_weak_damaged_rate"`
+	WeakDamagedRatio            int64                 `json:"weak_damaged_ratio"`
+	EffectiveDamagedRatio       int64                 `json:"effective_damaged_ratio"`
+	NormalDamagedRatio          int64                 `json:"normal_damaged_ratio"`
+	ResistDamagedRatio          int64                 `json:"resist_damaged_ratio"`
 	HealRate                    int64                 `json:"heal_rate"`
 	HealLightArmorRate          int64                 `json:"heal_light_armor_rate"`
 	HealHeavyArmorRate          int64                 `json:"heal_heavy_armor_rate"`
@@ -170,6 +174,10 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddEnhanceWeakDamageRate(b, fbsutils.Convert(t.EnhanceWeakDamageRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddReduceWeakDamagedRate(b, fbsutils.Convert(t.ReduceWeakDamagedRate, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddWeakDamagedRatio(b, fbsutils.Convert(t.WeakDamagedRatio, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddEffectiveDamagedRatio(b, fbsutils.Convert(t.EffectiveDamagedRatio, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddNormalDamagedRatio(b, fbsutils.Convert(t.NormalDamagedRatio, t.FlatBuffer.TableKey))
+	CharacterStatExcelAddResistDamagedRatio(b, fbsutils.Convert(t.ResistDamagedRatio, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealRate(b, fbsutils.Convert(t.HealRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealLightArmorRate(b, fbsutils.Convert(t.HealLightArmorRate, t.FlatBuffer.TableKey))
 	CharacterStatExcelAddHealHeavyArmorRate(b, fbsutils.Convert(t.HealHeavyArmorRate, t.FlatBuffer.TableKey))
@@ -267,6 +275,10 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
 	t.EnhanceWeakDamageRate = fbsutils.Convert(e.EnhanceWeakDamageRate(), t.FlatBuffer.TableKey)
 	t.ReduceWeakDamagedRate = fbsutils.Convert(e.ReduceWeakDamagedRate(), t.FlatBuffer.TableKey)
+	t.WeakDamagedRatio = fbsutils.Convert(e.WeakDamagedRatio(), t.FlatBuffer.TableKey)
+	t.EffectiveDamagedRatio = fbsutils.Convert(e.EffectiveDamagedRatio(), t.FlatBuffer.TableKey)
+	t.NormalDamagedRatio = fbsutils.Convert(e.NormalDamagedRatio(), t.FlatBuffer.TableKey)
+	t.ResistDamagedRatio = fbsutils.Convert(e.ResistDamagedRatio(), t.FlatBuffer.TableKey)
 	t.HealRate = fbsutils.Convert(e.HealRate(), t.FlatBuffer.TableKey)
 	t.HealLightArmorRate = fbsutils.Convert(e.HealLightArmorRate(), t.FlatBuffer.TableKey)
 	t.HealHeavyArmorRate = fbsutils.Convert(e.HealHeavyArmorRate(), t.FlatBuffer.TableKey)

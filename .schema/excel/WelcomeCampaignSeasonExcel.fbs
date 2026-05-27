@@ -1,0 +1,23 @@
+include "TargetGroup.fbs";
+
+namespace MX.Data.Excel;
+
+table WelcomeCampaignSeasonExcel {
+    id: long;
+    title_localize_code: uint;
+    target_group: TargetGroup;
+    active_order: int;
+    start_date: string;
+    end_date: string;
+    expiry_date: long;
+    enter_icon_image: string;
+    background_image: string;
+    title_image: string;
+    enter_reward_group_id: long;
+    reward_increase_id: long;
+    maximum_login_count: long;
+    attendance_book_size: long;
+    continuous_attendance: bool;
+}
+
+root_type WelcomeCampaignSeasonExcel;
