@@ -1,9 +1,11 @@
+include "FieldContentType.fbs";
 include "FieldDialogType.fbs";
 
 namespace FlatData;
 
 table FieldSeasonExcel {
     unique_id: long;
+    field_content_type: FieldContentType;
     event_content_id: long;
     entry_date_id: long;
     instant_entry_date_id: long;

@@ -28,6 +28,10 @@ type ObstacleStatExcelDto struct {
 	ReduceExDamagedRate       int64   `json:"reduce_ex_damaged_rate"`
 	ReduceBasicsDamagedRate   int64   `json:"reduce_basics_damaged_rate"`
 	ReduceWeakDamagedRate     int64   `json:"reduce_weak_damaged_rate"`
+	WeakDamagedRatio          int64   `json:"weak_damaged_ratio"`
+	EffectiveDamagedRatio     int64   `json:"effective_damaged_ratio"`
+	NormalDamagedRatio        int64   `json:"normal_damaged_ratio"`
+	ResistDamagedRatio        int64   `json:"resist_damaged_ratio"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -52,6 +56,10 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ObstacleStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceBasicsDamagedRate(b, fbsutils.Convert(t.ReduceBasicsDamagedRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceWeakDamagedRate(b, fbsutils.Convert(t.ReduceWeakDamagedRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddWeakDamagedRatio(b, fbsutils.Convert(t.WeakDamagedRatio, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEffectiveDamagedRatio(b, fbsutils.Convert(t.EffectiveDamagedRatio, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddNormalDamagedRatio(b, fbsutils.Convert(t.NormalDamagedRatio, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddResistDamagedRatio(b, fbsutils.Convert(t.ResistDamagedRatio, t.FlatBuffer.TableKey))
 	return ObstacleStatExcelEnd(b)
 }
 
@@ -82,6 +90,10 @@ func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
 	t.ReduceBasicsDamagedRate = fbsutils.Convert(e.ReduceBasicsDamagedRate(), t.FlatBuffer.TableKey)
 	t.ReduceWeakDamagedRate = fbsutils.Convert(e.ReduceWeakDamagedRate(), t.FlatBuffer.TableKey)
+	t.WeakDamagedRatio = fbsutils.Convert(e.WeakDamagedRatio(), t.FlatBuffer.TableKey)
+	t.EffectiveDamagedRatio = fbsutils.Convert(e.EffectiveDamagedRatio(), t.FlatBuffer.TableKey)
+	t.NormalDamagedRatio = fbsutils.Convert(e.NormalDamagedRatio(), t.FlatBuffer.TableKey)
+	t.ResistDamagedRatio = fbsutils.Convert(e.ResistDamagedRatio(), t.FlatBuffer.TableKey)
 	return nil
 }
 

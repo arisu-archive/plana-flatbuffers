@@ -1,0 +1,15 @@
+include "EventTargetType.fbs";
+
+namespace MX.Data.Excel;
+
+table WelcomeCampaignRewardIncreaseExcel {
+    id: int;
+    group_id: long;
+    localize_code_id: uint;
+    icon_path: string;
+    event_target_type: EventTargetType;
+    increase_ratio: int;
+    shortcut_event_target_type: EventTargetType;
+}
+
+root_type WelcomeCampaignRewardIncreaseExcel;

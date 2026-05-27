@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum FieldSNSPostType: int {
+    None = 0,
+    Normal = 1,
+    Bookmark = 2,
+}

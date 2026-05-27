@@ -34,6 +34,11 @@ const (
 	FieldDialogTypeTwinkle_Nobubble FieldDialogType = 24
 	FieldDialogTypeZZZ_Nobubble     FieldDialogType = 25
 	FieldDialogTypeChat_Nobubble    FieldDialogType = 26
+	FieldDialogTypeKeyword_90101000 FieldDialogType = 27
+	FieldDialogTypeSNS              FieldDialogType = 28
+	FieldDialogTypeItemSack         FieldDialogType = 29
+	FieldDialogTypeItemFlyer        FieldDialogType = 30
+	FieldDialogTypeItemDocument     FieldDialogType = 31
 )
 
 var EnumNamesFieldDialogType = map[FieldDialogType]string{
@@ -64,6 +69,11 @@ var EnumNamesFieldDialogType = map[FieldDialogType]string{
 	FieldDialogTypeTwinkle_Nobubble: "Twinkle_Nobubble",
 	FieldDialogTypeZZZ_Nobubble:     "ZZZ_Nobubble",
 	FieldDialogTypeChat_Nobubble:    "Chat_Nobubble",
+	FieldDialogTypeKeyword_90101000: "Keyword_90101000",
+	FieldDialogTypeSNS:              "SNS",
+	FieldDialogTypeItemSack:         "ItemSack",
+	FieldDialogTypeItemFlyer:        "ItemFlyer",
+	FieldDialogTypeItemDocument:     "ItemDocument",
 }
 
 var EnumValuesFieldDialogType = map[string]FieldDialogType{
@@ -94,6 +104,11 @@ var EnumValuesFieldDialogType = map[string]FieldDialogType{
 	"Twinkle_Nobubble": FieldDialogTypeTwinkle_Nobubble,
 	"ZZZ_Nobubble":     FieldDialogTypeZZZ_Nobubble,
 	"Chat_Nobubble":    FieldDialogTypeChat_Nobubble,
+	"Keyword_90101000": FieldDialogTypeKeyword_90101000,
+	"SNS":              FieldDialogTypeSNS,
+	"ItemSack":         FieldDialogTypeItemSack,
+	"ItemFlyer":        FieldDialogTypeItemFlyer,
+	"ItemDocument":     FieldDialogTypeItemDocument,
 }
 
 func (v FieldDialogType) String() string {

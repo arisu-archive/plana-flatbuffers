@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table FieldWarpExcel {
+    unique_id: long;
+    current_scene_id: long;
+    result_scene_id: long;
+    result_scene_name_key: uint;
+    result_scene_image_path: string;
+}
+
+root_type FieldWarpExcel;

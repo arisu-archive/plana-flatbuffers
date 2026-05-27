@@ -1,0 +1,19 @@
+include "FieldSNSPostType.fbs";
+
+namespace MX.Data.Excel;
+
+table FieldSNSPostExcel {
+    id: long;
+    group_interaction_id: long;
+    post_type: FieldSNSPostType;
+    sns_post_id: long;
+    is_sequence: bool;
+    order: long;
+    delay_time: long;
+    repost_min_num: long;
+    repost_max_num: long;
+    favor_min_num: long;
+    favor_max_num: long;
+}
+
+root_type FieldSNSPostExcel;

@@ -73,6 +73,10 @@ table CharacterStatExcel {
     reduce_basics_damaged_rate: long;
     enhance_weak_damage_rate: long;
     reduce_weak_damaged_rate: long;
+    weak_damaged_ratio: long;
+    effective_damaged_ratio: long;
+    normal_damaged_ratio: long;
+    resist_damaged_ratio: long;
     heal_rate: long;
     heal_light_armor_rate: long;
     heal_heavy_armor_rate: long;

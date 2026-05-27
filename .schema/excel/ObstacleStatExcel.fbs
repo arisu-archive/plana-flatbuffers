@@ -19,6 +19,10 @@ table ObstacleStatExcel {
     reduce_ex_damaged_rate: long;
     reduce_basics_damaged_rate: long;
     reduce_weak_damaged_rate: long;
+    weak_damaged_ratio: long;
+    effective_damaged_ratio: long;
+    normal_damaged_ratio: long;
+    resist_damaged_ratio: long;
 }
 
 root_type ObstacleStatExcel;

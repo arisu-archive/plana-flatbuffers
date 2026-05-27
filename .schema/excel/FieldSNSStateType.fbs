@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum FieldSNSStateType: int {
+    Open = 0,
+    Close = 1,
+}

@@ -19,6 +19,7 @@ const (
 	MissionCategoryDailySudden      MissionCategory = 9
 	MissionCategoryDailyFixed       MissionCategory = 10
 	MissionCategoryEventFixed       MissionCategory = 11
+	MissionCategoryWelcomeMission   MissionCategory = 12
 )
 
 var EnumNamesMissionCategory = map[MissionCategory]string{
@@ -34,6 +35,7 @@ var EnumNamesMissionCategory = map[MissionCategory]string{
 	MissionCategoryDailySudden:      "DailySudden",
 	MissionCategoryDailyFixed:       "DailyFixed",
 	MissionCategoryEventFixed:       "EventFixed",
+	MissionCategoryWelcomeMission:   "WelcomeMission",
 }
 
 var EnumValuesMissionCategory = map[string]MissionCategory{
@@ -49,6 +51,7 @@ var EnumValuesMissionCategory = map[string]MissionCategory{
 	"DailySudden":      MissionCategoryDailySudden,
 	"DailyFixed":       MissionCategoryDailyFixed,
 	"EventFixed":       MissionCategoryEventFixed,
+	"WelcomeMission":   MissionCategoryWelcomeMission,
 }
 
 func (v MissionCategory) String() string {

@@ -101,8 +101,20 @@ func (rcv *FieldQuestExcel) MutateOpendate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *FieldQuestExcel) AssetPath() []byte {
+func (rcv *FieldQuestExcel) QuestGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldQuestExcel) MutateQuestGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *FieldQuestExcel) AssetPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -110,7 +122,7 @@ func (rcv *FieldQuestExcel) AssetPath() []byte {
 }
 
 func (rcv *FieldQuestExcel) RewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -118,11 +130,11 @@ func (rcv *FieldQuestExcel) RewardId() int64 {
 }
 
 func (rcv *FieldQuestExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func (rcv *FieldQuestExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -130,22 +142,10 @@ func (rcv *FieldQuestExcel) Prob() int32 {
 }
 
 func (rcv *FieldQuestExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
 func (rcv *FieldQuestExcel) QuestNamKey() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldQuestExcel) MutateQuestNamKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(20, n)
-}
-
-func (rcv *FieldQuestExcel) QuestDescKey() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -153,12 +153,24 @@ func (rcv *FieldQuestExcel) QuestDescKey() uint32 {
 	return 0
 }
 
-func (rcv *FieldQuestExcel) MutateQuestDescKey(n uint32) bool {
+func (rcv *FieldQuestExcel) MutateQuestNamKey(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(22, n)
 }
 
+func (rcv *FieldQuestExcel) QuestDescKey() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldQuestExcel) MutateQuestDescKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(24, n)
+}
+
 func FieldQuestExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func FieldQuestExcelAddFieldSeasonId(builder *flatbuffers.Builder, fieldSeasonId int64) {
 	builder.PrependInt64Slot(0, fieldSeasonId, 0)
@@ -175,20 +187,23 @@ func FieldQuestExcelAddFieldDateId(builder *flatbuffers.Builder, fieldDateId int
 func FieldQuestExcelAddOpendate(builder *flatbuffers.Builder, opendate int64) {
 	builder.PrependInt64Slot(4, opendate, 0)
 }
+func FieldQuestExcelAddQuestGroupId(builder *flatbuffers.Builder, questGroupId int64) {
+	builder.PrependInt64Slot(5, questGroupId, 0)
+}
 func FieldQuestExcelAddAssetPath(builder *flatbuffers.Builder, assetPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(assetPath), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(assetPath), 0)
 }
 func FieldQuestExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(6, rewardId, 0)
+	builder.PrependInt64Slot(7, rewardId, 0)
 }
 func FieldQuestExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(7, prob, 0)
+	builder.PrependInt32Slot(8, prob, 0)
 }
 func FieldQuestExcelAddQuestNamKey(builder *flatbuffers.Builder, questNamKey uint32) {
-	builder.PrependUint32Slot(8, questNamKey, 0)
+	builder.PrependUint32Slot(9, questNamKey, 0)
 }
 func FieldQuestExcelAddQuestDescKey(builder *flatbuffers.Builder, questDescKey uint32) {
-	builder.PrependUint32Slot(9, questDescKey, 0)
+	builder.PrependUint32Slot(10, questDescKey, 0)
 }
 func FieldQuestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
