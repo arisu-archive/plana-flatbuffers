@@ -7,7 +7,14 @@
   "group-pull-request-title-pattern": "chore${scope}: release${component} ${version}",
   "packages": {
     ".": {
-      "package-name": "plana-flatbuffers"
+      "package-name": "plana-flatbuffers",
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "pyproject.toml",
+          "jsonpath": "$.project.version"
+        }
+      ]
     }
   }
 }
