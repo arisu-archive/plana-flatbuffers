@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Process the flatbuffers files
 go run github.com/arisu-archive/bluearchive-fbs-generator@latest -i ./.schema/flatdata -o ./go/flatdata -p flatdata

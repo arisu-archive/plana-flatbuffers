@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # For each the .schema files, compile them into .go files
 for schema in .schema/flatdata/*.fbs; do
