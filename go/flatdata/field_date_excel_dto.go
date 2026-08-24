@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldDateExcelDto represents a FlatBuffers table.
@@ -36,27 +33,27 @@ func (t *FieldDateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDate"))
 	}
-	dateLocalizeKeyOffset := b.CreateString(encodeDTOString(t.DateLocalizeKey, t.FlatBuffer.TableKey))
-	characterIconPathOffset := b.CreateString(encodeDTOString(t.CharacterIconPath, t.FlatBuffer.TableKey))
-	dateResultBgPathOffset := b.CreateString(encodeDTOString(t.DateResultBgPath, t.FlatBuffer.TableKey))
-	dateResultSpinePathOffset := b.CreateString(encodeDTOString(t.DateResultSpinePath, t.FlatBuffer.TableKey))
+	dateLocalizeKeyOffset := b.CreateString(fbsutils.Encode(t.DateLocalizeKey, t.FlatBuffer.TableKey))
+	characterIconPathOffset := b.CreateString(fbsutils.Encode(t.CharacterIconPath, t.FlatBuffer.TableKey))
+	dateResultBgPathOffset := b.CreateString(fbsutils.Encode(t.DateResultBgPath, t.FlatBuffer.TableKey))
+	dateResultSpinePathOffset := b.CreateString(fbsutils.Encode(t.DateResultSpinePath, t.FlatBuffer.TableKey))
 	FieldDateExcelStart(b)
-	FieldDateExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
+	FieldDateExcelAddSeasonId(b, fbsutils.Encode(t.SeasonID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddOpenDate(b, fbsutils.Encode(t.OpenDate, t.FlatBuffer.TableKey))
 	FieldDateExcelAddDateLocalizeKey(b, dateLocalizeKeyOffset)
-	FieldDateExcelAddEntrySceneId(b, fbsutils.Convert(t.EntrySceneID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddStartConditionType(b, FieldConditionType(fbsutils.Convert(int32(t.StartConditionType), t.FlatBuffer.TableKey)))
-	FieldDateExcelAddStartConditionId(b, fbsutils.Convert(t.StartConditionID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddEndConditionType(b, FieldConditionType(fbsutils.Convert(int32(t.EndConditionType), t.FlatBuffer.TableKey)))
-	FieldDateExcelAddEndConditionId(b, fbsutils.Convert(t.EndConditionID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddEndReadyConditionType(b, FieldConditionType(fbsutils.Convert(int32(t.EndReadyConditionType), t.FlatBuffer.TableKey)))
-	FieldDateExcelAddEndReadyConditionId(b, fbsutils.Convert(t.EndReadyConditionID, t.FlatBuffer.TableKey))
-	FieldDateExcelAddOpenConditionStage(b, fbsutils.Convert(t.OpenConditionStage, t.FlatBuffer.TableKey))
+	FieldDateExcelAddEntrySceneId(b, fbsutils.Encode(t.EntrySceneID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddStartConditionType(b, FieldConditionType(fbsutils.Encode(int32(t.StartConditionType), t.FlatBuffer.TableKey)))
+	FieldDateExcelAddStartConditionId(b, fbsutils.Encode(t.StartConditionID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddEndConditionType(b, FieldConditionType(fbsutils.Encode(int32(t.EndConditionType), t.FlatBuffer.TableKey)))
+	FieldDateExcelAddEndConditionId(b, fbsutils.Encode(t.EndConditionID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddEndReadyConditionType(b, FieldConditionType(fbsutils.Encode(int32(t.EndReadyConditionType), t.FlatBuffer.TableKey)))
+	FieldDateExcelAddEndReadyConditionId(b, fbsutils.Encode(t.EndReadyConditionID, t.FlatBuffer.TableKey))
+	FieldDateExcelAddOpenConditionStage(b, fbsutils.Encode(t.OpenConditionStage, t.FlatBuffer.TableKey))
 	FieldDateExcelAddCharacterIconPath(b, characterIconPathOffset)
 	FieldDateExcelAddDateResultBgPath(b, dateResultBgPathOffset)
 	FieldDateExcelAddDateResultSpinePath(b, dateResultSpinePathOffset)
-	FieldDateExcelAddDateResultSpineOffsetX(b, fbsutils.Convert(t.DateResultSpineOffsetX, t.FlatBuffer.TableKey))
+	FieldDateExcelAddDateResultSpineOffsetX(b, fbsutils.Encode(t.DateResultSpineOffsetX, t.FlatBuffer.TableKey))
 	return FieldDateExcelEnd(b)
 }
 
@@ -72,22 +69,22 @@ func (t *FieldDateExcelDto) UnmarshalMessage(e *FieldDateExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDate"))
 	}
-	t.SeasonID = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
-	t.DateLocalizeKey = fbsutils.Convert(string(e.DateLocalizeKey()), t.FlatBuffer.TableKey)
-	t.EntrySceneID = fbsutils.Convert(e.EntrySceneId(), t.FlatBuffer.TableKey)
-	t.StartConditionType = FieldConditionType(fbsutils.Convert(int32(e.StartConditionType()), t.FlatBuffer.TableKey))
-	t.StartConditionID = fbsutils.Convert(e.StartConditionId(), t.FlatBuffer.TableKey)
-	t.EndConditionType = FieldConditionType(fbsutils.Convert(int32(e.EndConditionType()), t.FlatBuffer.TableKey))
-	t.EndConditionID = fbsutils.Convert(e.EndConditionId(), t.FlatBuffer.TableKey)
-	t.EndReadyConditionType = FieldConditionType(fbsutils.Convert(int32(e.EndReadyConditionType()), t.FlatBuffer.TableKey))
-	t.EndReadyConditionID = fbsutils.Convert(e.EndReadyConditionId(), t.FlatBuffer.TableKey)
-	t.OpenConditionStage = fbsutils.Convert(e.OpenConditionStage(), t.FlatBuffer.TableKey)
-	t.CharacterIconPath = fbsutils.Convert(string(e.CharacterIconPath()), t.FlatBuffer.TableKey)
-	t.DateResultBgPath = fbsutils.Convert(string(e.DateResultBgPath()), t.FlatBuffer.TableKey)
-	t.DateResultSpinePath = fbsutils.Convert(string(e.DateResultSpinePath()), t.FlatBuffer.TableKey)
-	t.DateResultSpineOffsetX = fbsutils.Convert(e.DateResultSpineOffsetX(), t.FlatBuffer.TableKey)
+	t.SeasonID = fbsutils.Decode(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.OpenDate = fbsutils.Decode(e.OpenDate(), t.FlatBuffer.TableKey)
+	t.DateLocalizeKey = fbsutils.Decode(string(e.DateLocalizeKey()), t.FlatBuffer.TableKey)
+	t.EntrySceneID = fbsutils.Decode(e.EntrySceneId(), t.FlatBuffer.TableKey)
+	t.StartConditionType = FieldConditionType(fbsutils.Decode(int32(e.StartConditionType()), t.FlatBuffer.TableKey))
+	t.StartConditionID = fbsutils.Decode(e.StartConditionId(), t.FlatBuffer.TableKey)
+	t.EndConditionType = FieldConditionType(fbsutils.Decode(int32(e.EndConditionType()), t.FlatBuffer.TableKey))
+	t.EndConditionID = fbsutils.Decode(e.EndConditionId(), t.FlatBuffer.TableKey)
+	t.EndReadyConditionType = FieldConditionType(fbsutils.Decode(int32(e.EndReadyConditionType()), t.FlatBuffer.TableKey))
+	t.EndReadyConditionID = fbsutils.Decode(e.EndReadyConditionId(), t.FlatBuffer.TableKey)
+	t.OpenConditionStage = fbsutils.Decode(e.OpenConditionStage(), t.FlatBuffer.TableKey)
+	t.CharacterIconPath = fbsutils.Decode(string(e.CharacterIconPath()), t.FlatBuffer.TableKey)
+	t.DateResultBgPath = fbsutils.Decode(string(e.DateResultBgPath()), t.FlatBuffer.TableKey)
+	t.DateResultSpinePath = fbsutils.Decode(string(e.DateResultSpinePath()), t.FlatBuffer.TableKey)
+	t.DateResultSpineOffsetX = fbsutils.Decode(e.DateResultSpineOffsetX(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -100,16 +97,4 @@ func (t *FieldDateExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldDateExcelDto) FlatDataName() string {
 	return "FieldDateExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

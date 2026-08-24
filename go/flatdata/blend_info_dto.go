@@ -21,9 +21,9 @@ func (t *BlendInfoDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendInfo"))
 	}
 	BlendInfoStart(b)
-	BlendInfoAddFrom(b, fbsutils.Convert(t.From, t.FlatBuffer.TableKey))
-	BlendInfoAddTo(b, fbsutils.Convert(t.To, t.FlatBuffer.TableKey))
-	BlendInfoAddBlend(b, fbsutils.Convert(t.Blend, t.FlatBuffer.TableKey))
+	BlendInfoAddFrom(b, fbsutils.Encode(t.From, t.FlatBuffer.TableKey))
+	BlendInfoAddTo(b, fbsutils.Encode(t.To, t.FlatBuffer.TableKey))
+	BlendInfoAddBlend(b, fbsutils.Encode(t.Blend, t.FlatBuffer.TableKey))
 	return BlendInfoEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *BlendInfoDto) UnmarshalMessage(e *BlendInfo) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendInfo"))
 	}
-	t.From = fbsutils.Convert(e.From(), t.FlatBuffer.TableKey)
-	t.To = fbsutils.Convert(e.To(), t.FlatBuffer.TableKey)
-	t.Blend = fbsutils.Convert(e.Blend(), t.FlatBuffer.TableKey)
+	t.From = fbsutils.Decode(e.From(), t.FlatBuffer.TableKey)
+	t.To = fbsutils.Decode(e.To(), t.FlatBuffer.TableKey)
+	t.Blend = fbsutils.Decode(e.Blend(), t.FlatBuffer.TableKey)
 	return nil
 }
 

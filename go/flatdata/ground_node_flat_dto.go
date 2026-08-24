@@ -27,12 +27,12 @@ func (t *GroundNodeFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	t.Position.InitKey(t.FlatBuffer.TableKey)
 	positionOffset := t.Position.MarshalModel(b)
 	GroundNodeFlatStart(b)
-	GroundNodeFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	GroundNodeFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddX(b, fbsutils.Encode(t.X, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddY(b, fbsutils.Encode(t.Y, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddIsCanNotUseSkill(b, t.IsCanNotUseSkill)
 	GroundNodeFlatAddPosition(b, positionOffset)
-	GroundNodeFlatAddNodeType(b, GroundNodeType(fbsutils.Convert(int32(t.NodeType), t.FlatBuffer.TableKey)))
-	GroundNodeFlatAddOriginalNodeType(b, GroundNodeType(fbsutils.Convert(int32(t.OriginalNodeType), t.FlatBuffer.TableKey)))
+	GroundNodeFlatAddNodeType(b, GroundNodeType(fbsutils.Encode(int32(t.NodeType), t.FlatBuffer.TableKey)))
+	GroundNodeFlatAddOriginalNodeType(b, GroundNodeType(fbsutils.Encode(int32(t.OriginalNodeType), t.FlatBuffer.TableKey)))
 	return GroundNodeFlatEnd(b)
 }
 
@@ -48,8 +48,8 @@ func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Decode(e.X(), t.FlatBuffer.TableKey)
+	t.Y = fbsutils.Decode(e.Y(), t.FlatBuffer.TableKey)
 	t.IsCanNotUseSkill = e.IsCanNotUseSkill()
 	t.Position = GroundVector3Dto{}
 	position := e.Position(nil)
@@ -59,8 +59,8 @@ func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
 			return fmt.Errorf("unmarshal position: %w", err)
 		}
 	}
-	t.NodeType = GroundNodeType(fbsutils.Convert(int32(e.NodeType()), t.FlatBuffer.TableKey))
-	t.OriginalNodeType = GroundNodeType(fbsutils.Convert(int32(e.OriginalNodeType()), t.FlatBuffer.TableKey))
+	t.NodeType = GroundNodeType(fbsutils.Decode(int32(e.NodeType()), t.FlatBuffer.TableKey))
+	t.OriginalNodeType = GroundNodeType(fbsutils.Decode(int32(e.OriginalNodeType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

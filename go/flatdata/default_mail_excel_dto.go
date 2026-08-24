@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // DefaultMailExcelDto represents a FlatBuffers table.
@@ -28,27 +25,27 @@ func (t *DefaultMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
-	mailSendPeriodFromOffset := b.CreateString(encodeDTOString(t.MailSendPeriodFrom, t.FlatBuffer.TableKey))
-	mailSendPeriodToOffset := b.CreateString(encodeDTOString(t.MailSendPeriodTo, t.FlatBuffer.TableKey))
+	mailSendPeriodFromOffset := b.CreateString(fbsutils.Encode(t.MailSendPeriodFrom, t.FlatBuffer.TableKey))
+	mailSendPeriodToOffset := b.CreateString(fbsutils.Encode(t.MailSendPeriodTo, t.FlatBuffer.TableKey))
 	DefaultMailExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := len(t.RewardParcelType) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[i]), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(int32(t.RewardParcelType[i]), t.FlatBuffer.TableKey))
 	}
 	rewardParcelTypeOffset := b.EndVector(len(t.RewardParcelType))
 	DefaultMailExcelStartRewardParcelIdVector(b, len(t.RewardParcelID))
 	for i := len(t.RewardParcelID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.RewardParcelID[i], t.FlatBuffer.TableKey))
 	}
 	rewardParcelIDOffset := b.EndVector(len(t.RewardParcelID))
 	DefaultMailExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := len(t.RewardParcelAmount) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.RewardParcelAmount[i], t.FlatBuffer.TableKey))
 	}
 	rewardParcelAmountOffset := b.EndVector(len(t.RewardParcelAmount))
 	DefaultMailExcelStart(b)
-	DefaultMailExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	DefaultMailExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeID, t.FlatBuffer.TableKey))
-	DefaultMailExcelAddMailType(b, MailType(fbsutils.Convert(int32(t.MailType), t.FlatBuffer.TableKey)))
+	DefaultMailExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	DefaultMailExcelAddLocalizeCodeId(b, fbsutils.Encode(t.LocalizeCodeID, t.FlatBuffer.TableKey))
+	DefaultMailExcelAddMailType(b, MailType(fbsutils.Encode(int32(t.MailType), t.FlatBuffer.TableKey)))
 	DefaultMailExcelAddMailSendPeriodFrom(b, mailSendPeriodFromOffset)
 	DefaultMailExcelAddMailSendPeriodTo(b, mailSendPeriodToOffset)
 	DefaultMailExcelAddRewardParcelType(b, rewardParcelTypeOffset)
@@ -69,22 +66,22 @@ func (t *DefaultMailExcelDto) UnmarshalMessage(e *DefaultMailExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeID = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
-	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
-	t.MailSendPeriodFrom = fbsutils.Convert(string(e.MailSendPeriodFrom()), t.FlatBuffer.TableKey)
-	t.MailSendPeriodTo = fbsutils.Convert(string(e.MailSendPeriodTo()), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.LocalizeCodeID = fbsutils.Decode(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
+	t.MailType = MailType(fbsutils.Decode(int32(e.MailType()), t.FlatBuffer.TableKey))
+	t.MailSendPeriodFrom = fbsutils.Decode(string(e.MailSendPeriodFrom()), t.FlatBuffer.TableKey)
+	t.MailSendPeriodTo = fbsutils.Decode(string(e.MailSendPeriodTo()), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := 0; i < e.RewardParcelTypeLength(); i++ {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+		t.RewardParcelType[i] = ParcelType(fbsutils.Decode(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelID = make([]int64, e.RewardParcelIdLength())
 	for i := 0; i < e.RewardParcelIdLength(); i++ {
-		t.RewardParcelID[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
+		t.RewardParcelID[i] = fbsutils.Decode(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := 0; i < e.RewardParcelAmountLength(); i++ {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+		t.RewardParcelAmount[i] = fbsutils.Decode(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }
@@ -98,16 +95,4 @@ func (t *DefaultMailExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (DefaultMailExcelDto) FlatDataName() string {
 	return "DefaultMailExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

@@ -23,11 +23,11 @@ func (t *DefaultFurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultFurniture"))
 	}
 	DefaultFurnitureExcelStart(b)
-	DefaultFurnitureExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddLocation(b, FurnitureLocation(fbsutils.Convert(int32(t.Location), t.FlatBuffer.TableKey)))
-	DefaultFurnitureExcelAddPositionX(b, fbsutils.Convert(t.PositionX, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddPositionY(b, fbsutils.Convert(t.PositionY, t.FlatBuffer.TableKey))
-	DefaultFurnitureExcelAddRotation(b, fbsutils.Convert(t.Rotation, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddLocation(b, FurnitureLocation(fbsutils.Encode(int32(t.Location), t.FlatBuffer.TableKey)))
+	DefaultFurnitureExcelAddPositionX(b, fbsutils.Encode(t.PositionX, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddPositionY(b, fbsutils.Encode(t.PositionY, t.FlatBuffer.TableKey))
+	DefaultFurnitureExcelAddRotation(b, fbsutils.Encode(t.Rotation, t.FlatBuffer.TableKey))
 	return DefaultFurnitureExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *DefaultFurnitureExcelDto) UnmarshalMessage(e *DefaultFurnitureExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultFurniture"))
 	}
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
-	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
-	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
-	t.Rotation = fbsutils.Convert(e.Rotation(), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.Location = FurnitureLocation(fbsutils.Decode(int32(e.Location()), t.FlatBuffer.TableKey))
+	t.PositionX = fbsutils.Decode(e.PositionX(), t.FlatBuffer.TableKey)
+	t.PositionY = fbsutils.Decode(e.PositionY(), t.FlatBuffer.TableKey)
+	t.Rotation = fbsutils.Decode(e.Rotation(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConquestStepExcelDto represents a FlatBuffers table.
@@ -32,26 +29,26 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
-	stepGoalLocalizeOffset := b.CreateString(encodeDTOString(t.StepGoalLocalize, t.FlatBuffer.TableKey))
+	stepGoalLocalizeOffset := b.CreateString(fbsutils.Encode(t.StepGoalLocalize, t.FlatBuffer.TableKey))
 	ConquestStepExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitID))
 	for i := len(t.UnexpectedEventUnitID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.UnexpectedEventUnitID[i], t.FlatBuffer.TableKey))
 	}
 	unexpectedEventUnitIDOffset := b.EndVector(len(t.UnexpectedEventUnitID))
-	unexpectedEventPrefabOffset := b.CreateString(encodeDTOString(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey))
+	unexpectedEventPrefabOffset := b.CreateString(fbsutils.Encode(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey))
 	ConquestStepExcelStart(b)
-	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentID, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddMapDifficulty(b, StageDifficulty(fbsutils.Convert(int32(t.MapDifficulty), t.FlatBuffer.TableKey)))
-	ConquestStepExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddEventContentId(b, fbsutils.Encode(t.EventContentID, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddMapDifficulty(b, StageDifficulty(fbsutils.Encode(int32(t.MapDifficulty), t.FlatBuffer.TableKey)))
+	ConquestStepExcelAddStep(b, fbsutils.Encode(t.Step, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepGoalLocalize(b, stepGoalLocalizeOffset)
-	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupID, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepEnterItemType(b, ParcelType(fbsutils.Convert(int32(t.StepEnterItemType), t.FlatBuffer.TableKey)))
-	ConquestStepExcelAddStepEnterItemUniqueId(b, fbsutils.Convert(t.StepEnterItemUniqueID, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepEnterItemAmount(b, fbsutils.Convert(t.StepEnterItemAmount, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Encode(t.StepEnterScenarioGroupID, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepEnterItemType(b, ParcelType(fbsutils.Encode(int32(t.StepEnterItemType), t.FlatBuffer.TableKey)))
+	ConquestStepExcelAddStepEnterItemUniqueId(b, fbsutils.Encode(t.StepEnterItemUniqueID, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepEnterItemAmount(b, fbsutils.Encode(t.StepEnterItemAmount, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddUnexpectedEventUnitId(b, unexpectedEventUnitIDOffset)
 	ConquestStepExcelAddUnexpectedEventPrefab(b, unexpectedEventPrefabOffset)
-	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Convert(t.TreasureBoxObjectID, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Convert(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Encode(t.TreasureBoxObjectID, t.FlatBuffer.TableKey))
+	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Encode(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
 	return ConquestStepExcelEnd(b)
 }
 
@@ -67,21 +64,21 @@ func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
-	t.EventContentID = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
-	t.Step = fbsutils.Convert(e.Step(), t.FlatBuffer.TableKey)
-	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
-	t.StepEnterScenarioGroupID = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.StepEnterItemType = ParcelType(fbsutils.Convert(int32(e.StepEnterItemType()), t.FlatBuffer.TableKey))
-	t.StepEnterItemUniqueID = fbsutils.Convert(e.StepEnterItemUniqueId(), t.FlatBuffer.TableKey)
-	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
+	t.EventContentID = fbsutils.Decode(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.MapDifficulty = StageDifficulty(fbsutils.Decode(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
+	t.Step = fbsutils.Decode(e.Step(), t.FlatBuffer.TableKey)
+	t.StepGoalLocalize = fbsutils.Decode(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
+	t.StepEnterScenarioGroupID = fbsutils.Decode(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.StepEnterItemType = ParcelType(fbsutils.Decode(int32(e.StepEnterItemType()), t.FlatBuffer.TableKey))
+	t.StepEnterItemUniqueID = fbsutils.Decode(e.StepEnterItemUniqueId(), t.FlatBuffer.TableKey)
+	t.StepEnterItemAmount = fbsutils.Decode(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventUnitID = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := 0; i < e.UnexpectedEventUnitIdLength(); i++ {
-		t.UnexpectedEventUnitID[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
+		t.UnexpectedEventUnitID[i] = fbsutils.Decode(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
-	t.UnexpectedEventPrefab = fbsutils.Convert(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
-	t.TreasureBoxObjectID = fbsutils.Convert(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)
-	t.TreasureBoxCountPerStepOpen = fbsutils.Convert(e.TreasureBoxCountPerStepOpen(), t.FlatBuffer.TableKey)
+	t.UnexpectedEventPrefab = fbsutils.Decode(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
+	t.TreasureBoxObjectID = fbsutils.Decode(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)
+	t.TreasureBoxCountPerStepOpen = fbsutils.Decode(e.TreasureBoxCountPerStepOpen(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -94,16 +91,4 @@ func (t *ConquestStepExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConquestStepExcelDto) FlatDataName() string {
 	return "ConquestStepExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

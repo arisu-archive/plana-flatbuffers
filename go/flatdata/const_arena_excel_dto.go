@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstArenaExcelDto represents a FlatBuffers table.
@@ -53,85 +50,85 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
-	dailyRewardResetTimeOffset := b.CreateString(encodeDTOString(t.DailyRewardResetTime, t.FlatBuffer.TableKey))
-	openScenarioIDOffset := b.CreateString(encodeDTOString(t.OpenScenarioID, t.FlatBuffer.TableKey))
+	dailyRewardResetTimeOffset := b.CreateString(fbsutils.Encode(t.DailyRewardResetTime, t.FlatBuffer.TableKey))
+	openScenarioIDOffset := b.CreateString(fbsutils.Encode(t.OpenScenarioID, t.FlatBuffer.TableKey))
 	ConstArenaExcelStartCharacterSlotHideRankVector(b, len(t.CharacterSlotHideRank))
 	for i := len(t.CharacterSlotHideRank) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.CharacterSlotHideRank[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.CharacterSlotHideRank[i], t.FlatBuffer.TableKey))
 	}
 	characterSlotHideRankOffset := b.EndVector(len(t.CharacterSlotHideRank))
 	ConstArenaExcelStartRelativeOpponentRankStartVector(b, len(t.RelativeOpponentRankStart))
 	for i := len(t.RelativeOpponentRankStart) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.RelativeOpponentRankStart[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.RelativeOpponentRankStart[i], t.FlatBuffer.TableKey))
 	}
 	relativeOpponentRankStartOffset := b.EndVector(len(t.RelativeOpponentRankStart))
 	ConstArenaExcelStartRelativeOpponentRankEndVector(b, len(t.RelativeOpponentRankEnd))
 	for i := len(t.RelativeOpponentRankEnd) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.RelativeOpponentRankEnd[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.RelativeOpponentRankEnd[i], t.FlatBuffer.TableKey))
 	}
 	relativeOpponentRankEndOffset := b.EndVector(len(t.RelativeOpponentRankEnd))
 	ConstArenaExcelStartModifiedStatTypeVector(b, len(t.ModifiedStatType))
 	for i := len(t.ModifiedStatType) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(int32(t.ModifiedStatType[i]), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(int32(t.ModifiedStatType[i]), t.FlatBuffer.TableKey))
 	}
 	modifiedStatTypeOffset := b.EndVector(len(t.ModifiedStatType))
 	ConstArenaExcelStartStatMulFactorVector(b, len(t.StatMulFactor))
 	for i := len(t.StatMulFactor) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.StatMulFactor[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.StatMulFactor[i], t.FlatBuffer.TableKey))
 	}
 	statMulFactorOffset := b.EndVector(len(t.StatMulFactor))
 	ConstArenaExcelStartStatSumFactorVector(b, len(t.StatSumFactor))
 	for i := len(t.StatSumFactor) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.StatSumFactor[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.StatSumFactor[i], t.FlatBuffer.TableKey))
 	}
 	statSumFactorOffset := b.EndVector(len(t.StatSumFactor))
 	var npcNameOffset flatbuffers.UOffsetT
 	npcNameOffsets := make([]flatbuffers.UOffsetT, len(t.NpcName))
 	for i := range t.NpcName {
-		npcNameOffsets[i] = b.CreateString(encodeDTOString(t.NpcName[i], t.FlatBuffer.TableKey))
+		npcNameOffsets[i] = b.CreateString(fbsutils.Encode(t.NpcName[i], t.FlatBuffer.TableKey))
 	}
 	ConstArenaExcelStartNpcNameVector(b, len(t.NpcName))
 	for i := len(npcNameOffsets) - 1; i >= 0; i-- {
 		b.PrependUOffsetT(npcNameOffsets[i])
 	}
 	npcNameOffset = b.EndVector(len(t.NpcName))
-	hiddenCharacterImagePathOffset := b.CreateString(encodeDTOString(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey))
-	showSeasonChangeInfoStartTimeOffset := b.CreateString(encodeDTOString(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey))
-	showSeasonChangeInfoEndTimeOffset := b.CreateString(encodeDTOString(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey))
+	hiddenCharacterImagePathOffset := b.CreateString(fbsutils.Encode(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey))
+	showSeasonChangeInfoStartTimeOffset := b.CreateString(fbsutils.Encode(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey))
+	showSeasonChangeInfoEndTimeOffset := b.CreateString(fbsutils.Encode(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey))
 	ConstArenaExcelStart(b)
-	ConstArenaExcelAddAttackCoolTime(b, fbsutils.Convert(t.AttackCoolTime, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddDefenseCoolTime(b, fbsutils.Convert(t.DefenseCoolTime, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddTssStartCoolTime(b, fbsutils.Convert(t.TssStartCoolTime, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddEndAlarm(b, fbsutils.Convert(t.EndAlarm, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddTimeRewardMaxAmount(b, fbsutils.Convert(t.TimeRewardMaxAmount, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddEnterCostType(b, ParcelType(fbsutils.Convert(int32(t.EnterCostType), t.FlatBuffer.TableKey)))
-	ConstArenaExcelAddEnterCostId(b, fbsutils.Convert(t.EnterCostID, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddTicketCost(b, fbsutils.Convert(t.TicketCost, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddAttackCoolTime(b, fbsutils.Encode(t.AttackCoolTime, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddBattleDuration(b, fbsutils.Encode(t.BattleDuration, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddDefenseCoolTime(b, fbsutils.Encode(t.DefenseCoolTime, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddTssStartCoolTime(b, fbsutils.Encode(t.TssStartCoolTime, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddEndAlarm(b, fbsutils.Encode(t.EndAlarm, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddTimeRewardMaxAmount(b, fbsutils.Encode(t.TimeRewardMaxAmount, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddEnterCostType(b, ParcelType(fbsutils.Encode(int32(t.EnterCostType), t.FlatBuffer.TableKey)))
+	ConstArenaExcelAddEnterCostId(b, fbsutils.Encode(t.EnterCostID, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddTicketCost(b, fbsutils.Encode(t.TicketCost, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddDailyRewardResetTime(b, dailyRewardResetTimeOffset)
 	ConstArenaExcelAddOpenScenarioId(b, openScenarioIDOffset)
 	ConstArenaExcelAddCharacterSlotHideRank(b, characterSlotHideRankOffset)
-	ConstArenaExcelAddMapSlotHideRank(b, fbsutils.Convert(t.MapSlotHideRank, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddMapSlotHideRank(b, fbsutils.Encode(t.MapSlotHideRank, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddRelativeOpponentRankStart(b, relativeOpponentRankStartOffset)
 	ConstArenaExcelAddRelativeOpponentRankEnd(b, relativeOpponentRankEndOffset)
 	ConstArenaExcelAddModifiedStatType(b, modifiedStatTypeOffset)
 	ConstArenaExcelAddStatMulFactor(b, statMulFactorOffset)
 	ConstArenaExcelAddStatSumFactor(b, statSumFactorOffset)
 	ConstArenaExcelAddNpcName(b, npcNameOffset)
-	ConstArenaExcelAddNpcMainCharacterCount(b, fbsutils.Convert(t.NpcMainCharacterCount, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddNpcSupportCharacterCount(b, fbsutils.Convert(t.NpcSupportCharacterCount, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddNpcCharacterSkillLevel(b, fbsutils.Convert(t.NpcCharacterSkillLevel, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddTimeSpanInDaysForBattleHistory(b, fbsutils.Convert(t.TimeSpanInDaysForBattleHistory, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddNpcMainCharacterCount(b, fbsutils.Encode(t.NpcMainCharacterCount, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddNpcSupportCharacterCount(b, fbsutils.Encode(t.NpcSupportCharacterCount, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddNpcCharacterSkillLevel(b, fbsutils.Encode(t.NpcCharacterSkillLevel, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddTimeSpanInDaysForBattleHistory(b, fbsutils.Encode(t.TimeSpanInDaysForBattleHistory, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddHiddenCharacterImagePath(b, hiddenCharacterImagePathOffset)
-	ConstArenaExcelAddDefenseVictoryRewardMaxCount(b, fbsutils.Convert(t.DefenseVictoryRewardMaxCount, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddTopRankerCountLimit(b, fbsutils.Convert(t.TopRankerCountLimit, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddAutoRefreshIntervalMilliSeconds(b, fbsutils.Convert(t.AutoRefreshIntervalMilliSeconds, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddEchelonSettingIntervalMilliSeconds(b, fbsutils.Convert(t.EchelonSettingIntervalMilliSeconds, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddSkipAllowedTimeMilliSeconds(b, fbsutils.Convert(t.SkipAllowedTimeMilliSeconds, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddDefenseVictoryRewardMaxCount(b, fbsutils.Encode(t.DefenseVictoryRewardMaxCount, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddTopRankerCountLimit(b, fbsutils.Encode(t.TopRankerCountLimit, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddAutoRefreshIntervalMilliSeconds(b, fbsutils.Encode(t.AutoRefreshIntervalMilliSeconds, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddEchelonSettingIntervalMilliSeconds(b, fbsutils.Encode(t.EchelonSettingIntervalMilliSeconds, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddSkipAllowedTimeMilliSeconds(b, fbsutils.Encode(t.SkipAllowedTimeMilliSeconds, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddShowSeasonChangeInfoStartTime(b, showSeasonChangeInfoStartTimeOffset)
 	ConstArenaExcelAddShowSeasonChangeInfoEndTime(b, showSeasonChangeInfoEndTimeOffset)
-	ConstArenaExcelAddShowSeasonId(b, fbsutils.Convert(t.ShowSeasonID, t.FlatBuffer.TableKey))
-	ConstArenaExcelAddArenaHistoryQueryLimitDays(b, fbsutils.Convert(t.ArenaHistoryQueryLimitDays, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddShowSeasonId(b, fbsutils.Encode(t.ShowSeasonID, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddArenaHistoryQueryLimitDays(b, fbsutils.Encode(t.ArenaHistoryQueryLimitDays, t.FlatBuffer.TableKey))
 	return ConstArenaExcelEnd(b)
 }
 
@@ -147,60 +144,60 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
-	t.AttackCoolTime = fbsutils.Convert(e.AttackCoolTime(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.DefenseCoolTime = fbsutils.Convert(e.DefenseCoolTime(), t.FlatBuffer.TableKey)
-	t.TssStartCoolTime = fbsutils.Convert(e.TssStartCoolTime(), t.FlatBuffer.TableKey)
-	t.EndAlarm = fbsutils.Convert(e.EndAlarm(), t.FlatBuffer.TableKey)
-	t.TimeRewardMaxAmount = fbsutils.Convert(e.TimeRewardMaxAmount(), t.FlatBuffer.TableKey)
-	t.EnterCostType = ParcelType(fbsutils.Convert(int32(e.EnterCostType()), t.FlatBuffer.TableKey))
-	t.EnterCostID = fbsutils.Convert(e.EnterCostId(), t.FlatBuffer.TableKey)
-	t.TicketCost = fbsutils.Convert(e.TicketCost(), t.FlatBuffer.TableKey)
-	t.DailyRewardResetTime = fbsutils.Convert(string(e.DailyRewardResetTime()), t.FlatBuffer.TableKey)
-	t.OpenScenarioID = fbsutils.Convert(string(e.OpenScenarioId()), t.FlatBuffer.TableKey)
+	t.AttackCoolTime = fbsutils.Decode(e.AttackCoolTime(), t.FlatBuffer.TableKey)
+	t.BattleDuration = fbsutils.Decode(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.DefenseCoolTime = fbsutils.Decode(e.DefenseCoolTime(), t.FlatBuffer.TableKey)
+	t.TssStartCoolTime = fbsutils.Decode(e.TssStartCoolTime(), t.FlatBuffer.TableKey)
+	t.EndAlarm = fbsutils.Decode(e.EndAlarm(), t.FlatBuffer.TableKey)
+	t.TimeRewardMaxAmount = fbsutils.Decode(e.TimeRewardMaxAmount(), t.FlatBuffer.TableKey)
+	t.EnterCostType = ParcelType(fbsutils.Decode(int32(e.EnterCostType()), t.FlatBuffer.TableKey))
+	t.EnterCostID = fbsutils.Decode(e.EnterCostId(), t.FlatBuffer.TableKey)
+	t.TicketCost = fbsutils.Decode(e.TicketCost(), t.FlatBuffer.TableKey)
+	t.DailyRewardResetTime = fbsutils.Decode(string(e.DailyRewardResetTime()), t.FlatBuffer.TableKey)
+	t.OpenScenarioID = fbsutils.Decode(string(e.OpenScenarioId()), t.FlatBuffer.TableKey)
 	t.CharacterSlotHideRank = make([]int64, e.CharacterSlotHideRankLength())
 	for i := 0; i < e.CharacterSlotHideRankLength(); i++ {
-		t.CharacterSlotHideRank[i] = fbsutils.Convert(e.CharacterSlotHideRank(i), t.FlatBuffer.TableKey)
+		t.CharacterSlotHideRank[i] = fbsutils.Decode(e.CharacterSlotHideRank(i), t.FlatBuffer.TableKey)
 	}
-	t.MapSlotHideRank = fbsutils.Convert(e.MapSlotHideRank(), t.FlatBuffer.TableKey)
+	t.MapSlotHideRank = fbsutils.Decode(e.MapSlotHideRank(), t.FlatBuffer.TableKey)
 	t.RelativeOpponentRankStart = make([]int64, e.RelativeOpponentRankStartLength())
 	for i := 0; i < e.RelativeOpponentRankStartLength(); i++ {
-		t.RelativeOpponentRankStart[i] = fbsutils.Convert(e.RelativeOpponentRankStart(i), t.FlatBuffer.TableKey)
+		t.RelativeOpponentRankStart[i] = fbsutils.Decode(e.RelativeOpponentRankStart(i), t.FlatBuffer.TableKey)
 	}
 	t.RelativeOpponentRankEnd = make([]int64, e.RelativeOpponentRankEndLength())
 	for i := 0; i < e.RelativeOpponentRankEndLength(); i++ {
-		t.RelativeOpponentRankEnd[i] = fbsutils.Convert(e.RelativeOpponentRankEnd(i), t.FlatBuffer.TableKey)
+		t.RelativeOpponentRankEnd[i] = fbsutils.Decode(e.RelativeOpponentRankEnd(i), t.FlatBuffer.TableKey)
 	}
 	t.ModifiedStatType = make([]StatType, e.ModifiedStatTypeLength())
 	for i := 0; i < e.ModifiedStatTypeLength(); i++ {
-		t.ModifiedStatType[i] = StatType(fbsutils.Convert(int32(e.ModifiedStatType(i)), t.FlatBuffer.TableKey))
+		t.ModifiedStatType[i] = StatType(fbsutils.Decode(int32(e.ModifiedStatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StatMulFactor = make([]int64, e.StatMulFactorLength())
 	for i := 0; i < e.StatMulFactorLength(); i++ {
-		t.StatMulFactor[i] = fbsutils.Convert(e.StatMulFactor(i), t.FlatBuffer.TableKey)
+		t.StatMulFactor[i] = fbsutils.Decode(e.StatMulFactor(i), t.FlatBuffer.TableKey)
 	}
 	t.StatSumFactor = make([]int64, e.StatSumFactorLength())
 	for i := 0; i < e.StatSumFactorLength(); i++ {
-		t.StatSumFactor[i] = fbsutils.Convert(e.StatSumFactor(i), t.FlatBuffer.TableKey)
+		t.StatSumFactor[i] = fbsutils.Decode(e.StatSumFactor(i), t.FlatBuffer.TableKey)
 	}
 	t.NpcName = make([]string, e.NpcNameLength())
 	for i := 0; i < e.NpcNameLength(); i++ {
-		t.NpcName[i] = fbsutils.Convert(string(e.NpcName(i)), t.FlatBuffer.TableKey)
+		t.NpcName[i] = fbsutils.Decode(string(e.NpcName(i)), t.FlatBuffer.TableKey)
 	}
-	t.NpcMainCharacterCount = fbsutils.Convert(e.NpcMainCharacterCount(), t.FlatBuffer.TableKey)
-	t.NpcSupportCharacterCount = fbsutils.Convert(e.NpcSupportCharacterCount(), t.FlatBuffer.TableKey)
-	t.NpcCharacterSkillLevel = fbsutils.Convert(e.NpcCharacterSkillLevel(), t.FlatBuffer.TableKey)
-	t.TimeSpanInDaysForBattleHistory = fbsutils.Convert(e.TimeSpanInDaysForBattleHistory(), t.FlatBuffer.TableKey)
-	t.HiddenCharacterImagePath = fbsutils.Convert(string(e.HiddenCharacterImagePath()), t.FlatBuffer.TableKey)
-	t.DefenseVictoryRewardMaxCount = fbsutils.Convert(e.DefenseVictoryRewardMaxCount(), t.FlatBuffer.TableKey)
-	t.TopRankerCountLimit = fbsutils.Convert(e.TopRankerCountLimit(), t.FlatBuffer.TableKey)
-	t.AutoRefreshIntervalMilliSeconds = fbsutils.Convert(e.AutoRefreshIntervalMilliSeconds(), t.FlatBuffer.TableKey)
-	t.EchelonSettingIntervalMilliSeconds = fbsutils.Convert(e.EchelonSettingIntervalMilliSeconds(), t.FlatBuffer.TableKey)
-	t.SkipAllowedTimeMilliSeconds = fbsutils.Convert(e.SkipAllowedTimeMilliSeconds(), t.FlatBuffer.TableKey)
-	t.ShowSeasonChangeInfoStartTime = fbsutils.Convert(string(e.ShowSeasonChangeInfoStartTime()), t.FlatBuffer.TableKey)
-	t.ShowSeasonChangeInfoEndTime = fbsutils.Convert(string(e.ShowSeasonChangeInfoEndTime()), t.FlatBuffer.TableKey)
-	t.ShowSeasonID = fbsutils.Convert(e.ShowSeasonId(), t.FlatBuffer.TableKey)
-	t.ArenaHistoryQueryLimitDays = fbsutils.Convert(e.ArenaHistoryQueryLimitDays(), t.FlatBuffer.TableKey)
+	t.NpcMainCharacterCount = fbsutils.Decode(e.NpcMainCharacterCount(), t.FlatBuffer.TableKey)
+	t.NpcSupportCharacterCount = fbsutils.Decode(e.NpcSupportCharacterCount(), t.FlatBuffer.TableKey)
+	t.NpcCharacterSkillLevel = fbsutils.Decode(e.NpcCharacterSkillLevel(), t.FlatBuffer.TableKey)
+	t.TimeSpanInDaysForBattleHistory = fbsutils.Decode(e.TimeSpanInDaysForBattleHistory(), t.FlatBuffer.TableKey)
+	t.HiddenCharacterImagePath = fbsutils.Decode(string(e.HiddenCharacterImagePath()), t.FlatBuffer.TableKey)
+	t.DefenseVictoryRewardMaxCount = fbsutils.Decode(e.DefenseVictoryRewardMaxCount(), t.FlatBuffer.TableKey)
+	t.TopRankerCountLimit = fbsutils.Decode(e.TopRankerCountLimit(), t.FlatBuffer.TableKey)
+	t.AutoRefreshIntervalMilliSeconds = fbsutils.Decode(e.AutoRefreshIntervalMilliSeconds(), t.FlatBuffer.TableKey)
+	t.EchelonSettingIntervalMilliSeconds = fbsutils.Decode(e.EchelonSettingIntervalMilliSeconds(), t.FlatBuffer.TableKey)
+	t.SkipAllowedTimeMilliSeconds = fbsutils.Decode(e.SkipAllowedTimeMilliSeconds(), t.FlatBuffer.TableKey)
+	t.ShowSeasonChangeInfoStartTime = fbsutils.Decode(string(e.ShowSeasonChangeInfoStartTime()), t.FlatBuffer.TableKey)
+	t.ShowSeasonChangeInfoEndTime = fbsutils.Decode(string(e.ShowSeasonChangeInfoEndTime()), t.FlatBuffer.TableKey)
+	t.ShowSeasonID = fbsutils.Decode(e.ShowSeasonId(), t.FlatBuffer.TableKey)
+	t.ArenaHistoryQueryLimitDays = fbsutils.Decode(e.ArenaHistoryQueryLimitDays(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -213,16 +210,4 @@ func (t *ConstArenaExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstArenaExcelDto) FlatDataName() string {
 	return "ConstArenaExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

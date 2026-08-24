@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldQuestExcelDto represents a FlatBuffers table.
@@ -31,19 +28,19 @@ func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
-	assetPathOffset := b.CreateString(encodeDTOString(t.AssetPath, t.FlatBuffer.TableKey))
+	assetPathOffset := b.CreateString(fbsutils.Encode(t.AssetPath, t.FlatBuffer.TableKey))
 	FieldQuestExcelStart(b)
-	FieldQuestExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonID, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddFieldSeasonId(b, fbsutils.Encode(t.FieldSeasonID, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddIsDaily(b, t.IsDaily)
-	FieldQuestExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateID, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddQuestGroupId(b, fbsutils.Convert(t.QuestGroupID, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddFieldDateId(b, fbsutils.Encode(t.FieldDateID, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddOpendate(b, fbsutils.Encode(t.Opendate, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddQuestGroupId(b, fbsutils.Encode(t.QuestGroupID, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddAssetPath(b, assetPathOffset)
-	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardID, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddQuestNamKey(b, fbsutils.Convert(t.QuestNamKey, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddQuestDescKey(b, fbsutils.Convert(t.QuestDescKey, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddRewardId(b, fbsutils.Encode(t.RewardID, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddProb(b, fbsutils.Encode(t.Prob, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddQuestNamKey(b, fbsutils.Encode(t.QuestNamKey, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddQuestDescKey(b, fbsutils.Encode(t.QuestDescKey, t.FlatBuffer.TableKey))
 	return FieldQuestExcelEnd(b)
 }
 
@@ -59,17 +56,17 @@ func (t *FieldQuestExcelDto) UnmarshalMessage(e *FieldQuestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
-	t.FieldSeasonID = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.FieldSeasonID = fbsutils.Decode(e.FieldSeasonId(), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.IsDaily = e.IsDaily()
-	t.FieldDateID = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
-	t.Opendate = fbsutils.Convert(e.Opendate(), t.FlatBuffer.TableKey)
-	t.QuestGroupID = fbsutils.Convert(e.QuestGroupId(), t.FlatBuffer.TableKey)
-	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)
-	t.RewardID = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.QuestNamKey = fbsutils.Convert(e.QuestNamKey(), t.FlatBuffer.TableKey)
-	t.QuestDescKey = fbsutils.Convert(e.QuestDescKey(), t.FlatBuffer.TableKey)
+	t.FieldDateID = fbsutils.Decode(e.FieldDateId(), t.FlatBuffer.TableKey)
+	t.Opendate = fbsutils.Decode(e.Opendate(), t.FlatBuffer.TableKey)
+	t.QuestGroupID = fbsutils.Decode(e.QuestGroupId(), t.FlatBuffer.TableKey)
+	t.AssetPath = fbsutils.Decode(string(e.AssetPath()), t.FlatBuffer.TableKey)
+	t.RewardID = fbsutils.Decode(e.RewardId(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Decode(e.Prob(), t.FlatBuffer.TableKey)
+	t.QuestNamKey = fbsutils.Decode(e.QuestNamKey(), t.FlatBuffer.TableKey)
+	t.QuestDescKey = fbsutils.Decode(e.QuestDescKey(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -82,16 +79,4 @@ func (t *FieldQuestExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldQuestExcelDto) FlatDataName() string {
 	return "FieldQuestExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

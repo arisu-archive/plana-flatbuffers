@@ -24,12 +24,12 @@ func (t *ConstConquestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquest"))
 	}
 	ConstConquestExcelStart(b)
-	ConstConquestExcelAddManageUnitChange(b, fbsutils.Convert(t.ManageUnitChange, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAssistCount(b, fbsutils.Convert(t.AssistCount, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
-	ConstConquestExcelAddAnimationUnitDelay(b, fbsutils.Convert(t.AnimationUnitDelay, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddManageUnitChange(b, fbsutils.Encode(t.ManageUnitChange, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAssistCount(b, fbsutils.Encode(t.AssistCount, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddPlayTimeLimitInSeconds(b, fbsutils.Encode(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAnimationUnitAmountMin(b, fbsutils.Encode(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAnimationUnitAmountMax(b, fbsutils.Encode(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
+	ConstConquestExcelAddAnimationUnitDelay(b, fbsutils.Encode(t.AnimationUnitDelay, t.FlatBuffer.TableKey))
 	return ConstConquestExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *ConstConquestExcelDto) UnmarshalMessage(e *ConstConquestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquest"))
 	}
-	t.ManageUnitChange = fbsutils.Convert(e.ManageUnitChange(), t.FlatBuffer.TableKey)
-	t.AssistCount = fbsutils.Convert(e.AssistCount(), t.FlatBuffer.TableKey)
-	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
-	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
-	t.AnimationUnitDelay = fbsutils.Convert(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)
+	t.ManageUnitChange = fbsutils.Decode(e.ManageUnitChange(), t.FlatBuffer.TableKey)
+	t.AssistCount = fbsutils.Decode(e.AssistCount(), t.FlatBuffer.TableKey)
+	t.PlayTimeLimitInSeconds = fbsutils.Decode(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMin = fbsutils.Decode(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMax = fbsutils.Decode(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
+	t.AnimationUnitDelay = fbsutils.Decode(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)
 	return nil
 }
 

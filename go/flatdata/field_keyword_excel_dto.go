@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldKeywordExcelDto represents a FlatBuffers table.
@@ -25,12 +22,12 @@ func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
-	nameLocalizeKeyOffset := b.CreateString(encodeDTOString(t.NameLocalizeKey, t.FlatBuffer.TableKey))
-	descriptionLocalizeKeyOffset := b.CreateString(encodeDTOString(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey))
-	imagePathOffset := b.CreateString(encodeDTOString(t.ImagePath, t.FlatBuffer.TableKey))
+	nameLocalizeKeyOffset := b.CreateString(fbsutils.Encode(t.NameLocalizeKey, t.FlatBuffer.TableKey))
+	descriptionLocalizeKeyOffset := b.CreateString(fbsutils.Encode(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey))
+	imagePathOffset := b.CreateString(fbsutils.Encode(t.ImagePath, t.FlatBuffer.TableKey))
 	FieldKeywordExcelStart(b)
-	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
+	FieldKeywordExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
+	FieldKeywordExcelAddSeasonId(b, fbsutils.Encode(t.SeasonID, t.FlatBuffer.TableKey))
 	FieldKeywordExcelAddNameLocalizeKey(b, nameLocalizeKeyOffset)
 	FieldKeywordExcelAddDescriptionLocalizeKey(b, descriptionLocalizeKeyOffset)
 	FieldKeywordExcelAddImagePath(b, imagePathOffset)
@@ -49,11 +46,11 @@ func (t *FieldKeywordExcelDto) UnmarshalMessage(e *FieldKeywordExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.SeasonID = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
-	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.SeasonID = fbsutils.Decode(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.NameLocalizeKey = fbsutils.Decode(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
+	t.DescriptionLocalizeKey = fbsutils.Decode(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Decode(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -66,16 +63,4 @@ func (t *FieldKeywordExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldKeywordExcelDto) FlatDataName() string {
 	return "FieldKeywordExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

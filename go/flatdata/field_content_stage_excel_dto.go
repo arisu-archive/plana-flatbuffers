@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldContentStageExcelDto represents a FlatBuffers table.
@@ -41,35 +38,35 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
-	nameOffset := b.CreateString(encodeDTOString(t.Name, t.FlatBuffer.TableKey))
+	nameOffset := b.CreateString(fbsutils.Encode(t.Name, t.FlatBuffer.TableKey))
 	FieldContentStageExcelStartStarGoalVector(b, len(t.StarGoal))
 	for i := len(t.StarGoal) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[i]), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(int32(t.StarGoal[i]), t.FlatBuffer.TableKey))
 	}
 	starGoalOffset := b.EndVector(len(t.StarGoal))
 	FieldContentStageExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))
 	for i := len(t.StarGoalAmount) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[i], t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(t.StarGoalAmount[i], t.FlatBuffer.TableKey))
 	}
 	starGoalAmountOffset := b.EndVector(len(t.StarGoalAmount))
 	FieldContentStageExcelStart(b)
-	FieldContentStageExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageDifficulty(b, StageDifficulty(fbsutils.Convert(int32(t.StageDifficulty), t.FlatBuffer.TableKey)))
-	FieldContentStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddSeasonId(b, fbsutils.Encode(t.SeasonID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddAreaId(b, fbsutils.Encode(t.AreaID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageDifficulty(b, StageDifficulty(fbsutils.Encode(int32(t.StageDifficulty), t.FlatBuffer.TableKey)))
+	FieldContentStageExcelAddPrevStageId(b, fbsutils.Encode(t.PrevStageID, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddName(b, nameOffset)
-	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageEnterCostType(b, ParcelType(fbsutils.Convert(int32(t.StageEnterCostType), t.FlatBuffer.TableKey)))
-	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageTopography(b, StageTopography(fbsutils.Convert(int32(t.StageTopography), t.FlatBuffer.TableKey)))
-	FieldContentStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddGroundId(b, fbsutils.Convert(t.GroundID, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddBgmId(b, fbsutils.Convert(t.BgmID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddBattleDuration(b, fbsutils.Encode(t.BattleDuration, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageEnterCostType(b, ParcelType(fbsutils.Encode(int32(t.StageEnterCostType), t.FlatBuffer.TableKey)))
+	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Encode(t.StageEnterCostID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageEnterCostAmount(b, fbsutils.Encode(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageTopography(b, StageTopography(fbsutils.Encode(int32(t.StageTopography), t.FlatBuffer.TableKey)))
+	FieldContentStageExcelAddRecommandLevel(b, fbsutils.Encode(t.RecommandLevel, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddGroundId(b, fbsutils.Encode(t.GroundID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddBgmId(b, fbsutils.Encode(t.BgmID, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddInstantClear(b, t.InstantClear)
-	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonID, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Encode(t.FixedEchelonID, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	FieldContentStageExcelAddDailyLastPlay(b, t.DailyLastPlay)
 	FieldContentStageExcelAddStarGoal(b, starGoalOffset)
@@ -89,32 +86,32 @@ func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.SeasonID = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.AreaID = fbsutils.Convert(e.AreaId(), t.FlatBuffer.TableKey)
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
-	t.PrevStageID = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
-	t.StageEnterCostID = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.GroundID = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.BgmID = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.SeasonID = fbsutils.Decode(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.AreaID = fbsutils.Decode(e.AreaId(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.StageDifficulty = StageDifficulty(fbsutils.Decode(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
+	t.PrevStageID = fbsutils.Decode(e.PrevStageId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Decode(string(e.Name()), t.FlatBuffer.TableKey)
+	t.BattleDuration = fbsutils.Decode(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.StageEnterCostType = ParcelType(fbsutils.Decode(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
+	t.StageEnterCostID = fbsutils.Decode(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = fbsutils.Decode(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Decode(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.RecommandLevel = fbsutils.Decode(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.GroundID = fbsutils.Decode(e.GroundId(), t.FlatBuffer.TableKey)
+	t.BgmID = fbsutils.Decode(e.BgmId(), t.FlatBuffer.TableKey)
 	t.InstantClear = e.InstantClear()
-	t.FixedEchelonID = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.FixedEchelonID = fbsutils.Decode(e.FixedEchelonId(), t.FlatBuffer.TableKey)
 	t.SkipFormationSettings = e.SkipFormationSettings()
 	t.DailyLastPlay = e.DailyLastPlay()
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
 	for i := 0; i < e.StarGoalLength(); i++ {
-		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
+		t.StarGoal[i] = StarGoalType(fbsutils.Decode(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := 0; i < e.StarGoalAmountLength(); i++ {
-		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
+		t.StarGoalAmount[i] = fbsutils.Decode(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }
@@ -128,16 +125,4 @@ func (t *FieldContentStageExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldContentStageExcelDto) FlatDataName() string {
 	return "FieldContentStageExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

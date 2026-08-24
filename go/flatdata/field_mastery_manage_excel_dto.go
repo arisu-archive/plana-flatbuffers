@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldMasteryManageExcelDto represents a FlatBuffers table.
@@ -24,12 +21,12 @@ func (t *FieldMasteryManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManage"))
 	}
-	imagePathOffset := b.CreateString(encodeDTOString(t.ImagePath, t.FlatBuffer.TableKey))
+	imagePathOffset := b.CreateString(fbsutils.Encode(t.ImagePath, t.FlatBuffer.TableKey))
 	FieldMasteryManageExcelStart(b)
-	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
-	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Encode(t.FieldSeason, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Encode(t.LocalizeEtc, t.FlatBuffer.TableKey))
 	FieldMasteryManageExcelAddImagePath(b, imagePathOffset)
-	FieldMasteryManageExcelAddLevelId(b, fbsutils.Convert(t.LevelID, t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddLevelId(b, fbsutils.Encode(t.LevelID, t.FlatBuffer.TableKey))
 	return FieldMasteryManageExcelEnd(b)
 }
 
@@ -45,10 +42,10 @@ func (t *FieldMasteryManageExcelDto) UnmarshalMessage(e *FieldMasteryManageExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManage"))
 	}
-	t.FieldSeason = fbsutils.Convert(e.FieldSeason(), t.FlatBuffer.TableKey)
-	t.LocalizeEtc = fbsutils.Convert(e.LocalizeEtc(), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.LevelID = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)
+	t.FieldSeason = fbsutils.Decode(e.FieldSeason(), t.FlatBuffer.TableKey)
+	t.LocalizeEtc = fbsutils.Decode(e.LocalizeEtc(), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Decode(string(e.ImagePath()), t.FlatBuffer.TableKey)
+	t.LevelID = fbsutils.Decode(e.LevelId(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -61,16 +58,4 @@ func (t *FieldMasteryManageExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldMasteryManageExcelDto) FlatDataName() string {
 	return "FieldMasteryManageExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

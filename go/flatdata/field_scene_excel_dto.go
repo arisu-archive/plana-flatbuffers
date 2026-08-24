@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldSceneExcelDto represents a FlatBuffers table.
@@ -32,45 +29,45 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
-	artLevelPathOffset := b.CreateString(encodeDTOString(t.ArtLevelPath, t.FlatBuffer.TableKey))
-	designLevelPathOffset := b.CreateString(encodeDTOString(t.DesignLevelPath, t.FlatBuffer.TableKey))
+	artLevelPathOffset := b.CreateString(fbsutils.Encode(t.ArtLevelPath, t.FlatBuffer.TableKey))
+	designLevelPathOffset := b.CreateString(fbsutils.Encode(t.DesignLevelPath, t.FlatBuffer.TableKey))
 	FieldSceneExcelStartConditionalBgmQuestIdVector(b, len(t.ConditionalBgmQuestID))
 	for i := len(t.ConditionalBgmQuestID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmQuestID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.ConditionalBgmQuestID[i], t.FlatBuffer.TableKey))
 	}
 	conditionalBgmQuestIDOffset := b.EndVector(len(t.ConditionalBgmQuestID))
 	FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(b, len(t.BeginConditionalBgmScenarioGroupID))
 	for i := len(t.BeginConditionalBgmScenarioGroupID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmScenarioGroupID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.BeginConditionalBgmScenarioGroupID[i], t.FlatBuffer.TableKey))
 	}
 	beginConditionalBgmScenarioGroupIDOffset := b.EndVector(len(t.BeginConditionalBgmScenarioGroupID))
 	FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(b, len(t.BeginConditionalBgmInteractionID))
 	for i := len(t.BeginConditionalBgmInteractionID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmInteractionID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.BeginConditionalBgmInteractionID[i], t.FlatBuffer.TableKey))
 	}
 	beginConditionalBgmInteractionIDOffset := b.EndVector(len(t.BeginConditionalBgmInteractionID))
 	FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(b, len(t.EndConditionalBgmScenarioGroupID))
 	for i := len(t.EndConditionalBgmScenarioGroupID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmScenarioGroupID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.EndConditionalBgmScenarioGroupID[i], t.FlatBuffer.TableKey))
 	}
 	endConditionalBgmScenarioGroupIDOffset := b.EndVector(len(t.EndConditionalBgmScenarioGroupID))
 	FieldSceneExcelStartEndConditionalBgmInteractionIdVector(b, len(t.EndConditionalBgmInteractionID))
 	for i := len(t.EndConditionalBgmInteractionID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmInteractionID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.EndConditionalBgmInteractionID[i], t.FlatBuffer.TableKey))
 	}
 	endConditionalBgmInteractionIDOffset := b.EndVector(len(t.EndConditionalBgmInteractionID))
 	FieldSceneExcelStartConditionalBgmIdVector(b, len(t.ConditionalBgmID))
 	for i := len(t.ConditionalBgmID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.ConditionalBgmID[i], t.FlatBuffer.TableKey))
 	}
 	conditionalBgmIDOffset := b.EndVector(len(t.ConditionalBgmID))
 	FieldSceneExcelStart(b)
-	FieldSceneExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddDateId(b, fbsutils.Convert(t.DateID, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddDateId(b, fbsutils.Encode(t.DateID, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
 	FieldSceneExcelAddArtLevelPath(b, artLevelPathOffset)
 	FieldSceneExcelAddDesignLevelPath(b, designLevelPathOffset)
-	FieldSceneExcelAddBgmId(b, fbsutils.Convert(t.BgmID, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddBgmId(b, fbsutils.Encode(t.BgmID, t.FlatBuffer.TableKey))
 	FieldSceneExcelAddConditionalBgmQuestId(b, conditionalBgmQuestIDOffset)
 	FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(b, beginConditionalBgmScenarioGroupIDOffset)
 	FieldSceneExcelAddBeginConditionalBgmInteractionId(b, beginConditionalBgmInteractionIDOffset)
@@ -92,35 +89,35 @@ func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.DateID = fbsutils.Convert(e.DateId(), t.FlatBuffer.TableKey)
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
-	t.DesignLevelPath = fbsutils.Convert(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
-	t.BgmID = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.DateID = fbsutils.Decode(e.DateId(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.ArtLevelPath = fbsutils.Decode(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
+	t.DesignLevelPath = fbsutils.Decode(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
+	t.BgmID = fbsutils.Decode(e.BgmId(), t.FlatBuffer.TableKey)
 	t.ConditionalBgmQuestID = make([]int64, e.ConditionalBgmQuestIdLength())
 	for i := 0; i < e.ConditionalBgmQuestIdLength(); i++ {
-		t.ConditionalBgmQuestID[i] = fbsutils.Convert(e.ConditionalBgmQuestId(i), t.FlatBuffer.TableKey)
+		t.ConditionalBgmQuestID[i] = fbsutils.Decode(e.ConditionalBgmQuestId(i), t.FlatBuffer.TableKey)
 	}
 	t.BeginConditionalBgmScenarioGroupID = make([]int64, e.BeginConditionalBgmScenarioGroupIdLength())
 	for i := 0; i < e.BeginConditionalBgmScenarioGroupIdLength(); i++ {
-		t.BeginConditionalBgmScenarioGroupID[i] = fbsutils.Convert(e.BeginConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
+		t.BeginConditionalBgmScenarioGroupID[i] = fbsutils.Decode(e.BeginConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.BeginConditionalBgmInteractionID = make([]int64, e.BeginConditionalBgmInteractionIdLength())
 	for i := 0; i < e.BeginConditionalBgmInteractionIdLength(); i++ {
-		t.BeginConditionalBgmInteractionID[i] = fbsutils.Convert(e.BeginConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
+		t.BeginConditionalBgmInteractionID[i] = fbsutils.Decode(e.BeginConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
 	}
 	t.EndConditionalBgmScenarioGroupID = make([]int64, e.EndConditionalBgmScenarioGroupIdLength())
 	for i := 0; i < e.EndConditionalBgmScenarioGroupIdLength(); i++ {
-		t.EndConditionalBgmScenarioGroupID[i] = fbsutils.Convert(e.EndConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
+		t.EndConditionalBgmScenarioGroupID[i] = fbsutils.Decode(e.EndConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.EndConditionalBgmInteractionID = make([]int64, e.EndConditionalBgmInteractionIdLength())
 	for i := 0; i < e.EndConditionalBgmInteractionIdLength(); i++ {
-		t.EndConditionalBgmInteractionID[i] = fbsutils.Convert(e.EndConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
+		t.EndConditionalBgmInteractionID[i] = fbsutils.Decode(e.EndConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionalBgmID = make([]int64, e.ConditionalBgmIdLength())
 	for i := 0; i < e.ConditionalBgmIdLength(); i++ {
-		t.ConditionalBgmID[i] = fbsutils.Convert(e.ConditionalBgmId(i), t.FlatBuffer.TableKey)
+		t.ConditionalBgmID[i] = fbsutils.Decode(e.ConditionalBgmId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }
@@ -134,16 +131,4 @@ func (t *FieldSceneExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldSceneExcelDto) FlatDataName() string {
 	return "FieldSceneExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

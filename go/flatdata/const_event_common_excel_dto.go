@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstEventCommonExcelDto represents a FlatBuffers table.
@@ -34,23 +31,23 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
-	meetupScenarioReplayResourceOffset := b.CreateString(encodeDTOString(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey))
-	meetupScenarioReplayTitleLocalizeOffset := b.CreateString(encodeDTOString(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey))
+	meetupScenarioReplayResourceOffset := b.CreateString(fbsutils.Encode(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey))
+	meetupScenarioReplayTitleLocalizeOffset := b.CreateString(fbsutils.Encode(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelStart(b)
-	ConstEventCommonExcelAddEventContentHardStageCount(b, fbsutils.Convert(t.EventContentHardStageCount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.EventStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddSubEventChangeLimitSeconds(b, fbsutils.Convert(t.SubEventChangeLimitSeconds, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddEventContentHardStageCount(b, fbsutils.Encode(t.EventContentHardStageCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(b, fbsutils.Encode(t.EventStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddSubEventChangeLimitSeconds(b, fbsutils.Encode(t.SubEventChangeLimitSeconds, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddSubEventInstantClear(b, t.SubEventInstantClear)
-	ConstEventCommonExcelAddCardShopProbWeightCount(b, fbsutils.Convert(t.CardShopProbWeightCount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddCardShopProbWeightRarity(b, Rarity(fbsutils.Convert(int32(t.CardShopProbWeightRarity), t.FlatBuffer.TableKey)))
+	ConstEventCommonExcelAddCardShopProbWeightCount(b, fbsutils.Encode(t.CardShopProbWeightCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddCardShopProbWeightRarity(b, Rarity(fbsutils.Encode(int32(t.CardShopProbWeightRarity), t.FlatBuffer.TableKey)))
 	ConstEventCommonExcelAddMeetupScenarioReplayResource(b, meetupScenarioReplayResourceOffset)
 	ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(b, meetupScenarioReplayTitleLocalizeOffset)
-	ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(b, fbsutils.Convert(t.SpecialOperactionCollectionGroupID, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddTreasureNormalVariationAmount(b, fbsutils.Convert(t.TreasureNormalVariationAmount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddTreasureLoopVariationAmount(b, fbsutils.Convert(t.TreasureLoopVariationAmount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddTreasureLimitVariationLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationLoopCount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationClearLoopCount, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddEventStoryReplayHideEventContentId(b, fbsutils.Convert(t.EventStoryReplayHideEventContentID, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(b, fbsutils.Encode(t.SpecialOperactionCollectionGroupID, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddTreasureNormalVariationAmount(b, fbsutils.Encode(t.TreasureNormalVariationAmount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddTreasureLoopVariationAmount(b, fbsutils.Encode(t.TreasureLoopVariationAmount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddTreasureLimitVariationLoopCount(b, fbsutils.Encode(t.TreasureLimitVariationLoopCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(b, fbsutils.Encode(t.TreasureLimitVariationClearLoopCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddEventStoryReplayHideEventContentId(b, fbsutils.Encode(t.EventStoryReplayHideEventContentID, t.FlatBuffer.TableKey))
 	return ConstEventCommonExcelEnd(b)
 }
 
@@ -66,20 +63,20 @@ func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
-	t.EventContentHardStageCount = fbsutils.Convert(e.EventContentHardStageCount(), t.FlatBuffer.TableKey)
-	t.EventStrategyPlayTimeLimitInSeconds = fbsutils.Convert(e.EventStrategyPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.SubEventChangeLimitSeconds = fbsutils.Convert(e.SubEventChangeLimitSeconds(), t.FlatBuffer.TableKey)
+	t.EventContentHardStageCount = fbsutils.Decode(e.EventContentHardStageCount(), t.FlatBuffer.TableKey)
+	t.EventStrategyPlayTimeLimitInSeconds = fbsutils.Decode(e.EventStrategyPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.SubEventChangeLimitSeconds = fbsutils.Decode(e.SubEventChangeLimitSeconds(), t.FlatBuffer.TableKey)
 	t.SubEventInstantClear = e.SubEventInstantClear()
-	t.CardShopProbWeightCount = fbsutils.Convert(e.CardShopProbWeightCount(), t.FlatBuffer.TableKey)
-	t.CardShopProbWeightRarity = Rarity(fbsutils.Convert(int32(e.CardShopProbWeightRarity()), t.FlatBuffer.TableKey))
-	t.MeetupScenarioReplayResource = fbsutils.Convert(string(e.MeetupScenarioReplayResource()), t.FlatBuffer.TableKey)
-	t.MeetupScenarioReplayTitleLocalize = fbsutils.Convert(string(e.MeetupScenarioReplayTitleLocalize()), t.FlatBuffer.TableKey)
-	t.SpecialOperactionCollectionGroupID = fbsutils.Convert(e.SpecialOperactionCollectionGroupId(), t.FlatBuffer.TableKey)
-	t.TreasureNormalVariationAmount = fbsutils.Convert(e.TreasureNormalVariationAmount(), t.FlatBuffer.TableKey)
-	t.TreasureLoopVariationAmount = fbsutils.Convert(e.TreasureLoopVariationAmount(), t.FlatBuffer.TableKey)
-	t.TreasureLimitVariationLoopCount = fbsutils.Convert(e.TreasureLimitVariationLoopCount(), t.FlatBuffer.TableKey)
-	t.TreasureLimitVariationClearLoopCount = fbsutils.Convert(e.TreasureLimitVariationClearLoopCount(), t.FlatBuffer.TableKey)
-	t.EventStoryReplayHideEventContentID = fbsutils.Convert(e.EventStoryReplayHideEventContentId(), t.FlatBuffer.TableKey)
+	t.CardShopProbWeightCount = fbsutils.Decode(e.CardShopProbWeightCount(), t.FlatBuffer.TableKey)
+	t.CardShopProbWeightRarity = Rarity(fbsutils.Decode(int32(e.CardShopProbWeightRarity()), t.FlatBuffer.TableKey))
+	t.MeetupScenarioReplayResource = fbsutils.Decode(string(e.MeetupScenarioReplayResource()), t.FlatBuffer.TableKey)
+	t.MeetupScenarioReplayTitleLocalize = fbsutils.Decode(string(e.MeetupScenarioReplayTitleLocalize()), t.FlatBuffer.TableKey)
+	t.SpecialOperactionCollectionGroupID = fbsutils.Decode(e.SpecialOperactionCollectionGroupId(), t.FlatBuffer.TableKey)
+	t.TreasureNormalVariationAmount = fbsutils.Decode(e.TreasureNormalVariationAmount(), t.FlatBuffer.TableKey)
+	t.TreasureLoopVariationAmount = fbsutils.Decode(e.TreasureLoopVariationAmount(), t.FlatBuffer.TableKey)
+	t.TreasureLimitVariationLoopCount = fbsutils.Decode(e.TreasureLimitVariationLoopCount(), t.FlatBuffer.TableKey)
+	t.TreasureLimitVariationClearLoopCount = fbsutils.Decode(e.TreasureLimitVariationClearLoopCount(), t.FlatBuffer.TableKey)
+	t.EventStoryReplayHideEventContentID = fbsutils.Decode(e.EventStoryReplayHideEventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -92,16 +89,4 @@ func (t *ConstEventCommonExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstEventCommonExcelDto) FlatDataName() string {
 	return "ConstEventCommonExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

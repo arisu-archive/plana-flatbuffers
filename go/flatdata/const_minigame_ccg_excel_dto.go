@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstMinigameCCGExcelDto represents a FlatBuffers table.
@@ -44,32 +41,32 @@ func (t *ConstMinigameCCGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameCCG"))
 	}
-	aniAllyBattleAttackOffset := b.CreateString(encodeDTOString(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
-	alternativeCardImagePathOffset := b.CreateString(encodeDTOString(t.AlternativeCardImagePath, t.FlatBuffer.TableKey))
+	aniAllyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
+	alternativeCardImagePathOffset := b.CreateString(fbsutils.Encode(t.AlternativeCardImagePath, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelStart(b)
-	ConstMinigameCCGExcelAddTurnDrawCount(b, fbsutils.Convert(t.TurnDrawCount, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetTop(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddConquestMapCenterOffsetX(b, fbsutils.Convert(t.ConquestMapCenterOffsetX, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddConquestMapCenterOffsetY(b, fbsutils.Convert(t.ConquestMapCenterOffsetY, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddThemaLoadingProgressTime(b, fbsutils.Convert(t.ThemaLoadingProgressTime, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddMapAllyRotation(b, fbsutils.Convert(t.MapAllyRotation, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddTurnDrawCount(b, fbsutils.Encode(t.TurnDrawCount, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetTop(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddConquestMapCenterOffsetX(b, fbsutils.Encode(t.ConquestMapCenterOffsetX, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddConquestMapCenterOffsetY(b, fbsutils.Encode(t.ConquestMapCenterOffsetY, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddCameraAngle(b, fbsutils.Encode(t.CameraAngle, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddCameraZoomMax(b, fbsutils.Encode(t.CameraZoomMax, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddCameraZoomMin(b, fbsutils.Encode(t.CameraZoomMin, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddCameraZoomDefault(b, fbsutils.Encode(t.CameraZoomDefault, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddThemaLoadingProgressTime(b, fbsutils.Encode(t.ThemaLoadingProgressTime, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddMapAllyRotation(b, fbsutils.Encode(t.MapAllyRotation, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddAniAllyBattleAttack(b, aniAllyBattleAttackOffset)
-	ConstMinigameCCGExcelAddMaxHandCount(b, fbsutils.Convert(t.MaxHandCount, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddMaxCost(b, fbsutils.Convert(t.MaxCost, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddStartCost(b, fbsutils.Convert(t.StartCost, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddTurnCost(b, fbsutils.Convert(t.TurnCost, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddStrikerSwapFrontCost(b, fbsutils.Convert(t.StrikerSwapFrontCost, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddStrikerMaxEquipCount(b, fbsutils.Convert(t.StrikerMaxEquipCount, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddStartDrawCount(b, fbsutils.Convert(t.StartDrawCount, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddCampReviveHealthRate(b, fbsutils.Convert(t.CampReviveHealthRate, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddBaseRewardRerollPoint(b, fbsutils.Convert(t.BaseRewardRerollPoint, t.FlatBuffer.TableKey))
-	ConstMinigameCCGExcelAddSelectRewardOptionCount(b, fbsutils.Convert(t.SelectRewardOptionCount, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddMaxHandCount(b, fbsutils.Encode(t.MaxHandCount, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddMaxCost(b, fbsutils.Encode(t.MaxCost, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddStartCost(b, fbsutils.Encode(t.StartCost, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddTurnCost(b, fbsutils.Encode(t.TurnCost, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddStrikerSwapFrontCost(b, fbsutils.Encode(t.StrikerSwapFrontCost, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddStrikerMaxEquipCount(b, fbsutils.Encode(t.StrikerMaxEquipCount, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddStartDrawCount(b, fbsutils.Encode(t.StartDrawCount, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddCampReviveHealthRate(b, fbsutils.Encode(t.CampReviveHealthRate, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddBaseRewardRerollPoint(b, fbsutils.Encode(t.BaseRewardRerollPoint, t.FlatBuffer.TableKey))
+	ConstMinigameCCGExcelAddSelectRewardOptionCount(b, fbsutils.Encode(t.SelectRewardOptionCount, t.FlatBuffer.TableKey))
 	ConstMinigameCCGExcelAddAlternativeCardImagePath(b, alternativeCardImagePathOffset)
 	return ConstMinigameCCGExcelEnd(b)
 }
@@ -86,30 +83,30 @@ func (t *ConstMinigameCCGExcelDto) UnmarshalMessage(e *ConstMinigameCCGExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameCCG"))
 	}
-	t.TurnDrawCount = fbsutils.Convert(e.TurnDrawCount(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetRight = fbsutils.Convert(e.ConquestMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetTop = fbsutils.Convert(e.ConquestMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetBottom = fbsutils.Convert(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
-	t.ConquestMapCenterOffsetX = fbsutils.Convert(e.ConquestMapCenterOffsetX(), t.FlatBuffer.TableKey)
-	t.ConquestMapCenterOffsetY = fbsutils.Convert(e.ConquestMapCenterOffsetY(), t.FlatBuffer.TableKey)
-	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
-	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
-	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
-	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
-	t.ThemaLoadingProgressTime = fbsutils.Convert(e.ThemaLoadingProgressTime(), t.FlatBuffer.TableKey)
-	t.MapAllyRotation = fbsutils.Convert(e.MapAllyRotation(), t.FlatBuffer.TableKey)
-	t.AniAllyBattleAttack = fbsutils.Convert(string(e.AniAllyBattleAttack()), t.FlatBuffer.TableKey)
-	t.MaxHandCount = fbsutils.Convert(e.MaxHandCount(), t.FlatBuffer.TableKey)
-	t.MaxCost = fbsutils.Convert(e.MaxCost(), t.FlatBuffer.TableKey)
-	t.StartCost = fbsutils.Convert(e.StartCost(), t.FlatBuffer.TableKey)
-	t.TurnCost = fbsutils.Convert(e.TurnCost(), t.FlatBuffer.TableKey)
-	t.StrikerSwapFrontCost = fbsutils.Convert(e.StrikerSwapFrontCost(), t.FlatBuffer.TableKey)
-	t.StrikerMaxEquipCount = fbsutils.Convert(e.StrikerMaxEquipCount(), t.FlatBuffer.TableKey)
-	t.StartDrawCount = fbsutils.Convert(e.StartDrawCount(), t.FlatBuffer.TableKey)
-	t.CampReviveHealthRate = fbsutils.Convert(e.CampReviveHealthRate(), t.FlatBuffer.TableKey)
-	t.BaseRewardRerollPoint = fbsutils.Convert(e.BaseRewardRerollPoint(), t.FlatBuffer.TableKey)
-	t.SelectRewardOptionCount = fbsutils.Convert(e.SelectRewardOptionCount(), t.FlatBuffer.TableKey)
-	t.AlternativeCardImagePath = fbsutils.Convert(string(e.AlternativeCardImagePath()), t.FlatBuffer.TableKey)
+	t.TurnDrawCount = fbsutils.Decode(e.TurnDrawCount(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetRight = fbsutils.Decode(e.ConquestMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetTop = fbsutils.Decode(e.ConquestMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetBottom = fbsutils.Decode(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
+	t.ConquestMapCenterOffsetX = fbsutils.Decode(e.ConquestMapCenterOffsetX(), t.FlatBuffer.TableKey)
+	t.ConquestMapCenterOffsetY = fbsutils.Decode(e.ConquestMapCenterOffsetY(), t.FlatBuffer.TableKey)
+	t.CameraAngle = fbsutils.Decode(e.CameraAngle(), t.FlatBuffer.TableKey)
+	t.CameraZoomMax = fbsutils.Decode(e.CameraZoomMax(), t.FlatBuffer.TableKey)
+	t.CameraZoomMin = fbsutils.Decode(e.CameraZoomMin(), t.FlatBuffer.TableKey)
+	t.CameraZoomDefault = fbsutils.Decode(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
+	t.ThemaLoadingProgressTime = fbsutils.Decode(e.ThemaLoadingProgressTime(), t.FlatBuffer.TableKey)
+	t.MapAllyRotation = fbsutils.Decode(e.MapAllyRotation(), t.FlatBuffer.TableKey)
+	t.AniAllyBattleAttack = fbsutils.Decode(string(e.AniAllyBattleAttack()), t.FlatBuffer.TableKey)
+	t.MaxHandCount = fbsutils.Decode(e.MaxHandCount(), t.FlatBuffer.TableKey)
+	t.MaxCost = fbsutils.Decode(e.MaxCost(), t.FlatBuffer.TableKey)
+	t.StartCost = fbsutils.Decode(e.StartCost(), t.FlatBuffer.TableKey)
+	t.TurnCost = fbsutils.Decode(e.TurnCost(), t.FlatBuffer.TableKey)
+	t.StrikerSwapFrontCost = fbsutils.Decode(e.StrikerSwapFrontCost(), t.FlatBuffer.TableKey)
+	t.StrikerMaxEquipCount = fbsutils.Decode(e.StrikerMaxEquipCount(), t.FlatBuffer.TableKey)
+	t.StartDrawCount = fbsutils.Decode(e.StartDrawCount(), t.FlatBuffer.TableKey)
+	t.CampReviveHealthRate = fbsutils.Decode(e.CampReviveHealthRate(), t.FlatBuffer.TableKey)
+	t.BaseRewardRerollPoint = fbsutils.Decode(e.BaseRewardRerollPoint(), t.FlatBuffer.TableKey)
+	t.SelectRewardOptionCount = fbsutils.Decode(e.SelectRewardOptionCount(), t.FlatBuffer.TableKey)
+	t.AlternativeCardImagePath = fbsutils.Decode(string(e.AlternativeCardImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -122,16 +119,4 @@ func (t *ConstMinigameCCGExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstMinigameCCGExcelDto) FlatDataName() string {
 	return "ConstMinigameCCGExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

@@ -23,21 +23,21 @@ func (t *FieldTutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	}
 	FieldTutorialExcelStartTutorialTypeVector(b, len(t.TutorialType))
 	for i := len(t.TutorialType) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(int32(t.TutorialType[i]), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(int32(t.TutorialType[i]), t.FlatBuffer.TableKey))
 	}
 	tutorialTypeOffset := b.EndVector(len(t.TutorialType))
 	FieldTutorialExcelStartConditionTypeVector(b, len(t.ConditionType))
 	for i := len(t.ConditionType) - 1; i >= 0; i-- {
-		b.PrependInt32(fbsutils.Convert(int32(t.ConditionType[i]), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Encode(int32(t.ConditionType[i]), t.FlatBuffer.TableKey))
 	}
 	conditionTypeOffset := b.EndVector(len(t.ConditionType))
 	FieldTutorialExcelStartConditionIdVector(b, len(t.ConditionID))
 	for i := len(t.ConditionID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.ConditionID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.ConditionID[i], t.FlatBuffer.TableKey))
 	}
 	conditionIDOffset := b.EndVector(len(t.ConditionID))
 	FieldTutorialExcelStart(b)
-	FieldTutorialExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
+	FieldTutorialExcelAddSeasonId(b, fbsutils.Encode(t.SeasonID, t.FlatBuffer.TableKey))
 	FieldTutorialExcelAddTutorialType(b, tutorialTypeOffset)
 	FieldTutorialExcelAddConditionType(b, conditionTypeOffset)
 	FieldTutorialExcelAddConditionId(b, conditionIDOffset)
@@ -56,18 +56,18 @@ func (t *FieldTutorialExcelDto) UnmarshalMessage(e *FieldTutorialExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldTutorial"))
 	}
-	t.SeasonID = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.SeasonID = fbsutils.Decode(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.TutorialType = make([]FieldTutorialType, e.TutorialTypeLength())
 	for i := 0; i < e.TutorialTypeLength(); i++ {
-		t.TutorialType[i] = FieldTutorialType(fbsutils.Convert(int32(e.TutorialType(i)), t.FlatBuffer.TableKey))
+		t.TutorialType[i] = FieldTutorialType(fbsutils.Decode(int32(e.TutorialType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConditionType = make([]FieldConditionType, e.ConditionTypeLength())
 	for i := 0; i < e.ConditionTypeLength(); i++ {
-		t.ConditionType[i] = FieldConditionType(fbsutils.Convert(int32(e.ConditionType(i)), t.FlatBuffer.TableKey))
+		t.ConditionType[i] = FieldConditionType(fbsutils.Decode(int32(e.ConditionType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConditionID = make([]int64, e.ConditionIdLength())
 	for i := 0; i < e.ConditionIdLength(); i++ {
-		t.ConditionID[i] = fbsutils.Convert(e.ConditionId(i), t.FlatBuffer.TableKey)
+		t.ConditionID[i] = fbsutils.Decode(e.ConditionId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

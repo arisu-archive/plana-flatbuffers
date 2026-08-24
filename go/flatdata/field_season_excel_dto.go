@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldSeasonExcelDto represents a FlatBuffers table.
@@ -33,22 +30,22 @@ func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
-	startDateOffset := b.CreateString(encodeDTOString(t.StartDate, t.FlatBuffer.TableKey))
-	endDateOffset := b.CreateString(encodeDTOString(t.EndDate, t.FlatBuffer.TableKey))
-	masteryImagePathOffset := b.CreateString(encodeDTOString(t.MasteryImagePath, t.FlatBuffer.TableKey))
-	fieldLobbyTitleImagePathOffset := b.CreateString(encodeDTOString(t.FieldLobbyTitleImagePath, t.FlatBuffer.TableKey))
-	keywordLogoImagePathOffset := b.CreateString(encodeDTOString(t.KeywordLogoImagePath, t.FlatBuffer.TableKey))
+	startDateOffset := b.CreateString(fbsutils.Encode(t.StartDate, t.FlatBuffer.TableKey))
+	endDateOffset := b.CreateString(fbsutils.Encode(t.EndDate, t.FlatBuffer.TableKey))
+	masteryImagePathOffset := b.CreateString(fbsutils.Encode(t.MasteryImagePath, t.FlatBuffer.TableKey))
+	fieldLobbyTitleImagePathOffset := b.CreateString(fbsutils.Encode(t.FieldLobbyTitleImagePath, t.FlatBuffer.TableKey))
+	keywordLogoImagePathOffset := b.CreateString(fbsutils.Encode(t.KeywordLogoImagePath, t.FlatBuffer.TableKey))
 	FieldSeasonExcelStart(b)
-	FieldSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddFieldContentType(b, FieldContentType(fbsutils.Convert(int32(t.FieldContentType), t.FlatBuffer.TableKey)))
-	FieldSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentID, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddEntryDateId(b, fbsutils.Convert(t.EntryDateID, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Convert(t.InstantEntryDateID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddFieldContentType(b, FieldContentType(fbsutils.Encode(int32(t.FieldContentType), t.FlatBuffer.TableKey)))
+	FieldSeasonExcelAddEventContentId(b, fbsutils.Encode(t.EventContentID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddEntryDateId(b, fbsutils.Encode(t.EntryDateID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Encode(t.InstantEntryDateID, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddStartDate(b, startDateOffset)
 	FieldSeasonExcelAddEndDate(b, endDateOffset)
-	FieldSeasonExcelAddLobbyBgmChangeStageId(b, fbsutils.Convert(t.LobbyBgmChangeStageID, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddFieldPrefabControlId(b, fbsutils.Convert(t.FieldPrefabControlID, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddFieldGetKeywordCallDialogEnum(b, FieldDialogType(fbsutils.Convert(int32(t.FieldGetKeywordCallDialogEnum), t.FlatBuffer.TableKey)))
+	FieldSeasonExcelAddLobbyBgmChangeStageId(b, fbsutils.Encode(t.LobbyBgmChangeStageID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddFieldPrefabControlId(b, fbsutils.Encode(t.FieldPrefabControlID, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddFieldGetKeywordCallDialogEnum(b, FieldDialogType(fbsutils.Encode(int32(t.FieldGetKeywordCallDialogEnum), t.FlatBuffer.TableKey)))
 	FieldSeasonExcelAddMasteryImagePath(b, masteryImagePathOffset)
 	FieldSeasonExcelAddFieldLobbyTitleImagePath(b, fieldLobbyTitleImagePathOffset)
 	FieldSeasonExcelAddKeywordLogoImagePath(b, keywordLogoImagePathOffset)
@@ -67,19 +64,19 @@ func (t *FieldSeasonExcelDto) UnmarshalMessage(e *FieldSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.FieldContentType = FieldContentType(fbsutils.Convert(int32(e.FieldContentType()), t.FlatBuffer.TableKey))
-	t.EventContentID = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EntryDateID = fbsutils.Convert(e.EntryDateId(), t.FlatBuffer.TableKey)
-	t.InstantEntryDateID = fbsutils.Convert(e.InstantEntryDateId(), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.LobbyBgmChangeStageID = fbsutils.Convert(e.LobbyBgmChangeStageId(), t.FlatBuffer.TableKey)
-	t.FieldPrefabControlID = fbsutils.Convert(e.FieldPrefabControlId(), t.FlatBuffer.TableKey)
-	t.FieldGetKeywordCallDialogEnum = FieldDialogType(fbsutils.Convert(int32(e.FieldGetKeywordCallDialogEnum()), t.FlatBuffer.TableKey))
-	t.MasteryImagePath = fbsutils.Convert(string(e.MasteryImagePath()), t.FlatBuffer.TableKey)
-	t.FieldLobbyTitleImagePath = fbsutils.Convert(string(e.FieldLobbyTitleImagePath()), t.FlatBuffer.TableKey)
-	t.KeywordLogoImagePath = fbsutils.Convert(string(e.KeywordLogoImagePath()), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.FieldContentType = FieldContentType(fbsutils.Decode(int32(e.FieldContentType()), t.FlatBuffer.TableKey))
+	t.EventContentID = fbsutils.Decode(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EntryDateID = fbsutils.Decode(e.EntryDateId(), t.FlatBuffer.TableKey)
+	t.InstantEntryDateID = fbsutils.Decode(e.InstantEntryDateId(), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Decode(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Decode(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.LobbyBgmChangeStageID = fbsutils.Decode(e.LobbyBgmChangeStageId(), t.FlatBuffer.TableKey)
+	t.FieldPrefabControlID = fbsutils.Decode(e.FieldPrefabControlId(), t.FlatBuffer.TableKey)
+	t.FieldGetKeywordCallDialogEnum = FieldDialogType(fbsutils.Decode(int32(e.FieldGetKeywordCallDialogEnum()), t.FlatBuffer.TableKey))
+	t.MasteryImagePath = fbsutils.Decode(string(e.MasteryImagePath()), t.FlatBuffer.TableKey)
+	t.FieldLobbyTitleImagePath = fbsutils.Decode(string(e.FieldLobbyTitleImagePath()), t.FlatBuffer.TableKey)
+	t.KeywordLogoImagePath = fbsutils.Decode(string(e.KeywordLogoImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -92,16 +89,4 @@ func (t *FieldSeasonExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldSeasonExcelDto) FlatDataName() string {
 	return "FieldSeasonExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

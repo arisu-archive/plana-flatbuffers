@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // CharacterDialogFieldExcelDto represents a FlatBuffers table.
@@ -30,15 +27,15 @@ func (t *CharacterDialogFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
-	motionNameOffset := b.CreateString(encodeDTOString(t.MotionName, t.FlatBuffer.TableKey))
-	localizeKrOffset := b.CreateString(encodeDTOString(t.LocalizeKr, t.FlatBuffer.TableKey))
-	localizeJpOffset := b.CreateString(encodeDTOString(t.LocalizeJp, t.FlatBuffer.TableKey))
+	motionNameOffset := b.CreateString(fbsutils.Encode(t.MotionName, t.FlatBuffer.TableKey))
+	localizeKrOffset := b.CreateString(fbsutils.Encode(t.LocalizeKr, t.FlatBuffer.TableKey))
+	localizeJpOffset := b.CreateString(fbsutils.Encode(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelStart(b)
-	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddDialogType(b, FieldDialogType(fbsutils.Convert(int32(t.DialogType), t.FlatBuffer.TableKey)))
-	CharacterDialogFieldExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddPhase(b, fbsutils.Encode(t.Phase, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddTargetIndex(b, fbsutils.Encode(t.TargetIndex, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddDialogType(b, FieldDialogType(fbsutils.Encode(int32(t.DialogType), t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddDuration(b, fbsutils.Encode(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddMotionName(b, motionNameOffset)
 	CharacterDialogFieldExcelAddIsInteractionDialog(b, t.IsInteractionDialog)
 	CharacterDialogFieldExcelAddHideUi(b, t.HideUI)
@@ -59,16 +56,16 @@ func (t *CharacterDialogFieldExcelDto) UnmarshalMessage(e *CharacterDialogFieldE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Phase = fbsutils.Convert(e.Phase(), t.FlatBuffer.TableKey)
-	t.TargetIndex = fbsutils.Convert(e.TargetIndex(), t.FlatBuffer.TableKey)
-	t.DialogType = FieldDialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.MotionName = fbsutils.Convert(string(e.MotionName()), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.Phase = fbsutils.Decode(e.Phase(), t.FlatBuffer.TableKey)
+	t.TargetIndex = fbsutils.Decode(e.TargetIndex(), t.FlatBuffer.TableKey)
+	t.DialogType = FieldDialogType(fbsutils.Decode(int32(e.DialogType()), t.FlatBuffer.TableKey))
+	t.Duration = fbsutils.Decode(e.Duration(), t.FlatBuffer.TableKey)
+	t.MotionName = fbsutils.Decode(string(e.MotionName()), t.FlatBuffer.TableKey)
 	t.IsInteractionDialog = e.IsInteractionDialog()
 	t.HideUI = e.HideUi()
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Decode(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Decode(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -81,16 +78,4 @@ func (t *CharacterDialogFieldExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (CharacterDialogFieldExcelDto) FlatDataName() string {
 	return "CharacterDialogFieldExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }
