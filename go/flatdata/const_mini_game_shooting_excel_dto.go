@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstMiniGameShootingExcelDto represents a FlatBuffers table.
@@ -34,23 +31,23 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	}
 	ConstMiniGameShootingExcelStartPlayerCharacterIdVector(b, len(t.PlayerCharacterID))
 	for i := len(t.PlayerCharacterID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.PlayerCharacterID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.PlayerCharacterID[i], t.FlatBuffer.TableKey))
 	}
 	playerCharacterIDOffset := b.EndVector(len(t.PlayerCharacterID))
-	spawnEffectPathOffset := b.CreateString(encodeDTOString(t.SpawnEffectPath, t.FlatBuffer.TableKey))
+	spawnEffectPathOffset := b.CreateString(fbsutils.Encode(t.SpawnEffectPath, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelStart(b)
-	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Convert(t.NormalStageID, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Convert(t.NormalSectionCount, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddHardStageId(b, fbsutils.Convert(t.HardStageID, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddHardSectionCount(b, fbsutils.Convert(t.HardSectionCount, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddFreeStageId(b, fbsutils.Convert(t.FreeStageID, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddFreeSectionCount(b, fbsutils.Convert(t.FreeSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Encode(t.NormalStageID, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Encode(t.NormalSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHardStageId(b, fbsutils.Encode(t.HardStageID, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHardSectionCount(b, fbsutils.Encode(t.HardSectionCount, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddFreeStageId(b, fbsutils.Encode(t.FreeStageID, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddFreeSectionCount(b, fbsutils.Encode(t.FreeSectionCount, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddPlayerCharacterId(b, playerCharacterIDOffset)
-	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Convert(t.HiddenPlayerCharacterID, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Encode(t.HiddenPlayerCharacterID, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Encode(t.CameraSmoothTime, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddSpawnEffectPath(b, spawnEffectPathOffset)
-	ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(b, fbsutils.Convert(t.WaitTimeAfterSpawn, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Convert(t.FreeGearInterval, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(b, fbsutils.Encode(t.WaitTimeAfterSpawn, t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Encode(t.FreeGearInterval, t.FlatBuffer.TableKey))
 	return ConstMiniGameShootingExcelEnd(b)
 }
 
@@ -66,21 +63,21 @@ func (t *ConstMiniGameShootingExcelDto) UnmarshalMessage(e *ConstMiniGameShootin
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
-	t.NormalStageID = fbsutils.Convert(e.NormalStageId(), t.FlatBuffer.TableKey)
-	t.NormalSectionCount = fbsutils.Convert(e.NormalSectionCount(), t.FlatBuffer.TableKey)
-	t.HardStageID = fbsutils.Convert(e.HardStageId(), t.FlatBuffer.TableKey)
-	t.HardSectionCount = fbsutils.Convert(e.HardSectionCount(), t.FlatBuffer.TableKey)
-	t.FreeStageID = fbsutils.Convert(e.FreeStageId(), t.FlatBuffer.TableKey)
-	t.FreeSectionCount = fbsutils.Convert(e.FreeSectionCount(), t.FlatBuffer.TableKey)
+	t.NormalStageID = fbsutils.Decode(e.NormalStageId(), t.FlatBuffer.TableKey)
+	t.NormalSectionCount = fbsutils.Decode(e.NormalSectionCount(), t.FlatBuffer.TableKey)
+	t.HardStageID = fbsutils.Decode(e.HardStageId(), t.FlatBuffer.TableKey)
+	t.HardSectionCount = fbsutils.Decode(e.HardSectionCount(), t.FlatBuffer.TableKey)
+	t.FreeStageID = fbsutils.Decode(e.FreeStageId(), t.FlatBuffer.TableKey)
+	t.FreeSectionCount = fbsutils.Decode(e.FreeSectionCount(), t.FlatBuffer.TableKey)
 	t.PlayerCharacterID = make([]int64, e.PlayerCharacterIdLength())
 	for i := 0; i < e.PlayerCharacterIdLength(); i++ {
-		t.PlayerCharacterID[i] = fbsutils.Convert(e.PlayerCharacterId(i), t.FlatBuffer.TableKey)
+		t.PlayerCharacterID[i] = fbsutils.Decode(e.PlayerCharacterId(i), t.FlatBuffer.TableKey)
 	}
-	t.HiddenPlayerCharacterID = fbsutils.Convert(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
-	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)
-	t.SpawnEffectPath = fbsutils.Convert(string(e.SpawnEffectPath()), t.FlatBuffer.TableKey)
-	t.WaitTimeAfterSpawn = fbsutils.Convert(e.WaitTimeAfterSpawn(), t.FlatBuffer.TableKey)
-	t.FreeGearInterval = fbsutils.Convert(e.FreeGearInterval(), t.FlatBuffer.TableKey)
+	t.HiddenPlayerCharacterID = fbsutils.Decode(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
+	t.CameraSmoothTime = fbsutils.Decode(e.CameraSmoothTime(), t.FlatBuffer.TableKey)
+	t.SpawnEffectPath = fbsutils.Decode(string(e.SpawnEffectPath()), t.FlatBuffer.TableKey)
+	t.WaitTimeAfterSpawn = fbsutils.Decode(e.WaitTimeAfterSpawn(), t.FlatBuffer.TableKey)
+	t.FreeGearInterval = fbsutils.Decode(e.FreeGearInterval(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -93,16 +90,4 @@ func (t *ConstMiniGameShootingExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstMiniGameShootingExcelDto) FlatDataName() string {
 	return "ConstMiniGameShootingExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

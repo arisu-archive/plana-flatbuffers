@@ -3,12 +3,9 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	"fmt"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // GroundGridFlatDto represents a FlatBuffers table.
@@ -39,13 +36,13 @@ func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		b.PrependUOffsetT(nodesOffsets[i])
 	}
 	nodesOffset = b.EndVector(len(t.Nodes))
-	versionOffset := b.CreateString(encodeDTOString(t.Version, t.FlatBuffer.TableKey))
+	versionOffset := b.CreateString(fbsutils.Encode(t.Version, t.FlatBuffer.TableKey))
 	GroundGridFlatStart(b)
-	GroundGridFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
-	GroundGridFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
-	GroundGridFlatAddStartX(b, fbsutils.Convert(t.StartX, t.FlatBuffer.TableKey))
-	GroundGridFlatAddStartY(b, fbsutils.Convert(t.StartY, t.FlatBuffer.TableKey))
-	GroundGridFlatAddGap(b, fbsutils.Convert(t.Gap, t.FlatBuffer.TableKey))
+	GroundGridFlatAddX(b, fbsutils.Encode(t.X, t.FlatBuffer.TableKey))
+	GroundGridFlatAddY(b, fbsutils.Encode(t.Y, t.FlatBuffer.TableKey))
+	GroundGridFlatAddStartX(b, fbsutils.Encode(t.StartX, t.FlatBuffer.TableKey))
+	GroundGridFlatAddStartY(b, fbsutils.Encode(t.StartY, t.FlatBuffer.TableKey))
+	GroundGridFlatAddGap(b, fbsutils.Encode(t.Gap, t.FlatBuffer.TableKey))
 	GroundGridFlatAddNodes(b, nodesOffset)
 	GroundGridFlatAddVersion(b, versionOffset)
 	return GroundGridFlatEnd(b)
@@ -63,11 +60,11 @@ func (t *GroundGridFlatDto) UnmarshalMessage(e *GroundGridFlat) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
 	}
-	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
-	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
-	t.StartX = fbsutils.Convert(e.StartX(), t.FlatBuffer.TableKey)
-	t.StartY = fbsutils.Convert(e.StartY(), t.FlatBuffer.TableKey)
-	t.Gap = fbsutils.Convert(e.Gap(), t.FlatBuffer.TableKey)
+	t.X = fbsutils.Decode(e.X(), t.FlatBuffer.TableKey)
+	t.Y = fbsutils.Decode(e.Y(), t.FlatBuffer.TableKey)
+	t.StartX = fbsutils.Decode(e.StartX(), t.FlatBuffer.TableKey)
+	t.StartY = fbsutils.Decode(e.StartY(), t.FlatBuffer.TableKey)
+	t.Gap = fbsutils.Decode(e.Gap(), t.FlatBuffer.TableKey)
 	t.Nodes = make([]GroundNodeFlatDto, e.NodesLength())
 	for i := 0; i < e.NodesLength(); i++ {
 		child := new(GroundNodeFlat)
@@ -79,7 +76,7 @@ func (t *GroundGridFlatDto) UnmarshalMessage(e *GroundGridFlat) error {
 			return fmt.Errorf("unmarshal nodes[%d]: %w", i, err)
 		}
 	}
-	t.Version = fbsutils.Convert(string(e.Version()), t.FlatBuffer.TableKey)
+	t.Version = fbsutils.Decode(string(e.Version()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -92,16 +89,4 @@ func (t *GroundGridFlatDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (GroundGridFlatDto) FlatDataName() string {
 	return "GroundGridFlat"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

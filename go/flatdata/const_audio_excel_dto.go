@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstAudioExcelDto represents a FlatBuffers table.
@@ -24,10 +21,10 @@ func (t *ConstAudioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
-	defaultSnapShotNameOffset := b.CreateString(encodeDTOString(t.DefaultSnapShotName, t.FlatBuffer.TableKey))
-	battleSnapShotNameOffset := b.CreateString(encodeDTOString(t.BattleSnapShotName, t.FlatBuffer.TableKey))
-	raidSnapShotNameOffset := b.CreateString(encodeDTOString(t.RaidSnapShotName, t.FlatBuffer.TableKey))
-	exSkillCutInSnapShotNameOffset := b.CreateString(encodeDTOString(t.ExSkillCutInSnapShotName, t.FlatBuffer.TableKey))
+	defaultSnapShotNameOffset := b.CreateString(fbsutils.Encode(t.DefaultSnapShotName, t.FlatBuffer.TableKey))
+	battleSnapShotNameOffset := b.CreateString(fbsutils.Encode(t.BattleSnapShotName, t.FlatBuffer.TableKey))
+	raidSnapShotNameOffset := b.CreateString(fbsutils.Encode(t.RaidSnapShotName, t.FlatBuffer.TableKey))
+	exSkillCutInSnapShotNameOffset := b.CreateString(fbsutils.Encode(t.ExSkillCutInSnapShotName, t.FlatBuffer.TableKey))
 	ConstAudioExcelStart(b)
 	ConstAudioExcelAddDefaultSnapShotName(b, defaultSnapShotNameOffset)
 	ConstAudioExcelAddBattleSnapShotName(b, battleSnapShotNameOffset)
@@ -48,10 +45,10 @@ func (t *ConstAudioExcelDto) UnmarshalMessage(e *ConstAudioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
-	t.DefaultSnapShotName = fbsutils.Convert(string(e.DefaultSnapShotName()), t.FlatBuffer.TableKey)
-	t.BattleSnapShotName = fbsutils.Convert(string(e.BattleSnapShotName()), t.FlatBuffer.TableKey)
-	t.RaidSnapShotName = fbsutils.Convert(string(e.RaidSnapShotName()), t.FlatBuffer.TableKey)
-	t.ExSkillCutInSnapShotName = fbsutils.Convert(string(e.ExSkillCutInSnapShotName()), t.FlatBuffer.TableKey)
+	t.DefaultSnapShotName = fbsutils.Decode(string(e.DefaultSnapShotName()), t.FlatBuffer.TableKey)
+	t.BattleSnapShotName = fbsutils.Decode(string(e.BattleSnapShotName()), t.FlatBuffer.TableKey)
+	t.RaidSnapShotName = fbsutils.Decode(string(e.RaidSnapShotName()), t.FlatBuffer.TableKey)
+	t.ExSkillCutInSnapShotName = fbsutils.Decode(string(e.ExSkillCutInSnapShotName()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -64,16 +61,4 @@ func (t *ConstAudioExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstAudioExcelDto) FlatDataName() string {
 	return "ConstAudioExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

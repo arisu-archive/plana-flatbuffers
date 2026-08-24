@@ -24,26 +24,26 @@ func (t *FieldMasteryLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	}
 	FieldMasteryLevelExcelStartIdVector(b, len(t.ID))
 	for i := len(t.ID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.ID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.ID[i], t.FlatBuffer.TableKey))
 	}
 	iDOffset := b.EndVector(len(t.ID))
 	FieldMasteryLevelExcelStartExpVector(b, len(t.Exp))
 	for i := len(t.Exp) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.Exp[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.Exp[i], t.FlatBuffer.TableKey))
 	}
 	expOffset := b.EndVector(len(t.Exp))
 	FieldMasteryLevelExcelStartTotalExpVector(b, len(t.TotalExp))
 	for i := len(t.TotalExp) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.TotalExp[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.TotalExp[i], t.FlatBuffer.TableKey))
 	}
 	totalExpOffset := b.EndVector(len(t.TotalExp))
 	FieldMasteryLevelExcelStartRewardIdVector(b, len(t.RewardID))
 	for i := len(t.RewardID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.RewardID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.RewardID[i], t.FlatBuffer.TableKey))
 	}
 	rewardIDOffset := b.EndVector(len(t.RewardID))
 	FieldMasteryLevelExcelStart(b)
-	FieldMasteryLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
+	FieldMasteryLevelExcelAddLevel(b, fbsutils.Encode(t.Level, t.FlatBuffer.TableKey))
 	FieldMasteryLevelExcelAddId(b, iDOffset)
 	FieldMasteryLevelExcelAddExp(b, expOffset)
 	FieldMasteryLevelExcelAddTotalExp(b, totalExpOffset)
@@ -63,22 +63,22 @@ func (t *FieldMasteryLevelExcelDto) UnmarshalMessage(e *FieldMasteryLevelExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
+	t.Level = fbsutils.Decode(e.Level(), t.FlatBuffer.TableKey)
 	t.ID = make([]int64, e.IdLength())
 	for i := 0; i < e.IdLength(); i++ {
-		t.ID[i] = fbsutils.Convert(e.Id(i), t.FlatBuffer.TableKey)
+		t.ID[i] = fbsutils.Decode(e.Id(i), t.FlatBuffer.TableKey)
 	}
 	t.Exp = make([]int64, e.ExpLength())
 	for i := 0; i < e.ExpLength(); i++ {
-		t.Exp[i] = fbsutils.Convert(e.Exp(i), t.FlatBuffer.TableKey)
+		t.Exp[i] = fbsutils.Decode(e.Exp(i), t.FlatBuffer.TableKey)
 	}
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := 0; i < e.TotalExpLength(); i++ {
-		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)
+		t.TotalExp[i] = fbsutils.Decode(e.TotalExp(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardID = make([]int64, e.RewardIdLength())
 	for i := 0; i < e.RewardIdLength(); i++ {
-		t.RewardID[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
+		t.RewardID[i] = fbsutils.Decode(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

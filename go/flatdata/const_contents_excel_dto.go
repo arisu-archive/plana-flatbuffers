@@ -23,9 +23,9 @@ func (t *ConstContentsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	}
 	ConstContentsExcelStart(b)
 	ConstContentsExcelAddUseSearchFieldOptimize(b, t.UseSearchFieldOptimize)
-	ConstContentsExcelAddSearchUpdateTime(b, fbsutils.Convert(t.SearchUpdateTime, t.FlatBuffer.TableKey))
-	ConstContentsExcelAddLobbyDayTimeFrom(b, fbsutils.Convert(t.LobbyDayTimeFrom, t.FlatBuffer.TableKey))
-	ConstContentsExcelAddLobbyNightTimeFrom(b, fbsutils.Convert(t.LobbyNightTimeFrom, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddSearchUpdateTime(b, fbsutils.Encode(t.SearchUpdateTime, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddLobbyDayTimeFrom(b, fbsutils.Encode(t.LobbyDayTimeFrom, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddLobbyNightTimeFrom(b, fbsutils.Encode(t.LobbyNightTimeFrom, t.FlatBuffer.TableKey))
 	return ConstContentsExcelEnd(b)
 }
 
@@ -42,9 +42,9 @@ func (t *ConstContentsExcelDto) UnmarshalMessage(e *ConstContentsExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstContents"))
 	}
 	t.UseSearchFieldOptimize = e.UseSearchFieldOptimize()
-	t.SearchUpdateTime = fbsutils.Convert(e.SearchUpdateTime(), t.FlatBuffer.TableKey)
-	t.LobbyDayTimeFrom = fbsutils.Convert(e.LobbyDayTimeFrom(), t.FlatBuffer.TableKey)
-	t.LobbyNightTimeFrom = fbsutils.Convert(e.LobbyNightTimeFrom(), t.FlatBuffer.TableKey)
+	t.SearchUpdateTime = fbsutils.Decode(e.SearchUpdateTime(), t.FlatBuffer.TableKey)
+	t.LobbyDayTimeFrom = fbsutils.Decode(e.LobbyDayTimeFrom(), t.FlatBuffer.TableKey)
+	t.LobbyNightTimeFrom = fbsutils.Decode(e.LobbyNightTimeFrom(), t.FlatBuffer.TableKey)
 	return nil
 }
 

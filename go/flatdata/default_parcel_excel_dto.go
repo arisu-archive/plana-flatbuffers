@@ -21,9 +21,9 @@ func (t *DefaultParcelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcel"))
 	}
 	DefaultParcelExcelStart(b)
-	DefaultParcelExcelAddParcelType(b, ParcelType(fbsutils.Convert(int32(t.ParcelType), t.FlatBuffer.TableKey)))
-	DefaultParcelExcelAddParcelId(b, fbsutils.Convert(t.ParcelID, t.FlatBuffer.TableKey))
-	DefaultParcelExcelAddParcelAmount(b, fbsutils.Convert(t.ParcelAmount, t.FlatBuffer.TableKey))
+	DefaultParcelExcelAddParcelType(b, ParcelType(fbsutils.Encode(int32(t.ParcelType), t.FlatBuffer.TableKey)))
+	DefaultParcelExcelAddParcelId(b, fbsutils.Encode(t.ParcelID, t.FlatBuffer.TableKey))
+	DefaultParcelExcelAddParcelAmount(b, fbsutils.Encode(t.ParcelAmount, t.FlatBuffer.TableKey))
 	return DefaultParcelExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *DefaultParcelExcelDto) UnmarshalMessage(e *DefaultParcelExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcel"))
 	}
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelID = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Decode(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.ParcelID = fbsutils.Decode(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.ParcelAmount = fbsutils.Decode(e.ParcelAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

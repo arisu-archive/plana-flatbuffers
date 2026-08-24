@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldStoryStageExcelDto represents a FlatBuffers table.
@@ -30,17 +27,17 @@ func (t *FieldStoryStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldStoryStage"))
 	}
-	nameOffset := b.CreateString(encodeDTOString(t.Name, t.FlatBuffer.TableKey))
+	nameOffset := b.CreateString(fbsutils.Encode(t.Name, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelStart(b)
-	FieldStoryStageExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddSeasonId(b, fbsutils.Encode(t.SeasonID, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddName(b, nameOffset)
-	FieldStoryStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddStageTopography(b, StageTopography(fbsutils.Convert(int32(t.StageTopography), t.FlatBuffer.TableKey)))
-	FieldStoryStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddGroundId(b, fbsutils.Convert(t.GroundID, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddBgmId(b, fbsutils.Convert(t.BgmID, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonID, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddBattleDuration(b, fbsutils.Encode(t.BattleDuration, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddStageTopography(b, StageTopography(fbsutils.Encode(int32(t.StageTopography), t.FlatBuffer.TableKey)))
+	FieldStoryStageExcelAddRecommandLevel(b, fbsutils.Encode(t.RecommandLevel, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddGroundId(b, fbsutils.Encode(t.GroundID, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddBgmId(b, fbsutils.Encode(t.BgmID, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddFixedEchelonId(b, fbsutils.Encode(t.FixedEchelonID, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	return FieldStoryStageExcelEnd(b)
 }
@@ -57,15 +54,15 @@ func (t *FieldStoryStageExcelDto) UnmarshalMessage(e *FieldStoryStageExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldStoryStage"))
 	}
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.SeasonID = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.GroundID = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.BgmID = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.FixedEchelonID = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.SeasonID = fbsutils.Decode(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Decode(string(e.Name()), t.FlatBuffer.TableKey)
+	t.BattleDuration = fbsutils.Decode(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Decode(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.RecommandLevel = fbsutils.Decode(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.GroundID = fbsutils.Decode(e.GroundId(), t.FlatBuffer.TableKey)
+	t.BgmID = fbsutils.Decode(e.BgmId(), t.FlatBuffer.TableKey)
+	t.FixedEchelonID = fbsutils.Decode(e.FixedEchelonId(), t.FlatBuffer.TableKey)
 	t.SkipFormationSettings = e.SkipFormationSettings()
 	return nil
 }
@@ -79,16 +76,4 @@ func (t *FieldStoryStageExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldStoryStageExcelDto) FlatDataName() string {
 	return "FieldStoryStageExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

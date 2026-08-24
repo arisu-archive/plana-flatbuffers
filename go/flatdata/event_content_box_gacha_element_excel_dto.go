@@ -22,10 +22,10 @@ func (t *EventContentBoxGachaElementExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaElement"))
 	}
 	EventContentBoxGachaElementExcelStart(b)
-	EventContentBoxGachaElementExcelAddEventContentId(b, fbsutils.Convert(t.EventContentID, t.FlatBuffer.TableKey))
-	EventContentBoxGachaElementExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	EventContentBoxGachaElementExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
-	EventContentBoxGachaElementExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
+	EventContentBoxGachaElementExcelAddEventContentId(b, fbsutils.Encode(t.EventContentID, t.FlatBuffer.TableKey))
+	EventContentBoxGachaElementExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	EventContentBoxGachaElementExcelAddRound(b, fbsutils.Encode(t.Round, t.FlatBuffer.TableKey))
+	EventContentBoxGachaElementExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
 	return EventContentBoxGachaElementExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *EventContentBoxGachaElementExcelDto) UnmarshalMessage(e *EventContentBo
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaElement"))
 	}
-	t.EventContentID = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.EventContentID = fbsutils.Decode(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.Round = fbsutils.Decode(e.Round(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

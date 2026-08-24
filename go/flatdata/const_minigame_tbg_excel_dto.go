@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstMinigameTBGExcelDto represents a FlatBuffers table.
@@ -41,34 +38,34 @@ func (t *ConstMinigameTBGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBG"))
 	}
-	aniAllyBattleAttackOffset := b.CreateString(encodeDTOString(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
-	effectAllyBattleAttackOffset := b.CreateString(encodeDTOString(t.EffectAllyBattleAttack, t.FlatBuffer.TableKey))
-	effectAllyBattleDamageOffset := b.CreateString(encodeDTOString(t.EffectAllyBattleDamage, t.FlatBuffer.TableKey))
-	aniEnemyBattleAttackOffset := b.CreateString(encodeDTOString(t.AniEnemyBattleAttack, t.FlatBuffer.TableKey))
-	effectEnemyBattleAttackOffset := b.CreateString(encodeDTOString(t.EffectEnemyBattleAttack, t.FlatBuffer.TableKey))
-	effectEnemyBattleDamageOffset := b.CreateString(encodeDTOString(t.EffectEnemyBattleDamage, t.FlatBuffer.TableKey))
+	aniAllyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
+	effectAllyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.EffectAllyBattleAttack, t.FlatBuffer.TableKey))
+	effectAllyBattleDamageOffset := b.CreateString(fbsutils.Encode(t.EffectAllyBattleDamage, t.FlatBuffer.TableKey))
+	aniEnemyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.AniEnemyBattleAttack, t.FlatBuffer.TableKey))
+	effectEnemyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.EffectEnemyBattleAttack, t.FlatBuffer.TableKey))
+	effectEnemyBattleDamageOffset := b.CreateString(fbsutils.Encode(t.EffectEnemyBattleDamage, t.FlatBuffer.TableKey))
 	ConstMinigameTBGExcelStart(b)
-	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetLeft(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetLeft, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetTop(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddConquestMapCenterOffsetX(b, fbsutils.Convert(t.ConquestMapCenterOffsetX, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddConquestMapCenterOffsetY(b, fbsutils.Convert(t.ConquestMapCenterOffsetY, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddCameraZoomMax(b, fbsutils.Convert(t.CameraZoomMax, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddCameraZoomMin(b, fbsutils.Convert(t.CameraZoomMin, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddThemaLoadingProgressTime(b, fbsutils.Convert(t.ThemaLoadingProgressTime, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddMapAllyRotation(b, fbsutils.Convert(t.MapAllyRotation, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetLeft(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetLeft, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetTop(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetTop, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetBottom(b, fbsutils.Encode(t.ConquestMapBoundaryOffsetBottom, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapCenterOffsetX(b, fbsutils.Encode(t.ConquestMapCenterOffsetX, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddConquestMapCenterOffsetY(b, fbsutils.Encode(t.ConquestMapCenterOffsetY, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddCameraAngle(b, fbsutils.Encode(t.CameraAngle, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddCameraZoomMax(b, fbsutils.Encode(t.CameraZoomMax, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddCameraZoomMin(b, fbsutils.Encode(t.CameraZoomMin, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddCameraZoomDefault(b, fbsutils.Encode(t.CameraZoomDefault, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddThemaLoadingProgressTime(b, fbsutils.Encode(t.ThemaLoadingProgressTime, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddMapAllyRotation(b, fbsutils.Encode(t.MapAllyRotation, t.FlatBuffer.TableKey))
 	ConstMinigameTBGExcelAddAniAllyBattleAttack(b, aniAllyBattleAttackOffset)
 	ConstMinigameTBGExcelAddEffectAllyBattleAttack(b, effectAllyBattleAttackOffset)
 	ConstMinigameTBGExcelAddEffectAllyBattleDamage(b, effectAllyBattleDamageOffset)
 	ConstMinigameTBGExcelAddAniEnemyBattleAttack(b, aniEnemyBattleAttackOffset)
 	ConstMinigameTBGExcelAddEffectEnemyBattleAttack(b, effectEnemyBattleAttackOffset)
 	ConstMinigameTBGExcelAddEffectEnemyBattleDamage(b, effectEnemyBattleDamageOffset)
-	ConstMinigameTBGExcelAddEncounterAllyRotation(b, fbsutils.Convert(t.EncounterAllyRotation, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddEncounterEnemyRotation(b, fbsutils.Convert(t.EncounterEnemyRotation, t.FlatBuffer.TableKey))
-	ConstMinigameTBGExcelAddEncounterRewardReceiveIndex(b, fbsutils.Convert(t.EncounterRewardReceiveIndex, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddEncounterAllyRotation(b, fbsutils.Encode(t.EncounterAllyRotation, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddEncounterEnemyRotation(b, fbsutils.Encode(t.EncounterEnemyRotation, t.FlatBuffer.TableKey))
+	ConstMinigameTBGExcelAddEncounterRewardReceiveIndex(b, fbsutils.Encode(t.EncounterRewardReceiveIndex, t.FlatBuffer.TableKey))
 	return ConstMinigameTBGExcelEnd(b)
 }
 
@@ -84,27 +81,27 @@ func (t *ConstMinigameTBGExcelDto) UnmarshalMessage(e *ConstMinigameTBGExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBG"))
 	}
-	t.ConquestMapBoundaryOffsetLeft = fbsutils.Convert(e.ConquestMapBoundaryOffsetLeft(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetRight = fbsutils.Convert(e.ConquestMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetTop = fbsutils.Convert(e.ConquestMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
-	t.ConquestMapBoundaryOffsetBottom = fbsutils.Convert(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
-	t.ConquestMapCenterOffsetX = fbsutils.Convert(e.ConquestMapCenterOffsetX(), t.FlatBuffer.TableKey)
-	t.ConquestMapCenterOffsetY = fbsutils.Convert(e.ConquestMapCenterOffsetY(), t.FlatBuffer.TableKey)
-	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
-	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
-	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
-	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
-	t.ThemaLoadingProgressTime = fbsutils.Convert(e.ThemaLoadingProgressTime(), t.FlatBuffer.TableKey)
-	t.MapAllyRotation = fbsutils.Convert(e.MapAllyRotation(), t.FlatBuffer.TableKey)
-	t.AniAllyBattleAttack = fbsutils.Convert(string(e.AniAllyBattleAttack()), t.FlatBuffer.TableKey)
-	t.EffectAllyBattleAttack = fbsutils.Convert(string(e.EffectAllyBattleAttack()), t.FlatBuffer.TableKey)
-	t.EffectAllyBattleDamage = fbsutils.Convert(string(e.EffectAllyBattleDamage()), t.FlatBuffer.TableKey)
-	t.AniEnemyBattleAttack = fbsutils.Convert(string(e.AniEnemyBattleAttack()), t.FlatBuffer.TableKey)
-	t.EffectEnemyBattleAttack = fbsutils.Convert(string(e.EffectEnemyBattleAttack()), t.FlatBuffer.TableKey)
-	t.EffectEnemyBattleDamage = fbsutils.Convert(string(e.EffectEnemyBattleDamage()), t.FlatBuffer.TableKey)
-	t.EncounterAllyRotation = fbsutils.Convert(e.EncounterAllyRotation(), t.FlatBuffer.TableKey)
-	t.EncounterEnemyRotation = fbsutils.Convert(e.EncounterEnemyRotation(), t.FlatBuffer.TableKey)
-	t.EncounterRewardReceiveIndex = fbsutils.Convert(e.EncounterRewardReceiveIndex(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetLeft = fbsutils.Decode(e.ConquestMapBoundaryOffsetLeft(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetRight = fbsutils.Decode(e.ConquestMapBoundaryOffsetRight(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetTop = fbsutils.Decode(e.ConquestMapBoundaryOffsetTop(), t.FlatBuffer.TableKey)
+	t.ConquestMapBoundaryOffsetBottom = fbsutils.Decode(e.ConquestMapBoundaryOffsetBottom(), t.FlatBuffer.TableKey)
+	t.ConquestMapCenterOffsetX = fbsutils.Decode(e.ConquestMapCenterOffsetX(), t.FlatBuffer.TableKey)
+	t.ConquestMapCenterOffsetY = fbsutils.Decode(e.ConquestMapCenterOffsetY(), t.FlatBuffer.TableKey)
+	t.CameraAngle = fbsutils.Decode(e.CameraAngle(), t.FlatBuffer.TableKey)
+	t.CameraZoomMax = fbsutils.Decode(e.CameraZoomMax(), t.FlatBuffer.TableKey)
+	t.CameraZoomMin = fbsutils.Decode(e.CameraZoomMin(), t.FlatBuffer.TableKey)
+	t.CameraZoomDefault = fbsutils.Decode(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
+	t.ThemaLoadingProgressTime = fbsutils.Decode(e.ThemaLoadingProgressTime(), t.FlatBuffer.TableKey)
+	t.MapAllyRotation = fbsutils.Decode(e.MapAllyRotation(), t.FlatBuffer.TableKey)
+	t.AniAllyBattleAttack = fbsutils.Decode(string(e.AniAllyBattleAttack()), t.FlatBuffer.TableKey)
+	t.EffectAllyBattleAttack = fbsutils.Decode(string(e.EffectAllyBattleAttack()), t.FlatBuffer.TableKey)
+	t.EffectAllyBattleDamage = fbsutils.Decode(string(e.EffectAllyBattleDamage()), t.FlatBuffer.TableKey)
+	t.AniEnemyBattleAttack = fbsutils.Decode(string(e.AniEnemyBattleAttack()), t.FlatBuffer.TableKey)
+	t.EffectEnemyBattleAttack = fbsutils.Decode(string(e.EffectEnemyBattleAttack()), t.FlatBuffer.TableKey)
+	t.EffectEnemyBattleDamage = fbsutils.Decode(string(e.EffectEnemyBattleDamage()), t.FlatBuffer.TableKey)
+	t.EncounterAllyRotation = fbsutils.Decode(e.EncounterAllyRotation(), t.FlatBuffer.TableKey)
+	t.EncounterEnemyRotation = fbsutils.Decode(e.EncounterEnemyRotation(), t.FlatBuffer.TableKey)
+	t.EncounterRewardReceiveIndex = fbsutils.Decode(e.EncounterRewardReceiveIndex(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -117,16 +114,4 @@ func (t *ConstMinigameTBGExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstMinigameTBGExcelDto) FlatDataName() string {
 	return "ConstMinigameTBGExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

@@ -32,7 +32,7 @@ func (t *BlendDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	}
 	infoListOffset = b.EndVector(len(t.InfoList))
 	BlendDataStart(b)
-	BlendDataAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	BlendDataAddType(b, fbsutils.Encode(t.Type, t.FlatBuffer.TableKey))
 	BlendDataAddInfoList(b, infoListOffset)
 	return BlendDataEnd(b)
 }
@@ -49,7 +49,7 @@ func (t *BlendDataDto) UnmarshalMessage(e *BlendData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
 	}
-	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
+	t.Type = fbsutils.Decode(e.Type(), t.FlatBuffer.TableKey)
 	t.InfoList = make([]BlendInfoDto, e.InfoListLength())
 	for i := 0; i < e.InfoListLength(); i++ {
 		child := new(BlendInfo)

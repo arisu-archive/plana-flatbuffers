@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // CharacterDialogEmojiExcelDto represents a FlatBuffers table.
@@ -38,33 +35,33 @@ func (t *CharacterDialogEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogEmoji"))
 	}
-	dialogTypeOffset := b.CreateString(encodeDTOString(t.DialogType, t.FlatBuffer.TableKey))
-	localizeKrOffset := b.CreateString(encodeDTOString(t.LocalizeKr, t.FlatBuffer.TableKey))
-	localizeJpOffset := b.CreateString(encodeDTOString(t.LocalizeJp, t.FlatBuffer.TableKey))
+	dialogTypeOffset := b.CreateString(fbsutils.Encode(t.DialogType, t.FlatBuffer.TableKey))
+	localizeKrOffset := b.CreateString(fbsutils.Encode(t.LocalizeKr, t.FlatBuffer.TableKey))
+	localizeJpOffset := b.CreateString(fbsutils.Encode(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStartVoiceIdVector(b, len(t.VoiceID))
 	for i := len(t.VoiceID) - 1; i >= 0; i-- {
-		b.PrependUint32(fbsutils.Convert(t.VoiceID[i], t.FlatBuffer.TableKey))
+		b.PrependUint32(fbsutils.Encode(t.VoiceID[i], t.FlatBuffer.TableKey))
 	}
 	voiceIDOffset := b.EndVector(len(t.VoiceID))
-	localizeCvGroupOffset := b.CreateString(encodeDTOString(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	localizeCvGroupOffset := b.CreateString(fbsutils.Encode(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStart(b)
-	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Encode(t.TargetIndex, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddDialogType(b, dialogTypeOffset)
-	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddDurationAdd(b, fbsutils.Convert(t.DurationAdd, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Encode(t.Duration, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddDurationAdd(b, fbsutils.Encode(t.DurationAdd, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddHideUi(b, t.HideUI)
 	CharacterDialogEmojiExcelAddLocalizeKr(b, localizeKrOffset)
 	CharacterDialogEmojiExcelAddLocalizeJp(b, localizeJpOffset)
 	CharacterDialogEmojiExcelAddVoiceId(b, voiceIDOffset)
-	CharacterDialogEmojiExcelAddCharacterId(b, fbsutils.Convert(t.CharacterID, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueID, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddCharacterId(b, fbsutils.Encode(t.CharacterID, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddCostumeUniqueId(b, fbsutils.Encode(t.CostumeUniqueID, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddDisplayOrder(b, fbsutils.Encode(t.DisplayOrder, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddCollectionVisible(b, t.CollectionVisible)
-	CharacterDialogEmojiExcelAddCvCollectionType(b, CVCollectionType(fbsutils.Convert(int32(t.CvCollectionType), t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddCvUnlockScenarioType(b, CVUnlockScenarioType(fbsutils.Convert(int32(t.CvUnlockScenarioType), t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupID, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddUnlockEventSeason(b, fbsutils.Convert(t.UnlockEventSeason, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddCvCollectionType(b, CVCollectionType(fbsutils.Encode(int32(t.CvCollectionType), t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddCvUnlockScenarioType(b, CVUnlockScenarioType(fbsutils.Encode(int32(t.CvUnlockScenarioType), t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddScenarioGroupId(b, fbsutils.Encode(t.ScenarioGroupID, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddUnlockEventSeason(b, fbsutils.Encode(t.UnlockEventSeason, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddLocalizeCvGroup(b, localizeCvGroupOffset)
 	return CharacterDialogEmojiExcelEnd(b)
 }
@@ -81,27 +78,27 @@ func (t *CharacterDialogEmojiExcelDto) UnmarshalMessage(e *CharacterDialogEmojiE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogEmoji"))
 	}
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.TargetIndex = fbsutils.Convert(e.TargetIndex(), t.FlatBuffer.TableKey)
-	t.DialogType = fbsutils.Convert(string(e.DialogType()), t.FlatBuffer.TableKey)
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.DurationAdd = fbsutils.Convert(e.DurationAdd(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.TargetIndex = fbsutils.Decode(e.TargetIndex(), t.FlatBuffer.TableKey)
+	t.DialogType = fbsutils.Decode(string(e.DialogType()), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Decode(e.Duration(), t.FlatBuffer.TableKey)
+	t.DurationAdd = fbsutils.Decode(e.DurationAdd(), t.FlatBuffer.TableKey)
 	t.HideUI = e.HideUi()
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Decode(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Decode(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.VoiceID = make([]uint32, e.VoiceIdLength())
 	for i := 0; i < e.VoiceIdLength(); i++ {
-		t.VoiceID[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
+		t.VoiceID[i] = fbsutils.Decode(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
-	t.CharacterID = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.CostumeUniqueID = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.CharacterID = fbsutils.Decode(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.CostumeUniqueID = fbsutils.Decode(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Decode(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.CollectionVisible = e.CollectionVisible()
-	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
-	t.CvUnlockScenarioType = CVUnlockScenarioType(fbsutils.Convert(int32(e.CvUnlockScenarioType()), t.FlatBuffer.TableKey))
-	t.ScenarioGroupID = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.UnlockEventSeason = fbsutils.Convert(e.UnlockEventSeason(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
+	t.CvCollectionType = CVCollectionType(fbsutils.Decode(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
+	t.CvUnlockScenarioType = CVUnlockScenarioType(fbsutils.Decode(int32(e.CvUnlockScenarioType()), t.FlatBuffer.TableKey))
+	t.ScenarioGroupID = fbsutils.Decode(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.UnlockEventSeason = fbsutils.Decode(e.UnlockEventSeason(), t.FlatBuffer.TableKey)
+	t.LocalizeCvGroup = fbsutils.Decode(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -114,16 +111,4 @@ func (t *CharacterDialogEmojiExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (CharacterDialogEmojiExcelDto) FlatDataName() string {
 	return "CharacterDialogEmojiExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstKeyMappingExcelDto represents a FlatBuffers table.
@@ -37,26 +34,26 @@ func (t *ConstKeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstKeyMapping"))
 	}
-	removeKeycodeWordOffset := b.CreateString(encodeDTOString(t.RemoveKeycodeWord, t.FlatBuffer.TableKey))
-	tutorialDialogTouchKeyOffset := b.CreateString(encodeDTOString(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
+	removeKeycodeWordOffset := b.CreateString(fbsutils.Encode(t.RemoveKeycodeWord, t.FlatBuffer.TableKey))
+	tutorialDialogTouchKeyOffset := b.CreateString(fbsutils.Encode(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelStart(b)
-	ConstKeyMappingExcelAddDragSensitivity(b, fbsutils.Convert(t.DragSensitivity, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddScrollWheelFactor(b, fbsutils.Convert(t.ScrollWheelFactor, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddDragSensitivity(b, fbsutils.Encode(t.DragSensitivity, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddScrollWheelFactor(b, fbsutils.Encode(t.ScrollWheelFactor, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddRemoveKeycodeWord(b, removeKeycodeWordOffset)
 	ConstKeyMappingExcelAddTutorialDialogTouchKey(b, tutorialDialogTouchKeyOffset)
-	ConstKeyMappingExcelAddPcInformationGroupId(b, fbsutils.Convert(t.PcInformationGroupID, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddPcControllerInformationGroupId(b, fbsutils.Convert(t.PcControllerInformationGroupID, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerCursorFactorSlow(b, fbsutils.Convert(t.ControllerCursorFactorSlow, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerCursorFactor(b, fbsutils.Convert(t.ControllerCursorFactor, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerCursorFactorFast(b, fbsutils.Convert(t.ControllerCursorFactorFast, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddVibrationSec(b, fbsutils.Convert(t.VibrationSec, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddVibrationPower(b, fbsutils.Convert(t.VibrationPower, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerScrollWheelFactor(b, fbsutils.Convert(t.ControllerScrollWheelFactor, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerZoomSensitivity(b, fbsutils.Convert(t.ControllerZoomSensitivity, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(b, fbsutils.Convert(t.ControllerDpadMoveCheckRangeX, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(b, fbsutils.Convert(t.ControllerDpadMoveCheckRangeY, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerCursorClickScale(b, fbsutils.Convert(t.ControllerCursorClickScale, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddControllerScrollSensitivity(b, fbsutils.Convert(t.ControllerScrollSensitivity, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddPcInformationGroupId(b, fbsutils.Encode(t.PcInformationGroupID, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddPcControllerInformationGroupId(b, fbsutils.Encode(t.PcControllerInformationGroupID, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerCursorFactorSlow(b, fbsutils.Encode(t.ControllerCursorFactorSlow, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerCursorFactor(b, fbsutils.Encode(t.ControllerCursorFactor, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerCursorFactorFast(b, fbsutils.Encode(t.ControllerCursorFactorFast, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddVibrationSec(b, fbsutils.Encode(t.VibrationSec, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddVibrationPower(b, fbsutils.Encode(t.VibrationPower, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerScrollWheelFactor(b, fbsutils.Encode(t.ControllerScrollWheelFactor, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerZoomSensitivity(b, fbsutils.Encode(t.ControllerZoomSensitivity, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(b, fbsutils.Encode(t.ControllerDpadMoveCheckRangeX, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(b, fbsutils.Encode(t.ControllerDpadMoveCheckRangeY, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerCursorClickScale(b, fbsutils.Encode(t.ControllerCursorClickScale, t.FlatBuffer.TableKey))
+	ConstKeyMappingExcelAddControllerScrollSensitivity(b, fbsutils.Encode(t.ControllerScrollSensitivity, t.FlatBuffer.TableKey))
 	return ConstKeyMappingExcelEnd(b)
 }
 
@@ -72,23 +69,23 @@ func (t *ConstKeyMappingExcelDto) UnmarshalMessage(e *ConstKeyMappingExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstKeyMapping"))
 	}
-	t.DragSensitivity = fbsutils.Convert(e.DragSensitivity(), t.FlatBuffer.TableKey)
-	t.ScrollWheelFactor = fbsutils.Convert(e.ScrollWheelFactor(), t.FlatBuffer.TableKey)
-	t.RemoveKeycodeWord = fbsutils.Convert(string(e.RemoveKeycodeWord()), t.FlatBuffer.TableKey)
-	t.TutorialDialogTouchKey = fbsutils.Convert(string(e.TutorialDialogTouchKey()), t.FlatBuffer.TableKey)
-	t.PcInformationGroupID = fbsutils.Convert(e.PcInformationGroupId(), t.FlatBuffer.TableKey)
-	t.PcControllerInformationGroupID = fbsutils.Convert(e.PcControllerInformationGroupId(), t.FlatBuffer.TableKey)
-	t.ControllerCursorFactorSlow = fbsutils.Convert(e.ControllerCursorFactorSlow(), t.FlatBuffer.TableKey)
-	t.ControllerCursorFactor = fbsutils.Convert(e.ControllerCursorFactor(), t.FlatBuffer.TableKey)
-	t.ControllerCursorFactorFast = fbsutils.Convert(e.ControllerCursorFactorFast(), t.FlatBuffer.TableKey)
-	t.VibrationSec = fbsutils.Convert(e.VibrationSec(), t.FlatBuffer.TableKey)
-	t.VibrationPower = fbsutils.Convert(e.VibrationPower(), t.FlatBuffer.TableKey)
-	t.ControllerScrollWheelFactor = fbsutils.Convert(e.ControllerScrollWheelFactor(), t.FlatBuffer.TableKey)
-	t.ControllerZoomSensitivity = fbsutils.Convert(e.ControllerZoomSensitivity(), t.FlatBuffer.TableKey)
-	t.ControllerDpadMoveCheckRangeX = fbsutils.Convert(e.ControllerDpadMoveCheckRangeX(), t.FlatBuffer.TableKey)
-	t.ControllerDpadMoveCheckRangeY = fbsutils.Convert(e.ControllerDpadMoveCheckRangeY(), t.FlatBuffer.TableKey)
-	t.ControllerCursorClickScale = fbsutils.Convert(e.ControllerCursorClickScale(), t.FlatBuffer.TableKey)
-	t.ControllerScrollSensitivity = fbsutils.Convert(e.ControllerScrollSensitivity(), t.FlatBuffer.TableKey)
+	t.DragSensitivity = fbsutils.Decode(e.DragSensitivity(), t.FlatBuffer.TableKey)
+	t.ScrollWheelFactor = fbsutils.Decode(e.ScrollWheelFactor(), t.FlatBuffer.TableKey)
+	t.RemoveKeycodeWord = fbsutils.Decode(string(e.RemoveKeycodeWord()), t.FlatBuffer.TableKey)
+	t.TutorialDialogTouchKey = fbsutils.Decode(string(e.TutorialDialogTouchKey()), t.FlatBuffer.TableKey)
+	t.PcInformationGroupID = fbsutils.Decode(e.PcInformationGroupId(), t.FlatBuffer.TableKey)
+	t.PcControllerInformationGroupID = fbsutils.Decode(e.PcControllerInformationGroupId(), t.FlatBuffer.TableKey)
+	t.ControllerCursorFactorSlow = fbsutils.Decode(e.ControllerCursorFactorSlow(), t.FlatBuffer.TableKey)
+	t.ControllerCursorFactor = fbsutils.Decode(e.ControllerCursorFactor(), t.FlatBuffer.TableKey)
+	t.ControllerCursorFactorFast = fbsutils.Decode(e.ControllerCursorFactorFast(), t.FlatBuffer.TableKey)
+	t.VibrationSec = fbsutils.Decode(e.VibrationSec(), t.FlatBuffer.TableKey)
+	t.VibrationPower = fbsutils.Decode(e.VibrationPower(), t.FlatBuffer.TableKey)
+	t.ControllerScrollWheelFactor = fbsutils.Decode(e.ControllerScrollWheelFactor(), t.FlatBuffer.TableKey)
+	t.ControllerZoomSensitivity = fbsutils.Decode(e.ControllerZoomSensitivity(), t.FlatBuffer.TableKey)
+	t.ControllerDpadMoveCheckRangeX = fbsutils.Decode(e.ControllerDpadMoveCheckRangeX(), t.FlatBuffer.TableKey)
+	t.ControllerDpadMoveCheckRangeY = fbsutils.Decode(e.ControllerDpadMoveCheckRangeY(), t.FlatBuffer.TableKey)
+	t.ControllerCursorClickScale = fbsutils.Decode(e.ControllerCursorClickScale(), t.FlatBuffer.TableKey)
+	t.ControllerScrollSensitivity = fbsutils.Decode(e.ControllerScrollSensitivity(), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -101,16 +98,4 @@ func (t *ConstKeyMappingExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstKeyMappingExcelDto) FlatDataName() string {
 	return "ConstKeyMappingExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

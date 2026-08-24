@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // BuffParticleExcelDto represents a FlatBuffers table.
@@ -25,12 +22,12 @@ func (t *BuffParticleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BuffParticle"))
 	}
-	uniqueNameOffset := b.CreateString(encodeDTOString(t.UniqueName, t.FlatBuffer.TableKey))
-	buffTypeOffset := b.CreateString(encodeDTOString(t.BuffType, t.FlatBuffer.TableKey))
-	buffNameOffset := b.CreateString(encodeDTOString(t.BuffName, t.FlatBuffer.TableKey))
-	resourcePathOffset := b.CreateString(encodeDTOString(t.ResourcePath, t.FlatBuffer.TableKey))
+	uniqueNameOffset := b.CreateString(fbsutils.Encode(t.UniqueName, t.FlatBuffer.TableKey))
+	buffTypeOffset := b.CreateString(fbsutils.Encode(t.BuffType, t.FlatBuffer.TableKey))
+	buffNameOffset := b.CreateString(fbsutils.Encode(t.BuffName, t.FlatBuffer.TableKey))
+	resourcePathOffset := b.CreateString(fbsutils.Encode(t.ResourcePath, t.FlatBuffer.TableKey))
 	BuffParticleExcelStart(b)
-	BuffParticleExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
+	BuffParticleExcelAddUniqueId(b, fbsutils.Encode(t.UniqueID, t.FlatBuffer.TableKey))
 	BuffParticleExcelAddUniqueName(b, uniqueNameOffset)
 	BuffParticleExcelAddBuffType(b, buffTypeOffset)
 	BuffParticleExcelAddBuffName(b, buffNameOffset)
@@ -50,11 +47,11 @@ func (t *BuffParticleExcelDto) UnmarshalMessage(e *BuffParticleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BuffParticle"))
 	}
-	t.UniqueID = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.UniqueName = fbsutils.Convert(string(e.UniqueName()), t.FlatBuffer.TableKey)
-	t.BuffType = fbsutils.Convert(string(e.BuffType()), t.FlatBuffer.TableKey)
-	t.BuffName = fbsutils.Convert(string(e.BuffName()), t.FlatBuffer.TableKey)
-	t.ResourcePath = fbsutils.Convert(string(e.ResourcePath()), t.FlatBuffer.TableKey)
+	t.UniqueID = fbsutils.Decode(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.UniqueName = fbsutils.Decode(string(e.UniqueName()), t.FlatBuffer.TableKey)
+	t.BuffType = fbsutils.Decode(string(e.BuffType()), t.FlatBuffer.TableKey)
+	t.BuffName = fbsutils.Decode(string(e.BuffName()), t.FlatBuffer.TableKey)
+	t.ResourcePath = fbsutils.Decode(string(e.ResourcePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -67,16 +64,4 @@ func (t *BuffParticleExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (BuffParticleExcelDto) FlatDataName() string {
 	return "BuffParticleExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

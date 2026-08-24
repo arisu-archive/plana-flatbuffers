@@ -25,12 +25,12 @@ func (t *FieldContentStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageReward"))
 	}
 	FieldContentStageRewardExcelStart(b)
-	FieldContentStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardTag(b, RewardTag(fbsutils.Convert(int32(t.RewardTag), t.FlatBuffer.TableKey)))
-	FieldContentStageRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardParcelType(b, ParcelType(fbsutils.Convert(int32(t.RewardParcelType), t.FlatBuffer.TableKey)))
-	FieldContentStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardID, t.FlatBuffer.TableKey))
-	FieldContentStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardTag(b, RewardTag(fbsutils.Encode(int32(t.RewardTag), t.FlatBuffer.TableKey)))
+	FieldContentStageRewardExcelAddRewardProb(b, fbsutils.Encode(t.RewardProb, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardParcelType(b, ParcelType(fbsutils.Encode(int32(t.RewardParcelType), t.FlatBuffer.TableKey)))
+	FieldContentStageRewardExcelAddRewardId(b, fbsutils.Encode(t.RewardID, t.FlatBuffer.TableKey))
+	FieldContentStageRewardExcelAddRewardAmount(b, fbsutils.Encode(t.RewardAmount, t.FlatBuffer.TableKey))
 	FieldContentStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return FieldContentStageRewardExcelEnd(b)
 }
@@ -47,12 +47,12 @@ func (t *FieldContentStageRewardExcelDto) UnmarshalMessage(e *FieldContentStageR
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageReward"))
 	}
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardID = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.RewardTag = RewardTag(fbsutils.Decode(int32(e.RewardTag()), t.FlatBuffer.TableKey))
+	t.RewardProb = fbsutils.Decode(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Decode(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardID = fbsutils.Decode(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardAmount = fbsutils.Decode(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }

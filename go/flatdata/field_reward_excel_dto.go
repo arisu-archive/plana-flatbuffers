@@ -23,11 +23,11 @@ func (t *FieldRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldReward"))
 	}
 	FieldRewardExcelStart(b)
-	FieldRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
-	FieldRewardExcelAddRewardProb(b, fbsutils.Convert(t.RewardProb, t.FlatBuffer.TableKey))
-	FieldRewardExcelAddRewardParcelType(b, ParcelType(fbsutils.Convert(int32(t.RewardParcelType), t.FlatBuffer.TableKey)))
-	FieldRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardID, t.FlatBuffer.TableKey))
-	FieldRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
+	FieldRewardExcelAddGroupId(b, fbsutils.Encode(t.GroupID, t.FlatBuffer.TableKey))
+	FieldRewardExcelAddRewardProb(b, fbsutils.Encode(t.RewardProb, t.FlatBuffer.TableKey))
+	FieldRewardExcelAddRewardParcelType(b, ParcelType(fbsutils.Encode(int32(t.RewardParcelType), t.FlatBuffer.TableKey)))
+	FieldRewardExcelAddRewardId(b, fbsutils.Encode(t.RewardID, t.FlatBuffer.TableKey))
+	FieldRewardExcelAddRewardAmount(b, fbsutils.Encode(t.RewardAmount, t.FlatBuffer.TableKey))
 	return FieldRewardExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *FieldRewardExcelDto) UnmarshalMessage(e *FieldRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldReward"))
 	}
-	t.GroupID = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardID = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
+	t.GroupID = fbsutils.Decode(e.GroupId(), t.FlatBuffer.TableKey)
+	t.RewardProb = fbsutils.Decode(e.RewardProb(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Decode(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardID = fbsutils.Decode(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardAmount = fbsutils.Decode(e.RewardAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -3,12 +3,9 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	"fmt"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // AniStateDataDto represents a FlatBuffers table.
@@ -33,12 +30,12 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
-	stateNameOffset := b.CreateString(encodeDTOString(t.StateName, t.FlatBuffer.TableKey))
-	statePrefixOffset := b.CreateString(encodeDTOString(t.StatePrefix, t.FlatBuffer.TableKey))
-	stateNameWithPrefixOffset := b.CreateString(encodeDTOString(t.StateNameWithPrefix, t.FlatBuffer.TableKey))
-	tagOffset := b.CreateString(encodeDTOString(t.Tag, t.FlatBuffer.TableKey))
-	speedParameterNameOffset := b.CreateString(encodeDTOString(t.SpeedParameterName, t.FlatBuffer.TableKey))
-	clipNameOffset := b.CreateString(encodeDTOString(t.ClipName, t.FlatBuffer.TableKey))
+	stateNameOffset := b.CreateString(fbsutils.Encode(t.StateName, t.FlatBuffer.TableKey))
+	statePrefixOffset := b.CreateString(fbsutils.Encode(t.StatePrefix, t.FlatBuffer.TableKey))
+	stateNameWithPrefixOffset := b.CreateString(fbsutils.Encode(t.StateNameWithPrefix, t.FlatBuffer.TableKey))
+	tagOffset := b.CreateString(fbsutils.Encode(t.Tag, t.FlatBuffer.TableKey))
+	speedParameterNameOffset := b.CreateString(fbsutils.Encode(t.SpeedParameterName, t.FlatBuffer.TableKey))
+	clipNameOffset := b.CreateString(fbsutils.Encode(t.ClipName, t.FlatBuffer.TableKey))
 	var eventsOffset flatbuffers.UOffsetT
 	eventsOffsets := make([]flatbuffers.UOffsetT, len(t.Events))
 	for i := range t.Events {
@@ -56,11 +53,11 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	AniStateDataAddStateNameWithPrefix(b, stateNameWithPrefixOffset)
 	AniStateDataAddTag(b, tagOffset)
 	AniStateDataAddSpeedParameterName(b, speedParameterNameOffset)
-	AniStateDataAddSpeedParamter(b, fbsutils.Convert(t.SpeedParamter, t.FlatBuffer.TableKey))
-	AniStateDataAddStateSpeed(b, fbsutils.Convert(t.StateSpeed, t.FlatBuffer.TableKey))
+	AniStateDataAddSpeedParamter(b, fbsutils.Encode(t.SpeedParamter, t.FlatBuffer.TableKey))
+	AniStateDataAddStateSpeed(b, fbsutils.Encode(t.StateSpeed, t.FlatBuffer.TableKey))
 	AniStateDataAddClipName(b, clipNameOffset)
-	AniStateDataAddLength(b, fbsutils.Convert(t.Length, t.FlatBuffer.TableKey))
-	AniStateDataAddFrameRate(b, fbsutils.Convert(t.FrameRate, t.FlatBuffer.TableKey))
+	AniStateDataAddLength(b, fbsutils.Encode(t.Length, t.FlatBuffer.TableKey))
+	AniStateDataAddFrameRate(b, fbsutils.Encode(t.FrameRate, t.FlatBuffer.TableKey))
 	AniStateDataAddIsLooping(b, t.IsLooping)
 	AniStateDataAddEvents(b, eventsOffset)
 	return AniStateDataEnd(b)
@@ -78,16 +75,16 @@ func (t *AniStateDataDto) UnmarshalMessage(e *AniStateData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
-	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
-	t.StatePrefix = fbsutils.Convert(string(e.StatePrefix()), t.FlatBuffer.TableKey)
-	t.StateNameWithPrefix = fbsutils.Convert(string(e.StateNameWithPrefix()), t.FlatBuffer.TableKey)
-	t.Tag = fbsutils.Convert(string(e.Tag()), t.FlatBuffer.TableKey)
-	t.SpeedParameterName = fbsutils.Convert(string(e.SpeedParameterName()), t.FlatBuffer.TableKey)
-	t.SpeedParamter = fbsutils.Convert(e.SpeedParamter(), t.FlatBuffer.TableKey)
-	t.StateSpeed = fbsutils.Convert(e.StateSpeed(), t.FlatBuffer.TableKey)
-	t.ClipName = fbsutils.Convert(string(e.ClipName()), t.FlatBuffer.TableKey)
-	t.Length = fbsutils.Convert(e.Length(), t.FlatBuffer.TableKey)
-	t.FrameRate = fbsutils.Convert(e.FrameRate(), t.FlatBuffer.TableKey)
+	t.StateName = fbsutils.Decode(string(e.StateName()), t.FlatBuffer.TableKey)
+	t.StatePrefix = fbsutils.Decode(string(e.StatePrefix()), t.FlatBuffer.TableKey)
+	t.StateNameWithPrefix = fbsutils.Decode(string(e.StateNameWithPrefix()), t.FlatBuffer.TableKey)
+	t.Tag = fbsutils.Decode(string(e.Tag()), t.FlatBuffer.TableKey)
+	t.SpeedParameterName = fbsutils.Decode(string(e.SpeedParameterName()), t.FlatBuffer.TableKey)
+	t.SpeedParamter = fbsutils.Decode(e.SpeedParamter(), t.FlatBuffer.TableKey)
+	t.StateSpeed = fbsutils.Decode(e.StateSpeed(), t.FlatBuffer.TableKey)
+	t.ClipName = fbsutils.Decode(string(e.ClipName()), t.FlatBuffer.TableKey)
+	t.Length = fbsutils.Decode(e.Length(), t.FlatBuffer.TableKey)
+	t.FrameRate = fbsutils.Decode(e.FrameRate(), t.FlatBuffer.TableKey)
 	t.IsLooping = e.IsLooping()
 	t.Events = make([]AniEventDataDto, e.EventsLength())
 	for i := 0; i < e.EventsLength(); i++ {
@@ -112,16 +109,4 @@ func (t *AniStateDataDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (AniStateDataDto) FlatDataName() string {
 	return "AniStateData"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

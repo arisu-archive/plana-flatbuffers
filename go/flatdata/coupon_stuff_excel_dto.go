@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // CouponStuffExcelDto represents a FlatBuffers table.
@@ -25,12 +22,12 @@ func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
-	couponStuffNameLocalizeKeyOffset := b.CreateString(encodeDTOString(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey))
+	couponStuffNameLocalizeKeyOffset := b.CreateString(fbsutils.Encode(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey))
 	CouponStuffExcelStart(b)
-	CouponStuffExcelAddStuffId(b, fbsutils.Convert(t.StuffID, t.FlatBuffer.TableKey))
-	CouponStuffExcelAddParcelType(b, ParcelType(fbsutils.Convert(int32(t.ParcelType), t.FlatBuffer.TableKey)))
-	CouponStuffExcelAddParcelId(b, fbsutils.Convert(t.ParcelID, t.FlatBuffer.TableKey))
-	CouponStuffExcelAddLimitAmount(b, fbsutils.Convert(t.LimitAmount, t.FlatBuffer.TableKey))
+	CouponStuffExcelAddStuffId(b, fbsutils.Encode(t.StuffID, t.FlatBuffer.TableKey))
+	CouponStuffExcelAddParcelType(b, ParcelType(fbsutils.Encode(int32(t.ParcelType), t.FlatBuffer.TableKey)))
+	CouponStuffExcelAddParcelId(b, fbsutils.Encode(t.ParcelID, t.FlatBuffer.TableKey))
+	CouponStuffExcelAddLimitAmount(b, fbsutils.Encode(t.LimitAmount, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, couponStuffNameLocalizeKeyOffset)
 	return CouponStuffExcelEnd(b)
 }
@@ -47,11 +44,11 @@ func (t *CouponStuffExcelDto) UnmarshalMessage(e *CouponStuffExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
-	t.StuffID = fbsutils.Convert(e.StuffId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelID = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.LimitAmount = fbsutils.Convert(e.LimitAmount(), t.FlatBuffer.TableKey)
-	t.CouponStuffNameLocalizeKey = fbsutils.Convert(string(e.CouponStuffNameLocalizeKey()), t.FlatBuffer.TableKey)
+	t.StuffID = fbsutils.Decode(e.StuffId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Decode(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.ParcelID = fbsutils.Decode(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.LimitAmount = fbsutils.Decode(e.LimitAmount(), t.FlatBuffer.TableKey)
+	t.CouponStuffNameLocalizeKey = fbsutils.Decode(string(e.CouponStuffNameLocalizeKey()), t.FlatBuffer.TableKey)
 	return nil
 }
 
@@ -64,16 +61,4 @@ func (t *CouponStuffExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (CouponStuffExcelDto) FlatDataName() string {
 	return "CouponStuffExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

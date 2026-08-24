@@ -21,9 +21,9 @@ func (t *GachaSelectPickupGroupExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaSelectPickupGroup"))
 	}
 	GachaSelectPickupGroupExcelStart(b)
-	GachaSelectPickupGroupExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
-	GachaSelectPickupGroupExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupID, t.FlatBuffer.TableKey))
-	GachaSelectPickupGroupExcelAddCharacterId(b, fbsutils.Convert(t.CharacterID, t.FlatBuffer.TableKey))
+	GachaSelectPickupGroupExcelAddId(b, fbsutils.Encode(t.ID, t.FlatBuffer.TableKey))
+	GachaSelectPickupGroupExcelAddGachaGroupId(b, fbsutils.Encode(t.GachaGroupID, t.FlatBuffer.TableKey))
+	GachaSelectPickupGroupExcelAddCharacterId(b, fbsutils.Encode(t.CharacterID, t.FlatBuffer.TableKey))
 	return GachaSelectPickupGroupExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *GachaSelectPickupGroupExcelDto) UnmarshalMessage(e *GachaSelectPickupGr
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaSelectPickupGroup"))
 	}
-	t.ID = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GachaGroupID = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
-	t.CharacterID = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.ID = fbsutils.Decode(e.Id(), t.FlatBuffer.TableKey)
+	t.GachaGroupID = fbsutils.Decode(e.GachaGroupId(), t.FlatBuffer.TableKey)
+	t.CharacterID = fbsutils.Decode(e.CharacterId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -24,20 +24,20 @@ func (t *DefaultEchelonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	}
 	DefaultEchelonExcelStartMainIdVector(b, len(t.MainID))
 	for i := len(t.MainID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.MainID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.MainID[i], t.FlatBuffer.TableKey))
 	}
 	mainIDOffset := b.EndVector(len(t.MainID))
 	DefaultEchelonExcelStartSupportIdVector(b, len(t.SupportID))
 	for i := len(t.SupportID) - 1; i >= 0; i-- {
-		b.PrependInt64(fbsutils.Convert(t.SupportID[i], t.FlatBuffer.TableKey))
+		b.PrependInt64(fbsutils.Encode(t.SupportID[i], t.FlatBuffer.TableKey))
 	}
 	supportIDOffset := b.EndVector(len(t.SupportID))
 	DefaultEchelonExcelStart(b)
-	DefaultEchelonExcelAddEchlonId(b, fbsutils.Convert(t.EchlonID, t.FlatBuffer.TableKey))
-	DefaultEchelonExcelAddLeaderId(b, fbsutils.Convert(t.LeaderID, t.FlatBuffer.TableKey))
+	DefaultEchelonExcelAddEchlonId(b, fbsutils.Encode(t.EchlonID, t.FlatBuffer.TableKey))
+	DefaultEchelonExcelAddLeaderId(b, fbsutils.Encode(t.LeaderID, t.FlatBuffer.TableKey))
 	DefaultEchelonExcelAddMainId(b, mainIDOffset)
 	DefaultEchelonExcelAddSupportId(b, supportIDOffset)
-	DefaultEchelonExcelAddTssId(b, fbsutils.Convert(t.TssID, t.FlatBuffer.TableKey))
+	DefaultEchelonExcelAddTssId(b, fbsutils.Encode(t.TssID, t.FlatBuffer.TableKey))
 	return DefaultEchelonExcelEnd(b)
 }
 
@@ -53,17 +53,17 @@ func (t *DefaultEchelonExcelDto) UnmarshalMessage(e *DefaultEchelonExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelon"))
 	}
-	t.EchlonID = fbsutils.Convert(e.EchlonId(), t.FlatBuffer.TableKey)
-	t.LeaderID = fbsutils.Convert(e.LeaderId(), t.FlatBuffer.TableKey)
+	t.EchlonID = fbsutils.Decode(e.EchlonId(), t.FlatBuffer.TableKey)
+	t.LeaderID = fbsutils.Decode(e.LeaderId(), t.FlatBuffer.TableKey)
 	t.MainID = make([]int64, e.MainIdLength())
 	for i := 0; i < e.MainIdLength(); i++ {
-		t.MainID[i] = fbsutils.Convert(e.MainId(i), t.FlatBuffer.TableKey)
+		t.MainID[i] = fbsutils.Decode(e.MainId(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportID = make([]int64, e.SupportIdLength())
 	for i := 0; i < e.SupportIdLength(); i++ {
-		t.SupportID[i] = fbsutils.Convert(e.SupportId(i), t.FlatBuffer.TableKey)
+		t.SupportID[i] = fbsutils.Decode(e.SupportId(i), t.FlatBuffer.TableKey)
 	}
-	t.TssID = fbsutils.Convert(e.TssId(), t.FlatBuffer.TableKey)
+	t.TssID = fbsutils.Decode(e.TssId(), t.FlatBuffer.TableKey)
 	return nil
 }
 
