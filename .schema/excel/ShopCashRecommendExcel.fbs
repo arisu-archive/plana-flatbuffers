@@ -1,0 +1,17 @@
+include "RecommendPageType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopCashRecommendExcel {
+    id: long;
+    recommend_page_type: RecommendPageType;
+    shop_cash_id: long;
+    display_order: int;
+    visible_period_from: string;
+    visible_period_to: string;
+    video_id: [long];
+    image_path: string;
+    info_localize_code_id: uint;
+}
+
+root_type ShopCashRecommendExcel;

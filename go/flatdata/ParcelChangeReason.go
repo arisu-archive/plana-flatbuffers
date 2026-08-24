@@ -208,6 +208,20 @@ const (
 	ParcelChangeReasonWelcomeCampaign_EnterReward          ParcelChangeReason = 198
 	ParcelChangeReasonWelcomeCampaign_AttendanceReward     ParcelChangeReason = 199
 	ParcelChangeReasonWelcomeCampaign_MissionClear         ParcelChangeReason = 200
+	ParcelChangeReasonTacticalRelay_EnterBattle            ParcelChangeReason = 201
+	ParcelChangeReasonTacticalRelay_StageResult            ParcelChangeReason = 202
+	ParcelChangeReasonTacticalRelay_Sweep                  ParcelChangeReason = 203
+	ParcelChangeReasonTacticalRelay_GiveUp                 ParcelChangeReason = 204
+	ParcelChangeReasonMiniGame_JankenEquipLevelUp          ParcelChangeReason = 205
+	ParcelChangeReasonMiniGame_JankenEndBattle             ParcelChangeReason = 206
+	ParcelChangeReasonMiniGame_JankenScoreReward           ParcelChangeReason = 207
+	ParcelChangeReasonCharacter_AllocateEngraveNode        ParcelChangeReason = 208
+	ParcelChangeReasonSeasonRecord_BuyDay                  ParcelChangeReason = 209
+	ParcelChangeReasonSeasonRecord_Reward                  ParcelChangeReason = 210
+	ParcelChangeReasonStreakRecord_Reward                  ParcelChangeReason = 211
+	ParcelChangeReasonStreakRecord_RestoreDay              ParcelChangeReason = 212
+	ParcelChangeReasonStudentFrame_Acquire                 ParcelChangeReason = 213
+	ParcelChangeReasonShop_GachaWishListBuy                ParcelChangeReason = 214
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -412,6 +426,20 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonWelcomeCampaign_EnterReward:          "WelcomeCampaign_EnterReward",
 	ParcelChangeReasonWelcomeCampaign_AttendanceReward:     "WelcomeCampaign_AttendanceReward",
 	ParcelChangeReasonWelcomeCampaign_MissionClear:         "WelcomeCampaign_MissionClear",
+	ParcelChangeReasonTacticalRelay_EnterBattle:            "TacticalRelay_EnterBattle",
+	ParcelChangeReasonTacticalRelay_StageResult:            "TacticalRelay_StageResult",
+	ParcelChangeReasonTacticalRelay_Sweep:                  "TacticalRelay_Sweep",
+	ParcelChangeReasonTacticalRelay_GiveUp:                 "TacticalRelay_GiveUp",
+	ParcelChangeReasonMiniGame_JankenEquipLevelUp:          "MiniGame_JankenEquipLevelUp",
+	ParcelChangeReasonMiniGame_JankenEndBattle:             "MiniGame_JankenEndBattle",
+	ParcelChangeReasonMiniGame_JankenScoreReward:           "MiniGame_JankenScoreReward",
+	ParcelChangeReasonCharacter_AllocateEngraveNode:        "Character_AllocateEngraveNode",
+	ParcelChangeReasonSeasonRecord_BuyDay:                  "SeasonRecord_BuyDay",
+	ParcelChangeReasonSeasonRecord_Reward:                  "SeasonRecord_Reward",
+	ParcelChangeReasonStreakRecord_Reward:                  "StreakRecord_Reward",
+	ParcelChangeReasonStreakRecord_RestoreDay:              "StreakRecord_RestoreDay",
+	ParcelChangeReasonStudentFrame_Acquire:                 "StudentFrame_Acquire",
+	ParcelChangeReasonShop_GachaWishListBuy:                "Shop_GachaWishListBuy",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -616,6 +644,20 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"WelcomeCampaign_EnterReward":          ParcelChangeReasonWelcomeCampaign_EnterReward,
 	"WelcomeCampaign_AttendanceReward":     ParcelChangeReasonWelcomeCampaign_AttendanceReward,
 	"WelcomeCampaign_MissionClear":         ParcelChangeReasonWelcomeCampaign_MissionClear,
+	"TacticalRelay_EnterBattle":            ParcelChangeReasonTacticalRelay_EnterBattle,
+	"TacticalRelay_StageResult":            ParcelChangeReasonTacticalRelay_StageResult,
+	"TacticalRelay_Sweep":                  ParcelChangeReasonTacticalRelay_Sweep,
+	"TacticalRelay_GiveUp":                 ParcelChangeReasonTacticalRelay_GiveUp,
+	"MiniGame_JankenEquipLevelUp":          ParcelChangeReasonMiniGame_JankenEquipLevelUp,
+	"MiniGame_JankenEndBattle":             ParcelChangeReasonMiniGame_JankenEndBattle,
+	"MiniGame_JankenScoreReward":           ParcelChangeReasonMiniGame_JankenScoreReward,
+	"Character_AllocateEngraveNode":        ParcelChangeReasonCharacter_AllocateEngraveNode,
+	"SeasonRecord_BuyDay":                  ParcelChangeReasonSeasonRecord_BuyDay,
+	"SeasonRecord_Reward":                  ParcelChangeReasonSeasonRecord_Reward,
+	"StreakRecord_Reward":                  ParcelChangeReasonStreakRecord_Reward,
+	"StreakRecord_RestoreDay":              ParcelChangeReasonStreakRecord_RestoreDay,
+	"StudentFrame_Acquire":                 ParcelChangeReasonStudentFrame_Acquire,
+	"Shop_GachaWishListBuy":                ParcelChangeReasonShop_GachaWishListBuy,
 }
 
 func (v ParcelChangeReason) String() string {

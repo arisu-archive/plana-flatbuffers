@@ -1,0 +1,18 @@
+include "TargetGroup.fbs";
+
+namespace MX.Data.Excel;
+
+table SeasonRecordInfoExcel {
+    id: long;
+    target_group: TargetGroup;
+    account_level_limit: long;
+    title: string;
+    start_date: string;
+    end_date: string;
+    basic_reward_id: long;
+    accumulated_reward_id: long;
+    supplement_cost: long;
+    title_image_path: string;
+}
+
+root_type SeasonRecordInfoExcel;

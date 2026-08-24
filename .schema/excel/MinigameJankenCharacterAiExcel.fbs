@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenCharacterAiExcel {
+    id: long;
+    group_id: long;
+    rock: long;
+    scissor: long;
+    paper: long;
+    group_chance: long;
+}
+
+root_type MinigameJankenCharacterAiExcel;

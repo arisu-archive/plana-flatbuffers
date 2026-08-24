@@ -28,6 +28,7 @@ const (
 	ContentLockTypeGacha                          ContentLockType = 18
 	ContentLockTypeCraft                          ContentLockType = 19
 	ContentLockTypeMomoTalk                       ContentLockType = 20
+	ContentLockTypeTacticalRelay                  ContentLockType = 21
 )
 
 var EnumNamesContentLockType = map[ContentLockType]string{
@@ -52,6 +53,7 @@ var EnumNamesContentLockType = map[ContentLockType]string{
 	ContentLockTypeGacha:                          "Gacha",
 	ContentLockTypeCraft:                          "Craft",
 	ContentLockTypeMomoTalk:                       "MomoTalk",
+	ContentLockTypeTacticalRelay:                  "TacticalRelay",
 }
 
 var EnumValuesContentLockType = map[string]ContentLockType{
@@ -76,6 +78,7 @@ var EnumValuesContentLockType = map[string]ContentLockType{
 	"Gacha":                          ContentLockTypeGacha,
 	"Craft":                          ContentLockTypeCraft,
 	"MomoTalk":                       ContentLockTypeMomoTalk,
+	"TacticalRelay":                  ContentLockTypeTacticalRelay,
 }
 
 func (v ContentLockType) String() string {

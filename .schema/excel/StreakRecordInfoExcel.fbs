@@ -1,0 +1,20 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table StreakRecordInfoExcel {
+    id: long;
+    day_size: long;
+    start_date: string;
+    end_date: string;
+    free_reward_group_id: long;
+    purchase_reward_group_id: long;
+    title_image_path: string;
+    decoration_image_path: string;
+    restore_cost_parcel_type: ParcelType;
+    restore_cost_parcel_id: long;
+    restore_cost_parcel_amount: long;
+    cost_increase_day_max: long;
+}
+
+root_type StreakRecordInfoExcel;

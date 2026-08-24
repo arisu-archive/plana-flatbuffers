@@ -10,6 +10,8 @@ table ShopRecruitExcel {
     is_legacy: bool;
     one_gacha_goods_id: long;
     ten_gacha_goods_id: long;
+    wish_list_one_gacha_goods_id: long;
+    wish_list_ten_gacha_goods_id: long;
     goods_dev_name: string;
     display_tag: GachaDisplayTag;
     display_order: long;
@@ -22,15 +24,27 @@ table ShopRecruitExcel {
     sale_period_to: string;
     recruit_coin_id: long;
     recruit_sellection_shop_id: long;
+    recruit_stack_item_id: long;
+    recruit_mileage_group_id: long;
+    mileage_count_free_recruit: bool;
     purchase_cooltime_min: long;
     purchase_count_limit: long;
     purchase_count_reset_type: PurchaseCountResetType;
+    sale_period_day_parameter: long;
+    is_override_sale_period_to: bool;
     is_newbie: bool;
     is_select_recruit: bool;
     direct_pay_invisible_token_id: long;
     direct_pay_product_id: string;
     select_able_gacha_group_id: long;
     max_select_character_num: long;
+    recruit_stack_id: long;
+    half_stack_display_item_id: long;
+    half_stack_gacha_group_id: long;
+    full_stack_gacha_group_id: long;
+    wish_list_on_off: bool;
+    wish_list_half_stack_gacha_group_id: long;
+    wish_list_full_stack_gacha_group_id: long;
 }
 
 root_type ShopRecruitExcel;

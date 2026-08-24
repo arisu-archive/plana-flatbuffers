@@ -1,0 +1,15 @@
+include "ApcSynergyTriggerType.fbs";
+
+namespace MX.Data.Excel;
+
+table ApcSynergySettingExcel {
+    id: long;
+    apc_synergy_group_id: long;
+    trigger_type: ApcSynergyTriggerType;
+    trigger_value: [string];
+    trigger_value_count: [long];
+    passive_skill_group_id: [string];
+    passive_skill_level: [long];
+}
+
+root_type ApcSynergySettingExcel;

@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenLogicEffectExcel {
+    id: long;
+    target: uint;
+    path: string;
+}
+
+root_type MinigameJankenLogicEffectExcel;

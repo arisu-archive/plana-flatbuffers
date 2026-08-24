@@ -41,6 +41,7 @@ table ItemExcel {
     shop_category: [ShopCategoryType];
     expiration_date_time: string;
     expiration_notify_date_in: int;
+    is_override_expiration: bool;
     shortcut_type_id: long;
     gacha_ticket: GachaTicketType;
     alert_popup_id: long;

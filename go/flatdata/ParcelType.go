@@ -37,6 +37,8 @@ const (
 	ParcelTypeProductBattlePass   ParcelType = 27
 	ParcelTypeProductSelect       ParcelType = 28
 	ParcelTypeSNSPost             ParcelType = 29
+	ParcelTypeProductDailyRecord  ParcelType = 30
+	ParcelTypeStudentFrame        ParcelType = 31
 )
 
 var EnumNamesParcelType = map[ParcelType]string{
@@ -70,6 +72,8 @@ var EnumNamesParcelType = map[ParcelType]string{
 	ParcelTypeProductBattlePass:   "ProductBattlePass",
 	ParcelTypeProductSelect:       "ProductSelect",
 	ParcelTypeSNSPost:             "SNSPost",
+	ParcelTypeProductDailyRecord:  "ProductDailyRecord",
+	ParcelTypeStudentFrame:        "StudentFrame",
 }
 
 var EnumValuesParcelType = map[string]ParcelType{
@@ -103,6 +107,8 @@ var EnumValuesParcelType = map[string]ParcelType{
 	"ProductBattlePass":   ParcelTypeProductBattlePass,
 	"ProductSelect":       ParcelTypeProductSelect,
 	"SNSPost":             ParcelTypeSNSPost,
+	"ProductDailyRecord":  ParcelTypeProductDailyRecord,
+	"StudentFrame":        ParcelTypeStudentFrame,
 }
 
 func (v ParcelType) String() string {

@@ -81,8 +81,164 @@ func (rcv *ConstKeyMappingExcel) TutorialDialogTouchKey() []byte {
 	return nil
 }
 
+func (rcv *ConstKeyMappingExcel) PcInformationGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstKeyMappingExcel) MutatePcInformationGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *ConstKeyMappingExcel) PcControllerInformationGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstKeyMappingExcel) MutatePcControllerInformationGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerCursorFactorSlow() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerCursorFactorSlow(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerCursorFactor() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerCursorFactor(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerCursorFactorFast() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerCursorFactorFast(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ConstKeyMappingExcel) VibrationSec() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateVibrationSec(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(22, n)
+}
+
+func (rcv *ConstKeyMappingExcel) VibrationPower() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateVibrationPower(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(24, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerScrollWheelFactor() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerScrollWheelFactor(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(26, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerZoomSensitivity() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerZoomSensitivity(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(28, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerDpadMoveCheckRangeX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerDpadMoveCheckRangeX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(30, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerDpadMoveCheckRangeY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerDpadMoveCheckRangeY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(32, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerCursorClickScale() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerCursorClickScale(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(34, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ControllerScrollSensitivity() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateControllerScrollSensitivity(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(36, n)
+}
+
 func ConstKeyMappingExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(17)
 }
 func ConstKeyMappingExcelAddDragSensitivity(builder *flatbuffers.Builder, dragSensitivity float32) {
 	builder.PrependFloat32Slot(0, dragSensitivity, 0.0)
@@ -95,6 +251,45 @@ func ConstKeyMappingExcelAddRemoveKeycodeWord(builder *flatbuffers.Builder, remo
 }
 func ConstKeyMappingExcelAddTutorialDialogTouchKey(builder *flatbuffers.Builder, tutorialDialogTouchKey flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(tutorialDialogTouchKey), 0)
+}
+func ConstKeyMappingExcelAddPcInformationGroupId(builder *flatbuffers.Builder, pcInformationGroupId int64) {
+	builder.PrependInt64Slot(4, pcInformationGroupId, 0)
+}
+func ConstKeyMappingExcelAddPcControllerInformationGroupId(builder *flatbuffers.Builder, pcControllerInformationGroupId int64) {
+	builder.PrependInt64Slot(5, pcControllerInformationGroupId, 0)
+}
+func ConstKeyMappingExcelAddControllerCursorFactorSlow(builder *flatbuffers.Builder, controllerCursorFactorSlow int32) {
+	builder.PrependInt32Slot(6, controllerCursorFactorSlow, 0)
+}
+func ConstKeyMappingExcelAddControllerCursorFactor(builder *flatbuffers.Builder, controllerCursorFactor int32) {
+	builder.PrependInt32Slot(7, controllerCursorFactor, 0)
+}
+func ConstKeyMappingExcelAddControllerCursorFactorFast(builder *flatbuffers.Builder, controllerCursorFactorFast int32) {
+	builder.PrependInt32Slot(8, controllerCursorFactorFast, 0)
+}
+func ConstKeyMappingExcelAddVibrationSec(builder *flatbuffers.Builder, vibrationSec float32) {
+	builder.PrependFloat32Slot(9, vibrationSec, 0.0)
+}
+func ConstKeyMappingExcelAddVibrationPower(builder *flatbuffers.Builder, vibrationPower float32) {
+	builder.PrependFloat32Slot(10, vibrationPower, 0.0)
+}
+func ConstKeyMappingExcelAddControllerScrollWheelFactor(builder *flatbuffers.Builder, controllerScrollWheelFactor float32) {
+	builder.PrependFloat32Slot(11, controllerScrollWheelFactor, 0.0)
+}
+func ConstKeyMappingExcelAddControllerZoomSensitivity(builder *flatbuffers.Builder, controllerZoomSensitivity float32) {
+	builder.PrependFloat32Slot(12, controllerZoomSensitivity, 0.0)
+}
+func ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(builder *flatbuffers.Builder, controllerDpadMoveCheckRangeX float32) {
+	builder.PrependFloat32Slot(13, controllerDpadMoveCheckRangeX, 0.0)
+}
+func ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(builder *flatbuffers.Builder, controllerDpadMoveCheckRangeY float32) {
+	builder.PrependFloat32Slot(14, controllerDpadMoveCheckRangeY, 0.0)
+}
+func ConstKeyMappingExcelAddControllerCursorClickScale(builder *flatbuffers.Builder, controllerCursorClickScale float32) {
+	builder.PrependFloat32Slot(15, controllerCursorClickScale, 0.0)
+}
+func ConstKeyMappingExcelAddControllerScrollSensitivity(builder *flatbuffers.Builder, controllerScrollSensitivity float32) {
+	builder.PrependFloat32Slot(16, controllerScrollSensitivity, 0.0)
 }
 func ConstKeyMappingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

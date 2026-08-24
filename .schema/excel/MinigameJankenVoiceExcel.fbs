@@ -1,0 +1,18 @@
+include "JankenVoiceCondition.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameJankenVoiceExcel {
+    id: long;
+    character_id: long;
+    costume_unique_id: long;
+    event_content_id: long;
+    voice_condition: JankenVoiceCondition;
+    animation_name: string;
+    duration: long;
+    localize_kr: string;
+    localize_jp: string;
+    voice_id: uint;
+}
+
+root_type MinigameJankenVoiceExcel;

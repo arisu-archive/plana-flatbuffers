@@ -17,6 +17,7 @@ const (
 	RecipeTypeWeaponTranscendence    RecipeType = 7
 	RecipeTypeSelectRecruit          RecipeType = 8
 	RecipeTypeCharacterPotential     RecipeType = 9
+	RecipeTypeEngraveOpen            RecipeType = 10
 )
 
 var EnumNamesRecipeType = map[RecipeType]string{
@@ -30,6 +31,7 @@ var EnumNamesRecipeType = map[RecipeType]string{
 	RecipeTypeWeaponTranscendence:    "WeaponTranscendence",
 	RecipeTypeSelectRecruit:          "SelectRecruit",
 	RecipeTypeCharacterPotential:     "CharacterPotential",
+	RecipeTypeEngraveOpen:            "EngraveOpen",
 }
 
 var EnumValuesRecipeType = map[string]RecipeType{
@@ -43,6 +45,7 @@ var EnumValuesRecipeType = map[string]RecipeType{
 	"WeaponTranscendence":    RecipeTypeWeaponTranscendence,
 	"SelectRecruit":          RecipeTypeSelectRecruit,
 	"CharacterPotential":     RecipeTypeCharacterPotential,
+	"EngraveOpen":            RecipeTypeEngraveOpen,
 }
 
 func (v RecipeType) String() string {

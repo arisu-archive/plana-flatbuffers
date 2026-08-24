@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table ScenarioModeDigestExcel {
+    id: long;
+    series: long;
+    order: long;
+    image_path: string;
+    video_id: long;
+    localize_etc_id: uint;
+}
+
+root_type ScenarioModeDigestExcel;

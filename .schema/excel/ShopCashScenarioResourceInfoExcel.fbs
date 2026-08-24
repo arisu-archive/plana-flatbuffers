@@ -4,6 +4,8 @@ table ShopCashScenarioResourceInfoExcel {
     scenario_resrouce_info_id: long;
     shop_cash_id: long;
     icon_path: string;
+    recommend_icon_path: string;
+    recommend_prefab_path: string;
 }
 
 root_type ShopCashScenarioResourceInfoExcel;

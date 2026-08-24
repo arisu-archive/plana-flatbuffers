@@ -52,6 +52,7 @@ table CharacterExcel {
     external_bt_id: long;
     main_combat_style_id: long;
     combat_style_index: int;
+    use_rep_style_on_character_growth: bool;
     scenario_character: string;
     spawn_template_id: uint;
     favor_levelup_type: int;
@@ -60,6 +61,7 @@ table CharacterExcel {
     display_enemy_info: bool;
     body_radius: long;
     random_effect_radius: long;
+    target_guide_scale: float;
     hp_bar_hide: bool;
     hp_bar_height: float;
     highlight_floater_height: float;

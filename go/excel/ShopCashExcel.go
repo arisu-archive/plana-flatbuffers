@@ -221,8 +221,20 @@ func (rcv *ShopCashExcel) MutateProductSaleDay(n int64) bool {
 	return rcv._tab.MutateInt64Slot(34, n)
 }
 
-func (rcv *ShopCashExcel) PeriodTag() bool {
+func (rcv *ShopCashExcel) ProductSaleMilliSeconds() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopCashExcel) MutateProductSaleMilliSeconds(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *ShopCashExcel) PeriodTag() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -230,11 +242,11 @@ func (rcv *ShopCashExcel) PeriodTag() bool {
 }
 
 func (rcv *ShopCashExcel) MutatePeriodTag(n bool) bool {
-	return rcv._tab.MutateBoolSlot(36, n)
+	return rcv._tab.MutateBoolSlot(38, n)
 }
 
 func (rcv *ShopCashExcel) AccountLevelLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -242,11 +254,11 @@ func (rcv *ShopCashExcel) AccountLevelLimit() int64 {
 }
 
 func (rcv *ShopCashExcel) MutateAccountLevelLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
+	return rcv._tab.MutateInt64Slot(40, n)
 }
 
 func (rcv *ShopCashExcel) AccountLevelHide() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -254,11 +266,11 @@ func (rcv *ShopCashExcel) AccountLevelHide() bool {
 }
 
 func (rcv *ShopCashExcel) MutateAccountLevelHide(n bool) bool {
-	return rcv._tab.MutateBoolSlot(40, n)
+	return rcv._tab.MutateBoolSlot(42, n)
 }
 
 func (rcv *ShopCashExcel) ClearMissionLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -266,11 +278,11 @@ func (rcv *ShopCashExcel) ClearMissionLimit() int64 {
 }
 
 func (rcv *ShopCashExcel) MutateClearMissionLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+	return rcv._tab.MutateInt64Slot(44, n)
 }
 
 func (rcv *ShopCashExcel) ClearMissionHide() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -278,11 +290,27 @@ func (rcv *ShopCashExcel) ClearMissionHide() bool {
 }
 
 func (rcv *ShopCashExcel) MutateClearMissionHide(n bool) bool {
-	return rcv._tab.MutateBoolSlot(44, n)
+	return rcv._tab.MutateBoolSlot(46, n)
 }
 
 func (rcv *ShopCashExcel) PurchaseReportEventName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopCashExcel) RecommendIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopCashExcel) RecommendPrefabPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -290,7 +318,7 @@ func (rcv *ShopCashExcel) PurchaseReportEventName() []byte {
 }
 
 func ShopCashExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(22)
+	builder.StartObject(25)
 }
 func ShopCashExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -340,23 +368,32 @@ func ShopCashExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeriodTo fla
 func ShopCashExcelAddProductSaleDay(builder *flatbuffers.Builder, productSaleDay int64) {
 	builder.PrependInt64Slot(15, productSaleDay, 0)
 }
+func ShopCashExcelAddProductSaleMilliSeconds(builder *flatbuffers.Builder, productSaleMilliSeconds int64) {
+	builder.PrependInt64Slot(16, productSaleMilliSeconds, 0)
+}
 func ShopCashExcelAddPeriodTag(builder *flatbuffers.Builder, periodTag bool) {
-	builder.PrependBoolSlot(16, periodTag, false)
+	builder.PrependBoolSlot(17, periodTag, false)
 }
 func ShopCashExcelAddAccountLevelLimit(builder *flatbuffers.Builder, accountLevelLimit int64) {
-	builder.PrependInt64Slot(17, accountLevelLimit, 0)
+	builder.PrependInt64Slot(18, accountLevelLimit, 0)
 }
 func ShopCashExcelAddAccountLevelHide(builder *flatbuffers.Builder, accountLevelHide bool) {
-	builder.PrependBoolSlot(18, accountLevelHide, false)
+	builder.PrependBoolSlot(19, accountLevelHide, false)
 }
 func ShopCashExcelAddClearMissionLimit(builder *flatbuffers.Builder, clearMissionLimit int64) {
-	builder.PrependInt64Slot(19, clearMissionLimit, 0)
+	builder.PrependInt64Slot(20, clearMissionLimit, 0)
 }
 func ShopCashExcelAddClearMissionHide(builder *flatbuffers.Builder, clearMissionHide bool) {
-	builder.PrependBoolSlot(20, clearMissionHide, false)
+	builder.PrependBoolSlot(21, clearMissionHide, false)
 }
 func ShopCashExcelAddPurchaseReportEventName(builder *flatbuffers.Builder, purchaseReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(purchaseReportEventName), 0)
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(purchaseReportEventName), 0)
+}
+func ShopCashExcelAddRecommendIconPath(builder *flatbuffers.Builder, recommendIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(recommendIconPath), 0)
+}
+func ShopCashExcelAddRecommendPrefabPath(builder *flatbuffers.Builder, recommendPrefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(recommendPrefabPath), 0)
 }
 func ShopCashExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

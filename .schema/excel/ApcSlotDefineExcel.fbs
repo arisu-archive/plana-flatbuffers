@@ -1,0 +1,34 @@
+include "SquadType.fbs";
+include "StatType.fbs";
+
+namespace MX.Data.Excel;
+
+table ApcSlotDefineExcel {
+    apc_slot_define_id: long;
+    apc_slot_amount: int;
+    apc_slot_squad_type01: [SquadType];
+    apc_slot_start_cooltime01: int;
+    apc_slot_cooltime01: int;
+    apc_slot_squad_type02: [SquadType];
+    apc_slot_start_cooltime02: int;
+    apc_slot_cooltime02: int;
+    apc_slot_squad_type03: [SquadType];
+    apc_slot_start_cooltime03: int;
+    apc_slot_cooltime03: int;
+    apc_slot_squad_type04: [SquadType];
+    apc_slot_start_cooltime04: int;
+    apc_slot_cooltime04: int;
+    apc_synergy_id: long;
+    add_cost_rule: string;
+    stat_type01: StatType;
+    stat_add01: long;
+    stat_multiply01: long;
+    stat_type02: StatType;
+    stat_add02: long;
+    stat_multiply02: long;
+    stat_type03: StatType;
+    stat_add03: long;
+    stat_multiply03: long;
+}
+
+root_type ApcSlotDefineExcel;

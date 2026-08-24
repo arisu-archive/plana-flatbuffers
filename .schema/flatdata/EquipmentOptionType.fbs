@@ -96,4 +96,12 @@ enum EquipmentOptionType: int {
     EnhanceChemicalRate_Coefficient = 92,
     EnhanceCompositeArmorRate_Base = 93,
     EnhanceCompositeArmorRate_Coefficient = 94,
+    AddStreetTerrainFactor_Base = 95,
+    AddOutdoorTerrainFactor_Base = 96,
+    AddIndoorTerrainFactor_Base = 97,
+    ReduceResistDamagedRate_Base = 98,
+    AddSummonedObstacleDamagedRatio_Base = 99,
+    EnhanceExDamageRate_Base = 100,
+    EnhanceBasicsDamageRate_Base = 101,
+    AddDamageRatioSynergyBulletType_Base = 102,
 }

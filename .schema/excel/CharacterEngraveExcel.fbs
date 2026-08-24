@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table CharacterEngraveExcel {
+    id: long;
+    unlock_all_node: bool;
+    node_tree_ego: long;
+    node_tree_consciousness: long;
+    node_tree_unconscious: long;
+}
+
+root_type CharacterEngraveExcel;

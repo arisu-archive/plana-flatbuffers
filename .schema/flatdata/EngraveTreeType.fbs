@@ -1,0 +1,8 @@
+namespace FlatData;
+
+enum EngraveTreeType: int {
+    None = 0,
+    Ego = 1,
+    Conscious = 2,
+    Unconscious = 3,
+}

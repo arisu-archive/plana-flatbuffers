@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table ShopRecruitStackExcel {
+    id: long;
+    recruit_stack_item_id: long;
+    half_stack: long;
+    full_stack: long;
+    stack_color: [string];
+}
+
+root_type ShopRecruitStackExcel;

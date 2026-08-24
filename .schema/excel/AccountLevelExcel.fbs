@@ -8,6 +8,13 @@ table AccountLevelExcel {
     close_interval: int;
     ap_auto_charge_max: long;
     need_report_event: bool;
+    plus_exp_product_monthly_id1: [long];
+    plus_exp_ratio1: long;
+    plus_exp_icon_name1: string;
+    plus_exp_product_monthly_id2: [long];
+    plus_exp_ratio2: long;
+    plus_exp_icon_name2: string;
+    plus_exp_icon_name3: string;
 }
 
 root_type AccountLevelExcel;
