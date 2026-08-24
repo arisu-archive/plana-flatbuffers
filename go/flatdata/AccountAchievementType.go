@@ -33,6 +33,7 @@ const (
 	AccountAchievementTypeTotalRaidTicketUseCount                AccountAchievementType = 23
 	AccountAchievementTypeTotalEliminateTicketUseCount           AccountAchievementType = 24
 	AccountAchievementTypeTotalCharacterPotentialUpCount         AccountAchievementType = 25
+	AccountAchievementTypeTotalClearTacticalRelayCount           AccountAchievementType = 26
 )
 
 var EnumNamesAccountAchievementType = map[AccountAchievementType]string{
@@ -62,6 +63,7 @@ var EnumNamesAccountAchievementType = map[AccountAchievementType]string{
 	AccountAchievementTypeTotalRaidTicketUseCount:                "TotalRaidTicketUseCount",
 	AccountAchievementTypeTotalEliminateTicketUseCount:           "TotalEliminateTicketUseCount",
 	AccountAchievementTypeTotalCharacterPotentialUpCount:         "TotalCharacterPotentialUpCount",
+	AccountAchievementTypeTotalClearTacticalRelayCount:           "TotalClearTacticalRelayCount",
 }
 
 var EnumValuesAccountAchievementType = map[string]AccountAchievementType{
@@ -91,6 +93,7 @@ var EnumValuesAccountAchievementType = map[string]AccountAchievementType{
 	"TotalRaidTicketUseCount":                AccountAchievementTypeTotalRaidTicketUseCount,
 	"TotalEliminateTicketUseCount":           AccountAchievementTypeTotalEliminateTicketUseCount,
 	"TotalCharacterPotentialUpCount":         AccountAchievementTypeTotalCharacterPotentialUpCount,
+	"TotalClearTacticalRelayCount":           AccountAchievementTypeTotalClearTacticalRelayCount,
 }
 
 func (v AccountAchievementType) String() string {

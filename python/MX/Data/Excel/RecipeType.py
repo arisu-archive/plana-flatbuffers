@@ -13,3 +13,4 @@ class RecipeType(object):
     WeaponTranscendence = 7
     SelectRecruit = 8
     CharacterPotential = 9
+    EngraveOpen = 10

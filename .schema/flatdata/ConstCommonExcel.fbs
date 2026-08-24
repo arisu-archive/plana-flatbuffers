@@ -78,7 +78,6 @@ table ConstCommonExcel {
     post_expired_day_inventory_overflow: int;
     post_expired_day_game_manager: int;
     ui_label_character_wrap: string;
-    request_time_out: float;
     mail_storage_soft_cap: int;
     mail_storage_hard_cap: int;
     clear_deck_storage_size: int;
@@ -114,6 +113,10 @@ table ConstCommonExcel {
     monthly_product_repurchase_popup_limit: int;
     common_favor_item_tags: [Tag];
     max_ap_master_coin_per_week: long;
+    plus_max_ap_master_coin_per_week_product_monthly_id1: [long];
+    plus_max_ap_master_coin_per_week1: long;
+    plus_max_ap_master_coin_per_week_product_monthly_id2: [long];
+    plus_max_ap_master_coin_per_week2: long;
     craft_open_exp_tier1: long;
     craft_open_exp_tier2: long;
     craft_open_exp_tier3: long;
@@ -144,6 +147,7 @@ table ConstCommonExcel {
     beforehand_gacha_group_id: int;
     renewal_display_order_day: int;
     emblem_default_id: long;
+    student_frame_default_id: long;
     birthday_mail_start_date: string;
     birthday_mail_remain_date: int;
     birthday_mail_parcel_type: ParcelType;
@@ -195,4 +199,10 @@ table ConstCommonExcel {
     newbie_user_standard_day: int;
     newbie_state_hold_day: int;
     clear_deck_echelon_show_max_count: int;
+    expiry_streak_record_item_receive_day: int;
+    expiry_season_record_item_receive_day: int;
+    engrave_contents_is_open: bool;
+    tactical_realy_contents_is_open: bool;
+    ex_skill_level_max_by_engrave: int;
+    ex_skill_upgrade_level_max: int;
 }

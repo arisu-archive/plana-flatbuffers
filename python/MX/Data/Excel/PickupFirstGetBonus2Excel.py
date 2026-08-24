@@ -73,8 +73,35 @@ class PickupFirstGetBonus2Excel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # PickupFirstGetBonus2Excel
+    def ShopCashIds(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # PickupFirstGetBonus2Excel
+    def ShopCashIdsAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # PickupFirstGetBonus2Excel
+    def ShopCashIdsLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # PickupFirstGetBonus2Excel
+    def ShopCashIdsIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
 def PickupFirstGetBonus2ExcelStart(builder):
-    builder.StartObject(7)
+    builder.StartObject(8)
 
 def Start(builder):
     PickupFirstGetBonus2ExcelStart(builder)
@@ -121,12 +148,28 @@ def PickupFirstGetBonus2ExcelAddRewardParcelAmount(builder, rewardParcelAmount):
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     PickupFirstGetBonus2ExcelAddRewardParcelAmount(builder, rewardParcelAmount)
 
+def PickupFirstGetBonus2ExcelAddShopCashIds(builder, shopCashIds):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(shopCashIds), 0)
+
+def AddShopCashIds(builder, shopCashIds):
+    PickupFirstGetBonus2ExcelAddShopCashIds(builder, shopCashIds)
+
+def PickupFirstGetBonus2ExcelStartShopCashIdsVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartShopCashIdsVector(builder, numElems):
+    return PickupFirstGetBonus2ExcelStartShopCashIdsVector(builder, numElems)
+
 def PickupFirstGetBonus2ExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return PickupFirstGetBonus2ExcelEnd(builder)
 
+try:
+    from typing import List
+except:
+    pass
 
 class PickupFirstGetBonus2ExcelT(object):
 
@@ -140,6 +183,7 @@ class PickupFirstGetBonus2ExcelT(object):
         rewardParcelType = 0,
         rewardParcelId = 0,
         rewardParcelAmount = 0,
+        shopCashIds = None,
     ):
         self.id = id  # type: int
         self.shopRecruitId = shopRecruitId  # type: int
@@ -148,6 +192,7 @@ class PickupFirstGetBonus2ExcelT(object):
         self.rewardParcelType = rewardParcelType  # type: int
         self.rewardParcelId = rewardParcelId  # type: int
         self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.shopCashIds = shopCashIds  # type: Optional[List[int]]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -177,9 +222,24 @@ class PickupFirstGetBonus2ExcelT(object):
         self.rewardParcelType = pickupFirstGetBonus2Excel.RewardParcelType()
         self.rewardParcelId = pickupFirstGetBonus2Excel.RewardParcelId()
         self.rewardParcelAmount = pickupFirstGetBonus2Excel.RewardParcelAmount()
+        if not pickupFirstGetBonus2Excel.ShopCashIdsIsNone():
+            if np is None:
+                self.shopCashIds = []
+                for i in range(pickupFirstGetBonus2Excel.ShopCashIdsLength()):
+                    self.shopCashIds.append(pickupFirstGetBonus2Excel.ShopCashIds(i))
+            else:
+                self.shopCashIds = pickupFirstGetBonus2Excel.ShopCashIdsAsNumpy()
 
     # PickupFirstGetBonus2ExcelT
     def Pack(self, builder):
+        if self.shopCashIds is not None:
+            if np is not None and type(self.shopCashIds) is np.ndarray:
+                shopCashIds = builder.CreateNumpyVector(self.shopCashIds)
+            else:
+                PickupFirstGetBonus2ExcelStartShopCashIdsVector(builder, len(self.shopCashIds))
+                for i in reversed(range(len(self.shopCashIds))):
+                    builder.PrependInt64(self.shopCashIds[i])
+                shopCashIds = builder.EndVector()
         PickupFirstGetBonus2ExcelStart(builder)
         PickupFirstGetBonus2ExcelAddId(builder, self.id)
         PickupFirstGetBonus2ExcelAddShopRecruitId(builder, self.shopRecruitId)
@@ -188,5 +248,7 @@ class PickupFirstGetBonus2ExcelT(object):
         PickupFirstGetBonus2ExcelAddRewardParcelType(builder, self.rewardParcelType)
         PickupFirstGetBonus2ExcelAddRewardParcelId(builder, self.rewardParcelId)
         PickupFirstGetBonus2ExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        if self.shopCashIds is not None:
+            PickupFirstGetBonus2ExcelAddShopCashIds(builder, shopCashIds)
         pickupFirstGetBonus2Excel = PickupFirstGetBonus2ExcelEnd(builder)
         return pickupFirstGetBonus2Excel

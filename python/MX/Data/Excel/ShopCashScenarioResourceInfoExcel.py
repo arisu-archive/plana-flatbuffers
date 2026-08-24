@@ -45,8 +45,22 @@ class ShopCashScenarioResourceInfoExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # ShopCashScenarioResourceInfoExcel
+    def RecommendIconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopCashScenarioResourceInfoExcel
+    def RecommendPrefabPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def ShopCashScenarioResourceInfoExcelStart(builder):
-    builder.StartObject(3)
+    builder.StartObject(5)
 
 def Start(builder):
     ShopCashScenarioResourceInfoExcelStart(builder)
@@ -69,6 +83,18 @@ def ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath):
 def AddIconPath(builder, iconPath):
     ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath)
 
+def ShopCashScenarioResourceInfoExcelAddRecommendIconPath(builder, recommendIconPath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(recommendIconPath), 0)
+
+def AddRecommendIconPath(builder, recommendIconPath):
+    ShopCashScenarioResourceInfoExcelAddRecommendIconPath(builder, recommendIconPath)
+
+def ShopCashScenarioResourceInfoExcelAddRecommendPrefabPath(builder, recommendPrefabPath):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(recommendPrefabPath), 0)
+
+def AddRecommendPrefabPath(builder, recommendPrefabPath):
+    ShopCashScenarioResourceInfoExcelAddRecommendPrefabPath(builder, recommendPrefabPath)
+
 def ShopCashScenarioResourceInfoExcelEnd(builder):
     return builder.EndObject()
 
@@ -84,10 +110,14 @@ class ShopCashScenarioResourceInfoExcelT(object):
         scenarioResrouceInfoId = 0,
         shopCashId = 0,
         iconPath = None,
+        recommendIconPath = None,
+        recommendPrefabPath = None,
     ):
         self.scenarioResrouceInfoId = scenarioResrouceInfoId  # type: int
         self.shopCashId = shopCashId  # type: int
         self.iconPath = iconPath  # type: Optional[str]
+        self.recommendIconPath = recommendIconPath  # type: Optional[str]
+        self.recommendPrefabPath = recommendPrefabPath  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -113,15 +143,25 @@ class ShopCashScenarioResourceInfoExcelT(object):
         self.scenarioResrouceInfoId = shopCashScenarioResourceInfoExcel.ScenarioResrouceInfoId()
         self.shopCashId = shopCashScenarioResourceInfoExcel.ShopCashId()
         self.iconPath = shopCashScenarioResourceInfoExcel.IconPath()
+        self.recommendIconPath = shopCashScenarioResourceInfoExcel.RecommendIconPath()
+        self.recommendPrefabPath = shopCashScenarioResourceInfoExcel.RecommendPrefabPath()
 
     # ShopCashScenarioResourceInfoExcelT
     def Pack(self, builder):
         if self.iconPath is not None:
             iconPath = builder.CreateString(self.iconPath)
+        if self.recommendIconPath is not None:
+            recommendIconPath = builder.CreateString(self.recommendIconPath)
+        if self.recommendPrefabPath is not None:
+            recommendPrefabPath = builder.CreateString(self.recommendPrefabPath)
         ShopCashScenarioResourceInfoExcelStart(builder)
         ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder, self.scenarioResrouceInfoId)
         ShopCashScenarioResourceInfoExcelAddShopCashId(builder, self.shopCashId)
         if self.iconPath is not None:
             ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath)
+        if self.recommendIconPath is not None:
+            ShopCashScenarioResourceInfoExcelAddRecommendIconPath(builder, recommendIconPath)
+        if self.recommendPrefabPath is not None:
+            ShopCashScenarioResourceInfoExcelAddRecommendPrefabPath(builder, recommendPrefabPath)
         shopCashScenarioResourceInfoExcel = ShopCashScenarioResourceInfoExcelEnd(builder)
         return shopCashScenarioResourceInfoExcel

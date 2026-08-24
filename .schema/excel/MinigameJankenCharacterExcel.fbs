@@ -1,0 +1,29 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenCharacterExcel {
+    id: long;
+    is_playable: bool;
+    display_order: long;
+    icon_resource_name: string;
+    icon_deco_resource_name: string;
+    name_tag_resource_name: string;
+    battle_portrait_resource: string;
+    skill_icon_resource_name: string;
+    skill_card_resource_name: string;
+    localize_id: uint;
+    character_name_localize_id: uint;
+    attack_power: long;
+    hit_point: long;
+    block_power: long;
+    janken_skill: long;
+    is_boss: bool;
+    is_boss_unit: bool;
+    atg_gauge: long;
+    atg_dmg_block: float;
+    atg_dmg_hit: float;
+    atg_logic_effect: long;
+    model_prefab_name: string;
+    ai_profile: long;
+}
+
+root_type MinigameJankenCharacterExcel;

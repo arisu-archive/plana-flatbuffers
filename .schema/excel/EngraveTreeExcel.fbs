@@ -1,0 +1,20 @@
+include "EquipmentOptionType.fbs";
+include "NodeGrade.fbs";
+
+namespace MX.Data.Excel;
+
+table EngraveTreeExcel {
+    id: long;
+    node_index: int;
+    is_unlock: bool;
+    pre_node_index: [int];
+    grade_type: NodeGrade;
+    localize_etc_id: string;
+    recipe: long;
+    max_level: long;
+    learn_skill_slot: string;
+    stat_type: [EquipmentOptionType];
+    stat_value: [long];
+}
+
+root_type EngraveTreeExcel;

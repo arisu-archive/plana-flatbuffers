@@ -26,3 +26,4 @@ class RewardTag(object):
     GemBonus = 20
     GemPaid = 21
     ConquestTileConquer = 22
+    Mileage = 23

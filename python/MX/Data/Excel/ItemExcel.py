@@ -282,35 +282,42 @@ class ItemExcel(object):
         return 0
 
     # ItemExcel
-    def ShortcutTypeId(self):
+    def IsOverrideExpiration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ItemExcel
+    def ShortcutTypeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
     def GachaTicket(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
     def AlertPopupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
     def ShiftingCraftRecipe(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def ItemExcelStart(builder):
-    builder.StartObject(35)
+    builder.StartObject(36)
 
 def Start(builder):
     ItemExcelStart(builder)
@@ -513,26 +520,32 @@ def ItemExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
 def AddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
     ItemExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn)
 
+def ItemExcelAddIsOverrideExpiration(builder, isOverrideExpiration):
+    builder.PrependBoolSlot(31, isOverrideExpiration, 0)
+
+def AddIsOverrideExpiration(builder, isOverrideExpiration):
+    ItemExcelAddIsOverrideExpiration(builder, isOverrideExpiration)
+
 def ItemExcelAddShortcutTypeId(builder, shortcutTypeId):
-    builder.PrependInt64Slot(31, shortcutTypeId, 0)
+    builder.PrependInt64Slot(32, shortcutTypeId, 0)
 
 def AddShortcutTypeId(builder, shortcutTypeId):
     ItemExcelAddShortcutTypeId(builder, shortcutTypeId)
 
 def ItemExcelAddGachaTicket(builder, gachaTicket):
-    builder.PrependInt32Slot(32, gachaTicket, 0)
+    builder.PrependInt32Slot(33, gachaTicket, 0)
 
 def AddGachaTicket(builder, gachaTicket):
     ItemExcelAddGachaTicket(builder, gachaTicket)
 
 def ItemExcelAddAlertPopupId(builder, alertPopupId):
-    builder.PrependInt64Slot(33, alertPopupId, 0)
+    builder.PrependInt64Slot(34, alertPopupId, 0)
 
 def AddAlertPopupId(builder, alertPopupId):
     ItemExcelAddAlertPopupId(builder, alertPopupId)
 
 def ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe):
-    builder.PrependInt64Slot(34, shiftingCraftRecipe, 0)
+    builder.PrependInt64Slot(35, shiftingCraftRecipe, 0)
 
 def AddShiftingCraftRecipe(builder, shiftingCraftRecipe):
     ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe)
@@ -584,6 +597,7 @@ class ItemExcelT(object):
         shopCategory = None,
         expirationDateTime = None,
         expirationNotifyDateIn = 0,
+        isOverrideExpiration = False,
         shortcutTypeId = 0,
         gachaTicket = 0,
         alertPopupId = 0,
@@ -620,6 +634,7 @@ class ItemExcelT(object):
         self.shopCategory = shopCategory  # type: Optional[List[int]]
         self.expirationDateTime = expirationDateTime  # type: Optional[str]
         self.expirationNotifyDateIn = expirationNotifyDateIn  # type: int
+        self.isOverrideExpiration = isOverrideExpiration  # type: bool
         self.shortcutTypeId = shortcutTypeId  # type: int
         self.gachaTicket = gachaTicket  # type: int
         self.alertPopupId = alertPopupId  # type: int
@@ -689,6 +704,7 @@ class ItemExcelT(object):
                 self.shopCategory = itemExcel.ShopCategoryAsNumpy()
         self.expirationDateTime = itemExcel.ExpirationDateTime()
         self.expirationNotifyDateIn = itemExcel.ExpirationNotifyDateIn()
+        self.isOverrideExpiration = itemExcel.IsOverrideExpiration()
         self.shortcutTypeId = itemExcel.ShortcutTypeId()
         self.gachaTicket = itemExcel.GachaTicket()
         self.alertPopupId = itemExcel.AlertPopupId()
@@ -755,6 +771,7 @@ class ItemExcelT(object):
         if self.expirationDateTime is not None:
             ItemExcelAddExpirationDateTime(builder, expirationDateTime)
         ItemExcelAddExpirationNotifyDateIn(builder, self.expirationNotifyDateIn)
+        ItemExcelAddIsOverrideExpiration(builder, self.isOverrideExpiration)
         ItemExcelAddShortcutTypeId(builder, self.shortcutTypeId)
         ItemExcelAddGachaTicket(builder, self.gachaTicket)
         ItemExcelAddAlertPopupId(builder, self.alertPopupId)

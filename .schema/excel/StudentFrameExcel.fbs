@@ -1,0 +1,25 @@
+include "FrameCategory.fbs";
+include "FrameCheckPassType.fbs";
+include "FrameDisplayType.fbs";
+
+namespace MX.Data.Excel;
+
+table StudentFrameExcel {
+    id: long;
+    category: FrameCategory;
+    display_order: long;
+    localize_etc_id: uint;
+    icon_path: string;
+    frame_image_path: string;
+    big_frame_image_path: string;
+    emblem_effect_path: string;
+    display_type: FrameDisplayType;
+    display_start_date: string;
+    display_end_date: string;
+    dislpay_level: int;
+    check_pass_type: FrameCheckPassType;
+    frame_parameter: long;
+    check_pass_count: long;
+}
+
+root_type StudentFrameExcel;

@@ -125,8 +125,16 @@ func (rcv *TerrainAdaptationFactorExcel) MutateAttackPowerFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
+func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func TerrainAdaptationFactorExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func TerrainAdaptationFactorExcelAddTerrainAdaptation(builder *flatbuffers.Builder, terrainAdaptation StageTopography) {
 	builder.PrependInt32Slot(0, int32(terrainAdaptation), 0)
@@ -148,6 +156,9 @@ func TerrainAdaptationFactorExcelAddDodgeFactor(builder *flatbuffers.Builder, do
 }
 func TerrainAdaptationFactorExcelAddAttackPowerFactor(builder *flatbuffers.Builder, attackPowerFactor int64) {
 	builder.PrependInt64Slot(6, attackPowerFactor, 0)
+}
+func TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder *flatbuffers.Builder, terrainFactorDescription flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(terrainFactorDescription), 0)
 }
 func TerrainAdaptationFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

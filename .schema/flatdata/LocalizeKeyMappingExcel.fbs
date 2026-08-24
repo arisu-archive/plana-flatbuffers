@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table LocalizeKeyMappingExcel {
+    key: uint;
+    kr: string;
+    jp: string;
+}

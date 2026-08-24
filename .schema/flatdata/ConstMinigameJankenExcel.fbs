@@ -1,0 +1,19 @@
+namespace FlatData;
+
+table ConstMinigameJankenExcel {
+    time_limit_per_turn: int;
+    max_damage_rate: int;
+    damage_curve_coefficient: float;
+    draw_constant_attack: int;
+    draw_constant_block: int;
+    win_scene_rate: int;
+    lose_scene_rate: int;
+    enemy_appear_rate: int;
+    player_sp_atk_condition_rate: int;
+    enemy_sp_atk_condition_rate: int;
+    atg_groggy_fixed_damage: int;
+    max_skill_cost: int;
+    time_limit_qte: int;
+    stage_outro_time_offset: int;
+    ui_boss_hp_bar_count: int;
+}

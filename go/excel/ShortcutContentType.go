@@ -21,6 +21,7 @@ const (
 	ShortcutContentTypeAcademy        ShortcutContentType = 11
 	ShortcutContentTypeMission        ShortcutContentType = 12
 	ShortcutContentTypeMultiFloorRaid ShortcutContentType = 13
+	ShortcutContentTypeTacticalRelay  ShortcutContentType = 14
 )
 
 var EnumNamesShortcutContentType = map[ShortcutContentType]string{
@@ -38,6 +39,7 @@ var EnumNamesShortcutContentType = map[ShortcutContentType]string{
 	ShortcutContentTypeAcademy:        "Academy",
 	ShortcutContentTypeMission:        "Mission",
 	ShortcutContentTypeMultiFloorRaid: "MultiFloorRaid",
+	ShortcutContentTypeTacticalRelay:  "TacticalRelay",
 }
 
 var EnumValuesShortcutContentType = map[string]ShortcutContentType{
@@ -55,6 +57,7 @@ var EnumValuesShortcutContentType = map[string]ShortcutContentType{
 	"Academy":        ShortcutContentTypeAcademy,
 	"Mission":        ShortcutContentTypeMission,
 	"MultiFloorRaid": ShortcutContentTypeMultiFloorRaid,
+	"TacticalRelay":  ShortcutContentTypeTacticalRelay,
 }
 
 func (v ShortcutContentType) String() string {

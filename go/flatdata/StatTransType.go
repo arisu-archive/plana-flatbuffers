@@ -7,18 +7,21 @@ import "strconv"
 type StatTransType int32
 
 const (
-	StatTransTypeSpecialTransStat StatTransType = 0
-	StatTransTypeTSATransStat     StatTransType = 1
+	StatTransTypeSpecialTransStat     StatTransType = 0
+	StatTransTypeTSATransStat         StatTransType = 1
+	StatTransTypeSumSynergyBulletType StatTransType = 2
 )
 
 var EnumNamesStatTransType = map[StatTransType]string{
-	StatTransTypeSpecialTransStat: "SpecialTransStat",
-	StatTransTypeTSATransStat:     "TSATransStat",
+	StatTransTypeSpecialTransStat:     "SpecialTransStat",
+	StatTransTypeTSATransStat:         "TSATransStat",
+	StatTransTypeSumSynergyBulletType: "SumSynergyBulletType",
 }
 
 var EnumValuesStatTransType = map[string]StatTransType{
-	"SpecialTransStat": StatTransTypeSpecialTransStat,
-	"TSATransStat":     StatTransTypeTSATransStat,
+	"SpecialTransStat":     StatTransTypeSpecialTransStat,
+	"TSATransStat":         StatTransTypeTSATransStat,
+	"SumSynergyBulletType": StatTransTypeSumSynergyBulletType,
 }
 
 func (v StatTransType) String() string {

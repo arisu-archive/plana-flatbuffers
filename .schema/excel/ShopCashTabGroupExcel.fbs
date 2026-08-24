@@ -1,0 +1,17 @@
+include "ProductCategory.fbs";
+include "ProductDisplayTag.fbs";
+include "ProductGroupType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopCashTabGroupExcel {
+    id: long;
+    product_group_type: ProductGroupType;
+    display_order: int;
+    display_tag: ProductDisplayTag;
+    product_category_type: [ProductCategory];
+    category_order: [int];
+    category_localize_code_id: [uint];
+}
+
+root_type ShopCashTabGroupExcel;

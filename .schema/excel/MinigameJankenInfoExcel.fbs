@@ -1,0 +1,22 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameJankenInfoExcel {
+    event_content_id: long;
+    cost_parcel_type: ParcelType;
+    cost_parcel_id: long;
+    multiple_max: long;
+    cost_parcel_equip_upgrade_type: ParcelType;
+    cost_parcel_equip_upgrade_id: long;
+    challenge_multiple_unlock_score: long;
+    need_item_amount_t2: long;
+    need_item_amount_t3: long;
+    need_item_amount_t4: long;
+    need_item_amount_t5: long;
+    equipment_max_tier: int;
+    bgm_id: long;
+    score_max_stack: long;
+}
+
+root_type MinigameJankenInfoExcel;

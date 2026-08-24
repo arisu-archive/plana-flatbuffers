@@ -1,0 +1,9 @@
+include "ConstMinigameJankenExcel.fbs";
+
+namespace FlatData;
+
+table ConstMinigameJankenExcelTable {
+    data_list: [ConstMinigameJankenExcel];
+}
+
+root_type ConstMinigameJankenExcelTable;

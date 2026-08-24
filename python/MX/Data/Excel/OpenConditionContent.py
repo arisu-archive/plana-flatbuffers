@@ -64,3 +64,6 @@ class OpenConditionContent(object):
     Main_L_1_5 = 58
     Main_SNS = 59
     PermanentRaid = 60
+    MinigameJanken = 61
+    TacticalRelay = 62
+    Engrave = 63

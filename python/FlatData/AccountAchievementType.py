@@ -29,3 +29,4 @@ class AccountAchievementType(object):
     TotalRaidTicketUseCount = 23
     TotalEliminateTicketUseCount = 24
     TotalCharacterPotentialUpCount = 25
+    TotalClearTacticalRelayCount = 26

@@ -9,6 +9,7 @@ table ConstCombatExcel {
     show_bufficon_extra_passive_skill: bool;
     show_bufficon_leader_skill: bool;
     show_bufficon_ground_passive_skill: bool;
+    show_bufficon_apc_synergy_passive_skill: bool;
     supplies_condition_string_id: string;
     public_speech_bubble_offset_x: float;
     public_speech_bubble_offset_y: float;
@@ -90,4 +91,5 @@ table ConstCombatExcel {
     move_correction_skip_ratio: int;
     obstacle_collider_height_jumpable: float;
     obstacle_collider_height_not_jumpable: float;
+    check_cheater_max_use_cost_tactical_relay: int;
 }

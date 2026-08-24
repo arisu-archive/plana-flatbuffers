@@ -5,4 +5,17 @@ table ConstKeyMappingExcel {
     scroll_wheel_factor: float;
     remove_keycode_word: string;
     tutorial_dialog_touch_key: string;
+    pc_information_group_id: long;
+    pc_controller_information_group_id: long;
+    controller_cursor_factor_slow: int;
+    controller_cursor_factor: int;
+    controller_cursor_factor_fast: int;
+    vibration_sec: float;
+    vibration_power: float;
+    controller_scroll_wheel_factor: float;
+    controller_zoom_sensitivity: float;
+    controller_dpad_move_check_range_x: float;
+    controller_dpad_move_check_range_y: float;
+    controller_cursor_click_scale: float;
+    controller_scroll_sensitivity: float;
 }

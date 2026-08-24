@@ -515,140 +515,196 @@ class CharacterStatExcel(object):
         return 0
 
     # CharacterStatExcel
-    def WeakDamagedRatio(self):
+    def EnhanceResistDamageRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(144))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def EffectiveDamagedRatio(self):
+    def ReduceResistDamagedRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(146))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def NormalDamagedRatio(self):
+    def WeakDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(148))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def ResistDamagedRatio(self):
+    def EffectiveDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(150))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealRate(self):
+    def NormalDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(152))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealLightArmorRate(self):
+    def ResistDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(154))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealHeavyArmorRate(self):
+    def AddDamageRatioSynergyBulletType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(156))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealUnarmedRate(self):
+    def AddSummonedObstacleDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(158))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealElasticArmorRate(self):
+    def DamagedRatioObstacle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(160))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealNormalArmorRate(self):
+    def HealRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(162))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealedExplosionRate(self):
+    def HealLightArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(164))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealedPierceRate(self):
+    def HealHeavyArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(166))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealedMysticRate(self):
+    def HealUnarmedRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(168))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealedSonicRate(self):
+    def HealElasticArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(170))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def HealedNormalRate(self):
+    def HealNormalArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(172))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
-    def StreetBattleAdaptation(self):
+    def HealedExplosionRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(174))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def HealedPierceRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(176))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def HealedMysticRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(178))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def HealedSonicRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(180))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def HealedNormalRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(182))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def AddStreetTerrainFactor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(184))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def AddOutdoorTerrainFactor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(186))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def AddIndoorTerrainFactor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(188))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatExcel
+    def StreetBattleAdaptation(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(190))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
     def OutdoorBattleAdaptation(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(176))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(192))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
     def IndoorBattleAdaptation(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(178))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(194))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatExcel
     def RegenCost(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(180))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(196))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def CharacterStatExcelStart(builder):
-    builder.StartObject(89)
+    builder.StartObject(97)
 
 def Start(builder):
     CharacterStatExcelStart(builder)
@@ -1073,116 +1129,164 @@ def CharacterStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
 def AddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
     CharacterStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate)
 
+def CharacterStatExcelAddEnhanceResistDamageRate(builder, enhanceResistDamageRate):
+    builder.PrependInt64Slot(70, enhanceResistDamageRate, 0)
+
+def AddEnhanceResistDamageRate(builder, enhanceResistDamageRate):
+    CharacterStatExcelAddEnhanceResistDamageRate(builder, enhanceResistDamageRate)
+
+def CharacterStatExcelAddReduceResistDamagedRate(builder, reduceResistDamagedRate):
+    builder.PrependInt64Slot(71, reduceResistDamagedRate, 0)
+
+def AddReduceResistDamagedRate(builder, reduceResistDamagedRate):
+    CharacterStatExcelAddReduceResistDamagedRate(builder, reduceResistDamagedRate)
+
 def CharacterStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio):
-    builder.PrependInt64Slot(70, weakDamagedRatio, 0)
+    builder.PrependInt64Slot(72, weakDamagedRatio, 0)
 
 def AddWeakDamagedRatio(builder, weakDamagedRatio):
     CharacterStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio)
 
 def CharacterStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
-    builder.PrependInt64Slot(71, effectiveDamagedRatio, 0)
+    builder.PrependInt64Slot(73, effectiveDamagedRatio, 0)
 
 def AddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
     CharacterStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio)
 
 def CharacterStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio):
-    builder.PrependInt64Slot(72, normalDamagedRatio, 0)
+    builder.PrependInt64Slot(74, normalDamagedRatio, 0)
 
 def AddNormalDamagedRatio(builder, normalDamagedRatio):
     CharacterStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio)
 
 def CharacterStatExcelAddResistDamagedRatio(builder, resistDamagedRatio):
-    builder.PrependInt64Slot(73, resistDamagedRatio, 0)
+    builder.PrependInt64Slot(75, resistDamagedRatio, 0)
 
 def AddResistDamagedRatio(builder, resistDamagedRatio):
     CharacterStatExcelAddResistDamagedRatio(builder, resistDamagedRatio)
 
+def CharacterStatExcelAddAddDamageRatioSynergyBulletType(builder, addDamageRatioSynergyBulletType):
+    builder.PrependInt64Slot(76, addDamageRatioSynergyBulletType, 0)
+
+def AddAddDamageRatioSynergyBulletType(builder, addDamageRatioSynergyBulletType):
+    CharacterStatExcelAddAddDamageRatioSynergyBulletType(builder, addDamageRatioSynergyBulletType)
+
+def CharacterStatExcelAddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio):
+    builder.PrependInt64Slot(77, addSummonedObstacleDamagedRatio, 0)
+
+def AddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio):
+    CharacterStatExcelAddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio)
+
+def CharacterStatExcelAddDamagedRatioObstacle(builder, damagedRatioObstacle):
+    builder.PrependInt64Slot(78, damagedRatioObstacle, 0)
+
+def AddDamagedRatioObstacle(builder, damagedRatioObstacle):
+    CharacterStatExcelAddDamagedRatioObstacle(builder, damagedRatioObstacle)
+
 def CharacterStatExcelAddHealRate(builder, healRate):
-    builder.PrependInt64Slot(74, healRate, 0)
+    builder.PrependInt64Slot(79, healRate, 0)
 
 def AddHealRate(builder, healRate):
     CharacterStatExcelAddHealRate(builder, healRate)
 
 def CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate):
-    builder.PrependInt64Slot(75, healLightArmorRate, 0)
+    builder.PrependInt64Slot(80, healLightArmorRate, 0)
 
 def AddHealLightArmorRate(builder, healLightArmorRate):
     CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate)
 
 def CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate):
-    builder.PrependInt64Slot(76, healHeavyArmorRate, 0)
+    builder.PrependInt64Slot(81, healHeavyArmorRate, 0)
 
 def AddHealHeavyArmorRate(builder, healHeavyArmorRate):
     CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate)
 
 def CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate):
-    builder.PrependInt64Slot(77, healUnarmedRate, 0)
+    builder.PrependInt64Slot(82, healUnarmedRate, 0)
 
 def AddHealUnarmedRate(builder, healUnarmedRate):
     CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate)
 
 def CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate):
-    builder.PrependInt64Slot(78, healElasticArmorRate, 0)
+    builder.PrependInt64Slot(83, healElasticArmorRate, 0)
 
 def AddHealElasticArmorRate(builder, healElasticArmorRate):
     CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate)
 
 def CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate):
-    builder.PrependInt64Slot(79, healNormalArmorRate, 0)
+    builder.PrependInt64Slot(84, healNormalArmorRate, 0)
 
 def AddHealNormalArmorRate(builder, healNormalArmorRate):
     CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate)
 
 def CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate):
-    builder.PrependInt64Slot(80, healedExplosionRate, 0)
+    builder.PrependInt64Slot(85, healedExplosionRate, 0)
 
 def AddHealedExplosionRate(builder, healedExplosionRate):
     CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate)
 
 def CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate):
-    builder.PrependInt64Slot(81, healedPierceRate, 0)
+    builder.PrependInt64Slot(86, healedPierceRate, 0)
 
 def AddHealedPierceRate(builder, healedPierceRate):
     CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate)
 
 def CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate):
-    builder.PrependInt64Slot(82, healedMysticRate, 0)
+    builder.PrependInt64Slot(87, healedMysticRate, 0)
 
 def AddHealedMysticRate(builder, healedMysticRate):
     CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate)
 
 def CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate):
-    builder.PrependInt64Slot(83, healedSonicRate, 0)
+    builder.PrependInt64Slot(88, healedSonicRate, 0)
 
 def AddHealedSonicRate(builder, healedSonicRate):
     CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate)
 
 def CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate):
-    builder.PrependInt64Slot(84, healedNormalRate, 0)
+    builder.PrependInt64Slot(89, healedNormalRate, 0)
 
 def AddHealedNormalRate(builder, healedNormalRate):
     CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate)
 
+def CharacterStatExcelAddAddStreetTerrainFactor(builder, addStreetTerrainFactor):
+    builder.PrependInt64Slot(90, addStreetTerrainFactor, 0)
+
+def AddAddStreetTerrainFactor(builder, addStreetTerrainFactor):
+    CharacterStatExcelAddAddStreetTerrainFactor(builder, addStreetTerrainFactor)
+
+def CharacterStatExcelAddAddOutdoorTerrainFactor(builder, addOutdoorTerrainFactor):
+    builder.PrependInt64Slot(91, addOutdoorTerrainFactor, 0)
+
+def AddAddOutdoorTerrainFactor(builder, addOutdoorTerrainFactor):
+    CharacterStatExcelAddAddOutdoorTerrainFactor(builder, addOutdoorTerrainFactor)
+
+def CharacterStatExcelAddAddIndoorTerrainFactor(builder, addIndoorTerrainFactor):
+    builder.PrependInt64Slot(92, addIndoorTerrainFactor, 0)
+
+def AddAddIndoorTerrainFactor(builder, addIndoorTerrainFactor):
+    CharacterStatExcelAddAddIndoorTerrainFactor(builder, addIndoorTerrainFactor)
+
 def CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation):
-    builder.PrependInt32Slot(85, streetBattleAdaptation, 0)
+    builder.PrependInt32Slot(93, streetBattleAdaptation, 0)
 
 def AddStreetBattleAdaptation(builder, streetBattleAdaptation):
     CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation)
 
 def CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation):
-    builder.PrependInt32Slot(86, outdoorBattleAdaptation, 0)
+    builder.PrependInt32Slot(94, outdoorBattleAdaptation, 0)
 
 def AddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation):
     CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation)
 
 def CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation):
-    builder.PrependInt32Slot(87, indoorBattleAdaptation, 0)
+    builder.PrependInt32Slot(95, indoorBattleAdaptation, 0)
 
 def AddIndoorBattleAdaptation(builder, indoorBattleAdaptation):
     CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation)
 
 def CharacterStatExcelAddRegenCost(builder, regenCost):
-    builder.PrependInt64Slot(88, regenCost, 0)
+    builder.PrependInt64Slot(96, regenCost, 0)
 
 def AddRegenCost(builder, regenCost):
     CharacterStatExcelAddRegenCost(builder, regenCost)
@@ -1269,10 +1373,15 @@ class CharacterStatExcelT(object):
         reduceBasicsDamagedRate = 0,
         enhanceWeakDamageRate = 0,
         reduceWeakDamagedRate = 0,
+        enhanceResistDamageRate = 0,
+        reduceResistDamagedRate = 0,
         weakDamagedRatio = 0,
         effectiveDamagedRatio = 0,
         normalDamagedRatio = 0,
         resistDamagedRatio = 0,
+        addDamageRatioSynergyBulletType = 0,
+        addSummonedObstacleDamagedRatio = 0,
+        damagedRatioObstacle = 0,
         healRate = 0,
         healLightArmorRate = 0,
         healHeavyArmorRate = 0,
@@ -1284,6 +1393,9 @@ class CharacterStatExcelT(object):
         healedMysticRate = 0,
         healedSonicRate = 0,
         healedNormalRate = 0,
+        addStreetTerrainFactor = 0,
+        addOutdoorTerrainFactor = 0,
+        addIndoorTerrainFactor = 0,
         streetBattleAdaptation = 0,
         outdoorBattleAdaptation = 0,
         indoorBattleAdaptation = 0,
@@ -1359,10 +1471,15 @@ class CharacterStatExcelT(object):
         self.reduceBasicsDamagedRate = reduceBasicsDamagedRate  # type: int
         self.enhanceWeakDamageRate = enhanceWeakDamageRate  # type: int
         self.reduceWeakDamagedRate = reduceWeakDamagedRate  # type: int
+        self.enhanceResistDamageRate = enhanceResistDamageRate  # type: int
+        self.reduceResistDamagedRate = reduceResistDamagedRate  # type: int
         self.weakDamagedRatio = weakDamagedRatio  # type: int
         self.effectiveDamagedRatio = effectiveDamagedRatio  # type: int
         self.normalDamagedRatio = normalDamagedRatio  # type: int
         self.resistDamagedRatio = resistDamagedRatio  # type: int
+        self.addDamageRatioSynergyBulletType = addDamageRatioSynergyBulletType  # type: int
+        self.addSummonedObstacleDamagedRatio = addSummonedObstacleDamagedRatio  # type: int
+        self.damagedRatioObstacle = damagedRatioObstacle  # type: int
         self.healRate = healRate  # type: int
         self.healLightArmorRate = healLightArmorRate  # type: int
         self.healHeavyArmorRate = healHeavyArmorRate  # type: int
@@ -1374,6 +1491,9 @@ class CharacterStatExcelT(object):
         self.healedMysticRate = healedMysticRate  # type: int
         self.healedSonicRate = healedSonicRate  # type: int
         self.healedNormalRate = healedNormalRate  # type: int
+        self.addStreetTerrainFactor = addStreetTerrainFactor  # type: int
+        self.addOutdoorTerrainFactor = addOutdoorTerrainFactor  # type: int
+        self.addIndoorTerrainFactor = addIndoorTerrainFactor  # type: int
         self.streetBattleAdaptation = streetBattleAdaptation  # type: int
         self.outdoorBattleAdaptation = outdoorBattleAdaptation  # type: int
         self.indoorBattleAdaptation = indoorBattleAdaptation  # type: int
@@ -1470,10 +1590,15 @@ class CharacterStatExcelT(object):
         self.reduceBasicsDamagedRate = characterStatExcel.ReduceBasicsDamagedRate()
         self.enhanceWeakDamageRate = characterStatExcel.EnhanceWeakDamageRate()
         self.reduceWeakDamagedRate = characterStatExcel.ReduceWeakDamagedRate()
+        self.enhanceResistDamageRate = characterStatExcel.EnhanceResistDamageRate()
+        self.reduceResistDamagedRate = characterStatExcel.ReduceResistDamagedRate()
         self.weakDamagedRatio = characterStatExcel.WeakDamagedRatio()
         self.effectiveDamagedRatio = characterStatExcel.EffectiveDamagedRatio()
         self.normalDamagedRatio = characterStatExcel.NormalDamagedRatio()
         self.resistDamagedRatio = characterStatExcel.ResistDamagedRatio()
+        self.addDamageRatioSynergyBulletType = characterStatExcel.AddDamageRatioSynergyBulletType()
+        self.addSummonedObstacleDamagedRatio = characterStatExcel.AddSummonedObstacleDamagedRatio()
+        self.damagedRatioObstacle = characterStatExcel.DamagedRatioObstacle()
         self.healRate = characterStatExcel.HealRate()
         self.healLightArmorRate = characterStatExcel.HealLightArmorRate()
         self.healHeavyArmorRate = characterStatExcel.HealHeavyArmorRate()
@@ -1485,6 +1610,9 @@ class CharacterStatExcelT(object):
         self.healedMysticRate = characterStatExcel.HealedMysticRate()
         self.healedSonicRate = characterStatExcel.HealedSonicRate()
         self.healedNormalRate = characterStatExcel.HealedNormalRate()
+        self.addStreetTerrainFactor = characterStatExcel.AddStreetTerrainFactor()
+        self.addOutdoorTerrainFactor = characterStatExcel.AddOutdoorTerrainFactor()
+        self.addIndoorTerrainFactor = characterStatExcel.AddIndoorTerrainFactor()
         self.streetBattleAdaptation = characterStatExcel.StreetBattleAdaptation()
         self.outdoorBattleAdaptation = characterStatExcel.OutdoorBattleAdaptation()
         self.indoorBattleAdaptation = characterStatExcel.IndoorBattleAdaptation()
@@ -1563,10 +1691,15 @@ class CharacterStatExcelT(object):
         CharacterStatExcelAddReduceBasicsDamagedRate(builder, self.reduceBasicsDamagedRate)
         CharacterStatExcelAddEnhanceWeakDamageRate(builder, self.enhanceWeakDamageRate)
         CharacterStatExcelAddReduceWeakDamagedRate(builder, self.reduceWeakDamagedRate)
+        CharacterStatExcelAddEnhanceResistDamageRate(builder, self.enhanceResistDamageRate)
+        CharacterStatExcelAddReduceResistDamagedRate(builder, self.reduceResistDamagedRate)
         CharacterStatExcelAddWeakDamagedRatio(builder, self.weakDamagedRatio)
         CharacterStatExcelAddEffectiveDamagedRatio(builder, self.effectiveDamagedRatio)
         CharacterStatExcelAddNormalDamagedRatio(builder, self.normalDamagedRatio)
         CharacterStatExcelAddResistDamagedRatio(builder, self.resistDamagedRatio)
+        CharacterStatExcelAddAddDamageRatioSynergyBulletType(builder, self.addDamageRatioSynergyBulletType)
+        CharacterStatExcelAddAddSummonedObstacleDamagedRatio(builder, self.addSummonedObstacleDamagedRatio)
+        CharacterStatExcelAddDamagedRatioObstacle(builder, self.damagedRatioObstacle)
         CharacterStatExcelAddHealRate(builder, self.healRate)
         CharacterStatExcelAddHealLightArmorRate(builder, self.healLightArmorRate)
         CharacterStatExcelAddHealHeavyArmorRate(builder, self.healHeavyArmorRate)
@@ -1578,6 +1711,9 @@ class CharacterStatExcelT(object):
         CharacterStatExcelAddHealedMysticRate(builder, self.healedMysticRate)
         CharacterStatExcelAddHealedSonicRate(builder, self.healedSonicRate)
         CharacterStatExcelAddHealedNormalRate(builder, self.healedNormalRate)
+        CharacterStatExcelAddAddStreetTerrainFactor(builder, self.addStreetTerrainFactor)
+        CharacterStatExcelAddAddOutdoorTerrainFactor(builder, self.addOutdoorTerrainFactor)
+        CharacterStatExcelAddAddIndoorTerrainFactor(builder, self.addIndoorTerrainFactor)
         CharacterStatExcelAddStreetBattleAdaptation(builder, self.streetBattleAdaptation)
         CharacterStatExcelAddOutdoorBattleAdaptation(builder, self.outdoorBattleAdaptation)
         CharacterStatExcelAddIndoorBattleAdaptation(builder, self.indoorBattleAdaptation)

@@ -83,3 +83,5 @@ class DialogCategory(object):
     UIEventClueSearch = 77
     UIWorkAronaWatering = 78
     UIWorkCoexist_PlanaWatchPot = 79
+    UIAttendanceEvent22 = 80
+    UITacticalRelay = 81

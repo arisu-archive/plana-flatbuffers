@@ -33,3 +33,5 @@ class ParcelType(object):
     ProductBattlePass = 27
     ProductSelect = 28
     SNSPost = 29
+    ProductDailyRecord = 30
+    StudentFrame = 31

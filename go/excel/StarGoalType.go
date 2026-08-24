@@ -13,6 +13,8 @@ const (
 	StarGoalTypeGetBoxes       StarGoalType = 3
 	StarGoalTypeClearTimeInSec StarGoalType = 4
 	StarGoalTypeAllyBaseDamage StarGoalType = 5
+	StarGoalTypeUsedTurn       StarGoalType = 6
+	StarGoalTypeLeftHitPoint   StarGoalType = 7
 )
 
 var EnumNamesStarGoalType = map[StarGoalType]string{
@@ -22,6 +24,8 @@ var EnumNamesStarGoalType = map[StarGoalType]string{
 	StarGoalTypeGetBoxes:       "GetBoxes",
 	StarGoalTypeClearTimeInSec: "ClearTimeInSec",
 	StarGoalTypeAllyBaseDamage: "AllyBaseDamage",
+	StarGoalTypeUsedTurn:       "UsedTurn",
+	StarGoalTypeLeftHitPoint:   "LeftHitPoint",
 }
 
 var EnumValuesStarGoalType = map[string]StarGoalType{
@@ -31,6 +35,8 @@ var EnumValuesStarGoalType = map[string]StarGoalType{
 	"GetBoxes":       StarGoalTypeGetBoxes,
 	"ClearTimeInSec": StarGoalTypeClearTimeInSec,
 	"AllyBaseDamage": StarGoalTypeAllyBaseDamage,
+	"UsedTurn":       StarGoalTypeUsedTurn,
+	"LeftHitPoint":   StarGoalTypeLeftHitPoint,
 }
 
 func (v StarGoalType) String() string {

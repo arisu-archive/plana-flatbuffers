@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRecruitMileageExcel {
+    id: long;
+    mileage_group_id: long;
+    mileage_reward_group_id: long;
+    is_loop: bool;
+    required_recruit_amount: long;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [long];
+}
+
+root_type ShopRecruitMileageExcel;

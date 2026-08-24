@@ -52,8 +52,99 @@ class ConstKeyMappingExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # ConstKeyMappingExcel
+    def PcInformationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def PcControllerInformationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def ControllerCursorFactorSlow(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def ControllerCursorFactor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def ControllerCursorFactorFast(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def VibrationSec(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def VibrationPower(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerScrollWheelFactor(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerZoomSensitivity(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerDpadMoveCheckRangeX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerDpadMoveCheckRangeY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerCursorClickScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstKeyMappingExcel
+    def ControllerScrollSensitivity(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
 def ConstKeyMappingExcelStart(builder):
-    builder.StartObject(4)
+    builder.StartObject(17)
 
 def Start(builder):
     ConstKeyMappingExcelStart(builder)
@@ -82,6 +173,84 @@ def ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKe
 def AddTutorialDialogTouchKey(builder, tutorialDialogTouchKey):
     ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKey)
 
+def ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId):
+    builder.PrependInt64Slot(4, pcInformationGroupId, 0)
+
+def AddPcInformationGroupId(builder, pcInformationGroupId):
+    ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId)
+
+def ConstKeyMappingExcelAddPcControllerInformationGroupId(builder, pcControllerInformationGroupId):
+    builder.PrependInt64Slot(5, pcControllerInformationGroupId, 0)
+
+def AddPcControllerInformationGroupId(builder, pcControllerInformationGroupId):
+    ConstKeyMappingExcelAddPcControllerInformationGroupId(builder, pcControllerInformationGroupId)
+
+def ConstKeyMappingExcelAddControllerCursorFactorSlow(builder, controllerCursorFactorSlow):
+    builder.PrependInt32Slot(6, controllerCursorFactorSlow, 0)
+
+def AddControllerCursorFactorSlow(builder, controllerCursorFactorSlow):
+    ConstKeyMappingExcelAddControllerCursorFactorSlow(builder, controllerCursorFactorSlow)
+
+def ConstKeyMappingExcelAddControllerCursorFactor(builder, controllerCursorFactor):
+    builder.PrependInt32Slot(7, controllerCursorFactor, 0)
+
+def AddControllerCursorFactor(builder, controllerCursorFactor):
+    ConstKeyMappingExcelAddControllerCursorFactor(builder, controllerCursorFactor)
+
+def ConstKeyMappingExcelAddControllerCursorFactorFast(builder, controllerCursorFactorFast):
+    builder.PrependInt32Slot(8, controllerCursorFactorFast, 0)
+
+def AddControllerCursorFactorFast(builder, controllerCursorFactorFast):
+    ConstKeyMappingExcelAddControllerCursorFactorFast(builder, controllerCursorFactorFast)
+
+def ConstKeyMappingExcelAddVibrationSec(builder, vibrationSec):
+    builder.PrependFloat32Slot(9, vibrationSec, 0.0)
+
+def AddVibrationSec(builder, vibrationSec):
+    ConstKeyMappingExcelAddVibrationSec(builder, vibrationSec)
+
+def ConstKeyMappingExcelAddVibrationPower(builder, vibrationPower):
+    builder.PrependFloat32Slot(10, vibrationPower, 0.0)
+
+def AddVibrationPower(builder, vibrationPower):
+    ConstKeyMappingExcelAddVibrationPower(builder, vibrationPower)
+
+def ConstKeyMappingExcelAddControllerScrollWheelFactor(builder, controllerScrollWheelFactor):
+    builder.PrependFloat32Slot(11, controllerScrollWheelFactor, 0.0)
+
+def AddControllerScrollWheelFactor(builder, controllerScrollWheelFactor):
+    ConstKeyMappingExcelAddControllerScrollWheelFactor(builder, controllerScrollWheelFactor)
+
+def ConstKeyMappingExcelAddControllerZoomSensitivity(builder, controllerZoomSensitivity):
+    builder.PrependFloat32Slot(12, controllerZoomSensitivity, 0.0)
+
+def AddControllerZoomSensitivity(builder, controllerZoomSensitivity):
+    ConstKeyMappingExcelAddControllerZoomSensitivity(builder, controllerZoomSensitivity)
+
+def ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(builder, controllerDpadMoveCheckRangeX):
+    builder.PrependFloat32Slot(13, controllerDpadMoveCheckRangeX, 0.0)
+
+def AddControllerDpadMoveCheckRangeX(builder, controllerDpadMoveCheckRangeX):
+    ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(builder, controllerDpadMoveCheckRangeX)
+
+def ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(builder, controllerDpadMoveCheckRangeY):
+    builder.PrependFloat32Slot(14, controllerDpadMoveCheckRangeY, 0.0)
+
+def AddControllerDpadMoveCheckRangeY(builder, controllerDpadMoveCheckRangeY):
+    ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(builder, controllerDpadMoveCheckRangeY)
+
+def ConstKeyMappingExcelAddControllerCursorClickScale(builder, controllerCursorClickScale):
+    builder.PrependFloat32Slot(15, controllerCursorClickScale, 0.0)
+
+def AddControllerCursorClickScale(builder, controllerCursorClickScale):
+    ConstKeyMappingExcelAddControllerCursorClickScale(builder, controllerCursorClickScale)
+
+def ConstKeyMappingExcelAddControllerScrollSensitivity(builder, controllerScrollSensitivity):
+    builder.PrependFloat32Slot(16, controllerScrollSensitivity, 0.0)
+
+def AddControllerScrollSensitivity(builder, controllerScrollSensitivity):
+    ConstKeyMappingExcelAddControllerScrollSensitivity(builder, controllerScrollSensitivity)
+
 def ConstKeyMappingExcelEnd(builder):
     return builder.EndObject()
 
@@ -98,11 +267,37 @@ class ConstKeyMappingExcelT(object):
         scrollWheelFactor = 0.0,
         removeKeycodeWord = None,
         tutorialDialogTouchKey = None,
+        pcInformationGroupId = 0,
+        pcControllerInformationGroupId = 0,
+        controllerCursorFactorSlow = 0,
+        controllerCursorFactor = 0,
+        controllerCursorFactorFast = 0,
+        vibrationSec = 0.0,
+        vibrationPower = 0.0,
+        controllerScrollWheelFactor = 0.0,
+        controllerZoomSensitivity = 0.0,
+        controllerDpadMoveCheckRangeX = 0.0,
+        controllerDpadMoveCheckRangeY = 0.0,
+        controllerCursorClickScale = 0.0,
+        controllerScrollSensitivity = 0.0,
     ):
         self.dragSensitivity = dragSensitivity  # type: float
         self.scrollWheelFactor = scrollWheelFactor  # type: float
         self.removeKeycodeWord = removeKeycodeWord  # type: Optional[str]
         self.tutorialDialogTouchKey = tutorialDialogTouchKey  # type: Optional[str]
+        self.pcInformationGroupId = pcInformationGroupId  # type: int
+        self.pcControllerInformationGroupId = pcControllerInformationGroupId  # type: int
+        self.controllerCursorFactorSlow = controllerCursorFactorSlow  # type: int
+        self.controllerCursorFactor = controllerCursorFactor  # type: int
+        self.controllerCursorFactorFast = controllerCursorFactorFast  # type: int
+        self.vibrationSec = vibrationSec  # type: float
+        self.vibrationPower = vibrationPower  # type: float
+        self.controllerScrollWheelFactor = controllerScrollWheelFactor  # type: float
+        self.controllerZoomSensitivity = controllerZoomSensitivity  # type: float
+        self.controllerDpadMoveCheckRangeX = controllerDpadMoveCheckRangeX  # type: float
+        self.controllerDpadMoveCheckRangeY = controllerDpadMoveCheckRangeY  # type: float
+        self.controllerCursorClickScale = controllerCursorClickScale  # type: float
+        self.controllerScrollSensitivity = controllerScrollSensitivity  # type: float
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -129,6 +324,19 @@ class ConstKeyMappingExcelT(object):
         self.scrollWheelFactor = constKeyMappingExcel.ScrollWheelFactor()
         self.removeKeycodeWord = constKeyMappingExcel.RemoveKeycodeWord()
         self.tutorialDialogTouchKey = constKeyMappingExcel.TutorialDialogTouchKey()
+        self.pcInformationGroupId = constKeyMappingExcel.PcInformationGroupId()
+        self.pcControllerInformationGroupId = constKeyMappingExcel.PcControllerInformationGroupId()
+        self.controllerCursorFactorSlow = constKeyMappingExcel.ControllerCursorFactorSlow()
+        self.controllerCursorFactor = constKeyMappingExcel.ControllerCursorFactor()
+        self.controllerCursorFactorFast = constKeyMappingExcel.ControllerCursorFactorFast()
+        self.vibrationSec = constKeyMappingExcel.VibrationSec()
+        self.vibrationPower = constKeyMappingExcel.VibrationPower()
+        self.controllerScrollWheelFactor = constKeyMappingExcel.ControllerScrollWheelFactor()
+        self.controllerZoomSensitivity = constKeyMappingExcel.ControllerZoomSensitivity()
+        self.controllerDpadMoveCheckRangeX = constKeyMappingExcel.ControllerDpadMoveCheckRangeX()
+        self.controllerDpadMoveCheckRangeY = constKeyMappingExcel.ControllerDpadMoveCheckRangeY()
+        self.controllerCursorClickScale = constKeyMappingExcel.ControllerCursorClickScale()
+        self.controllerScrollSensitivity = constKeyMappingExcel.ControllerScrollSensitivity()
 
     # ConstKeyMappingExcelT
     def Pack(self, builder):
@@ -143,9 +351,22 @@ class ConstKeyMappingExcelT(object):
             ConstKeyMappingExcelAddRemoveKeycodeWord(builder, removeKeycodeWord)
         if self.tutorialDialogTouchKey is not None:
             ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKey)
+        ConstKeyMappingExcelAddPcInformationGroupId(builder, self.pcInformationGroupId)
+        ConstKeyMappingExcelAddPcControllerInformationGroupId(builder, self.pcControllerInformationGroupId)
+        ConstKeyMappingExcelAddControllerCursorFactorSlow(builder, self.controllerCursorFactorSlow)
+        ConstKeyMappingExcelAddControllerCursorFactor(builder, self.controllerCursorFactor)
+        ConstKeyMappingExcelAddControllerCursorFactorFast(builder, self.controllerCursorFactorFast)
+        ConstKeyMappingExcelAddVibrationSec(builder, self.vibrationSec)
+        ConstKeyMappingExcelAddVibrationPower(builder, self.vibrationPower)
+        ConstKeyMappingExcelAddControllerScrollWheelFactor(builder, self.controllerScrollWheelFactor)
+        ConstKeyMappingExcelAddControllerZoomSensitivity(builder, self.controllerZoomSensitivity)
+        ConstKeyMappingExcelAddControllerDpadMoveCheckRangeX(builder, self.controllerDpadMoveCheckRangeX)
+        ConstKeyMappingExcelAddControllerDpadMoveCheckRangeY(builder, self.controllerDpadMoveCheckRangeY)
+        ConstKeyMappingExcelAddControllerCursorClickScale(builder, self.controllerCursorClickScale)
+        ConstKeyMappingExcelAddControllerScrollSensitivity(builder, self.controllerScrollSensitivity)
         constKeyMappingExcel = ConstKeyMappingExcelEnd(builder)
         return constKeyMappingExcel
 
 # plana-flatbuffer: object-api conversion
 from FlatData._conversion import install_object_api as _install_object_api
-_install_object_api(ConstKeyMappingExcelT, 'ConstKeyMappingExcel', (('dragSensitivity', 'float32', False), ('scrollWheelFactor', 'float32', False), ('removeKeycodeWord', 'string', False), ('tutorialDialogTouchKey', 'string', False)))
+_install_object_api(ConstKeyMappingExcelT, 'ConstKeyMappingExcel', (('dragSensitivity', 'float32', False), ('scrollWheelFactor', 'float32', False), ('removeKeycodeWord', 'string', False), ('tutorialDialogTouchKey', 'string', False), ('pcInformationGroupId', 'int64', False), ('pcControllerInformationGroupId', 'int64', False), ('controllerCursorFactorSlow', 'int32', False), ('controllerCursorFactor', 'int32', False), ('controllerCursorFactorFast', 'int32', False), ('vibrationSec', 'float32', False), ('vibrationPower', 'float32', False), ('controllerScrollWheelFactor', 'float32', False), ('controllerZoomSensitivity', 'float32', False), ('controllerDpadMoveCheckRangeX', 'float32', False), ('controllerDpadMoveCheckRangeY', 'float32', False), ('controllerCursorClickScale', 'float32', False), ('controllerScrollSensitivity', 'float32', False)))

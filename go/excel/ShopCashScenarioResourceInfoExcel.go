@@ -73,8 +73,24 @@ func (rcv *ShopCashScenarioResourceInfoExcel) IconPath() []byte {
 	return nil
 }
 
+func (rcv *ShopCashScenarioResourceInfoExcel) RecommendIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopCashScenarioResourceInfoExcel) RecommendPrefabPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func ShopCashScenarioResourceInfoExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(5)
 }
 func ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder *flatbuffers.Builder, scenarioResrouceInfoId int64) {
 	builder.PrependInt64Slot(0, scenarioResrouceInfoId, 0)
@@ -84,6 +100,12 @@ func ShopCashScenarioResourceInfoExcelAddShopCashId(builder *flatbuffers.Builder
 }
 func ShopCashScenarioResourceInfoExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(iconPath), 0)
+}
+func ShopCashScenarioResourceInfoExcelAddRecommendIconPath(builder *flatbuffers.Builder, recommendIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(recommendIconPath), 0)
+}
+func ShopCashScenarioResourceInfoExcelAddRecommendPrefabPath(builder *flatbuffers.Builder, recommendPrefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(recommendPrefabPath), 0)
 }
 func ShopCashScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -81,574 +81,588 @@ class ConstCombatExcel(object):
         return False
 
     # ConstCombatExcel
-    def SuppliesConditionStringId(self):
+    def ShowBufficonApcSynergyPassiveSkill(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ConstCombatExcel
+    def SuppliesConditionStringId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
     def PublicSpeechBubbleOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # ConstCombatExcel
-    def PublicSpeechBubbleOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
-    def PublicSpeechBubbleOffsetZ(self):
+    def PublicSpeechBubbleOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
-    def ShowRaidListCount(self):
+    def PublicSpeechBubbleOffsetZ(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstCombatExcel
+    def ShowRaidListCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def MaxRaidTicketCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def MaxRaidBossSkillSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EngageTimelinePath(self):
+    def MaxRaidBossSkillSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ConstCombatExcel
-    def EngageWithSupporterTimelinePath(self):
+    def EngageTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
-    def VictoryTimelinePath(self):
+    def EngageWithSupporterTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
-    def TimeLimitAlarm(self):
+    def VictoryTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ConstCombatExcel
+    def TimeLimitAlarm(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def EchelonMaxCommonCost(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def EchelonInitCommonCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def SkillSlotCoolTime(self):
+    def EchelonInitCommonCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EnemyRegenCost(self):
+    def SkillSlotCoolTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def ChampionRegenCost(self):
+    def EnemyRegenCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def PlayerRegenCostDelay(self):
+    def ChampionRegenCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CrowdControlFactor(self):
+    def PlayerRegenCostDelay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def RaidOpenScenarioId(self):
+    def CrowdControlFactor(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ConstCombatExcel
-    def EliminateRaidOpenScenarioId(self):
+    def RaidOpenScenarioId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
-    def DefenceConstA(self):
+    def EliminateRaidOpenScenarioId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ConstCombatExcel
-    def DefenceConstB(self):
+    def DefenceConstA(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def DefenceConstC(self):
+    def DefenceConstB(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def DefenceConstD(self):
+    def DefenceConstC(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def AccuracyConstA(self):
+    def DefenceConstD(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def AccuracyConstB(self):
+    def AccuracyConstA(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def AccuracyConstC(self):
+    def AccuracyConstB(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def AccuracyConstD(self):
+    def AccuracyConstC(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CriticalConstA(self):
+    def AccuracyConstD(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CriticalConstB(self):
+    def CriticalConstA(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CriticalConstC(self):
+    def CriticalConstB(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CriticalConstD(self):
+    def CriticalConstC(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def MaxGroupBuffLevel(self):
+    def CriticalConstD(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EmojiDefaultTime(self):
+    def MaxGroupBuffLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def TimeLineActionRotateSpeed(self):
+    def EmojiDefaultTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(88))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def BodyRotateSpeed(self):
+    def TimeLineActionRotateSpeed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(90))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def NormalTimeScale(self):
+    def BodyRotateSpeed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(92))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def FastTimeScale(self):
+    def NormalTimeScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(94))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def BulletTimeScale(self):
+    def FastTimeScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(96))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def UiDisplayDelayAfterSkillCutIn(self):
+    def BulletTimeScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def UseInitialRangeForCoverMove(self):
+    def UiDisplayDelayAfterSkillCutIn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def UseInitialRangeForCoverMove(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(102))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ConstCombatExcel
     def SlowTimeScale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(102))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(104))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def AimIkMinDegree(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(104))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # ConstCombatExcel
-    def AimIkMaxDegree(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(106))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
-    def MinimumClearTime(self):
+    def AimIkMaxDegree(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # ConstCombatExcel
-    def MinimumClearLevelGap(self):
+    def MinimumClearTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CheckCheaterMaxUseCostNonArena(self):
+    def MinimumClearLevelGap(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(112))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CheckCheaterMaxUseCostArena(self):
+    def CheckCheaterMaxUseCostNonArena(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def AllowedMaxTimeScale(self):
+    def CheckCheaterMaxUseCostArena(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(116))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def RandomAnimationOutput(self):
+    def AllowedMaxTimeScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(118))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def SummonedTeleportDistance(self):
+    def RandomAnimationOutput(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def ArenaMinimumClearTime(self):
+    def SummonedTeleportDistance(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def ArenaMinimumClearTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def Worldbossbattlelittle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def Worldbossbattlemiddle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def Worldbossbattlehigh(self):
+    def Worldbossbattlemiddle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(128))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def Worldbossbattleveryhigh(self):
+    def Worldbossbattlehigh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(130))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def WorldRaidAutoSyncTermSecond(self):
+    def Worldbossbattleveryhigh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(132))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def WorldRaidBossHpDecreaseTerm(self):
+    def WorldRaidAutoSyncTermSecond(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(134))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def WorldRaidBossParcelReactionDelay(self):
+    def WorldRaidBossHpDecreaseTerm(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(136))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def RaidRankingJumpMinimumWaitingTime(self):
+    def WorldRaidBossParcelReactionDelay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(138))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EffectTeleportDistance(self):
+    def RaidRankingJumpMinimumWaitingTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(140))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def EffectTeleportDistance(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(142))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
     def AuraExitThresholdMargin(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(142))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def TsaInteractionDamageFactor(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(144))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def VictoryInteractionRate(self):
+    def TsaInteractionDamageFactor(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(146))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EchelonExtensionEngageTimelinePath(self):
+    def VictoryInteractionRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(148))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ConstCombatExcel
-    def EchelonExtensionEngageWithSupporterTimelinePath(self):
+    def EchelonExtensionEngageTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(150))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
-    def EchelonExtensionVictoryTimelinePath(self):
+    def EchelonExtensionEngageWithSupporterTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(152))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstCombatExcel
-    def EchelonExtensionEchelonMaxCommonCost(self):
+    def EchelonExtensionVictoryTimelinePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(154))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ConstCombatExcel
+    def EchelonExtensionEchelonMaxCommonCost(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(156))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def EchelonMaxOverloadCost(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(156))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def EchelonExtensionMaxOverloadCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(158))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EchelonExtensionEchelonInitCommonCost(self):
+    def EchelonExtensionMaxOverloadCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(160))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def EchelonExtensionEchelonInitCommonCost(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(162))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def EchelonExtensionCostRegenRatio(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(162))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def EchelonOverloadCostRegenRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(164))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def EchelonExtensionOverloadCostRegenRatio(self):
+    def EchelonOverloadCostRegenRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(166))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def CheckCheaterMaxUseCostMultiFloorRaid(self):
+    def EchelonExtensionOverloadCostRegenRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(168))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def CheckCheaterMaxUseCostMultiFloorRaid(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(170))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
     def ExcessiveTouchCheckTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(170))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(172))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
     def ExcessiveTouchCheckCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(172))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstCombatExcel
-    def CampaignAlertPopupLevelGap(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(174))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def MoveCorrectionSkipRatio(self):
+    def CampaignAlertPopupLevelGap(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(176))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstCombatExcel
-    def ObstacleColliderHeightJumpable(self):
+    def MoveCorrectionSkipRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(178))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstCombatExcel
+    def ObstacleColliderHeightJumpable(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(180))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstCombatExcel
     def ObstacleColliderHeightNotJumpable(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(180))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(182))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
+    # ConstCombatExcel
+    def CheckCheaterMaxUseCostTacticalRelay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(184))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def ConstCombatExcelStart(builder):
-    builder.StartObject(89)
+    builder.StartObject(91)
 
 def Start(builder):
     ConstCombatExcelStart(builder)
@@ -701,491 +715,503 @@ def ConstCombatExcelAddShowBufficonGroundPassiveSkill(builder, showBufficonGroun
 def AddShowBufficonGroundPassiveSkill(builder, showBufficonGroundPassiveSkill):
     ConstCombatExcelAddShowBufficonGroundPassiveSkill(builder, showBufficonGroundPassiveSkill)
 
+def ConstCombatExcelAddShowBufficonApcSynergyPassiveSkill(builder, showBufficonApcSynergyPassiveSkill):
+    builder.PrependBoolSlot(8, showBufficonApcSynergyPassiveSkill, 0)
+
+def AddShowBufficonApcSynergyPassiveSkill(builder, showBufficonApcSynergyPassiveSkill):
+    ConstCombatExcelAddShowBufficonApcSynergyPassiveSkill(builder, showBufficonApcSynergyPassiveSkill)
+
 def ConstCombatExcelAddSuppliesConditionStringId(builder, suppliesConditionStringId):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(suppliesConditionStringId), 0)
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(suppliesConditionStringId), 0)
 
 def AddSuppliesConditionStringId(builder, suppliesConditionStringId):
     ConstCombatExcelAddSuppliesConditionStringId(builder, suppliesConditionStringId)
 
 def ConstCombatExcelAddPublicSpeechBubbleOffsetX(builder, publicSpeechBubbleOffsetX):
-    builder.PrependFloat32Slot(9, publicSpeechBubbleOffsetX, 0.0)
+    builder.PrependFloat32Slot(10, publicSpeechBubbleOffsetX, 0.0)
 
 def AddPublicSpeechBubbleOffsetX(builder, publicSpeechBubbleOffsetX):
     ConstCombatExcelAddPublicSpeechBubbleOffsetX(builder, publicSpeechBubbleOffsetX)
 
 def ConstCombatExcelAddPublicSpeechBubbleOffsetY(builder, publicSpeechBubbleOffsetY):
-    builder.PrependFloat32Slot(10, publicSpeechBubbleOffsetY, 0.0)
+    builder.PrependFloat32Slot(11, publicSpeechBubbleOffsetY, 0.0)
 
 def AddPublicSpeechBubbleOffsetY(builder, publicSpeechBubbleOffsetY):
     ConstCombatExcelAddPublicSpeechBubbleOffsetY(builder, publicSpeechBubbleOffsetY)
 
 def ConstCombatExcelAddPublicSpeechBubbleOffsetZ(builder, publicSpeechBubbleOffsetZ):
-    builder.PrependFloat32Slot(11, publicSpeechBubbleOffsetZ, 0.0)
+    builder.PrependFloat32Slot(12, publicSpeechBubbleOffsetZ, 0.0)
 
 def AddPublicSpeechBubbleOffsetZ(builder, publicSpeechBubbleOffsetZ):
     ConstCombatExcelAddPublicSpeechBubbleOffsetZ(builder, publicSpeechBubbleOffsetZ)
 
 def ConstCombatExcelAddShowRaidListCount(builder, showRaidListCount):
-    builder.PrependInt32Slot(12, showRaidListCount, 0)
+    builder.PrependInt32Slot(13, showRaidListCount, 0)
 
 def AddShowRaidListCount(builder, showRaidListCount):
     ConstCombatExcelAddShowRaidListCount(builder, showRaidListCount)
 
 def ConstCombatExcelAddMaxRaidTicketCount(builder, maxRaidTicketCount):
-    builder.PrependInt64Slot(13, maxRaidTicketCount, 0)
+    builder.PrependInt64Slot(14, maxRaidTicketCount, 0)
 
 def AddMaxRaidTicketCount(builder, maxRaidTicketCount):
     ConstCombatExcelAddMaxRaidTicketCount(builder, maxRaidTicketCount)
 
 def ConstCombatExcelAddMaxRaidBossSkillSlot(builder, maxRaidBossSkillSlot):
-    builder.PrependInt64Slot(14, maxRaidBossSkillSlot, 0)
+    builder.PrependInt64Slot(15, maxRaidBossSkillSlot, 0)
 
 def AddMaxRaidBossSkillSlot(builder, maxRaidBossSkillSlot):
     ConstCombatExcelAddMaxRaidBossSkillSlot(builder, maxRaidBossSkillSlot)
 
 def ConstCombatExcelAddEngageTimelinePath(builder, engageTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(engageTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(engageTimelinePath), 0)
 
 def AddEngageTimelinePath(builder, engageTimelinePath):
     ConstCombatExcelAddEngageTimelinePath(builder, engageTimelinePath)
 
 def ConstCombatExcelAddEngageWithSupporterTimelinePath(builder, engageWithSupporterTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(engageWithSupporterTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(engageWithSupporterTimelinePath), 0)
 
 def AddEngageWithSupporterTimelinePath(builder, engageWithSupporterTimelinePath):
     ConstCombatExcelAddEngageWithSupporterTimelinePath(builder, engageWithSupporterTimelinePath)
 
 def ConstCombatExcelAddVictoryTimelinePath(builder, victoryTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(victoryTimelinePath), 0)
 
 def AddVictoryTimelinePath(builder, victoryTimelinePath):
     ConstCombatExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
 
 def ConstCombatExcelAddTimeLimitAlarm(builder, timeLimitAlarm):
-    builder.PrependInt64Slot(18, timeLimitAlarm, 0)
+    builder.PrependInt64Slot(19, timeLimitAlarm, 0)
 
 def AddTimeLimitAlarm(builder, timeLimitAlarm):
     ConstCombatExcelAddTimeLimitAlarm(builder, timeLimitAlarm)
 
 def ConstCombatExcelAddEchelonMaxCommonCost(builder, echelonMaxCommonCost):
-    builder.PrependInt32Slot(19, echelonMaxCommonCost, 0)
+    builder.PrependInt32Slot(20, echelonMaxCommonCost, 0)
 
 def AddEchelonMaxCommonCost(builder, echelonMaxCommonCost):
     ConstCombatExcelAddEchelonMaxCommonCost(builder, echelonMaxCommonCost)
 
 def ConstCombatExcelAddEchelonInitCommonCost(builder, echelonInitCommonCost):
-    builder.PrependInt32Slot(20, echelonInitCommonCost, 0)
+    builder.PrependInt32Slot(21, echelonInitCommonCost, 0)
 
 def AddEchelonInitCommonCost(builder, echelonInitCommonCost):
     ConstCombatExcelAddEchelonInitCommonCost(builder, echelonInitCommonCost)
 
 def ConstCombatExcelAddSkillSlotCoolTime(builder, skillSlotCoolTime):
-    builder.PrependInt64Slot(21, skillSlotCoolTime, 0)
+    builder.PrependInt64Slot(22, skillSlotCoolTime, 0)
 
 def AddSkillSlotCoolTime(builder, skillSlotCoolTime):
     ConstCombatExcelAddSkillSlotCoolTime(builder, skillSlotCoolTime)
 
 def ConstCombatExcelAddEnemyRegenCost(builder, enemyRegenCost):
-    builder.PrependInt64Slot(22, enemyRegenCost, 0)
+    builder.PrependInt64Slot(23, enemyRegenCost, 0)
 
 def AddEnemyRegenCost(builder, enemyRegenCost):
     ConstCombatExcelAddEnemyRegenCost(builder, enemyRegenCost)
 
 def ConstCombatExcelAddChampionRegenCost(builder, championRegenCost):
-    builder.PrependInt64Slot(23, championRegenCost, 0)
+    builder.PrependInt64Slot(24, championRegenCost, 0)
 
 def AddChampionRegenCost(builder, championRegenCost):
     ConstCombatExcelAddChampionRegenCost(builder, championRegenCost)
 
 def ConstCombatExcelAddPlayerRegenCostDelay(builder, playerRegenCostDelay):
-    builder.PrependInt64Slot(24, playerRegenCostDelay, 0)
+    builder.PrependInt64Slot(25, playerRegenCostDelay, 0)
 
 def AddPlayerRegenCostDelay(builder, playerRegenCostDelay):
     ConstCombatExcelAddPlayerRegenCostDelay(builder, playerRegenCostDelay)
 
 def ConstCombatExcelAddCrowdControlFactor(builder, crowdControlFactor):
-    builder.PrependInt64Slot(25, crowdControlFactor, 0)
+    builder.PrependInt64Slot(26, crowdControlFactor, 0)
 
 def AddCrowdControlFactor(builder, crowdControlFactor):
     ConstCombatExcelAddCrowdControlFactor(builder, crowdControlFactor)
 
 def ConstCombatExcelAddRaidOpenScenarioId(builder, raidOpenScenarioId):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(raidOpenScenarioId), 0)
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(raidOpenScenarioId), 0)
 
 def AddRaidOpenScenarioId(builder, raidOpenScenarioId):
     ConstCombatExcelAddRaidOpenScenarioId(builder, raidOpenScenarioId)
 
 def ConstCombatExcelAddEliminateRaidOpenScenarioId(builder, eliminateRaidOpenScenarioId):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(eliminateRaidOpenScenarioId), 0)
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(eliminateRaidOpenScenarioId), 0)
 
 def AddEliminateRaidOpenScenarioId(builder, eliminateRaidOpenScenarioId):
     ConstCombatExcelAddEliminateRaidOpenScenarioId(builder, eliminateRaidOpenScenarioId)
 
 def ConstCombatExcelAddDefenceConstA(builder, defenceConstA):
-    builder.PrependInt64Slot(28, defenceConstA, 0)
+    builder.PrependInt64Slot(29, defenceConstA, 0)
 
 def AddDefenceConstA(builder, defenceConstA):
     ConstCombatExcelAddDefenceConstA(builder, defenceConstA)
 
 def ConstCombatExcelAddDefenceConstB(builder, defenceConstB):
-    builder.PrependInt64Slot(29, defenceConstB, 0)
+    builder.PrependInt64Slot(30, defenceConstB, 0)
 
 def AddDefenceConstB(builder, defenceConstB):
     ConstCombatExcelAddDefenceConstB(builder, defenceConstB)
 
 def ConstCombatExcelAddDefenceConstC(builder, defenceConstC):
-    builder.PrependInt64Slot(30, defenceConstC, 0)
+    builder.PrependInt64Slot(31, defenceConstC, 0)
 
 def AddDefenceConstC(builder, defenceConstC):
     ConstCombatExcelAddDefenceConstC(builder, defenceConstC)
 
 def ConstCombatExcelAddDefenceConstD(builder, defenceConstD):
-    builder.PrependInt64Slot(31, defenceConstD, 0)
+    builder.PrependInt64Slot(32, defenceConstD, 0)
 
 def AddDefenceConstD(builder, defenceConstD):
     ConstCombatExcelAddDefenceConstD(builder, defenceConstD)
 
 def ConstCombatExcelAddAccuracyConstA(builder, accuracyConstA):
-    builder.PrependInt64Slot(32, accuracyConstA, 0)
+    builder.PrependInt64Slot(33, accuracyConstA, 0)
 
 def AddAccuracyConstA(builder, accuracyConstA):
     ConstCombatExcelAddAccuracyConstA(builder, accuracyConstA)
 
 def ConstCombatExcelAddAccuracyConstB(builder, accuracyConstB):
-    builder.PrependInt64Slot(33, accuracyConstB, 0)
+    builder.PrependInt64Slot(34, accuracyConstB, 0)
 
 def AddAccuracyConstB(builder, accuracyConstB):
     ConstCombatExcelAddAccuracyConstB(builder, accuracyConstB)
 
 def ConstCombatExcelAddAccuracyConstC(builder, accuracyConstC):
-    builder.PrependInt64Slot(34, accuracyConstC, 0)
+    builder.PrependInt64Slot(35, accuracyConstC, 0)
 
 def AddAccuracyConstC(builder, accuracyConstC):
     ConstCombatExcelAddAccuracyConstC(builder, accuracyConstC)
 
 def ConstCombatExcelAddAccuracyConstD(builder, accuracyConstD):
-    builder.PrependInt64Slot(35, accuracyConstD, 0)
+    builder.PrependInt64Slot(36, accuracyConstD, 0)
 
 def AddAccuracyConstD(builder, accuracyConstD):
     ConstCombatExcelAddAccuracyConstD(builder, accuracyConstD)
 
 def ConstCombatExcelAddCriticalConstA(builder, criticalConstA):
-    builder.PrependInt64Slot(36, criticalConstA, 0)
+    builder.PrependInt64Slot(37, criticalConstA, 0)
 
 def AddCriticalConstA(builder, criticalConstA):
     ConstCombatExcelAddCriticalConstA(builder, criticalConstA)
 
 def ConstCombatExcelAddCriticalConstB(builder, criticalConstB):
-    builder.PrependInt64Slot(37, criticalConstB, 0)
+    builder.PrependInt64Slot(38, criticalConstB, 0)
 
 def AddCriticalConstB(builder, criticalConstB):
     ConstCombatExcelAddCriticalConstB(builder, criticalConstB)
 
 def ConstCombatExcelAddCriticalConstC(builder, criticalConstC):
-    builder.PrependInt64Slot(38, criticalConstC, 0)
+    builder.PrependInt64Slot(39, criticalConstC, 0)
 
 def AddCriticalConstC(builder, criticalConstC):
     ConstCombatExcelAddCriticalConstC(builder, criticalConstC)
 
 def ConstCombatExcelAddCriticalConstD(builder, criticalConstD):
-    builder.PrependInt64Slot(39, criticalConstD, 0)
+    builder.PrependInt64Slot(40, criticalConstD, 0)
 
 def AddCriticalConstD(builder, criticalConstD):
     ConstCombatExcelAddCriticalConstD(builder, criticalConstD)
 
 def ConstCombatExcelAddMaxGroupBuffLevel(builder, maxGroupBuffLevel):
-    builder.PrependInt32Slot(40, maxGroupBuffLevel, 0)
+    builder.PrependInt32Slot(41, maxGroupBuffLevel, 0)
 
 def AddMaxGroupBuffLevel(builder, maxGroupBuffLevel):
     ConstCombatExcelAddMaxGroupBuffLevel(builder, maxGroupBuffLevel)
 
 def ConstCombatExcelAddEmojiDefaultTime(builder, emojiDefaultTime):
-    builder.PrependInt32Slot(41, emojiDefaultTime, 0)
+    builder.PrependInt32Slot(42, emojiDefaultTime, 0)
 
 def AddEmojiDefaultTime(builder, emojiDefaultTime):
     ConstCombatExcelAddEmojiDefaultTime(builder, emojiDefaultTime)
 
 def ConstCombatExcelAddTimeLineActionRotateSpeed(builder, timeLineActionRotateSpeed):
-    builder.PrependInt64Slot(42, timeLineActionRotateSpeed, 0)
+    builder.PrependInt64Slot(43, timeLineActionRotateSpeed, 0)
 
 def AddTimeLineActionRotateSpeed(builder, timeLineActionRotateSpeed):
     ConstCombatExcelAddTimeLineActionRotateSpeed(builder, timeLineActionRotateSpeed)
 
 def ConstCombatExcelAddBodyRotateSpeed(builder, bodyRotateSpeed):
-    builder.PrependInt64Slot(43, bodyRotateSpeed, 0)
+    builder.PrependInt64Slot(44, bodyRotateSpeed, 0)
 
 def AddBodyRotateSpeed(builder, bodyRotateSpeed):
     ConstCombatExcelAddBodyRotateSpeed(builder, bodyRotateSpeed)
 
 def ConstCombatExcelAddNormalTimeScale(builder, normalTimeScale):
-    builder.PrependInt64Slot(44, normalTimeScale, 0)
+    builder.PrependInt64Slot(45, normalTimeScale, 0)
 
 def AddNormalTimeScale(builder, normalTimeScale):
     ConstCombatExcelAddNormalTimeScale(builder, normalTimeScale)
 
 def ConstCombatExcelAddFastTimeScale(builder, fastTimeScale):
-    builder.PrependInt64Slot(45, fastTimeScale, 0)
+    builder.PrependInt64Slot(46, fastTimeScale, 0)
 
 def AddFastTimeScale(builder, fastTimeScale):
     ConstCombatExcelAddFastTimeScale(builder, fastTimeScale)
 
 def ConstCombatExcelAddBulletTimeScale(builder, bulletTimeScale):
-    builder.PrependInt64Slot(46, bulletTimeScale, 0)
+    builder.PrependInt64Slot(47, bulletTimeScale, 0)
 
 def AddBulletTimeScale(builder, bulletTimeScale):
     ConstCombatExcelAddBulletTimeScale(builder, bulletTimeScale)
 
 def ConstCombatExcelAddUiDisplayDelayAfterSkillCutIn(builder, uiDisplayDelayAfterSkillCutIn):
-    builder.PrependInt64Slot(47, uiDisplayDelayAfterSkillCutIn, 0)
+    builder.PrependInt64Slot(48, uiDisplayDelayAfterSkillCutIn, 0)
 
 def AddUiDisplayDelayAfterSkillCutIn(builder, uiDisplayDelayAfterSkillCutIn):
     ConstCombatExcelAddUiDisplayDelayAfterSkillCutIn(builder, uiDisplayDelayAfterSkillCutIn)
 
 def ConstCombatExcelAddUseInitialRangeForCoverMove(builder, useInitialRangeForCoverMove):
-    builder.PrependBoolSlot(48, useInitialRangeForCoverMove, 0)
+    builder.PrependBoolSlot(49, useInitialRangeForCoverMove, 0)
 
 def AddUseInitialRangeForCoverMove(builder, useInitialRangeForCoverMove):
     ConstCombatExcelAddUseInitialRangeForCoverMove(builder, useInitialRangeForCoverMove)
 
 def ConstCombatExcelAddSlowTimeScale(builder, slowTimeScale):
-    builder.PrependInt64Slot(49, slowTimeScale, 0)
+    builder.PrependInt64Slot(50, slowTimeScale, 0)
 
 def AddSlowTimeScale(builder, slowTimeScale):
     ConstCombatExcelAddSlowTimeScale(builder, slowTimeScale)
 
 def ConstCombatExcelAddAimIkMinDegree(builder, aimIkMinDegree):
-    builder.PrependFloat32Slot(50, aimIkMinDegree, 0.0)
+    builder.PrependFloat32Slot(51, aimIkMinDegree, 0.0)
 
 def AddAimIkMinDegree(builder, aimIkMinDegree):
     ConstCombatExcelAddAimIkMinDegree(builder, aimIkMinDegree)
 
 def ConstCombatExcelAddAimIkMaxDegree(builder, aimIkMaxDegree):
-    builder.PrependFloat32Slot(51, aimIkMaxDegree, 0.0)
+    builder.PrependFloat32Slot(52, aimIkMaxDegree, 0.0)
 
 def AddAimIkMaxDegree(builder, aimIkMaxDegree):
     ConstCombatExcelAddAimIkMaxDegree(builder, aimIkMaxDegree)
 
 def ConstCombatExcelAddMinimumClearTime(builder, minimumClearTime):
-    builder.PrependInt32Slot(52, minimumClearTime, 0)
+    builder.PrependInt32Slot(53, minimumClearTime, 0)
 
 def AddMinimumClearTime(builder, minimumClearTime):
     ConstCombatExcelAddMinimumClearTime(builder, minimumClearTime)
 
 def ConstCombatExcelAddMinimumClearLevelGap(builder, minimumClearLevelGap):
-    builder.PrependInt32Slot(53, minimumClearLevelGap, 0)
+    builder.PrependInt32Slot(54, minimumClearLevelGap, 0)
 
 def AddMinimumClearLevelGap(builder, minimumClearLevelGap):
     ConstCombatExcelAddMinimumClearLevelGap(builder, minimumClearLevelGap)
 
 def ConstCombatExcelAddCheckCheaterMaxUseCostNonArena(builder, checkCheaterMaxUseCostNonArena):
-    builder.PrependInt32Slot(54, checkCheaterMaxUseCostNonArena, 0)
+    builder.PrependInt32Slot(55, checkCheaterMaxUseCostNonArena, 0)
 
 def AddCheckCheaterMaxUseCostNonArena(builder, checkCheaterMaxUseCostNonArena):
     ConstCombatExcelAddCheckCheaterMaxUseCostNonArena(builder, checkCheaterMaxUseCostNonArena)
 
 def ConstCombatExcelAddCheckCheaterMaxUseCostArena(builder, checkCheaterMaxUseCostArena):
-    builder.PrependInt32Slot(55, checkCheaterMaxUseCostArena, 0)
+    builder.PrependInt32Slot(56, checkCheaterMaxUseCostArena, 0)
 
 def AddCheckCheaterMaxUseCostArena(builder, checkCheaterMaxUseCostArena):
     ConstCombatExcelAddCheckCheaterMaxUseCostArena(builder, checkCheaterMaxUseCostArena)
 
 def ConstCombatExcelAddAllowedMaxTimeScale(builder, allowedMaxTimeScale):
-    builder.PrependInt64Slot(56, allowedMaxTimeScale, 0)
+    builder.PrependInt64Slot(57, allowedMaxTimeScale, 0)
 
 def AddAllowedMaxTimeScale(builder, allowedMaxTimeScale):
     ConstCombatExcelAddAllowedMaxTimeScale(builder, allowedMaxTimeScale)
 
 def ConstCombatExcelAddRandomAnimationOutput(builder, randomAnimationOutput):
-    builder.PrependInt64Slot(57, randomAnimationOutput, 0)
+    builder.PrependInt64Slot(58, randomAnimationOutput, 0)
 
 def AddRandomAnimationOutput(builder, randomAnimationOutput):
     ConstCombatExcelAddRandomAnimationOutput(builder, randomAnimationOutput)
 
 def ConstCombatExcelAddSummonedTeleportDistance(builder, summonedTeleportDistance):
-    builder.PrependInt64Slot(58, summonedTeleportDistance, 0)
+    builder.PrependInt64Slot(59, summonedTeleportDistance, 0)
 
 def AddSummonedTeleportDistance(builder, summonedTeleportDistance):
     ConstCombatExcelAddSummonedTeleportDistance(builder, summonedTeleportDistance)
 
 def ConstCombatExcelAddArenaMinimumClearTime(builder, arenaMinimumClearTime):
-    builder.PrependInt32Slot(59, arenaMinimumClearTime, 0)
+    builder.PrependInt32Slot(60, arenaMinimumClearTime, 0)
 
 def AddArenaMinimumClearTime(builder, arenaMinimumClearTime):
     ConstCombatExcelAddArenaMinimumClearTime(builder, arenaMinimumClearTime)
 
 def ConstCombatExcelAddWorldbossbattlelittle(builder, worldbossbattlelittle):
-    builder.PrependInt64Slot(60, worldbossbattlelittle, 0)
+    builder.PrependInt64Slot(61, worldbossbattlelittle, 0)
 
 def AddWorldbossbattlelittle(builder, worldbossbattlelittle):
     ConstCombatExcelAddWorldbossbattlelittle(builder, worldbossbattlelittle)
 
 def ConstCombatExcelAddWorldbossbattlemiddle(builder, worldbossbattlemiddle):
-    builder.PrependInt64Slot(61, worldbossbattlemiddle, 0)
+    builder.PrependInt64Slot(62, worldbossbattlemiddle, 0)
 
 def AddWorldbossbattlemiddle(builder, worldbossbattlemiddle):
     ConstCombatExcelAddWorldbossbattlemiddle(builder, worldbossbattlemiddle)
 
 def ConstCombatExcelAddWorldbossbattlehigh(builder, worldbossbattlehigh):
-    builder.PrependInt64Slot(62, worldbossbattlehigh, 0)
+    builder.PrependInt64Slot(63, worldbossbattlehigh, 0)
 
 def AddWorldbossbattlehigh(builder, worldbossbattlehigh):
     ConstCombatExcelAddWorldbossbattlehigh(builder, worldbossbattlehigh)
 
 def ConstCombatExcelAddWorldbossbattleveryhigh(builder, worldbossbattleveryhigh):
-    builder.PrependInt64Slot(63, worldbossbattleveryhigh, 0)
+    builder.PrependInt64Slot(64, worldbossbattleveryhigh, 0)
 
 def AddWorldbossbattleveryhigh(builder, worldbossbattleveryhigh):
     ConstCombatExcelAddWorldbossbattleveryhigh(builder, worldbossbattleveryhigh)
 
 def ConstCombatExcelAddWorldRaidAutoSyncTermSecond(builder, worldRaidAutoSyncTermSecond):
-    builder.PrependInt64Slot(64, worldRaidAutoSyncTermSecond, 0)
+    builder.PrependInt64Slot(65, worldRaidAutoSyncTermSecond, 0)
 
 def AddWorldRaidAutoSyncTermSecond(builder, worldRaidAutoSyncTermSecond):
     ConstCombatExcelAddWorldRaidAutoSyncTermSecond(builder, worldRaidAutoSyncTermSecond)
 
 def ConstCombatExcelAddWorldRaidBossHpDecreaseTerm(builder, worldRaidBossHpDecreaseTerm):
-    builder.PrependInt64Slot(65, worldRaidBossHpDecreaseTerm, 0)
+    builder.PrependInt64Slot(66, worldRaidBossHpDecreaseTerm, 0)
 
 def AddWorldRaidBossHpDecreaseTerm(builder, worldRaidBossHpDecreaseTerm):
     ConstCombatExcelAddWorldRaidBossHpDecreaseTerm(builder, worldRaidBossHpDecreaseTerm)
 
 def ConstCombatExcelAddWorldRaidBossParcelReactionDelay(builder, worldRaidBossParcelReactionDelay):
-    builder.PrependInt64Slot(66, worldRaidBossParcelReactionDelay, 0)
+    builder.PrependInt64Slot(67, worldRaidBossParcelReactionDelay, 0)
 
 def AddWorldRaidBossParcelReactionDelay(builder, worldRaidBossParcelReactionDelay):
     ConstCombatExcelAddWorldRaidBossParcelReactionDelay(builder, worldRaidBossParcelReactionDelay)
 
 def ConstCombatExcelAddRaidRankingJumpMinimumWaitingTime(builder, raidRankingJumpMinimumWaitingTime):
-    builder.PrependInt64Slot(67, raidRankingJumpMinimumWaitingTime, 0)
+    builder.PrependInt64Slot(68, raidRankingJumpMinimumWaitingTime, 0)
 
 def AddRaidRankingJumpMinimumWaitingTime(builder, raidRankingJumpMinimumWaitingTime):
     ConstCombatExcelAddRaidRankingJumpMinimumWaitingTime(builder, raidRankingJumpMinimumWaitingTime)
 
 def ConstCombatExcelAddEffectTeleportDistance(builder, effectTeleportDistance):
-    builder.PrependFloat32Slot(68, effectTeleportDistance, 0.0)
+    builder.PrependFloat32Slot(69, effectTeleportDistance, 0.0)
 
 def AddEffectTeleportDistance(builder, effectTeleportDistance):
     ConstCombatExcelAddEffectTeleportDistance(builder, effectTeleportDistance)
 
 def ConstCombatExcelAddAuraExitThresholdMargin(builder, auraExitThresholdMargin):
-    builder.PrependInt64Slot(69, auraExitThresholdMargin, 0)
+    builder.PrependInt64Slot(70, auraExitThresholdMargin, 0)
 
 def AddAuraExitThresholdMargin(builder, auraExitThresholdMargin):
     ConstCombatExcelAddAuraExitThresholdMargin(builder, auraExitThresholdMargin)
 
 def ConstCombatExcelAddTsaInteractionDamageFactor(builder, tsaInteractionDamageFactor):
-    builder.PrependInt64Slot(70, tsaInteractionDamageFactor, 0)
+    builder.PrependInt64Slot(71, tsaInteractionDamageFactor, 0)
 
 def AddTsaInteractionDamageFactor(builder, tsaInteractionDamageFactor):
     ConstCombatExcelAddTsaInteractionDamageFactor(builder, tsaInteractionDamageFactor)
 
 def ConstCombatExcelAddVictoryInteractionRate(builder, victoryInteractionRate):
-    builder.PrependInt64Slot(71, victoryInteractionRate, 0)
+    builder.PrependInt64Slot(72, victoryInteractionRate, 0)
 
 def AddVictoryInteractionRate(builder, victoryInteractionRate):
     ConstCombatExcelAddVictoryInteractionRate(builder, victoryInteractionRate)
 
 def ConstCombatExcelAddEchelonExtensionEngageTimelinePath(builder, echelonExtensionEngageTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(72, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionEngageTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(73, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionEngageTimelinePath), 0)
 
 def AddEchelonExtensionEngageTimelinePath(builder, echelonExtensionEngageTimelinePath):
     ConstCombatExcelAddEchelonExtensionEngageTimelinePath(builder, echelonExtensionEngageTimelinePath)
 
 def ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(builder, echelonExtensionEngageWithSupporterTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(73, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionEngageWithSupporterTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(74, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionEngageWithSupporterTimelinePath), 0)
 
 def AddEchelonExtensionEngageWithSupporterTimelinePath(builder, echelonExtensionEngageWithSupporterTimelinePath):
     ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(builder, echelonExtensionEngageWithSupporterTimelinePath)
 
 def ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(builder, echelonExtensionVictoryTimelinePath):
-    builder.PrependUOffsetTRelativeSlot(74, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionVictoryTimelinePath), 0)
+    builder.PrependUOffsetTRelativeSlot(75, flatbuffers.number_types.UOffsetTFlags.py_type(echelonExtensionVictoryTimelinePath), 0)
 
 def AddEchelonExtensionVictoryTimelinePath(builder, echelonExtensionVictoryTimelinePath):
     ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(builder, echelonExtensionVictoryTimelinePath)
 
 def ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost):
-    builder.PrependInt32Slot(75, echelonExtensionEchelonMaxCommonCost, 0)
+    builder.PrependInt32Slot(76, echelonExtensionEchelonMaxCommonCost, 0)
 
 def AddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost):
     ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder, echelonExtensionEchelonMaxCommonCost)
 
 def ConstCombatExcelAddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost):
-    builder.PrependInt64Slot(76, echelonMaxOverloadCost, 0)
+    builder.PrependInt64Slot(77, echelonMaxOverloadCost, 0)
 
 def AddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost):
     ConstCombatExcelAddEchelonMaxOverloadCost(builder, echelonMaxOverloadCost)
 
 def ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost):
-    builder.PrependInt64Slot(77, echelonExtensionMaxOverloadCost, 0)
+    builder.PrependInt64Slot(78, echelonExtensionMaxOverloadCost, 0)
 
 def AddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost):
     ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder, echelonExtensionMaxOverloadCost)
 
 def ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost):
-    builder.PrependInt32Slot(78, echelonExtensionEchelonInitCommonCost, 0)
+    builder.PrependInt32Slot(79, echelonExtensionEchelonInitCommonCost, 0)
 
 def AddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost):
     ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder, echelonExtensionEchelonInitCommonCost)
 
 def ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio):
-    builder.PrependInt64Slot(79, echelonExtensionCostRegenRatio, 0)
+    builder.PrependInt64Slot(80, echelonExtensionCostRegenRatio, 0)
 
 def AddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio):
     ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio)
 
 def ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio):
-    builder.PrependInt64Slot(80, echelonOverloadCostRegenRatio, 0)
+    builder.PrependInt64Slot(81, echelonOverloadCostRegenRatio, 0)
 
 def AddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio):
     ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder, echelonOverloadCostRegenRatio)
 
 def ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio):
-    builder.PrependInt64Slot(81, echelonExtensionOverloadCostRegenRatio, 0)
+    builder.PrependInt64Slot(82, echelonExtensionOverloadCostRegenRatio, 0)
 
 def AddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio):
     ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder, echelonExtensionOverloadCostRegenRatio)
 
 def ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid):
-    builder.PrependInt32Slot(82, checkCheaterMaxUseCostMultiFloorRaid, 0)
+    builder.PrependInt32Slot(83, checkCheaterMaxUseCostMultiFloorRaid, 0)
 
 def AddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid):
     ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid)
 
 def ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime):
-    builder.PrependFloat32Slot(83, excessiveTouchCheckTime, 0.0)
+    builder.PrependFloat32Slot(84, excessiveTouchCheckTime, 0.0)
 
 def AddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime):
     ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime)
 
 def ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount):
-    builder.PrependInt32Slot(84, excessiveTouchCheckCount, 0)
+    builder.PrependInt32Slot(85, excessiveTouchCheckCount, 0)
 
 def AddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount):
     ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount)
 
 def ConstCombatExcelAddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap):
-    builder.PrependInt32Slot(85, campaignAlertPopupLevelGap, 0)
+    builder.PrependInt32Slot(86, campaignAlertPopupLevelGap, 0)
 
 def AddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap):
     ConstCombatExcelAddCampaignAlertPopupLevelGap(builder, campaignAlertPopupLevelGap)
 
 def ConstCombatExcelAddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio):
-    builder.PrependInt32Slot(86, moveCorrectionSkipRatio, 0)
+    builder.PrependInt32Slot(87, moveCorrectionSkipRatio, 0)
 
 def AddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio):
     ConstCombatExcelAddMoveCorrectionSkipRatio(builder, moveCorrectionSkipRatio)
 
 def ConstCombatExcelAddObstacleColliderHeightJumpable(builder, obstacleColliderHeightJumpable):
-    builder.PrependFloat32Slot(87, obstacleColliderHeightJumpable, 0.0)
+    builder.PrependFloat32Slot(88, obstacleColliderHeightJumpable, 0.0)
 
 def AddObstacleColliderHeightJumpable(builder, obstacleColliderHeightJumpable):
     ConstCombatExcelAddObstacleColliderHeightJumpable(builder, obstacleColliderHeightJumpable)
 
 def ConstCombatExcelAddObstacleColliderHeightNotJumpable(builder, obstacleColliderHeightNotJumpable):
-    builder.PrependFloat32Slot(88, obstacleColliderHeightNotJumpable, 0.0)
+    builder.PrependFloat32Slot(89, obstacleColliderHeightNotJumpable, 0.0)
 
 def AddObstacleColliderHeightNotJumpable(builder, obstacleColliderHeightNotJumpable):
     ConstCombatExcelAddObstacleColliderHeightNotJumpable(builder, obstacleColliderHeightNotJumpable)
+
+def ConstCombatExcelAddCheckCheaterMaxUseCostTacticalRelay(builder, checkCheaterMaxUseCostTacticalRelay):
+    builder.PrependInt32Slot(90, checkCheaterMaxUseCostTacticalRelay, 0)
+
+def AddCheckCheaterMaxUseCostTacticalRelay(builder, checkCheaterMaxUseCostTacticalRelay):
+    ConstCombatExcelAddCheckCheaterMaxUseCostTacticalRelay(builder, checkCheaterMaxUseCostTacticalRelay)
 
 def ConstCombatExcelEnd(builder):
     return builder.EndObject()
@@ -1207,6 +1233,7 @@ class ConstCombatExcelT(object):
         showBufficonExtraPassiveSkill = False,
         showBufficonLeaderSkill = False,
         showBufficonGroundPassiveSkill = False,
+        showBufficonApcSynergyPassiveSkill = False,
         suppliesConditionStringId = None,
         publicSpeechBubbleOffsetX = 0.0,
         publicSpeechBubbleOffsetY = 0.0,
@@ -1288,6 +1315,7 @@ class ConstCombatExcelT(object):
         moveCorrectionSkipRatio = 0,
         obstacleColliderHeightJumpable = 0.0,
         obstacleColliderHeightNotJumpable = 0.0,
+        checkCheaterMaxUseCostTacticalRelay = 0,
     ):
         self.skillHandCount = skillHandCount  # type: int
         self.dyingTime = dyingTime  # type: int
@@ -1297,6 +1325,7 @@ class ConstCombatExcelT(object):
         self.showBufficonExtraPassiveSkill = showBufficonExtraPassiveSkill  # type: bool
         self.showBufficonLeaderSkill = showBufficonLeaderSkill  # type: bool
         self.showBufficonGroundPassiveSkill = showBufficonGroundPassiveSkill  # type: bool
+        self.showBufficonApcSynergyPassiveSkill = showBufficonApcSynergyPassiveSkill  # type: bool
         self.suppliesConditionStringId = suppliesConditionStringId  # type: Optional[str]
         self.publicSpeechBubbleOffsetX = publicSpeechBubbleOffsetX  # type: float
         self.publicSpeechBubbleOffsetY = publicSpeechBubbleOffsetY  # type: float
@@ -1378,6 +1407,7 @@ class ConstCombatExcelT(object):
         self.moveCorrectionSkipRatio = moveCorrectionSkipRatio  # type: int
         self.obstacleColliderHeightJumpable = obstacleColliderHeightJumpable  # type: float
         self.obstacleColliderHeightNotJumpable = obstacleColliderHeightNotJumpable  # type: float
+        self.checkCheaterMaxUseCostTacticalRelay = checkCheaterMaxUseCostTacticalRelay  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -1408,6 +1438,7 @@ class ConstCombatExcelT(object):
         self.showBufficonExtraPassiveSkill = constCombatExcel.ShowBufficonExtraPassiveSkill()
         self.showBufficonLeaderSkill = constCombatExcel.ShowBufficonLeaderSkill()
         self.showBufficonGroundPassiveSkill = constCombatExcel.ShowBufficonGroundPassiveSkill()
+        self.showBufficonApcSynergyPassiveSkill = constCombatExcel.ShowBufficonApcSynergyPassiveSkill()
         self.suppliesConditionStringId = constCombatExcel.SuppliesConditionStringId()
         self.publicSpeechBubbleOffsetX = constCombatExcel.PublicSpeechBubbleOffsetX()
         self.publicSpeechBubbleOffsetY = constCombatExcel.PublicSpeechBubbleOffsetY()
@@ -1489,6 +1520,7 @@ class ConstCombatExcelT(object):
         self.moveCorrectionSkipRatio = constCombatExcel.MoveCorrectionSkipRatio()
         self.obstacleColliderHeightJumpable = constCombatExcel.ObstacleColliderHeightJumpable()
         self.obstacleColliderHeightNotJumpable = constCombatExcel.ObstacleColliderHeightNotJumpable()
+        self.checkCheaterMaxUseCostTacticalRelay = constCombatExcel.CheckCheaterMaxUseCostTacticalRelay()
 
     # ConstCombatExcelT
     def Pack(self, builder):
@@ -1519,6 +1551,7 @@ class ConstCombatExcelT(object):
         ConstCombatExcelAddShowBufficonExtraPassiveSkill(builder, self.showBufficonExtraPassiveSkill)
         ConstCombatExcelAddShowBufficonLeaderSkill(builder, self.showBufficonLeaderSkill)
         ConstCombatExcelAddShowBufficonGroundPassiveSkill(builder, self.showBufficonGroundPassiveSkill)
+        ConstCombatExcelAddShowBufficonApcSynergyPassiveSkill(builder, self.showBufficonApcSynergyPassiveSkill)
         if self.suppliesConditionStringId is not None:
             ConstCombatExcelAddSuppliesConditionStringId(builder, suppliesConditionStringId)
         ConstCombatExcelAddPublicSpeechBubbleOffsetX(builder, self.publicSpeechBubbleOffsetX)
@@ -1609,9 +1642,10 @@ class ConstCombatExcelT(object):
         ConstCombatExcelAddMoveCorrectionSkipRatio(builder, self.moveCorrectionSkipRatio)
         ConstCombatExcelAddObstacleColliderHeightJumpable(builder, self.obstacleColliderHeightJumpable)
         ConstCombatExcelAddObstacleColliderHeightNotJumpable(builder, self.obstacleColliderHeightNotJumpable)
+        ConstCombatExcelAddCheckCheaterMaxUseCostTacticalRelay(builder, self.checkCheaterMaxUseCostTacticalRelay)
         constCombatExcel = ConstCombatExcelEnd(builder)
         return constCombatExcel
 
 # plana-flatbuffer: object-api conversion
 from FlatData._conversion import install_object_api as _install_object_api
-_install_object_api(ConstCombatExcelT, 'ConstCombatExcel', (('skillHandCount', 'int32', False), ('dyingTime', 'int32', False), ('buffIconBlinkTime', 'int32', False), ('suppliesConditionStringId', 'string', False), ('publicSpeechBubbleOffsetX', 'float32', False), ('publicSpeechBubbleOffsetY', 'float32', False), ('publicSpeechBubbleOffsetZ', 'float32', False), ('showRaidListCount', 'int32', False), ('maxRaidTicketCount', 'int64', False), ('maxRaidBossSkillSlot', 'int64', False), ('engageTimelinePath', 'string', False), ('engageWithSupporterTimelinePath', 'string', False), ('victoryTimelinePath', 'string', False), ('timeLimitAlarm', 'int64', False), ('echelonMaxCommonCost', 'int32', False), ('echelonInitCommonCost', 'int32', False), ('skillSlotCoolTime', 'int64', False), ('enemyRegenCost', 'int64', False), ('championRegenCost', 'int64', False), ('playerRegenCostDelay', 'int64', False), ('crowdControlFactor', 'int64', False), ('raidOpenScenarioId', 'string', False), ('eliminateRaidOpenScenarioId', 'string', False), ('defenceConstA', 'int64', False), ('defenceConstB', 'int64', False), ('defenceConstC', 'int64', False), ('defenceConstD', 'int64', False), ('accuracyConstA', 'int64', False), ('accuracyConstB', 'int64', False), ('accuracyConstC', 'int64', False), ('accuracyConstD', 'int64', False), ('criticalConstA', 'int64', False), ('criticalConstB', 'int64', False), ('criticalConstC', 'int64', False), ('criticalConstD', 'int64', False), ('maxGroupBuffLevel', 'int32', False), ('emojiDefaultTime', 'int32', False), ('timeLineActionRotateSpeed', 'int64', False), ('bodyRotateSpeed', 'int64', False), ('normalTimeScale', 'int64', False), ('fastTimeScale', 'int64', False), ('bulletTimeScale', 'int64', False), ('uiDisplayDelayAfterSkillCutIn', 'int64', False), ('slowTimeScale', 'int64', False), ('aimIkMinDegree', 'float32', False), ('aimIkMaxDegree', 'float32', False), ('minimumClearTime', 'int32', False), ('minimumClearLevelGap', 'int32', False), ('checkCheaterMaxUseCostNonArena', 'int32', False), ('checkCheaterMaxUseCostArena', 'int32', False), ('allowedMaxTimeScale', 'int64', False), ('randomAnimationOutput', 'int64', False), ('summonedTeleportDistance', 'int64', False), ('arenaMinimumClearTime', 'int32', False), ('worldbossbattlelittle', 'int64', False), ('worldbossbattlemiddle', 'int64', False), ('worldbossbattlehigh', 'int64', False), ('worldbossbattleveryhigh', 'int64', False), ('worldRaidAutoSyncTermSecond', 'int64', False), ('worldRaidBossHpDecreaseTerm', 'int64', False), ('worldRaidBossParcelReactionDelay', 'int64', False), ('raidRankingJumpMinimumWaitingTime', 'int64', False), ('effectTeleportDistance', 'float32', False), ('auraExitThresholdMargin', 'int64', False), ('tsaInteractionDamageFactor', 'int64', False), ('victoryInteractionRate', 'int64', False), ('echelonExtensionEngageTimelinePath', 'string', False), ('echelonExtensionEngageWithSupporterTimelinePath', 'string', False), ('echelonExtensionVictoryTimelinePath', 'string', False), ('echelonExtensionEchelonMaxCommonCost', 'int32', False), ('echelonMaxOverloadCost', 'int64', False), ('echelonExtensionMaxOverloadCost', 'int64', False), ('echelonExtensionEchelonInitCommonCost', 'int32', False), ('echelonExtensionCostRegenRatio', 'int64', False), ('echelonOverloadCostRegenRatio', 'int64', False), ('echelonExtensionOverloadCostRegenRatio', 'int64', False), ('checkCheaterMaxUseCostMultiFloorRaid', 'int32', False), ('excessiveTouchCheckTime', 'float32', False), ('excessiveTouchCheckCount', 'int32', False), ('campaignAlertPopupLevelGap', 'int32', False), ('moveCorrectionSkipRatio', 'int32', False), ('obstacleColliderHeightJumpable', 'float32', False), ('obstacleColliderHeightNotJumpable', 'float32', False)))
+_install_object_api(ConstCombatExcelT, 'ConstCombatExcel', (('skillHandCount', 'int32', False), ('dyingTime', 'int32', False), ('buffIconBlinkTime', 'int32', False), ('suppliesConditionStringId', 'string', False), ('publicSpeechBubbleOffsetX', 'float32', False), ('publicSpeechBubbleOffsetY', 'float32', False), ('publicSpeechBubbleOffsetZ', 'float32', False), ('showRaidListCount', 'int32', False), ('maxRaidTicketCount', 'int64', False), ('maxRaidBossSkillSlot', 'int64', False), ('engageTimelinePath', 'string', False), ('engageWithSupporterTimelinePath', 'string', False), ('victoryTimelinePath', 'string', False), ('timeLimitAlarm', 'int64', False), ('echelonMaxCommonCost', 'int32', False), ('echelonInitCommonCost', 'int32', False), ('skillSlotCoolTime', 'int64', False), ('enemyRegenCost', 'int64', False), ('championRegenCost', 'int64', False), ('playerRegenCostDelay', 'int64', False), ('crowdControlFactor', 'int64', False), ('raidOpenScenarioId', 'string', False), ('eliminateRaidOpenScenarioId', 'string', False), ('defenceConstA', 'int64', False), ('defenceConstB', 'int64', False), ('defenceConstC', 'int64', False), ('defenceConstD', 'int64', False), ('accuracyConstA', 'int64', False), ('accuracyConstB', 'int64', False), ('accuracyConstC', 'int64', False), ('accuracyConstD', 'int64', False), ('criticalConstA', 'int64', False), ('criticalConstB', 'int64', False), ('criticalConstC', 'int64', False), ('criticalConstD', 'int64', False), ('maxGroupBuffLevel', 'int32', False), ('emojiDefaultTime', 'int32', False), ('timeLineActionRotateSpeed', 'int64', False), ('bodyRotateSpeed', 'int64', False), ('normalTimeScale', 'int64', False), ('fastTimeScale', 'int64', False), ('bulletTimeScale', 'int64', False), ('uiDisplayDelayAfterSkillCutIn', 'int64', False), ('slowTimeScale', 'int64', False), ('aimIkMinDegree', 'float32', False), ('aimIkMaxDegree', 'float32', False), ('minimumClearTime', 'int32', False), ('minimumClearLevelGap', 'int32', False), ('checkCheaterMaxUseCostNonArena', 'int32', False), ('checkCheaterMaxUseCostArena', 'int32', False), ('allowedMaxTimeScale', 'int64', False), ('randomAnimationOutput', 'int64', False), ('summonedTeleportDistance', 'int64', False), ('arenaMinimumClearTime', 'int32', False), ('worldbossbattlelittle', 'int64', False), ('worldbossbattlemiddle', 'int64', False), ('worldbossbattlehigh', 'int64', False), ('worldbossbattleveryhigh', 'int64', False), ('worldRaidAutoSyncTermSecond', 'int64', False), ('worldRaidBossHpDecreaseTerm', 'int64', False), ('worldRaidBossParcelReactionDelay', 'int64', False), ('raidRankingJumpMinimumWaitingTime', 'int64', False), ('effectTeleportDistance', 'float32', False), ('auraExitThresholdMargin', 'int64', False), ('tsaInteractionDamageFactor', 'int64', False), ('victoryInteractionRate', 'int64', False), ('echelonExtensionEngageTimelinePath', 'string', False), ('echelonExtensionEngageWithSupporterTimelinePath', 'string', False), ('echelonExtensionVictoryTimelinePath', 'string', False), ('echelonExtensionEchelonMaxCommonCost', 'int32', False), ('echelonMaxOverloadCost', 'int64', False), ('echelonExtensionMaxOverloadCost', 'int64', False), ('echelonExtensionEchelonInitCommonCost', 'int32', False), ('echelonExtensionCostRegenRatio', 'int64', False), ('echelonOverloadCostRegenRatio', 'int64', False), ('echelonExtensionOverloadCostRegenRatio', 'int64', False), ('checkCheaterMaxUseCostMultiFloorRaid', 'int32', False), ('excessiveTouchCheckTime', 'float32', False), ('excessiveTouchCheckCount', 'int32', False), ('campaignAlertPopupLevelGap', 'int32', False), ('moveCorrectionSkipRatio', 'int32', False), ('obstacleColliderHeightJumpable', 'float32', False), ('obstacleColliderHeightNotJumpable', 'float32', False), ('checkCheaterMaxUseCostTacticalRelay', 'int32', False)))

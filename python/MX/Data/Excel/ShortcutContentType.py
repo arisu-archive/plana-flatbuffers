@@ -17,3 +17,4 @@ class ShortcutContentType(object):
     Academy = 11
     Mission = 12
     MultiFloorRaid = 13
+    TacticalRelay = 14

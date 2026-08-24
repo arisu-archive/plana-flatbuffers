@@ -7,93 +7,111 @@ import "strconv"
 type EchelonType int32
 
 const (
-	EchelonTypeNone                EchelonType = 0
-	EchelonTypeAdventure           EchelonType = 1
-	EchelonTypeRaid                EchelonType = 2
-	EchelonTypeArenaAttack         EchelonType = 3
-	EchelonTypeArenaDefence        EchelonType = 4
-	EchelonTypeWeekDungeonChaserA  EchelonType = 5
-	EchelonTypeScenario            EchelonType = 6
-	EchelonTypeWeekDungeonBlood    EchelonType = 7
-	EchelonTypeWeekDungeonChaserB  EchelonType = 8
-	EchelonTypeWeekDungeonChaserC  EchelonType = 9
-	EchelonTypeWeekDungeonFindGift EchelonType = 10
-	EchelonTypeEventContent        EchelonType = 11
-	EchelonTypeSchoolDungeonA      EchelonType = 12
-	EchelonTypeSchoolDungeonB      EchelonType = 13
-	EchelonTypeSchoolDungeonC      EchelonType = 14
-	EchelonTypeTimeAttack          EchelonType = 15
-	EchelonTypeWorldRaid           EchelonType = 16
-	EchelonTypeConquest            EchelonType = 17
-	EchelonTypeConquestManage      EchelonType = 18
-	EchelonTypeStoryStrategyStage  EchelonType = 19
-	EchelonTypeEliminateRaid01     EchelonType = 20
-	EchelonTypeEliminateRaid02     EchelonType = 21
-	EchelonTypeEliminateRaid03     EchelonType = 22
-	EchelonTypeField               EchelonType = 23
-	EchelonTypeMultiFloorRaid      EchelonType = 24
-	EchelonTypeMinigameDefense     EchelonType = 25
-	EchelonTypePermanentRaid       EchelonType = 26
+	EchelonTypeNone                   EchelonType = 0
+	EchelonTypeAdventure              EchelonType = 1
+	EchelonTypeRaid                   EchelonType = 2
+	EchelonTypeArenaAttack            EchelonType = 3
+	EchelonTypeArenaDefence           EchelonType = 4
+	EchelonTypeWeekDungeonChaserA     EchelonType = 5
+	EchelonTypeScenario               EchelonType = 6
+	EchelonTypeWeekDungeonBlood       EchelonType = 7
+	EchelonTypeWeekDungeonChaserB     EchelonType = 8
+	EchelonTypeWeekDungeonChaserC     EchelonType = 9
+	EchelonTypeWeekDungeonFindGift    EchelonType = 10
+	EchelonTypeEventContent           EchelonType = 11
+	EchelonTypeSchoolDungeonA         EchelonType = 12
+	EchelonTypeSchoolDungeonB         EchelonType = 13
+	EchelonTypeSchoolDungeonC         EchelonType = 14
+	EchelonTypeTimeAttack             EchelonType = 15
+	EchelonTypeWorldRaid              EchelonType = 16
+	EchelonTypeConquest               EchelonType = 17
+	EchelonTypeConquestManage         EchelonType = 18
+	EchelonTypeStoryStrategyStage     EchelonType = 19
+	EchelonTypeEliminateRaid01        EchelonType = 20
+	EchelonTypeEliminateRaid02        EchelonType = 21
+	EchelonTypeEliminateRaid03        EchelonType = 22
+	EchelonTypeField                  EchelonType = 23
+	EchelonTypeMultiFloorRaid         EchelonType = 24
+	EchelonTypeMinigameDefense        EchelonType = 25
+	EchelonTypePermanentRaid          EchelonType = 26
+	EchelonTypeTacticalRelay          EchelonType = 27
+	EchelonTypeTacticalRelayExplosion EchelonType = 28
+	EchelonTypeTacticalRelayPierce    EchelonType = 29
+	EchelonTypeTacticalRelayMystic    EchelonType = 30
+	EchelonTypeTacticalRelaySonic     EchelonType = 31
+	EchelonTypeTacticalRelayChemical  EchelonType = 32
 )
 
 var EnumNamesEchelonType = map[EchelonType]string{
-	EchelonTypeNone:                "None",
-	EchelonTypeAdventure:           "Adventure",
-	EchelonTypeRaid:                "Raid",
-	EchelonTypeArenaAttack:         "ArenaAttack",
-	EchelonTypeArenaDefence:        "ArenaDefence",
-	EchelonTypeWeekDungeonChaserA:  "WeekDungeonChaserA",
-	EchelonTypeScenario:            "Scenario",
-	EchelonTypeWeekDungeonBlood:    "WeekDungeonBlood",
-	EchelonTypeWeekDungeonChaserB:  "WeekDungeonChaserB",
-	EchelonTypeWeekDungeonChaserC:  "WeekDungeonChaserC",
-	EchelonTypeWeekDungeonFindGift: "WeekDungeonFindGift",
-	EchelonTypeEventContent:        "EventContent",
-	EchelonTypeSchoolDungeonA:      "SchoolDungeonA",
-	EchelonTypeSchoolDungeonB:      "SchoolDungeonB",
-	EchelonTypeSchoolDungeonC:      "SchoolDungeonC",
-	EchelonTypeTimeAttack:          "TimeAttack",
-	EchelonTypeWorldRaid:           "WorldRaid",
-	EchelonTypeConquest:            "Conquest",
-	EchelonTypeConquestManage:      "ConquestManage",
-	EchelonTypeStoryStrategyStage:  "StoryStrategyStage",
-	EchelonTypeEliminateRaid01:     "EliminateRaid01",
-	EchelonTypeEliminateRaid02:     "EliminateRaid02",
-	EchelonTypeEliminateRaid03:     "EliminateRaid03",
-	EchelonTypeField:               "Field",
-	EchelonTypeMultiFloorRaid:      "MultiFloorRaid",
-	EchelonTypeMinigameDefense:     "MinigameDefense",
-	EchelonTypePermanentRaid:       "PermanentRaid",
+	EchelonTypeNone:                   "None",
+	EchelonTypeAdventure:              "Adventure",
+	EchelonTypeRaid:                   "Raid",
+	EchelonTypeArenaAttack:            "ArenaAttack",
+	EchelonTypeArenaDefence:           "ArenaDefence",
+	EchelonTypeWeekDungeonChaserA:     "WeekDungeonChaserA",
+	EchelonTypeScenario:               "Scenario",
+	EchelonTypeWeekDungeonBlood:       "WeekDungeonBlood",
+	EchelonTypeWeekDungeonChaserB:     "WeekDungeonChaserB",
+	EchelonTypeWeekDungeonChaserC:     "WeekDungeonChaserC",
+	EchelonTypeWeekDungeonFindGift:    "WeekDungeonFindGift",
+	EchelonTypeEventContent:           "EventContent",
+	EchelonTypeSchoolDungeonA:         "SchoolDungeonA",
+	EchelonTypeSchoolDungeonB:         "SchoolDungeonB",
+	EchelonTypeSchoolDungeonC:         "SchoolDungeonC",
+	EchelonTypeTimeAttack:             "TimeAttack",
+	EchelonTypeWorldRaid:              "WorldRaid",
+	EchelonTypeConquest:               "Conquest",
+	EchelonTypeConquestManage:         "ConquestManage",
+	EchelonTypeStoryStrategyStage:     "StoryStrategyStage",
+	EchelonTypeEliminateRaid01:        "EliminateRaid01",
+	EchelonTypeEliminateRaid02:        "EliminateRaid02",
+	EchelonTypeEliminateRaid03:        "EliminateRaid03",
+	EchelonTypeField:                  "Field",
+	EchelonTypeMultiFloorRaid:         "MultiFloorRaid",
+	EchelonTypeMinigameDefense:        "MinigameDefense",
+	EchelonTypePermanentRaid:          "PermanentRaid",
+	EchelonTypeTacticalRelay:          "TacticalRelay",
+	EchelonTypeTacticalRelayExplosion: "TacticalRelayExplosion",
+	EchelonTypeTacticalRelayPierce:    "TacticalRelayPierce",
+	EchelonTypeTacticalRelayMystic:    "TacticalRelayMystic",
+	EchelonTypeTacticalRelaySonic:     "TacticalRelaySonic",
+	EchelonTypeTacticalRelayChemical:  "TacticalRelayChemical",
 }
 
 var EnumValuesEchelonType = map[string]EchelonType{
-	"None":                EchelonTypeNone,
-	"Adventure":           EchelonTypeAdventure,
-	"Raid":                EchelonTypeRaid,
-	"ArenaAttack":         EchelonTypeArenaAttack,
-	"ArenaDefence":        EchelonTypeArenaDefence,
-	"WeekDungeonChaserA":  EchelonTypeWeekDungeonChaserA,
-	"Scenario":            EchelonTypeScenario,
-	"WeekDungeonBlood":    EchelonTypeWeekDungeonBlood,
-	"WeekDungeonChaserB":  EchelonTypeWeekDungeonChaserB,
-	"WeekDungeonChaserC":  EchelonTypeWeekDungeonChaserC,
-	"WeekDungeonFindGift": EchelonTypeWeekDungeonFindGift,
-	"EventContent":        EchelonTypeEventContent,
-	"SchoolDungeonA":      EchelonTypeSchoolDungeonA,
-	"SchoolDungeonB":      EchelonTypeSchoolDungeonB,
-	"SchoolDungeonC":      EchelonTypeSchoolDungeonC,
-	"TimeAttack":          EchelonTypeTimeAttack,
-	"WorldRaid":           EchelonTypeWorldRaid,
-	"Conquest":            EchelonTypeConquest,
-	"ConquestManage":      EchelonTypeConquestManage,
-	"StoryStrategyStage":  EchelonTypeStoryStrategyStage,
-	"EliminateRaid01":     EchelonTypeEliminateRaid01,
-	"EliminateRaid02":     EchelonTypeEliminateRaid02,
-	"EliminateRaid03":     EchelonTypeEliminateRaid03,
-	"Field":               EchelonTypeField,
-	"MultiFloorRaid":      EchelonTypeMultiFloorRaid,
-	"MinigameDefense":     EchelonTypeMinigameDefense,
-	"PermanentRaid":       EchelonTypePermanentRaid,
+	"None":                   EchelonTypeNone,
+	"Adventure":              EchelonTypeAdventure,
+	"Raid":                   EchelonTypeRaid,
+	"ArenaAttack":            EchelonTypeArenaAttack,
+	"ArenaDefence":           EchelonTypeArenaDefence,
+	"WeekDungeonChaserA":     EchelonTypeWeekDungeonChaserA,
+	"Scenario":               EchelonTypeScenario,
+	"WeekDungeonBlood":       EchelonTypeWeekDungeonBlood,
+	"WeekDungeonChaserB":     EchelonTypeWeekDungeonChaserB,
+	"WeekDungeonChaserC":     EchelonTypeWeekDungeonChaserC,
+	"WeekDungeonFindGift":    EchelonTypeWeekDungeonFindGift,
+	"EventContent":           EchelonTypeEventContent,
+	"SchoolDungeonA":         EchelonTypeSchoolDungeonA,
+	"SchoolDungeonB":         EchelonTypeSchoolDungeonB,
+	"SchoolDungeonC":         EchelonTypeSchoolDungeonC,
+	"TimeAttack":             EchelonTypeTimeAttack,
+	"WorldRaid":              EchelonTypeWorldRaid,
+	"Conquest":               EchelonTypeConquest,
+	"ConquestManage":         EchelonTypeConquestManage,
+	"StoryStrategyStage":     EchelonTypeStoryStrategyStage,
+	"EliminateRaid01":        EchelonTypeEliminateRaid01,
+	"EliminateRaid02":        EchelonTypeEliminateRaid02,
+	"EliminateRaid03":        EchelonTypeEliminateRaid03,
+	"Field":                  EchelonTypeField,
+	"MultiFloorRaid":         EchelonTypeMultiFloorRaid,
+	"MinigameDefense":        EchelonTypeMinigameDefense,
+	"PermanentRaid":          EchelonTypePermanentRaid,
+	"TacticalRelay":          EchelonTypeTacticalRelay,
+	"TacticalRelayExplosion": EchelonTypeTacticalRelayExplosion,
+	"TacticalRelayPierce":    EchelonTypeTacticalRelayPierce,
+	"TacticalRelayMystic":    EchelonTypeTacticalRelayMystic,
+	"TacticalRelaySonic":     EchelonTypeTacticalRelaySonic,
+	"TacticalRelayChemical":  EchelonTypeTacticalRelayChemical,
 }
 
 func (v EchelonType) String() string {

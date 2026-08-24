@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenRewardScoreExcel {
+    id: long;
+    event_content_id: long;
+    stacked_score: [long];
+    score_reward_id: [long];
+}
+
+root_type MinigameJankenRewardScoreExcel;

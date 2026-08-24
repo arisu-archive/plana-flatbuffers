@@ -1,0 +1,6 @@
+namespace FlatData;
+
+enum BattleUIPart: int {
+    None = 0,
+    CostGauge = 1,
+}

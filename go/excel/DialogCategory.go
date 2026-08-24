@@ -87,6 +87,8 @@ const (
 	DialogCategoryUIEventClueSearch            DialogCategory = 77
 	DialogCategoryUIWorkAronaWatering          DialogCategory = 78
 	DialogCategoryUIWorkCoexist_PlanaWatchPot  DialogCategory = 79
+	DialogCategoryUIAttendanceEvent22          DialogCategory = 80
+	DialogCategoryUITacticalRelay              DialogCategory = 81
 )
 
 var EnumNamesDialogCategory = map[DialogCategory]string{
@@ -170,6 +172,8 @@ var EnumNamesDialogCategory = map[DialogCategory]string{
 	DialogCategoryUIEventClueSearch:            "UIEventClueSearch",
 	DialogCategoryUIWorkAronaWatering:          "UIWorkAronaWatering",
 	DialogCategoryUIWorkCoexist_PlanaWatchPot:  "UIWorkCoexist_PlanaWatchPot",
+	DialogCategoryUIAttendanceEvent22:          "UIAttendanceEvent22",
+	DialogCategoryUITacticalRelay:              "UITacticalRelay",
 }
 
 var EnumValuesDialogCategory = map[string]DialogCategory{
@@ -253,6 +257,8 @@ var EnumValuesDialogCategory = map[string]DialogCategory{
 	"UIEventClueSearch":            DialogCategoryUIEventClueSearch,
 	"UIWorkAronaWatering":          DialogCategoryUIWorkAronaWatering,
 	"UIWorkCoexist_PlanaWatchPot":  DialogCategoryUIWorkCoexist_PlanaWatchPot,
+	"UIAttendanceEvent22":          DialogCategoryUIAttendanceEvent22,
+	"UITacticalRelay":              DialogCategoryUITacticalRelay,
 }
 
 func (v DialogCategory) String() string {

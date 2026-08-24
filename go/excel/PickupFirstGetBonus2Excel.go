@@ -125,8 +125,34 @@ func (rcv *PickupFirstGetBonus2Excel) MutateRewardParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
+func (rcv *PickupFirstGetBonus2Excel) ShopCashIds(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *PickupFirstGetBonus2Excel) ShopCashIdsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *PickupFirstGetBonus2Excel) MutateShopCashIds(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
 func PickupFirstGetBonus2ExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func PickupFirstGetBonus2ExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -148,6 +174,12 @@ func PickupFirstGetBonus2ExcelAddRewardParcelId(builder *flatbuffers.Builder, re
 }
 func PickupFirstGetBonus2ExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
 	builder.PrependInt64Slot(6, rewardParcelAmount, 0)
+}
+func PickupFirstGetBonus2ExcelAddShopCashIds(builder *flatbuffers.Builder, shopCashIds flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(shopCashIds), 0)
+}
+func PickupFirstGetBonus2ExcelStartShopCashIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func PickupFirstGetBonus2ExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -193,3 +193,8 @@ class MissionCompleteConditionType(object):
     Reset_WorldRaidActivateCoreCount = 187
     Reset_WorldRaidActivateUSBCount = 188
     Reset_EnterUICount = 189
+    Reset_JankenClearCount = 190
+    Reset_JankenEquipmentTierCheckCount = 191
+    Reset_JankenGetSpecificScore = 192
+    Reset_SpecificTacticalRelayWaveClear = 193
+    Achieve_ClearTacticalRelayCount = 194
