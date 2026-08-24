@@ -118,6 +118,13 @@ jobs:
         run: |
           ./.scripts/compile.sh
           ./.scripts/process_flatbuffers.sh
+      - name: Verify generated code
+        env:
+          GOPRIVATE: github.com/arisu-archive
+        run: |
+          go build ./...
+          go vet ./...
+          python3 -m compileall -q ./python
       - name: Update version file
         run: echo -n "${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Reset the git config
