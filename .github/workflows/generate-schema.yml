@@ -88,14 +88,6 @@ jobs:
           ref: master
           sparse-checkout-cone-mode: false
           fetch-depth: 0
-      - name: Setup SSH agent
-        uses: webfactory/ssh-agent@v0.10.0
-        with:
-          ssh-private-key: |
-            ${{secrets.ARONA_FBS_GENERATOR_PRIVATE_KEY}}
-            ${{secrets.ARONA_UNFLATD_PRIVATE_KEY}}
-            ${{secrets.ARONA_FBS_UTILS_PRIVATE_KEY}}
-            ${{secrets.ARONA_TREE_SITTER_FLATBUFFER}}
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.YostarJP.BlueArchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
@@ -105,30 +97,21 @@ jobs:
         with:
           go-version: "^1.22.5"
       - name: Generate the schema
-        env:
-          GOPRIVATE: github.com/arisu-archive
         run: |
-          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
           rm -rf .schema/ go/ python/
           go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
           go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
       - name: Compile the schema into code
-        env:
-          GOPRIVATE: github.com/arisu-archive
         run: |
           ./.scripts/compile.sh
           ./.scripts/process_flatbuffers.sh
       - name: Verify generated code
-        env:
-          GOPRIVATE: github.com/arisu-archive
         run: |
           go build ./...
           go vet ./...
           python3 -m compileall -q ./python
       - name: Update version file
         run: echo -n "${{ needs.determine-version.outputs.version }}" > version.txt
-      - name: Reset the git config
-        run: git config --global --unset url."git@github.com:".insteadOf "https://github.com/"
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v10
         with:
