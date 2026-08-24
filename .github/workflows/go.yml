@@ -1,0 +1,41 @@
+name: Go Package
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: go-package-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      GOPRIVATE: github.com/arisu-archive
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.ARONA_FBS_UTILS_PRIVATE_KEY }}
+
+      - name: Setup Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: Use SSH for private modules
+        run: git config --global --add url."git@github.com:arisu-archive/".insteadOf "https://github.com/arisu-archive/"
+
+      - name: Build Go packages
+        run: go build ./...
+
+      - name: Vet Go packages
+        run: go vet ./...
