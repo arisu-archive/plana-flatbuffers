@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "plana-flatbuffers"
-version = "0.13.0"
+version = "0.14.0"
 description = "Generated FlatBuffers schemas and bindings for plana game data"
 readme = "README.md"
 requires-python = ">=3.10"
