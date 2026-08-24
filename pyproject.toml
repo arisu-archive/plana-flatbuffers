@@ -1,0 +1,24 @@
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
+
+[project]
+name = "plana-flatbuffers"
+version = "0.13.0"
+description = "Generated FlatBuffers schemas and bindings for plana game data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "flatbuffers>=25.2.10",
+    "xxhash>=3.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/arisu-archive/plana-flatbuffers"
+Issues = "https://github.com/arisu-archive/plana-flatbuffers/issues"
+
+[tool.uv.build-backend]
+module-root = "python"
+module-name = ["FlatData", "MX"]
