@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/arisu-archive/plana-flatbuffers/compare/v0.14.0...v0.15.0) (2026-08-24)
+
+
+### Features
+
+* **apk:** generate schema for 1.71.449178 ([#75](https://github.com/arisu-archive/plana-flatbuffers/issues/75)) ([e3658f0](https://github.com/arisu-archive/plana-flatbuffers/commit/e3658f0d30c0856c73d7f15bb80f5b4676e10b5c))
+
 ## [0.14.0](https://github.com/arisu-archive/plana-flatbuffers/compare/v0.13.0...v0.14.0) (2026-08-24)
 
 
