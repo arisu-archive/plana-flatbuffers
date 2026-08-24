@@ -1,7 +1,7 @@
 name: Update library
 on:
   schedule:
-    - cron: "0 */2 * * 3"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
     inputs:
       force_update:
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: develop
+          ref: master
           sparse-checkout: |
             version.txt
           sparse-checkout-cone-mode: false
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: develop
+          ref: master
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Setup SSH agent
@@ -110,8 +110,8 @@ jobs:
         run: |
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
           rm -rf .schema/ go/ python/
-          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
-          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
+          go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
+          go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
       - name: Compile the schema into code
         env:
           GOPRIVATE: github.com/arisu-archive
@@ -126,20 +126,18 @@ jobs:
         uses: EndBug/add-and-commit@v10
         with:
           add: "['./.schema', 'version.txt', 'go/', 'python/']"
-          message: "chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}"
+          message: "feat(apk): generate schema for ${{ needs.determine-version.outputs.version }}"
           default_author: github_actions
           push: true
-          new_branch: chore/generate-schema-${{ needs.determine-version.outputs.version }}
+          new_branch: feat/generate-schema-${{ needs.determine-version.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Create pull request
         run: |
           version=${{ needs.determine-version.outputs.version }}
-          branch_name="chore/generate-schema-${version}"
-          gh pr create -B develop -H $branch_name \
-                        --title 'chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}' \
-                        --body '* Version: ${{ needs.determine-version.outputs.version }}' \
-                        --label needs-review \
-                        --label auto-release
+          branch_name="feat/generate-schema-${version}"
+          gh pr create -B master -H $branch_name \
+                        --title 'feat(apk): generate schema for ${{ needs.determine-version.outputs.version }}' \
+                        --body '* Version: ${{ needs.determine-version.outputs.version }}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
