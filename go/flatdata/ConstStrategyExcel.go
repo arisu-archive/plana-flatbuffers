@@ -343,8 +343,20 @@ func (rcv *ConstStrategyExcel) MutateMultiSweepPresetSelectParcelMaxCount(n int3
 	return rcv._tab.MutateInt32Slot(50, n)
 }
 
+func (rcv *ConstStrategyExcel) TacticalRelayEchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstStrategyExcel) MutateTacticalRelayEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(52, n)
+}
+
 func ConstStrategyExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(24)
+	builder.StartObject(25)
 }
 func ConstStrategyExcelAddHexaMapBoundaryOffset(builder *flatbuffers.Builder, hexaMapBoundaryOffset float32) {
 	builder.PrependFloat32Slot(0, hexaMapBoundaryOffset, 0.0)
@@ -420,6 +432,9 @@ func ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder *flatbuffers.Bui
 }
 func ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder *flatbuffers.Builder, multiSweepPresetSelectParcelMaxCount int32) {
 	builder.PrependInt32Slot(23, multiSweepPresetSelectParcelMaxCount, 0)
+}
+func ConstStrategyExcelAddTacticalRelayEchelonCount(builder *flatbuffers.Builder, tacticalRelayEchelonCount int32) {
+	builder.PrependInt32Slot(24, tacticalRelayEchelonCount, 0)
 }
 func ConstStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

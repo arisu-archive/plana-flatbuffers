@@ -270,29 +270,36 @@ class CharacterExcel(object):
         return 0
 
     # CharacterExcel
-    def ScenarioCharacter(self):
+    def UseRepStyleOnCharacterGrowth(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterExcel
+    def ScenarioCharacter(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterExcel
     def SpawnTemplateId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def FavorLevelupType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def EquipmentSlot(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -300,166 +307,173 @@ class CharacterExcel(object):
 
     # CharacterExcel
     def EquipmentSlotAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CharacterExcel
     def EquipmentSlotLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterExcel
     def EquipmentSlotIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         return o == 0
 
     # CharacterExcel
     def WeaponLocalizeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def DisplayEnemyInfo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
     def BodyRadius(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterExcel
-    def RandomEffectRadius(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(88))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
-    def HpBarHide(self):
+    def RandomEffectRadius(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(90))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CharacterExcel
-    def HpBarHeight(self):
+    def TargetGuideScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(92))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterExcel
-    def HighlightFloaterHeight(self):
+    def HpBarHide(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(94))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # CharacterExcel
-    def EmojiOffsetX(self):
+    def HpBarHeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(96))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterExcel
-    def EmojiOffsetY(self):
+    def HighlightFloaterHeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterExcel
-    def MoveStartFrame(self):
+    def EmojiOffsetX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # CharacterExcel
-    def MoveEndFrame(self):
+    def EmojiOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(102))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # CharacterExcel
-    def JumpMotionFrame(self):
+    def MoveStartFrame(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(104))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
-    def AppearFrame(self):
+    def MoveEndFrame(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(106))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
-    def CanMove(self):
+    def JumpMotionFrame(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # CharacterExcel
-    def CanFix(self):
+    def AppearFrame(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # CharacterExcel
-    def CanCrowdControl(self):
+    def CanMove(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(112))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
-    def CanBattleItemMove(self):
+    def CanFix(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
-    def IgnoreObstacle(self):
+    def CanCrowdControl(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(116))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
-    def IsAirUnit(self):
+    def CanBattleItemMove(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(118))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
-    def AirUnitHeight(self):
+    def IgnoreObstacle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterExcel
+    def IsAirUnit(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterExcel
+    def AirUnitHeight(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def Tags(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -467,60 +481,60 @@ class CharacterExcel(object):
 
     # CharacterExcel
     def TagsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CharacterExcel
     def TagsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterExcel
     def TagsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         return o == 0
 
     # CharacterExcel
     def SecretStoneItemId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterExcel
-    def SecretStoneItemAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterExcel
-    def CharacterPieceItemId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(128))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
-    def CharacterPieceItemAmount(self):
+    def SecretStoneItemAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(130))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
-    def CombineRecipeId(self):
+    def CharacterPieceItemId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(132))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # CharacterExcel
+    def CharacterPieceItemAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(134))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterExcel
+    def CombineRecipeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(136))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def CharacterExcelStart(builder):
-    builder.StartObject(65)
+    builder.StartObject(67)
 
 def Start(builder):
     CharacterExcelStart(builder)
@@ -735,26 +749,32 @@ def CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex):
 def AddCombatStyleIndex(builder, combatStyleIndex):
     CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex)
 
+def CharacterExcelAddUseRepStyleOnCharacterGrowth(builder, useRepStyleOnCharacterGrowth):
+    builder.PrependBoolSlot(35, useRepStyleOnCharacterGrowth, 0)
+
+def AddUseRepStyleOnCharacterGrowth(builder, useRepStyleOnCharacterGrowth):
+    CharacterExcelAddUseRepStyleOnCharacterGrowth(builder, useRepStyleOnCharacterGrowth)
+
 def CharacterExcelAddScenarioCharacter(builder, scenarioCharacter):
-    builder.PrependUOffsetTRelativeSlot(35, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCharacter), 0)
+    builder.PrependUOffsetTRelativeSlot(36, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCharacter), 0)
 
 def AddScenarioCharacter(builder, scenarioCharacter):
     CharacterExcelAddScenarioCharacter(builder, scenarioCharacter)
 
 def CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId):
-    builder.PrependUint32Slot(36, spawnTemplateId, 0)
+    builder.PrependUint32Slot(37, spawnTemplateId, 0)
 
 def AddSpawnTemplateId(builder, spawnTemplateId):
     CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId)
 
 def CharacterExcelAddFavorLevelupType(builder, favorLevelupType):
-    builder.PrependInt32Slot(37, favorLevelupType, 0)
+    builder.PrependInt32Slot(38, favorLevelupType, 0)
 
 def AddFavorLevelupType(builder, favorLevelupType):
     CharacterExcelAddFavorLevelupType(builder, favorLevelupType)
 
 def CharacterExcelAddEquipmentSlot(builder, equipmentSlot):
-    builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(equipmentSlot), 0)
+    builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(equipmentSlot), 0)
 
 def AddEquipmentSlot(builder, equipmentSlot):
     CharacterExcelAddEquipmentSlot(builder, equipmentSlot)
@@ -766,127 +786,133 @@ def StartEquipmentSlotVector(builder, numElems):
     return CharacterExcelStartEquipmentSlotVector(builder, numElems)
 
 def CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId):
-    builder.PrependUint32Slot(39, weaponLocalizeId, 0)
+    builder.PrependUint32Slot(40, weaponLocalizeId, 0)
 
 def AddWeaponLocalizeId(builder, weaponLocalizeId):
     CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId)
 
 def CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo):
-    builder.PrependBoolSlot(40, displayEnemyInfo, 0)
+    builder.PrependBoolSlot(41, displayEnemyInfo, 0)
 
 def AddDisplayEnemyInfo(builder, displayEnemyInfo):
     CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo)
 
 def CharacterExcelAddBodyRadius(builder, bodyRadius):
-    builder.PrependInt64Slot(41, bodyRadius, 0)
+    builder.PrependInt64Slot(42, bodyRadius, 0)
 
 def AddBodyRadius(builder, bodyRadius):
     CharacterExcelAddBodyRadius(builder, bodyRadius)
 
 def CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius):
-    builder.PrependInt64Slot(42, randomEffectRadius, 0)
+    builder.PrependInt64Slot(43, randomEffectRadius, 0)
 
 def AddRandomEffectRadius(builder, randomEffectRadius):
     CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius)
 
+def CharacterExcelAddTargetGuideScale(builder, targetGuideScale):
+    builder.PrependFloat32Slot(44, targetGuideScale, 0.0)
+
+def AddTargetGuideScale(builder, targetGuideScale):
+    CharacterExcelAddTargetGuideScale(builder, targetGuideScale)
+
 def CharacterExcelAddHpBarHide(builder, hpBarHide):
-    builder.PrependBoolSlot(43, hpBarHide, 0)
+    builder.PrependBoolSlot(45, hpBarHide, 0)
 
 def AddHpBarHide(builder, hpBarHide):
     CharacterExcelAddHpBarHide(builder, hpBarHide)
 
 def CharacterExcelAddHpBarHeight(builder, hpBarHeight):
-    builder.PrependFloat32Slot(44, hpBarHeight, 0.0)
+    builder.PrependFloat32Slot(46, hpBarHeight, 0.0)
 
 def AddHpBarHeight(builder, hpBarHeight):
     CharacterExcelAddHpBarHeight(builder, hpBarHeight)
 
 def CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight):
-    builder.PrependFloat32Slot(45, highlightFloaterHeight, 0.0)
+    builder.PrependFloat32Slot(47, highlightFloaterHeight, 0.0)
 
 def AddHighlightFloaterHeight(builder, highlightFloaterHeight):
     CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight)
 
 def CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX):
-    builder.PrependFloat32Slot(46, emojiOffsetX, 0.0)
+    builder.PrependFloat32Slot(48, emojiOffsetX, 0.0)
 
 def AddEmojiOffsetX(builder, emojiOffsetX):
     CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX)
 
 def CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY):
-    builder.PrependFloat32Slot(47, emojiOffsetY, 0.0)
+    builder.PrependFloat32Slot(49, emojiOffsetY, 0.0)
 
 def AddEmojiOffsetY(builder, emojiOffsetY):
     CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY)
 
 def CharacterExcelAddMoveStartFrame(builder, moveStartFrame):
-    builder.PrependInt32Slot(48, moveStartFrame, 0)
+    builder.PrependInt32Slot(50, moveStartFrame, 0)
 
 def AddMoveStartFrame(builder, moveStartFrame):
     CharacterExcelAddMoveStartFrame(builder, moveStartFrame)
 
 def CharacterExcelAddMoveEndFrame(builder, moveEndFrame):
-    builder.PrependInt32Slot(49, moveEndFrame, 0)
+    builder.PrependInt32Slot(51, moveEndFrame, 0)
 
 def AddMoveEndFrame(builder, moveEndFrame):
     CharacterExcelAddMoveEndFrame(builder, moveEndFrame)
 
 def CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame):
-    builder.PrependInt32Slot(50, jumpMotionFrame, 0)
+    builder.PrependInt32Slot(52, jumpMotionFrame, 0)
 
 def AddJumpMotionFrame(builder, jumpMotionFrame):
     CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame)
 
 def CharacterExcelAddAppearFrame(builder, appearFrame):
-    builder.PrependInt32Slot(51, appearFrame, 0)
+    builder.PrependInt32Slot(53, appearFrame, 0)
 
 def AddAppearFrame(builder, appearFrame):
     CharacterExcelAddAppearFrame(builder, appearFrame)
 
 def CharacterExcelAddCanMove(builder, canMove):
-    builder.PrependBoolSlot(52, canMove, 0)
+    builder.PrependBoolSlot(54, canMove, 0)
 
 def AddCanMove(builder, canMove):
     CharacterExcelAddCanMove(builder, canMove)
 
 def CharacterExcelAddCanFix(builder, canFix):
-    builder.PrependBoolSlot(53, canFix, 0)
+    builder.PrependBoolSlot(55, canFix, 0)
 
 def AddCanFix(builder, canFix):
     CharacterExcelAddCanFix(builder, canFix)
 
 def CharacterExcelAddCanCrowdControl(builder, canCrowdControl):
-    builder.PrependBoolSlot(54, canCrowdControl, 0)
+    builder.PrependBoolSlot(56, canCrowdControl, 0)
 
 def AddCanCrowdControl(builder, canCrowdControl):
     CharacterExcelAddCanCrowdControl(builder, canCrowdControl)
 
 def CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove):
-    builder.PrependBoolSlot(55, canBattleItemMove, 0)
+    builder.PrependBoolSlot(57, canBattleItemMove, 0)
 
 def AddCanBattleItemMove(builder, canBattleItemMove):
     CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove)
 
 def CharacterExcelAddIgnoreObstacle(builder, ignoreObstacle):
-    builder.PrependBoolSlot(56, ignoreObstacle, 0)
+    builder.PrependBoolSlot(58, ignoreObstacle, 0)
 
 def AddIgnoreObstacle(builder, ignoreObstacle):
     CharacterExcelAddIgnoreObstacle(builder, ignoreObstacle)
 
 def CharacterExcelAddIsAirUnit(builder, isAirUnit):
-    builder.PrependBoolSlot(57, isAirUnit, 0)
+    builder.PrependBoolSlot(59, isAirUnit, 0)
 
 def AddIsAirUnit(builder, isAirUnit):
     CharacterExcelAddIsAirUnit(builder, isAirUnit)
 
 def CharacterExcelAddAirUnitHeight(builder, airUnitHeight):
-    builder.PrependInt64Slot(58, airUnitHeight, 0)
+    builder.PrependInt64Slot(60, airUnitHeight, 0)
 
 def AddAirUnitHeight(builder, airUnitHeight):
     CharacterExcelAddAirUnitHeight(builder, airUnitHeight)
 
 def CharacterExcelAddTags(builder, tags):
-    builder.PrependUOffsetTRelativeSlot(59, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+    builder.PrependUOffsetTRelativeSlot(61, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 
 def AddTags(builder, tags):
     CharacterExcelAddTags(builder, tags)
@@ -898,31 +924,31 @@ def StartTagsVector(builder, numElems):
     return CharacterExcelStartTagsVector(builder, numElems)
 
 def CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId):
-    builder.PrependInt64Slot(60, secretStoneItemId, 0)
+    builder.PrependInt64Slot(62, secretStoneItemId, 0)
 
 def AddSecretStoneItemId(builder, secretStoneItemId):
     CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId)
 
 def CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount):
-    builder.PrependInt32Slot(61, secretStoneItemAmount, 0)
+    builder.PrependInt32Slot(63, secretStoneItemAmount, 0)
 
 def AddSecretStoneItemAmount(builder, secretStoneItemAmount):
     CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount)
 
 def CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId):
-    builder.PrependInt64Slot(62, characterPieceItemId, 0)
+    builder.PrependInt64Slot(64, characterPieceItemId, 0)
 
 def AddCharacterPieceItemId(builder, characterPieceItemId):
     CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId)
 
 def CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount):
-    builder.PrependInt32Slot(63, characterPieceItemAmount, 0)
+    builder.PrependInt32Slot(65, characterPieceItemAmount, 0)
 
 def AddCharacterPieceItemAmount(builder, characterPieceItemAmount):
     CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount)
 
 def CharacterExcelAddCombineRecipeId(builder, combineRecipeId):
-    builder.PrependInt64Slot(64, combineRecipeId, 0)
+    builder.PrependInt64Slot(66, combineRecipeId, 0)
 
 def AddCombineRecipeId(builder, combineRecipeId):
     CharacterExcelAddCombineRecipeId(builder, combineRecipeId)
@@ -978,6 +1004,7 @@ class CharacterExcelT(object):
         externalBtId = 0,
         mainCombatStyleId = 0,
         combatStyleIndex = 0,
+        useRepStyleOnCharacterGrowth = False,
         scenarioCharacter = None,
         spawnTemplateId = 0,
         favorLevelupType = 0,
@@ -986,6 +1013,7 @@ class CharacterExcelT(object):
         displayEnemyInfo = False,
         bodyRadius = 0,
         randomEffectRadius = 0,
+        targetGuideScale = 0.0,
         hpBarHide = False,
         hpBarHeight = 0.0,
         highlightFloaterHeight = 0.0,
@@ -1044,6 +1072,7 @@ class CharacterExcelT(object):
         self.externalBtId = externalBtId  # type: int
         self.mainCombatStyleId = mainCombatStyleId  # type: int
         self.combatStyleIndex = combatStyleIndex  # type: int
+        self.useRepStyleOnCharacterGrowth = useRepStyleOnCharacterGrowth  # type: bool
         self.scenarioCharacter = scenarioCharacter  # type: Optional[str]
         self.spawnTemplateId = spawnTemplateId  # type: int
         self.favorLevelupType = favorLevelupType  # type: int
@@ -1052,6 +1081,7 @@ class CharacterExcelT(object):
         self.displayEnemyInfo = displayEnemyInfo  # type: bool
         self.bodyRadius = bodyRadius  # type: int
         self.randomEffectRadius = randomEffectRadius  # type: int
+        self.targetGuideScale = targetGuideScale  # type: float
         self.hpBarHide = hpBarHide  # type: bool
         self.hpBarHeight = hpBarHeight  # type: float
         self.highlightFloaterHeight = highlightFloaterHeight  # type: float
@@ -1131,6 +1161,7 @@ class CharacterExcelT(object):
         self.externalBtId = characterExcel.ExternalBtId()
         self.mainCombatStyleId = characterExcel.MainCombatStyleId()
         self.combatStyleIndex = characterExcel.CombatStyleIndex()
+        self.useRepStyleOnCharacterGrowth = characterExcel.UseRepStyleOnCharacterGrowth()
         self.scenarioCharacter = characterExcel.ScenarioCharacter()
         self.spawnTemplateId = characterExcel.SpawnTemplateId()
         self.favorLevelupType = characterExcel.FavorLevelupType()
@@ -1145,6 +1176,7 @@ class CharacterExcelT(object):
         self.displayEnemyInfo = characterExcel.DisplayEnemyInfo()
         self.bodyRadius = characterExcel.BodyRadius()
         self.randomEffectRadius = characterExcel.RandomEffectRadius()
+        self.targetGuideScale = characterExcel.TargetGuideScale()
         self.hpBarHide = characterExcel.HpBarHide()
         self.hpBarHeight = characterExcel.HpBarHeight()
         self.highlightFloaterHeight = characterExcel.HighlightFloaterHeight()
@@ -1242,6 +1274,7 @@ class CharacterExcelT(object):
         CharacterExcelAddExternalBtId(builder, self.externalBtId)
         CharacterExcelAddMainCombatStyleId(builder, self.mainCombatStyleId)
         CharacterExcelAddCombatStyleIndex(builder, self.combatStyleIndex)
+        CharacterExcelAddUseRepStyleOnCharacterGrowth(builder, self.useRepStyleOnCharacterGrowth)
         if self.scenarioCharacter is not None:
             CharacterExcelAddScenarioCharacter(builder, scenarioCharacter)
         CharacterExcelAddSpawnTemplateId(builder, self.spawnTemplateId)
@@ -1252,6 +1285,7 @@ class CharacterExcelT(object):
         CharacterExcelAddDisplayEnemyInfo(builder, self.displayEnemyInfo)
         CharacterExcelAddBodyRadius(builder, self.bodyRadius)
         CharacterExcelAddRandomEffectRadius(builder, self.randomEffectRadius)
+        CharacterExcelAddTargetGuideScale(builder, self.targetGuideScale)
         CharacterExcelAddHpBarHide(builder, self.hpBarHide)
         CharacterExcelAddHpBarHeight(builder, self.hpBarHeight)
         CharacterExcelAddHighlightFloaterHeight(builder, self.highlightFloaterHeight)

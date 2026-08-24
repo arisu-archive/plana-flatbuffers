@@ -102,6 +102,14 @@ const (
 	EquipmentOptionTypeEnhanceChemicalRate_Coefficient       EquipmentOptionType = 92
 	EquipmentOptionTypeEnhanceCompositeArmorRate_Base        EquipmentOptionType = 93
 	EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient EquipmentOptionType = 94
+	EquipmentOptionTypeAddStreetTerrainFactor_Base           EquipmentOptionType = 95
+	EquipmentOptionTypeAddOutdoorTerrainFactor_Base          EquipmentOptionType = 96
+	EquipmentOptionTypeAddIndoorTerrainFactor_Base           EquipmentOptionType = 97
+	EquipmentOptionTypeReduceResistDamagedRate_Base          EquipmentOptionType = 98
+	EquipmentOptionTypeAddSummonedObstacleDamagedRatio_Base  EquipmentOptionType = 99
+	EquipmentOptionTypeEnhanceExDamageRate_Base              EquipmentOptionType = 100
+	EquipmentOptionTypeEnhanceBasicsDamageRate_Base          EquipmentOptionType = 101
+	EquipmentOptionTypeAddDamageRatioSynergyBulletType_Base  EquipmentOptionType = 102
 )
 
 var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
@@ -200,6 +208,14 @@ var EnumNamesEquipmentOptionType = map[EquipmentOptionType]string{
 	EquipmentOptionTypeEnhanceChemicalRate_Coefficient:       "EnhanceChemicalRate_Coefficient",
 	EquipmentOptionTypeEnhanceCompositeArmorRate_Base:        "EnhanceCompositeArmorRate_Base",
 	EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient: "EnhanceCompositeArmorRate_Coefficient",
+	EquipmentOptionTypeAddStreetTerrainFactor_Base:           "AddStreetTerrainFactor_Base",
+	EquipmentOptionTypeAddOutdoorTerrainFactor_Base:          "AddOutdoorTerrainFactor_Base",
+	EquipmentOptionTypeAddIndoorTerrainFactor_Base:           "AddIndoorTerrainFactor_Base",
+	EquipmentOptionTypeReduceResistDamagedRate_Base:          "ReduceResistDamagedRate_Base",
+	EquipmentOptionTypeAddSummonedObstacleDamagedRatio_Base:  "AddSummonedObstacleDamagedRatio_Base",
+	EquipmentOptionTypeEnhanceExDamageRate_Base:              "EnhanceExDamageRate_Base",
+	EquipmentOptionTypeEnhanceBasicsDamageRate_Base:          "EnhanceBasicsDamageRate_Base",
+	EquipmentOptionTypeAddDamageRatioSynergyBulletType_Base:  "AddDamageRatioSynergyBulletType_Base",
 }
 
 var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
@@ -298,6 +314,14 @@ var EnumValuesEquipmentOptionType = map[string]EquipmentOptionType{
 	"EnhanceChemicalRate_Coefficient":       EquipmentOptionTypeEnhanceChemicalRate_Coefficient,
 	"EnhanceCompositeArmorRate_Base":        EquipmentOptionTypeEnhanceCompositeArmorRate_Base,
 	"EnhanceCompositeArmorRate_Coefficient": EquipmentOptionTypeEnhanceCompositeArmorRate_Coefficient,
+	"AddStreetTerrainFactor_Base":           EquipmentOptionTypeAddStreetTerrainFactor_Base,
+	"AddOutdoorTerrainFactor_Base":          EquipmentOptionTypeAddOutdoorTerrainFactor_Base,
+	"AddIndoorTerrainFactor_Base":           EquipmentOptionTypeAddIndoorTerrainFactor_Base,
+	"ReduceResistDamagedRate_Base":          EquipmentOptionTypeReduceResistDamagedRate_Base,
+	"AddSummonedObstacleDamagedRatio_Base":  EquipmentOptionTypeAddSummonedObstacleDamagedRatio_Base,
+	"EnhanceExDamageRate_Base":              EquipmentOptionTypeEnhanceExDamageRate_Base,
+	"EnhanceBasicsDamageRate_Base":          EquipmentOptionTypeEnhanceBasicsDamageRate_Base,
+	"AddDamageRatioSynergyBulletType_Base":  EquipmentOptionTypeAddDamageRatioSynergyBulletType_Base,
 }
 
 func (v EquipmentOptionType) String() string {

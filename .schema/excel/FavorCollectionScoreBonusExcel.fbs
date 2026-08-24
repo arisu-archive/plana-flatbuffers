@@ -1,0 +1,53 @@
+namespace MX.Data.Excel;
+
+table FavorCollectionScoreBonusExcel {
+    id: long;
+    score_per_owned_student: long;
+    score_per_favor_rank: long;
+    score_for_rank20: long;
+    score_for_rank50: long;
+    score_for_rank75: long;
+    score_for_rank100: long;
+    required_score01: long;
+    applied_skill_group_id01: string;
+    required_score02: long;
+    applied_skill_group_id02: string;
+    required_score03: long;
+    applied_skill_group_id03: string;
+    required_score04: long;
+    applied_skill_group_id04: string;
+    required_score05: long;
+    applied_skill_group_id05: string;
+    required_score06: long;
+    applied_skill_group_id06: string;
+    required_score07: long;
+    applied_skill_group_id07: string;
+    required_score08: long;
+    applied_skill_group_id08: string;
+    required_score09: long;
+    applied_skill_group_id09: string;
+    required_score10: long;
+    applied_skill_group_id10: string;
+    required_score11: long;
+    applied_skill_group_id11: string;
+    required_score12: long;
+    applied_skill_group_id12: string;
+    required_score13: long;
+    applied_skill_group_id13: string;
+    required_score14: long;
+    applied_skill_group_id14: string;
+    required_score15: long;
+    applied_skill_group_id15: string;
+    required_score16: long;
+    applied_skill_group_id16: string;
+    required_score17: long;
+    applied_skill_group_id17: string;
+    required_score18: long;
+    applied_skill_group_id18: string;
+    required_score19: long;
+    applied_skill_group_id19: string;
+    required_score20: long;
+    applied_skill_group_id20: string;
+}
+
+root_type FavorCollectionScoreBonusExcel;

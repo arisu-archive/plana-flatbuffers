@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table TacticalRelaySeasonManageExcel {
+    season_id: long;
+    season_name: string;
+    season_start_date: string;
+    end_note_label_start_date: string;
+    season_end_date: string;
+    prev_season_id: long;
+    season_rank_still_counting: int;
+}
+
+root_type TacticalRelaySeasonManageExcel;

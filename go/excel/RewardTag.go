@@ -30,6 +30,7 @@ const (
 	RewardTagGemBonus                 RewardTag = 20
 	RewardTagGemPaid                  RewardTag = 21
 	RewardTagConquestTileConquer      RewardTag = 22
+	RewardTagMileage                  RewardTag = 23
 )
 
 var EnumNamesRewardTag = map[RewardTag]string{
@@ -56,6 +57,7 @@ var EnumNamesRewardTag = map[RewardTag]string{
 	RewardTagGemBonus:                 "GemBonus",
 	RewardTagGemPaid:                  "GemPaid",
 	RewardTagConquestTileConquer:      "ConquestTileConquer",
+	RewardTagMileage:                  "Mileage",
 }
 
 var EnumValuesRewardTag = map[string]RewardTag{
@@ -82,6 +84,7 @@ var EnumValuesRewardTag = map[string]RewardTag{
 	"GemBonus":                 RewardTagGemBonus,
 	"GemPaid":                  RewardTagGemPaid,
 	"ConquestTileConquer":      RewardTagConquestTileConquer,
+	"Mileage":                  RewardTagMileage,
 }
 
 func (v RewardTag) String() string {

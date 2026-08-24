@@ -10,6 +10,7 @@ table PickupFirstGetBonus2Excel {
     reward_parcel_type: ParcelType;
     reward_parcel_id: long;
     reward_parcel_amount: long;
+    shop_cash_ids: [long];
 }
 
 root_type PickupFirstGetBonus2Excel;

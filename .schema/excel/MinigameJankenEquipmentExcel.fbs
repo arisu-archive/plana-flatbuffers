@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenEquipmentExcel {
+    id: long;
+    event_content_id: long;
+    equipment_group: long;
+    tier: int;
+    localize_id: uint;
+    unlock_condition_stage: long;
+    attack_power: long;
+    hit_point: long;
+    model_prefab_name: string;
+    icon_resource_name: string;
+}
+
+root_type MinigameJankenEquipmentExcel;

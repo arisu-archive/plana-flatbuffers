@@ -1,0 +1,15 @@
+namespace MX.Data.Excel;
+
+table ShopCashPromotionPopupExcel {
+    id: long;
+    dev_name: string;
+    character_id: long;
+    illust_offset_x: float;
+    illust_offset_y: float;
+    illust_scale: float;
+    title_image_path: string;
+    localize_etc_id: uint;
+    shop_cash_ids: [long];
+}
+
+root_type ShopCashPromotionPopupExcel;

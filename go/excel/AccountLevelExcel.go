@@ -125,8 +125,108 @@ func (rcv *AccountLevelExcel) MutateNeedReportEvent(n bool) bool {
 	return rcv._tab.MutateBoolSlot(16, n)
 }
 
+func (rcv *AccountLevelExcel) PlusExpProductMonthlyId1(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) PlusExpProductMonthlyId1Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) MutatePlusExpProductMonthlyId1(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *AccountLevelExcel) PlusExpRatio1() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) MutatePlusExpRatio1(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *AccountLevelExcel) PlusExpIconName1() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AccountLevelExcel) PlusExpProductMonthlyId2(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) PlusExpProductMonthlyId2Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) MutatePlusExpProductMonthlyId2(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *AccountLevelExcel) PlusExpRatio2() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AccountLevelExcel) MutatePlusExpRatio2(n int64) bool {
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *AccountLevelExcel) PlusExpIconName2() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AccountLevelExcel) PlusExpIconName3() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func AccountLevelExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(14)
 }
 func AccountLevelExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -148,6 +248,33 @@ func AccountLevelExcelAddApAutoChargeMax(builder *flatbuffers.Builder, apAutoCha
 }
 func AccountLevelExcelAddNeedReportEvent(builder *flatbuffers.Builder, needReportEvent bool) {
 	builder.PrependBoolSlot(6, needReportEvent, false)
+}
+func AccountLevelExcelAddPlusExpProductMonthlyId1(builder *flatbuffers.Builder, plusExpProductMonthlyId1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(plusExpProductMonthlyId1), 0)
+}
+func AccountLevelExcelStartPlusExpProductMonthlyId1Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func AccountLevelExcelAddPlusExpRatio1(builder *flatbuffers.Builder, plusExpRatio1 int64) {
+	builder.PrependInt64Slot(8, plusExpRatio1, 0)
+}
+func AccountLevelExcelAddPlusExpIconName1(builder *flatbuffers.Builder, plusExpIconName1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(plusExpIconName1), 0)
+}
+func AccountLevelExcelAddPlusExpProductMonthlyId2(builder *flatbuffers.Builder, plusExpProductMonthlyId2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(plusExpProductMonthlyId2), 0)
+}
+func AccountLevelExcelStartPlusExpProductMonthlyId2Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func AccountLevelExcelAddPlusExpRatio2(builder *flatbuffers.Builder, plusExpRatio2 int64) {
+	builder.PrependInt64Slot(11, plusExpRatio2, 0)
+}
+func AccountLevelExcelAddPlusExpIconName2(builder *flatbuffers.Builder, plusExpIconName2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(plusExpIconName2), 0)
+}
+func AccountLevelExcelAddPlusExpIconName3(builder *flatbuffers.Builder, plusExpIconName3 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(plusExpIconName3), 0)
 }
 func AccountLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

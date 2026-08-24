@@ -12,3 +12,15 @@ class ProductCategory(object):
     BattlePass = 6
     GooglePoint = 7
     DailyRecord = 8
+    StreakRecord = 9
+    PackagePickup = 10
+    PackageDaily = 11
+    PackageWeekly = 12
+    PackageMonthly = 13
+    GemLimited = 14
+    TimeLimit2 = 15
+    TimeLimit3 = 16
+    TimeLimit4 = 17
+    Stepup1 = 18
+    Stepup2 = 19
+    SpecialSupport = 20

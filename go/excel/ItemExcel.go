@@ -429,8 +429,20 @@ func (rcv *ItemExcel) MutateExpirationNotifyDateIn(n int32) bool {
 	return rcv._tab.MutateInt32Slot(64, n)
 }
 
-func (rcv *ItemExcel) ShortcutTypeId() int64 {
+func (rcv *ItemExcel) IsOverrideExpiration() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ItemExcel) MutateIsOverrideExpiration(n bool) bool {
+	return rcv._tab.MutateBoolSlot(66, n)
+}
+
+func (rcv *ItemExcel) ShortcutTypeId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -438,11 +450,11 @@ func (rcv *ItemExcel) ShortcutTypeId() int64 {
 }
 
 func (rcv *ItemExcel) MutateShortcutTypeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(66, n)
+	return rcv._tab.MutateInt64Slot(68, n)
 }
 
 func (rcv *ItemExcel) GachaTicket() GachaTicketType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return GachaTicketType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -450,22 +462,10 @@ func (rcv *ItemExcel) GachaTicket() GachaTicketType {
 }
 
 func (rcv *ItemExcel) MutateGachaTicket(n GachaTicketType) bool {
-	return rcv._tab.MutateInt32Slot(68, int32(n))
+	return rcv._tab.MutateInt32Slot(70, int32(n))
 }
 
 func (rcv *ItemExcel) AlertPopupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ItemExcel) MutateAlertPopupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(70, n)
-}
-
-func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -473,12 +473,24 @@ func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
 	return 0
 }
 
-func (rcv *ItemExcel) MutateShiftingCraftRecipe(n int64) bool {
+func (rcv *ItemExcel) MutateAlertPopupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(72, n)
 }
 
+func (rcv *ItemExcel) ShiftingCraftRecipe() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ItemExcel) MutateShiftingCraftRecipe(n int64) bool {
+	return rcv._tab.MutateInt64Slot(74, n)
+}
+
 func ItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(35)
+	builder.StartObject(36)
 }
 func ItemExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -579,17 +591,20 @@ func ItemExcelAddExpirationDateTime(builder *flatbuffers.Builder, expirationDate
 func ItemExcelAddExpirationNotifyDateIn(builder *flatbuffers.Builder, expirationNotifyDateIn int32) {
 	builder.PrependInt32Slot(30, expirationNotifyDateIn, 0)
 }
+func ItemExcelAddIsOverrideExpiration(builder *flatbuffers.Builder, isOverrideExpiration bool) {
+	builder.PrependBoolSlot(31, isOverrideExpiration, false)
+}
 func ItemExcelAddShortcutTypeId(builder *flatbuffers.Builder, shortcutTypeId int64) {
-	builder.PrependInt64Slot(31, shortcutTypeId, 0)
+	builder.PrependInt64Slot(32, shortcutTypeId, 0)
 }
 func ItemExcelAddGachaTicket(builder *flatbuffers.Builder, gachaTicket GachaTicketType) {
-	builder.PrependInt32Slot(32, int32(gachaTicket), 0)
+	builder.PrependInt32Slot(33, int32(gachaTicket), 0)
 }
 func ItemExcelAddAlertPopupId(builder *flatbuffers.Builder, alertPopupId int64) {
-	builder.PrependInt64Slot(33, alertPopupId, 0)
+	builder.PrependInt64Slot(34, alertPopupId, 0)
 }
 func ItemExcelAddShiftingCraftRecipe(builder *flatbuffers.Builder, shiftingCraftRecipe int64) {
-	builder.PrependInt64Slot(34, shiftingCraftRecipe, 0)
+	builder.PrependInt64Slot(35, shiftingCraftRecipe, 0)
 }
 func ItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -377,8 +377,16 @@ func (rcv *SkillExcel) SkillCardLabelPath() []byte {
 	return nil
 }
 
+func (rcv *SkillExcel) SkillRemainCountOverride() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func SkillExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(30)
+	builder.StartObject(31)
 }
 func SkillExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -469,6 +477,9 @@ func SkillExcelAddTextureSkillCardForFormConversion(builder *flatbuffers.Builder
 }
 func SkillExcelAddSkillCardLabelPath(builder *flatbuffers.Builder, skillCardLabelPath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(skillCardLabelPath), 0)
+}
+func SkillExcelAddSkillRemainCountOverride(builder *flatbuffers.Builder, skillRemainCountOverride flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(skillRemainCountOverride), 0)
 }
 func SkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

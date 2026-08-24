@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenFixedEchelonSetExcel {
+    fixed_echelon_id: long;
+    echelon_scene_skip: bool;
+    character_id: long;
+    equip_ment_id: long;
+}
+
+root_type MinigameJankenFixedEchelonSetExcel;

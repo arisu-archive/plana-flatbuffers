@@ -212,8 +212,15 @@ class ConstStrategyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # ConstStrategyExcel
+    def TacticalRelayEchelonCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def ConstStrategyExcelStart(builder):
-    builder.StartObject(24)
+    builder.StartObject(25)
 
 def Start(builder):
     ConstStrategyExcelStart(builder)
@@ -368,6 +375,12 @@ def ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSwee
 def AddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount):
     ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount)
 
+def ConstStrategyExcelAddTacticalRelayEchelonCount(builder, tacticalRelayEchelonCount):
+    builder.PrependInt32Slot(24, tacticalRelayEchelonCount, 0)
+
+def AddTacticalRelayEchelonCount(builder, tacticalRelayEchelonCount):
+    ConstStrategyExcelAddTacticalRelayEchelonCount(builder, tacticalRelayEchelonCount)
+
 def ConstStrategyExcelEnd(builder):
     return builder.EndObject()
 
@@ -408,6 +421,7 @@ class ConstStrategyExcelT(object):
         multiSweepPresetSelectStageMaxCount = 0,
         multiSweepPresetMaxSweepCount = 0,
         multiSweepPresetSelectParcelMaxCount = 0,
+        tacticalRelayEchelonCount = 0,
     ):
         self.hexaMapBoundaryOffset = hexaMapBoundaryOffset  # type: float
         self.hexaMapStartCameraOffset = hexaMapStartCameraOffset  # type: float
@@ -433,6 +447,7 @@ class ConstStrategyExcelT(object):
         self.multiSweepPresetSelectStageMaxCount = multiSweepPresetSelectStageMaxCount  # type: int
         self.multiSweepPresetMaxSweepCount = multiSweepPresetMaxSweepCount  # type: int
         self.multiSweepPresetSelectParcelMaxCount = multiSweepPresetSelectParcelMaxCount  # type: int
+        self.tacticalRelayEchelonCount = tacticalRelayEchelonCount  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -485,6 +500,7 @@ class ConstStrategyExcelT(object):
         self.multiSweepPresetSelectStageMaxCount = constStrategyExcel.MultiSweepPresetSelectStageMaxCount()
         self.multiSweepPresetMaxSweepCount = constStrategyExcel.MultiSweepPresetMaxSweepCount()
         self.multiSweepPresetSelectParcelMaxCount = constStrategyExcel.MultiSweepPresetSelectParcelMaxCount()
+        self.tacticalRelayEchelonCount = constStrategyExcel.TacticalRelayEchelonCount()
 
     # ConstStrategyExcelT
     def Pack(self, builder):
@@ -522,9 +538,10 @@ class ConstStrategyExcelT(object):
         ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder, self.multiSweepPresetSelectStageMaxCount)
         ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder, self.multiSweepPresetMaxSweepCount)
         ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, self.multiSweepPresetSelectParcelMaxCount)
+        ConstStrategyExcelAddTacticalRelayEchelonCount(builder, self.tacticalRelayEchelonCount)
         constStrategyExcel = ConstStrategyExcelEnd(builder)
         return constStrategyExcel
 
 # plana-flatbuffer: object-api conversion
 from FlatData._conversion import install_object_api as _install_object_api
-_install_object_api(ConstStrategyExcelT, 'ConstStrategyExcel', (('hexaMapBoundaryOffset', 'float32', False), ('hexaMapStartCameraOffset', 'float32', False), ('cameraZoomMax', 'float32', False), ('cameraZoomMin', 'float32', False), ('cameraZoomDefault', 'float32', False), ('healCostType', 'int32', False), ('healCostAmount', 'int64', True), ('canHealHpRate', 'int32', False), ('playTimeLimitInSeconds', 'int64', False), ('adventureEchelonCount', 'int32', False), ('raidEchelonCount', 'int32', False), ('defaultEchelonCount', 'int32', False), ('eventContentEchelonCount', 'int32', False), ('timeAttackDungeonEchelonCount', 'int32', False), ('worldRaidEchelonCount', 'int32', False), ('tacticSkipClearTimeSeconds', 'int32', False), ('tacticSkipFramePerSecond', 'int32', False), ('conquestEchelonCount', 'int32', False), ('storyEchelonCount', 'int32', False), ('multiSweepPresetCount', 'int32', False), ('multiSweepPresetNameMaxLength', 'int32', False), ('multiSweepPresetSelectStageMaxCount', 'int32', False), ('multiSweepPresetMaxSweepCount', 'int32', False), ('multiSweepPresetSelectParcelMaxCount', 'int32', False)))
+_install_object_api(ConstStrategyExcelT, 'ConstStrategyExcel', (('hexaMapBoundaryOffset', 'float32', False), ('hexaMapStartCameraOffset', 'float32', False), ('cameraZoomMax', 'float32', False), ('cameraZoomMin', 'float32', False), ('cameraZoomDefault', 'float32', False), ('healCostType', 'int32', False), ('healCostAmount', 'int64', True), ('canHealHpRate', 'int32', False), ('playTimeLimitInSeconds', 'int64', False), ('adventureEchelonCount', 'int32', False), ('raidEchelonCount', 'int32', False), ('defaultEchelonCount', 'int32', False), ('eventContentEchelonCount', 'int32', False), ('timeAttackDungeonEchelonCount', 'int32', False), ('worldRaidEchelonCount', 'int32', False), ('tacticSkipClearTimeSeconds', 'int32', False), ('tacticSkipFramePerSecond', 'int32', False), ('conquestEchelonCount', 'int32', False), ('storyEchelonCount', 'int32', False), ('multiSweepPresetCount', 'int32', False), ('multiSweepPresetNameMaxLength', 'int32', False), ('multiSweepPresetSelectStageMaxCount', 'int32', False), ('multiSweepPresetMaxSweepCount', 'int32', False), ('multiSweepPresetSelectParcelMaxCount', 'int32', False), ('tacticalRelayEchelonCount', 'int32', False)))

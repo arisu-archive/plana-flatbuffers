@@ -1,0 +1,22 @@
+include "ContentType.fbs";
+include "Difficulty.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterLeveladjustmentExcel {
+    content_type: ContentType;
+    difficulty: Difficulty;
+    level: int;
+    ex_skill_level: int;
+    public_skill_level: int;
+    passive_skill_level: int;
+    extra_passive_skill_level: int;
+    equip_slot_tier01: int;
+    equip_slot_level01: int;
+    equip_slot_tier02: int;
+    equip_slot_level02: int;
+    equip_slot_tier03: int;
+    equip_slot_level03: int;
+}
+
+root_type CharacterLeveladjustmentExcel;

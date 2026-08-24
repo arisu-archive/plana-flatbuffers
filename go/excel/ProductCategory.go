@@ -7,39 +7,75 @@ import "strconv"
 type ProductCategory int32
 
 const (
-	ProductCategoryNone        ProductCategory = 0
-	ProductCategoryGem         ProductCategory = 1
-	ProductCategoryMonthly     ProductCategory = 2
-	ProductCategoryPackage     ProductCategory = 3
-	ProductCategoryGachaDirect ProductCategory = 4
-	ProductCategoryTimeLimit   ProductCategory = 5
-	ProductCategoryBattlePass  ProductCategory = 6
-	ProductCategoryGooglePoint ProductCategory = 7
-	ProductCategoryDailyRecord ProductCategory = 8
+	ProductCategoryNone           ProductCategory = 0
+	ProductCategoryGem            ProductCategory = 1
+	ProductCategoryMonthly        ProductCategory = 2
+	ProductCategoryPackage        ProductCategory = 3
+	ProductCategoryGachaDirect    ProductCategory = 4
+	ProductCategoryTimeLimit      ProductCategory = 5
+	ProductCategoryBattlePass     ProductCategory = 6
+	ProductCategoryGooglePoint    ProductCategory = 7
+	ProductCategoryDailyRecord    ProductCategory = 8
+	ProductCategoryStreakRecord   ProductCategory = 9
+	ProductCategoryPackagePickup  ProductCategory = 10
+	ProductCategoryPackageDaily   ProductCategory = 11
+	ProductCategoryPackageWeekly  ProductCategory = 12
+	ProductCategoryPackageMonthly ProductCategory = 13
+	ProductCategoryGemLimited     ProductCategory = 14
+	ProductCategoryTimeLimit2     ProductCategory = 15
+	ProductCategoryTimeLimit3     ProductCategory = 16
+	ProductCategoryTimeLimit4     ProductCategory = 17
+	ProductCategoryStepup1        ProductCategory = 18
+	ProductCategoryStepup2        ProductCategory = 19
+	ProductCategorySpecialSupport ProductCategory = 20
 )
 
 var EnumNamesProductCategory = map[ProductCategory]string{
-	ProductCategoryNone:        "None",
-	ProductCategoryGem:         "Gem",
-	ProductCategoryMonthly:     "Monthly",
-	ProductCategoryPackage:     "Package",
-	ProductCategoryGachaDirect: "GachaDirect",
-	ProductCategoryTimeLimit:   "TimeLimit",
-	ProductCategoryBattlePass:  "BattlePass",
-	ProductCategoryGooglePoint: "GooglePoint",
-	ProductCategoryDailyRecord: "DailyRecord",
+	ProductCategoryNone:           "None",
+	ProductCategoryGem:            "Gem",
+	ProductCategoryMonthly:        "Monthly",
+	ProductCategoryPackage:        "Package",
+	ProductCategoryGachaDirect:    "GachaDirect",
+	ProductCategoryTimeLimit:      "TimeLimit",
+	ProductCategoryBattlePass:     "BattlePass",
+	ProductCategoryGooglePoint:    "GooglePoint",
+	ProductCategoryDailyRecord:    "DailyRecord",
+	ProductCategoryStreakRecord:   "StreakRecord",
+	ProductCategoryPackagePickup:  "PackagePickup",
+	ProductCategoryPackageDaily:   "PackageDaily",
+	ProductCategoryPackageWeekly:  "PackageWeekly",
+	ProductCategoryPackageMonthly: "PackageMonthly",
+	ProductCategoryGemLimited:     "GemLimited",
+	ProductCategoryTimeLimit2:     "TimeLimit2",
+	ProductCategoryTimeLimit3:     "TimeLimit3",
+	ProductCategoryTimeLimit4:     "TimeLimit4",
+	ProductCategoryStepup1:        "Stepup1",
+	ProductCategoryStepup2:        "Stepup2",
+	ProductCategorySpecialSupport: "SpecialSupport",
 }
 
 var EnumValuesProductCategory = map[string]ProductCategory{
-	"None":        ProductCategoryNone,
-	"Gem":         ProductCategoryGem,
-	"Monthly":     ProductCategoryMonthly,
-	"Package":     ProductCategoryPackage,
-	"GachaDirect": ProductCategoryGachaDirect,
-	"TimeLimit":   ProductCategoryTimeLimit,
-	"BattlePass":  ProductCategoryBattlePass,
-	"GooglePoint": ProductCategoryGooglePoint,
-	"DailyRecord": ProductCategoryDailyRecord,
+	"None":           ProductCategoryNone,
+	"Gem":            ProductCategoryGem,
+	"Monthly":        ProductCategoryMonthly,
+	"Package":        ProductCategoryPackage,
+	"GachaDirect":    ProductCategoryGachaDirect,
+	"TimeLimit":      ProductCategoryTimeLimit,
+	"BattlePass":     ProductCategoryBattlePass,
+	"GooglePoint":    ProductCategoryGooglePoint,
+	"DailyRecord":    ProductCategoryDailyRecord,
+	"StreakRecord":   ProductCategoryStreakRecord,
+	"PackagePickup":  ProductCategoryPackagePickup,
+	"PackageDaily":   ProductCategoryPackageDaily,
+	"PackageWeekly":  ProductCategoryPackageWeekly,
+	"PackageMonthly": ProductCategoryPackageMonthly,
+	"GemLimited":     ProductCategoryGemLimited,
+	"TimeLimit2":     ProductCategoryTimeLimit2,
+	"TimeLimit3":     ProductCategoryTimeLimit3,
+	"TimeLimit4":     ProductCategoryTimeLimit4,
+	"Stepup1":        ProductCategoryStepup1,
+	"Stepup2":        ProductCategoryStepup2,
+	"SpecialSupport": ProductCategorySpecialSupport,
 }
 
 func (v ProductCategory) String() string {

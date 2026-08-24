@@ -1,0 +1,9 @@
+include "LocalizeKeyMappingExcel.fbs";
+
+namespace FlatData;
+
+table LocalizeKeyMappingExcelTable {
+    data_list: [LocalizeKeyMappingExcel];
+}
+
+root_type LocalizeKeyMappingExcelTable;

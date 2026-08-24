@@ -234,8 +234,15 @@ class SkillExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # SkillExcel
+    def SkillRemainCountOverride(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def SkillExcelStart(builder):
-    builder.StartObject(30)
+    builder.StartObject(31)
 
 def Start(builder):
     SkillExcelStart(builder)
@@ -420,6 +427,12 @@ def SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath):
 def AddSkillCardLabelPath(builder, skillCardLabelPath):
     SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
 
+def SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride):
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(skillRemainCountOverride), 0)
+
+def AddSkillRemainCountOverride(builder, skillRemainCountOverride):
+    SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride)
+
 def SkillExcelEnd(builder):
     return builder.EndObject()
 
@@ -462,6 +475,7 @@ class SkillExcelT(object):
         selectExSkillToolTipId = 0,
         textureSkillCardForFormConversion = None,
         skillCardLabelPath = None,
+        skillRemainCountOverride = None,
     ):
         self.id = id  # type: int
         self.localizeSkillId = localizeSkillId  # type: int
@@ -493,6 +507,7 @@ class SkillExcelT(object):
         self.selectExSkillToolTipId = selectExSkillToolTipId  # type: int
         self.textureSkillCardForFormConversion = textureSkillCardForFormConversion  # type: Optional[str]
         self.skillCardLabelPath = skillCardLabelPath  # type: Optional[str]
+        self.skillRemainCountOverride = skillRemainCountOverride  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -545,6 +560,7 @@ class SkillExcelT(object):
         self.selectExSkillToolTipId = skillExcel.SelectExSkillToolTipId()
         self.textureSkillCardForFormConversion = skillExcel.TextureSkillCardForFormConversion()
         self.skillCardLabelPath = skillExcel.SkillCardLabelPath()
+        self.skillRemainCountOverride = skillExcel.SkillRemainCountOverride()
 
     # SkillExcelT
     def Pack(self, builder):
@@ -560,6 +576,8 @@ class SkillExcelT(object):
             textureSkillCardForFormConversion = builder.CreateString(self.textureSkillCardForFormConversion)
         if self.skillCardLabelPath is not None:
             skillCardLabelPath = builder.CreateString(self.skillCardLabelPath)
+        if self.skillRemainCountOverride is not None:
+            skillRemainCountOverride = builder.CreateString(self.skillRemainCountOverride)
         SkillExcelStart(builder)
         SkillExcelAddId(builder, self.id)
         SkillExcelAddLocalizeSkillId(builder, self.localizeSkillId)
@@ -597,5 +615,7 @@ class SkillExcelT(object):
             SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion)
         if self.skillCardLabelPath is not None:
             SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
+        if self.skillRemainCountOverride is not None:
+            SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride)
         skillExcel = SkillExcelEnd(builder)
         return skillExcel

@@ -14,3 +14,4 @@ class GachaDisplayTag(object):
     LimitedThreeStar = 8
     Revival = 9
     SelectLimited = 10
+    NewbieDateLimited = 11

@@ -23,12 +23,15 @@ table ShopCashExcel {
     sale_period_from: string;
     sale_period_to: string;
     product_sale_day: long;
+    product_sale_milli_seconds: long;
     period_tag: bool;
     account_level_limit: long;
     account_level_hide: bool;
     clear_mission_limit: long;
     clear_mission_hide: bool;
     purchase_report_event_name: string;
+    recommend_icon_path: string;
+    recommend_prefab_path: string;
 }
 
 root_type ShopCashExcel;

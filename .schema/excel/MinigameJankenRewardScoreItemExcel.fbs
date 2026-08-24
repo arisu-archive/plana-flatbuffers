@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameJankenRewardScoreItemExcel {
+    id: long;
+    event_content_id: long;
+    parcel_type: [ParcelType];
+    parcel_unique_id: [long];
+    amount: [long];
+}
+
+root_type MinigameJankenRewardScoreItemExcel;

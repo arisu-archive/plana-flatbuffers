@@ -17,6 +17,7 @@ const (
 	TutorialFailureContentTypeEliminateRaid        TutorialFailureContentType = 7
 	TutorialFailureContentTypeMultiFloorRaid       TutorialFailureContentType = 8
 	TutorialFailureContentTypeInteractiveWorldRaid TutorialFailureContentType = 9
+	TutorialFailureContentTypeTacticalRelay        TutorialFailureContentType = 10
 )
 
 var EnumNamesTutorialFailureContentType = map[TutorialFailureContentType]string{
@@ -30,6 +31,7 @@ var EnumNamesTutorialFailureContentType = map[TutorialFailureContentType]string{
 	TutorialFailureContentTypeEliminateRaid:        "EliminateRaid",
 	TutorialFailureContentTypeMultiFloorRaid:       "MultiFloorRaid",
 	TutorialFailureContentTypeInteractiveWorldRaid: "InteractiveWorldRaid",
+	TutorialFailureContentTypeTacticalRelay:        "TacticalRelay",
 }
 
 var EnumValuesTutorialFailureContentType = map[string]TutorialFailureContentType{
@@ -43,6 +45,7 @@ var EnumValuesTutorialFailureContentType = map[string]TutorialFailureContentType
 	"EliminateRaid":        TutorialFailureContentTypeEliminateRaid,
 	"MultiFloorRaid":       TutorialFailureContentTypeMultiFloorRaid,
 	"InteractiveWorldRaid": TutorialFailureContentTypeInteractiveWorldRaid,
+	"TacticalRelay":        TutorialFailureContentTypeTacticalRelay,
 }
 
 func (v TutorialFailureContentType) String() string {

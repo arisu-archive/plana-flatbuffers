@@ -73,8 +73,97 @@ class AccountLevelExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId1(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId1AsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId1Length(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId1IsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+    # AccountLevelExcel
+    def PlusExpRatio1(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpIconName1(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId2(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId2AsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId2Length(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpProductMonthlyId2IsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # AccountLevelExcel
+    def PlusExpRatio2(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AccountLevelExcel
+    def PlusExpIconName2(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AccountLevelExcel
+    def PlusExpIconName3(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def AccountLevelExcelStart(builder):
-    builder.StartObject(7)
+    builder.StartObject(14)
 
 def Start(builder):
     AccountLevelExcelStart(builder)
@@ -121,12 +210,70 @@ def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent):
 def AddNeedReportEvent(builder, needReportEvent):
     AccountLevelExcelAddNeedReportEvent(builder, needReportEvent)
 
+def AccountLevelExcelAddPlusExpProductMonthlyId1(builder, plusExpProductMonthlyId1):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(plusExpProductMonthlyId1), 0)
+
+def AddPlusExpProductMonthlyId1(builder, plusExpProductMonthlyId1):
+    AccountLevelExcelAddPlusExpProductMonthlyId1(builder, plusExpProductMonthlyId1)
+
+def AccountLevelExcelStartPlusExpProductMonthlyId1Vector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartPlusExpProductMonthlyId1Vector(builder, numElems):
+    return AccountLevelExcelStartPlusExpProductMonthlyId1Vector(builder, numElems)
+
+def AccountLevelExcelAddPlusExpRatio1(builder, plusExpRatio1):
+    builder.PrependInt64Slot(8, plusExpRatio1, 0)
+
+def AddPlusExpRatio1(builder, plusExpRatio1):
+    AccountLevelExcelAddPlusExpRatio1(builder, plusExpRatio1)
+
+def AccountLevelExcelAddPlusExpIconName1(builder, plusExpIconName1):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(plusExpIconName1), 0)
+
+def AddPlusExpIconName1(builder, plusExpIconName1):
+    AccountLevelExcelAddPlusExpIconName1(builder, plusExpIconName1)
+
+def AccountLevelExcelAddPlusExpProductMonthlyId2(builder, plusExpProductMonthlyId2):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(plusExpProductMonthlyId2), 0)
+
+def AddPlusExpProductMonthlyId2(builder, plusExpProductMonthlyId2):
+    AccountLevelExcelAddPlusExpProductMonthlyId2(builder, plusExpProductMonthlyId2)
+
+def AccountLevelExcelStartPlusExpProductMonthlyId2Vector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartPlusExpProductMonthlyId2Vector(builder, numElems):
+    return AccountLevelExcelStartPlusExpProductMonthlyId2Vector(builder, numElems)
+
+def AccountLevelExcelAddPlusExpRatio2(builder, plusExpRatio2):
+    builder.PrependInt64Slot(11, plusExpRatio2, 0)
+
+def AddPlusExpRatio2(builder, plusExpRatio2):
+    AccountLevelExcelAddPlusExpRatio2(builder, plusExpRatio2)
+
+def AccountLevelExcelAddPlusExpIconName2(builder, plusExpIconName2):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(plusExpIconName2), 0)
+
+def AddPlusExpIconName2(builder, plusExpIconName2):
+    AccountLevelExcelAddPlusExpIconName2(builder, plusExpIconName2)
+
+def AccountLevelExcelAddPlusExpIconName3(builder, plusExpIconName3):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(plusExpIconName3), 0)
+
+def AddPlusExpIconName3(builder, plusExpIconName3):
+    AccountLevelExcelAddPlusExpIconName3(builder, plusExpIconName3)
+
 def AccountLevelExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return AccountLevelExcelEnd(builder)
 
+try:
+    from typing import List
+except:
+    pass
 
 class AccountLevelExcelT(object):
 
@@ -140,6 +287,13 @@ class AccountLevelExcelT(object):
         closeInterval = 0,
         apAutoChargeMax = 0,
         needReportEvent = False,
+        plusExpProductMonthlyId1 = None,
+        plusExpRatio1 = 0,
+        plusExpIconName1 = None,
+        plusExpProductMonthlyId2 = None,
+        plusExpRatio2 = 0,
+        plusExpIconName2 = None,
+        plusExpIconName3 = None,
     ):
         self.id = id  # type: int
         self.level = level  # type: int
@@ -148,6 +302,13 @@ class AccountLevelExcelT(object):
         self.closeInterval = closeInterval  # type: int
         self.apAutoChargeMax = apAutoChargeMax  # type: int
         self.needReportEvent = needReportEvent  # type: bool
+        self.plusExpProductMonthlyId1 = plusExpProductMonthlyId1  # type: Optional[List[int]]
+        self.plusExpRatio1 = plusExpRatio1  # type: int
+        self.plusExpIconName1 = plusExpIconName1  # type: Optional[str]
+        self.plusExpProductMonthlyId2 = plusExpProductMonthlyId2  # type: Optional[List[int]]
+        self.plusExpRatio2 = plusExpRatio2  # type: int
+        self.plusExpIconName2 = plusExpIconName2  # type: Optional[str]
+        self.plusExpIconName3 = plusExpIconName3  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -177,9 +338,50 @@ class AccountLevelExcelT(object):
         self.closeInterval = accountLevelExcel.CloseInterval()
         self.apAutoChargeMax = accountLevelExcel.ApAutoChargeMax()
         self.needReportEvent = accountLevelExcel.NeedReportEvent()
+        if not accountLevelExcel.PlusExpProductMonthlyId1IsNone():
+            if np is None:
+                self.plusExpProductMonthlyId1 = []
+                for i in range(accountLevelExcel.PlusExpProductMonthlyId1Length()):
+                    self.plusExpProductMonthlyId1.append(accountLevelExcel.PlusExpProductMonthlyId1(i))
+            else:
+                self.plusExpProductMonthlyId1 = accountLevelExcel.PlusExpProductMonthlyId1AsNumpy()
+        self.plusExpRatio1 = accountLevelExcel.PlusExpRatio1()
+        self.plusExpIconName1 = accountLevelExcel.PlusExpIconName1()
+        if not accountLevelExcel.PlusExpProductMonthlyId2IsNone():
+            if np is None:
+                self.plusExpProductMonthlyId2 = []
+                for i in range(accountLevelExcel.PlusExpProductMonthlyId2Length()):
+                    self.plusExpProductMonthlyId2.append(accountLevelExcel.PlusExpProductMonthlyId2(i))
+            else:
+                self.plusExpProductMonthlyId2 = accountLevelExcel.PlusExpProductMonthlyId2AsNumpy()
+        self.plusExpRatio2 = accountLevelExcel.PlusExpRatio2()
+        self.plusExpIconName2 = accountLevelExcel.PlusExpIconName2()
+        self.plusExpIconName3 = accountLevelExcel.PlusExpIconName3()
 
     # AccountLevelExcelT
     def Pack(self, builder):
+        if self.plusExpProductMonthlyId1 is not None:
+            if np is not None and type(self.plusExpProductMonthlyId1) is np.ndarray:
+                plusExpProductMonthlyId1 = builder.CreateNumpyVector(self.plusExpProductMonthlyId1)
+            else:
+                AccountLevelExcelStartPlusExpProductMonthlyId1Vector(builder, len(self.plusExpProductMonthlyId1))
+                for i in reversed(range(len(self.plusExpProductMonthlyId1))):
+                    builder.PrependInt64(self.plusExpProductMonthlyId1[i])
+                plusExpProductMonthlyId1 = builder.EndVector()
+        if self.plusExpIconName1 is not None:
+            plusExpIconName1 = builder.CreateString(self.plusExpIconName1)
+        if self.plusExpProductMonthlyId2 is not None:
+            if np is not None and type(self.plusExpProductMonthlyId2) is np.ndarray:
+                plusExpProductMonthlyId2 = builder.CreateNumpyVector(self.plusExpProductMonthlyId2)
+            else:
+                AccountLevelExcelStartPlusExpProductMonthlyId2Vector(builder, len(self.plusExpProductMonthlyId2))
+                for i in reversed(range(len(self.plusExpProductMonthlyId2))):
+                    builder.PrependInt64(self.plusExpProductMonthlyId2[i])
+                plusExpProductMonthlyId2 = builder.EndVector()
+        if self.plusExpIconName2 is not None:
+            plusExpIconName2 = builder.CreateString(self.plusExpIconName2)
+        if self.plusExpIconName3 is not None:
+            plusExpIconName3 = builder.CreateString(self.plusExpIconName3)
         AccountLevelExcelStart(builder)
         AccountLevelExcelAddId(builder, self.id)
         AccountLevelExcelAddLevel(builder, self.level)
@@ -188,5 +390,17 @@ class AccountLevelExcelT(object):
         AccountLevelExcelAddCloseInterval(builder, self.closeInterval)
         AccountLevelExcelAddApAutoChargeMax(builder, self.apAutoChargeMax)
         AccountLevelExcelAddNeedReportEvent(builder, self.needReportEvent)
+        if self.plusExpProductMonthlyId1 is not None:
+            AccountLevelExcelAddPlusExpProductMonthlyId1(builder, plusExpProductMonthlyId1)
+        AccountLevelExcelAddPlusExpRatio1(builder, self.plusExpRatio1)
+        if self.plusExpIconName1 is not None:
+            AccountLevelExcelAddPlusExpIconName1(builder, plusExpIconName1)
+        if self.plusExpProductMonthlyId2 is not None:
+            AccountLevelExcelAddPlusExpProductMonthlyId2(builder, plusExpProductMonthlyId2)
+        AccountLevelExcelAddPlusExpRatio2(builder, self.plusExpRatio2)
+        if self.plusExpIconName2 is not None:
+            AccountLevelExcelAddPlusExpIconName2(builder, plusExpIconName2)
+        if self.plusExpIconName3 is not None:
+            AccountLevelExcelAddPlusExpIconName3(builder, plusExpIconName3)
         accountLevelExcel = AccountLevelExcelEnd(builder)
         return accountLevelExcel

@@ -1,0 +1,35 @@
+include "JankenStageType.fbs";
+include "ParcelType.fbs";
+include "StarGoalType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameJankenStageExcel {
+    id: long;
+    name: string;
+    event_content_id: long;
+    janken_stage_type: JankenStageType;
+    stage_type_localize: uint;
+    stage_number: int;
+    stage_display: int;
+    prev_stage_id: long;
+    enemy_id: long;
+    stage_discription: uint;
+    s_kill_cost_event_chance: long;
+    stage_enter_cost_type: ParcelType;
+    stage_enter_cost_id: long;
+    stage_enter_cost_amount: long;
+    event_content_stage_reward_id: long;
+    enter_scenario_group_id: long;
+    clear_scenario_group_id: long;
+    star_goal: [StarGoalType];
+    star_goal_amount: [int];
+    enemy_info_image: string;
+    enemy_info_difficulty: uint;
+    stage_icon_name: string;
+    fixed_echelon: long;
+    bgm: long;
+    bgm_climax: long;
+}
+
+root_type MinigameJankenStageExcel;

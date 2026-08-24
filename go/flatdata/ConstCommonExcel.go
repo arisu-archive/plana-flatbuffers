@@ -969,20 +969,8 @@ func (rcv *ConstCommonExcel) UiLabelCharacterWrap() []byte {
 	return nil
 }
 
-func (rcv *ConstCommonExcel) RequestTimeOut() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(150))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstCommonExcel) MutateRequestTimeOut(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(150, n)
-}
-
 func (rcv *ConstCommonExcel) MailStorageSoftCap() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(152))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(150))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -990,11 +978,11 @@ func (rcv *ConstCommonExcel) MailStorageSoftCap() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateMailStorageSoftCap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(152, n)
+	return rcv._tab.MutateInt32Slot(150, n)
 }
 
 func (rcv *ConstCommonExcel) MailStorageHardCap() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(154))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(152))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1002,11 +990,11 @@ func (rcv *ConstCommonExcel) MailStorageHardCap() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateMailStorageHardCap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(154, n)
+	return rcv._tab.MutateInt32Slot(152, n)
 }
 
 func (rcv *ConstCommonExcel) ClearDeckStorageSize() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(154))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1014,11 +1002,11 @@ func (rcv *ConstCommonExcel) ClearDeckStorageSize() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateClearDeckStorageSize(n int32) bool {
-	return rcv._tab.MutateInt32Slot(156, n)
+	return rcv._tab.MutateInt32Slot(154, n)
 }
 
 func (rcv *ConstCommonExcel) ClearDeckNoStarViewCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1026,11 +1014,11 @@ func (rcv *ConstCommonExcel) ClearDeckNoStarViewCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateClearDeckNoStarViewCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(158, n)
+	return rcv._tab.MutateInt32Slot(156, n)
 }
 
 func (rcv *ConstCommonExcel) ClearDeck1StarViewCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1038,11 +1026,11 @@ func (rcv *ConstCommonExcel) ClearDeck1StarViewCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateClearDeck1StarViewCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(160, n)
+	return rcv._tab.MutateInt32Slot(158, n)
 }
 
 func (rcv *ConstCommonExcel) ClearDeck2StarViewCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(162))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1050,11 +1038,11 @@ func (rcv *ConstCommonExcel) ClearDeck2StarViewCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateClearDeck2StarViewCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(162, n)
+	return rcv._tab.MutateInt32Slot(160, n)
 }
 
 func (rcv *ConstCommonExcel) ClearDeck3StarViewCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(162))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1062,11 +1050,11 @@ func (rcv *ConstCommonExcel) ClearDeck3StarViewCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateClearDeck3StarViewCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(164, n)
+	return rcv._tab.MutateInt32Slot(162, n)
 }
 
 func (rcv *ConstCommonExcel) ExSkillLevelMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1074,11 +1062,11 @@ func (rcv *ConstCommonExcel) ExSkillLevelMax() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateExSkillLevelMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(166, n)
+	return rcv._tab.MutateInt32Slot(164, n)
 }
 
 func (rcv *ConstCommonExcel) PublicSkillLevelMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(168))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1086,11 +1074,11 @@ func (rcv *ConstCommonExcel) PublicSkillLevelMax() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutatePublicSkillLevelMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(168, n)
+	return rcv._tab.MutateInt32Slot(166, n)
 }
 
 func (rcv *ConstCommonExcel) PassiveSkillLevelMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(170))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(168))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1098,11 +1086,11 @@ func (rcv *ConstCommonExcel) PassiveSkillLevelMax() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutatePassiveSkillLevelMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(170, n)
+	return rcv._tab.MutateInt32Slot(168, n)
 }
 
 func (rcv *ConstCommonExcel) ExtraPassiveSkillLevelMax() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(172))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(170))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1110,11 +1098,11 @@ func (rcv *ConstCommonExcel) ExtraPassiveSkillLevelMax() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateExtraPassiveSkillLevelMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(172, n)
+	return rcv._tab.MutateInt32Slot(170, n)
 }
 
 func (rcv *ConstCommonExcel) AccountCommentMaxLength() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(174))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(172))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1122,11 +1110,11 @@ func (rcv *ConstCommonExcel) AccountCommentMaxLength() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateAccountCommentMaxLength(n int32) bool {
-	return rcv._tab.MutateInt32Slot(174, n)
+	return rcv._tab.MutateInt32Slot(172, n)
 }
 
 func (rcv *ConstCommonExcel) CafeSummonCoolTimeFromHour() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(176))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(174))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1134,11 +1122,11 @@ func (rcv *ConstCommonExcel) CafeSummonCoolTimeFromHour() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateCafeSummonCoolTimeFromHour(n int32) bool {
-	return rcv._tab.MutateInt32Slot(176, n)
+	return rcv._tab.MutateInt32Slot(174, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStageDailyClearCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(178))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(176))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1146,11 +1134,11 @@ func (rcv *ConstCommonExcel) LimitedStageDailyClearCount() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStageDailyClearCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(178, n)
+	return rcv._tab.MutateInt64Slot(176, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStageEntryTimeLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(180))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(178))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1158,11 +1146,11 @@ func (rcv *ConstCommonExcel) LimitedStageEntryTimeLimit() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStageEntryTimeLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(180, n)
+	return rcv._tab.MutateInt64Slot(178, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStageEntryTimeBuffer() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(182))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(180))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1170,11 +1158,11 @@ func (rcv *ConstCommonExcel) LimitedStageEntryTimeBuffer() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStageEntryTimeBuffer(n int64) bool {
-	return rcv._tab.MutateInt64Slot(182, n)
+	return rcv._tab.MutateInt64Slot(180, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStagePointAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(184))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(182))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1182,11 +1170,11 @@ func (rcv *ConstCommonExcel) LimitedStagePointAmount() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStagePointAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(184, n)
+	return rcv._tab.MutateInt64Slot(182, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStagePointPerApMin() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(186))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(184))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1194,11 +1182,11 @@ func (rcv *ConstCommonExcel) LimitedStagePointPerApMin() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStagePointPerApMin(n int64) bool {
-	return rcv._tab.MutateInt64Slot(186, n)
+	return rcv._tab.MutateInt64Slot(184, n)
 }
 
 func (rcv *ConstCommonExcel) LimitedStagePointPerApMax() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(188))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(186))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1206,11 +1194,11 @@ func (rcv *ConstCommonExcel) LimitedStagePointPerApMax() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateLimitedStagePointPerApMax(n int64) bool {
-	return rcv._tab.MutateInt64Slot(188, n)
+	return rcv._tab.MutateInt64Slot(186, n)
 }
 
 func (rcv *ConstCommonExcel) AccountLinkReward() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(190))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(188))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1218,11 +1206,11 @@ func (rcv *ConstCommonExcel) AccountLinkReward() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateAccountLinkReward(n int32) bool {
-	return rcv._tab.MutateInt32Slot(190, n)
+	return rcv._tab.MutateInt32Slot(188, n)
 }
 
 func (rcv *ConstCommonExcel) MonthlyProductCheckDays() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(192))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(190))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1230,11 +1218,11 @@ func (rcv *ConstCommonExcel) MonthlyProductCheckDays() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateMonthlyProductCheckDays(n int32) bool {
-	return rcv._tab.MutateInt32Slot(192, n)
+	return rcv._tab.MutateInt32Slot(190, n)
 }
 
 func (rcv *ConstCommonExcel) WeaponLvUpCoefficient() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(194))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(192))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1242,11 +1230,11 @@ func (rcv *ConstCommonExcel) WeaponLvUpCoefficient() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateWeaponLvUpCoefficient(n int32) bool {
-	return rcv._tab.MutateInt32Slot(194, n)
+	return rcv._tab.MutateInt32Slot(192, n)
 }
 
 func (rcv *ConstCommonExcel) ShowRaidMyListCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(196))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(194))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1254,11 +1242,11 @@ func (rcv *ConstCommonExcel) ShowRaidMyListCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateShowRaidMyListCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(196, n)
+	return rcv._tab.MutateInt32Slot(194, n)
 }
 
 func (rcv *ConstCommonExcel) RaidEnterCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(198))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(196))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -1266,11 +1254,11 @@ func (rcv *ConstCommonExcel) RaidEnterCostType() ParcelType {
 }
 
 func (rcv *ConstCommonExcel) MutateRaidEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(198, int32(n))
+	return rcv._tab.MutateInt32Slot(196, int32(n))
 }
 
 func (rcv *ConstCommonExcel) RaidEnterCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(200))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(198))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1278,11 +1266,11 @@ func (rcv *ConstCommonExcel) RaidEnterCostId() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateRaidEnterCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(200, n)
+	return rcv._tab.MutateInt64Slot(198, n)
 }
 
 func (rcv *ConstCommonExcel) RaidTicketCost() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(202))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(200))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1290,11 +1278,11 @@ func (rcv *ConstCommonExcel) RaidTicketCost() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateRaidTicketCost(n int64) bool {
-	return rcv._tab.MutateInt64Slot(202, n)
+	return rcv._tab.MutateInt64Slot(200, n)
 }
 
 func (rcv *ConstCommonExcel) TimeAttackDungeonScenarioId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(204))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(202))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -1302,7 +1290,7 @@ func (rcv *ConstCommonExcel) TimeAttackDungeonScenarioId() []byte {
 }
 
 func (rcv *ConstCommonExcel) TimeAttackDungoenPlayCountPerTicket() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(206))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(204))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1310,11 +1298,11 @@ func (rcv *ConstCommonExcel) TimeAttackDungoenPlayCountPerTicket() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateTimeAttackDungoenPlayCountPerTicket(n int32) bool {
-	return rcv._tab.MutateInt32Slot(206, n)
+	return rcv._tab.MutateInt32Slot(204, n)
 }
 
 func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(208))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(206))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -1322,11 +1310,11 @@ func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCostType() ParcelType {
 }
 
 func (rcv *ConstCommonExcel) MutateTimeAttackDungeonEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(208, int32(n))
+	return rcv._tab.MutateInt32Slot(206, int32(n))
 }
 
 func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(210))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(208))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1334,11 +1322,11 @@ func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCostId() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateTimeAttackDungeonEnterCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(210, n)
+	return rcv._tab.MutateInt64Slot(208, n)
 }
 
 func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCost() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(212))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(210))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1346,11 +1334,11 @@ func (rcv *ConstCommonExcel) TimeAttackDungeonEnterCost() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateTimeAttackDungeonEnterCost(n int64) bool {
-	return rcv._tab.MutateInt64Slot(212, n)
+	return rcv._tab.MutateInt64Slot(210, n)
 }
 
 func (rcv *ConstCommonExcel) ClanLeaderTransferLastLoginLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(214))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(212))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1358,11 +1346,11 @@ func (rcv *ConstCommonExcel) ClanLeaderTransferLastLoginLimit() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateClanLeaderTransferLastLoginLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(214, n)
+	return rcv._tab.MutateInt64Slot(212, n)
 }
 
 func (rcv *ConstCommonExcel) MonthlyProductRepurchasePopupLimit() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(216))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(214))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1370,11 +1358,11 @@ func (rcv *ConstCommonExcel) MonthlyProductRepurchasePopupLimit() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateMonthlyProductRepurchasePopupLimit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(216, n)
+	return rcv._tab.MutateInt32Slot(214, n)
 }
 
 func (rcv *ConstCommonExcel) CommonFavorItemTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(218))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(216))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -1383,7 +1371,7 @@ func (rcv *ConstCommonExcel) CommonFavorItemTags(j int) Tag {
 }
 
 func (rcv *ConstCommonExcel) CommonFavorItemTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(218))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(216))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -1391,7 +1379,7 @@ func (rcv *ConstCommonExcel) CommonFavorItemTagsLength() int {
 }
 
 func (rcv *ConstCommonExcel) MutateCommonFavorItemTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(218))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(216))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -1400,7 +1388,7 @@ func (rcv *ConstCommonExcel) MutateCommonFavorItemTags(j int, n Tag) bool {
 }
 
 func (rcv *ConstCommonExcel) MaxApMasterCoinPerWeek() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(220))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(218))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1408,10 +1396,36 @@ func (rcv *ConstCommonExcel) MaxApMasterCoinPerWeek() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateMaxApMasterCoinPerWeek(n int64) bool {
-	return rcv._tab.MutateInt64Slot(220, n)
+	return rcv._tab.MutateInt64Slot(218, n)
 }
 
-func (rcv *ConstCommonExcel) CraftOpenExpTier1() int64 {
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeekProductMonthlyId1(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(220))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeekProductMonthlyId1Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(220))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutatePlusMaxApMasterCoinPerWeekProductMonthlyId1(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(220))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeek1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(222))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1419,23 +1433,37 @@ func (rcv *ConstCommonExcel) CraftOpenExpTier1() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCraftOpenExpTier1(n int64) bool {
+func (rcv *ConstCommonExcel) MutatePlusMaxApMasterCoinPerWeek1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(222, n)
 }
 
-func (rcv *ConstCommonExcel) CraftOpenExpTier2() int64 {
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeekProductMonthlyId2(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(224))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCraftOpenExpTier2(n int64) bool {
-	return rcv._tab.MutateInt64Slot(224, n)
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeekProductMonthlyId2Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(224))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ConstCommonExcel) CraftOpenExpTier3() int64 {
+func (rcv *ConstCommonExcel) MutatePlusMaxApMasterCoinPerWeekProductMonthlyId2(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(224))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ConstCommonExcel) PlusMaxApMasterCoinPerWeek2() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(226))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1443,11 +1471,11 @@ func (rcv *ConstCommonExcel) CraftOpenExpTier3() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCraftOpenExpTier3(n int64) bool {
+func (rcv *ConstCommonExcel) MutatePlusMaxApMasterCoinPerWeek2(n int64) bool {
 	return rcv._tab.MutateInt64Slot(226, n)
 }
 
-func (rcv *ConstCommonExcel) CharacterEquipmentGearSlot() int64 {
+func (rcv *ConstCommonExcel) CraftOpenExpTier1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(228))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1455,47 +1483,47 @@ func (rcv *ConstCommonExcel) CharacterEquipmentGearSlot() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharacterEquipmentGearSlot(n int64) bool {
+func (rcv *ConstCommonExcel) MutateCraftOpenExpTier1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(228, n)
 }
 
-func (rcv *ConstCommonExcel) BirthDayDDay() int32 {
+func (rcv *ConstCommonExcel) CraftOpenExpTier2() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(230))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBirthDayDDay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(230, n)
+func (rcv *ConstCommonExcel) MutateCraftOpenExpTier2(n int64) bool {
+	return rcv._tab.MutateInt64Slot(230, n)
 }
 
-func (rcv *ConstCommonExcel) RecommendedFriendsLvDifferenceLimit() int32 {
+func (rcv *ConstCommonExcel) CraftOpenExpTier3() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(232))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRecommendedFriendsLvDifferenceLimit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(232, n)
+func (rcv *ConstCommonExcel) MutateCraftOpenExpTier3(n int64) bool {
+	return rcv._tab.MutateInt64Slot(232, n)
 }
 
-func (rcv *ConstCommonExcel) DDosDetectCount() int32 {
+func (rcv *ConstCommonExcel) CharacterEquipmentGearSlot() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(234))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateDDosDetectCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(234, n)
+func (rcv *ConstCommonExcel) MutateCharacterEquipmentGearSlot(n int64) bool {
+	return rcv._tab.MutateInt64Slot(234, n)
 }
 
-func (rcv *ConstCommonExcel) DDosCheckIntervalInSeconds() int32 {
+func (rcv *ConstCommonExcel) BirthDayDDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(236))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1503,11 +1531,11 @@ func (rcv *ConstCommonExcel) DDosCheckIntervalInSeconds() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateDDosCheckIntervalInSeconds(n int32) bool {
+func (rcv *ConstCommonExcel) MutateBirthDayDDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(236, n)
 }
 
-func (rcv *ConstCommonExcel) MaxFriendsCount() int32 {
+func (rcv *ConstCommonExcel) RecommendedFriendsLvDifferenceLimit() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(238))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1515,11 +1543,11 @@ func (rcv *ConstCommonExcel) MaxFriendsCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateMaxFriendsCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRecommendedFriendsLvDifferenceLimit(n int32) bool {
 	return rcv._tab.MutateInt32Slot(238, n)
 }
 
-func (rcv *ConstCommonExcel) MaxFriendsRequest() int32 {
+func (rcv *ConstCommonExcel) DDosDetectCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(240))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1527,11 +1555,11 @@ func (rcv *ConstCommonExcel) MaxFriendsRequest() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateMaxFriendsRequest(n int32) bool {
+func (rcv *ConstCommonExcel) MutateDDosDetectCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(240, n)
 }
 
-func (rcv *ConstCommonExcel) FriendsSearchRequestCount() int32 {
+func (rcv *ConstCommonExcel) DDosCheckIntervalInSeconds() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(242))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1539,11 +1567,11 @@ func (rcv *ConstCommonExcel) FriendsSearchRequestCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFriendsSearchRequestCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateDDosCheckIntervalInSeconds(n int32) bool {
 	return rcv._tab.MutateInt32Slot(242, n)
 }
 
-func (rcv *ConstCommonExcel) FriendsMaxApplicant() int32 {
+func (rcv *ConstCommonExcel) MaxFriendsCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(244))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1551,47 +1579,47 @@ func (rcv *ConstCommonExcel) FriendsMaxApplicant() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFriendsMaxApplicant(n int32) bool {
+func (rcv *ConstCommonExcel) MutateMaxFriendsCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(244, n)
 }
 
-func (rcv *ConstCommonExcel) IdCardDefaultCharacterId() int64 {
+func (rcv *ConstCommonExcel) MaxFriendsRequest() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(246))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateIdCardDefaultCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(246, n)
+func (rcv *ConstCommonExcel) MutateMaxFriendsRequest(n int32) bool {
+	return rcv._tab.MutateInt32Slot(246, n)
 }
 
-func (rcv *ConstCommonExcel) IdCardDefaultBgId() int64 {
+func (rcv *ConstCommonExcel) FriendsSearchRequestCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(248))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateIdCardDefaultBgId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(248, n)
+func (rcv *ConstCommonExcel) MutateFriendsSearchRequestCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(248, n)
 }
 
-func (rcv *ConstCommonExcel) WorldRaidGemEnterCost() int64 {
+func (rcv *ConstCommonExcel) FriendsMaxApplicant() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(250))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateWorldRaidGemEnterCost(n int64) bool {
-	return rcv._tab.MutateInt64Slot(250, n)
+func (rcv *ConstCommonExcel) MutateFriendsMaxApplicant(n int32) bool {
+	return rcv._tab.MutateInt32Slot(250, n)
 }
 
-func (rcv *ConstCommonExcel) WorldRaidGemEnterAmout() int64 {
+func (rcv *ConstCommonExcel) IdCardDefaultCharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(252))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1599,11 +1627,11 @@ func (rcv *ConstCommonExcel) WorldRaidGemEnterAmout() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateWorldRaidGemEnterAmout(n int64) bool {
+func (rcv *ConstCommonExcel) MutateIdCardDefaultCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(252, n)
 }
 
-func (rcv *ConstCommonExcel) FriendIdCardCommentMaxLength() int64 {
+func (rcv *ConstCommonExcel) IdCardDefaultBgId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(254))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1611,47 +1639,47 @@ func (rcv *ConstCommonExcel) FriendIdCardCommentMaxLength() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFriendIdCardCommentMaxLength(n int64) bool {
+func (rcv *ConstCommonExcel) MutateIdCardDefaultBgId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(254, n)
 }
 
-func (rcv *ConstCommonExcel) FormationPresetNumberOfEchelonTab() int32 {
+func (rcv *ConstCommonExcel) WorldRaidGemEnterCost() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(256))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFormationPresetNumberOfEchelonTab(n int32) bool {
-	return rcv._tab.MutateInt32Slot(256, n)
+func (rcv *ConstCommonExcel) MutateWorldRaidGemEnterCost(n int64) bool {
+	return rcv._tab.MutateInt64Slot(256, n)
 }
 
-func (rcv *ConstCommonExcel) FormationPresetNumberOfEchelon() int32 {
+func (rcv *ConstCommonExcel) WorldRaidGemEnterAmout() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(258))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFormationPresetNumberOfEchelon(n int32) bool {
-	return rcv._tab.MutateInt32Slot(258, n)
+func (rcv *ConstCommonExcel) MutateWorldRaidGemEnterAmout(n int64) bool {
+	return rcv._tab.MutateInt64Slot(258, n)
 }
 
-func (rcv *ConstCommonExcel) FormationPresetRecentNumberOfEchelon() int32 {
+func (rcv *ConstCommonExcel) FriendIdCardCommentMaxLength() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(260))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFormationPresetRecentNumberOfEchelon(n int32) bool {
-	return rcv._tab.MutateInt32Slot(260, n)
+func (rcv *ConstCommonExcel) MutateFriendIdCardCommentMaxLength(n int64) bool {
+	return rcv._tab.MutateInt64Slot(260, n)
 }
 
-func (rcv *ConstCommonExcel) FormationPresetEchelonTabTextLength() int32 {
+func (rcv *ConstCommonExcel) FormationPresetNumberOfEchelonTab() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(262))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1659,11 +1687,11 @@ func (rcv *ConstCommonExcel) FormationPresetEchelonTabTextLength() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFormationPresetEchelonTabTextLength(n int32) bool {
+func (rcv *ConstCommonExcel) MutateFormationPresetNumberOfEchelonTab(n int32) bool {
 	return rcv._tab.MutateInt32Slot(262, n)
 }
 
-func (rcv *ConstCommonExcel) FormationPresetEchelonSlotTextLength() int32 {
+func (rcv *ConstCommonExcel) FormationPresetNumberOfEchelon() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(264))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1671,11 +1699,11 @@ func (rcv *ConstCommonExcel) FormationPresetEchelonSlotTextLength() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateFormationPresetEchelonSlotTextLength(n int32) bool {
+func (rcv *ConstCommonExcel) MutateFormationPresetNumberOfEchelon(n int32) bool {
 	return rcv._tab.MutateInt32Slot(264, n)
 }
 
-func (rcv *ConstCommonExcel) CharProfileRowIntervalKr() int32 {
+func (rcv *ConstCommonExcel) FormationPresetRecentNumberOfEchelon() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(266))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1683,11 +1711,11 @@ func (rcv *ConstCommonExcel) CharProfileRowIntervalKr() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharProfileRowIntervalKr(n int32) bool {
+func (rcv *ConstCommonExcel) MutateFormationPresetRecentNumberOfEchelon(n int32) bool {
 	return rcv._tab.MutateInt32Slot(266, n)
 }
 
-func (rcv *ConstCommonExcel) CharProfileRowIntervalJp() int32 {
+func (rcv *ConstCommonExcel) FormationPresetEchelonTabTextLength() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(268))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1695,11 +1723,11 @@ func (rcv *ConstCommonExcel) CharProfileRowIntervalJp() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharProfileRowIntervalJp(n int32) bool {
+func (rcv *ConstCommonExcel) MutateFormationPresetEchelonTabTextLength(n int32) bool {
 	return rcv._tab.MutateInt32Slot(268, n)
 }
 
-func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalKr() int32 {
+func (rcv *ConstCommonExcel) FormationPresetEchelonSlotTextLength() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(270))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1707,11 +1735,11 @@ func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalKr() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharProfilePopupRowIntervalKr(n int32) bool {
+func (rcv *ConstCommonExcel) MutateFormationPresetEchelonSlotTextLength(n int32) bool {
 	return rcv._tab.MutateInt32Slot(270, n)
 }
 
-func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalJp() int32 {
+func (rcv *ConstCommonExcel) CharProfileRowIntervalKr() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(272))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1719,11 +1747,11 @@ func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalJp() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharProfilePopupRowIntervalJp(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCharProfileRowIntervalKr(n int32) bool {
 	return rcv._tab.MutateInt32Slot(272, n)
 }
 
-func (rcv *ConstCommonExcel) BeforehandGachaCount() int32 {
+func (rcv *ConstCommonExcel) CharProfileRowIntervalJp() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(274))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1731,11 +1759,11 @@ func (rcv *ConstCommonExcel) BeforehandGachaCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBeforehandGachaCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCharProfileRowIntervalJp(n int32) bool {
 	return rcv._tab.MutateInt32Slot(274, n)
 }
 
-func (rcv *ConstCommonExcel) BeforehandGachaGroupId() int32 {
+func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalKr() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(276))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1743,11 +1771,11 @@ func (rcv *ConstCommonExcel) BeforehandGachaGroupId() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBeforehandGachaGroupId(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCharProfilePopupRowIntervalKr(n int32) bool {
 	return rcv._tab.MutateInt32Slot(276, n)
 }
 
-func (rcv *ConstCommonExcel) RenewalDisplayOrderDay() int32 {
+func (rcv *ConstCommonExcel) CharProfilePopupRowIntervalJp() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(278))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1755,31 +1783,35 @@ func (rcv *ConstCommonExcel) RenewalDisplayOrderDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRenewalDisplayOrderDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCharProfilePopupRowIntervalJp(n int32) bool {
 	return rcv._tab.MutateInt32Slot(278, n)
 }
 
-func (rcv *ConstCommonExcel) EmblemDefaultId() int64 {
+func (rcv *ConstCommonExcel) BeforehandGachaCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(280))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateEmblemDefaultId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(280, n)
+func (rcv *ConstCommonExcel) MutateBeforehandGachaCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(280, n)
 }
 
-func (rcv *ConstCommonExcel) BirthdayMailStartDate() []byte {
+func (rcv *ConstCommonExcel) BeforehandGachaGroupId() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(282))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ConstCommonExcel) BirthdayMailRemainDate() int32 {
+func (rcv *ConstCommonExcel) MutateBeforehandGachaGroupId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(282, n)
+}
+
+func (rcv *ConstCommonExcel) RenewalDisplayOrderDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(284))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1787,23 +1819,23 @@ func (rcv *ConstCommonExcel) BirthdayMailRemainDate() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBirthdayMailRemainDate(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRenewalDisplayOrderDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(284, n)
 }
 
-func (rcv *ConstCommonExcel) BirthdayMailParcelType() ParcelType {
+func (rcv *ConstCommonExcel) EmblemDefaultId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(286))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBirthdayMailParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(286, int32(n))
+func (rcv *ConstCommonExcel) MutateEmblemDefaultId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(286, n)
 }
 
-func (rcv *ConstCommonExcel) BirthdayMailParcelId() int64 {
+func (rcv *ConstCommonExcel) StudentFrameDefaultId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(288))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1811,23 +1843,19 @@ func (rcv *ConstCommonExcel) BirthdayMailParcelId() int64 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBirthdayMailParcelId(n int64) bool {
+func (rcv *ConstCommonExcel) MutateStudentFrameDefaultId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(288, n)
 }
 
-func (rcv *ConstCommonExcel) BirthdayMailParcelAmount() int32 {
+func (rcv *ConstCommonExcel) BirthdayMailStartDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(290))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ConstCommonExcel) MutateBirthdayMailParcelAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(290, n)
-}
-
-func (rcv *ConstCommonExcel) ClearDeckAverageDeckCount() int32 {
+func (rcv *ConstCommonExcel) BirthdayMailRemainDate() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(292))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1835,35 +1863,35 @@ func (rcv *ConstCommonExcel) ClearDeckAverageDeckCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateClearDeckAverageDeckCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateBirthdayMailRemainDate(n int32) bool {
 	return rcv._tab.MutateInt32Slot(292, n)
 }
 
-func (rcv *ConstCommonExcel) ClearDeckWorldRaidSaveConditionCoefficient() int32 {
+func (rcv *ConstCommonExcel) BirthdayMailParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(294))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateClearDeckWorldRaidSaveConditionCoefficient(n int32) bool {
-	return rcv._tab.MutateInt32Slot(294, n)
+func (rcv *ConstCommonExcel) MutateBirthdayMailParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(294, int32(n))
 }
 
-func (rcv *ConstCommonExcel) ClearDeckShowCount() int32 {
+func (rcv *ConstCommonExcel) BirthdayMailParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(296))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateClearDeckShowCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(296, n)
+func (rcv *ConstCommonExcel) MutateBirthdayMailParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(296, n)
 }
 
-func (rcv *ConstCommonExcel) CharacterMaxLevel() int32 {
+func (rcv *ConstCommonExcel) BirthdayMailParcelAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(298))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1871,11 +1899,11 @@ func (rcv *ConstCommonExcel) CharacterMaxLevel() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCharacterMaxLevel(n int32) bool {
+func (rcv *ConstCommonExcel) MutateBirthdayMailParcelAmount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(298, n)
 }
 
-func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelMaxHp() int32 {
+func (rcv *ConstCommonExcel) ClearDeckAverageDeckCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(300))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1883,11 +1911,11 @@ func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelMaxHp() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelMaxHp(n int32) bool {
+func (rcv *ConstCommonExcel) MutateClearDeckAverageDeckCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(300, n)
 }
 
-func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelAttackPower() int32 {
+func (rcv *ConstCommonExcel) ClearDeckWorldRaidSaveConditionCoefficient() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(302))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1895,11 +1923,11 @@ func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelAttackPower() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelAttackPower(n int32) bool {
+func (rcv *ConstCommonExcel) MutateClearDeckWorldRaidSaveConditionCoefficient(n int32) bool {
 	return rcv._tab.MutateInt32Slot(302, n)
 }
 
-func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelHealPower() int32 {
+func (rcv *ConstCommonExcel) ClearDeckShowCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(304))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1907,11 +1935,11 @@ func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelHealPower() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelHealPower(n int32) bool {
+func (rcv *ConstCommonExcel) MutateClearDeckShowCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(304, n)
 }
 
-func (rcv *ConstCommonExcel) PotentialOpenConditionCharacterLevel() int32 {
+func (rcv *ConstCommonExcel) CharacterMaxLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(306))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1919,11 +1947,11 @@ func (rcv *ConstCommonExcel) PotentialOpenConditionCharacterLevel() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutatePotentialOpenConditionCharacterLevel(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCharacterMaxLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(306, n)
 }
 
-func (rcv *ConstCommonExcel) AssistStrangerMinLevel() int32 {
+func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelMaxHp() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(308))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1931,11 +1959,11 @@ func (rcv *ConstCommonExcel) AssistStrangerMinLevel() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateAssistStrangerMinLevel(n int32) bool {
+func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelMaxHp(n int32) bool {
 	return rcv._tab.MutateInt32Slot(308, n)
 }
 
-func (rcv *ConstCommonExcel) AssistStrangerMaxLevel() int32 {
+func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelAttackPower() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(310))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1943,11 +1971,11 @@ func (rcv *ConstCommonExcel) AssistStrangerMaxLevel() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateAssistStrangerMaxLevel(n int32) bool {
+func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelAttackPower(n int32) bool {
 	return rcv._tab.MutateInt32Slot(310, n)
 }
 
-func (rcv *ConstCommonExcel) MaxBlockedUserCount() int32 {
+func (rcv *ConstCommonExcel) PotentialBonusStatMaxLevelHealPower() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(312))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1955,23 +1983,23 @@ func (rcv *ConstCommonExcel) MaxBlockedUserCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateMaxBlockedUserCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutatePotentialBonusStatMaxLevelHealPower(n int32) bool {
 	return rcv._tab.MutateInt32Slot(312, n)
 }
 
-func (rcv *ConstCommonExcel) CafeRandomVisitMinComfortBonus() int64 {
+func (rcv *ConstCommonExcel) PotentialOpenConditionCharacterLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(314))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinComfortBonus(n int64) bool {
-	return rcv._tab.MutateInt64Slot(314, n)
+func (rcv *ConstCommonExcel) MutatePotentialOpenConditionCharacterLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(314, n)
 }
 
-func (rcv *ConstCommonExcel) CafeRandomVisitMinLastLogin() int32 {
+func (rcv *ConstCommonExcel) AssistStrangerMinLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(316))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1979,11 +2007,11 @@ func (rcv *ConstCommonExcel) CafeRandomVisitMinLastLogin() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinLastLogin(n int32) bool {
+func (rcv *ConstCommonExcel) MutateAssistStrangerMinLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(316, n)
 }
 
-func (rcv *ConstCommonExcel) CafeTravelSyncIntervalByMillisec() int32 {
+func (rcv *ConstCommonExcel) AssistStrangerMaxLevel() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(318))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1991,11 +2019,11 @@ func (rcv *ConstCommonExcel) CafeTravelSyncIntervalByMillisec() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeTravelSyncIntervalByMillisec(n int32) bool {
+func (rcv *ConstCommonExcel) MutateAssistStrangerMaxLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(318, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage1() int32 {
+func (rcv *ConstCommonExcel) MaxBlockedUserCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(320))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2003,23 +2031,23 @@ func (rcv *ConstCommonExcel) RankBracketPercentage1() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage1(n int32) bool {
+func (rcv *ConstCommonExcel) MutateMaxBlockedUserCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(320, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage2() int32 {
+func (rcv *ConstCommonExcel) CafeRandomVisitMinComfortBonus() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(322))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage2(n int32) bool {
-	return rcv._tab.MutateInt32Slot(322, n)
+func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinComfortBonus(n int64) bool {
+	return rcv._tab.MutateInt64Slot(322, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage3() int32 {
+func (rcv *ConstCommonExcel) CafeRandomVisitMinLastLogin() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(324))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2027,11 +2055,11 @@ func (rcv *ConstCommonExcel) RankBracketPercentage3() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage3(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinLastLogin(n int32) bool {
 	return rcv._tab.MutateInt32Slot(324, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage4() int32 {
+func (rcv *ConstCommonExcel) CafeTravelSyncIntervalByMillisec() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(326))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2039,11 +2067,11 @@ func (rcv *ConstCommonExcel) RankBracketPercentage4() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage4(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCafeTravelSyncIntervalByMillisec(n int32) bool {
 	return rcv._tab.MutateInt32Slot(326, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage5() int32 {
+func (rcv *ConstCommonExcel) RankBracketPercentage1() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(328))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2051,11 +2079,11 @@ func (rcv *ConstCommonExcel) RankBracketPercentage5() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage5(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage1(n int32) bool {
 	return rcv._tab.MutateInt32Slot(328, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage6() int32 {
+func (rcv *ConstCommonExcel) RankBracketPercentage2() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(330))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2063,11 +2091,11 @@ func (rcv *ConstCommonExcel) RankBracketPercentage6() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage6(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage2(n int32) bool {
 	return rcv._tab.MutateInt32Slot(330, n)
 }
 
-func (rcv *ConstCommonExcel) RankBracketPercentage7() int32 {
+func (rcv *ConstCommonExcel) RankBracketPercentage3() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(332))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2075,11 +2103,11 @@ func (rcv *ConstCommonExcel) RankBracketPercentage7() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateRankBracketPercentage7(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage3(n int32) bool {
 	return rcv._tab.MutateInt32Slot(332, n)
 }
 
-func (rcv *ConstCommonExcel) ExpiryBattlePassItemReceiveDay() int32 {
+func (rcv *ConstCommonExcel) RankBracketPercentage4() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(334))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2087,23 +2115,23 @@ func (rcv *ConstCommonExcel) ExpiryBattlePassItemReceiveDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateExpiryBattlePassItemReceiveDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage4(n int32) bool {
 	return rcv._tab.MutateInt32Slot(334, n)
 }
 
-func (rcv *ConstCommonExcel) BattlePassFlavorTextIdleDurationMilliSec() int64 {
+func (rcv *ConstCommonExcel) RankBracketPercentage5() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(336))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBattlePassFlavorTextIdleDurationMilliSec(n int64) bool {
-	return rcv._tab.MutateInt64Slot(336, n)
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage5(n int32) bool {
+	return rcv._tab.MutateInt32Slot(336, n)
 }
 
-func (rcv *ConstCommonExcel) BattlePassEndImminentDay() int32 {
+func (rcv *ConstCommonExcel) RankBracketPercentage6() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(338))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2111,43 +2139,47 @@ func (rcv *ConstCommonExcel) BattlePassEndImminentDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateBattlePassEndImminentDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage6(n int32) bool {
 	return rcv._tab.MutateInt32Slot(338, n)
 }
 
-func (rcv *ConstCommonExcel) BattlePassExpIconPath() []byte {
+func (rcv *ConstCommonExcel) RankBracketPercentage7() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(340))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConstCommonExcel) CafeCameraDragThreshold() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(342))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstCommonExcel) MutateCafeCameraDragThreshold(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(342, n)
-}
-
-func (rcv *ConstCommonExcel) CafeSummonTicketBuyLimitForValidate() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(344))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeSummonTicketBuyLimitForValidate(n int32) bool {
-	return rcv._tab.MutateInt32Slot(344, n)
+func (rcv *ConstCommonExcel) MutateRankBracketPercentage7(n int32) bool {
+	return rcv._tab.MutateInt32Slot(340, n)
 }
 
-func (rcv *ConstCommonExcel) AutoCraftPresetCountLimit() int32 {
+func (rcv *ConstCommonExcel) ExpiryBattlePassItemReceiveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(342))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExpiryBattlePassItemReceiveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(342, n)
+}
+
+func (rcv *ConstCommonExcel) BattlePassFlavorTextIdleDurationMilliSec() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(344))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateBattlePassFlavorTextIdleDurationMilliSec(n int64) bool {
+	return rcv._tab.MutateInt64Slot(344, n)
+}
+
+func (rcv *ConstCommonExcel) BattlePassEndImminentDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(346))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2155,12 +2187,56 @@ func (rcv *ConstCommonExcel) AutoCraftPresetCountLimit() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateAutoCraftPresetCountLimit(n int32) bool {
+func (rcv *ConstCommonExcel) MutateBattlePassEndImminentDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(346, n)
 }
 
-func (rcv *ConstCommonExcel) AutoCraftNodeSelectCount() int32 {
+func (rcv *ConstCommonExcel) BattlePassExpIconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(348))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCommonExcel) CafeCameraDragThreshold() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(350))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeCameraDragThreshold(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(350, n)
+}
+
+func (rcv *ConstCommonExcel) CafeSummonTicketBuyLimitForValidate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(352))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeSummonTicketBuyLimitForValidate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(352, n)
+}
+
+func (rcv *ConstCommonExcel) AutoCraftPresetCountLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(354))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateAutoCraftPresetCountLimit(n int32) bool {
+	return rcv._tab.MutateInt32Slot(354, n)
+}
+
+func (rcv *ConstCommonExcel) AutoCraftNodeSelectCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(356))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -2168,11 +2244,11 @@ func (rcv *ConstCommonExcel) AutoCraftNodeSelectCount() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateAutoCraftNodeSelectCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(348, n)
+	return rcv._tab.MutateInt32Slot(356, n)
 }
 
 func (rcv *ConstCommonExcel) CraftPresetNameMaxLength() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(350))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(358))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -2180,11 +2256,11 @@ func (rcv *ConstCommonExcel) CraftPresetNameMaxLength() int32 {
 }
 
 func (rcv *ConstCommonExcel) MutateCraftPresetNameMaxLength(n int32) bool {
-	return rcv._tab.MutateInt32Slot(350, n)
+	return rcv._tab.MutateInt32Slot(358, n)
 }
 
 func (rcv *ConstCommonExcel) SelectionWaitTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(352))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(360))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -2192,11 +2268,11 @@ func (rcv *ConstCommonExcel) SelectionWaitTime() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateSelectionWaitTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(352, n)
+	return rcv._tab.MutateInt64Slot(360, n)
 }
 
 func (rcv *ConstCommonExcel) RewardWaitTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(354))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(362))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -2204,11 +2280,11 @@ func (rcv *ConstCommonExcel) RewardWaitTime() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateRewardWaitTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(354, n)
+	return rcv._tab.MutateInt64Slot(362, n)
 }
 
 func (rcv *ConstCommonExcel) EpisodeContinueWaitTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(356))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(364))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -2216,11 +2292,11 @@ func (rcv *ConstCommonExcel) EpisodeContinueWaitTime() int64 {
 }
 
 func (rcv *ConstCommonExcel) MutateEpisodeContinueWaitTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(356, n)
+	return rcv._tab.MutateInt64Slot(364, n)
 }
 
 func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecLong() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(358))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(366))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -2228,11 +2304,11 @@ func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecLong() float32 {
 }
 
 func (rcv *ConstCommonExcel) MutateScenarioAutoDelayMillisecLong(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(358, n)
+	return rcv._tab.MutateFloat32Slot(366, n)
 }
 
 func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisec() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(360))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(368))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -2240,11 +2316,11 @@ func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisec() float32 {
 }
 
 func (rcv *ConstCommonExcel) MutateScenarioAutoDelayMillisec(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(360, n)
+	return rcv._tab.MutateFloat32Slot(368, n)
 }
 
 func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecShort() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(362))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(370))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -2252,11 +2328,11 @@ func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecShort() float32 {
 }
 
 func (rcv *ConstCommonExcel) MutateScenarioAutoDelayMillisecShort(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(362, n)
+	return rcv._tab.MutateFloat32Slot(370, n)
 }
 
 func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecVeryShort() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(364))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(372))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -2264,58 +2340,10 @@ func (rcv *ConstCommonExcel) ScenarioAutoDelayMillisecVeryShort() float32 {
 }
 
 func (rcv *ConstCommonExcel) MutateScenarioAutoDelayMillisecVeryShort(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(364, n)
+	return rcv._tab.MutateFloat32Slot(372, n)
 }
 
 func (rcv *ConstCommonExcel) PcBuildEnterInformation() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(366))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCommonExcel) MutatePcBuildEnterInformation(n int32) bool {
-	return rcv._tab.MutateInt32Slot(366, n)
-}
-
-func (rcv *ConstCommonExcel) ComebackUserStandardDay() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(368))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCommonExcel) MutateComebackUserStandardDay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(368, n)
-}
-
-func (rcv *ConstCommonExcel) ComebackUserLogSaveDay() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(370))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCommonExcel) MutateComebackUserLogSaveDay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(370, n)
-}
-
-func (rcv *ConstCommonExcel) ComeBackActivateCooldown() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(372))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCommonExcel) MutateComeBackActivateCooldown(n int32) bool {
-	return rcv._tab.MutateInt32Slot(372, n)
-}
-
-func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(374))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2323,11 +2351,11 @@ func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeCopyPresetSlotCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutatePcBuildEnterInformation(n int32) bool {
 	return rcv._tab.MutateInt32Slot(374, n)
 }
 
-func (rcv *ConstCommonExcel) ExpiryProductDailyRecordItemReceiveDay() int32 {
+func (rcv *ConstCommonExcel) ComebackUserStandardDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(376))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2335,11 +2363,11 @@ func (rcv *ConstCommonExcel) ExpiryProductDailyRecordItemReceiveDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateExpiryProductDailyRecordItemReceiveDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateComebackUserStandardDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(376, n)
 }
 
-func (rcv *ConstCommonExcel) NewbieUserStandardDay() int32 {
+func (rcv *ConstCommonExcel) ComebackUserLogSaveDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(378))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2347,11 +2375,11 @@ func (rcv *ConstCommonExcel) NewbieUserStandardDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateNewbieUserStandardDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateComebackUserLogSaveDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(378, n)
 }
 
-func (rcv *ConstCommonExcel) NewbieStateHoldDay() int32 {
+func (rcv *ConstCommonExcel) ComeBackActivateCooldown() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(380))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2359,11 +2387,11 @@ func (rcv *ConstCommonExcel) NewbieStateHoldDay() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateNewbieStateHoldDay(n int32) bool {
+func (rcv *ConstCommonExcel) MutateComeBackActivateCooldown(n int32) bool {
 	return rcv._tab.MutateInt32Slot(380, n)
 }
 
-func (rcv *ConstCommonExcel) ClearDeckEchelonShowMaxCount() int32 {
+func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(382))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2371,12 +2399,132 @@ func (rcv *ConstCommonExcel) ClearDeckEchelonShowMaxCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateClearDeckEchelonShowMaxCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateCafeCopyPresetSlotCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(382, n)
 }
 
+func (rcv *ConstCommonExcel) ExpiryProductDailyRecordItemReceiveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(384))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExpiryProductDailyRecordItemReceiveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(384, n)
+}
+
+func (rcv *ConstCommonExcel) NewbieUserStandardDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(386))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieUserStandardDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(386, n)
+}
+
+func (rcv *ConstCommonExcel) NewbieStateHoldDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(388))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieStateHoldDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(388, n)
+}
+
+func (rcv *ConstCommonExcel) ClearDeckEchelonShowMaxCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(390))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateClearDeckEchelonShowMaxCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(390, n)
+}
+
+func (rcv *ConstCommonExcel) ExpiryStreakRecordItemReceiveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(392))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExpiryStreakRecordItemReceiveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(392, n)
+}
+
+func (rcv *ConstCommonExcel) ExpirySeasonRecordItemReceiveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(394))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExpirySeasonRecordItemReceiveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(394, n)
+}
+
+func (rcv *ConstCommonExcel) EngraveContentsIsOpen() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(396))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConstCommonExcel) MutateEngraveContentsIsOpen(n bool) bool {
+	return rcv._tab.MutateBoolSlot(396, n)
+}
+
+func (rcv *ConstCommonExcel) TacticalRealyContentsIsOpen() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(398))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConstCommonExcel) MutateTacticalRealyContentsIsOpen(n bool) bool {
+	return rcv._tab.MutateBoolSlot(398, n)
+}
+
+func (rcv *ConstCommonExcel) ExSkillLevelMaxByEngrave() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(400))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExSkillLevelMaxByEngrave(n int32) bool {
+	return rcv._tab.MutateInt32Slot(400, n)
+}
+
+func (rcv *ConstCommonExcel) ExSkillUpgradeLevelMax() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(402))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExSkillUpgradeLevelMax(n int32) bool {
+	return rcv._tab.MutateInt32Slot(402, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(190)
+	builder.StartObject(200)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2609,359 +2757,395 @@ func ConstCommonExcelAddPostExpiredDayGameManager(builder *flatbuffers.Builder, 
 func ConstCommonExcelAddUiLabelCharacterWrap(builder *flatbuffers.Builder, uiLabelCharacterWrap flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(72, flatbuffers.UOffsetT(uiLabelCharacterWrap), 0)
 }
-func ConstCommonExcelAddRequestTimeOut(builder *flatbuffers.Builder, requestTimeOut float32) {
-	builder.PrependFloat32Slot(73, requestTimeOut, 0.0)
-}
 func ConstCommonExcelAddMailStorageSoftCap(builder *flatbuffers.Builder, mailStorageSoftCap int32) {
-	builder.PrependInt32Slot(74, mailStorageSoftCap, 0)
+	builder.PrependInt32Slot(73, mailStorageSoftCap, 0)
 }
 func ConstCommonExcelAddMailStorageHardCap(builder *flatbuffers.Builder, mailStorageHardCap int32) {
-	builder.PrependInt32Slot(75, mailStorageHardCap, 0)
+	builder.PrependInt32Slot(74, mailStorageHardCap, 0)
 }
 func ConstCommonExcelAddClearDeckStorageSize(builder *flatbuffers.Builder, clearDeckStorageSize int32) {
-	builder.PrependInt32Slot(76, clearDeckStorageSize, 0)
+	builder.PrependInt32Slot(75, clearDeckStorageSize, 0)
 }
 func ConstCommonExcelAddClearDeckNoStarViewCount(builder *flatbuffers.Builder, clearDeckNoStarViewCount int32) {
-	builder.PrependInt32Slot(77, clearDeckNoStarViewCount, 0)
+	builder.PrependInt32Slot(76, clearDeckNoStarViewCount, 0)
 }
 func ConstCommonExcelAddClearDeck1StarViewCount(builder *flatbuffers.Builder, clearDeck1StarViewCount int32) {
-	builder.PrependInt32Slot(78, clearDeck1StarViewCount, 0)
+	builder.PrependInt32Slot(77, clearDeck1StarViewCount, 0)
 }
 func ConstCommonExcelAddClearDeck2StarViewCount(builder *flatbuffers.Builder, clearDeck2StarViewCount int32) {
-	builder.PrependInt32Slot(79, clearDeck2StarViewCount, 0)
+	builder.PrependInt32Slot(78, clearDeck2StarViewCount, 0)
 }
 func ConstCommonExcelAddClearDeck3StarViewCount(builder *flatbuffers.Builder, clearDeck3StarViewCount int32) {
-	builder.PrependInt32Slot(80, clearDeck3StarViewCount, 0)
+	builder.PrependInt32Slot(79, clearDeck3StarViewCount, 0)
 }
 func ConstCommonExcelAddExSkillLevelMax(builder *flatbuffers.Builder, exSkillLevelMax int32) {
-	builder.PrependInt32Slot(81, exSkillLevelMax, 0)
+	builder.PrependInt32Slot(80, exSkillLevelMax, 0)
 }
 func ConstCommonExcelAddPublicSkillLevelMax(builder *flatbuffers.Builder, publicSkillLevelMax int32) {
-	builder.PrependInt32Slot(82, publicSkillLevelMax, 0)
+	builder.PrependInt32Slot(81, publicSkillLevelMax, 0)
 }
 func ConstCommonExcelAddPassiveSkillLevelMax(builder *flatbuffers.Builder, passiveSkillLevelMax int32) {
-	builder.PrependInt32Slot(83, passiveSkillLevelMax, 0)
+	builder.PrependInt32Slot(82, passiveSkillLevelMax, 0)
 }
 func ConstCommonExcelAddExtraPassiveSkillLevelMax(builder *flatbuffers.Builder, extraPassiveSkillLevelMax int32) {
-	builder.PrependInt32Slot(84, extraPassiveSkillLevelMax, 0)
+	builder.PrependInt32Slot(83, extraPassiveSkillLevelMax, 0)
 }
 func ConstCommonExcelAddAccountCommentMaxLength(builder *flatbuffers.Builder, accountCommentMaxLength int32) {
-	builder.PrependInt32Slot(85, accountCommentMaxLength, 0)
+	builder.PrependInt32Slot(84, accountCommentMaxLength, 0)
 }
 func ConstCommonExcelAddCafeSummonCoolTimeFromHour(builder *flatbuffers.Builder, cafeSummonCoolTimeFromHour int32) {
-	builder.PrependInt32Slot(86, cafeSummonCoolTimeFromHour, 0)
+	builder.PrependInt32Slot(85, cafeSummonCoolTimeFromHour, 0)
 }
 func ConstCommonExcelAddLimitedStageDailyClearCount(builder *flatbuffers.Builder, limitedStageDailyClearCount int64) {
-	builder.PrependInt64Slot(87, limitedStageDailyClearCount, 0)
+	builder.PrependInt64Slot(86, limitedStageDailyClearCount, 0)
 }
 func ConstCommonExcelAddLimitedStageEntryTimeLimit(builder *flatbuffers.Builder, limitedStageEntryTimeLimit int64) {
-	builder.PrependInt64Slot(88, limitedStageEntryTimeLimit, 0)
+	builder.PrependInt64Slot(87, limitedStageEntryTimeLimit, 0)
 }
 func ConstCommonExcelAddLimitedStageEntryTimeBuffer(builder *flatbuffers.Builder, limitedStageEntryTimeBuffer int64) {
-	builder.PrependInt64Slot(89, limitedStageEntryTimeBuffer, 0)
+	builder.PrependInt64Slot(88, limitedStageEntryTimeBuffer, 0)
 }
 func ConstCommonExcelAddLimitedStagePointAmount(builder *flatbuffers.Builder, limitedStagePointAmount int64) {
-	builder.PrependInt64Slot(90, limitedStagePointAmount, 0)
+	builder.PrependInt64Slot(89, limitedStagePointAmount, 0)
 }
 func ConstCommonExcelAddLimitedStagePointPerApMin(builder *flatbuffers.Builder, limitedStagePointPerApMin int64) {
-	builder.PrependInt64Slot(91, limitedStagePointPerApMin, 0)
+	builder.PrependInt64Slot(90, limitedStagePointPerApMin, 0)
 }
 func ConstCommonExcelAddLimitedStagePointPerApMax(builder *flatbuffers.Builder, limitedStagePointPerApMax int64) {
-	builder.PrependInt64Slot(92, limitedStagePointPerApMax, 0)
+	builder.PrependInt64Slot(91, limitedStagePointPerApMax, 0)
 }
 func ConstCommonExcelAddAccountLinkReward(builder *flatbuffers.Builder, accountLinkReward int32) {
-	builder.PrependInt32Slot(93, accountLinkReward, 0)
+	builder.PrependInt32Slot(92, accountLinkReward, 0)
 }
 func ConstCommonExcelAddMonthlyProductCheckDays(builder *flatbuffers.Builder, monthlyProductCheckDays int32) {
-	builder.PrependInt32Slot(94, monthlyProductCheckDays, 0)
+	builder.PrependInt32Slot(93, monthlyProductCheckDays, 0)
 }
 func ConstCommonExcelAddWeaponLvUpCoefficient(builder *flatbuffers.Builder, weaponLvUpCoefficient int32) {
-	builder.PrependInt32Slot(95, weaponLvUpCoefficient, 0)
+	builder.PrependInt32Slot(94, weaponLvUpCoefficient, 0)
 }
 func ConstCommonExcelAddShowRaidMyListCount(builder *flatbuffers.Builder, showRaidMyListCount int32) {
-	builder.PrependInt32Slot(96, showRaidMyListCount, 0)
+	builder.PrependInt32Slot(95, showRaidMyListCount, 0)
 }
 func ConstCommonExcelAddRaidEnterCostType(builder *flatbuffers.Builder, raidEnterCostType ParcelType) {
-	builder.PrependInt32Slot(97, int32(raidEnterCostType), 0)
+	builder.PrependInt32Slot(96, int32(raidEnterCostType), 0)
 }
 func ConstCommonExcelAddRaidEnterCostId(builder *flatbuffers.Builder, raidEnterCostId int64) {
-	builder.PrependInt64Slot(98, raidEnterCostId, 0)
+	builder.PrependInt64Slot(97, raidEnterCostId, 0)
 }
 func ConstCommonExcelAddRaidTicketCost(builder *flatbuffers.Builder, raidTicketCost int64) {
-	builder.PrependInt64Slot(99, raidTicketCost, 0)
+	builder.PrependInt64Slot(98, raidTicketCost, 0)
 }
 func ConstCommonExcelAddTimeAttackDungeonScenarioId(builder *flatbuffers.Builder, timeAttackDungeonScenarioId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(100, flatbuffers.UOffsetT(timeAttackDungeonScenarioId), 0)
+	builder.PrependUOffsetTSlot(99, flatbuffers.UOffsetT(timeAttackDungeonScenarioId), 0)
 }
 func ConstCommonExcelAddTimeAttackDungoenPlayCountPerTicket(builder *flatbuffers.Builder, timeAttackDungoenPlayCountPerTicket int32) {
-	builder.PrependInt32Slot(101, timeAttackDungoenPlayCountPerTicket, 0)
+	builder.PrependInt32Slot(100, timeAttackDungoenPlayCountPerTicket, 0)
 }
 func ConstCommonExcelAddTimeAttackDungeonEnterCostType(builder *flatbuffers.Builder, timeAttackDungeonEnterCostType ParcelType) {
-	builder.PrependInt32Slot(102, int32(timeAttackDungeonEnterCostType), 0)
+	builder.PrependInt32Slot(101, int32(timeAttackDungeonEnterCostType), 0)
 }
 func ConstCommonExcelAddTimeAttackDungeonEnterCostId(builder *flatbuffers.Builder, timeAttackDungeonEnterCostId int64) {
-	builder.PrependInt64Slot(103, timeAttackDungeonEnterCostId, 0)
+	builder.PrependInt64Slot(102, timeAttackDungeonEnterCostId, 0)
 }
 func ConstCommonExcelAddTimeAttackDungeonEnterCost(builder *flatbuffers.Builder, timeAttackDungeonEnterCost int64) {
-	builder.PrependInt64Slot(104, timeAttackDungeonEnterCost, 0)
+	builder.PrependInt64Slot(103, timeAttackDungeonEnterCost, 0)
 }
 func ConstCommonExcelAddClanLeaderTransferLastLoginLimit(builder *flatbuffers.Builder, clanLeaderTransferLastLoginLimit int64) {
-	builder.PrependInt64Slot(105, clanLeaderTransferLastLoginLimit, 0)
+	builder.PrependInt64Slot(104, clanLeaderTransferLastLoginLimit, 0)
 }
 func ConstCommonExcelAddMonthlyProductRepurchasePopupLimit(builder *flatbuffers.Builder, monthlyProductRepurchasePopupLimit int32) {
-	builder.PrependInt32Slot(106, monthlyProductRepurchasePopupLimit, 0)
+	builder.PrependInt32Slot(105, monthlyProductRepurchasePopupLimit, 0)
 }
 func ConstCommonExcelAddCommonFavorItemTags(builder *flatbuffers.Builder, commonFavorItemTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(107, flatbuffers.UOffsetT(commonFavorItemTags), 0)
+	builder.PrependUOffsetTSlot(106, flatbuffers.UOffsetT(commonFavorItemTags), 0)
 }
 func ConstCommonExcelStartCommonFavorItemTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func ConstCommonExcelAddMaxApMasterCoinPerWeek(builder *flatbuffers.Builder, maxApMasterCoinPerWeek int64) {
-	builder.PrependInt64Slot(108, maxApMasterCoinPerWeek, 0)
+	builder.PrependInt64Slot(107, maxApMasterCoinPerWeek, 0)
+}
+func ConstCommonExcelAddPlusMaxApMasterCoinPerWeekProductMonthlyId1(builder *flatbuffers.Builder, plusMaxApMasterCoinPerWeekProductMonthlyId1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(108, flatbuffers.UOffsetT(plusMaxApMasterCoinPerWeekProductMonthlyId1), 0)
+}
+func ConstCommonExcelStartPlusMaxApMasterCoinPerWeekProductMonthlyId1Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ConstCommonExcelAddPlusMaxApMasterCoinPerWeek1(builder *flatbuffers.Builder, plusMaxApMasterCoinPerWeek1 int64) {
+	builder.PrependInt64Slot(109, plusMaxApMasterCoinPerWeek1, 0)
+}
+func ConstCommonExcelAddPlusMaxApMasterCoinPerWeekProductMonthlyId2(builder *flatbuffers.Builder, plusMaxApMasterCoinPerWeekProductMonthlyId2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(110, flatbuffers.UOffsetT(plusMaxApMasterCoinPerWeekProductMonthlyId2), 0)
+}
+func ConstCommonExcelStartPlusMaxApMasterCoinPerWeekProductMonthlyId2Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ConstCommonExcelAddPlusMaxApMasterCoinPerWeek2(builder *flatbuffers.Builder, plusMaxApMasterCoinPerWeek2 int64) {
+	builder.PrependInt64Slot(111, plusMaxApMasterCoinPerWeek2, 0)
 }
 func ConstCommonExcelAddCraftOpenExpTier1(builder *flatbuffers.Builder, craftOpenExpTier1 int64) {
-	builder.PrependInt64Slot(109, craftOpenExpTier1, 0)
+	builder.PrependInt64Slot(112, craftOpenExpTier1, 0)
 }
 func ConstCommonExcelAddCraftOpenExpTier2(builder *flatbuffers.Builder, craftOpenExpTier2 int64) {
-	builder.PrependInt64Slot(110, craftOpenExpTier2, 0)
+	builder.PrependInt64Slot(113, craftOpenExpTier2, 0)
 }
 func ConstCommonExcelAddCraftOpenExpTier3(builder *flatbuffers.Builder, craftOpenExpTier3 int64) {
-	builder.PrependInt64Slot(111, craftOpenExpTier3, 0)
+	builder.PrependInt64Slot(114, craftOpenExpTier3, 0)
 }
 func ConstCommonExcelAddCharacterEquipmentGearSlot(builder *flatbuffers.Builder, characterEquipmentGearSlot int64) {
-	builder.PrependInt64Slot(112, characterEquipmentGearSlot, 0)
+	builder.PrependInt64Slot(115, characterEquipmentGearSlot, 0)
 }
 func ConstCommonExcelAddBirthDayDDay(builder *flatbuffers.Builder, birthDayDDay int32) {
-	builder.PrependInt32Slot(113, birthDayDDay, 0)
+	builder.PrependInt32Slot(116, birthDayDDay, 0)
 }
 func ConstCommonExcelAddRecommendedFriendsLvDifferenceLimit(builder *flatbuffers.Builder, recommendedFriendsLvDifferenceLimit int32) {
-	builder.PrependInt32Slot(114, recommendedFriendsLvDifferenceLimit, 0)
+	builder.PrependInt32Slot(117, recommendedFriendsLvDifferenceLimit, 0)
 }
 func ConstCommonExcelAddDDosDetectCount(builder *flatbuffers.Builder, dDosDetectCount int32) {
-	builder.PrependInt32Slot(115, dDosDetectCount, 0)
+	builder.PrependInt32Slot(118, dDosDetectCount, 0)
 }
 func ConstCommonExcelAddDDosCheckIntervalInSeconds(builder *flatbuffers.Builder, dDosCheckIntervalInSeconds int32) {
-	builder.PrependInt32Slot(116, dDosCheckIntervalInSeconds, 0)
+	builder.PrependInt32Slot(119, dDosCheckIntervalInSeconds, 0)
 }
 func ConstCommonExcelAddMaxFriendsCount(builder *flatbuffers.Builder, maxFriendsCount int32) {
-	builder.PrependInt32Slot(117, maxFriendsCount, 0)
+	builder.PrependInt32Slot(120, maxFriendsCount, 0)
 }
 func ConstCommonExcelAddMaxFriendsRequest(builder *flatbuffers.Builder, maxFriendsRequest int32) {
-	builder.PrependInt32Slot(118, maxFriendsRequest, 0)
+	builder.PrependInt32Slot(121, maxFriendsRequest, 0)
 }
 func ConstCommonExcelAddFriendsSearchRequestCount(builder *flatbuffers.Builder, friendsSearchRequestCount int32) {
-	builder.PrependInt32Slot(119, friendsSearchRequestCount, 0)
+	builder.PrependInt32Slot(122, friendsSearchRequestCount, 0)
 }
 func ConstCommonExcelAddFriendsMaxApplicant(builder *flatbuffers.Builder, friendsMaxApplicant int32) {
-	builder.PrependInt32Slot(120, friendsMaxApplicant, 0)
+	builder.PrependInt32Slot(123, friendsMaxApplicant, 0)
 }
 func ConstCommonExcelAddIdCardDefaultCharacterId(builder *flatbuffers.Builder, idCardDefaultCharacterId int64) {
-	builder.PrependInt64Slot(121, idCardDefaultCharacterId, 0)
+	builder.PrependInt64Slot(124, idCardDefaultCharacterId, 0)
 }
 func ConstCommonExcelAddIdCardDefaultBgId(builder *flatbuffers.Builder, idCardDefaultBgId int64) {
-	builder.PrependInt64Slot(122, idCardDefaultBgId, 0)
+	builder.PrependInt64Slot(125, idCardDefaultBgId, 0)
 }
 func ConstCommonExcelAddWorldRaidGemEnterCost(builder *flatbuffers.Builder, worldRaidGemEnterCost int64) {
-	builder.PrependInt64Slot(123, worldRaidGemEnterCost, 0)
+	builder.PrependInt64Slot(126, worldRaidGemEnterCost, 0)
 }
 func ConstCommonExcelAddWorldRaidGemEnterAmout(builder *flatbuffers.Builder, worldRaidGemEnterAmout int64) {
-	builder.PrependInt64Slot(124, worldRaidGemEnterAmout, 0)
+	builder.PrependInt64Slot(127, worldRaidGemEnterAmout, 0)
 }
 func ConstCommonExcelAddFriendIdCardCommentMaxLength(builder *flatbuffers.Builder, friendIdCardCommentMaxLength int64) {
-	builder.PrependInt64Slot(125, friendIdCardCommentMaxLength, 0)
+	builder.PrependInt64Slot(128, friendIdCardCommentMaxLength, 0)
 }
 func ConstCommonExcelAddFormationPresetNumberOfEchelonTab(builder *flatbuffers.Builder, formationPresetNumberOfEchelonTab int32) {
-	builder.PrependInt32Slot(126, formationPresetNumberOfEchelonTab, 0)
+	builder.PrependInt32Slot(129, formationPresetNumberOfEchelonTab, 0)
 }
 func ConstCommonExcelAddFormationPresetNumberOfEchelon(builder *flatbuffers.Builder, formationPresetNumberOfEchelon int32) {
-	builder.PrependInt32Slot(127, formationPresetNumberOfEchelon, 0)
+	builder.PrependInt32Slot(130, formationPresetNumberOfEchelon, 0)
 }
 func ConstCommonExcelAddFormationPresetRecentNumberOfEchelon(builder *flatbuffers.Builder, formationPresetRecentNumberOfEchelon int32) {
-	builder.PrependInt32Slot(128, formationPresetRecentNumberOfEchelon, 0)
+	builder.PrependInt32Slot(131, formationPresetRecentNumberOfEchelon, 0)
 }
 func ConstCommonExcelAddFormationPresetEchelonTabTextLength(builder *flatbuffers.Builder, formationPresetEchelonTabTextLength int32) {
-	builder.PrependInt32Slot(129, formationPresetEchelonTabTextLength, 0)
+	builder.PrependInt32Slot(132, formationPresetEchelonTabTextLength, 0)
 }
 func ConstCommonExcelAddFormationPresetEchelonSlotTextLength(builder *flatbuffers.Builder, formationPresetEchelonSlotTextLength int32) {
-	builder.PrependInt32Slot(130, formationPresetEchelonSlotTextLength, 0)
+	builder.PrependInt32Slot(133, formationPresetEchelonSlotTextLength, 0)
 }
 func ConstCommonExcelAddCharProfileRowIntervalKr(builder *flatbuffers.Builder, charProfileRowIntervalKr int32) {
-	builder.PrependInt32Slot(131, charProfileRowIntervalKr, 0)
+	builder.PrependInt32Slot(134, charProfileRowIntervalKr, 0)
 }
 func ConstCommonExcelAddCharProfileRowIntervalJp(builder *flatbuffers.Builder, charProfileRowIntervalJp int32) {
-	builder.PrependInt32Slot(132, charProfileRowIntervalJp, 0)
+	builder.PrependInt32Slot(135, charProfileRowIntervalJp, 0)
 }
 func ConstCommonExcelAddCharProfilePopupRowIntervalKr(builder *flatbuffers.Builder, charProfilePopupRowIntervalKr int32) {
-	builder.PrependInt32Slot(133, charProfilePopupRowIntervalKr, 0)
+	builder.PrependInt32Slot(136, charProfilePopupRowIntervalKr, 0)
 }
 func ConstCommonExcelAddCharProfilePopupRowIntervalJp(builder *flatbuffers.Builder, charProfilePopupRowIntervalJp int32) {
-	builder.PrependInt32Slot(134, charProfilePopupRowIntervalJp, 0)
+	builder.PrependInt32Slot(137, charProfilePopupRowIntervalJp, 0)
 }
 func ConstCommonExcelAddBeforehandGachaCount(builder *flatbuffers.Builder, beforehandGachaCount int32) {
-	builder.PrependInt32Slot(135, beforehandGachaCount, 0)
+	builder.PrependInt32Slot(138, beforehandGachaCount, 0)
 }
 func ConstCommonExcelAddBeforehandGachaGroupId(builder *flatbuffers.Builder, beforehandGachaGroupId int32) {
-	builder.PrependInt32Slot(136, beforehandGachaGroupId, 0)
+	builder.PrependInt32Slot(139, beforehandGachaGroupId, 0)
 }
 func ConstCommonExcelAddRenewalDisplayOrderDay(builder *flatbuffers.Builder, renewalDisplayOrderDay int32) {
-	builder.PrependInt32Slot(137, renewalDisplayOrderDay, 0)
+	builder.PrependInt32Slot(140, renewalDisplayOrderDay, 0)
 }
 func ConstCommonExcelAddEmblemDefaultId(builder *flatbuffers.Builder, emblemDefaultId int64) {
-	builder.PrependInt64Slot(138, emblemDefaultId, 0)
+	builder.PrependInt64Slot(141, emblemDefaultId, 0)
+}
+func ConstCommonExcelAddStudentFrameDefaultId(builder *flatbuffers.Builder, studentFrameDefaultId int64) {
+	builder.PrependInt64Slot(142, studentFrameDefaultId, 0)
 }
 func ConstCommonExcelAddBirthdayMailStartDate(builder *flatbuffers.Builder, birthdayMailStartDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(139, flatbuffers.UOffsetT(birthdayMailStartDate), 0)
+	builder.PrependUOffsetTSlot(143, flatbuffers.UOffsetT(birthdayMailStartDate), 0)
 }
 func ConstCommonExcelAddBirthdayMailRemainDate(builder *flatbuffers.Builder, birthdayMailRemainDate int32) {
-	builder.PrependInt32Slot(140, birthdayMailRemainDate, 0)
+	builder.PrependInt32Slot(144, birthdayMailRemainDate, 0)
 }
 func ConstCommonExcelAddBirthdayMailParcelType(builder *flatbuffers.Builder, birthdayMailParcelType ParcelType) {
-	builder.PrependInt32Slot(141, int32(birthdayMailParcelType), 0)
+	builder.PrependInt32Slot(145, int32(birthdayMailParcelType), 0)
 }
 func ConstCommonExcelAddBirthdayMailParcelId(builder *flatbuffers.Builder, birthdayMailParcelId int64) {
-	builder.PrependInt64Slot(142, birthdayMailParcelId, 0)
+	builder.PrependInt64Slot(146, birthdayMailParcelId, 0)
 }
 func ConstCommonExcelAddBirthdayMailParcelAmount(builder *flatbuffers.Builder, birthdayMailParcelAmount int32) {
-	builder.PrependInt32Slot(143, birthdayMailParcelAmount, 0)
+	builder.PrependInt32Slot(147, birthdayMailParcelAmount, 0)
 }
 func ConstCommonExcelAddClearDeckAverageDeckCount(builder *flatbuffers.Builder, clearDeckAverageDeckCount int32) {
-	builder.PrependInt32Slot(144, clearDeckAverageDeckCount, 0)
+	builder.PrependInt32Slot(148, clearDeckAverageDeckCount, 0)
 }
 func ConstCommonExcelAddClearDeckWorldRaidSaveConditionCoefficient(builder *flatbuffers.Builder, clearDeckWorldRaidSaveConditionCoefficient int32) {
-	builder.PrependInt32Slot(145, clearDeckWorldRaidSaveConditionCoefficient, 0)
+	builder.PrependInt32Slot(149, clearDeckWorldRaidSaveConditionCoefficient, 0)
 }
 func ConstCommonExcelAddClearDeckShowCount(builder *flatbuffers.Builder, clearDeckShowCount int32) {
-	builder.PrependInt32Slot(146, clearDeckShowCount, 0)
+	builder.PrependInt32Slot(150, clearDeckShowCount, 0)
 }
 func ConstCommonExcelAddCharacterMaxLevel(builder *flatbuffers.Builder, characterMaxLevel int32) {
-	builder.PrependInt32Slot(147, characterMaxLevel, 0)
+	builder.PrependInt32Slot(151, characterMaxLevel, 0)
 }
 func ConstCommonExcelAddPotentialBonusStatMaxLevelMaxHp(builder *flatbuffers.Builder, potentialBonusStatMaxLevelMaxHp int32) {
-	builder.PrependInt32Slot(148, potentialBonusStatMaxLevelMaxHp, 0)
+	builder.PrependInt32Slot(152, potentialBonusStatMaxLevelMaxHp, 0)
 }
 func ConstCommonExcelAddPotentialBonusStatMaxLevelAttackPower(builder *flatbuffers.Builder, potentialBonusStatMaxLevelAttackPower int32) {
-	builder.PrependInt32Slot(149, potentialBonusStatMaxLevelAttackPower, 0)
+	builder.PrependInt32Slot(153, potentialBonusStatMaxLevelAttackPower, 0)
 }
 func ConstCommonExcelAddPotentialBonusStatMaxLevelHealPower(builder *flatbuffers.Builder, potentialBonusStatMaxLevelHealPower int32) {
-	builder.PrependInt32Slot(150, potentialBonusStatMaxLevelHealPower, 0)
+	builder.PrependInt32Slot(154, potentialBonusStatMaxLevelHealPower, 0)
 }
 func ConstCommonExcelAddPotentialOpenConditionCharacterLevel(builder *flatbuffers.Builder, potentialOpenConditionCharacterLevel int32) {
-	builder.PrependInt32Slot(151, potentialOpenConditionCharacterLevel, 0)
+	builder.PrependInt32Slot(155, potentialOpenConditionCharacterLevel, 0)
 }
 func ConstCommonExcelAddAssistStrangerMinLevel(builder *flatbuffers.Builder, assistStrangerMinLevel int32) {
-	builder.PrependInt32Slot(152, assistStrangerMinLevel, 0)
+	builder.PrependInt32Slot(156, assistStrangerMinLevel, 0)
 }
 func ConstCommonExcelAddAssistStrangerMaxLevel(builder *flatbuffers.Builder, assistStrangerMaxLevel int32) {
-	builder.PrependInt32Slot(153, assistStrangerMaxLevel, 0)
+	builder.PrependInt32Slot(157, assistStrangerMaxLevel, 0)
 }
 func ConstCommonExcelAddMaxBlockedUserCount(builder *flatbuffers.Builder, maxBlockedUserCount int32) {
-	builder.PrependInt32Slot(154, maxBlockedUserCount, 0)
+	builder.PrependInt32Slot(158, maxBlockedUserCount, 0)
 }
 func ConstCommonExcelAddCafeRandomVisitMinComfortBonus(builder *flatbuffers.Builder, cafeRandomVisitMinComfortBonus int64) {
-	builder.PrependInt64Slot(155, cafeRandomVisitMinComfortBonus, 0)
+	builder.PrependInt64Slot(159, cafeRandomVisitMinComfortBonus, 0)
 }
 func ConstCommonExcelAddCafeRandomVisitMinLastLogin(builder *flatbuffers.Builder, cafeRandomVisitMinLastLogin int32) {
-	builder.PrependInt32Slot(156, cafeRandomVisitMinLastLogin, 0)
+	builder.PrependInt32Slot(160, cafeRandomVisitMinLastLogin, 0)
 }
 func ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(builder *flatbuffers.Builder, cafeTravelSyncIntervalByMillisec int32) {
-	builder.PrependInt32Slot(157, cafeTravelSyncIntervalByMillisec, 0)
+	builder.PrependInt32Slot(161, cafeTravelSyncIntervalByMillisec, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage1(builder *flatbuffers.Builder, rankBracketPercentage1 int32) {
-	builder.PrependInt32Slot(158, rankBracketPercentage1, 0)
+	builder.PrependInt32Slot(162, rankBracketPercentage1, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage2(builder *flatbuffers.Builder, rankBracketPercentage2 int32) {
-	builder.PrependInt32Slot(159, rankBracketPercentage2, 0)
+	builder.PrependInt32Slot(163, rankBracketPercentage2, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage3(builder *flatbuffers.Builder, rankBracketPercentage3 int32) {
-	builder.PrependInt32Slot(160, rankBracketPercentage3, 0)
+	builder.PrependInt32Slot(164, rankBracketPercentage3, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage4(builder *flatbuffers.Builder, rankBracketPercentage4 int32) {
-	builder.PrependInt32Slot(161, rankBracketPercentage4, 0)
+	builder.PrependInt32Slot(165, rankBracketPercentage4, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage5(builder *flatbuffers.Builder, rankBracketPercentage5 int32) {
-	builder.PrependInt32Slot(162, rankBracketPercentage5, 0)
+	builder.PrependInt32Slot(166, rankBracketPercentage5, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage6(builder *flatbuffers.Builder, rankBracketPercentage6 int32) {
-	builder.PrependInt32Slot(163, rankBracketPercentage6, 0)
+	builder.PrependInt32Slot(167, rankBracketPercentage6, 0)
 }
 func ConstCommonExcelAddRankBracketPercentage7(builder *flatbuffers.Builder, rankBracketPercentage7 int32) {
-	builder.PrependInt32Slot(164, rankBracketPercentage7, 0)
+	builder.PrependInt32Slot(168, rankBracketPercentage7, 0)
 }
 func ConstCommonExcelAddExpiryBattlePassItemReceiveDay(builder *flatbuffers.Builder, expiryBattlePassItemReceiveDay int32) {
-	builder.PrependInt32Slot(165, expiryBattlePassItemReceiveDay, 0)
+	builder.PrependInt32Slot(169, expiryBattlePassItemReceiveDay, 0)
 }
 func ConstCommonExcelAddBattlePassFlavorTextIdleDurationMilliSec(builder *flatbuffers.Builder, battlePassFlavorTextIdleDurationMilliSec int64) {
-	builder.PrependInt64Slot(166, battlePassFlavorTextIdleDurationMilliSec, 0)
+	builder.PrependInt64Slot(170, battlePassFlavorTextIdleDurationMilliSec, 0)
 }
 func ConstCommonExcelAddBattlePassEndImminentDay(builder *flatbuffers.Builder, battlePassEndImminentDay int32) {
-	builder.PrependInt32Slot(167, battlePassEndImminentDay, 0)
+	builder.PrependInt32Slot(171, battlePassEndImminentDay, 0)
 }
 func ConstCommonExcelAddBattlePassExpIconPath(builder *flatbuffers.Builder, battlePassExpIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(168, flatbuffers.UOffsetT(battlePassExpIconPath), 0)
+	builder.PrependUOffsetTSlot(172, flatbuffers.UOffsetT(battlePassExpIconPath), 0)
 }
 func ConstCommonExcelAddCafeCameraDragThreshold(builder *flatbuffers.Builder, cafeCameraDragThreshold float32) {
-	builder.PrependFloat32Slot(169, cafeCameraDragThreshold, 0.0)
+	builder.PrependFloat32Slot(173, cafeCameraDragThreshold, 0.0)
 }
 func ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder *flatbuffers.Builder, cafeSummonTicketBuyLimitForValidate int32) {
-	builder.PrependInt32Slot(170, cafeSummonTicketBuyLimitForValidate, 0)
+	builder.PrependInt32Slot(174, cafeSummonTicketBuyLimitForValidate, 0)
 }
 func ConstCommonExcelAddAutoCraftPresetCountLimit(builder *flatbuffers.Builder, autoCraftPresetCountLimit int32) {
-	builder.PrependInt32Slot(171, autoCraftPresetCountLimit, 0)
+	builder.PrependInt32Slot(175, autoCraftPresetCountLimit, 0)
 }
 func ConstCommonExcelAddAutoCraftNodeSelectCount(builder *flatbuffers.Builder, autoCraftNodeSelectCount int32) {
-	builder.PrependInt32Slot(172, autoCraftNodeSelectCount, 0)
+	builder.PrependInt32Slot(176, autoCraftNodeSelectCount, 0)
 }
 func ConstCommonExcelAddCraftPresetNameMaxLength(builder *flatbuffers.Builder, craftPresetNameMaxLength int32) {
-	builder.PrependInt32Slot(173, craftPresetNameMaxLength, 0)
+	builder.PrependInt32Slot(177, craftPresetNameMaxLength, 0)
 }
 func ConstCommonExcelAddSelectionWaitTime(builder *flatbuffers.Builder, selectionWaitTime int64) {
-	builder.PrependInt64Slot(174, selectionWaitTime, 0)
+	builder.PrependInt64Slot(178, selectionWaitTime, 0)
 }
 func ConstCommonExcelAddRewardWaitTime(builder *flatbuffers.Builder, rewardWaitTime int64) {
-	builder.PrependInt64Slot(175, rewardWaitTime, 0)
+	builder.PrependInt64Slot(179, rewardWaitTime, 0)
 }
 func ConstCommonExcelAddEpisodeContinueWaitTime(builder *flatbuffers.Builder, episodeContinueWaitTime int64) {
-	builder.PrependInt64Slot(176, episodeContinueWaitTime, 0)
+	builder.PrependInt64Slot(180, episodeContinueWaitTime, 0)
 }
 func ConstCommonExcelAddScenarioAutoDelayMillisecLong(builder *flatbuffers.Builder, scenarioAutoDelayMillisecLong float32) {
-	builder.PrependFloat32Slot(177, scenarioAutoDelayMillisecLong, 0.0)
+	builder.PrependFloat32Slot(181, scenarioAutoDelayMillisecLong, 0.0)
 }
 func ConstCommonExcelAddScenarioAutoDelayMillisec(builder *flatbuffers.Builder, scenarioAutoDelayMillisec float32) {
-	builder.PrependFloat32Slot(178, scenarioAutoDelayMillisec, 0.0)
+	builder.PrependFloat32Slot(182, scenarioAutoDelayMillisec, 0.0)
 }
 func ConstCommonExcelAddScenarioAutoDelayMillisecShort(builder *flatbuffers.Builder, scenarioAutoDelayMillisecShort float32) {
-	builder.PrependFloat32Slot(179, scenarioAutoDelayMillisecShort, 0.0)
+	builder.PrependFloat32Slot(183, scenarioAutoDelayMillisecShort, 0.0)
 }
 func ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(builder *flatbuffers.Builder, scenarioAutoDelayMillisecVeryShort float32) {
-	builder.PrependFloat32Slot(180, scenarioAutoDelayMillisecVeryShort, 0.0)
+	builder.PrependFloat32Slot(184, scenarioAutoDelayMillisecVeryShort, 0.0)
 }
 func ConstCommonExcelAddPcBuildEnterInformation(builder *flatbuffers.Builder, pcBuildEnterInformation int32) {
-	builder.PrependInt32Slot(181, pcBuildEnterInformation, 0)
+	builder.PrependInt32Slot(185, pcBuildEnterInformation, 0)
 }
 func ConstCommonExcelAddComebackUserStandardDay(builder *flatbuffers.Builder, comebackUserStandardDay int32) {
-	builder.PrependInt32Slot(182, comebackUserStandardDay, 0)
+	builder.PrependInt32Slot(186, comebackUserStandardDay, 0)
 }
 func ConstCommonExcelAddComebackUserLogSaveDay(builder *flatbuffers.Builder, comebackUserLogSaveDay int32) {
-	builder.PrependInt32Slot(183, comebackUserLogSaveDay, 0)
+	builder.PrependInt32Slot(187, comebackUserLogSaveDay, 0)
 }
 func ConstCommonExcelAddComeBackActivateCooldown(builder *flatbuffers.Builder, comeBackActivateCooldown int32) {
-	builder.PrependInt32Slot(184, comeBackActivateCooldown, 0)
+	builder.PrependInt32Slot(188, comeBackActivateCooldown, 0)
 }
 func ConstCommonExcelAddCafeCopyPresetSlotCount(builder *flatbuffers.Builder, cafeCopyPresetSlotCount int32) {
-	builder.PrependInt32Slot(185, cafeCopyPresetSlotCount, 0)
+	builder.PrependInt32Slot(189, cafeCopyPresetSlotCount, 0)
 }
 func ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(builder *flatbuffers.Builder, expiryProductDailyRecordItemReceiveDay int32) {
-	builder.PrependInt32Slot(186, expiryProductDailyRecordItemReceiveDay, 0)
+	builder.PrependInt32Slot(190, expiryProductDailyRecordItemReceiveDay, 0)
 }
 func ConstCommonExcelAddNewbieUserStandardDay(builder *flatbuffers.Builder, newbieUserStandardDay int32) {
-	builder.PrependInt32Slot(187, newbieUserStandardDay, 0)
+	builder.PrependInt32Slot(191, newbieUserStandardDay, 0)
 }
 func ConstCommonExcelAddNewbieStateHoldDay(builder *flatbuffers.Builder, newbieStateHoldDay int32) {
-	builder.PrependInt32Slot(188, newbieStateHoldDay, 0)
+	builder.PrependInt32Slot(192, newbieStateHoldDay, 0)
 }
 func ConstCommonExcelAddClearDeckEchelonShowMaxCount(builder *flatbuffers.Builder, clearDeckEchelonShowMaxCount int32) {
-	builder.PrependInt32Slot(189, clearDeckEchelonShowMaxCount, 0)
+	builder.PrependInt32Slot(193, clearDeckEchelonShowMaxCount, 0)
+}
+func ConstCommonExcelAddExpiryStreakRecordItemReceiveDay(builder *flatbuffers.Builder, expiryStreakRecordItemReceiveDay int32) {
+	builder.PrependInt32Slot(194, expiryStreakRecordItemReceiveDay, 0)
+}
+func ConstCommonExcelAddExpirySeasonRecordItemReceiveDay(builder *flatbuffers.Builder, expirySeasonRecordItemReceiveDay int32) {
+	builder.PrependInt32Slot(195, expirySeasonRecordItemReceiveDay, 0)
+}
+func ConstCommonExcelAddEngraveContentsIsOpen(builder *flatbuffers.Builder, engraveContentsIsOpen bool) {
+	builder.PrependBoolSlot(196, engraveContentsIsOpen, false)
+}
+func ConstCommonExcelAddTacticalRealyContentsIsOpen(builder *flatbuffers.Builder, tacticalRealyContentsIsOpen bool) {
+	builder.PrependBoolSlot(197, tacticalRealyContentsIsOpen, false)
+}
+func ConstCommonExcelAddExSkillLevelMaxByEngrave(builder *flatbuffers.Builder, exSkillLevelMaxByEngrave int32) {
+	builder.PrependInt32Slot(198, exSkillLevelMaxByEngrave, 0)
+}
+func ConstCommonExcelAddExSkillUpgradeLevelMax(builder *flatbuffers.Builder, exSkillUpgradeLevelMax int32) {
+	builder.PrependInt32Slot(199, exSkillUpgradeLevelMax, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -24,3 +24,4 @@ class ContentLockType(object):
     Gacha = 18
     Craft = 19
     MomoTalk = 20
+    TacticalRelay = 21

@@ -28,3 +28,4 @@ class ContentType(object):
     MinigameDefense = 22
     InteractiveWorldRaid = 23
     PermanentRaid = 24
+    TacticalRelay = 25

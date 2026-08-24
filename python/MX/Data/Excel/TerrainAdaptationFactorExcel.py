@@ -73,8 +73,15 @@ class TerrainAdaptationFactorExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # TerrainAdaptationFactorExcel
+    def TerrainFactorDescription(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def TerrainAdaptationFactorExcelStart(builder):
-    builder.StartObject(7)
+    builder.StartObject(8)
 
 def Start(builder):
     TerrainAdaptationFactorExcelStart(builder)
@@ -121,6 +128,12 @@ def TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, attackPowerFactor)
 def AddAttackPowerFactor(builder, attackPowerFactor):
     TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, attackPowerFactor)
 
+def TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(terrainFactorDescription), 0)
+
+def AddTerrainFactorDescription(builder, terrainFactorDescription):
+    TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription)
+
 def TerrainAdaptationFactorExcelEnd(builder):
     return builder.EndObject()
 
@@ -140,6 +153,7 @@ class TerrainAdaptationFactorExcelT(object):
         accuracyFactor = 0,
         dodgeFactor = 0,
         attackPowerFactor = 0,
+        terrainFactorDescription = None,
     ):
         self.terrainAdaptation = terrainAdaptation  # type: int
         self.terrainAdaptationStat = terrainAdaptationStat  # type: int
@@ -148,6 +162,7 @@ class TerrainAdaptationFactorExcelT(object):
         self.accuracyFactor = accuracyFactor  # type: int
         self.dodgeFactor = dodgeFactor  # type: int
         self.attackPowerFactor = attackPowerFactor  # type: int
+        self.terrainFactorDescription = terrainFactorDescription  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -177,9 +192,12 @@ class TerrainAdaptationFactorExcelT(object):
         self.accuracyFactor = terrainAdaptationFactorExcel.AccuracyFactor()
         self.dodgeFactor = terrainAdaptationFactorExcel.DodgeFactor()
         self.attackPowerFactor = terrainAdaptationFactorExcel.AttackPowerFactor()
+        self.terrainFactorDescription = terrainAdaptationFactorExcel.TerrainFactorDescription()
 
     # TerrainAdaptationFactorExcelT
     def Pack(self, builder):
+        if self.terrainFactorDescription is not None:
+            terrainFactorDescription = builder.CreateString(self.terrainFactorDescription)
         TerrainAdaptationFactorExcelStart(builder)
         TerrainAdaptationFactorExcelAddTerrainAdaptation(builder, self.terrainAdaptation)
         TerrainAdaptationFactorExcelAddTerrainAdaptationStat(builder, self.terrainAdaptationStat)
@@ -188,5 +206,7 @@ class TerrainAdaptationFactorExcelT(object):
         TerrainAdaptationFactorExcelAddAccuracyFactor(builder, self.accuracyFactor)
         TerrainAdaptationFactorExcelAddDodgeFactor(builder, self.dodgeFactor)
         TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, self.attackPowerFactor)
+        if self.terrainFactorDescription is not None:
+            TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription)
         terrainAdaptationFactorExcel = TerrainAdaptationFactorExcelEnd(builder)
         return terrainAdaptationFactorExcel

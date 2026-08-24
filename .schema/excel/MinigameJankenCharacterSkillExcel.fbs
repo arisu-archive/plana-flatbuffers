@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table MinigameJankenCharacterSkillExcel {
+    id: long;
+    localize_id: uint;
+    data_load_path: string;
+    janken_logic_effect: long;
+    skill_cost: long;
+    once_per_match: bool;
+}
+
+root_type MinigameJankenCharacterSkillExcel;

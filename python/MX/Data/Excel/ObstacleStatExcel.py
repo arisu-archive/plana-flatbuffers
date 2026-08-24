@@ -151,35 +151,56 @@ class ObstacleStatExcel(object):
         return 0
 
     # ObstacleStatExcel
-    def WeakDamagedRatio(self):
+    def ReduceResistDamagedRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ObstacleStatExcel
-    def EffectiveDamagedRatio(self):
+    def AddSummonedObstacleDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ObstacleStatExcel
-    def NormalDamagedRatio(self):
+    def DamagedRatioObstacle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ObstacleStatExcel
-    def ResistDamagedRatio(self):
+    def WeakDamagedRatio(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # ObstacleStatExcel
+    def EffectiveDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def NormalDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def ResistDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ObstacleStatExcelStart(builder):
-    builder.StartObject(22)
+    builder.StartObject(25)
 
 def Start(builder):
     ObstacleStatExcelStart(builder)
@@ -292,26 +313,44 @@ def ObstacleStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
 def AddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
     ObstacleStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate)
 
+def ObstacleStatExcelAddReduceResistDamagedRate(builder, reduceResistDamagedRate):
+    builder.PrependInt64Slot(18, reduceResistDamagedRate, 0)
+
+def AddReduceResistDamagedRate(builder, reduceResistDamagedRate):
+    ObstacleStatExcelAddReduceResistDamagedRate(builder, reduceResistDamagedRate)
+
+def ObstacleStatExcelAddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio):
+    builder.PrependInt64Slot(19, addSummonedObstacleDamagedRatio, 0)
+
+def AddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio):
+    ObstacleStatExcelAddAddSummonedObstacleDamagedRatio(builder, addSummonedObstacleDamagedRatio)
+
+def ObstacleStatExcelAddDamagedRatioObstacle(builder, damagedRatioObstacle):
+    builder.PrependInt64Slot(20, damagedRatioObstacle, 0)
+
+def AddDamagedRatioObstacle(builder, damagedRatioObstacle):
+    ObstacleStatExcelAddDamagedRatioObstacle(builder, damagedRatioObstacle)
+
 def ObstacleStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio):
-    builder.PrependInt64Slot(18, weakDamagedRatio, 0)
+    builder.PrependInt64Slot(21, weakDamagedRatio, 0)
 
 def AddWeakDamagedRatio(builder, weakDamagedRatio):
     ObstacleStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio)
 
 def ObstacleStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
-    builder.PrependInt64Slot(19, effectiveDamagedRatio, 0)
+    builder.PrependInt64Slot(22, effectiveDamagedRatio, 0)
 
 def AddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
     ObstacleStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio)
 
 def ObstacleStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio):
-    builder.PrependInt64Slot(20, normalDamagedRatio, 0)
+    builder.PrependInt64Slot(23, normalDamagedRatio, 0)
 
 def AddNormalDamagedRatio(builder, normalDamagedRatio):
     ObstacleStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio)
 
 def ObstacleStatExcelAddResistDamagedRatio(builder, resistDamagedRatio):
-    builder.PrependInt64Slot(21, resistDamagedRatio, 0)
+    builder.PrependInt64Slot(24, resistDamagedRatio, 0)
 
 def AddResistDamagedRatio(builder, resistDamagedRatio):
     ObstacleStatExcelAddResistDamagedRatio(builder, resistDamagedRatio)
@@ -346,6 +385,9 @@ class ObstacleStatExcelT(object):
         reduceExDamagedRate = 0,
         reduceBasicsDamagedRate = 0,
         reduceWeakDamagedRate = 0,
+        reduceResistDamagedRate = 0,
+        addSummonedObstacleDamagedRatio = 0,
+        damagedRatioObstacle = 0,
         weakDamagedRatio = 0,
         effectiveDamagedRatio = 0,
         normalDamagedRatio = 0,
@@ -369,6 +411,9 @@ class ObstacleStatExcelT(object):
         self.reduceExDamagedRate = reduceExDamagedRate  # type: int
         self.reduceBasicsDamagedRate = reduceBasicsDamagedRate  # type: int
         self.reduceWeakDamagedRate = reduceWeakDamagedRate  # type: int
+        self.reduceResistDamagedRate = reduceResistDamagedRate  # type: int
+        self.addSummonedObstacleDamagedRatio = addSummonedObstacleDamagedRatio  # type: int
+        self.damagedRatioObstacle = damagedRatioObstacle  # type: int
         self.weakDamagedRatio = weakDamagedRatio  # type: int
         self.effectiveDamagedRatio = effectiveDamagedRatio  # type: int
         self.normalDamagedRatio = normalDamagedRatio  # type: int
@@ -413,6 +458,9 @@ class ObstacleStatExcelT(object):
         self.reduceExDamagedRate = obstacleStatExcel.ReduceExDamagedRate()
         self.reduceBasicsDamagedRate = obstacleStatExcel.ReduceBasicsDamagedRate()
         self.reduceWeakDamagedRate = obstacleStatExcel.ReduceWeakDamagedRate()
+        self.reduceResistDamagedRate = obstacleStatExcel.ReduceResistDamagedRate()
+        self.addSummonedObstacleDamagedRatio = obstacleStatExcel.AddSummonedObstacleDamagedRatio()
+        self.damagedRatioObstacle = obstacleStatExcel.DamagedRatioObstacle()
         self.weakDamagedRatio = obstacleStatExcel.WeakDamagedRatio()
         self.effectiveDamagedRatio = obstacleStatExcel.EffectiveDamagedRatio()
         self.normalDamagedRatio = obstacleStatExcel.NormalDamagedRatio()
@@ -442,6 +490,9 @@ class ObstacleStatExcelT(object):
         ObstacleStatExcelAddReduceExDamagedRate(builder, self.reduceExDamagedRate)
         ObstacleStatExcelAddReduceBasicsDamagedRate(builder, self.reduceBasicsDamagedRate)
         ObstacleStatExcelAddReduceWeakDamagedRate(builder, self.reduceWeakDamagedRate)
+        ObstacleStatExcelAddReduceResistDamagedRate(builder, self.reduceResistDamagedRate)
+        ObstacleStatExcelAddAddSummonedObstacleDamagedRatio(builder, self.addSummonedObstacleDamagedRatio)
+        ObstacleStatExcelAddDamagedRatioObstacle(builder, self.damagedRatioObstacle)
         ObstacleStatExcelAddWeakDamagedRatio(builder, self.weakDamagedRatio)
         ObstacleStatExcelAddEffectiveDamagedRatio(builder, self.effectiveDamagedRatio)
         ObstacleStatExcelAddNormalDamagedRatio(builder, self.normalDamagedRatio)

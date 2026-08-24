@@ -1,0 +1,44 @@
+include "Difficulty.fbs";
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "StageTopography.fbs";
+include "TacticalRelayStageType.fbs";
+
+namespace MX.Data.Excel;
+
+table TacticalRelayStageExcel {
+    id: long;
+    name: string;
+    season_id: long;
+    stage_type: TacticalRelayStageType;
+    stage_number: string;
+    stage_difficulty: Difficulty;
+    waves_per_sections: [int];
+    battle_duration: long;
+    recommand_level: int;
+    recommand_level_gap_for_guide: int;
+    min_equipment_tier_for_guide: [long];
+    min_skill_level_for_guide: [long];
+    prev_stage_id: long;
+    ground_id: long;
+    stage_topography: StageTopography;
+    stage_enter_cost_type: ParcelType;
+    stage_enter_cost_id: long;
+    stage_enter_cost_amount: int;
+    tactic_reward_exp: long;
+    stage_reward_id_ego: long;
+    stage_reward_id_conscious: long;
+    stage_reward_id_unconscious: long;
+    stage_reward_localize_prefab_id01: uint;
+    stage_reward_localize_prefab_id02: uint;
+    stage_reward_localize_prefab_id03: uint;
+    echelon_count: int;
+    apc_slot_define_id: long;
+    favor_collection_score_bonus_id: long;
+    echelon_extension_type: EchelonExtensionType;
+    assist_slot: int;
+    wave_info_tip_icon_path: [string];
+    wave_info_tip_localize_etc_id: [uint];
+}
+
+root_type TacticalRelayStageExcel;

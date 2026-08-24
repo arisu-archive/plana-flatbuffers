@@ -4,6 +4,7 @@ namespace MX.Data.Excel;
 
 table CharacterVictoryInteractionExcel {
     interaction_id: long;
+    override_if_echelon_extension: bool;
     costume_id01: long;
     position_index01: int;
     victory_start_animation_path01: string;

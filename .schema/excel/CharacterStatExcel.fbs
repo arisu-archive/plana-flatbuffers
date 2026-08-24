@@ -73,10 +73,15 @@ table CharacterStatExcel {
     reduce_basics_damaged_rate: long;
     enhance_weak_damage_rate: long;
     reduce_weak_damaged_rate: long;
+    enhance_resist_damage_rate: long;
+    reduce_resist_damaged_rate: long;
     weak_damaged_ratio: long;
     effective_damaged_ratio: long;
     normal_damaged_ratio: long;
     resist_damaged_ratio: long;
+    add_damage_ratio_synergy_bullet_type: long;
+    add_summoned_obstacle_damaged_ratio: long;
+    damaged_ratio_obstacle: long;
     heal_rate: long;
     heal_light_armor_rate: long;
     heal_heavy_armor_rate: long;
@@ -88,6 +93,9 @@ table CharacterStatExcel {
     healed_mystic_rate: long;
     healed_sonic_rate: long;
     healed_normal_rate: long;
+    add_street_terrain_factor: long;
+    add_outdoor_terrain_factor: long;
+    add_indoor_terrain_factor: long;
     street_battle_adaptation: TerrainAdaptationStat;
     outdoor_battle_adaptation: TerrainAdaptationStat;
     indoor_battle_adaptation: TerrainAdaptationStat;

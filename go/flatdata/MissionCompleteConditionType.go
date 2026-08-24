@@ -197,6 +197,11 @@ const (
 	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount                      MissionCompleteConditionType = 187
 	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount                       MissionCompleteConditionType = 188
 	MissionCompleteConditionTypeReset_EnterUICount                                    MissionCompleteConditionType = 189
+	MissionCompleteConditionTypeReset_JankenClearCount                                MissionCompleteConditionType = 190
+	MissionCompleteConditionTypeReset_JankenEquipmentTierCheckCount                   MissionCompleteConditionType = 191
+	MissionCompleteConditionTypeReset_JankenGetSpecificScore                          MissionCompleteConditionType = 192
+	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear                  MissionCompleteConditionType = 193
+	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount                       MissionCompleteConditionType = 194
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -390,6 +395,11 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount:                      "Reset_WorldRaidActivateCoreCount",
 	MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount:                       "Reset_WorldRaidActivateUSBCount",
 	MissionCompleteConditionTypeReset_EnterUICount:                                    "Reset_EnterUICount",
+	MissionCompleteConditionTypeReset_JankenClearCount:                                "Reset_JankenClearCount",
+	MissionCompleteConditionTypeReset_JankenEquipmentTierCheckCount:                   "Reset_JankenEquipmentTierCheckCount",
+	MissionCompleteConditionTypeReset_JankenGetSpecificScore:                          "Reset_JankenGetSpecificScore",
+	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear:                  "Reset_SpecificTacticalRelayWaveClear",
+	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount:                       "Achieve_ClearTacticalRelayCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -583,6 +593,11 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_WorldRaidActivateCoreCount":                      MissionCompleteConditionTypeReset_WorldRaidActivateCoreCount,
 	"Reset_WorldRaidActivateUSBCount":                       MissionCompleteConditionTypeReset_WorldRaidActivateUSBCount,
 	"Reset_EnterUICount":                                    MissionCompleteConditionTypeReset_EnterUICount,
+	"Reset_JankenClearCount":                                MissionCompleteConditionTypeReset_JankenClearCount,
+	"Reset_JankenEquipmentTierCheckCount":                   MissionCompleteConditionTypeReset_JankenEquipmentTierCheckCount,
+	"Reset_JankenGetSpecificScore":                          MissionCompleteConditionTypeReset_JankenGetSpecificScore,
+	"Reset_SpecificTacticalRelayWaveClear":                  MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear,
+	"Achieve_ClearTacticalRelayCount":                       MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount,
 }
 
 func (v MissionCompleteConditionType) String() string {
