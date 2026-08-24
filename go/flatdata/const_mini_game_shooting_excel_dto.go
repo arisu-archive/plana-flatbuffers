@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstMiniGameShootingExcelDto represents a FlatBuffers table.
@@ -37,7 +34,7 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependInt64(fbsutils.Convert(t.PlayerCharacterID[i], t.FlatBuffer.TableKey))
 	}
 	playerCharacterIDOffset := b.EndVector(len(t.PlayerCharacterID))
-	spawnEffectPathOffset := b.CreateString(encodeDTOString(t.SpawnEffectPath, t.FlatBuffer.TableKey))
+	spawnEffectPathOffset := b.CreateString(fbsutils.Encode(t.SpawnEffectPath, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelStart(b)
 	ConstMiniGameShootingExcelAddNormalStageId(b, fbsutils.Convert(t.NormalStageID, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddNormalSectionCount(b, fbsutils.Convert(t.NormalSectionCount, t.FlatBuffer.TableKey))
@@ -93,16 +90,4 @@ func (t *ConstMiniGameShootingExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstMiniGameShootingExcelDto) FlatDataName() string {
 	return "ConstMiniGameShootingExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

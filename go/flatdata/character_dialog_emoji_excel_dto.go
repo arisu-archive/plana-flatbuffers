@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // CharacterDialogEmojiExcelDto represents a FlatBuffers table.
@@ -38,15 +35,15 @@ func (t *CharacterDialogEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogEmoji"))
 	}
-	dialogTypeOffset := b.CreateString(encodeDTOString(t.DialogType, t.FlatBuffer.TableKey))
-	localizeKrOffset := b.CreateString(encodeDTOString(t.LocalizeKr, t.FlatBuffer.TableKey))
-	localizeJpOffset := b.CreateString(encodeDTOString(t.LocalizeJp, t.FlatBuffer.TableKey))
+	dialogTypeOffset := b.CreateString(fbsutils.Encode(t.DialogType, t.FlatBuffer.TableKey))
+	localizeKrOffset := b.CreateString(fbsutils.Encode(t.LocalizeKr, t.FlatBuffer.TableKey))
+	localizeJpOffset := b.CreateString(fbsutils.Encode(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStartVoiceIdVector(b, len(t.VoiceID))
 	for i := len(t.VoiceID) - 1; i >= 0; i-- {
 		b.PrependUint32(fbsutils.Convert(t.VoiceID[i], t.FlatBuffer.TableKey))
 	}
 	voiceIDOffset := b.EndVector(len(t.VoiceID))
-	localizeCvGroupOffset := b.CreateString(encodeDTOString(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	localizeCvGroupOffset := b.CreateString(fbsutils.Encode(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStart(b)
 	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
@@ -114,16 +111,4 @@ func (t *CharacterDialogEmojiExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (CharacterDialogEmojiExcelDto) FlatDataName() string {
 	return "CharacterDialogEmojiExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

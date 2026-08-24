@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // CharacterDialogFieldExcelDto represents a FlatBuffers table.
@@ -30,9 +27,9 @@ func (t *CharacterDialogFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
-	motionNameOffset := b.CreateString(encodeDTOString(t.MotionName, t.FlatBuffer.TableKey))
-	localizeKrOffset := b.CreateString(encodeDTOString(t.LocalizeKr, t.FlatBuffer.TableKey))
-	localizeJpOffset := b.CreateString(encodeDTOString(t.LocalizeJp, t.FlatBuffer.TableKey))
+	motionNameOffset := b.CreateString(fbsutils.Encode(t.MotionName, t.FlatBuffer.TableKey))
+	localizeKrOffset := b.CreateString(fbsutils.Encode(t.LocalizeKr, t.FlatBuffer.TableKey))
+	localizeJpOffset := b.CreateString(fbsutils.Encode(t.LocalizeJp, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelStart(b)
 	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Convert(t.GroupID, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
@@ -81,16 +78,4 @@ func (t *CharacterDialogFieldExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (CharacterDialogFieldExcelDto) FlatDataName() string {
 	return "CharacterDialogFieldExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

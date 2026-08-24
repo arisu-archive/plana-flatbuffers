@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstEventCommonExcelDto represents a FlatBuffers table.
@@ -34,8 +31,8 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
-	meetupScenarioReplayResourceOffset := b.CreateString(encodeDTOString(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey))
-	meetupScenarioReplayTitleLocalizeOffset := b.CreateString(encodeDTOString(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey))
+	meetupScenarioReplayResourceOffset := b.CreateString(fbsutils.Encode(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey))
+	meetupScenarioReplayTitleLocalizeOffset := b.CreateString(fbsutils.Encode(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelStart(b)
 	ConstEventCommonExcelAddEventContentHardStageCount(b, fbsutils.Convert(t.EventContentHardStageCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.EventStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
@@ -92,16 +89,4 @@ func (t *ConstEventCommonExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstEventCommonExcelDto) FlatDataName() string {
 	return "ConstEventCommonExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

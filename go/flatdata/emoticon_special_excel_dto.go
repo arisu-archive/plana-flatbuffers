@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // EmoticonSpecialExcelDto represents a FlatBuffers table.
@@ -23,7 +20,7 @@ func (t *EmoticonSpecialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecial"))
 	}
-	randomOffset := b.CreateString(encodeDTOString(t.Random, t.FlatBuffer.TableKey))
+	randomOffset := b.CreateString(fbsutils.Encode(t.Random, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelStart(b)
 	EmoticonSpecialExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelAddCharacterUniqueId(b, fbsutils.Convert(t.CharacterUniqueID, t.FlatBuffer.TableKey))
@@ -58,16 +55,4 @@ func (t *EmoticonSpecialExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (EmoticonSpecialExcelDto) FlatDataName() string {
 	return "EmoticonSpecialExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

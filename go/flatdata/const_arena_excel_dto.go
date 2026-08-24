@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstArenaExcelDto represents a FlatBuffers table.
@@ -53,8 +50,8 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
-	dailyRewardResetTimeOffset := b.CreateString(encodeDTOString(t.DailyRewardResetTime, t.FlatBuffer.TableKey))
-	openScenarioIDOffset := b.CreateString(encodeDTOString(t.OpenScenarioID, t.FlatBuffer.TableKey))
+	dailyRewardResetTimeOffset := b.CreateString(fbsutils.Encode(t.DailyRewardResetTime, t.FlatBuffer.TableKey))
+	openScenarioIDOffset := b.CreateString(fbsutils.Encode(t.OpenScenarioID, t.FlatBuffer.TableKey))
 	ConstArenaExcelStartCharacterSlotHideRankVector(b, len(t.CharacterSlotHideRank))
 	for i := len(t.CharacterSlotHideRank) - 1; i >= 0; i-- {
 		b.PrependInt64(fbsutils.Convert(t.CharacterSlotHideRank[i], t.FlatBuffer.TableKey))
@@ -88,16 +85,16 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	var npcNameOffset flatbuffers.UOffsetT
 	npcNameOffsets := make([]flatbuffers.UOffsetT, len(t.NpcName))
 	for i := range t.NpcName {
-		npcNameOffsets[i] = b.CreateString(encodeDTOString(t.NpcName[i], t.FlatBuffer.TableKey))
+		npcNameOffsets[i] = b.CreateString(fbsutils.Encode(t.NpcName[i], t.FlatBuffer.TableKey))
 	}
 	ConstArenaExcelStartNpcNameVector(b, len(t.NpcName))
 	for i := len(npcNameOffsets) - 1; i >= 0; i-- {
 		b.PrependUOffsetT(npcNameOffsets[i])
 	}
 	npcNameOffset = b.EndVector(len(t.NpcName))
-	hiddenCharacterImagePathOffset := b.CreateString(encodeDTOString(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey))
-	showSeasonChangeInfoStartTimeOffset := b.CreateString(encodeDTOString(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey))
-	showSeasonChangeInfoEndTimeOffset := b.CreateString(encodeDTOString(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey))
+	hiddenCharacterImagePathOffset := b.CreateString(fbsutils.Encode(t.HiddenCharacterImagePath, t.FlatBuffer.TableKey))
+	showSeasonChangeInfoStartTimeOffset := b.CreateString(fbsutils.Encode(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey))
+	showSeasonChangeInfoEndTimeOffset := b.CreateString(fbsutils.Encode(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey))
 	ConstArenaExcelStart(b)
 	ConstArenaExcelAddAttackCoolTime(b, fbsutils.Convert(t.AttackCoolTime, t.FlatBuffer.TableKey))
 	ConstArenaExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
@@ -213,16 +210,4 @@ func (t *ConstArenaExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstArenaExcelDto) FlatDataName() string {
 	return "ConstArenaExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

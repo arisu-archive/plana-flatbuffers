@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // EventContentExcelDto represents a FlatBuffers table.
@@ -24,8 +21,8 @@ func (t *EventContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContent"))
 	}
-	devNameOffset := b.CreateString(encodeDTOString(t.DevName, t.FlatBuffer.TableKey))
-	bgImagePathOffset := b.CreateString(encodeDTOString(t.BgImagePath, t.FlatBuffer.TableKey))
+	devNameOffset := b.CreateString(fbsutils.Encode(t.DevName, t.FlatBuffer.TableKey))
+	bgImagePathOffset := b.CreateString(fbsutils.Encode(t.BgImagePath, t.FlatBuffer.TableKey))
 	EventContentExcelStart(b)
 	EventContentExcelAddId(b, fbsutils.Convert(t.ID, t.FlatBuffer.TableKey))
 	EventContentExcelAddDevName(b, devNameOffset)
@@ -62,16 +59,4 @@ func (t *EventContentExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (EventContentExcelDto) FlatDataName() string {
 	return "EventContentExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

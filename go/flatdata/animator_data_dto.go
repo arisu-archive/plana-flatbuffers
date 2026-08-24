@@ -3,12 +3,9 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	"fmt"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // AnimatorDataDto represents a FlatBuffers table.
@@ -24,8 +21,8 @@ func (t *AnimatorDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorData"))
 	}
-	defaultStateNameOffset := b.CreateString(encodeDTOString(t.DefaultStateName, t.FlatBuffer.TableKey))
-	nameOffset := b.CreateString(encodeDTOString(t.Name, t.FlatBuffer.TableKey))
+	defaultStateNameOffset := b.CreateString(fbsutils.Encode(t.DefaultStateName, t.FlatBuffer.TableKey))
+	nameOffset := b.CreateString(fbsutils.Encode(t.Name, t.FlatBuffer.TableKey))
 	var dataListOffset flatbuffers.UOffsetT
 	dataListOffsets := make([]flatbuffers.UOffsetT, len(t.DataList))
 	for i := range t.DataList {
@@ -81,16 +78,4 @@ func (t *AnimatorDataDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (AnimatorDataDto) FlatDataName() string {
 	return "AnimatorData"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

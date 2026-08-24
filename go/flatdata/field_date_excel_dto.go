@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldDateExcelDto represents a FlatBuffers table.
@@ -36,10 +33,10 @@ func (t *FieldDateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDate"))
 	}
-	dateLocalizeKeyOffset := b.CreateString(encodeDTOString(t.DateLocalizeKey, t.FlatBuffer.TableKey))
-	characterIconPathOffset := b.CreateString(encodeDTOString(t.CharacterIconPath, t.FlatBuffer.TableKey))
-	dateResultBgPathOffset := b.CreateString(encodeDTOString(t.DateResultBgPath, t.FlatBuffer.TableKey))
-	dateResultSpinePathOffset := b.CreateString(encodeDTOString(t.DateResultSpinePath, t.FlatBuffer.TableKey))
+	dateLocalizeKeyOffset := b.CreateString(fbsutils.Encode(t.DateLocalizeKey, t.FlatBuffer.TableKey))
+	characterIconPathOffset := b.CreateString(fbsutils.Encode(t.CharacterIconPath, t.FlatBuffer.TableKey))
+	dateResultBgPathOffset := b.CreateString(fbsutils.Encode(t.DateResultBgPath, t.FlatBuffer.TableKey))
+	dateResultSpinePathOffset := b.CreateString(fbsutils.Encode(t.DateResultSpinePath, t.FlatBuffer.TableKey))
 	FieldDateExcelStart(b)
 	FieldDateExcelAddSeasonId(b, fbsutils.Convert(t.SeasonID, t.FlatBuffer.TableKey))
 	FieldDateExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
@@ -100,16 +97,4 @@ func (t *FieldDateExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldDateExcelDto) FlatDataName() string {
 	return "FieldDateExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

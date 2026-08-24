@@ -3,12 +3,9 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	"fmt"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // AniStateDataDto represents a FlatBuffers table.
@@ -33,12 +30,12 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
-	stateNameOffset := b.CreateString(encodeDTOString(t.StateName, t.FlatBuffer.TableKey))
-	statePrefixOffset := b.CreateString(encodeDTOString(t.StatePrefix, t.FlatBuffer.TableKey))
-	stateNameWithPrefixOffset := b.CreateString(encodeDTOString(t.StateNameWithPrefix, t.FlatBuffer.TableKey))
-	tagOffset := b.CreateString(encodeDTOString(t.Tag, t.FlatBuffer.TableKey))
-	speedParameterNameOffset := b.CreateString(encodeDTOString(t.SpeedParameterName, t.FlatBuffer.TableKey))
-	clipNameOffset := b.CreateString(encodeDTOString(t.ClipName, t.FlatBuffer.TableKey))
+	stateNameOffset := b.CreateString(fbsutils.Encode(t.StateName, t.FlatBuffer.TableKey))
+	statePrefixOffset := b.CreateString(fbsutils.Encode(t.StatePrefix, t.FlatBuffer.TableKey))
+	stateNameWithPrefixOffset := b.CreateString(fbsutils.Encode(t.StateNameWithPrefix, t.FlatBuffer.TableKey))
+	tagOffset := b.CreateString(fbsutils.Encode(t.Tag, t.FlatBuffer.TableKey))
+	speedParameterNameOffset := b.CreateString(fbsutils.Encode(t.SpeedParameterName, t.FlatBuffer.TableKey))
+	clipNameOffset := b.CreateString(fbsutils.Encode(t.ClipName, t.FlatBuffer.TableKey))
 	var eventsOffset flatbuffers.UOffsetT
 	eventsOffsets := make([]flatbuffers.UOffsetT, len(t.Events))
 	for i := range t.Events {
@@ -112,16 +109,4 @@ func (t *AniStateDataDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (AniStateDataDto) FlatDataName() string {
 	return "AniStateData"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstCombatExcelDto represents a FlatBuffers table.
@@ -111,15 +108,15 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
-	suppliesConditionStringIDOffset := b.CreateString(encodeDTOString(t.SuppliesConditionStringID, t.FlatBuffer.TableKey))
-	engageTimelinePathOffset := b.CreateString(encodeDTOString(t.EngageTimelinePath, t.FlatBuffer.TableKey))
-	engageWithSupporterTimelinePathOffset := b.CreateString(encodeDTOString(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
-	victoryTimelinePathOffset := b.CreateString(encodeDTOString(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
-	raidOpenScenarioIDOffset := b.CreateString(encodeDTOString(t.RaidOpenScenarioID, t.FlatBuffer.TableKey))
-	eliminateRaidOpenScenarioIDOffset := b.CreateString(encodeDTOString(t.EliminateRaidOpenScenarioID, t.FlatBuffer.TableKey))
-	echelonExtensionEngageTimelinePathOffset := b.CreateString(encodeDTOString(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey))
-	echelonExtensionEngageWithSupporterTimelinePathOffset := b.CreateString(encodeDTOString(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
-	echelonExtensionVictoryTimelinePathOffset := b.CreateString(encodeDTOString(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey))
+	suppliesConditionStringIDOffset := b.CreateString(fbsutils.Encode(t.SuppliesConditionStringID, t.FlatBuffer.TableKey))
+	engageTimelinePathOffset := b.CreateString(fbsutils.Encode(t.EngageTimelinePath, t.FlatBuffer.TableKey))
+	engageWithSupporterTimelinePathOffset := b.CreateString(fbsutils.Encode(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
+	victoryTimelinePathOffset := b.CreateString(fbsutils.Encode(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
+	raidOpenScenarioIDOffset := b.CreateString(fbsutils.Encode(t.RaidOpenScenarioID, t.FlatBuffer.TableKey))
+	eliminateRaidOpenScenarioIDOffset := b.CreateString(fbsutils.Encode(t.EliminateRaidOpenScenarioID, t.FlatBuffer.TableKey))
+	echelonExtensionEngageTimelinePathOffset := b.CreateString(fbsutils.Encode(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey))
+	echelonExtensionEngageWithSupporterTimelinePathOffset := b.CreateString(fbsutils.Encode(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
+	echelonExtensionVictoryTimelinePathOffset := b.CreateString(fbsutils.Encode(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey))
 	ConstCombatExcelStart(b)
 	ConstCombatExcelAddSkillHandCount(b, fbsutils.Convert(t.SkillHandCount, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddDyingTime(b, fbsutils.Convert(t.DyingTime, t.FlatBuffer.TableKey))
@@ -330,16 +327,4 @@ func (t *ConstCombatExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstCombatExcelDto) FlatDataName() string {
 	return "ConstCombatExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

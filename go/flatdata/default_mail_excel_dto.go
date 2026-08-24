@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // DefaultMailExcelDto represents a FlatBuffers table.
@@ -28,8 +25,8 @@ func (t *DefaultMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
-	mailSendPeriodFromOffset := b.CreateString(encodeDTOString(t.MailSendPeriodFrom, t.FlatBuffer.TableKey))
-	mailSendPeriodToOffset := b.CreateString(encodeDTOString(t.MailSendPeriodTo, t.FlatBuffer.TableKey))
+	mailSendPeriodFromOffset := b.CreateString(fbsutils.Encode(t.MailSendPeriodFrom, t.FlatBuffer.TableKey))
+	mailSendPeriodToOffset := b.CreateString(fbsutils.Encode(t.MailSendPeriodTo, t.FlatBuffer.TableKey))
 	DefaultMailExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := len(t.RewardParcelType) - 1; i >= 0; i-- {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[i]), t.FlatBuffer.TableKey))
@@ -98,16 +95,4 @@ func (t *DefaultMailExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (DefaultMailExcelDto) FlatDataName() string {
 	return "DefaultMailExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

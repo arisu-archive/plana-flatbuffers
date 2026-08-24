@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstKeyMappingExcelDto represents a FlatBuffers table.
@@ -37,8 +34,8 @@ func (t *ConstKeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstKeyMapping"))
 	}
-	removeKeycodeWordOffset := b.CreateString(encodeDTOString(t.RemoveKeycodeWord, t.FlatBuffer.TableKey))
-	tutorialDialogTouchKeyOffset := b.CreateString(encodeDTOString(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
+	removeKeycodeWordOffset := b.CreateString(fbsutils.Encode(t.RemoveKeycodeWord, t.FlatBuffer.TableKey))
+	tutorialDialogTouchKeyOffset := b.CreateString(fbsutils.Encode(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelStart(b)
 	ConstKeyMappingExcelAddDragSensitivity(b, fbsutils.Convert(t.DragSensitivity, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddScrollWheelFactor(b, fbsutils.Convert(t.ScrollWheelFactor, t.FlatBuffer.TableKey))
@@ -101,16 +98,4 @@ func (t *ConstKeyMappingExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstKeyMappingExcelDto) FlatDataName() string {
 	return "ConstKeyMappingExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

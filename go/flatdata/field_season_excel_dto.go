@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldSeasonExcelDto represents a FlatBuffers table.
@@ -33,11 +30,11 @@ func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
-	startDateOffset := b.CreateString(encodeDTOString(t.StartDate, t.FlatBuffer.TableKey))
-	endDateOffset := b.CreateString(encodeDTOString(t.EndDate, t.FlatBuffer.TableKey))
-	masteryImagePathOffset := b.CreateString(encodeDTOString(t.MasteryImagePath, t.FlatBuffer.TableKey))
-	fieldLobbyTitleImagePathOffset := b.CreateString(encodeDTOString(t.FieldLobbyTitleImagePath, t.FlatBuffer.TableKey))
-	keywordLogoImagePathOffset := b.CreateString(encodeDTOString(t.KeywordLogoImagePath, t.FlatBuffer.TableKey))
+	startDateOffset := b.CreateString(fbsutils.Encode(t.StartDate, t.FlatBuffer.TableKey))
+	endDateOffset := b.CreateString(fbsutils.Encode(t.EndDate, t.FlatBuffer.TableKey))
+	masteryImagePathOffset := b.CreateString(fbsutils.Encode(t.MasteryImagePath, t.FlatBuffer.TableKey))
+	fieldLobbyTitleImagePathOffset := b.CreateString(fbsutils.Encode(t.FieldLobbyTitleImagePath, t.FlatBuffer.TableKey))
+	keywordLogoImagePathOffset := b.CreateString(fbsutils.Encode(t.KeywordLogoImagePath, t.FlatBuffer.TableKey))
 	FieldSeasonExcelStart(b)
 	FieldSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueID, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddFieldContentType(b, FieldContentType(fbsutils.Convert(int32(t.FieldContentType), t.FlatBuffer.TableKey)))
@@ -92,16 +89,4 @@ func (t *FieldSeasonExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldSeasonExcelDto) FlatDataName() string {
 	return "FieldSeasonExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

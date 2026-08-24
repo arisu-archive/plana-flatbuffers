@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldContentStageExcelDto represents a FlatBuffers table.
@@ -41,7 +38,7 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
-	nameOffset := b.CreateString(encodeDTOString(t.Name, t.FlatBuffer.TableKey))
+	nameOffset := b.CreateString(fbsutils.Encode(t.Name, t.FlatBuffer.TableKey))
 	FieldContentStageExcelStartStarGoalVector(b, len(t.StarGoal))
 	for i := len(t.StarGoal) - 1; i >= 0; i-- {
 		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[i]), t.FlatBuffer.TableKey))
@@ -128,16 +125,4 @@ func (t *FieldContentStageExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldContentStageExcelDto) FlatDataName() string {
 	return "FieldContentStageExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

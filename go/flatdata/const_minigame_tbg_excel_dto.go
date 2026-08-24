@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstMinigameTBGExcelDto represents a FlatBuffers table.
@@ -41,12 +38,12 @@ func (t *ConstMinigameTBGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBG"))
 	}
-	aniAllyBattleAttackOffset := b.CreateString(encodeDTOString(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
-	effectAllyBattleAttackOffset := b.CreateString(encodeDTOString(t.EffectAllyBattleAttack, t.FlatBuffer.TableKey))
-	effectAllyBattleDamageOffset := b.CreateString(encodeDTOString(t.EffectAllyBattleDamage, t.FlatBuffer.TableKey))
-	aniEnemyBattleAttackOffset := b.CreateString(encodeDTOString(t.AniEnemyBattleAttack, t.FlatBuffer.TableKey))
-	effectEnemyBattleAttackOffset := b.CreateString(encodeDTOString(t.EffectEnemyBattleAttack, t.FlatBuffer.TableKey))
-	effectEnemyBattleDamageOffset := b.CreateString(encodeDTOString(t.EffectEnemyBattleDamage, t.FlatBuffer.TableKey))
+	aniAllyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.AniAllyBattleAttack, t.FlatBuffer.TableKey))
+	effectAllyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.EffectAllyBattleAttack, t.FlatBuffer.TableKey))
+	effectAllyBattleDamageOffset := b.CreateString(fbsutils.Encode(t.EffectAllyBattleDamage, t.FlatBuffer.TableKey))
+	aniEnemyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.AniEnemyBattleAttack, t.FlatBuffer.TableKey))
+	effectEnemyBattleAttackOffset := b.CreateString(fbsutils.Encode(t.EffectEnemyBattleAttack, t.FlatBuffer.TableKey))
+	effectEnemyBattleDamageOffset := b.CreateString(fbsutils.Encode(t.EffectEnemyBattleDamage, t.FlatBuffer.TableKey))
 	ConstMinigameTBGExcelStart(b)
 	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetLeft(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetLeft, t.FlatBuffer.TableKey))
 	ConstMinigameTBGExcelAddConquestMapBoundaryOffsetRight(b, fbsutils.Convert(t.ConquestMapBoundaryOffsetRight, t.FlatBuffer.TableKey))
@@ -117,16 +114,4 @@ func (t *ConstMinigameTBGExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstMinigameTBGExcelDto) FlatDataName() string {
 	return "ConstMinigameTBGExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

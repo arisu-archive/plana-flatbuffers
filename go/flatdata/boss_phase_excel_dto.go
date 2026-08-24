@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // BossPhaseExcelDto represents a FlatBuffers table.
@@ -24,7 +21,7 @@ func (t *BossPhaseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
-	normalAttackSkillUniqueNameOffset := b.CreateString(encodeDTOString(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey))
+	normalAttackSkillUniqueNameOffset := b.CreateString(fbsutils.Encode(t.NormalAttackSkillUniqueName, t.FlatBuffer.TableKey))
 	BossPhaseExcelStartUseExSkillVector(b, len(t.UseExSkill))
 	for i := len(t.UseExSkill) - 1; i >= 0; i-- {
 		b.PrependBool(t.UseExSkill[i])
@@ -69,16 +66,4 @@ func (t *BossPhaseExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (BossPhaseExcelDto) FlatDataName() string {
 	return "BossPhaseExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

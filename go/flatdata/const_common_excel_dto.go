@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstCommonExcelDto represents a FlatBuffers table.
@@ -240,8 +237,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.CraftBaseGoldRequired[i], t.FlatBuffer.TableKey))
 	}
 	craftBaseGoldRequiredOffset := b.EndVector(len(t.CraftBaseGoldRequired))
-	uILabelCharacterWrapOffset := b.CreateString(encodeDTOString(t.UILabelCharacterWrap, t.FlatBuffer.TableKey))
-	timeAttackDungeonScenarioIDOffset := b.CreateString(encodeDTOString(t.TimeAttackDungeonScenarioID, t.FlatBuffer.TableKey))
+	uILabelCharacterWrapOffset := b.CreateString(fbsutils.Encode(t.UILabelCharacterWrap, t.FlatBuffer.TableKey))
+	timeAttackDungeonScenarioIDOffset := b.CreateString(fbsutils.Encode(t.TimeAttackDungeonScenarioID, t.FlatBuffer.TableKey))
 	ConstCommonExcelStartCommonFavorItemTagsVector(b, len(t.CommonFavorItemTags))
 	for i := len(t.CommonFavorItemTags) - 1; i >= 0; i-- {
 		b.PrependInt32(fbsutils.Convert(int32(t.CommonFavorItemTags[i]), t.FlatBuffer.TableKey))
@@ -257,8 +254,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2[i], t.FlatBuffer.TableKey))
 	}
 	plusMaxApMasterCoinPerWeekProductMonthlyId2Offset := b.EndVector(len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2))
-	birthdayMailStartDateOffset := b.CreateString(encodeDTOString(t.BirthdayMailStartDate, t.FlatBuffer.TableKey))
-	battlePassExpIconPathOffset := b.CreateString(encodeDTOString(t.BattlePassExpIconPath, t.FlatBuffer.TableKey))
+	birthdayMailStartDateOffset := b.CreateString(fbsutils.Encode(t.BirthdayMailStartDate, t.FlatBuffer.TableKey))
+	battlePassExpIconPathOffset := b.CreateString(fbsutils.Encode(t.BattlePassExpIconPath, t.FlatBuffer.TableKey))
 	ConstCommonExcelStart(b)
 	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
@@ -708,16 +705,4 @@ func (t *ConstCommonExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstCommonExcelDto) FlatDataName() string {
 	return "ConstCommonExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

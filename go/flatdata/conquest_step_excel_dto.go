@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConquestStepExcelDto represents a FlatBuffers table.
@@ -32,13 +29,13 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
-	stepGoalLocalizeOffset := b.CreateString(encodeDTOString(t.StepGoalLocalize, t.FlatBuffer.TableKey))
+	stepGoalLocalizeOffset := b.CreateString(fbsutils.Encode(t.StepGoalLocalize, t.FlatBuffer.TableKey))
 	ConquestStepExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitID))
 	for i := len(t.UnexpectedEventUnitID) - 1; i >= 0; i-- {
 		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitID[i], t.FlatBuffer.TableKey))
 	}
 	unexpectedEventUnitIDOffset := b.EndVector(len(t.UnexpectedEventUnitID))
-	unexpectedEventPrefabOffset := b.CreateString(encodeDTOString(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey))
+	unexpectedEventPrefabOffset := b.CreateString(fbsutils.Encode(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey))
 	ConquestStepExcelStart(b)
 	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentID, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddMapDifficulty(b, StageDifficulty(fbsutils.Convert(int32(t.MapDifficulty), t.FlatBuffer.TableKey)))
@@ -94,16 +91,4 @@ func (t *ConquestStepExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConquestStepExcelDto) FlatDataName() string {
 	return "ConquestStepExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

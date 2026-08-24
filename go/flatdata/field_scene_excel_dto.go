@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // FieldSceneExcelDto represents a FlatBuffers table.
@@ -32,8 +29,8 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
-	artLevelPathOffset := b.CreateString(encodeDTOString(t.ArtLevelPath, t.FlatBuffer.TableKey))
-	designLevelPathOffset := b.CreateString(encodeDTOString(t.DesignLevelPath, t.FlatBuffer.TableKey))
+	artLevelPathOffset := b.CreateString(fbsutils.Encode(t.ArtLevelPath, t.FlatBuffer.TableKey))
+	designLevelPathOffset := b.CreateString(fbsutils.Encode(t.DesignLevelPath, t.FlatBuffer.TableKey))
 	FieldSceneExcelStartConditionalBgmQuestIdVector(b, len(t.ConditionalBgmQuestID))
 	for i := len(t.ConditionalBgmQuestID) - 1; i >= 0; i-- {
 		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmQuestID[i], t.FlatBuffer.TableKey))
@@ -134,16 +131,4 @@ func (t *FieldSceneExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (FieldSceneExcelDto) FlatDataName() string {
 	return "FieldSceneExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }

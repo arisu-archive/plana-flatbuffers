@@ -3,11 +3,8 @@
 package flatdata
 
 import (
-	"encoding/base64"
-	"encoding/binary"
 	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 	flatbuffers "github.com/google/flatbuffers/go"
-	"unicode/utf16"
 )
 
 // ConstNewbieContentExcelDto represents a FlatBuffers table.
@@ -26,8 +23,8 @@ func (t *ConstNewbieContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContent"))
 	}
-	newbieGachaReleaseDateOffset := b.CreateString(encodeDTOString(t.NewbieGachaReleaseDate, t.FlatBuffer.TableKey))
-	newbieAttendanceReleaseDateOffset := b.CreateString(encodeDTOString(t.NewbieAttendanceReleaseDate, t.FlatBuffer.TableKey))
+	newbieGachaReleaseDateOffset := b.CreateString(fbsutils.Encode(t.NewbieGachaReleaseDate, t.FlatBuffer.TableKey))
+	newbieAttendanceReleaseDateOffset := b.CreateString(fbsutils.Encode(t.NewbieAttendanceReleaseDate, t.FlatBuffer.TableKey))
 	ConstNewbieContentExcelStart(b)
 	ConstNewbieContentExcelAddNewbieGachaReleaseDate(b, newbieGachaReleaseDateOffset)
 	ConstNewbieContentExcelAddNewbieGachaCheckDays(b, fbsutils.Convert(t.NewbieGachaCheckDays, t.FlatBuffer.TableKey))
@@ -68,16 +65,4 @@ func (t *ConstNewbieContentExcelDto) Unmarshal(data []byte) error {
 // FlatDataName returns the FlatBuffers table name.
 func (ConstNewbieContentExcelDto) FlatDataName() string {
 	return "ConstNewbieContentExcel"
-}
-
-func encodeDTOString(value string, key []byte) string {
-	if value == "" {
-		return ""
-	}
-	codeUnits := utf16.Encode([]rune(value))
-	raw := make([]byte, len(codeUnits)*2)
-	for i := range codeUnits {
-		binary.LittleEndian.PutUint16(raw[i*2:], codeUnits[i])
-	}
-	return base64.StdEncoding.EncodeToString(fbsutils.XorBytes(raw, key))
 }
