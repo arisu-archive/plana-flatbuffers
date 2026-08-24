@@ -399,3 +399,6 @@ $RECYCLE.BIN/
 # Ignore tmp folder
 tmp/
 output/
+
+# uv resolves dependencies locally; libraries do not commit the lockfile.
+uv.lock

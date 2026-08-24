@@ -1,0 +1,30 @@
+namespace TestData;
+
+enum Kind : int {
+    Unknown = 0,
+    Known = 1
+}
+
+table Child {
+    amount: int;
+}
+
+table ObjectApiSample {
+    count: int;
+    total: long;
+    unsignedCount: uint;
+    bigCount: ulong;
+    smallCount: byte;
+    ratio: float;
+    preciseRatio: double;
+    title: string;
+    enabled: bool;
+    self: bool;
+    kind: Kind;
+    values: [int];
+    labels: [string];
+    child: Child;
+    children: [Child];
+}
+
+root_type ObjectApiSample;

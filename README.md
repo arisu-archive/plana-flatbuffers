@@ -1,71 +1,137 @@
-# Plana Flatbuffers
+# Plana FlatBuffers
 
-This repository contains the Flatbuffers schema and generated code for the Plana project, which processes Plana game data.
+[![Python Package](https://github.com/arisu-archive/plana-flatbuffers/actions/workflows/python.yml/badge.svg)](https://github.com/arisu-archive/plana-flatbuffers/actions/workflows/python.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/arisu-archive/plana-flatbuffers.svg)](https://pkg.go.dev/github.com/arisu-archive/plana-flatbuffers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Overview
+Generated FlatBuffers schemas and ready-to-use Go and Python bindings for Plana game data.
 
-Plana Flatbuffers is a tool that generates and maintains Flatbuffers schema definitions for Plana game data. It automatically tracks game version updates and generates corresponding schema files.
+## Contents
 
-## Prerequisites
+- [Features](#features)
+- [Installation](#installation)
+- [Python quickstart](#python-quickstart)
+- [Development](#development)
+- [Regenerating schemas](#regenerating-schemas)
+- [Versioning](#versioning)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [Go](https://go.dev/dl/) ≥ 1.22
-- [flatc](https://github.com/google/flatbuffers/tree/master/flatc) ≥ 1.69
+## Features
 
-## Generated Code
+- FlatBuffers schema definitions for Plana data
+- Pre-generated Go bindings in the `flatdata` and `excel` packages
+- Pre-generated Python bindings in the `FlatData` and `MX.Data.Excel` packages
+- Python object APIs with byte serialization helpers
+- Automated schema updates and GitHub releases
 
-This repository provides:
-- FlatBuffers schema files (`.fbs`)
-- Pre-generated Go code with `flatdata` namespace
+## Installation
 
-You can directly use these generated files in your projects without needing to compile the schemas yourself.
+### Python with uv
 
-## Using the Generated Code
+```bash
+uv add git+https://github.com/arisu-archive/plana-flatbuffers --tag v0.14.0
+```
 
-### For Go Projects
+Use `v0.14.0` or a newer release tag. The older `v0.13.0` tag predates the
+complete generated Python package and cannot be installed as a Python package.
+uv resolves the tag to an immutable commit in the consuming project's lockfile.
 
-1. Import the generated code in your Go project:
+### Go
+
+```bash
+go get github.com/arisu-archive/plana-flatbuffers
+```
+
+Import the generated Go bindings from:
+
 ```go
 import "github.com/arisu-archive/plana-flatbuffers/go/flatdata"
 ```
 
-## Development Prerequisites
+## Python quickstart
 
-If you want to contribute or regenerate the code:
+```python
+from FlatData.BlendInfo import BlendInfoT
 
-- [flatc](https://github.com/google/flatbuffers/tree/master/flatc) ≥ 1.69
+original = BlendInfoT(from_=11, to=29, blend=0.5)
+payload = original.to_bytes()
+restored = BlendInfoT.from_bytes(payload)
 
-## Project Structure
-
-```
-.
-├── .schema/          # FlatBuffers schema files
-├── .scripts/         # Utility scripts for code generation
-├── go/              # Generated Go code
-└── version.txt      # Current APK version tracker
+assert restored.from_ == 11
+assert restored.to == 29
+assert restored.blend == 0.5
 ```
 
-## Automatic Updates
+Excel bindings use the generated `MX.Data.Excel` namespace:
 
-This repository features an automated GitHub Actions workflow that:
-1. Monitors the Game APK updates
-2. Downloads and processes the latest game data
-3. Generates updated schema files
-4. Updates the generated code
-5. Creates a pull request with the changes
+```python
+from MX.Data.Excel.WorldRaidStageRewardExcel import WorldRaidStageRewardExcelT
+```
+
+## Development
+
+Requirements:
+
+- [uv](https://docs.astral.sh/uv/)
+- [Go](https://go.dev/dl/) 1.22 or newer for Go tooling and regeneration
+- Bash for the generation scripts
+
+Set up the Python project, run its tests, and build its distributions:
+
+```bash
+uv sync
+uv run python -B -m unittest discover -s tests/python -v
+uv build --no-sources
+```
+
+`uv sync` creates a local resolution as needed. This library intentionally does
+not commit `uv.lock`; applications consuming it resolve and lock their own
+dependency graph.
+
+Run the Go tests separately:
+
+```bash
+go test ./...
+```
+
+## Regenerating schemas
+
+The generated schema and language bindings live in:
+
+```text
+.schema/   FlatBuffers schemas
+go/        Go bindings
+python/    Python bindings
+```
+
+The automation in `.github/workflows/generate-schema.yml` downloads the latest
+supported game data, regenerates the schemas, compiles both language bindings,
+and opens a reviewable pull request. Some generator dependencies are private,
+so local regeneration requires the corresponding repository access.
+
+Generated source files should not be edited manually.
+
+## Versioning
+
+The project has two intentionally separate versions:
+
+- `pyproject.toml` and `.release-please-manifest.json` contain the package and
+  GitHub release version.
+- `version.txt` contains the APK/schema source version used by generation
+  automation.
+
+Release Please updates the package version and creates GitHub release tags.
+Python consumers install from those tags. Schema-update automation updates the
+APK/schema version.
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Fork the repository and create a focused branch.
+2. Make the change without manually editing generated files.
+3. Run the relevant Python and Go tests.
+4. Open a pull request describing the behavior and verification performed.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- This project is part of the Plana ecosystem
-- Uses Google's FlatBuffers for efficient serialization
+Plana FlatBuffers is available under the [MIT License](LICENSE).
