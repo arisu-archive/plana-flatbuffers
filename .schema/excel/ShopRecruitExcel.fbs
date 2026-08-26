@@ -1,6 +1,7 @@
 include "GachaDisplayTag.fbs";
 include "PurchaseCountResetType.fbs";
 include "ShopCategoryType.fbs";
+include "WishListConfig.fbs";
 
 namespace MX.Data.Excel;
 
@@ -42,7 +43,7 @@ table ShopRecruitExcel {
     half_stack_display_item_id: long;
     half_stack_gacha_group_id: long;
     full_stack_gacha_group_id: long;
-    wish_list_on_off: bool;
+    wish_list_config: WishListConfig;
     wish_list_half_stack_gacha_group_id: long;
     wish_list_full_stack_gacha_group_id: long;
 }

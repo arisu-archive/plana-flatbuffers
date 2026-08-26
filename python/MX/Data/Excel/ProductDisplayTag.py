@@ -9,3 +9,4 @@ class ProductDisplayTag(object):
     Sale = 3
     Limited = 4
     Free = 5
+    Recommend = 6

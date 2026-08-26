@@ -40,6 +40,7 @@ type TacticalRelayStageExcelDto struct {
 	FavorCollectionScoreBonusID   int64                  `json:"favor_collection_score_bonus_id"`
 	EchelonExtensionType          EchelonExtensionType   `json:"echelon_extension_type"`
 	AssistSlot                    int32                  `json:"assist_slot"`
+	StageHint                     uint32                 `json:"stage_hint"`
 	WaveInfoTipIconPath           []string               `json:"wave_info_tip_icon_path"`
 	WaveInfoTipLocalizeEtcID      []uint32               `json:"wave_info_tip_localize_etc_id"`
 }
@@ -109,6 +110,7 @@ func (t *TacticalRelayStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	TacticalRelayStageExcelAddFavorCollectionScoreBonusId(b, t.FavorCollectionScoreBonusID)
 	TacticalRelayStageExcelAddEchelonExtensionType(b, t.EchelonExtensionType)
 	TacticalRelayStageExcelAddAssistSlot(b, t.AssistSlot)
+	TacticalRelayStageExcelAddStageHint(b, t.StageHint)
 	TacticalRelayStageExcelAddWaveInfoTipIconPath(b, waveInfoTipIconPathOffset)
 	TacticalRelayStageExcelAddWaveInfoTipLocalizeEtcId(b, waveInfoTipLocalizeEtcIDOffset)
 	return TacticalRelayStageExcelEnd(b)
@@ -162,6 +164,7 @@ func (t *TacticalRelayStageExcelDto) UnmarshalMessage(e *TacticalRelayStageExcel
 	t.FavorCollectionScoreBonusID = e.FavorCollectionScoreBonusId()
 	t.EchelonExtensionType = e.EchelonExtensionType()
 	t.AssistSlot = e.AssistSlot()
+	t.StageHint = e.StageHint()
 	t.WaveInfoTipIconPath = make([]string, e.WaveInfoTipIconPathLength())
 	for i := 0; i < e.WaveInfoTipIconPathLength(); i++ {
 		t.WaveInfoTipIconPath[i] = string(e.WaveInfoTipIconPath(i))

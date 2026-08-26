@@ -109,43 +109,85 @@ func (rcv *EventContentSeasonExcel) MutateOpenConditionContent(n OpenConditionCo
 	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *EventContentSeasonExcel) EventDisplay() bool {
+func (rcv *EventContentSeasonExcel) EventCampaignStageId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) EventCampaignStageIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateEventCampaignStageId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
 
-func (rcv *EventContentSeasonExcel) MutateEventDisplay(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *EventContentSeasonExcel) IconOrder() int32 {
+func (rcv *EventContentSeasonExcel) ScenarioModeId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentSeasonExcel) MutateIconOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+func (rcv *EventContentSeasonExcel) ScenarioModeIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *EventContentSeasonExcel) SubEventType() SubEventType {
+func (rcv *EventContentSeasonExcel) MutateScenarioModeId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EventContentSeasonExcel) ScenarioGroupId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return SubEventType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentSeasonExcel) MutateSubEventType(n SubEventType) bool {
-	return rcv._tab.MutateInt32Slot(20, int32(n))
+func (rcv *EventContentSeasonExcel) ScenarioGroupIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *EventContentSeasonExcel) SubEvent() bool {
+func (rcv *EventContentSeasonExcel) MutateScenarioGroupId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EventContentSeasonExcel) EventDisplay() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -153,12 +195,48 @@ func (rcv *EventContentSeasonExcel) SubEvent() bool {
 	return false
 }
 
-func (rcv *EventContentSeasonExcel) MutateSubEvent(n bool) bool {
+func (rcv *EventContentSeasonExcel) MutateEventDisplay(n bool) bool {
 	return rcv._tab.MutateBoolSlot(22, n)
 }
 
-func (rcv *EventContentSeasonExcel) EventItemId() int64 {
+func (rcv *EventContentSeasonExcel) IconOrder() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateIconOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
+}
+
+func (rcv *EventContentSeasonExcel) SubEventType() SubEventType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return SubEventType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateSubEventType(n SubEventType) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *EventContentSeasonExcel) SubEvent() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentSeasonExcel) MutateSubEvent(n bool) bool {
+	return rcv._tab.MutateBoolSlot(28, n)
+}
+
+func (rcv *EventContentSeasonExcel) EventItemId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -166,11 +244,11 @@ func (rcv *EventContentSeasonExcel) EventItemId() int64 {
 }
 
 func (rcv *EventContentSeasonExcel) MutateEventItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
+	return rcv._tab.MutateInt64Slot(30, n)
 }
 
 func (rcv *EventContentSeasonExcel) MainEventId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -178,11 +256,11 @@ func (rcv *EventContentSeasonExcel) MainEventId() int64 {
 }
 
 func (rcv *EventContentSeasonExcel) MutateMainEventId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
+	return rcv._tab.MutateInt64Slot(32, n)
 }
 
 func (rcv *EventContentSeasonExcel) EventChangeOpenCondition() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -190,34 +268,10 @@ func (rcv *EventContentSeasonExcel) EventChangeOpenCondition() int64 {
 }
 
 func (rcv *EventContentSeasonExcel) MutateEventChangeOpenCondition(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+	return rcv._tab.MutateInt64Slot(34, n)
 }
 
 func (rcv *EventContentSeasonExcel) BeforehandExposedTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentSeasonExcel) EventContentOpenTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentSeasonExcel) EventContentCloseNoteTime() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentSeasonExcel) EventContentCloseTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -225,7 +279,7 @@ func (rcv *EventContentSeasonExcel) EventContentCloseTime() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) ExtensionTime() []byte {
+func (rcv *EventContentSeasonExcel) EventContentOpenTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -233,7 +287,7 @@ func (rcv *EventContentSeasonExcel) ExtensionTime() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) MainIconParcelPath() []byte {
+func (rcv *EventContentSeasonExcel) EventContentCloseNoteTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -241,7 +295,7 @@ func (rcv *EventContentSeasonExcel) MainIconParcelPath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) SubIconParcelPath() []byte {
+func (rcv *EventContentSeasonExcel) EventContentCloseTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -249,7 +303,7 @@ func (rcv *EventContentSeasonExcel) SubIconParcelPath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) BeforehandBgImagePath() []byte {
+func (rcv *EventContentSeasonExcel) ExtensionTime() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -257,8 +311,32 @@ func (rcv *EventContentSeasonExcel) BeforehandBgImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) MinigamePrologScenarioGroupId() int64 {
+func (rcv *EventContentSeasonExcel) MainIconParcelPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) SubIconParcelPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) BeforehandBgImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) MinigamePrologScenarioGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -266,11 +344,11 @@ func (rcv *EventContentSeasonExcel) MinigamePrologScenarioGroupId() int64 {
 }
 
 func (rcv *EventContentSeasonExcel) MutateMinigamePrologScenarioGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
+	return rcv._tab.MutateInt64Slot(52, n)
 }
 
 func (rcv *EventContentSeasonExcel) BeforehandScenarioGroupId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -279,7 +357,7 @@ func (rcv *EventContentSeasonExcel) BeforehandScenarioGroupId(j int) int64 {
 }
 
 func (rcv *EventContentSeasonExcel) BeforehandScenarioGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -287,7 +365,7 @@ func (rcv *EventContentSeasonExcel) BeforehandScenarioGroupIdLength() int {
 }
 
 func (rcv *EventContentSeasonExcel) MutateBeforehandScenarioGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -296,34 +374,6 @@ func (rcv *EventContentSeasonExcel) MutateBeforehandScenarioGroupId(j int, n int
 }
 
 func (rcv *EventContentSeasonExcel) MainBannerImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentSeasonExcel) MainBgImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentSeasonExcel) ShiftTriggerStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentSeasonExcel) MutateShiftTriggerStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(54, n)
-}
-
-func (rcv *EventContentSeasonExcel) ShiftMainBgImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -331,7 +381,7 @@ func (rcv *EventContentSeasonExcel) ShiftMainBgImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) MinigameLobbyPrefabName() []byte {
+func (rcv *EventContentSeasonExcel) MainBgImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -339,15 +389,19 @@ func (rcv *EventContentSeasonExcel) MinigameLobbyPrefabName() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) MinigameVictoryPrefabName() []byte {
+func (rcv *EventContentSeasonExcel) ShiftTriggerStageId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *EventContentSeasonExcel) MinigameMissionBgPrefabName() []byte {
+func (rcv *EventContentSeasonExcel) MutateShiftTriggerStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(60, n)
+}
+
+func (rcv *EventContentSeasonExcel) ShiftMainBgImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -355,7 +409,7 @@ func (rcv *EventContentSeasonExcel) MinigameMissionBgPrefabName() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) MinigameMissionBgImagePath() []byte {
+func (rcv *EventContentSeasonExcel) MinigameLobbyPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -363,7 +417,7 @@ func (rcv *EventContentSeasonExcel) MinigameMissionBgImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) CardBgImagePath() []byte {
+func (rcv *EventContentSeasonExcel) MinigameVictoryPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -371,8 +425,32 @@ func (rcv *EventContentSeasonExcel) CardBgImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentSeasonExcel) EventAssist() bool {
+func (rcv *EventContentSeasonExcel) MinigameMissionBgPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) MinigameMissionBgImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) CardBgImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentSeasonExcel) EventAssist() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -380,11 +458,11 @@ func (rcv *EventContentSeasonExcel) EventAssist() bool {
 }
 
 func (rcv *EventContentSeasonExcel) MutateEventAssist(n bool) bool {
-	return rcv._tab.MutateBoolSlot(68, n)
+	return rcv._tab.MutateBoolSlot(74, n)
 }
 
 func (rcv *EventContentSeasonExcel) EventContentReleaseType() EventContentReleaseType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return EventContentReleaseType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -392,46 +470,10 @@ func (rcv *EventContentSeasonExcel) EventContentReleaseType() EventContentReleas
 }
 
 func (rcv *EventContentSeasonExcel) MutateEventContentReleaseType(n EventContentReleaseType) bool {
-	return rcv._tab.MutateInt32Slot(70, int32(n))
+	return rcv._tab.MutateInt32Slot(76, int32(n))
 }
 
 func (rcv *EventContentSeasonExcel) EventContentStageRewardIdPermanent() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentSeasonExcel) MutateEventContentStageRewardIdPermanent(n int64) bool {
-	return rcv._tab.MutateInt64Slot(72, n)
-}
-
-func (rcv *EventContentSeasonExcel) RewardTagPermanent() RewardTag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
-	if o != 0 {
-		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentSeasonExcel) MutateRewardTagPermanent(n RewardTag) bool {
-	return rcv._tab.MutateInt32Slot(74, int32(n))
-}
-
-func (rcv *EventContentSeasonExcel) MiniEventShortCutScenarioModeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentSeasonExcel) MutateMiniEventShortCutScenarioModeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(76, n)
-}
-
-func (rcv *EventContentSeasonExcel) ScenarioContentCollectionGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -439,12 +481,48 @@ func (rcv *EventContentSeasonExcel) ScenarioContentCollectionGroupId() int64 {
 	return 0
 }
 
-func (rcv *EventContentSeasonExcel) MutateScenarioContentCollectionGroupId(n int64) bool {
+func (rcv *EventContentSeasonExcel) MutateEventContentStageRewardIdPermanent(n int64) bool {
 	return rcv._tab.MutateInt64Slot(78, n)
 }
 
+func (rcv *EventContentSeasonExcel) RewardTagPermanent() RewardTag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
+	if o != 0 {
+		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateRewardTagPermanent(n RewardTag) bool {
+	return rcv._tab.MutateInt32Slot(80, int32(n))
+}
+
+func (rcv *EventContentSeasonExcel) MiniEventShortCutScenarioModeId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateMiniEventShortCutScenarioModeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(82, n)
+}
+
+func (rcv *EventContentSeasonExcel) ScenarioContentCollectionGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSeasonExcel) MutateScenarioContentCollectionGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(84, n)
+}
+
 func EventContentSeasonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(38)
+	builder.StartObject(41)
 }
 func EventContentSeasonExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -464,104 +542,122 @@ func EventContentSeasonExcelAddEventContentType(builder *flatbuffers.Builder, ev
 func EventContentSeasonExcelAddOpenConditionContent(builder *flatbuffers.Builder, openConditionContent OpenConditionContent) {
 	builder.PrependInt32Slot(5, int32(openConditionContent), 0)
 }
+func EventContentSeasonExcelAddEventCampaignStageId(builder *flatbuffers.Builder, eventCampaignStageId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(eventCampaignStageId), 0)
+}
+func EventContentSeasonExcelStartEventCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentSeasonExcelAddScenarioModeId(builder *flatbuffers.Builder, scenarioModeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(scenarioModeId), 0)
+}
+func EventContentSeasonExcelStartScenarioModeIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentSeasonExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(scenarioGroupId), 0)
+}
+func EventContentSeasonExcelStartScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
 func EventContentSeasonExcelAddEventDisplay(builder *flatbuffers.Builder, eventDisplay bool) {
-	builder.PrependBoolSlot(6, eventDisplay, false)
+	builder.PrependBoolSlot(9, eventDisplay, false)
 }
 func EventContentSeasonExcelAddIconOrder(builder *flatbuffers.Builder, iconOrder int32) {
-	builder.PrependInt32Slot(7, iconOrder, 0)
+	builder.PrependInt32Slot(10, iconOrder, 0)
 }
 func EventContentSeasonExcelAddSubEventType(builder *flatbuffers.Builder, subEventType SubEventType) {
-	builder.PrependInt32Slot(8, int32(subEventType), 0)
+	builder.PrependInt32Slot(11, int32(subEventType), 0)
 }
 func EventContentSeasonExcelAddSubEvent(builder *flatbuffers.Builder, subEvent bool) {
-	builder.PrependBoolSlot(9, subEvent, false)
+	builder.PrependBoolSlot(12, subEvent, false)
 }
 func EventContentSeasonExcelAddEventItemId(builder *flatbuffers.Builder, eventItemId int64) {
-	builder.PrependInt64Slot(10, eventItemId, 0)
+	builder.PrependInt64Slot(13, eventItemId, 0)
 }
 func EventContentSeasonExcelAddMainEventId(builder *flatbuffers.Builder, mainEventId int64) {
-	builder.PrependInt64Slot(11, mainEventId, 0)
+	builder.PrependInt64Slot(14, mainEventId, 0)
 }
 func EventContentSeasonExcelAddEventChangeOpenCondition(builder *flatbuffers.Builder, eventChangeOpenCondition int64) {
-	builder.PrependInt64Slot(12, eventChangeOpenCondition, 0)
+	builder.PrependInt64Slot(15, eventChangeOpenCondition, 0)
 }
 func EventContentSeasonExcelAddBeforehandExposedTime(builder *flatbuffers.Builder, beforehandExposedTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(beforehandExposedTime), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(beforehandExposedTime), 0)
 }
 func EventContentSeasonExcelAddEventContentOpenTime(builder *flatbuffers.Builder, eventContentOpenTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(eventContentOpenTime), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(eventContentOpenTime), 0)
 }
 func EventContentSeasonExcelAddEventContentCloseNoteTime(builder *flatbuffers.Builder, eventContentCloseNoteTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(eventContentCloseNoteTime), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(eventContentCloseNoteTime), 0)
 }
 func EventContentSeasonExcelAddEventContentCloseTime(builder *flatbuffers.Builder, eventContentCloseTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(eventContentCloseTime), 0)
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(eventContentCloseTime), 0)
 }
 func EventContentSeasonExcelAddExtensionTime(builder *flatbuffers.Builder, extensionTime flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(extensionTime), 0)
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(extensionTime), 0)
 }
 func EventContentSeasonExcelAddMainIconParcelPath(builder *flatbuffers.Builder, mainIconParcelPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(mainIconParcelPath), 0)
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(mainIconParcelPath), 0)
 }
 func EventContentSeasonExcelAddSubIconParcelPath(builder *flatbuffers.Builder, subIconParcelPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(subIconParcelPath), 0)
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(subIconParcelPath), 0)
 }
 func EventContentSeasonExcelAddBeforehandBgImagePath(builder *flatbuffers.Builder, beforehandBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(beforehandBgImagePath), 0)
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(beforehandBgImagePath), 0)
 }
 func EventContentSeasonExcelAddMinigamePrologScenarioGroupId(builder *flatbuffers.Builder, minigamePrologScenarioGroupId int64) {
-	builder.PrependInt64Slot(21, minigamePrologScenarioGroupId, 0)
+	builder.PrependInt64Slot(24, minigamePrologScenarioGroupId, 0)
 }
 func EventContentSeasonExcelAddBeforehandScenarioGroupId(builder *flatbuffers.Builder, beforehandScenarioGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(beforehandScenarioGroupId), 0)
+	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(beforehandScenarioGroupId), 0)
 }
 func EventContentSeasonExcelStartBeforehandScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentSeasonExcelAddMainBannerImagePath(builder *flatbuffers.Builder, mainBannerImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(mainBannerImagePath), 0)
+	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(mainBannerImagePath), 0)
 }
 func EventContentSeasonExcelAddMainBgImagePath(builder *flatbuffers.Builder, mainBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(mainBgImagePath), 0)
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(mainBgImagePath), 0)
 }
 func EventContentSeasonExcelAddShiftTriggerStageId(builder *flatbuffers.Builder, shiftTriggerStageId int64) {
-	builder.PrependInt64Slot(25, shiftTriggerStageId, 0)
+	builder.PrependInt64Slot(28, shiftTriggerStageId, 0)
 }
 func EventContentSeasonExcelAddShiftMainBgImagePath(builder *flatbuffers.Builder, shiftMainBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(shiftMainBgImagePath), 0)
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(shiftMainBgImagePath), 0)
 }
 func EventContentSeasonExcelAddMinigameLobbyPrefabName(builder *flatbuffers.Builder, minigameLobbyPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(minigameLobbyPrefabName), 0)
+	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(minigameLobbyPrefabName), 0)
 }
 func EventContentSeasonExcelAddMinigameVictoryPrefabName(builder *flatbuffers.Builder, minigameVictoryPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(minigameVictoryPrefabName), 0)
+	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(minigameVictoryPrefabName), 0)
 }
 func EventContentSeasonExcelAddMinigameMissionBgPrefabName(builder *flatbuffers.Builder, minigameMissionBgPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(minigameMissionBgPrefabName), 0)
+	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(minigameMissionBgPrefabName), 0)
 }
 func EventContentSeasonExcelAddMinigameMissionBgImagePath(builder *flatbuffers.Builder, minigameMissionBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(minigameMissionBgImagePath), 0)
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(minigameMissionBgImagePath), 0)
 }
 func EventContentSeasonExcelAddCardBgImagePath(builder *flatbuffers.Builder, cardBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(cardBgImagePath), 0)
+	builder.PrependUOffsetTSlot(34, flatbuffers.UOffsetT(cardBgImagePath), 0)
 }
 func EventContentSeasonExcelAddEventAssist(builder *flatbuffers.Builder, eventAssist bool) {
-	builder.PrependBoolSlot(32, eventAssist, false)
+	builder.PrependBoolSlot(35, eventAssist, false)
 }
 func EventContentSeasonExcelAddEventContentReleaseType(builder *flatbuffers.Builder, eventContentReleaseType EventContentReleaseType) {
-	builder.PrependInt32Slot(33, int32(eventContentReleaseType), 0)
+	builder.PrependInt32Slot(36, int32(eventContentReleaseType), 0)
 }
 func EventContentSeasonExcelAddEventContentStageRewardIdPermanent(builder *flatbuffers.Builder, eventContentStageRewardIdPermanent int64) {
-	builder.PrependInt64Slot(34, eventContentStageRewardIdPermanent, 0)
+	builder.PrependInt64Slot(37, eventContentStageRewardIdPermanent, 0)
 }
 func EventContentSeasonExcelAddRewardTagPermanent(builder *flatbuffers.Builder, rewardTagPermanent RewardTag) {
-	builder.PrependInt32Slot(35, int32(rewardTagPermanent), 0)
+	builder.PrependInt32Slot(38, int32(rewardTagPermanent), 0)
 }
 func EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(builder *flatbuffers.Builder, miniEventShortCutScenarioModeId int64) {
-	builder.PrependInt64Slot(36, miniEventShortCutScenarioModeId, 0)
+	builder.PrependInt64Slot(39, miniEventShortCutScenarioModeId, 0)
 }
 func EventContentSeasonExcelAddScenarioContentCollectionGroupId(builder *flatbuffers.Builder, scenarioContentCollectionGroupId int64) {
-	builder.PrependInt64Slot(37, scenarioContentCollectionGroupId, 0)
+	builder.PrependInt64Slot(40, scenarioContentCollectionGroupId, 0)
 }
 func EventContentSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

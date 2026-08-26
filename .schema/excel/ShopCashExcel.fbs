@@ -17,6 +17,7 @@ table ShopCashExcel {
     icon_path: string;
     display_order: long;
     renewal_display_order: long;
+    shop_cash_stepup_id: long;
     category_type: ProductCategory;
     display_tag: ProductDisplayTag;
     product_sale_type: ProductSaleType;

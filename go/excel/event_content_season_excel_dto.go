@@ -16,6 +16,9 @@ type EventContentSeasonExcelDto struct {
 	Name                               string                  `json:"name"`
 	EventContentType                   EventContentType        `json:"event_content_type"`
 	OpenConditionContent               OpenConditionContent    `json:"open_condition_content"`
+	EventCampaignStageID               []int64                 `json:"event_campaign_stage_id"`
+	ScenarioModeID                     []int64                 `json:"scenario_mode_id"`
+	ScenarioGroupID                    []int64                 `json:"scenario_group_id"`
 	EventDisplay                       bool                    `json:"event_display"`
 	IconOrder                          int32                   `json:"icon_order"`
 	SubEventType                       SubEventType            `json:"sub_event_type"`
@@ -53,6 +56,21 @@ type EventContentSeasonExcelDto struct {
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *EventContentSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	nameOffset := b.CreateString(t.Name)
+	EventContentSeasonExcelStartEventCampaignStageIdVector(b, len(t.EventCampaignStageID))
+	for i := len(t.EventCampaignStageID) - 1; i >= 0; i-- {
+		b.PrependInt64(t.EventCampaignStageID[i])
+	}
+	eventCampaignStageIDOffset := b.EndVector(len(t.EventCampaignStageID))
+	EventContentSeasonExcelStartScenarioModeIdVector(b, len(t.ScenarioModeID))
+	for i := len(t.ScenarioModeID) - 1; i >= 0; i-- {
+		b.PrependInt64(t.ScenarioModeID[i])
+	}
+	scenarioModeIDOffset := b.EndVector(len(t.ScenarioModeID))
+	EventContentSeasonExcelStartScenarioGroupIdVector(b, len(t.ScenarioGroupID))
+	for i := len(t.ScenarioGroupID) - 1; i >= 0; i-- {
+		b.PrependInt64(t.ScenarioGroupID[i])
+	}
+	scenarioGroupIDOffset := b.EndVector(len(t.ScenarioGroupID))
 	beforehandExposedTimeOffset := b.CreateString(t.BeforehandExposedTime)
 	eventContentOpenTimeOffset := b.CreateString(t.EventContentOpenTime)
 	eventContentCloseNoteTimeOffset := b.CreateString(t.EventContentCloseNoteTime)
@@ -81,6 +99,9 @@ func (t *EventContentSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	EventContentSeasonExcelAddName(b, nameOffset)
 	EventContentSeasonExcelAddEventContentType(b, t.EventContentType)
 	EventContentSeasonExcelAddOpenConditionContent(b, t.OpenConditionContent)
+	EventContentSeasonExcelAddEventCampaignStageId(b, eventCampaignStageIDOffset)
+	EventContentSeasonExcelAddScenarioModeId(b, scenarioModeIDOffset)
+	EventContentSeasonExcelAddScenarioGroupId(b, scenarioGroupIDOffset)
 	EventContentSeasonExcelAddEventDisplay(b, t.EventDisplay)
 	EventContentSeasonExcelAddIconOrder(b, t.IconOrder)
 	EventContentSeasonExcelAddSubEventType(b, t.SubEventType)
@@ -131,6 +152,18 @@ func (t *EventContentSeasonExcelDto) UnmarshalMessage(e *EventContentSeasonExcel
 	t.Name = string(e.Name())
 	t.EventContentType = e.EventContentType()
 	t.OpenConditionContent = e.OpenConditionContent()
+	t.EventCampaignStageID = make([]int64, e.EventCampaignStageIdLength())
+	for i := 0; i < e.EventCampaignStageIdLength(); i++ {
+		t.EventCampaignStageID[i] = e.EventCampaignStageId(i)
+	}
+	t.ScenarioModeID = make([]int64, e.ScenarioModeIdLength())
+	for i := 0; i < e.ScenarioModeIdLength(); i++ {
+		t.ScenarioModeID[i] = e.ScenarioModeId(i)
+	}
+	t.ScenarioGroupID = make([]int64, e.ScenarioGroupIdLength())
+	for i := 0; i < e.ScenarioGroupIdLength(); i++ {
+		t.ScenarioGroupID[i] = e.ScenarioGroupId(i)
+	}
 	t.EventDisplay = e.EventDisplay()
 	t.IconOrder = e.IconOrder()
 	t.SubEventType = e.SubEventType()

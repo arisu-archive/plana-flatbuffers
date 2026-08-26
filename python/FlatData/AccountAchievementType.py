@@ -30,3 +30,4 @@ class AccountAchievementType(object):
     TotalEliminateTicketUseCount = 24
     TotalCharacterPotentialUpCount = 25
     TotalClearTacticalRelayCount = 26
+    TotalEngraveLevelUpCount = 27

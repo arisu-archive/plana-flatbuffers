@@ -36,6 +36,7 @@ type ConstCombatExcelDto struct {
 	EnemyRegenCost                                  int64   `json:"enemy_regen_cost"`
 	ChampionRegenCost                               int64   `json:"champion_regen_cost"`
 	PlayerRegenCostDelay                            int64   `json:"player_regen_cost_delay"`
+	PlayerAutoUseStartDelay                         int64   `json:"player_auto_use_start_delay"`
 	CrowdControlFactor                              int64   `json:"crowd_control_factor"`
 	RaidOpenScenarioID                              string  `json:"raid_open_scenario_id"`
 	EliminateRaidOpenScenarioID                     string  `json:"eliminate_raid_open_scenario_id"`
@@ -144,6 +145,7 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddEnemyRegenCost(b, fbsutils.Encode(t.EnemyRegenCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddChampionRegenCost(b, fbsutils.Encode(t.ChampionRegenCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPlayerRegenCostDelay(b, fbsutils.Encode(t.PlayerRegenCostDelay, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPlayerAutoUseStartDelay(b, fbsutils.Encode(t.PlayerAutoUseStartDelay, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCrowdControlFactor(b, fbsutils.Encode(t.CrowdControlFactor, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddRaidOpenScenarioId(b, raidOpenScenarioIDOffset)
 	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, eliminateRaidOpenScenarioIDOffset)
@@ -250,6 +252,7 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.EnemyRegenCost = fbsutils.Decode(e.EnemyRegenCost(), t.FlatBuffer.TableKey)
 	t.ChampionRegenCost = fbsutils.Decode(e.ChampionRegenCost(), t.FlatBuffer.TableKey)
 	t.PlayerRegenCostDelay = fbsutils.Decode(e.PlayerRegenCostDelay(), t.FlatBuffer.TableKey)
+	t.PlayerAutoUseStartDelay = fbsutils.Decode(e.PlayerAutoUseStartDelay(), t.FlatBuffer.TableKey)
 	t.CrowdControlFactor = fbsutils.Decode(e.CrowdControlFactor(), t.FlatBuffer.TableKey)
 	t.RaidOpenScenarioID = fbsutils.Decode(string(e.RaidOpenScenarioId()), t.FlatBuffer.TableKey)
 	t.EliminateRaidOpenScenarioID = fbsutils.Decode(string(e.EliminateRaidOpenScenarioId()), t.FlatBuffer.TableKey)

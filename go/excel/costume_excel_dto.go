@@ -22,6 +22,8 @@ type CostumeExcelDto struct {
 	Rarity                                    Rarity             `json:"rarity"`
 	CharacterSkillListGroupID                 int64              `json:"character_skill_list_group_id"`
 	SpineResourceName                         string             `json:"spine_resource_name"`
+	CampaignCompleteAnimationName             string             `json:"campaign_complete_animation_name"`
+	CampaignFailAnimationName                 string             `json:"campaign_fail_animation_name"`
 	SpineResourceNameDiorama                  string             `json:"spine_resource_name_diorama"`
 	SpineResourceNameDioramaForFormConversion []string           `json:"spine_resource_name_diorama_for_form_conversion"`
 	EntityMaterialType                        EntityMaterialType `json:"entity_material_type"`
@@ -52,6 +54,8 @@ func (t *CostumeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	collectionVisibleStartDateOffset := b.CreateString(t.CollectionVisibleStartDate)
 	collectionVisibleEndDateOffset := b.CreateString(t.CollectionVisibleEndDate)
 	spineResourceNameOffset := b.CreateString(t.SpineResourceName)
+	campaignCompleteAnimationNameOffset := b.CreateString(t.CampaignCompleteAnimationName)
+	campaignFailAnimationNameOffset := b.CreateString(t.CampaignFailAnimationName)
 	spineResourceNameDioramaOffset := b.CreateString(t.SpineResourceNameDiorama)
 	var spineResourceNameDioramaForFormConversionOffset flatbuffers.UOffsetT
 	spineResourceNameDioramaForFormConversionOffsets := make([]flatbuffers.UOffsetT, len(t.SpineResourceNameDioramaForFormConversion))
@@ -99,6 +103,8 @@ func (t *CostumeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	CostumeExcelAddRarity(b, t.Rarity)
 	CostumeExcelAddCharacterSkillListGroupId(b, t.CharacterSkillListGroupID)
 	CostumeExcelAddSpineResourceName(b, spineResourceNameOffset)
+	CostumeExcelAddCampaignCompleteAnimationName(b, campaignCompleteAnimationNameOffset)
+	CostumeExcelAddCampaignFailAnimationName(b, campaignFailAnimationNameOffset)
 	CostumeExcelAddSpineResourceNameDiorama(b, spineResourceNameDioramaOffset)
 	CostumeExcelAddSpineResourceNameDioramaForFormConversion(b, spineResourceNameDioramaForFormConversionOffset)
 	CostumeExcelAddEntityMaterialType(b, t.EntityMaterialType)
@@ -144,6 +150,8 @@ func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
 	t.Rarity = e.Rarity()
 	t.CharacterSkillListGroupID = e.CharacterSkillListGroupId()
 	t.SpineResourceName = string(e.SpineResourceName())
+	t.CampaignCompleteAnimationName = string(e.CampaignCompleteAnimationName())
+	t.CampaignFailAnimationName = string(e.CampaignFailAnimationName())
 	t.SpineResourceNameDiorama = string(e.SpineResourceNameDiorama())
 	t.SpineResourceNameDioramaForFormConversion = make([]string, e.SpineResourceNameDioramaForFormConversionLength())
 	for i := 0; i < e.SpineResourceNameDioramaForFormConversionLength(); i++ {

@@ -433,8 +433,44 @@ func (rcv *PresetCharacterGroupExcel) MutatePotentialLevel03(n int32) bool {
 	return rcv._tab.MutateInt32Slot(68, n)
 }
 
+func (rcv *PresetCharacterGroupExcel) EngraveLevelEgo() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PresetCharacterGroupExcel) MutateEngraveLevelEgo(n int32) bool {
+	return rcv._tab.MutateInt32Slot(70, n)
+}
+
+func (rcv *PresetCharacterGroupExcel) EngraveLevelConscious() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PresetCharacterGroupExcel) MutateEngraveLevelConscious(n int32) bool {
+	return rcv._tab.MutateInt32Slot(72, n)
+}
+
+func (rcv *PresetCharacterGroupExcel) EngraveLevelUnconscious() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *PresetCharacterGroupExcel) MutateEngraveLevelUnconscious(n int32) bool {
+	return rcv._tab.MutateInt32Slot(74, n)
+}
+
 func PresetCharacterGroupExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(33)
+	builder.StartObject(36)
 }
 func PresetCharacterGroupExcelAddPresetCharacterGroupId(builder *flatbuffers.Builder, presetCharacterGroupId int64) {
 	builder.PrependInt64Slot(0, presetCharacterGroupId, 0)
@@ -534,6 +570,15 @@ func PresetCharacterGroupExcelAddPotentialType03(builder *flatbuffers.Builder, p
 }
 func PresetCharacterGroupExcelAddPotentialLevel03(builder *flatbuffers.Builder, potentialLevel03 int32) {
 	builder.PrependInt32Slot(32, potentialLevel03, 0)
+}
+func PresetCharacterGroupExcelAddEngraveLevelEgo(builder *flatbuffers.Builder, engraveLevelEgo int32) {
+	builder.PrependInt32Slot(33, engraveLevelEgo, 0)
+}
+func PresetCharacterGroupExcelAddEngraveLevelConscious(builder *flatbuffers.Builder, engraveLevelConscious int32) {
+	builder.PrependInt32Slot(34, engraveLevelConscious, 0)
+}
+func PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder *flatbuffers.Builder, engraveLevelUnconscious int32) {
+	builder.PrependInt32Slot(35, engraveLevelUnconscious, 0)
 }
 func PresetCharacterGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -165,7 +165,7 @@ func (rcv *CostumeExcel) SpineResourceName() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) SpineResourceNameDiorama() []byte {
+func (rcv *CostumeExcel) CampaignCompleteAnimationName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -173,8 +173,24 @@ func (rcv *CostumeExcel) SpineResourceNameDiorama() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) SpineResourceNameDioramaForFormConversion(j int) []byte {
+func (rcv *CostumeExcel) CampaignFailAnimationName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CostumeExcel) SpineResourceNameDiorama() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CostumeExcel) SpineResourceNameDioramaForFormConversion(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -183,7 +199,7 @@ func (rcv *CostumeExcel) SpineResourceNameDioramaForFormConversion(j int) []byte
 }
 
 func (rcv *CostumeExcel) SpineResourceNameDioramaForFormConversionLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -191,7 +207,7 @@ func (rcv *CostumeExcel) SpineResourceNameDioramaForFormConversionLength() int {
 }
 
 func (rcv *CostumeExcel) EntityMaterialType() EntityMaterialType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return EntityMaterialType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -199,26 +215,10 @@ func (rcv *CostumeExcel) EntityMaterialType() EntityMaterialType {
 }
 
 func (rcv *CostumeExcel) MutateEntityMaterialType(n EntityMaterialType) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
+	return rcv._tab.MutateInt32Slot(36, int32(n))
 }
 
 func (rcv *CostumeExcel) ModelPrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CostumeExcel) AnimatorName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CostumeExcel) CafeModelPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -226,7 +226,7 @@ func (rcv *CostumeExcel) CafeModelPrefabName() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) EchelonModelPrefabName() []byte {
+func (rcv *CostumeExcel) AnimatorName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -234,7 +234,7 @@ func (rcv *CostumeExcel) EchelonModelPrefabName() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) StrategyModelPrefabName() []byte {
+func (rcv *CostumeExcel) CafeModelPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -242,7 +242,7 @@ func (rcv *CostumeExcel) StrategyModelPrefabName() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) TextureDir() []byte {
+func (rcv *CostumeExcel) EchelonModelPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -250,7 +250,7 @@ func (rcv *CostumeExcel) TextureDir() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) CollectionTexturePath() []byte {
+func (rcv *CostumeExcel) StrategyModelPrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -258,7 +258,7 @@ func (rcv *CostumeExcel) CollectionTexturePath() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) CollectionBgTexturePath() []byte {
+func (rcv *CostumeExcel) TextureDir() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -266,7 +266,7 @@ func (rcv *CostumeExcel) CollectionBgTexturePath() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) CombatStyleTexturePath() []byte {
+func (rcv *CostumeExcel) CollectionTexturePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -274,19 +274,15 @@ func (rcv *CostumeExcel) CombatStyleTexturePath() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) UseObjectHpbar() bool {
+func (rcv *CostumeExcel) CollectionBgTexturePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *CostumeExcel) MutateUseObjectHpbar(n bool) bool {
-	return rcv._tab.MutateBoolSlot(52, n)
-}
-
-func (rcv *CostumeExcel) TextureBoss() []byte {
+func (rcv *CostumeExcel) CombatStyleTexturePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -294,8 +290,28 @@ func (rcv *CostumeExcel) TextureBoss() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) TextureSkillCard(j int) []byte {
+func (rcv *CostumeExcel) UseObjectHpbar() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CostumeExcel) MutateUseObjectHpbar(n bool) bool {
+	return rcv._tab.MutateBoolSlot(56, n)
+}
+
+func (rcv *CostumeExcel) TextureBoss() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CostumeExcel) TextureSkillCard(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -304,7 +320,7 @@ func (rcv *CostumeExcel) TextureSkillCard(j int) []byte {
 }
 
 func (rcv *CostumeExcel) TextureSkillCardLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -312,22 +328,6 @@ func (rcv *CostumeExcel) TextureSkillCardLength() int {
 }
 
 func (rcv *CostumeExcel) InformationPacel() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CostumeExcel) AnimationSsr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CostumeExcel) EnterStrategyAnimationName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -335,31 +335,23 @@ func (rcv *CostumeExcel) EnterStrategyAnimationName() []byte {
 	return nil
 }
 
-func (rcv *CostumeExcel) AnimationValidator() bool {
+func (rcv *CostumeExcel) AnimationSsr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *CostumeExcel) MutateAnimationValidator(n bool) bool {
-	return rcv._tab.MutateBoolSlot(64, n)
-}
-
-func (rcv *CostumeExcel) CharacterVoiceGroupId() int64 {
+func (rcv *CostumeExcel) EnterStrategyAnimationName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *CostumeExcel) MutateCharacterVoiceGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(66, n)
-}
-
-func (rcv *CostumeExcel) ShowObjectHpStatus() bool {
+func (rcv *CostumeExcel) AnimationValidator() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -367,12 +359,36 @@ func (rcv *CostumeExcel) ShowObjectHpStatus() bool {
 	return false
 }
 
-func (rcv *CostumeExcel) MutateShowObjectHpStatus(n bool) bool {
+func (rcv *CostumeExcel) MutateAnimationValidator(n bool) bool {
 	return rcv._tab.MutateBoolSlot(68, n)
 }
 
+func (rcv *CostumeExcel) CharacterVoiceGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CostumeExcel) MutateCharacterVoiceGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(70, n)
+}
+
+func (rcv *CostumeExcel) ShowObjectHpStatus() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CostumeExcel) MutateShowObjectHpStatus(n bool) bool {
+	return rcv._tab.MutateBoolSlot(72, n)
+}
+
 func CostumeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(33)
+	builder.StartObject(35)
 }
 func CostumeExcelAddCostumeGroupId(builder *flatbuffers.Builder, costumeGroupId int64) {
 	builder.PrependInt64Slot(0, costumeGroupId, 0)
@@ -410,74 +426,80 @@ func CostumeExcelAddCharacterSkillListGroupId(builder *flatbuffers.Builder, char
 func CostumeExcelAddSpineResourceName(builder *flatbuffers.Builder, spineResourceName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(spineResourceName), 0)
 }
+func CostumeExcelAddCampaignCompleteAnimationName(builder *flatbuffers.Builder, campaignCompleteAnimationName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(campaignCompleteAnimationName), 0)
+}
+func CostumeExcelAddCampaignFailAnimationName(builder *flatbuffers.Builder, campaignFailAnimationName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(campaignFailAnimationName), 0)
+}
 func CostumeExcelAddSpineResourceNameDiorama(builder *flatbuffers.Builder, spineResourceNameDiorama flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(spineResourceNameDiorama), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(spineResourceNameDiorama), 0)
 }
 func CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder *flatbuffers.Builder, spineResourceNameDioramaForFormConversion flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(spineResourceNameDioramaForFormConversion), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(spineResourceNameDioramaForFormConversion), 0)
 }
 func CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CostumeExcelAddEntityMaterialType(builder *flatbuffers.Builder, entityMaterialType EntityMaterialType) {
-	builder.PrependInt32Slot(14, int32(entityMaterialType), 0)
+	builder.PrependInt32Slot(16, int32(entityMaterialType), 0)
 }
 func CostumeExcelAddModelPrefabName(builder *flatbuffers.Builder, modelPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(modelPrefabName), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(modelPrefabName), 0)
 }
 func CostumeExcelAddAnimatorName(builder *flatbuffers.Builder, animatorName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(animatorName), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(animatorName), 0)
 }
 func CostumeExcelAddCafeModelPrefabName(builder *flatbuffers.Builder, cafeModelPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(cafeModelPrefabName), 0)
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(cafeModelPrefabName), 0)
 }
 func CostumeExcelAddEchelonModelPrefabName(builder *flatbuffers.Builder, echelonModelPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(echelonModelPrefabName), 0)
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(echelonModelPrefabName), 0)
 }
 func CostumeExcelAddStrategyModelPrefabName(builder *flatbuffers.Builder, strategyModelPrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(strategyModelPrefabName), 0)
+	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(strategyModelPrefabName), 0)
 }
 func CostumeExcelAddTextureDir(builder *flatbuffers.Builder, textureDir flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(textureDir), 0)
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(textureDir), 0)
 }
 func CostumeExcelAddCollectionTexturePath(builder *flatbuffers.Builder, collectionTexturePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(collectionTexturePath), 0)
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(collectionTexturePath), 0)
 }
 func CostumeExcelAddCollectionBgTexturePath(builder *flatbuffers.Builder, collectionBgTexturePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(collectionBgTexturePath), 0)
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(collectionBgTexturePath), 0)
 }
 func CostumeExcelAddCombatStyleTexturePath(builder *flatbuffers.Builder, combatStyleTexturePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(combatStyleTexturePath), 0)
+	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(combatStyleTexturePath), 0)
 }
 func CostumeExcelAddUseObjectHpbar(builder *flatbuffers.Builder, useObjectHpbar bool) {
-	builder.PrependBoolSlot(24, useObjectHpbar, false)
+	builder.PrependBoolSlot(26, useObjectHpbar, false)
 }
 func CostumeExcelAddTextureBoss(builder *flatbuffers.Builder, textureBoss flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(textureBoss), 0)
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(textureBoss), 0)
 }
 func CostumeExcelAddTextureSkillCard(builder *flatbuffers.Builder, textureSkillCard flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(textureSkillCard), 0)
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(textureSkillCard), 0)
 }
 func CostumeExcelStartTextureSkillCardVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CostumeExcelAddInformationPacel(builder *flatbuffers.Builder, informationPacel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(informationPacel), 0)
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(informationPacel), 0)
 }
 func CostumeExcelAddAnimationSsr(builder *flatbuffers.Builder, animationSsr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(animationSsr), 0)
+	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(animationSsr), 0)
 }
 func CostumeExcelAddEnterStrategyAnimationName(builder *flatbuffers.Builder, enterStrategyAnimationName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(enterStrategyAnimationName), 0)
+	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(enterStrategyAnimationName), 0)
 }
 func CostumeExcelAddAnimationValidator(builder *flatbuffers.Builder, animationValidator bool) {
-	builder.PrependBoolSlot(30, animationValidator, false)
+	builder.PrependBoolSlot(32, animationValidator, false)
 }
 func CostumeExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
-	builder.PrependInt64Slot(31, characterVoiceGroupId, 0)
+	builder.PrependInt64Slot(33, characterVoiceGroupId, 0)
 }
 func CostumeExcelAddShowObjectHpStatus(builder *flatbuffers.Builder, showObjectHpStatus bool) {
-	builder.PrependBoolSlot(32, showObjectHpStatus, false)
+	builder.PrependBoolSlot(34, showObjectHpStatus, false)
 }
 func CostumeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table LocalizeSkillEffectExcel {
+    key: uint;
+    icon_sprite_name: string;
+    skill_effect_name_kr: string;
+    skill_effect_name_jp: string;
+    skill_effect_description_kr: string;
+    skill_effect_description_jp: string;
+    suffix_text_kr: string;
+    suffix_text_jp: string;
+    suffix_label: string;
+    shared_character_parcels: [long];
+    text_font_size_override: float;
+}
+
+root_type LocalizeSkillEffectExcel;

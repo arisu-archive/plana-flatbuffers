@@ -202,7 +202,7 @@ table ConstCommonExcel {
     expiry_streak_record_item_receive_day: int;
     expiry_season_record_item_receive_day: int;
     engrave_contents_is_open: bool;
-    tactical_realy_contents_is_open: bool;
+    tactical_relay_contents_is_open: bool;
     ex_skill_level_max_by_engrave: int;
     ex_skill_upgrade_level_max: int;
 }

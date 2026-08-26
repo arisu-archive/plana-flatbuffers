@@ -13,6 +13,9 @@ table EventContentSeasonExcel {
     name: string;
     event_content_type: EventContentType;
     open_condition_content: OpenConditionContent;
+    event_campaign_stage_id: [long];
+    scenario_mode_id: [long];
+    scenario_group_id: [long];
     event_display: bool;
     icon_order: int;
     sub_event_type: SubEventType;

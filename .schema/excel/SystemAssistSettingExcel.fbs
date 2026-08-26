@@ -1,0 +1,12 @@
+include "ContentType.fbs";
+
+namespace MX.Data.Excel;
+
+table SystemAssistSettingExcel {
+    battle_type: ContentType;
+    stage_id: long;
+    character_setting_id: long;
+    character_id: [long];
+}
+
+root_type SystemAssistSettingExcel;

@@ -36,6 +36,9 @@ table PresetCharacterGroupExcel {
     potential_level02: int;
     potential_type03: PotentialStatBonusRateType;
     potential_level03: int;
+    engrave_level_ego: int;
+    engrave_level_conscious: int;
+    engrave_level_unconscious: int;
 }
 
 root_type PresetCharacterGroupExcel;

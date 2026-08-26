@@ -53,19 +53,19 @@ func (rcv *TacticalRelayStageRewardExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *TacticalRelayStageRewardExcel) ClearWave() int32 {
+func (rcv *TacticalRelayStageRewardExcel) RewardTag() RewardTag {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *TacticalRelayStageRewardExcel) MutateClearWave(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+func (rcv *TacticalRelayStageRewardExcel) MutateRewardTag(n RewardTag) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *TacticalRelayStageRewardExcel) RewardProb() int32 {
+func (rcv *TacticalRelayStageRewardExcel) ClearWave() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -73,12 +73,24 @@ func (rcv *TacticalRelayStageRewardExcel) RewardProb() int32 {
 	return 0
 }
 
-func (rcv *TacticalRelayStageRewardExcel) MutateRewardProb(n int32) bool {
+func (rcv *TacticalRelayStageRewardExcel) MutateClearWave(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *TacticalRelayStageRewardExcel) RewardParcelType() ParcelType {
+func (rcv *TacticalRelayStageRewardExcel) RewardProb() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageRewardExcel) MutateRewardProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *TacticalRelayStageRewardExcel) RewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -86,11 +98,11 @@ func (rcv *TacticalRelayStageRewardExcel) RewardParcelType() ParcelType {
 }
 
 func (rcv *TacticalRelayStageRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *TacticalRelayStageRewardExcel) RewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -98,11 +110,11 @@ func (rcv *TacticalRelayStageRewardExcel) RewardId() int64 {
 }
 
 func (rcv *TacticalRelayStageRewardExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *TacticalRelayStageRewardExcel) RewardAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -110,11 +122,11 @@ func (rcv *TacticalRelayStageRewardExcel) RewardAmount() int32 {
 }
 
 func (rcv *TacticalRelayStageRewardExcel) MutateRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+	return rcv._tab.MutateInt32Slot(16, n)
 }
 
 func (rcv *TacticalRelayStageRewardExcel) IsDisplayed() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -122,32 +134,35 @@ func (rcv *TacticalRelayStageRewardExcel) IsDisplayed() bool {
 }
 
 func (rcv *TacticalRelayStageRewardExcel) MutateIsDisplayed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func TacticalRelayStageRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func TacticalRelayStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
 	builder.PrependInt64Slot(0, groupId, 0)
 }
+func TacticalRelayStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
+	builder.PrependInt32Slot(1, int32(rewardTag), 0)
+}
 func TacticalRelayStageRewardExcelAddClearWave(builder *flatbuffers.Builder, clearWave int32) {
-	builder.PrependInt32Slot(1, clearWave, 0)
+	builder.PrependInt32Slot(2, clearWave, 0)
 }
 func TacticalRelayStageRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
-	builder.PrependInt32Slot(2, rewardProb, 0)
+	builder.PrependInt32Slot(3, rewardProb, 0)
 }
 func TacticalRelayStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
+	builder.PrependInt32Slot(4, int32(rewardParcelType), 0)
 }
 func TacticalRelayStageRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(4, rewardId, 0)
+	builder.PrependInt64Slot(5, rewardId, 0)
 }
 func TacticalRelayStageRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
-	builder.PrependInt32Slot(5, rewardAmount, 0)
+	builder.PrependInt32Slot(6, rewardAmount, 0)
 }
 func TacticalRelayStageRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
-	builder.PrependBoolSlot(6, isDisplayed, false)
+	builder.PrependBoolSlot(7, isDisplayed, false)
 }
 func TacticalRelayStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

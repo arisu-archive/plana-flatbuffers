@@ -74,14 +74,28 @@ class TerrainAdaptationFactorExcel(object):
         return 0
 
     # TerrainAdaptationFactorExcel
-    def TerrainFactorDescription(self):
+    def TerrainFactorDescription01(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # TerrainAdaptationFactorExcel
+    def TerrainFactorDescription02(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TerrainAdaptationFactorExcel
+    def TerrainFactorDescription03(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def TerrainAdaptationFactorExcelStart(builder):
-    builder.StartObject(8)
+    builder.StartObject(10)
 
 def Start(builder):
     TerrainAdaptationFactorExcelStart(builder)
@@ -128,11 +142,23 @@ def TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, attackPowerFactor)
 def AddAttackPowerFactor(builder, attackPowerFactor):
     TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, attackPowerFactor)
 
-def TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(terrainFactorDescription), 0)
+def TerrainAdaptationFactorExcelAddTerrainFactorDescription01(builder, terrainFactorDescription01):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(terrainFactorDescription01), 0)
 
-def AddTerrainFactorDescription(builder, terrainFactorDescription):
-    TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription)
+def AddTerrainFactorDescription01(builder, terrainFactorDescription01):
+    TerrainAdaptationFactorExcelAddTerrainFactorDescription01(builder, terrainFactorDescription01)
+
+def TerrainAdaptationFactorExcelAddTerrainFactorDescription02(builder, terrainFactorDescription02):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(terrainFactorDescription02), 0)
+
+def AddTerrainFactorDescription02(builder, terrainFactorDescription02):
+    TerrainAdaptationFactorExcelAddTerrainFactorDescription02(builder, terrainFactorDescription02)
+
+def TerrainAdaptationFactorExcelAddTerrainFactorDescription03(builder, terrainFactorDescription03):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(terrainFactorDescription03), 0)
+
+def AddTerrainFactorDescription03(builder, terrainFactorDescription03):
+    TerrainAdaptationFactorExcelAddTerrainFactorDescription03(builder, terrainFactorDescription03)
 
 def TerrainAdaptationFactorExcelEnd(builder):
     return builder.EndObject()
@@ -153,7 +179,9 @@ class TerrainAdaptationFactorExcelT(object):
         accuracyFactor = 0,
         dodgeFactor = 0,
         attackPowerFactor = 0,
-        terrainFactorDescription = None,
+        terrainFactorDescription01 = None,
+        terrainFactorDescription02 = None,
+        terrainFactorDescription03 = None,
     ):
         self.terrainAdaptation = terrainAdaptation  # type: int
         self.terrainAdaptationStat = terrainAdaptationStat  # type: int
@@ -162,7 +190,9 @@ class TerrainAdaptationFactorExcelT(object):
         self.accuracyFactor = accuracyFactor  # type: int
         self.dodgeFactor = dodgeFactor  # type: int
         self.attackPowerFactor = attackPowerFactor  # type: int
-        self.terrainFactorDescription = terrainFactorDescription  # type: Optional[str]
+        self.terrainFactorDescription01 = terrainFactorDescription01  # type: Optional[str]
+        self.terrainFactorDescription02 = terrainFactorDescription02  # type: Optional[str]
+        self.terrainFactorDescription03 = terrainFactorDescription03  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -192,12 +222,18 @@ class TerrainAdaptationFactorExcelT(object):
         self.accuracyFactor = terrainAdaptationFactorExcel.AccuracyFactor()
         self.dodgeFactor = terrainAdaptationFactorExcel.DodgeFactor()
         self.attackPowerFactor = terrainAdaptationFactorExcel.AttackPowerFactor()
-        self.terrainFactorDescription = terrainAdaptationFactorExcel.TerrainFactorDescription()
+        self.terrainFactorDescription01 = terrainAdaptationFactorExcel.TerrainFactorDescription01()
+        self.terrainFactorDescription02 = terrainAdaptationFactorExcel.TerrainFactorDescription02()
+        self.terrainFactorDescription03 = terrainAdaptationFactorExcel.TerrainFactorDescription03()
 
     # TerrainAdaptationFactorExcelT
     def Pack(self, builder):
-        if self.terrainFactorDescription is not None:
-            terrainFactorDescription = builder.CreateString(self.terrainFactorDescription)
+        if self.terrainFactorDescription01 is not None:
+            terrainFactorDescription01 = builder.CreateString(self.terrainFactorDescription01)
+        if self.terrainFactorDescription02 is not None:
+            terrainFactorDescription02 = builder.CreateString(self.terrainFactorDescription02)
+        if self.terrainFactorDescription03 is not None:
+            terrainFactorDescription03 = builder.CreateString(self.terrainFactorDescription03)
         TerrainAdaptationFactorExcelStart(builder)
         TerrainAdaptationFactorExcelAddTerrainAdaptation(builder, self.terrainAdaptation)
         TerrainAdaptationFactorExcelAddTerrainAdaptationStat(builder, self.terrainAdaptationStat)
@@ -206,7 +242,11 @@ class TerrainAdaptationFactorExcelT(object):
         TerrainAdaptationFactorExcelAddAccuracyFactor(builder, self.accuracyFactor)
         TerrainAdaptationFactorExcelAddDodgeFactor(builder, self.dodgeFactor)
         TerrainAdaptationFactorExcelAddAttackPowerFactor(builder, self.attackPowerFactor)
-        if self.terrainFactorDescription is not None:
-            TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder, terrainFactorDescription)
+        if self.terrainFactorDescription01 is not None:
+            TerrainAdaptationFactorExcelAddTerrainFactorDescription01(builder, terrainFactorDescription01)
+        if self.terrainFactorDescription02 is not None:
+            TerrainAdaptationFactorExcelAddTerrainFactorDescription02(builder, terrainFactorDescription02)
+        if self.terrainFactorDescription03 is not None:
+            TerrainAdaptationFactorExcelAddTerrainFactorDescription03(builder, terrainFactorDescription03)
         terrainAdaptationFactorExcel = TerrainAdaptationFactorExcelEnd(builder)
         return terrainAdaptationFactorExcel

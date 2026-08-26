@@ -43,6 +43,9 @@ type PresetCharacterGroupExcelDto struct {
 	PotentialLevel02          int32                      `json:"potential_level02"`
 	PotentialType03           PotentialStatBonusRateType `json:"potential_type03"`
 	PotentialLevel03          int32                      `json:"potential_level03"`
+	EngraveLevelEgo           int32                      `json:"engrave_level_ego"`
+	EngraveLevelConscious     int32                      `json:"engrave_level_conscious"`
+	EngraveLevelUnconscious   int32                      `json:"engrave_level_unconscious"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -82,6 +85,9 @@ func (t *PresetCharacterGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	PresetCharacterGroupExcelAddPotentialLevel02(b, t.PotentialLevel02)
 	PresetCharacterGroupExcelAddPotentialType03(b, t.PotentialType03)
 	PresetCharacterGroupExcelAddPotentialLevel03(b, t.PotentialLevel03)
+	PresetCharacterGroupExcelAddEngraveLevelEgo(b, t.EngraveLevelEgo)
+	PresetCharacterGroupExcelAddEngraveLevelConscious(b, t.EngraveLevelConscious)
+	PresetCharacterGroupExcelAddEngraveLevelUnconscious(b, t.EngraveLevelUnconscious)
 	return PresetCharacterGroupExcelEnd(b)
 }
 
@@ -127,6 +133,9 @@ func (t *PresetCharacterGroupExcelDto) UnmarshalMessage(e *PresetCharacterGroupE
 	t.PotentialLevel02 = e.PotentialLevel02()
 	t.PotentialType03 = e.PotentialType03()
 	t.PotentialLevel03 = e.PotentialLevel03()
+	t.EngraveLevelEgo = e.EngraveLevelEgo()
+	t.EngraveLevelConscious = e.EngraveLevelConscious()
+	t.EngraveLevelUnconscious = e.EngraveLevelUnconscious()
 	return nil
 }
 

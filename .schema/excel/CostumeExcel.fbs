@@ -17,6 +17,8 @@ table CostumeExcel {
     rarity: Rarity;
     character_skill_list_group_id: long;
     spine_resource_name: string;
+    campaign_complete_animation_name: string;
+    campaign_fail_animation_name: string;
     spine_resource_name_diorama: string;
     spine_resource_name_diorama_for_form_conversion: [string];
     entity_material_type: EntityMaterialType;

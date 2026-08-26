@@ -255,8 +255,29 @@ class PresetCharacterGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # PresetCharacterGroupExcel
+    def EngraveLevelEgo(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveLevelConscious(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveLevelUnconscious(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def PresetCharacterGroupExcelStart(builder):
-    builder.StartObject(33)
+    builder.StartObject(36)
 
 def Start(builder):
     PresetCharacterGroupExcelStart(builder)
@@ -459,6 +480,24 @@ def PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03):
 def AddPotentialLevel03(builder, potentialLevel03):
     PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03)
 
+def PresetCharacterGroupExcelAddEngraveLevelEgo(builder, engraveLevelEgo):
+    builder.PrependInt32Slot(33, engraveLevelEgo, 0)
+
+def AddEngraveLevelEgo(builder, engraveLevelEgo):
+    PresetCharacterGroupExcelAddEngraveLevelEgo(builder, engraveLevelEgo)
+
+def PresetCharacterGroupExcelAddEngraveLevelConscious(builder, engraveLevelConscious):
+    builder.PrependInt32Slot(34, engraveLevelConscious, 0)
+
+def AddEngraveLevelConscious(builder, engraveLevelConscious):
+    PresetCharacterGroupExcelAddEngraveLevelConscious(builder, engraveLevelConscious)
+
+def PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, engraveLevelUnconscious):
+    builder.PrependInt32Slot(35, engraveLevelUnconscious, 0)
+
+def AddEngraveLevelUnconscious(builder, engraveLevelUnconscious):
+    PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, engraveLevelUnconscious)
+
 def PresetCharacterGroupExcelEnd(builder):
     return builder.EndObject()
 
@@ -504,6 +543,9 @@ class PresetCharacterGroupExcelT(object):
         potentialLevel02 = 0,
         potentialType03 = 0,
         potentialLevel03 = 0,
+        engraveLevelEgo = 0,
+        engraveLevelConscious = 0,
+        engraveLevelUnconscious = 0,
     ):
         self.presetCharacterGroupId = presetCharacterGroupId  # type: int
         self.getPresetType = getPresetType  # type: Optional[str]
@@ -538,6 +580,9 @@ class PresetCharacterGroupExcelT(object):
         self.potentialLevel02 = potentialLevel02  # type: int
         self.potentialType03 = potentialType03  # type: int
         self.potentialLevel03 = potentialLevel03  # type: int
+        self.engraveLevelEgo = engraveLevelEgo  # type: int
+        self.engraveLevelConscious = engraveLevelConscious  # type: int
+        self.engraveLevelUnconscious = engraveLevelUnconscious  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -593,6 +638,9 @@ class PresetCharacterGroupExcelT(object):
         self.potentialLevel02 = presetCharacterGroupExcel.PotentialLevel02()
         self.potentialType03 = presetCharacterGroupExcel.PotentialType03()
         self.potentialLevel03 = presetCharacterGroupExcel.PotentialLevel03()
+        self.engraveLevelEgo = presetCharacterGroupExcel.EngraveLevelEgo()
+        self.engraveLevelConscious = presetCharacterGroupExcel.EngraveLevelConscious()
+        self.engraveLevelUnconscious = presetCharacterGroupExcel.EngraveLevelUnconscious()
 
     # PresetCharacterGroupExcelT
     def Pack(self, builder):
@@ -633,5 +681,8 @@ class PresetCharacterGroupExcelT(object):
         PresetCharacterGroupExcelAddPotentialLevel02(builder, self.potentialLevel02)
         PresetCharacterGroupExcelAddPotentialType03(builder, self.potentialType03)
         PresetCharacterGroupExcelAddPotentialLevel03(builder, self.potentialLevel03)
+        PresetCharacterGroupExcelAddEngraveLevelEgo(builder, self.engraveLevelEgo)
+        PresetCharacterGroupExcelAddEngraveLevelConscious(builder, self.engraveLevelConscious)
+        PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, self.engraveLevelUnconscious)
         presetCharacterGroupExcel = PresetCharacterGroupExcelEnd(builder)
         return presetCharacterGroupExcel

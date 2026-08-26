@@ -28,6 +28,7 @@ const (
 	ProductCategoryStepup1        ProductCategory = 18
 	ProductCategoryStepup2        ProductCategory = 19
 	ProductCategorySpecialSupport ProductCategory = 20
+	ProductCategoryStepup3        ProductCategory = 21
 )
 
 var EnumNamesProductCategory = map[ProductCategory]string{
@@ -52,6 +53,7 @@ var EnumNamesProductCategory = map[ProductCategory]string{
 	ProductCategoryStepup1:        "Stepup1",
 	ProductCategoryStepup2:        "Stepup2",
 	ProductCategorySpecialSupport: "SpecialSupport",
+	ProductCategoryStepup3:        "Stepup3",
 }
 
 var EnumValuesProductCategory = map[string]ProductCategory{
@@ -76,6 +78,7 @@ var EnumValuesProductCategory = map[string]ProductCategory{
 	"Stepup1":        ProductCategoryStepup1,
 	"Stepup2":        ProductCategoryStepup2,
 	"SpecialSupport": ProductCategorySpecialSupport,
+	"Stepup3":        ProductCategoryStepup3,
 }
 
 func (v ProductCategory) String() string {

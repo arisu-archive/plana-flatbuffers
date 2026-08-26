@@ -222,6 +222,13 @@ const (
 	ParcelChangeReasonStreakRecord_RestoreDay              ParcelChangeReason = 212
 	ParcelChangeReasonStudentFrame_Acquire                 ParcelChangeReason = 213
 	ParcelChangeReasonShop_GachaWishListBuy                ParcelChangeReason = 214
+	ParcelChangeReasonEnterCostRefund                      ParcelChangeReason = 215
+	ParcelChangeReasonAttendance_Reward                    ParcelChangeReason = 216
+	ParcelChangeReasonDailyRecord_Reward                   ParcelChangeReason = 217
+	ParcelChangeReasonMiniGame_RoadPuzzleTile              ParcelChangeReason = 218
+	ParcelChangeReasonMiniGame_RoadPuzzleClearStage        ParcelChangeReason = 219
+	ParcelChangeReasonMiniGame_CCGSweep                    ParcelChangeReason = 220
+	ParcelChangeReasonConquest_Discard                     ParcelChangeReason = 221
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -440,6 +447,13 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonStreakRecord_RestoreDay:              "StreakRecord_RestoreDay",
 	ParcelChangeReasonStudentFrame_Acquire:                 "StudentFrame_Acquire",
 	ParcelChangeReasonShop_GachaWishListBuy:                "Shop_GachaWishListBuy",
+	ParcelChangeReasonEnterCostRefund:                      "EnterCostRefund",
+	ParcelChangeReasonAttendance_Reward:                    "Attendance_Reward",
+	ParcelChangeReasonDailyRecord_Reward:                   "DailyRecord_Reward",
+	ParcelChangeReasonMiniGame_RoadPuzzleTile:              "MiniGame_RoadPuzzleTile",
+	ParcelChangeReasonMiniGame_RoadPuzzleClearStage:        "MiniGame_RoadPuzzleClearStage",
+	ParcelChangeReasonMiniGame_CCGSweep:                    "MiniGame_CCGSweep",
+	ParcelChangeReasonConquest_Discard:                     "Conquest_Discard",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -658,6 +672,13 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"StreakRecord_RestoreDay":              ParcelChangeReasonStreakRecord_RestoreDay,
 	"StudentFrame_Acquire":                 ParcelChangeReasonStudentFrame_Acquire,
 	"Shop_GachaWishListBuy":                ParcelChangeReasonShop_GachaWishListBuy,
+	"EnterCostRefund":                      ParcelChangeReasonEnterCostRefund,
+	"Attendance_Reward":                    ParcelChangeReasonAttendance_Reward,
+	"DailyRecord_Reward":                   ParcelChangeReasonDailyRecord_Reward,
+	"MiniGame_RoadPuzzleTile":              ParcelChangeReasonMiniGame_RoadPuzzleTile,
+	"MiniGame_RoadPuzzleClearStage":        ParcelChangeReasonMiniGame_RoadPuzzleClearStage,
+	"MiniGame_CCGSweep":                    ParcelChangeReasonMiniGame_CCGSweep,
+	"Conquest_Discard":                     ParcelChangeReasonConquest_Discard,
 }
 
 func (v ParcelChangeReason) String() string {

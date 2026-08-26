@@ -32,49 +32,56 @@ class TacticalRelayStageRewardExcel(object):
         return 0
 
     # TacticalRelayStageRewardExcel
-    def ClearWave(self):
+    def RewardTag(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # TacticalRelayStageRewardExcel
-    def RewardProb(self):
+    def ClearWave(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # TacticalRelayStageRewardExcel
-    def RewardParcelType(self):
+    def RewardProb(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # TacticalRelayStageRewardExcel
-    def RewardId(self):
+    def RewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalRelayStageRewardExcel
+    def RewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticalRelayStageRewardExcel
     def RewardAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # TacticalRelayStageRewardExcel
     def IsDisplayed(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
 def TacticalRelayStageRewardExcelStart(builder):
-    builder.StartObject(7)
+    builder.StartObject(8)
 
 def Start(builder):
     TacticalRelayStageRewardExcelStart(builder)
@@ -85,38 +92,44 @@ def TacticalRelayStageRewardExcelAddGroupId(builder, groupId):
 def AddGroupId(builder, groupId):
     TacticalRelayStageRewardExcelAddGroupId(builder, groupId)
 
+def TacticalRelayStageRewardExcelAddRewardTag(builder, rewardTag):
+    builder.PrependInt32Slot(1, rewardTag, 0)
+
+def AddRewardTag(builder, rewardTag):
+    TacticalRelayStageRewardExcelAddRewardTag(builder, rewardTag)
+
 def TacticalRelayStageRewardExcelAddClearWave(builder, clearWave):
-    builder.PrependInt32Slot(1, clearWave, 0)
+    builder.PrependInt32Slot(2, clearWave, 0)
 
 def AddClearWave(builder, clearWave):
     TacticalRelayStageRewardExcelAddClearWave(builder, clearWave)
 
 def TacticalRelayStageRewardExcelAddRewardProb(builder, rewardProb):
-    builder.PrependInt32Slot(2, rewardProb, 0)
+    builder.PrependInt32Slot(3, rewardProb, 0)
 
 def AddRewardProb(builder, rewardProb):
     TacticalRelayStageRewardExcelAddRewardProb(builder, rewardProb)
 
 def TacticalRelayStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(3, rewardParcelType, 0)
+    builder.PrependInt32Slot(4, rewardParcelType, 0)
 
 def AddRewardParcelType(builder, rewardParcelType):
     TacticalRelayStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
 
 def TacticalRelayStageRewardExcelAddRewardId(builder, rewardId):
-    builder.PrependInt64Slot(4, rewardId, 0)
+    builder.PrependInt64Slot(5, rewardId, 0)
 
 def AddRewardId(builder, rewardId):
     TacticalRelayStageRewardExcelAddRewardId(builder, rewardId)
 
 def TacticalRelayStageRewardExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependInt32Slot(5, rewardAmount, 0)
+    builder.PrependInt32Slot(6, rewardAmount, 0)
 
 def AddRewardAmount(builder, rewardAmount):
     TacticalRelayStageRewardExcelAddRewardAmount(builder, rewardAmount)
 
 def TacticalRelayStageRewardExcelAddIsDisplayed(builder, isDisplayed):
-    builder.PrependBoolSlot(6, isDisplayed, 0)
+    builder.PrependBoolSlot(7, isDisplayed, 0)
 
 def AddIsDisplayed(builder, isDisplayed):
     TacticalRelayStageRewardExcelAddIsDisplayed(builder, isDisplayed)
@@ -134,6 +147,7 @@ class TacticalRelayStageRewardExcelT(object):
     def __init__(
         self,
         groupId = 0,
+        rewardTag = 0,
         clearWave = 0,
         rewardProb = 0,
         rewardParcelType = 0,
@@ -142,6 +156,7 @@ class TacticalRelayStageRewardExcelT(object):
         isDisplayed = False,
     ):
         self.groupId = groupId  # type: int
+        self.rewardTag = rewardTag  # type: int
         self.clearWave = clearWave  # type: int
         self.rewardProb = rewardProb  # type: int
         self.rewardParcelType = rewardParcelType  # type: int
@@ -171,6 +186,7 @@ class TacticalRelayStageRewardExcelT(object):
         if tacticalRelayStageRewardExcel is None:
             return
         self.groupId = tacticalRelayStageRewardExcel.GroupId()
+        self.rewardTag = tacticalRelayStageRewardExcel.RewardTag()
         self.clearWave = tacticalRelayStageRewardExcel.ClearWave()
         self.rewardProb = tacticalRelayStageRewardExcel.RewardProb()
         self.rewardParcelType = tacticalRelayStageRewardExcel.RewardParcelType()
@@ -182,6 +198,7 @@ class TacticalRelayStageRewardExcelT(object):
     def Pack(self, builder):
         TacticalRelayStageRewardExcelStart(builder)
         TacticalRelayStageRewardExcelAddGroupId(builder, self.groupId)
+        TacticalRelayStageRewardExcelAddRewardTag(builder, self.rewardTag)
         TacticalRelayStageRewardExcelAddClearWave(builder, self.clearWave)
         TacticalRelayStageRewardExcelAddRewardProb(builder, self.rewardProb)
         TacticalRelayStageRewardExcelAddRewardParcelType(builder, self.rewardParcelType)

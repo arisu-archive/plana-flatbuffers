@@ -207,7 +207,7 @@ type ConstCommonExcelDto struct {
 	ExpiryStreakRecordItemReceiveDay            int32            `json:"expiry_streak_record_item_receive_day"`
 	ExpirySeasonRecordItemReceiveDay            int32            `json:"expiry_season_record_item_receive_day"`
 	EngraveContentsIsOpen                       bool             `json:"engrave_contents_is_open"`
-	TacticalRealyContentsIsOpen                 bool             `json:"tactical_realy_contents_is_open"`
+	TacticalRelayContentsIsOpen                 bool             `json:"tactical_relay_contents_is_open"`
 	ExSkillLevelMaxByEngrave                    int32            `json:"ex_skill_level_max_by_engrave"`
 	ExSkillUpgradeLevelMax                      int32            `json:"ex_skill_upgrade_level_max"`
 }
@@ -454,7 +454,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddExpiryStreakRecordItemReceiveDay(b, fbsutils.Encode(t.ExpiryStreakRecordItemReceiveDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddExpirySeasonRecordItemReceiveDay(b, fbsutils.Encode(t.ExpirySeasonRecordItemReceiveDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddEngraveContentsIsOpen(b, t.EngraveContentsIsOpen)
-	ConstCommonExcelAddTacticalRealyContentsIsOpen(b, t.TacticalRealyContentsIsOpen)
+	ConstCommonExcelAddTacticalRelayContentsIsOpen(b, t.TacticalRelayContentsIsOpen)
 	ConstCommonExcelAddExSkillLevelMaxByEngrave(b, fbsutils.Encode(t.ExSkillLevelMaxByEngrave, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddExSkillUpgradeLevelMax(b, fbsutils.Encode(t.ExSkillUpgradeLevelMax, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
@@ -690,7 +690,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ExpiryStreakRecordItemReceiveDay = fbsutils.Decode(e.ExpiryStreakRecordItemReceiveDay(), t.FlatBuffer.TableKey)
 	t.ExpirySeasonRecordItemReceiveDay = fbsutils.Decode(e.ExpirySeasonRecordItemReceiveDay(), t.FlatBuffer.TableKey)
 	t.EngraveContentsIsOpen = e.EngraveContentsIsOpen()
-	t.TacticalRealyContentsIsOpen = e.TacticalRealyContentsIsOpen()
+	t.TacticalRelayContentsIsOpen = e.TacticalRelayContentsIsOpen()
 	t.ExSkillLevelMaxByEngrave = fbsutils.Decode(e.ExSkillLevelMaxByEngrave(), t.FlatBuffer.TableKey)
 	t.ExSkillUpgradeLevelMax = fbsutils.Decode(e.ExSkillUpgradeLevelMax(), t.FlatBuffer.TableKey)
 	return nil

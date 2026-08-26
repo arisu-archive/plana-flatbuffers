@@ -324,11 +324,11 @@ class ShopRecruitExcel(object):
         return 0
 
     # ShopRecruitExcel
-    def WishListOnOff(self):
+    def WishListConfig(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # ShopRecruitExcel
     def WishListHalfStackGachaGroupId(self):
@@ -584,11 +584,11 @@ def ShopRecruitExcelAddFullStackGachaGroupId(builder, fullStackGachaGroupId):
 def AddFullStackGachaGroupId(builder, fullStackGachaGroupId):
     ShopRecruitExcelAddFullStackGachaGroupId(builder, fullStackGachaGroupId)
 
-def ShopRecruitExcelAddWishListOnOff(builder, wishListOnOff):
-    builder.PrependBoolSlot(37, wishListOnOff, 0)
+def ShopRecruitExcelAddWishListConfig(builder, wishListConfig):
+    builder.PrependInt32Slot(37, wishListConfig, 0)
 
-def AddWishListOnOff(builder, wishListOnOff):
-    ShopRecruitExcelAddWishListOnOff(builder, wishListOnOff)
+def AddWishListConfig(builder, wishListConfig):
+    ShopRecruitExcelAddWishListConfig(builder, wishListConfig)
 
 def ShopRecruitExcelAddWishListHalfStackGachaGroupId(builder, wishListHalfStackGachaGroupId):
     builder.PrependInt64Slot(38, wishListHalfStackGachaGroupId, 0)
@@ -655,7 +655,7 @@ class ShopRecruitExcelT(object):
         halfStackDisplayItemId = 0,
         halfStackGachaGroupId = 0,
         fullStackGachaGroupId = 0,
-        wishListOnOff = False,
+        wishListConfig = 0,
         wishListHalfStackGachaGroupId = 0,
         wishListFullStackGachaGroupId = 0,
     ):
@@ -696,7 +696,7 @@ class ShopRecruitExcelT(object):
         self.halfStackDisplayItemId = halfStackDisplayItemId  # type: int
         self.halfStackGachaGroupId = halfStackGachaGroupId  # type: int
         self.fullStackGachaGroupId = fullStackGachaGroupId  # type: int
-        self.wishListOnOff = wishListOnOff  # type: bool
+        self.wishListConfig = wishListConfig  # type: int
         self.wishListHalfStackGachaGroupId = wishListHalfStackGachaGroupId  # type: int
         self.wishListFullStackGachaGroupId = wishListFullStackGachaGroupId  # type: int
 
@@ -770,7 +770,7 @@ class ShopRecruitExcelT(object):
         self.halfStackDisplayItemId = shopRecruitExcel.HalfStackDisplayItemId()
         self.halfStackGachaGroupId = shopRecruitExcel.HalfStackGachaGroupId()
         self.fullStackGachaGroupId = shopRecruitExcel.FullStackGachaGroupId()
-        self.wishListOnOff = shopRecruitExcel.WishListOnOff()
+        self.wishListConfig = shopRecruitExcel.WishListConfig()
         self.wishListHalfStackGachaGroupId = shopRecruitExcel.WishListHalfStackGachaGroupId()
         self.wishListFullStackGachaGroupId = shopRecruitExcel.WishListFullStackGachaGroupId()
 
@@ -847,7 +847,7 @@ class ShopRecruitExcelT(object):
         ShopRecruitExcelAddHalfStackDisplayItemId(builder, self.halfStackDisplayItemId)
         ShopRecruitExcelAddHalfStackGachaGroupId(builder, self.halfStackGachaGroupId)
         ShopRecruitExcelAddFullStackGachaGroupId(builder, self.fullStackGachaGroupId)
-        ShopRecruitExcelAddWishListOnOff(builder, self.wishListOnOff)
+        ShopRecruitExcelAddWishListConfig(builder, self.wishListConfig)
         ShopRecruitExcelAddWishListHalfStackGachaGroupId(builder, self.wishListHalfStackGachaGroupId)
         ShopRecruitExcelAddWishListFullStackGachaGroupId(builder, self.wishListFullStackGachaGroupId)
         shopRecruitExcel = ShopRecruitExcelEnd(builder)

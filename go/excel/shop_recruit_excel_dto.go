@@ -47,7 +47,7 @@ type ShopRecruitExcelDto struct {
 	HalfStackDisplayItemID        int64                  `json:"half_stack_display_item_id"`
 	HalfStackGachaGroupID         int64                  `json:"half_stack_gacha_group_id"`
 	FullStackGachaGroupID         int64                  `json:"full_stack_gacha_group_id"`
-	WishListOnOff                 bool                   `json:"wish_list_on_off"`
+	WishListConfig                WishListConfig         `json:"wish_list_config"`
 	WishListHalfStackGachaGroupID int64                  `json:"wish_list_half_stack_gacha_group_id"`
 	WishListFullStackGachaGroupID int64                  `json:"wish_list_full_stack_gacha_group_id"`
 }
@@ -107,7 +107,7 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddHalfStackDisplayItemId(b, t.HalfStackDisplayItemID)
 	ShopRecruitExcelAddHalfStackGachaGroupId(b, t.HalfStackGachaGroupID)
 	ShopRecruitExcelAddFullStackGachaGroupId(b, t.FullStackGachaGroupID)
-	ShopRecruitExcelAddWishListOnOff(b, t.WishListOnOff)
+	ShopRecruitExcelAddWishListConfig(b, t.WishListConfig)
 	ShopRecruitExcelAddWishListHalfStackGachaGroupId(b, t.WishListHalfStackGachaGroupID)
 	ShopRecruitExcelAddWishListFullStackGachaGroupId(b, t.WishListFullStackGachaGroupID)
 	return ShopRecruitExcelEnd(b)
@@ -165,7 +165,7 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.HalfStackDisplayItemID = e.HalfStackDisplayItemId()
 	t.HalfStackGachaGroupID = e.HalfStackGachaGroupId()
 	t.FullStackGachaGroupID = e.FullStackGachaGroupId()
-	t.WishListOnOff = e.WishListOnOff()
+	t.WishListConfig = e.WishListConfig()
 	t.WishListHalfStackGachaGroupID = e.WishListHalfStackGachaGroupId()
 	t.WishListFullStackGachaGroupID = e.WishListFullStackGachaGroupId()
 	return nil
