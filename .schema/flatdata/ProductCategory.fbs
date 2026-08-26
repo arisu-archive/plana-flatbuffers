@@ -22,4 +22,5 @@ enum ProductCategory: int {
     Stepup1 = 18,
     Stepup2 = 19,
     SpecialSupport = 20,
+    Stepup3 = 21,
 }

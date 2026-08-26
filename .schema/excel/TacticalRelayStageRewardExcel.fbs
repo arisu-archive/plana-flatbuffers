@@ -1,9 +1,11 @@
 include "ParcelType.fbs";
+include "RewardTag.fbs";
 
 namespace MX.Data.Excel;
 
 table TacticalRelayStageRewardExcel {
     group_id: long;
+    reward_tag: RewardTag;
     clear_wave: int;
     reward_prob: int;
     reward_parcel_type: ParcelType;

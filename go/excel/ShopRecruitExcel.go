@@ -493,16 +493,16 @@ func (rcv *ShopRecruitExcel) MutateFullStackGachaGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(76, n)
 }
 
-func (rcv *ShopRecruitExcel) WishListOnOff() bool {
+func (rcv *ShopRecruitExcel) WishListConfig() WishListConfig {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return WishListConfig(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return false
+	return 0
 }
 
-func (rcv *ShopRecruitExcel) MutateWishListOnOff(n bool) bool {
-	return rcv._tab.MutateBoolSlot(78, n)
+func (rcv *ShopRecruitExcel) MutateWishListConfig(n WishListConfig) bool {
+	return rcv._tab.MutateInt32Slot(78, int32(n))
 }
 
 func (rcv *ShopRecruitExcel) WishListHalfStackGachaGroupId() int64 {
@@ -649,8 +649,8 @@ func ShopRecruitExcelAddHalfStackGachaGroupId(builder *flatbuffers.Builder, half
 func ShopRecruitExcelAddFullStackGachaGroupId(builder *flatbuffers.Builder, fullStackGachaGroupId int64) {
 	builder.PrependInt64Slot(36, fullStackGachaGroupId, 0)
 }
-func ShopRecruitExcelAddWishListOnOff(builder *flatbuffers.Builder, wishListOnOff bool) {
-	builder.PrependBoolSlot(37, wishListOnOff, false)
+func ShopRecruitExcelAddWishListConfig(builder *flatbuffers.Builder, wishListConfig WishListConfig) {
+	builder.PrependInt32Slot(37, int32(wishListConfig), 0)
 }
 func ShopRecruitExcelAddWishListHalfStackGachaGroupId(builder *flatbuffers.Builder, wishListHalfStackGachaGroupId int64) {
 	builder.PrependInt64Slot(38, wishListHalfStackGachaGroupId, 0)

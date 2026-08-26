@@ -109,15 +109,29 @@ class CostumeExcel(object):
         return None
 
     # CostumeExcel
-    def SpineResourceNameDiorama(self):
+    def CampaignCompleteAnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def SpineResourceNameDioramaForFormConversion(self, j):
+    def CampaignFailAnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def SpineResourceNameDiorama(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def SpineResourceNameDioramaForFormConversion(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -125,103 +139,103 @@ class CostumeExcel(object):
 
     # CostumeExcel
     def SpineResourceNameDioramaForFormConversionLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CostumeExcel
     def SpineResourceNameDioramaForFormConversionIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         return o == 0
 
     # CostumeExcel
     def EntityMaterialType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CostumeExcel
     def ModelPrefabName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CostumeExcel
-    def AnimatorName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CostumeExcel
-    def CafeModelPrefabName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def EchelonModelPrefabName(self):
+    def AnimatorName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def StrategyModelPrefabName(self):
+    def CafeModelPrefabName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def TextureDir(self):
+    def EchelonModelPrefabName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def CollectionTexturePath(self):
+    def StrategyModelPrefabName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def CollectionBgTexturePath(self):
+    def TextureDir(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def CombatStyleTexturePath(self):
+    def CollectionTexturePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def UseObjectHpbar(self):
+    def CollectionBgTexturePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CostumeExcel
-    def TextureBoss(self):
+    def CombatStyleTexturePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def TextureSkillCard(self, j):
+    def UseObjectHpbar(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CostumeExcel
+    def TextureBoss(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def TextureSkillCard(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -229,60 +243,60 @@ class CostumeExcel(object):
 
     # CostumeExcel
     def TextureSkillCardLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CostumeExcel
     def TextureSkillCardIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         return o == 0
 
     # CostumeExcel
     def InformationPacel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CostumeExcel
-    def AnimationSsr(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CostumeExcel
-    def EnterStrategyAnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def AnimationValidator(self):
+    def AnimationSsr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def EnterStrategyAnimationName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def AnimationValidator(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CostumeExcel
     def CharacterVoiceGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CostumeExcel
     def ShowObjectHpStatus(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
 def CostumeExcelStart(builder):
-    builder.StartObject(33)
+    builder.StartObject(35)
 
 def Start(builder):
     CostumeExcelStart(builder)
@@ -359,14 +373,26 @@ def CostumeExcelAddSpineResourceName(builder, spineResourceName):
 def AddSpineResourceName(builder, spineResourceName):
     CostumeExcelAddSpineResourceName(builder, spineResourceName)
 
+def CostumeExcelAddCampaignCompleteAnimationName(builder, campaignCompleteAnimationName):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(campaignCompleteAnimationName), 0)
+
+def AddCampaignCompleteAnimationName(builder, campaignCompleteAnimationName):
+    CostumeExcelAddCampaignCompleteAnimationName(builder, campaignCompleteAnimationName)
+
+def CostumeExcelAddCampaignFailAnimationName(builder, campaignFailAnimationName):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(campaignFailAnimationName), 0)
+
+def AddCampaignFailAnimationName(builder, campaignFailAnimationName):
+    CostumeExcelAddCampaignFailAnimationName(builder, campaignFailAnimationName)
+
 def CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDiorama), 0)
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDiorama), 0)
 
 def AddSpineResourceNameDiorama(builder, spineResourceNameDiorama):
     CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama)
 
 def CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDioramaForFormConversion), 0)
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDioramaForFormConversion), 0)
 
 def AddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion):
     CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion)
@@ -378,79 +404,79 @@ def StartSpineResourceNameDioramaForFormConversionVector(builder, numElems):
     return CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(builder, numElems)
 
 def CostumeExcelAddEntityMaterialType(builder, entityMaterialType):
-    builder.PrependInt32Slot(14, entityMaterialType, 0)
+    builder.PrependInt32Slot(16, entityMaterialType, 0)
 
 def AddEntityMaterialType(builder, entityMaterialType):
     CostumeExcelAddEntityMaterialType(builder, entityMaterialType)
 
 def CostumeExcelAddModelPrefabName(builder, modelPrefabName):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
 
 def AddModelPrefabName(builder, modelPrefabName):
     CostumeExcelAddModelPrefabName(builder, modelPrefabName)
 
 def CostumeExcelAddAnimatorName(builder, animatorName):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(animatorName), 0)
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(animatorName), 0)
 
 def AddAnimatorName(builder, animatorName):
     CostumeExcelAddAnimatorName(builder, animatorName)
 
 def CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(cafeModelPrefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(cafeModelPrefabName), 0)
 
 def AddCafeModelPrefabName(builder, cafeModelPrefabName):
     CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName)
 
 def CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(echelonModelPrefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(echelonModelPrefabName), 0)
 
 def AddEchelonModelPrefabName(builder, echelonModelPrefabName):
     CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName)
 
 def CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(strategyModelPrefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(strategyModelPrefabName), 0)
 
 def AddStrategyModelPrefabName(builder, strategyModelPrefabName):
     CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName)
 
 def CostumeExcelAddTextureDir(builder, textureDir):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(textureDir), 0)
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(textureDir), 0)
 
 def AddTextureDir(builder, textureDir):
     CostumeExcelAddTextureDir(builder, textureDir)
 
 def CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(collectionTexturePath), 0)
+    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(collectionTexturePath), 0)
 
 def AddCollectionTexturePath(builder, collectionTexturePath):
     CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath)
 
 def CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(collectionBgTexturePath), 0)
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(collectionBgTexturePath), 0)
 
 def AddCollectionBgTexturePath(builder, collectionBgTexturePath):
     CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath)
 
 def CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(combatStyleTexturePath), 0)
+    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(combatStyleTexturePath), 0)
 
 def AddCombatStyleTexturePath(builder, combatStyleTexturePath):
     CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath)
 
 def CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar):
-    builder.PrependBoolSlot(24, useObjectHpbar, 0)
+    builder.PrependBoolSlot(26, useObjectHpbar, 0)
 
 def AddUseObjectHpbar(builder, useObjectHpbar):
     CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar)
 
 def CostumeExcelAddTextureBoss(builder, textureBoss):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(textureBoss), 0)
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(textureBoss), 0)
 
 def AddTextureBoss(builder, textureBoss):
     CostumeExcelAddTextureBoss(builder, textureBoss)
 
 def CostumeExcelAddTextureSkillCard(builder, textureSkillCard):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCard), 0)
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCard), 0)
 
 def AddTextureSkillCard(builder, textureSkillCard):
     CostumeExcelAddTextureSkillCard(builder, textureSkillCard)
@@ -462,37 +488,37 @@ def StartTextureSkillCardVector(builder, numElems):
     return CostumeExcelStartTextureSkillCardVector(builder, numElems)
 
 def CostumeExcelAddInformationPacel(builder, informationPacel):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
+    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
 
 def AddInformationPacel(builder, informationPacel):
     CostumeExcelAddInformationPacel(builder, informationPacel)
 
 def CostumeExcelAddAnimationSsr(builder, animationSsr):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
 
 def AddAnimationSsr(builder, animationSsr):
     CostumeExcelAddAnimationSsr(builder, animationSsr)
 
 def CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
 
 def AddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
     CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName)
 
 def CostumeExcelAddAnimationValidator(builder, animationValidator):
-    builder.PrependBoolSlot(30, animationValidator, 0)
+    builder.PrependBoolSlot(32, animationValidator, 0)
 
 def AddAnimationValidator(builder, animationValidator):
     CostumeExcelAddAnimationValidator(builder, animationValidator)
 
 def CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId):
-    builder.PrependInt64Slot(31, characterVoiceGroupId, 0)
+    builder.PrependInt64Slot(33, characterVoiceGroupId, 0)
 
 def AddCharacterVoiceGroupId(builder, characterVoiceGroupId):
     CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
 
 def CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus):
-    builder.PrependBoolSlot(32, showObjectHpStatus, 0)
+    builder.PrependBoolSlot(34, showObjectHpStatus, 0)
 
 def AddShowObjectHpStatus(builder, showObjectHpStatus):
     CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus)
@@ -525,6 +551,8 @@ class CostumeExcelT(object):
         rarity = 0,
         characterSkillListGroupId = 0,
         spineResourceName = None,
+        campaignCompleteAnimationName = None,
+        campaignFailAnimationName = None,
         spineResourceNameDiorama = None,
         spineResourceNameDioramaForFormConversion = None,
         entityMaterialType = 0,
@@ -559,6 +587,8 @@ class CostumeExcelT(object):
         self.rarity = rarity  # type: int
         self.characterSkillListGroupId = characterSkillListGroupId  # type: int
         self.spineResourceName = spineResourceName  # type: Optional[str]
+        self.campaignCompleteAnimationName = campaignCompleteAnimationName  # type: Optional[str]
+        self.campaignFailAnimationName = campaignFailAnimationName  # type: Optional[str]
         self.spineResourceNameDiorama = spineResourceNameDiorama  # type: Optional[str]
         self.spineResourceNameDioramaForFormConversion = spineResourceNameDioramaForFormConversion  # type: Optional[List[Optional[str]]]
         self.entityMaterialType = entityMaterialType  # type: int
@@ -614,6 +644,8 @@ class CostumeExcelT(object):
         self.rarity = costumeExcel.Rarity()
         self.characterSkillListGroupId = costumeExcel.CharacterSkillListGroupId()
         self.spineResourceName = costumeExcel.SpineResourceName()
+        self.campaignCompleteAnimationName = costumeExcel.CampaignCompleteAnimationName()
+        self.campaignFailAnimationName = costumeExcel.CampaignFailAnimationName()
         self.spineResourceNameDiorama = costumeExcel.SpineResourceNameDiorama()
         if not costumeExcel.SpineResourceNameDioramaForFormConversionIsNone():
             self.spineResourceNameDioramaForFormConversion = []
@@ -654,6 +686,10 @@ class CostumeExcelT(object):
             collectionVisibleEndDate = builder.CreateString(self.collectionVisibleEndDate)
         if self.spineResourceName is not None:
             spineResourceName = builder.CreateString(self.spineResourceName)
+        if self.campaignCompleteAnimationName is not None:
+            campaignCompleteAnimationName = builder.CreateString(self.campaignCompleteAnimationName)
+        if self.campaignFailAnimationName is not None:
+            campaignFailAnimationName = builder.CreateString(self.campaignFailAnimationName)
         if self.spineResourceNameDiorama is not None:
             spineResourceNameDiorama = builder.CreateString(self.spineResourceNameDiorama)
         if self.spineResourceNameDioramaForFormConversion is not None:
@@ -716,6 +752,10 @@ class CostumeExcelT(object):
         CostumeExcelAddCharacterSkillListGroupId(builder, self.characterSkillListGroupId)
         if self.spineResourceName is not None:
             CostumeExcelAddSpineResourceName(builder, spineResourceName)
+        if self.campaignCompleteAnimationName is not None:
+            CostumeExcelAddCampaignCompleteAnimationName(builder, campaignCompleteAnimationName)
+        if self.campaignFailAnimationName is not None:
+            CostumeExcelAddCampaignFailAnimationName(builder, campaignFailAnimationName)
         if self.spineResourceNameDiorama is not None:
             CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama)
         if self.spineResourceNameDioramaForFormConversion is not None:

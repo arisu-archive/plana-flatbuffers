@@ -1,0 +1,10 @@
+include "EquipmentOptionType.fbs";
+
+namespace MX.Data.Excel;
+
+table EquipmentStatsDetailExcel {
+    detail_show_stats: EquipmentOptionType;
+    is_stats_percent: bool;
+}
+
+root_type EquipmentStatsDetailExcel;

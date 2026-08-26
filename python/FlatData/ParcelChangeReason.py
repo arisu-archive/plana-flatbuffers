@@ -218,3 +218,10 @@ class ParcelChangeReason(object):
     StreakRecord_RestoreDay = 212
     StudentFrame_Acquire = 213
     Shop_GachaWishListBuy = 214
+    EnterCostRefund = 215
+    Attendance_Reward = 216
+    DailyRecord_Reward = 217
+    MiniGame_RoadPuzzleTile = 218
+    MiniGame_RoadPuzzleClearStage = 219
+    MiniGame_CCGSweep = 220
+    Conquest_Discard = 221

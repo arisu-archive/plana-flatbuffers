@@ -20,6 +20,7 @@ type ShopCashExcelDto struct {
 	IconPath                string             `json:"icon_path"`
 	DisplayOrder            int64              `json:"display_order"`
 	RenewalDisplayOrder     int64              `json:"renewal_display_order"`
+	ShopCashStepupID        int64              `json:"shop_cash_stepup_id"`
 	CategoryType            ProductCategory    `json:"category_type"`
 	DisplayTag              ProductDisplayTag  `json:"display_tag"`
 	ProductSaleType         ProductSaleType    `json:"product_sale_type"`
@@ -56,6 +57,7 @@ func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ShopCashExcelAddIconPath(b, iconPathOffset)
 	ShopCashExcelAddDisplayOrder(b, t.DisplayOrder)
 	ShopCashExcelAddRenewalDisplayOrder(b, t.RenewalDisplayOrder)
+	ShopCashExcelAddShopCashStepupId(b, t.ShopCashStepupID)
 	ShopCashExcelAddCategoryType(b, t.CategoryType)
 	ShopCashExcelAddDisplayTag(b, t.DisplayTag)
 	ShopCashExcelAddProductSaleType(b, t.ProductSaleType)
@@ -93,6 +95,7 @@ func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
 	t.IconPath = string(e.IconPath())
 	t.DisplayOrder = e.DisplayOrder()
 	t.RenewalDisplayOrder = e.RenewalDisplayOrder()
+	t.ShopCashStepupID = e.ShopCashStepupId()
 	t.CategoryType = e.CategoryType()
 	t.DisplayTag = e.DisplayTag()
 	t.ProductSaleType = e.ProductSaleType()

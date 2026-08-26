@@ -33,7 +33,7 @@ class ShopFilterType(object):
     SchoolTotalTicket = 27
     SRT = 28
     Highlander = 29
-    ShopFilterDUMMY_3 = 30
+    Odyssey = 30
     ShopFilterDUMMY_4 = 31
     ShopFilterDUMMY_5 = 32
     ShopFilterDUMMY_6 = 33

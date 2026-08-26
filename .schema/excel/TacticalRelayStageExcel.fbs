@@ -37,6 +37,7 @@ table TacticalRelayStageExcel {
     favor_collection_score_bonus_id: long;
     echelon_extension_type: EchelonExtensionType;
     assist_slot: int;
+    stage_hint: uint;
     wave_info_tip_icon_path: [string];
     wave_info_tip_localize_etc_id: [uint];
 }

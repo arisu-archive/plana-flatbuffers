@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum WishListConfig: int {
+    NotUse = 0,
+    UseToggle = 1,
+    UseFixed = 2,
+}

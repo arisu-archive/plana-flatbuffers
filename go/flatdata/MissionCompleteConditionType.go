@@ -202,6 +202,7 @@ const (
 	MissionCompleteConditionTypeReset_JankenGetSpecificScore                          MissionCompleteConditionType = 192
 	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear                  MissionCompleteConditionType = 193
 	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount                       MissionCompleteConditionType = 194
+	MissionCompleteConditionTypeAchieve_EngraveLevelUpCount                           MissionCompleteConditionType = 195
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -400,6 +401,7 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_JankenGetSpecificScore:                          "Reset_JankenGetSpecificScore",
 	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear:                  "Reset_SpecificTacticalRelayWaveClear",
 	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount:                       "Achieve_ClearTacticalRelayCount",
+	MissionCompleteConditionTypeAchieve_EngraveLevelUpCount:                           "Achieve_EngraveLevelUpCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -598,6 +600,7 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_JankenGetSpecificScore":                          MissionCompleteConditionTypeReset_JankenGetSpecificScore,
 	"Reset_SpecificTacticalRelayWaveClear":                  MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear,
 	"Achieve_ClearTacticalRelayCount":                       MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount,
+	"Achieve_EngraveLevelUpCount":                           MissionCompleteConditionTypeAchieve_EngraveLevelUpCount,
 }
 
 func (v MissionCompleteConditionType) String() string {

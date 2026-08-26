@@ -1,0 +1,27 @@
+include "ProductCategory.fbs";
+include "ProductDisplayTag.fbs";
+include "ProductSaleType.fbs";
+include "TargetGroup.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopCashStepupExcel {
+    id: long;
+    step: int;
+    is_free_product: bool;
+    shop_cash_ids: [long];
+    target_group: TargetGroup;
+    title_path: string;
+    colors: [string];
+    localize_code_id: uint;
+    bottom_box_prefab_name: string;
+    category_type: ProductCategory;
+    stepup_display_tag: ProductDisplayTag;
+    product_sale_type: ProductSaleType;
+    sale_period_from: string;
+    sale_period_to: string;
+    product_sale_day: long;
+    period_tag: bool;
+}
+
+root_type ShopCashStepupExcel;

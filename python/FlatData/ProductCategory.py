@@ -24,3 +24,4 @@ class ProductCategory(object):
     Stepup1 = 18
     Stepup2 = 19
     SpecialSupport = 20
+    Stepup3 = 21

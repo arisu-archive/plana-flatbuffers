@@ -11,6 +11,7 @@ import (
 type TacticalRelayStageRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupID          int64      `json:"group_id"`
+	RewardTag        RewardTag  `json:"reward_tag"`
 	ClearWave        int32      `json:"clear_wave"`
 	RewardProb       int32      `json:"reward_prob"`
 	RewardParcelType ParcelType `json:"reward_parcel_type"`
@@ -23,6 +24,7 @@ type TacticalRelayStageRewardExcelDto struct {
 func (t *TacticalRelayStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TacticalRelayStageRewardExcelStart(b)
 	TacticalRelayStageRewardExcelAddGroupId(b, t.GroupID)
+	TacticalRelayStageRewardExcelAddRewardTag(b, t.RewardTag)
 	TacticalRelayStageRewardExcelAddClearWave(b, t.ClearWave)
 	TacticalRelayStageRewardExcelAddRewardProb(b, t.RewardProb)
 	TacticalRelayStageRewardExcelAddRewardParcelType(b, t.RewardParcelType)
@@ -42,6 +44,7 @@ func (t *TacticalRelayStageRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers table.
 func (t *TacticalRelayStageRewardExcelDto) UnmarshalMessage(e *TacticalRelayStageRewardExcel) error {
 	t.GroupID = e.GroupId()
+	t.RewardTag = e.RewardTag()
 	t.ClearWave = e.ClearWave()
 	t.RewardProb = e.RewardProb()
 	t.RewardParcelType = e.RewardParcelType()

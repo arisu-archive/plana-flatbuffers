@@ -7,30 +7,33 @@ import "strconv"
 type ProductDisplayTag int32
 
 const (
-	ProductDisplayTagNone    ProductDisplayTag = 0
-	ProductDisplayTagNew     ProductDisplayTag = 1
-	ProductDisplayTagHot     ProductDisplayTag = 2
-	ProductDisplayTagSale    ProductDisplayTag = 3
-	ProductDisplayTagLimited ProductDisplayTag = 4
-	ProductDisplayTagFree    ProductDisplayTag = 5
+	ProductDisplayTagNone      ProductDisplayTag = 0
+	ProductDisplayTagNew       ProductDisplayTag = 1
+	ProductDisplayTagHot       ProductDisplayTag = 2
+	ProductDisplayTagSale      ProductDisplayTag = 3
+	ProductDisplayTagLimited   ProductDisplayTag = 4
+	ProductDisplayTagFree      ProductDisplayTag = 5
+	ProductDisplayTagRecommend ProductDisplayTag = 6
 )
 
 var EnumNamesProductDisplayTag = map[ProductDisplayTag]string{
-	ProductDisplayTagNone:    "None",
-	ProductDisplayTagNew:     "New",
-	ProductDisplayTagHot:     "Hot",
-	ProductDisplayTagSale:    "Sale",
-	ProductDisplayTagLimited: "Limited",
-	ProductDisplayTagFree:    "Free",
+	ProductDisplayTagNone:      "None",
+	ProductDisplayTagNew:       "New",
+	ProductDisplayTagHot:       "Hot",
+	ProductDisplayTagSale:      "Sale",
+	ProductDisplayTagLimited:   "Limited",
+	ProductDisplayTagFree:      "Free",
+	ProductDisplayTagRecommend: "Recommend",
 }
 
 var EnumValuesProductDisplayTag = map[string]ProductDisplayTag{
-	"None":    ProductDisplayTagNone,
-	"New":     ProductDisplayTagNew,
-	"Hot":     ProductDisplayTagHot,
-	"Sale":    ProductDisplayTagSale,
-	"Limited": ProductDisplayTagLimited,
-	"Free":    ProductDisplayTagFree,
+	"None":      ProductDisplayTagNone,
+	"New":       ProductDisplayTagNew,
+	"Hot":       ProductDisplayTagHot,
+	"Sale":      ProductDisplayTagSale,
+	"Limited":   ProductDisplayTagLimited,
+	"Free":      ProductDisplayTagFree,
+	"Recommend": ProductDisplayTagRecommend,
 }
 
 func (v ProductDisplayTag) String() string {

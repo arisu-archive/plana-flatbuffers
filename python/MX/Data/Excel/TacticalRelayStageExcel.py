@@ -295,8 +295,15 @@ class TacticalRelayStageExcel(object):
         return 0
 
     # TacticalRelayStageExcel
-    def WaveInfoTipIconPath(self, j):
+    def StageHint(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalRelayStageExcel
+    def WaveInfoTipIconPath(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -304,19 +311,19 @@ class TacticalRelayStageExcel(object):
 
     # TacticalRelayStageExcel
     def WaveInfoTipIconPathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TacticalRelayStageExcel
     def WaveInfoTipIconPathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         return o == 0
 
     # TacticalRelayStageExcel
     def WaveInfoTipLocalizeEtcId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -324,25 +331,25 @@ class TacticalRelayStageExcel(object):
 
     # TacticalRelayStageExcel
     def WaveInfoTipLocalizeEtcIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
         return 0
 
     # TacticalRelayStageExcel
     def WaveInfoTipLocalizeEtcIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TacticalRelayStageExcel
     def WaveInfoTipLocalizeEtcIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         return o == 0
 
 def TacticalRelayStageExcelStart(builder):
-    builder.StartObject(32)
+    builder.StartObject(33)
 
 def Start(builder):
     TacticalRelayStageExcelStart(builder)
@@ -545,8 +552,14 @@ def TacticalRelayStageExcelAddAssistSlot(builder, assistSlot):
 def AddAssistSlot(builder, assistSlot):
     TacticalRelayStageExcelAddAssistSlot(builder, assistSlot)
 
+def TacticalRelayStageExcelAddStageHint(builder, stageHint):
+    builder.PrependUint32Slot(30, stageHint, 0)
+
+def AddStageHint(builder, stageHint):
+    TacticalRelayStageExcelAddStageHint(builder, stageHint)
+
 def TacticalRelayStageExcelAddWaveInfoTipIconPath(builder, waveInfoTipIconPath):
-    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(waveInfoTipIconPath), 0)
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(waveInfoTipIconPath), 0)
 
 def AddWaveInfoTipIconPath(builder, waveInfoTipIconPath):
     TacticalRelayStageExcelAddWaveInfoTipIconPath(builder, waveInfoTipIconPath)
@@ -558,7 +571,7 @@ def StartWaveInfoTipIconPathVector(builder, numElems):
     return TacticalRelayStageExcelStartWaveInfoTipIconPathVector(builder, numElems)
 
 def TacticalRelayStageExcelAddWaveInfoTipLocalizeEtcId(builder, waveInfoTipLocalizeEtcId):
-    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(waveInfoTipLocalizeEtcId), 0)
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(waveInfoTipLocalizeEtcId), 0)
 
 def AddWaveInfoTipLocalizeEtcId(builder, waveInfoTipLocalizeEtcId):
     TacticalRelayStageExcelAddWaveInfoTipLocalizeEtcId(builder, waveInfoTipLocalizeEtcId)
@@ -615,6 +628,7 @@ class TacticalRelayStageExcelT(object):
         favorCollectionScoreBonusId = 0,
         echelonExtensionType = 0,
         assistSlot = 0,
+        stageHint = 0,
         waveInfoTipIconPath = None,
         waveInfoTipLocalizeEtcId = None,
     ):
@@ -648,6 +662,7 @@ class TacticalRelayStageExcelT(object):
         self.favorCollectionScoreBonusId = favorCollectionScoreBonusId  # type: int
         self.echelonExtensionType = echelonExtensionType  # type: int
         self.assistSlot = assistSlot  # type: int
+        self.stageHint = stageHint  # type: int
         self.waveInfoTipIconPath = waveInfoTipIconPath  # type: Optional[List[Optional[str]]]
         self.waveInfoTipLocalizeEtcId = waveInfoTipLocalizeEtcId  # type: Optional[List[int]]
 
@@ -720,6 +735,7 @@ class TacticalRelayStageExcelT(object):
         self.favorCollectionScoreBonusId = tacticalRelayStageExcel.FavorCollectionScoreBonusId()
         self.echelonExtensionType = tacticalRelayStageExcel.EchelonExtensionType()
         self.assistSlot = tacticalRelayStageExcel.AssistSlot()
+        self.stageHint = tacticalRelayStageExcel.StageHint()
         if not tacticalRelayStageExcel.WaveInfoTipIconPathIsNone():
             self.waveInfoTipIconPath = []
             for i in range(tacticalRelayStageExcel.WaveInfoTipIconPathLength()):
@@ -814,6 +830,7 @@ class TacticalRelayStageExcelT(object):
         TacticalRelayStageExcelAddFavorCollectionScoreBonusId(builder, self.favorCollectionScoreBonusId)
         TacticalRelayStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
         TacticalRelayStageExcelAddAssistSlot(builder, self.assistSlot)
+        TacticalRelayStageExcelAddStageHint(builder, self.stageHint)
         if self.waveInfoTipIconPath is not None:
             TacticalRelayStageExcelAddWaveInfoTipIconPath(builder, waveInfoTipIconPath)
         if self.waveInfoTipLocalizeEtcId is not None:

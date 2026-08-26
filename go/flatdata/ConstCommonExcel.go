@@ -2487,7 +2487,7 @@ func (rcv *ConstCommonExcel) MutateEngraveContentsIsOpen(n bool) bool {
 	return rcv._tab.MutateBoolSlot(396, n)
 }
 
-func (rcv *ConstCommonExcel) TacticalRealyContentsIsOpen() bool {
+func (rcv *ConstCommonExcel) TacticalRelayContentsIsOpen() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(398))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -2495,7 +2495,7 @@ func (rcv *ConstCommonExcel) TacticalRealyContentsIsOpen() bool {
 	return false
 }
 
-func (rcv *ConstCommonExcel) MutateTacticalRealyContentsIsOpen(n bool) bool {
+func (rcv *ConstCommonExcel) MutateTacticalRelayContentsIsOpen(n bool) bool {
 	return rcv._tab.MutateBoolSlot(398, n)
 }
 
@@ -3138,8 +3138,8 @@ func ConstCommonExcelAddExpirySeasonRecordItemReceiveDay(builder *flatbuffers.Bu
 func ConstCommonExcelAddEngraveContentsIsOpen(builder *flatbuffers.Builder, engraveContentsIsOpen bool) {
 	builder.PrependBoolSlot(196, engraveContentsIsOpen, false)
 }
-func ConstCommonExcelAddTacticalRealyContentsIsOpen(builder *flatbuffers.Builder, tacticalRealyContentsIsOpen bool) {
-	builder.PrependBoolSlot(197, tacticalRealyContentsIsOpen, false)
+func ConstCommonExcelAddTacticalRelayContentsIsOpen(builder *flatbuffers.Builder, tacticalRelayContentsIsOpen bool) {
+	builder.PrependBoolSlot(197, tacticalRelayContentsIsOpen, false)
 }
 func ConstCommonExcelAddExSkillLevelMaxByEngrave(builder *flatbuffers.Builder, exSkillLevelMaxByEngrave int32) {
 	builder.PrependInt32Slot(198, exSkillLevelMaxByEngrave, 0)

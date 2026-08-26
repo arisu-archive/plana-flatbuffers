@@ -125,7 +125,7 @@ func (rcv *TerrainAdaptationFactorExcel) MutateAttackPowerFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription() []byte {
+func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription01() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -133,8 +133,24 @@ func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription() []byte {
 	return nil
 }
 
+func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription02() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TerrainAdaptationFactorExcel) TerrainFactorDescription03() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func TerrainAdaptationFactorExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(8)
+	builder.StartObject(10)
 }
 func TerrainAdaptationFactorExcelAddTerrainAdaptation(builder *flatbuffers.Builder, terrainAdaptation StageTopography) {
 	builder.PrependInt32Slot(0, int32(terrainAdaptation), 0)
@@ -157,8 +173,14 @@ func TerrainAdaptationFactorExcelAddDodgeFactor(builder *flatbuffers.Builder, do
 func TerrainAdaptationFactorExcelAddAttackPowerFactor(builder *flatbuffers.Builder, attackPowerFactor int64) {
 	builder.PrependInt64Slot(6, attackPowerFactor, 0)
 }
-func TerrainAdaptationFactorExcelAddTerrainFactorDescription(builder *flatbuffers.Builder, terrainFactorDescription flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(terrainFactorDescription), 0)
+func TerrainAdaptationFactorExcelAddTerrainFactorDescription01(builder *flatbuffers.Builder, terrainFactorDescription01 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(terrainFactorDescription01), 0)
+}
+func TerrainAdaptationFactorExcelAddTerrainFactorDescription02(builder *flatbuffers.Builder, terrainFactorDescription02 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(terrainFactorDescription02), 0)
+}
+func TerrainAdaptationFactorExcelAddTerrainFactorDescription03(builder *flatbuffers.Builder, terrainFactorDescription03 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(terrainFactorDescription03), 0)
 }
 func TerrainAdaptationFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

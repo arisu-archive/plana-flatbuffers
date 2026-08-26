@@ -27,6 +27,7 @@ table ConstCombatExcel {
     enemy_regen_cost: long;
     champion_regen_cost: long;
     player_regen_cost_delay: long;
+    player_auto_use_start_delay: long;
     crowd_control_factor: long;
     raid_open_scenario_id: string;
     eliminate_raid_open_scenario_id: string;

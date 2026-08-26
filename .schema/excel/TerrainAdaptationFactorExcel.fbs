@@ -11,7 +11,9 @@ table TerrainAdaptationFactorExcel {
     accuracy_factor: long;
     dodge_factor: long;
     attack_power_factor: long;
-    terrain_factor_description: string;
+    terrain_factor_description01: string;
+    terrain_factor_description02: string;
+    terrain_factor_description03: string;
 }
 
 root_type TerrainAdaptationFactorExcel;

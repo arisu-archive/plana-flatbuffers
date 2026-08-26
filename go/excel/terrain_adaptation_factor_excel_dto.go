@@ -10,19 +10,23 @@ import (
 // TerrainAdaptationFactorExcelDto represents a FlatBuffers table.
 type TerrainAdaptationFactorExcelDto struct {
 	fbsutils.FlatBuffer
-	TerrainAdaptation        StageTopography       `json:"terrain_adaptation"`
-	TerrainAdaptationStat    TerrainAdaptationStat `json:"terrain_adaptation_stat"`
-	ShotFactor               int64                 `json:"shot_factor"`
-	BlockFactor              int64                 `json:"block_factor"`
-	AccuracyFactor           int64                 `json:"accuracy_factor"`
-	DodgeFactor              int64                 `json:"dodge_factor"`
-	AttackPowerFactor        int64                 `json:"attack_power_factor"`
-	TerrainFactorDescription string                `json:"terrain_factor_description"`
+	TerrainAdaptation          StageTopography       `json:"terrain_adaptation"`
+	TerrainAdaptationStat      TerrainAdaptationStat `json:"terrain_adaptation_stat"`
+	ShotFactor                 int64                 `json:"shot_factor"`
+	BlockFactor                int64                 `json:"block_factor"`
+	AccuracyFactor             int64                 `json:"accuracy_factor"`
+	DodgeFactor                int64                 `json:"dodge_factor"`
+	AttackPowerFactor          int64                 `json:"attack_power_factor"`
+	TerrainFactorDescription01 string                `json:"terrain_factor_description01"`
+	TerrainFactorDescription02 string                `json:"terrain_factor_description02"`
+	TerrainFactorDescription03 string                `json:"terrain_factor_description03"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *TerrainAdaptationFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	terrainFactorDescriptionOffset := b.CreateString(t.TerrainFactorDescription)
+	terrainFactorDescription01Offset := b.CreateString(t.TerrainFactorDescription01)
+	terrainFactorDescription02Offset := b.CreateString(t.TerrainFactorDescription02)
+	terrainFactorDescription03Offset := b.CreateString(t.TerrainFactorDescription03)
 	TerrainAdaptationFactorExcelStart(b)
 	TerrainAdaptationFactorExcelAddTerrainAdaptation(b, t.TerrainAdaptation)
 	TerrainAdaptationFactorExcelAddTerrainAdaptationStat(b, t.TerrainAdaptationStat)
@@ -31,7 +35,9 @@ func (t *TerrainAdaptationFactorExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	TerrainAdaptationFactorExcelAddAccuracyFactor(b, t.AccuracyFactor)
 	TerrainAdaptationFactorExcelAddDodgeFactor(b, t.DodgeFactor)
 	TerrainAdaptationFactorExcelAddAttackPowerFactor(b, t.AttackPowerFactor)
-	TerrainAdaptationFactorExcelAddTerrainFactorDescription(b, terrainFactorDescriptionOffset)
+	TerrainAdaptationFactorExcelAddTerrainFactorDescription01(b, terrainFactorDescription01Offset)
+	TerrainAdaptationFactorExcelAddTerrainFactorDescription02(b, terrainFactorDescription02Offset)
+	TerrainAdaptationFactorExcelAddTerrainFactorDescription03(b, terrainFactorDescription03Offset)
 	return TerrainAdaptationFactorExcelEnd(b)
 }
 
@@ -51,7 +57,9 @@ func (t *TerrainAdaptationFactorExcelDto) UnmarshalMessage(e *TerrainAdaptationF
 	t.AccuracyFactor = e.AccuracyFactor()
 	t.DodgeFactor = e.DodgeFactor()
 	t.AttackPowerFactor = e.AttackPowerFactor()
-	t.TerrainFactorDescription = string(e.TerrainFactorDescription())
+	t.TerrainFactorDescription01 = string(e.TerrainFactorDescription01())
+	t.TerrainFactorDescription02 = string(e.TerrainFactorDescription02())
+	t.TerrainFactorDescription03 = string(e.TerrainFactorDescription03())
 	return nil
 }
 

@@ -198,3 +198,4 @@ class MissionCompleteConditionType(object):
     Reset_JankenGetSpecificScore = 192
     Reset_SpecificTacticalRelayWaveClear = 193
     Achieve_ClearTacticalRelayCount = 194
+    Achieve_EngraveLevelUpCount = 195

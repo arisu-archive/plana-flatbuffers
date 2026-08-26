@@ -435,8 +435,20 @@ func (rcv *TacticalRelayStageExcel) MutateAssistSlot(n int32) bool {
 	return rcv._tab.MutateInt32Slot(62, n)
 }
 
-func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPath(j int) []byte {
+func (rcv *TacticalRelayStageExcel) StageHint() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageExcel) MutateStageHint(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(64, n)
+}
+
+func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPath(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -445,7 +457,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPath(j int) []byte {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -453,7 +465,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPathLength() int {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcId(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -462,7 +474,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcId(j int) uint32 {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -470,7 +482,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcIdLength() int {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateWaveInfoTipLocalizeEtcId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -479,7 +491,7 @@ func (rcv *TacticalRelayStageExcel) MutateWaveInfoTipLocalizeEtcId(j int, n uint
 }
 
 func TacticalRelayStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(32)
+	builder.StartObject(33)
 }
 func TacticalRelayStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -580,14 +592,17 @@ func TacticalRelayStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder
 func TacticalRelayStageExcelAddAssistSlot(builder *flatbuffers.Builder, assistSlot int32) {
 	builder.PrependInt32Slot(29, assistSlot, 0)
 }
+func TacticalRelayStageExcelAddStageHint(builder *flatbuffers.Builder, stageHint uint32) {
+	builder.PrependUint32Slot(30, stageHint, 0)
+}
 func TacticalRelayStageExcelAddWaveInfoTipIconPath(builder *flatbuffers.Builder, waveInfoTipIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(waveInfoTipIconPath), 0)
+	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(waveInfoTipIconPath), 0)
 }
 func TacticalRelayStageExcelStartWaveInfoTipIconPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func TacticalRelayStageExcelAddWaveInfoTipLocalizeEtcId(builder *flatbuffers.Builder, waveInfoTipLocalizeEtcId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(waveInfoTipLocalizeEtcId), 0)
+	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(waveInfoTipLocalizeEtcId), 0)
 }
 func TacticalRelayStageExcelStartWaveInfoTipLocalizeEtcIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

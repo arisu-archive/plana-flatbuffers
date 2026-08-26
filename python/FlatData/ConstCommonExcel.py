@@ -1544,7 +1544,7 @@ class ConstCommonExcel(object):
         return False
 
     # ConstCommonExcel
-    def TacticalRealyContentsIsOpen(self):
+    def TacticalRelayContentsIsOpen(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(398))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
@@ -2794,11 +2794,11 @@ def ConstCommonExcelAddEngraveContentsIsOpen(builder, engraveContentsIsOpen):
 def AddEngraveContentsIsOpen(builder, engraveContentsIsOpen):
     ConstCommonExcelAddEngraveContentsIsOpen(builder, engraveContentsIsOpen)
 
-def ConstCommonExcelAddTacticalRealyContentsIsOpen(builder, tacticalRealyContentsIsOpen):
-    builder.PrependBoolSlot(197, tacticalRealyContentsIsOpen, 0)
+def ConstCommonExcelAddTacticalRelayContentsIsOpen(builder, tacticalRelayContentsIsOpen):
+    builder.PrependBoolSlot(197, tacticalRelayContentsIsOpen, 0)
 
-def AddTacticalRealyContentsIsOpen(builder, tacticalRealyContentsIsOpen):
-    ConstCommonExcelAddTacticalRealyContentsIsOpen(builder, tacticalRealyContentsIsOpen)
+def AddTacticalRelayContentsIsOpen(builder, tacticalRelayContentsIsOpen):
+    ConstCommonExcelAddTacticalRelayContentsIsOpen(builder, tacticalRelayContentsIsOpen)
 
 def ConstCommonExcelAddExSkillLevelMaxByEngrave(builder, exSkillLevelMaxByEngrave):
     builder.PrependInt32Slot(198, exSkillLevelMaxByEngrave, 0)
@@ -3025,7 +3025,7 @@ class ConstCommonExcelT(object):
         expiryStreakRecordItemReceiveDay = 0,
         expirySeasonRecordItemReceiveDay = 0,
         engraveContentsIsOpen = False,
-        tacticalRealyContentsIsOpen = False,
+        tacticalRelayContentsIsOpen = False,
         exSkillLevelMaxByEngrave = 0,
         exSkillUpgradeLevelMax = 0,
     ):
@@ -3226,7 +3226,7 @@ class ConstCommonExcelT(object):
         self.expiryStreakRecordItemReceiveDay = expiryStreakRecordItemReceiveDay  # type: int
         self.expirySeasonRecordItemReceiveDay = expirySeasonRecordItemReceiveDay  # type: int
         self.engraveContentsIsOpen = engraveContentsIsOpen  # type: bool
-        self.tacticalRealyContentsIsOpen = tacticalRealyContentsIsOpen  # type: bool
+        self.tacticalRelayContentsIsOpen = tacticalRelayContentsIsOpen  # type: bool
         self.exSkillLevelMaxByEngrave = exSkillLevelMaxByEngrave  # type: int
         self.exSkillUpgradeLevelMax = exSkillUpgradeLevelMax  # type: int
 
@@ -3490,7 +3490,7 @@ class ConstCommonExcelT(object):
         self.expiryStreakRecordItemReceiveDay = constCommonExcel.ExpiryStreakRecordItemReceiveDay()
         self.expirySeasonRecordItemReceiveDay = constCommonExcel.ExpirySeasonRecordItemReceiveDay()
         self.engraveContentsIsOpen = constCommonExcel.EngraveContentsIsOpen()
-        self.tacticalRealyContentsIsOpen = constCommonExcel.TacticalRealyContentsIsOpen()
+        self.tacticalRelayContentsIsOpen = constCommonExcel.TacticalRelayContentsIsOpen()
         self.exSkillLevelMaxByEngrave = constCommonExcel.ExSkillLevelMaxByEngrave()
         self.exSkillUpgradeLevelMax = constCommonExcel.ExSkillUpgradeLevelMax()
 
@@ -3769,7 +3769,7 @@ class ConstCommonExcelT(object):
         ConstCommonExcelAddExpiryStreakRecordItemReceiveDay(builder, self.expiryStreakRecordItemReceiveDay)
         ConstCommonExcelAddExpirySeasonRecordItemReceiveDay(builder, self.expirySeasonRecordItemReceiveDay)
         ConstCommonExcelAddEngraveContentsIsOpen(builder, self.engraveContentsIsOpen)
-        ConstCommonExcelAddTacticalRealyContentsIsOpen(builder, self.tacticalRealyContentsIsOpen)
+        ConstCommonExcelAddTacticalRelayContentsIsOpen(builder, self.tacticalRelayContentsIsOpen)
         ConstCommonExcelAddExSkillLevelMaxByEngrave(builder, self.exSkillLevelMaxByEngrave)
         ConstCommonExcelAddExSkillUpgradeLevelMax(builder, self.exSkillUpgradeLevelMax)
         constCommonExcel = ConstCommonExcelEnd(builder)
