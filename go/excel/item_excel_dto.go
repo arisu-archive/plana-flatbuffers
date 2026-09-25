@@ -46,6 +46,7 @@ type ItemExcelDto struct {
 	GachaTicket              GachaTicketType    `json:"gacha_ticket"`
 	AlertPopupID             int64              `json:"alert_popup_id"`
 	ShiftingCraftRecipe      int64              `json:"shifting_craft_recipe"`
+	ShowContents             bool               `json:"show_contents"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -100,6 +101,7 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	ItemExcelAddGachaTicket(b, t.GachaTicket)
 	ItemExcelAddAlertPopupId(b, t.AlertPopupID)
 	ItemExcelAddShiftingCraftRecipe(b, t.ShiftingCraftRecipe)
+	ItemExcelAddShowContents(b, t.ShowContents)
 	return ItemExcelEnd(b)
 }
 
@@ -154,6 +156,7 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	t.GachaTicket = e.GachaTicket()
 	t.AlertPopupID = e.AlertPopupId()
 	t.ShiftingCraftRecipe = e.ShiftingCraftRecipe()
+	t.ShowContents = e.ShowContents()
 	return nil
 }
 

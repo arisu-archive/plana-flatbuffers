@@ -9,6 +9,7 @@ table FloaterCommonExcel {
     floater_offset_pos_y: int;
     floater_random_pos_range_x: int;
     floater_random_pos_range_y: int;
+    limited_floater_random_pos_range_y: int;
 }
 
 root_type FloaterCommonExcel;

@@ -489,8 +489,20 @@ func (rcv *ItemExcel) MutateShiftingCraftRecipe(n int64) bool {
 	return rcv._tab.MutateInt64Slot(74, n)
 }
 
+func (rcv *ItemExcel) ShowContents() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ItemExcel) MutateShowContents(n bool) bool {
+	return rcv._tab.MutateBoolSlot(76, n)
+}
+
 func ItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(36)
+	builder.StartObject(37)
 }
 func ItemExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -605,6 +617,9 @@ func ItemExcelAddAlertPopupId(builder *flatbuffers.Builder, alertPopupId int64) 
 }
 func ItemExcelAddShiftingCraftRecipe(builder *flatbuffers.Builder, shiftingCraftRecipe int64) {
 	builder.PrependInt64Slot(35, shiftingCraftRecipe, 0)
+}
+func ItemExcelAddShowContents(builder *flatbuffers.Builder, showContents bool) {
+	builder.PrependBoolSlot(36, showContents, false)
 }
 func ItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

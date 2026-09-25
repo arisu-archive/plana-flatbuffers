@@ -3,6 +3,10 @@ namespace MX.Data.Excel;
 table EventContentClueSearchExcel {
     event_content_id: long;
     title_localize: uint;
+    search_cost_goods_id: long;
+    deduction_point_item_id: long;
+    inspiration_convert_count: long;
+    max_search_count: long;
     use_prefab_name: string;
     clue_bg_image_path: string;
 }

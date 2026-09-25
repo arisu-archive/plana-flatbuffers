@@ -9,3 +9,5 @@ class WeekDungeonType(object):
     ChaserC = 3
     FindGift = 4
     Blood = 5
+    ChaserD = 6
+    ChaserE = 7

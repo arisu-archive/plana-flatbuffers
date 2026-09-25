@@ -229,6 +229,13 @@ const (
 	ParcelChangeReasonMiniGame_RoadPuzzleClearStage        ParcelChangeReason = 219
 	ParcelChangeReasonMiniGame_CCGSweep                    ParcelChangeReason = 220
 	ParcelChangeReasonConquest_Discard                     ParcelChangeReason = 221
+	ParcelChangeReasonCharacter_AdaptationComplete         ParcelChangeReason = 222
+	ParcelChangeReasonWeekDungeon_EnterChaserD             ParcelChangeReason = 223
+	ParcelChangeReasonWeekDungeon_EnterChaserE             ParcelChangeReason = 224
+	ParcelChangeReasonWeekDungeon_ChaserDResult            ParcelChangeReason = 225
+	ParcelChangeReasonWeekDungeon_ChaserEResult            ParcelChangeReason = 226
+	ParcelChangeReasonClueSearch_Investigate               ParcelChangeReason = 227
+	ParcelChangeReasonClueSearch_Reveal                    ParcelChangeReason = 228
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -454,6 +461,13 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonMiniGame_RoadPuzzleClearStage:        "MiniGame_RoadPuzzleClearStage",
 	ParcelChangeReasonMiniGame_CCGSweep:                    "MiniGame_CCGSweep",
 	ParcelChangeReasonConquest_Discard:                     "Conquest_Discard",
+	ParcelChangeReasonCharacter_AdaptationComplete:         "Character_AdaptationComplete",
+	ParcelChangeReasonWeekDungeon_EnterChaserD:             "WeekDungeon_EnterChaserD",
+	ParcelChangeReasonWeekDungeon_EnterChaserE:             "WeekDungeon_EnterChaserE",
+	ParcelChangeReasonWeekDungeon_ChaserDResult:            "WeekDungeon_ChaserDResult",
+	ParcelChangeReasonWeekDungeon_ChaserEResult:            "WeekDungeon_ChaserEResult",
+	ParcelChangeReasonClueSearch_Investigate:               "ClueSearch_Investigate",
+	ParcelChangeReasonClueSearch_Reveal:                    "ClueSearch_Reveal",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -679,6 +693,13 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"MiniGame_RoadPuzzleClearStage":        ParcelChangeReasonMiniGame_RoadPuzzleClearStage,
 	"MiniGame_CCGSweep":                    ParcelChangeReasonMiniGame_CCGSweep,
 	"Conquest_Discard":                     ParcelChangeReasonConquest_Discard,
+	"Character_AdaptationComplete":         ParcelChangeReasonCharacter_AdaptationComplete,
+	"WeekDungeon_EnterChaserD":             ParcelChangeReasonWeekDungeon_EnterChaserD,
+	"WeekDungeon_EnterChaserE":             ParcelChangeReasonWeekDungeon_EnterChaserE,
+	"WeekDungeon_ChaserDResult":            ParcelChangeReasonWeekDungeon_ChaserDResult,
+	"WeekDungeon_ChaserEResult":            ParcelChangeReasonWeekDungeon_ChaserEResult,
+	"ClueSearch_Investigate":               ParcelChangeReasonClueSearch_Investigate,
+	"ClueSearch_Reveal":                    ParcelChangeReasonClueSearch_Reveal,
 }
 
 func (v ParcelChangeReason) String() string {

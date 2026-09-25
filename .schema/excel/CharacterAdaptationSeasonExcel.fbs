@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table CharacterAdaptationSeasonExcel {
+    id: long;
+    enabled: bool;
+    start_date: string;
+    end_date: string;
+    icon_order: long;
+    lobby_banner_image: string;
+}
+
+root_type CharacterAdaptationSeasonExcel;

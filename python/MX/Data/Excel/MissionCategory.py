@@ -16,3 +16,4 @@ class MissionCategory(object):
     DailyFixed = 10
     EventFixed = 11
     WelcomeMission = 12
+    CharacterAdaptationMission = 13

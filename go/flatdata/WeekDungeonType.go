@@ -13,6 +13,8 @@ const (
 	WeekDungeonTypeChaserC  WeekDungeonType = 3
 	WeekDungeonTypeFindGift WeekDungeonType = 4
 	WeekDungeonTypeBlood    WeekDungeonType = 5
+	WeekDungeonTypeChaserD  WeekDungeonType = 6
+	WeekDungeonTypeChaserE  WeekDungeonType = 7
 )
 
 var EnumNamesWeekDungeonType = map[WeekDungeonType]string{
@@ -22,6 +24,8 @@ var EnumNamesWeekDungeonType = map[WeekDungeonType]string{
 	WeekDungeonTypeChaserC:  "ChaserC",
 	WeekDungeonTypeFindGift: "FindGift",
 	WeekDungeonTypeBlood:    "Blood",
+	WeekDungeonTypeChaserD:  "ChaserD",
+	WeekDungeonTypeChaserE:  "ChaserE",
 }
 
 var EnumValuesWeekDungeonType = map[string]WeekDungeonType{
@@ -31,6 +35,8 @@ var EnumValuesWeekDungeonType = map[string]WeekDungeonType{
 	"ChaserC":  WeekDungeonTypeChaserC,
 	"FindGift": WeekDungeonTypeFindGift,
 	"Blood":    WeekDungeonTypeBlood,
+	"ChaserD":  WeekDungeonTypeChaserD,
+	"ChaserE":  WeekDungeonTypeChaserE,
 }
 
 func (v WeekDungeonType) String() string {

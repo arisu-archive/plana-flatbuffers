@@ -10,19 +10,46 @@ import (
 // LevelExpMasterCoinExcelDto represents a FlatBuffers table.
 type LevelExpMasterCoinExcelDto struct {
 	fbsutils.FlatBuffer
-	ID       int64 `json:"id"`
-	MinLevel int32 `json:"min_level"`
-	MaxLevel int32 `json:"max_level"`
-	Ratio    int32 `json:"ratio"`
+	ID                      int64   `json:"id"`
+	MinLevel                int32   `json:"min_level"`
+	MaxLevel                int32   `json:"max_level"`
+	Ratio                   int32   `json:"ratio"`
+	ProductMonthlyId1       []int64 `json:"product_monthly_id1"`
+	PlusMasterCoinRatio1    int64   `json:"plus_master_coin_ratio1"`
+	PlusMasterCoinIconName1 string  `json:"plus_master_coin_icon_name1"`
+	ProductMonthlyId2       []int64 `json:"product_monthly_id2"`
+	PlusMasterCoinRatio2    int64   `json:"plus_master_coin_ratio2"`
+	PlusMasterCoinIconName2 string  `json:"plus_master_coin_icon_name2"`
+	PlusMasterCoinIconName3 string  `json:"plus_master_coin_icon_name3"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *LevelExpMasterCoinExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	LevelExpMasterCoinExcelStartProductMonthlyId1Vector(b, len(t.ProductMonthlyId1))
+	for i := len(t.ProductMonthlyId1) - 1; i >= 0; i-- {
+		b.PrependInt64(t.ProductMonthlyId1[i])
+	}
+	productMonthlyId1Offset := b.EndVector(len(t.ProductMonthlyId1))
+	plusMasterCoinIconName1Offset := b.CreateString(t.PlusMasterCoinIconName1)
+	LevelExpMasterCoinExcelStartProductMonthlyId2Vector(b, len(t.ProductMonthlyId2))
+	for i := len(t.ProductMonthlyId2) - 1; i >= 0; i-- {
+		b.PrependInt64(t.ProductMonthlyId2[i])
+	}
+	productMonthlyId2Offset := b.EndVector(len(t.ProductMonthlyId2))
+	plusMasterCoinIconName2Offset := b.CreateString(t.PlusMasterCoinIconName2)
+	plusMasterCoinIconName3Offset := b.CreateString(t.PlusMasterCoinIconName3)
 	LevelExpMasterCoinExcelStart(b)
 	LevelExpMasterCoinExcelAddId(b, t.ID)
 	LevelExpMasterCoinExcelAddMinLevel(b, t.MinLevel)
 	LevelExpMasterCoinExcelAddMaxLevel(b, t.MaxLevel)
 	LevelExpMasterCoinExcelAddRatio(b, t.Ratio)
+	LevelExpMasterCoinExcelAddProductMonthlyId1(b, productMonthlyId1Offset)
+	LevelExpMasterCoinExcelAddPlusMasterCoinRatio1(b, t.PlusMasterCoinRatio1)
+	LevelExpMasterCoinExcelAddPlusMasterCoinIconName1(b, plusMasterCoinIconName1Offset)
+	LevelExpMasterCoinExcelAddProductMonthlyId2(b, productMonthlyId2Offset)
+	LevelExpMasterCoinExcelAddPlusMasterCoinRatio2(b, t.PlusMasterCoinRatio2)
+	LevelExpMasterCoinExcelAddPlusMasterCoinIconName2(b, plusMasterCoinIconName2Offset)
+	LevelExpMasterCoinExcelAddPlusMasterCoinIconName3(b, plusMasterCoinIconName3Offset)
 	return LevelExpMasterCoinExcelEnd(b)
 }
 
@@ -39,6 +66,19 @@ func (t *LevelExpMasterCoinExcelDto) UnmarshalMessage(e *LevelExpMasterCoinExcel
 	t.MinLevel = e.MinLevel()
 	t.MaxLevel = e.MaxLevel()
 	t.Ratio = e.Ratio()
+	t.ProductMonthlyId1 = make([]int64, e.ProductMonthlyId1Length())
+	for i := 0; i < e.ProductMonthlyId1Length(); i++ {
+		t.ProductMonthlyId1[i] = e.ProductMonthlyId1(i)
+	}
+	t.PlusMasterCoinRatio1 = e.PlusMasterCoinRatio1()
+	t.PlusMasterCoinIconName1 = string(e.PlusMasterCoinIconName1())
+	t.ProductMonthlyId2 = make([]int64, e.ProductMonthlyId2Length())
+	for i := 0; i < e.ProductMonthlyId2Length(); i++ {
+		t.ProductMonthlyId2[i] = e.ProductMonthlyId2(i)
+	}
+	t.PlusMasterCoinRatio2 = e.PlusMasterCoinRatio2()
+	t.PlusMasterCoinIconName2 = string(e.PlusMasterCoinIconName2())
+	t.PlusMasterCoinIconName3 = string(e.PlusMasterCoinIconName3())
 	return nil
 }
 

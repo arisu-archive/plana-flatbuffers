@@ -122,21 +122,42 @@ class ScenarioContentCollectionExcel(object):
         return None
 
     # ScenarioContentCollectionExcel
-    def LocalizeEtcId(self):
+    def FullResourcePosX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ScenarioContentCollectionExcel
+    def FullResourcePosY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ScenarioContentCollectionExcel
+    def FullResourceScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ScenarioContentCollectionExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioContentCollectionExcel
     def SubNameLocalizeCodeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
 def ScenarioContentCollectionExcelStart(builder):
-    builder.StartObject(13)
+    builder.StartObject(16)
 
 def Start(builder):
     ScenarioContentCollectionExcelStart(builder)
@@ -213,14 +234,32 @@ def ScenarioContentCollectionExcelAddFullResource(builder, fullResource):
 def AddFullResource(builder, fullResource):
     ScenarioContentCollectionExcelAddFullResource(builder, fullResource)
 
+def ScenarioContentCollectionExcelAddFullResourcePosX(builder, fullResourcePosX):
+    builder.PrependFloat32Slot(11, fullResourcePosX, 0.0)
+
+def AddFullResourcePosX(builder, fullResourcePosX):
+    ScenarioContentCollectionExcelAddFullResourcePosX(builder, fullResourcePosX)
+
+def ScenarioContentCollectionExcelAddFullResourcePosY(builder, fullResourcePosY):
+    builder.PrependFloat32Slot(12, fullResourcePosY, 0.0)
+
+def AddFullResourcePosY(builder, fullResourcePosY):
+    ScenarioContentCollectionExcelAddFullResourcePosY(builder, fullResourcePosY)
+
+def ScenarioContentCollectionExcelAddFullResourceScale(builder, fullResourceScale):
+    builder.PrependFloat32Slot(13, fullResourceScale, 0.0)
+
+def AddFullResourceScale(builder, fullResourceScale):
+    ScenarioContentCollectionExcelAddFullResourceScale(builder, fullResourceScale)
+
 def ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(11, localizeEtcId, 0)
+    builder.PrependUint32Slot(14, localizeEtcId, 0)
 
 def AddLocalizeEtcId(builder, localizeEtcId):
     ScenarioContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
 
 def ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
 
 def AddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
     ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
@@ -252,6 +291,9 @@ class ScenarioContentCollectionExcelT(object):
         emblemResource = None,
         thumbResource = None,
         fullResource = None,
+        fullResourcePosX = 0.0,
+        fullResourcePosY = 0.0,
+        fullResourceScale = 0.0,
         localizeEtcId = 0,
         subNameLocalizeCodeId = None,
     ):
@@ -266,6 +308,9 @@ class ScenarioContentCollectionExcelT(object):
         self.emblemResource = emblemResource  # type: Optional[str]
         self.thumbResource = thumbResource  # type: Optional[str]
         self.fullResource = fullResource  # type: Optional[str]
+        self.fullResourcePosX = fullResourcePosX  # type: float
+        self.fullResourcePosY = fullResourcePosY  # type: float
+        self.fullResourceScale = fullResourceScale  # type: float
         self.localizeEtcId = localizeEtcId  # type: int
         self.subNameLocalizeCodeId = subNameLocalizeCodeId  # type: Optional[str]
 
@@ -307,6 +352,9 @@ class ScenarioContentCollectionExcelT(object):
         self.emblemResource = scenarioContentCollectionExcel.EmblemResource()
         self.thumbResource = scenarioContentCollectionExcel.ThumbResource()
         self.fullResource = scenarioContentCollectionExcel.FullResource()
+        self.fullResourcePosX = scenarioContentCollectionExcel.FullResourcePosX()
+        self.fullResourcePosY = scenarioContentCollectionExcel.FullResourcePosY()
+        self.fullResourceScale = scenarioContentCollectionExcel.FullResourceScale()
         self.localizeEtcId = scenarioContentCollectionExcel.LocalizeEtcId()
         self.subNameLocalizeCodeId = scenarioContentCollectionExcel.SubNameLocalizeCodeId()
 
@@ -344,6 +392,9 @@ class ScenarioContentCollectionExcelT(object):
             ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource)
         if self.fullResource is not None:
             ScenarioContentCollectionExcelAddFullResource(builder, fullResource)
+        ScenarioContentCollectionExcelAddFullResourcePosX(builder, self.fullResourcePosX)
+        ScenarioContentCollectionExcelAddFullResourcePosY(builder, self.fullResourcePosY)
+        ScenarioContentCollectionExcelAddFullResourceScale(builder, self.fullResourceScale)
         ScenarioContentCollectionExcelAddLocalizeEtcId(builder, self.localizeEtcId)
         if self.subNameLocalizeCodeId is not None:
             ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)

@@ -1,0 +1,16 @@
+include "GrowthReturnType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterAdaptationGrowthReturnExcel {
+    id: long;
+    growth_return_type: GrowthReturnType;
+    return_step: long;
+    return_divide_unit: long;
+    return_parcel_type: ParcelType;
+    return_parcel_id: long;
+    return_parcel_amount: int;
+}
+
+root_type CharacterAdaptationGrowthReturnExcel;

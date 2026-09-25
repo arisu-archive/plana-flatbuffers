@@ -113,8 +113,20 @@ func (rcv *FloaterCommonExcel) MutateFloaterRandomPosRangeY(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
+func (rcv *FloaterCommonExcel) LimitedFloaterRandomPosRangeY() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FloaterCommonExcel) MutateLimitedFloaterRandomPosRangeY(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
 func FloaterCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func FloaterCommonExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -133,6 +145,9 @@ func FloaterCommonExcelAddFloaterRandomPosRangeX(builder *flatbuffers.Builder, f
 }
 func FloaterCommonExcelAddFloaterRandomPosRangeY(builder *flatbuffers.Builder, floaterRandomPosRangeY int32) {
 	builder.PrependInt32Slot(5, floaterRandomPosRangeY, 0)
+}
+func FloaterCommonExcelAddLimitedFloaterRandomPosRangeY(builder *flatbuffers.Builder, limitedFloaterRandomPosRangeY int32) {
+	builder.PrependInt32Slot(6, limitedFloaterRandomPosRangeY, 0)
 }
 func FloaterCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

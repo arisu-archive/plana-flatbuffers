@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table CharacterAdaptationExcel {
+    season_id: long;
+    adaptation_character_id: long;
+    choose_btn_path: string;
+    progress_order: long;
+    adaptation_mission_step_count: long;
+    character_step_growth_group_id: long;
+}
+
+root_type CharacterAdaptationExcel;

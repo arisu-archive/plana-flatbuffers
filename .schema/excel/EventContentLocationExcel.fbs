@@ -7,6 +7,7 @@ table EventContentLocationExcel {
     id: long;
     localize_etc_id: uint;
     prefab_path: string;
+    bg_path: string;
     location_reset_schedule_count: int;
     schedule_event_point_cost_parcel_type: ParcelType;
     schedule_event_point_cost_parcel_id: long;

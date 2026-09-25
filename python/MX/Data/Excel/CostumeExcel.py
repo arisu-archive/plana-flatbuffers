@@ -254,49 +254,56 @@ class CostumeExcel(object):
         return o == 0
 
     # CostumeExcel
-    def InformationPacel(self):
+    def TextureGachaCard(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def AnimationSsr(self):
+    def InformationPacel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def EnterStrategyAnimationName(self):
+    def AnimationSsr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CostumeExcel
-    def AnimationValidator(self):
+    def EnterStrategyAnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CostumeExcel
+    def AnimationValidator(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CostumeExcel
     def CharacterVoiceGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CostumeExcel
     def ShowObjectHpStatus(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
 def CostumeExcelStart(builder):
-    builder.StartObject(35)
+    builder.StartObject(36)
 
 def Start(builder):
     CostumeExcelStart(builder)
@@ -487,38 +494,44 @@ def CostumeExcelStartTextureSkillCardVector(builder, numElems):
 def StartTextureSkillCardVector(builder, numElems):
     return CostumeExcelStartTextureSkillCardVector(builder, numElems)
 
+def CostumeExcelAddTextureGachaCard(builder, textureGachaCard):
+    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(textureGachaCard), 0)
+
+def AddTextureGachaCard(builder, textureGachaCard):
+    CostumeExcelAddTextureGachaCard(builder, textureGachaCard)
+
 def CostumeExcelAddInformationPacel(builder, informationPacel):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
 
 def AddInformationPacel(builder, informationPacel):
     CostumeExcelAddInformationPacel(builder, informationPacel)
 
 def CostumeExcelAddAnimationSsr(builder, animationSsr):
-    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
 
 def AddAnimationSsr(builder, animationSsr):
     CostumeExcelAddAnimationSsr(builder, animationSsr)
 
 def CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
-    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
 
 def AddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
     CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName)
 
 def CostumeExcelAddAnimationValidator(builder, animationValidator):
-    builder.PrependBoolSlot(32, animationValidator, 0)
+    builder.PrependBoolSlot(33, animationValidator, 0)
 
 def AddAnimationValidator(builder, animationValidator):
     CostumeExcelAddAnimationValidator(builder, animationValidator)
 
 def CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId):
-    builder.PrependInt64Slot(33, characterVoiceGroupId, 0)
+    builder.PrependInt64Slot(34, characterVoiceGroupId, 0)
 
 def AddCharacterVoiceGroupId(builder, characterVoiceGroupId):
     CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
 
 def CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus):
-    builder.PrependBoolSlot(34, showObjectHpStatus, 0)
+    builder.PrependBoolSlot(35, showObjectHpStatus, 0)
 
 def AddShowObjectHpStatus(builder, showObjectHpStatus):
     CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus)
@@ -568,6 +581,7 @@ class CostumeExcelT(object):
         useObjectHpbar = False,
         textureBoss = None,
         textureSkillCard = None,
+        textureGachaCard = None,
         informationPacel = None,
         animationSsr = None,
         enterStrategyAnimationName = None,
@@ -604,6 +618,7 @@ class CostumeExcelT(object):
         self.useObjectHpbar = useObjectHpbar  # type: bool
         self.textureBoss = textureBoss  # type: Optional[str]
         self.textureSkillCard = textureSkillCard  # type: Optional[List[Optional[str]]]
+        self.textureGachaCard = textureGachaCard  # type: Optional[str]
         self.informationPacel = informationPacel  # type: Optional[str]
         self.animationSsr = animationSsr  # type: Optional[str]
         self.enterStrategyAnimationName = enterStrategyAnimationName  # type: Optional[str]
@@ -667,6 +682,7 @@ class CostumeExcelT(object):
             self.textureSkillCard = []
             for i in range(costumeExcel.TextureSkillCardLength()):
                 self.textureSkillCard.append(costumeExcel.TextureSkillCard(i))
+        self.textureGachaCard = costumeExcel.TextureGachaCard()
         self.informationPacel = costumeExcel.InformationPacel()
         self.animationSsr = costumeExcel.AnimationSsr()
         self.enterStrategyAnimationName = costumeExcel.EnterStrategyAnimationName()
@@ -728,6 +744,8 @@ class CostumeExcelT(object):
             for i in reversed(range(len(self.textureSkillCard))):
                 builder.PrependUOffsetTRelative(textureSkillCardlist[i])
             textureSkillCard = builder.EndVector()
+        if self.textureGachaCard is not None:
+            textureGachaCard = builder.CreateString(self.textureGachaCard)
         if self.informationPacel is not None:
             informationPacel = builder.CreateString(self.informationPacel)
         if self.animationSsr is not None:
@@ -784,6 +802,8 @@ class CostumeExcelT(object):
             CostumeExcelAddTextureBoss(builder, textureBoss)
         if self.textureSkillCard is not None:
             CostumeExcelAddTextureSkillCard(builder, textureSkillCard)
+        if self.textureGachaCard is not None:
+            CostumeExcelAddTextureGachaCard(builder, textureGachaCard)
         if self.informationPacel is not None:
             CostumeExcelAddInformationPacel(builder, informationPacel)
         if self.animationSsr is not None:

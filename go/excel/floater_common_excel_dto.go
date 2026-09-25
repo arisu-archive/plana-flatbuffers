@@ -10,12 +10,13 @@ import (
 // FloaterCommonExcelDto represents a FlatBuffers table.
 type FloaterCommonExcelDto struct {
 	fbsutils.FlatBuffer
-	ID                     int64            `json:"id"`
-	TacticEntityType       TacticEntityType `json:"tactic_entity_type"`
-	FloaterOffsetPosX      int32            `json:"floater_offset_pos_x"`
-	FloaterOffsetPosY      int32            `json:"floater_offset_pos_y"`
-	FloaterRandomPosRangeX int32            `json:"floater_random_pos_range_x"`
-	FloaterRandomPosRangeY int32            `json:"floater_random_pos_range_y"`
+	ID                            int64            `json:"id"`
+	TacticEntityType              TacticEntityType `json:"tactic_entity_type"`
+	FloaterOffsetPosX             int32            `json:"floater_offset_pos_x"`
+	FloaterOffsetPosY             int32            `json:"floater_offset_pos_y"`
+	FloaterRandomPosRangeX        int32            `json:"floater_random_pos_range_x"`
+	FloaterRandomPosRangeY        int32            `json:"floater_random_pos_range_y"`
+	LimitedFloaterRandomPosRangeY int32            `json:"limited_floater_random_pos_range_y"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -27,6 +28,7 @@ func (t *FloaterCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	FloaterCommonExcelAddFloaterOffsetPosY(b, t.FloaterOffsetPosY)
 	FloaterCommonExcelAddFloaterRandomPosRangeX(b, t.FloaterRandomPosRangeX)
 	FloaterCommonExcelAddFloaterRandomPosRangeY(b, t.FloaterRandomPosRangeY)
+	FloaterCommonExcelAddLimitedFloaterRandomPosRangeY(b, t.LimitedFloaterRandomPosRangeY)
 	return FloaterCommonExcelEnd(b)
 }
 
@@ -45,6 +47,7 @@ func (t *FloaterCommonExcelDto) UnmarshalMessage(e *FloaterCommonExcel) error {
 	t.FloaterOffsetPosY = e.FloaterOffsetPosY()
 	t.FloaterRandomPosRangeX = e.FloaterRandomPosRangeX()
 	t.FloaterRandomPosRangeY = e.FloaterRandomPosRangeY()
+	t.LimitedFloaterRandomPosRangeY = e.LimitedFloaterRandomPosRangeY()
 	return nil
 }
 

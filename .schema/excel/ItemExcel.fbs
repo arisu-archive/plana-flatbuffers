@@ -46,6 +46,7 @@ table ItemExcel {
     gacha_ticket: GachaTicketType;
     alert_popup_id: long;
     shifting_craft_recipe: long;
+    show_contents: bool;
 }
 
 root_type ItemExcel;

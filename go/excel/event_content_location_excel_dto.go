@@ -14,6 +14,7 @@ type EventContentLocationExcelDto struct {
 	ID                                 int64      `json:"id"`
 	LocalizeEtcID                      uint32     `json:"localize_etc_id"`
 	PrefabPath                         string     `json:"prefab_path"`
+	BgPath                             string     `json:"bg_path"`
 	LocationResetScheduleCount         int32      `json:"location_reset_schedule_count"`
 	ScheduleEventPointCostParcelType   ParcelType `json:"schedule_event_point_cost_parcel_type"`
 	ScheduleEventPointCostParcelID     int64      `json:"schedule_event_point_cost_parcel_id"`
@@ -26,11 +27,13 @@ type EventContentLocationExcelDto struct {
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *EventContentLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	prefabPathOffset := b.CreateString(t.PrefabPath)
+	bgPathOffset := b.CreateString(t.BgPath)
 	EventContentLocationExcelStart(b)
 	EventContentLocationExcelAddEventContentId(b, t.EventContentID)
 	EventContentLocationExcelAddId(b, t.ID)
 	EventContentLocationExcelAddLocalizeEtcId(b, t.LocalizeEtcID)
 	EventContentLocationExcelAddPrefabPath(b, prefabPathOffset)
+	EventContentLocationExcelAddBgPath(b, bgPathOffset)
 	EventContentLocationExcelAddLocationResetScheduleCount(b, t.LocationResetScheduleCount)
 	EventContentLocationExcelAddScheduleEventPointCostParcelType(b, t.ScheduleEventPointCostParcelType)
 	EventContentLocationExcelAddScheduleEventPointCostParcelId(b, t.ScheduleEventPointCostParcelID)
@@ -54,6 +57,7 @@ func (t *EventContentLocationExcelDto) UnmarshalMessage(e *EventContentLocationE
 	t.ID = e.Id()
 	t.LocalizeEtcID = e.LocalizeEtcId()
 	t.PrefabPath = string(e.PrefabPath())
+	t.BgPath = string(e.BgPath())
 	t.LocationResetScheduleCount = e.LocationResetScheduleCount()
 	t.ScheduleEventPointCostParcelType = e.ScheduleEventPointCostParcelType()
 	t.ScheduleEventPointCostParcelID = e.ScheduleEventPointCostParcelId()

@@ -61,6 +61,7 @@ type ConstCommonExcelDto struct {
 	ClanMaxMember                               int64            `json:"clan_max_member"`
 	ClanSearchResultCount                       int64            `json:"clan_search_result_count"`
 	ClanMaxApplicant                            int64            `json:"clan_max_applicant"`
+	ClanKickHistoryMax                          int32            `json:"clan_kick_history_max"`
 	ClanRejoinCoolTimeFromSecond                int64            `json:"clan_rejoin_cool_time_from_second"`
 	ClanWordBalloonMaxCharacter                 int32            `json:"clan_word_balloon_max_character"`
 	CallNameRenameCoolTimeFromHour              int64            `json:"call_name_rename_cool_time_from_hour"`
@@ -210,6 +211,7 @@ type ConstCommonExcelDto struct {
 	TacticalRelayContentsIsOpen                 bool             `json:"tactical_relay_contents_is_open"`
 	ExSkillLevelMaxByEngrave                    int32            `json:"ex_skill_level_max_by_engrave"`
 	ExSkillUpgradeLevelMax                      int32            `json:"ex_skill_upgrade_level_max"`
+	RaidResetCount                              int32            `json:"raid_reset_count"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -308,6 +310,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddClanMaxMember(b, fbsutils.Encode(t.ClanMaxMember, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Encode(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanMaxApplicant(b, fbsutils.Encode(t.ClanMaxApplicant, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanKickHistoryMax(b, fbsutils.Encode(t.ClanKickHistoryMax, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanRejoinCoolTimeFromSecond(b, fbsutils.Encode(t.ClanRejoinCoolTimeFromSecond, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanWordBalloonMaxCharacter(b, fbsutils.Encode(t.ClanWordBalloonMaxCharacter, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCallNameRenameCoolTimeFromHour(b, fbsutils.Encode(t.CallNameRenameCoolTimeFromHour, t.FlatBuffer.TableKey))
@@ -457,6 +460,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddTacticalRelayContentsIsOpen(b, t.TacticalRelayContentsIsOpen)
 	ConstCommonExcelAddExSkillLevelMaxByEngrave(b, fbsutils.Encode(t.ExSkillLevelMaxByEngrave, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddExSkillUpgradeLevelMax(b, fbsutils.Encode(t.ExSkillUpgradeLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRaidResetCount(b, fbsutils.Encode(t.RaidResetCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -532,6 +536,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ClanMaxMember = fbsutils.Decode(e.ClanMaxMember(), t.FlatBuffer.TableKey)
 	t.ClanSearchResultCount = fbsutils.Decode(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
 	t.ClanMaxApplicant = fbsutils.Decode(e.ClanMaxApplicant(), t.FlatBuffer.TableKey)
+	t.ClanKickHistoryMax = fbsutils.Decode(e.ClanKickHistoryMax(), t.FlatBuffer.TableKey)
 	t.ClanRejoinCoolTimeFromSecond = fbsutils.Decode(e.ClanRejoinCoolTimeFromSecond(), t.FlatBuffer.TableKey)
 	t.ClanWordBalloonMaxCharacter = fbsutils.Decode(e.ClanWordBalloonMaxCharacter(), t.FlatBuffer.TableKey)
 	t.CallNameRenameCoolTimeFromHour = fbsutils.Decode(e.CallNameRenameCoolTimeFromHour(), t.FlatBuffer.TableKey)
@@ -693,6 +698,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.TacticalRelayContentsIsOpen = e.TacticalRelayContentsIsOpen()
 	t.ExSkillLevelMaxByEngrave = fbsutils.Decode(e.ExSkillLevelMaxByEngrave(), t.FlatBuffer.TableKey)
 	t.ExSkillUpgradeLevelMax = fbsutils.Decode(e.ExSkillUpgradeLevelMax(), t.FlatBuffer.TableKey)
+	t.RaidResetCount = fbsutils.Decode(e.RaidResetCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 
