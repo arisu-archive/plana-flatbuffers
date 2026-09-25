@@ -175,8 +175,44 @@ func (rcv *ScenarioContentCollectionExcel) FullResource() []byte {
 	return nil
 }
 
-func (rcv *ScenarioContentCollectionExcel) LocalizeEtcId() uint32 {
+func (rcv *ScenarioContentCollectionExcel) FullResourcePosX() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ScenarioContentCollectionExcel) MutateFullResourcePosX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(26, n)
+}
+
+func (rcv *ScenarioContentCollectionExcel) FullResourcePosY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ScenarioContentCollectionExcel) MutateFullResourcePosY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(28, n)
+}
+
+func (rcv *ScenarioContentCollectionExcel) FullResourceScale() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ScenarioContentCollectionExcel) MutateFullResourceScale(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(30, n)
+}
+
+func (rcv *ScenarioContentCollectionExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -184,11 +220,11 @@ func (rcv *ScenarioContentCollectionExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *ScenarioContentCollectionExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(26, n)
+	return rcv._tab.MutateUint32Slot(32, n)
 }
 
 func (rcv *ScenarioContentCollectionExcel) SubNameLocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -196,7 +232,7 @@ func (rcv *ScenarioContentCollectionExcel) SubNameLocalizeCodeId() []byte {
 }
 
 func ScenarioContentCollectionExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(13)
+	builder.StartObject(16)
 }
 func ScenarioContentCollectionExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -234,11 +270,20 @@ func ScenarioContentCollectionExcelAddThumbResource(builder *flatbuffers.Builder
 func ScenarioContentCollectionExcelAddFullResource(builder *flatbuffers.Builder, fullResource flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(fullResource), 0)
 }
+func ScenarioContentCollectionExcelAddFullResourcePosX(builder *flatbuffers.Builder, fullResourcePosX float32) {
+	builder.PrependFloat32Slot(11, fullResourcePosX, 0.0)
+}
+func ScenarioContentCollectionExcelAddFullResourcePosY(builder *flatbuffers.Builder, fullResourcePosY float32) {
+	builder.PrependFloat32Slot(12, fullResourcePosY, 0.0)
+}
+func ScenarioContentCollectionExcelAddFullResourceScale(builder *flatbuffers.Builder, fullResourceScale float32) {
+	builder.PrependFloat32Slot(13, fullResourceScale, 0.0)
+}
 func ScenarioContentCollectionExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(11, localizeEtcId, 0)
+	builder.PrependUint32Slot(14, localizeEtcId, 0)
 }
 func ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder *flatbuffers.Builder, subNameLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
 }
 func ScenarioContentCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

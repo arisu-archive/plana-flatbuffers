@@ -21,6 +21,9 @@ type ScenarioContentCollectionExcelDto struct {
 	EmblemResource             string                     `json:"emblem_resource"`
 	ThumbResource              string                     `json:"thumb_resource"`
 	FullResource               string                     `json:"full_resource"`
+	FullResourcePosX           float32                    `json:"full_resource_pos_x"`
+	FullResourcePosY           float32                    `json:"full_resource_pos_y"`
+	FullResourceScale          float32                    `json:"full_resource_scale"`
 	LocalizeEtcID              uint32                     `json:"localize_etc_id"`
 	SubNameLocalizeCodeID      string                     `json:"sub_name_localize_code_id"`
 }
@@ -48,6 +51,9 @@ func (t *ScenarioContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder)
 	ScenarioContentCollectionExcelAddEmblemResource(b, emblemResourceOffset)
 	ScenarioContentCollectionExcelAddThumbResource(b, thumbResourceOffset)
 	ScenarioContentCollectionExcelAddFullResource(b, fullResourceOffset)
+	ScenarioContentCollectionExcelAddFullResourcePosX(b, t.FullResourcePosX)
+	ScenarioContentCollectionExcelAddFullResourcePosY(b, t.FullResourcePosY)
+	ScenarioContentCollectionExcelAddFullResourceScale(b, t.FullResourceScale)
 	ScenarioContentCollectionExcelAddLocalizeEtcId(b, t.LocalizeEtcID)
 	ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(b, subNameLocalizeCodeIDOffset)
 	return ScenarioContentCollectionExcelEnd(b)
@@ -76,6 +82,9 @@ func (t *ScenarioContentCollectionExcelDto) UnmarshalMessage(e *ScenarioContentC
 	t.EmblemResource = string(e.EmblemResource())
 	t.ThumbResource = string(e.ThumbResource())
 	t.FullResource = string(e.FullResource())
+	t.FullResourcePosX = e.FullResourcePosX()
+	t.FullResourcePosY = e.FullResourcePosY()
+	t.FullResourceScale = e.FullResourceScale()
 	t.LocalizeEtcID = e.LocalizeEtcId()
 	t.SubNameLocalizeCodeID = string(e.SubNameLocalizeCodeId())
 	return nil

@@ -40,6 +40,8 @@ const (
 	EchelonTypeTacticalRelayMystic    EchelonType = 30
 	EchelonTypeTacticalRelaySonic     EchelonType = 31
 	EchelonTypeTacticalRelayChemical  EchelonType = 32
+	EchelonTypeWeekDungeonChaserD     EchelonType = 33
+	EchelonTypeWeekDungeonChaserE     EchelonType = 34
 )
 
 var EnumNamesEchelonType = map[EchelonType]string{
@@ -76,6 +78,8 @@ var EnumNamesEchelonType = map[EchelonType]string{
 	EchelonTypeTacticalRelayMystic:    "TacticalRelayMystic",
 	EchelonTypeTacticalRelaySonic:     "TacticalRelaySonic",
 	EchelonTypeTacticalRelayChemical:  "TacticalRelayChemical",
+	EchelonTypeWeekDungeonChaserD:     "WeekDungeonChaserD",
+	EchelonTypeWeekDungeonChaserE:     "WeekDungeonChaserE",
 }
 
 var EnumValuesEchelonType = map[string]EchelonType{
@@ -112,6 +116,8 @@ var EnumValuesEchelonType = map[string]EchelonType{
 	"TacticalRelayMystic":    EchelonTypeTacticalRelayMystic,
 	"TacticalRelaySonic":     EchelonTypeTacticalRelaySonic,
 	"TacticalRelayChemical":  EchelonTypeTacticalRelayChemical,
+	"WeekDungeonChaserD":     EchelonTypeWeekDungeonChaserD,
+	"WeekDungeonChaserE":     EchelonTypeWeekDungeonChaserE,
 }
 
 func (v EchelonType) String() string {

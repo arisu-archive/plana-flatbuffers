@@ -52,8 +52,97 @@ class LevelExpMasterCoinExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId1(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId1AsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId1Length(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId1IsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # LevelExpMasterCoinExcel
+    def PlusMasterCoinRatio1(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def PlusMasterCoinIconName1(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId2(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId2AsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId2Length(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def ProductMonthlyId2IsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+    # LevelExpMasterCoinExcel
+    def PlusMasterCoinRatio2(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LevelExpMasterCoinExcel
+    def PlusMasterCoinIconName2(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LevelExpMasterCoinExcel
+    def PlusMasterCoinIconName3(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def LevelExpMasterCoinExcelStart(builder):
-    builder.StartObject(4)
+    builder.StartObject(11)
 
 def Start(builder):
     LevelExpMasterCoinExcelStart(builder)
@@ -82,12 +171,70 @@ def LevelExpMasterCoinExcelAddRatio(builder, ratio):
 def AddRatio(builder, ratio):
     LevelExpMasterCoinExcelAddRatio(builder, ratio)
 
+def LevelExpMasterCoinExcelAddProductMonthlyId1(builder, productMonthlyId1):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(productMonthlyId1), 0)
+
+def AddProductMonthlyId1(builder, productMonthlyId1):
+    LevelExpMasterCoinExcelAddProductMonthlyId1(builder, productMonthlyId1)
+
+def LevelExpMasterCoinExcelStartProductMonthlyId1Vector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartProductMonthlyId1Vector(builder, numElems):
+    return LevelExpMasterCoinExcelStartProductMonthlyId1Vector(builder, numElems)
+
+def LevelExpMasterCoinExcelAddPlusMasterCoinRatio1(builder, plusMasterCoinRatio1):
+    builder.PrependInt64Slot(5, plusMasterCoinRatio1, 0)
+
+def AddPlusMasterCoinRatio1(builder, plusMasterCoinRatio1):
+    LevelExpMasterCoinExcelAddPlusMasterCoinRatio1(builder, plusMasterCoinRatio1)
+
+def LevelExpMasterCoinExcelAddPlusMasterCoinIconName1(builder, plusMasterCoinIconName1):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(plusMasterCoinIconName1), 0)
+
+def AddPlusMasterCoinIconName1(builder, plusMasterCoinIconName1):
+    LevelExpMasterCoinExcelAddPlusMasterCoinIconName1(builder, plusMasterCoinIconName1)
+
+def LevelExpMasterCoinExcelAddProductMonthlyId2(builder, productMonthlyId2):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(productMonthlyId2), 0)
+
+def AddProductMonthlyId2(builder, productMonthlyId2):
+    LevelExpMasterCoinExcelAddProductMonthlyId2(builder, productMonthlyId2)
+
+def LevelExpMasterCoinExcelStartProductMonthlyId2Vector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartProductMonthlyId2Vector(builder, numElems):
+    return LevelExpMasterCoinExcelStartProductMonthlyId2Vector(builder, numElems)
+
+def LevelExpMasterCoinExcelAddPlusMasterCoinRatio2(builder, plusMasterCoinRatio2):
+    builder.PrependInt64Slot(8, plusMasterCoinRatio2, 0)
+
+def AddPlusMasterCoinRatio2(builder, plusMasterCoinRatio2):
+    LevelExpMasterCoinExcelAddPlusMasterCoinRatio2(builder, plusMasterCoinRatio2)
+
+def LevelExpMasterCoinExcelAddPlusMasterCoinIconName2(builder, plusMasterCoinIconName2):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(plusMasterCoinIconName2), 0)
+
+def AddPlusMasterCoinIconName2(builder, plusMasterCoinIconName2):
+    LevelExpMasterCoinExcelAddPlusMasterCoinIconName2(builder, plusMasterCoinIconName2)
+
+def LevelExpMasterCoinExcelAddPlusMasterCoinIconName3(builder, plusMasterCoinIconName3):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(plusMasterCoinIconName3), 0)
+
+def AddPlusMasterCoinIconName3(builder, plusMasterCoinIconName3):
+    LevelExpMasterCoinExcelAddPlusMasterCoinIconName3(builder, plusMasterCoinIconName3)
+
 def LevelExpMasterCoinExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return LevelExpMasterCoinExcelEnd(builder)
 
+try:
+    from typing import List
+except:
+    pass
 
 class LevelExpMasterCoinExcelT(object):
 
@@ -98,11 +245,25 @@ class LevelExpMasterCoinExcelT(object):
         minLevel = 0,
         maxLevel = 0,
         ratio = 0,
+        productMonthlyId1 = None,
+        plusMasterCoinRatio1 = 0,
+        plusMasterCoinIconName1 = None,
+        productMonthlyId2 = None,
+        plusMasterCoinRatio2 = 0,
+        plusMasterCoinIconName2 = None,
+        plusMasterCoinIconName3 = None,
     ):
         self.id = id  # type: int
         self.minLevel = minLevel  # type: int
         self.maxLevel = maxLevel  # type: int
         self.ratio = ratio  # type: int
+        self.productMonthlyId1 = productMonthlyId1  # type: Optional[List[int]]
+        self.plusMasterCoinRatio1 = plusMasterCoinRatio1  # type: int
+        self.plusMasterCoinIconName1 = plusMasterCoinIconName1  # type: Optional[str]
+        self.productMonthlyId2 = productMonthlyId2  # type: Optional[List[int]]
+        self.plusMasterCoinRatio2 = plusMasterCoinRatio2  # type: int
+        self.plusMasterCoinIconName2 = plusMasterCoinIconName2  # type: Optional[str]
+        self.plusMasterCoinIconName3 = plusMasterCoinIconName3  # type: Optional[str]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -129,13 +290,66 @@ class LevelExpMasterCoinExcelT(object):
         self.minLevel = levelExpMasterCoinExcel.MinLevel()
         self.maxLevel = levelExpMasterCoinExcel.MaxLevel()
         self.ratio = levelExpMasterCoinExcel.Ratio()
+        if not levelExpMasterCoinExcel.ProductMonthlyId1IsNone():
+            if np is None:
+                self.productMonthlyId1 = []
+                for i in range(levelExpMasterCoinExcel.ProductMonthlyId1Length()):
+                    self.productMonthlyId1.append(levelExpMasterCoinExcel.ProductMonthlyId1(i))
+            else:
+                self.productMonthlyId1 = levelExpMasterCoinExcel.ProductMonthlyId1AsNumpy()
+        self.plusMasterCoinRatio1 = levelExpMasterCoinExcel.PlusMasterCoinRatio1()
+        self.plusMasterCoinIconName1 = levelExpMasterCoinExcel.PlusMasterCoinIconName1()
+        if not levelExpMasterCoinExcel.ProductMonthlyId2IsNone():
+            if np is None:
+                self.productMonthlyId2 = []
+                for i in range(levelExpMasterCoinExcel.ProductMonthlyId2Length()):
+                    self.productMonthlyId2.append(levelExpMasterCoinExcel.ProductMonthlyId2(i))
+            else:
+                self.productMonthlyId2 = levelExpMasterCoinExcel.ProductMonthlyId2AsNumpy()
+        self.plusMasterCoinRatio2 = levelExpMasterCoinExcel.PlusMasterCoinRatio2()
+        self.plusMasterCoinIconName2 = levelExpMasterCoinExcel.PlusMasterCoinIconName2()
+        self.plusMasterCoinIconName3 = levelExpMasterCoinExcel.PlusMasterCoinIconName3()
 
     # LevelExpMasterCoinExcelT
     def Pack(self, builder):
+        if self.productMonthlyId1 is not None:
+            if np is not None and type(self.productMonthlyId1) is np.ndarray:
+                productMonthlyId1 = builder.CreateNumpyVector(self.productMonthlyId1)
+            else:
+                LevelExpMasterCoinExcelStartProductMonthlyId1Vector(builder, len(self.productMonthlyId1))
+                for i in reversed(range(len(self.productMonthlyId1))):
+                    builder.PrependInt64(self.productMonthlyId1[i])
+                productMonthlyId1 = builder.EndVector()
+        if self.plusMasterCoinIconName1 is not None:
+            plusMasterCoinIconName1 = builder.CreateString(self.plusMasterCoinIconName1)
+        if self.productMonthlyId2 is not None:
+            if np is not None and type(self.productMonthlyId2) is np.ndarray:
+                productMonthlyId2 = builder.CreateNumpyVector(self.productMonthlyId2)
+            else:
+                LevelExpMasterCoinExcelStartProductMonthlyId2Vector(builder, len(self.productMonthlyId2))
+                for i in reversed(range(len(self.productMonthlyId2))):
+                    builder.PrependInt64(self.productMonthlyId2[i])
+                productMonthlyId2 = builder.EndVector()
+        if self.plusMasterCoinIconName2 is not None:
+            plusMasterCoinIconName2 = builder.CreateString(self.plusMasterCoinIconName2)
+        if self.plusMasterCoinIconName3 is not None:
+            plusMasterCoinIconName3 = builder.CreateString(self.plusMasterCoinIconName3)
         LevelExpMasterCoinExcelStart(builder)
         LevelExpMasterCoinExcelAddId(builder, self.id)
         LevelExpMasterCoinExcelAddMinLevel(builder, self.minLevel)
         LevelExpMasterCoinExcelAddMaxLevel(builder, self.maxLevel)
         LevelExpMasterCoinExcelAddRatio(builder, self.ratio)
+        if self.productMonthlyId1 is not None:
+            LevelExpMasterCoinExcelAddProductMonthlyId1(builder, productMonthlyId1)
+        LevelExpMasterCoinExcelAddPlusMasterCoinRatio1(builder, self.plusMasterCoinRatio1)
+        if self.plusMasterCoinIconName1 is not None:
+            LevelExpMasterCoinExcelAddPlusMasterCoinIconName1(builder, plusMasterCoinIconName1)
+        if self.productMonthlyId2 is not None:
+            LevelExpMasterCoinExcelAddProductMonthlyId2(builder, productMonthlyId2)
+        LevelExpMasterCoinExcelAddPlusMasterCoinRatio2(builder, self.plusMasterCoinRatio2)
+        if self.plusMasterCoinIconName2 is not None:
+            LevelExpMasterCoinExcelAddPlusMasterCoinIconName2(builder, plusMasterCoinIconName2)
+        if self.plusMasterCoinIconName3 is not None:
+            LevelExpMasterCoinExcelAddPlusMasterCoinIconName3(builder, plusMasterCoinIconName3)
         levelExpMasterCoinExcel = LevelExpMasterCoinExcelEnd(builder)
         return levelExpMasterCoinExcel

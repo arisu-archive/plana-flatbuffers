@@ -10,10 +10,14 @@ import (
 // EventContentClueSearchExcelDto represents a FlatBuffers table.
 type EventContentClueSearchExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentID  int64  `json:"event_content_id"`
-	TitleLocalize   uint32 `json:"title_localize"`
-	UsePrefabName   string `json:"use_prefab_name"`
-	ClueBgImagePath string `json:"clue_bg_image_path"`
+	EventContentID          int64  `json:"event_content_id"`
+	TitleLocalize           uint32 `json:"title_localize"`
+	SearchCostGoodsID       int64  `json:"search_cost_goods_id"`
+	DeductionPointItemID    int64  `json:"deduction_point_item_id"`
+	InspirationConvertCount int64  `json:"inspiration_convert_count"`
+	MaxSearchCount          int64  `json:"max_search_count"`
+	UsePrefabName           string `json:"use_prefab_name"`
+	ClueBgImagePath         string `json:"clue_bg_image_path"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -23,6 +27,10 @@ func (t *EventContentClueSearchExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	EventContentClueSearchExcelStart(b)
 	EventContentClueSearchExcelAddEventContentId(b, t.EventContentID)
 	EventContentClueSearchExcelAddTitleLocalize(b, t.TitleLocalize)
+	EventContentClueSearchExcelAddSearchCostGoodsId(b, t.SearchCostGoodsID)
+	EventContentClueSearchExcelAddDeductionPointItemId(b, t.DeductionPointItemID)
+	EventContentClueSearchExcelAddInspirationConvertCount(b, t.InspirationConvertCount)
+	EventContentClueSearchExcelAddMaxSearchCount(b, t.MaxSearchCount)
 	EventContentClueSearchExcelAddUsePrefabName(b, usePrefabNameOffset)
 	EventContentClueSearchExcelAddClueBgImagePath(b, clueBgImagePathOffset)
 	return EventContentClueSearchExcelEnd(b)
@@ -39,6 +47,10 @@ func (t *EventContentClueSearchExcelDto) Marshal() ([]byte, error) {
 func (t *EventContentClueSearchExcelDto) UnmarshalMessage(e *EventContentClueSearchExcel) error {
 	t.EventContentID = e.EventContentId()
 	t.TitleLocalize = e.TitleLocalize()
+	t.SearchCostGoodsID = e.SearchCostGoodsId()
+	t.DeductionPointItemID = e.DeductionPointItemId()
+	t.InspirationConvertCount = e.InspirationConvertCount()
+	t.MaxSearchCount = e.MaxSearchCount()
 	t.UsePrefabName = string(e.UsePrefabName())
 	t.ClueBgImagePath = string(e.ClueBgImagePath())
 	return nil

@@ -225,3 +225,10 @@ class ParcelChangeReason(object):
     MiniGame_RoadPuzzleClearStage = 219
     MiniGame_CCGSweep = 220
     Conquest_Discard = 221
+    Character_AdaptationComplete = 222
+    WeekDungeon_EnterChaserD = 223
+    WeekDungeon_EnterChaserE = 224
+    WeekDungeon_ChaserDResult = 225
+    WeekDungeon_ChaserEResult = 226
+    ClueSearch_Investigate = 227
+    ClueSearch_Reveal = 228

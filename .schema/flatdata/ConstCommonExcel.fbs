@@ -56,6 +56,7 @@ table ConstCommonExcel {
     clan_max_member: long;
     clan_search_result_count: long;
     clan_max_applicant: long;
+    clan_kick_history_max: int;
     clan_rejoin_cool_time_from_second: long;
     clan_word_balloon_max_character: int;
     call_name_rename_cool_time_from_hour: long;
@@ -205,4 +206,5 @@ table ConstCommonExcel {
     tactical_relay_contents_is_open: bool;
     ex_skill_level_max_by_engrave: int;
     ex_skill_upgrade_level_max: int;
+    raid_reset_count: int;
 }

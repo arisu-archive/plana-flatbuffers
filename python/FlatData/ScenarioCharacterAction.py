@@ -11,3 +11,5 @@ class ScenarioCharacterAction(object):
     Stiff = 5
     Hophop = 6
     Jump = 7
+    FalldownLeftAuto = 8
+    FalldownRightAuto = 9

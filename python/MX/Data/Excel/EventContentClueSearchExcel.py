@@ -39,21 +39,49 @@ class EventContentClueSearchExcel(object):
         return 0
 
     # EventContentClueSearchExcel
-    def UsePrefabName(self):
+    def SearchCostGoodsId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentClueSearchExcel
+    def DeductionPointItemId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentClueSearchExcel
+    def InspirationConvertCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentClueSearchExcel
+    def MaxSearchCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentClueSearchExcel
+    def UsePrefabName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # EventContentClueSearchExcel
     def ClueBgImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
 def EventContentClueSearchExcelStart(builder):
-    builder.StartObject(4)
+    builder.StartObject(8)
 
 def Start(builder):
     EventContentClueSearchExcelStart(builder)
@@ -70,14 +98,38 @@ def EventContentClueSearchExcelAddTitleLocalize(builder, titleLocalize):
 def AddTitleLocalize(builder, titleLocalize):
     EventContentClueSearchExcelAddTitleLocalize(builder, titleLocalize)
 
+def EventContentClueSearchExcelAddSearchCostGoodsId(builder, searchCostGoodsId):
+    builder.PrependInt64Slot(2, searchCostGoodsId, 0)
+
+def AddSearchCostGoodsId(builder, searchCostGoodsId):
+    EventContentClueSearchExcelAddSearchCostGoodsId(builder, searchCostGoodsId)
+
+def EventContentClueSearchExcelAddDeductionPointItemId(builder, deductionPointItemId):
+    builder.PrependInt64Slot(3, deductionPointItemId, 0)
+
+def AddDeductionPointItemId(builder, deductionPointItemId):
+    EventContentClueSearchExcelAddDeductionPointItemId(builder, deductionPointItemId)
+
+def EventContentClueSearchExcelAddInspirationConvertCount(builder, inspirationConvertCount):
+    builder.PrependInt64Slot(4, inspirationConvertCount, 0)
+
+def AddInspirationConvertCount(builder, inspirationConvertCount):
+    EventContentClueSearchExcelAddInspirationConvertCount(builder, inspirationConvertCount)
+
+def EventContentClueSearchExcelAddMaxSearchCount(builder, maxSearchCount):
+    builder.PrependInt64Slot(5, maxSearchCount, 0)
+
+def AddMaxSearchCount(builder, maxSearchCount):
+    EventContentClueSearchExcelAddMaxSearchCount(builder, maxSearchCount)
+
 def EventContentClueSearchExcelAddUsePrefabName(builder, usePrefabName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
 
 def AddUsePrefabName(builder, usePrefabName):
     EventContentClueSearchExcelAddUsePrefabName(builder, usePrefabName)
 
 def EventContentClueSearchExcelAddClueBgImagePath(builder, clueBgImagePath):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(clueBgImagePath), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(clueBgImagePath), 0)
 
 def AddClueBgImagePath(builder, clueBgImagePath):
     EventContentClueSearchExcelAddClueBgImagePath(builder, clueBgImagePath)
@@ -96,11 +148,19 @@ class EventContentClueSearchExcelT(object):
         self,
         eventContentId = 0,
         titleLocalize = 0,
+        searchCostGoodsId = 0,
+        deductionPointItemId = 0,
+        inspirationConvertCount = 0,
+        maxSearchCount = 0,
         usePrefabName = None,
         clueBgImagePath = None,
     ):
         self.eventContentId = eventContentId  # type: int
         self.titleLocalize = titleLocalize  # type: int
+        self.searchCostGoodsId = searchCostGoodsId  # type: int
+        self.deductionPointItemId = deductionPointItemId  # type: int
+        self.inspirationConvertCount = inspirationConvertCount  # type: int
+        self.maxSearchCount = maxSearchCount  # type: int
         self.usePrefabName = usePrefabName  # type: Optional[str]
         self.clueBgImagePath = clueBgImagePath  # type: Optional[str]
 
@@ -127,6 +187,10 @@ class EventContentClueSearchExcelT(object):
             return
         self.eventContentId = eventContentClueSearchExcel.EventContentId()
         self.titleLocalize = eventContentClueSearchExcel.TitleLocalize()
+        self.searchCostGoodsId = eventContentClueSearchExcel.SearchCostGoodsId()
+        self.deductionPointItemId = eventContentClueSearchExcel.DeductionPointItemId()
+        self.inspirationConvertCount = eventContentClueSearchExcel.InspirationConvertCount()
+        self.maxSearchCount = eventContentClueSearchExcel.MaxSearchCount()
         self.usePrefabName = eventContentClueSearchExcel.UsePrefabName()
         self.clueBgImagePath = eventContentClueSearchExcel.ClueBgImagePath()
 
@@ -139,6 +203,10 @@ class EventContentClueSearchExcelT(object):
         EventContentClueSearchExcelStart(builder)
         EventContentClueSearchExcelAddEventContentId(builder, self.eventContentId)
         EventContentClueSearchExcelAddTitleLocalize(builder, self.titleLocalize)
+        EventContentClueSearchExcelAddSearchCostGoodsId(builder, self.searchCostGoodsId)
+        EventContentClueSearchExcelAddDeductionPointItemId(builder, self.deductionPointItemId)
+        EventContentClueSearchExcelAddInspirationConvertCount(builder, self.inspirationConvertCount)
+        EventContentClueSearchExcelAddMaxSearchCount(builder, self.maxSearchCount)
         if self.usePrefabName is not None:
             EventContentClueSearchExcelAddUsePrefabName(builder, usePrefabName)
         if self.clueBgImagePath is not None:

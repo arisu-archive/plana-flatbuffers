@@ -1,3 +1,4 @@
+include "ArmorType.fbs";
 include "Difficulty.fbs";
 include "EchelonExtensionType.fbs";
 include "ParcelType.fbs";
@@ -22,6 +23,8 @@ table TacticalRelayStageExcel {
     prev_stage_id: long;
     ground_id: long;
     stage_topography: StageTopography;
+    enemy_armor_type: ArmorType;
+    enemy_sub_armor_type: ArmorType;
     stage_enter_cost_type: ParcelType;
     stage_enter_cost_id: long;
     stage_enter_cost_amount: int;

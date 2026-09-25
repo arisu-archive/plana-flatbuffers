@@ -255,8 +255,32 @@ func (rcv *TacticalRelayStageExcel) MutateStageTopography(n StageTopography) boo
 	return rcv._tab.MutateInt32Slot(32, int32(n))
 }
 
-func (rcv *TacticalRelayStageExcel) StageEnterCostType() ParcelType {
+func (rcv *TacticalRelayStageExcel) EnemyArmorType() ArmorType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return ArmorType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageExcel) MutateEnemyArmorType(n ArmorType) bool {
+	return rcv._tab.MutateInt32Slot(34, int32(n))
+}
+
+func (rcv *TacticalRelayStageExcel) EnemySubArmorType() ArmorType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return ArmorType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageExcel) MutateEnemySubArmorType(n ArmorType) bool {
+	return rcv._tab.MutateInt32Slot(36, int32(n))
+}
+
+func (rcv *TacticalRelayStageExcel) StageEnterCostType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -264,34 +288,10 @@ func (rcv *TacticalRelayStageExcel) StageEnterCostType() ParcelType {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateStageEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(34, int32(n))
+	return rcv._tab.MutateInt32Slot(38, int32(n))
 }
 
 func (rcv *TacticalRelayStageExcel) StageEnterCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalRelayStageExcel) MutateStageEnterCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
-}
-
-func (rcv *TacticalRelayStageExcel) StageEnterCostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalRelayStageExcel) MutateStageEnterCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
-}
-
-func (rcv *TacticalRelayStageExcel) TacticRewardExp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -299,23 +299,23 @@ func (rcv *TacticalRelayStageExcel) TacticRewardExp() int64 {
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateTacticRewardExp(n int64) bool {
+func (rcv *TacticalRelayStageExcel) MutateStageEnterCostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(40, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardIdEgo() int64 {
+func (rcv *TacticalRelayStageExcel) StageEnterCostAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardIdEgo(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+func (rcv *TacticalRelayStageExcel) MutateStageEnterCostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardIdConscious() int64 {
+func (rcv *TacticalRelayStageExcel) TacticRewardExp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -323,11 +323,11 @@ func (rcv *TacticalRelayStageExcel) StageRewardIdConscious() int64 {
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardIdConscious(n int64) bool {
+func (rcv *TacticalRelayStageExcel) MutateTacticRewardExp(n int64) bool {
 	return rcv._tab.MutateInt64Slot(44, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardIdUnconscious() int64 {
+func (rcv *TacticalRelayStageExcel) StageRewardIdEgo() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -335,35 +335,35 @@ func (rcv *TacticalRelayStageExcel) StageRewardIdUnconscious() int64 {
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardIdUnconscious(n int64) bool {
+func (rcv *TacticalRelayStageExcel) MutateStageRewardIdEgo(n int64) bool {
 	return rcv._tab.MutateInt64Slot(46, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId01() uint32 {
+func (rcv *TacticalRelayStageExcel) StageRewardIdConscious() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId01(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(48, n)
+func (rcv *TacticalRelayStageExcel) MutateStageRewardIdConscious(n int64) bool {
+	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId02() uint32 {
+func (rcv *TacticalRelayStageExcel) StageRewardIdUnconscious() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId02(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(50, n)
+func (rcv *TacticalRelayStageExcel) MutateStageRewardIdUnconscious(n int64) bool {
+	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId03() uint32 {
+func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId01() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -371,12 +371,36 @@ func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId03() uint32 {
 	return 0
 }
 
-func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId03(n uint32) bool {
+func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId01(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(52, n)
 }
 
-func (rcv *TacticalRelayStageExcel) EchelonCount() int32 {
+func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId02() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId02(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(54, n)
+}
+
+func (rcv *TacticalRelayStageExcel) StageRewardLocalizePrefabId03() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalRelayStageExcel) MutateStageRewardLocalizePrefabId03(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(56, n)
+}
+
+func (rcv *TacticalRelayStageExcel) EchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -384,11 +408,11 @@ func (rcv *TacticalRelayStageExcel) EchelonCount() int32 {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(54, n)
+	return rcv._tab.MutateInt32Slot(58, n)
 }
 
 func (rcv *TacticalRelayStageExcel) ApcSlotDefineId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -396,11 +420,11 @@ func (rcv *TacticalRelayStageExcel) ApcSlotDefineId() int64 {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateApcSlotDefineId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(56, n)
+	return rcv._tab.MutateInt64Slot(60, n)
 }
 
 func (rcv *TacticalRelayStageExcel) FavorCollectionScoreBonusId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -408,11 +432,11 @@ func (rcv *TacticalRelayStageExcel) FavorCollectionScoreBonusId() int64 {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateFavorCollectionScoreBonusId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(58, n)
+	return rcv._tab.MutateInt64Slot(62, n)
 }
 
 func (rcv *TacticalRelayStageExcel) EchelonExtensionType() EchelonExtensionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -420,11 +444,11 @@ func (rcv *TacticalRelayStageExcel) EchelonExtensionType() EchelonExtensionType 
 }
 
 func (rcv *TacticalRelayStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(60, int32(n))
+	return rcv._tab.MutateInt32Slot(64, int32(n))
 }
 
 func (rcv *TacticalRelayStageExcel) AssistSlot() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -432,11 +456,11 @@ func (rcv *TacticalRelayStageExcel) AssistSlot() int32 {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateAssistSlot(n int32) bool {
-	return rcv._tab.MutateInt32Slot(62, n)
+	return rcv._tab.MutateInt32Slot(66, n)
 }
 
 func (rcv *TacticalRelayStageExcel) StageHint() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -444,11 +468,11 @@ func (rcv *TacticalRelayStageExcel) StageHint() uint32 {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateStageHint(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(64, n)
+	return rcv._tab.MutateUint32Slot(68, n)
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPath(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -457,7 +481,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPath(j int) []byte {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -465,7 +489,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipIconPathLength() int {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcId(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -474,7 +498,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcId(j int) uint32 {
 }
 
 func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -482,7 +506,7 @@ func (rcv *TacticalRelayStageExcel) WaveInfoTipLocalizeEtcIdLength() int {
 }
 
 func (rcv *TacticalRelayStageExcel) MutateWaveInfoTipLocalizeEtcId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -491,7 +515,7 @@ func (rcv *TacticalRelayStageExcel) MutateWaveInfoTipLocalizeEtcId(j int, n uint
 }
 
 func TacticalRelayStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(33)
+	builder.StartObject(35)
 }
 func TacticalRelayStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -547,62 +571,68 @@ func TacticalRelayStageExcelAddGroundId(builder *flatbuffers.Builder, groundId i
 func TacticalRelayStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
 	builder.PrependInt32Slot(14, int32(stageTopography), 0)
 }
+func TacticalRelayStageExcelAddEnemyArmorType(builder *flatbuffers.Builder, enemyArmorType ArmorType) {
+	builder.PrependInt32Slot(15, int32(enemyArmorType), 0)
+}
+func TacticalRelayStageExcelAddEnemySubArmorType(builder *flatbuffers.Builder, enemySubArmorType ArmorType) {
+	builder.PrependInt32Slot(16, int32(enemySubArmorType), 0)
+}
 func TacticalRelayStageExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType ParcelType) {
-	builder.PrependInt32Slot(15, int32(stageEnterCostType), 0)
+	builder.PrependInt32Slot(17, int32(stageEnterCostType), 0)
 }
 func TacticalRelayStageExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId int64) {
-	builder.PrependInt64Slot(16, stageEnterCostId, 0)
+	builder.PrependInt64Slot(18, stageEnterCostId, 0)
 }
 func TacticalRelayStageExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount int32) {
-	builder.PrependInt32Slot(17, stageEnterCostAmount, 0)
+	builder.PrependInt32Slot(19, stageEnterCostAmount, 0)
 }
 func TacticalRelayStageExcelAddTacticRewardExp(builder *flatbuffers.Builder, tacticRewardExp int64) {
-	builder.PrependInt64Slot(18, tacticRewardExp, 0)
+	builder.PrependInt64Slot(20, tacticRewardExp, 0)
 }
 func TacticalRelayStageExcelAddStageRewardIdEgo(builder *flatbuffers.Builder, stageRewardIdEgo int64) {
-	builder.PrependInt64Slot(19, stageRewardIdEgo, 0)
+	builder.PrependInt64Slot(21, stageRewardIdEgo, 0)
 }
 func TacticalRelayStageExcelAddStageRewardIdConscious(builder *flatbuffers.Builder, stageRewardIdConscious int64) {
-	builder.PrependInt64Slot(20, stageRewardIdConscious, 0)
+	builder.PrependInt64Slot(22, stageRewardIdConscious, 0)
 }
 func TacticalRelayStageExcelAddStageRewardIdUnconscious(builder *flatbuffers.Builder, stageRewardIdUnconscious int64) {
-	builder.PrependInt64Slot(21, stageRewardIdUnconscious, 0)
+	builder.PrependInt64Slot(23, stageRewardIdUnconscious, 0)
 }
 func TacticalRelayStageExcelAddStageRewardLocalizePrefabId01(builder *flatbuffers.Builder, stageRewardLocalizePrefabId01 uint32) {
-	builder.PrependUint32Slot(22, stageRewardLocalizePrefabId01, 0)
+	builder.PrependUint32Slot(24, stageRewardLocalizePrefabId01, 0)
 }
 func TacticalRelayStageExcelAddStageRewardLocalizePrefabId02(builder *flatbuffers.Builder, stageRewardLocalizePrefabId02 uint32) {
-	builder.PrependUint32Slot(23, stageRewardLocalizePrefabId02, 0)
+	builder.PrependUint32Slot(25, stageRewardLocalizePrefabId02, 0)
 }
 func TacticalRelayStageExcelAddStageRewardLocalizePrefabId03(builder *flatbuffers.Builder, stageRewardLocalizePrefabId03 uint32) {
-	builder.PrependUint32Slot(24, stageRewardLocalizePrefabId03, 0)
+	builder.PrependUint32Slot(26, stageRewardLocalizePrefabId03, 0)
 }
 func TacticalRelayStageExcelAddEchelonCount(builder *flatbuffers.Builder, echelonCount int32) {
-	builder.PrependInt32Slot(25, echelonCount, 0)
+	builder.PrependInt32Slot(27, echelonCount, 0)
 }
 func TacticalRelayStageExcelAddApcSlotDefineId(builder *flatbuffers.Builder, apcSlotDefineId int64) {
-	builder.PrependInt64Slot(26, apcSlotDefineId, 0)
+	builder.PrependInt64Slot(28, apcSlotDefineId, 0)
 }
 func TacticalRelayStageExcelAddFavorCollectionScoreBonusId(builder *flatbuffers.Builder, favorCollectionScoreBonusId int64) {
-	builder.PrependInt64Slot(27, favorCollectionScoreBonusId, 0)
+	builder.PrependInt64Slot(29, favorCollectionScoreBonusId, 0)
 }
 func TacticalRelayStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(28, int32(echelonExtensionType), 0)
+	builder.PrependInt32Slot(30, int32(echelonExtensionType), 0)
 }
 func TacticalRelayStageExcelAddAssistSlot(builder *flatbuffers.Builder, assistSlot int32) {
-	builder.PrependInt32Slot(29, assistSlot, 0)
+	builder.PrependInt32Slot(31, assistSlot, 0)
 }
 func TacticalRelayStageExcelAddStageHint(builder *flatbuffers.Builder, stageHint uint32) {
-	builder.PrependUint32Slot(30, stageHint, 0)
+	builder.PrependUint32Slot(32, stageHint, 0)
 }
 func TacticalRelayStageExcelAddWaveInfoTipIconPath(builder *flatbuffers.Builder, waveInfoTipIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(waveInfoTipIconPath), 0)
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(waveInfoTipIconPath), 0)
 }
 func TacticalRelayStageExcelStartWaveInfoTipIconPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func TacticalRelayStageExcelAddWaveInfoTipLocalizeEtcId(builder *flatbuffers.Builder, waveInfoTipLocalizeEtcId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(waveInfoTipLocalizeEtcId), 0)
+	builder.PrependUOffsetTSlot(34, flatbuffers.UOffsetT(waveInfoTipLocalizeEtcId), 0)
 }
 func TacticalRelayStageExcelStartWaveInfoTipLocalizeEtcIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

@@ -5,6 +5,13 @@ table LevelExpMasterCoinExcel {
     min_level: int;
     max_level: int;
     ratio: int;
+    product_monthly_id1: [long];
+    plus_master_coin_ratio1: long;
+    plus_master_coin_icon_name1: string;
+    product_monthly_id2: [long];
+    plus_master_coin_ratio2: long;
+    plus_master_coin_icon_name2: string;
+    plus_master_coin_icon_name3: string;
 }
 
 root_type LevelExpMasterCoinExcel;

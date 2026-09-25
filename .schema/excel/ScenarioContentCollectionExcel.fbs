@@ -15,6 +15,9 @@ table ScenarioContentCollectionExcel {
     emblem_resource: string;
     thumb_resource: string;
     full_resource: string;
+    full_resource_pos_x: float;
+    full_resource_pos_y: float;
+    full_resource_scale: float;
     localize_etc_id: uint;
     sub_name_localize_code_id: string;
 }

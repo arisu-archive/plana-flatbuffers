@@ -344,8 +344,15 @@ class ShopRecruitExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # ShopRecruitExcel
+    def RecruitSeason(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ShopRecruitExcelStart(builder):
-    builder.StartObject(40)
+    builder.StartObject(41)
 
 def Start(builder):
     ShopRecruitExcelStart(builder)
@@ -602,6 +609,12 @@ def ShopRecruitExcelAddWishListFullStackGachaGroupId(builder, wishListFullStackG
 def AddWishListFullStackGachaGroupId(builder, wishListFullStackGachaGroupId):
     ShopRecruitExcelAddWishListFullStackGachaGroupId(builder, wishListFullStackGachaGroupId)
 
+def ShopRecruitExcelAddRecruitSeason(builder, recruitSeason):
+    builder.PrependInt64Slot(40, recruitSeason, 0)
+
+def AddRecruitSeason(builder, recruitSeason):
+    ShopRecruitExcelAddRecruitSeason(builder, recruitSeason)
+
 def ShopRecruitExcelEnd(builder):
     return builder.EndObject()
 
@@ -658,6 +671,7 @@ class ShopRecruitExcelT(object):
         wishListConfig = 0,
         wishListHalfStackGachaGroupId = 0,
         wishListFullStackGachaGroupId = 0,
+        recruitSeason = 0,
     ):
         self.id = id  # type: int
         self.categoryType = categoryType  # type: int
@@ -699,6 +713,7 @@ class ShopRecruitExcelT(object):
         self.wishListConfig = wishListConfig  # type: int
         self.wishListHalfStackGachaGroupId = wishListHalfStackGachaGroupId  # type: int
         self.wishListFullStackGachaGroupId = wishListFullStackGachaGroupId  # type: int
+        self.recruitSeason = recruitSeason  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -773,6 +788,7 @@ class ShopRecruitExcelT(object):
         self.wishListConfig = shopRecruitExcel.WishListConfig()
         self.wishListHalfStackGachaGroupId = shopRecruitExcel.WishListHalfStackGachaGroupId()
         self.wishListFullStackGachaGroupId = shopRecruitExcel.WishListFullStackGachaGroupId()
+        self.recruitSeason = shopRecruitExcel.RecruitSeason()
 
     # ShopRecruitExcelT
     def Pack(self, builder):
@@ -850,5 +866,6 @@ class ShopRecruitExcelT(object):
         ShopRecruitExcelAddWishListConfig(builder, self.wishListConfig)
         ShopRecruitExcelAddWishListHalfStackGachaGroupId(builder, self.wishListHalfStackGachaGroupId)
         ShopRecruitExcelAddWishListFullStackGachaGroupId(builder, self.wishListFullStackGachaGroupId)
+        ShopRecruitExcelAddRecruitSeason(builder, self.recruitSeason)
         shopRecruitExcel = ShopRecruitExcelEnd(builder)
         return shopRecruitExcel

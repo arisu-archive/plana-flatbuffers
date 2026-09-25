@@ -7,51 +7,54 @@ import "strconv"
 type MissionCategory int32
 
 const (
-	MissionCategoryChallenge        MissionCategory = 0
-	MissionCategoryDaily            MissionCategory = 1
-	MissionCategoryWeekly           MissionCategory = 2
-	MissionCategoryAchievement      MissionCategory = 3
-	MissionCategoryGuideMission     MissionCategory = 4
-	MissionCategoryAll              MissionCategory = 5
-	MissionCategoryMiniGameScore    MissionCategory = 6
-	MissionCategoryMiniGameEvent    MissionCategory = 7
-	MissionCategoryEventAchievement MissionCategory = 8
-	MissionCategoryDailySudden      MissionCategory = 9
-	MissionCategoryDailyFixed       MissionCategory = 10
-	MissionCategoryEventFixed       MissionCategory = 11
-	MissionCategoryWelcomeMission   MissionCategory = 12
+	MissionCategoryChallenge                  MissionCategory = 0
+	MissionCategoryDaily                      MissionCategory = 1
+	MissionCategoryWeekly                     MissionCategory = 2
+	MissionCategoryAchievement                MissionCategory = 3
+	MissionCategoryGuideMission               MissionCategory = 4
+	MissionCategoryAll                        MissionCategory = 5
+	MissionCategoryMiniGameScore              MissionCategory = 6
+	MissionCategoryMiniGameEvent              MissionCategory = 7
+	MissionCategoryEventAchievement           MissionCategory = 8
+	MissionCategoryDailySudden                MissionCategory = 9
+	MissionCategoryDailyFixed                 MissionCategory = 10
+	MissionCategoryEventFixed                 MissionCategory = 11
+	MissionCategoryWelcomeMission             MissionCategory = 12
+	MissionCategoryCharacterAdaptationMission MissionCategory = 13
 )
 
 var EnumNamesMissionCategory = map[MissionCategory]string{
-	MissionCategoryChallenge:        "Challenge",
-	MissionCategoryDaily:            "Daily",
-	MissionCategoryWeekly:           "Weekly",
-	MissionCategoryAchievement:      "Achievement",
-	MissionCategoryGuideMission:     "GuideMission",
-	MissionCategoryAll:              "All",
-	MissionCategoryMiniGameScore:    "MiniGameScore",
-	MissionCategoryMiniGameEvent:    "MiniGameEvent",
-	MissionCategoryEventAchievement: "EventAchievement",
-	MissionCategoryDailySudden:      "DailySudden",
-	MissionCategoryDailyFixed:       "DailyFixed",
-	MissionCategoryEventFixed:       "EventFixed",
-	MissionCategoryWelcomeMission:   "WelcomeMission",
+	MissionCategoryChallenge:                  "Challenge",
+	MissionCategoryDaily:                      "Daily",
+	MissionCategoryWeekly:                     "Weekly",
+	MissionCategoryAchievement:                "Achievement",
+	MissionCategoryGuideMission:               "GuideMission",
+	MissionCategoryAll:                        "All",
+	MissionCategoryMiniGameScore:              "MiniGameScore",
+	MissionCategoryMiniGameEvent:              "MiniGameEvent",
+	MissionCategoryEventAchievement:           "EventAchievement",
+	MissionCategoryDailySudden:                "DailySudden",
+	MissionCategoryDailyFixed:                 "DailyFixed",
+	MissionCategoryEventFixed:                 "EventFixed",
+	MissionCategoryWelcomeMission:             "WelcomeMission",
+	MissionCategoryCharacterAdaptationMission: "CharacterAdaptationMission",
 }
 
 var EnumValuesMissionCategory = map[string]MissionCategory{
-	"Challenge":        MissionCategoryChallenge,
-	"Daily":            MissionCategoryDaily,
-	"Weekly":           MissionCategoryWeekly,
-	"Achievement":      MissionCategoryAchievement,
-	"GuideMission":     MissionCategoryGuideMission,
-	"All":              MissionCategoryAll,
-	"MiniGameScore":    MissionCategoryMiniGameScore,
-	"MiniGameEvent":    MissionCategoryMiniGameEvent,
-	"EventAchievement": MissionCategoryEventAchievement,
-	"DailySudden":      MissionCategoryDailySudden,
-	"DailyFixed":       MissionCategoryDailyFixed,
-	"EventFixed":       MissionCategoryEventFixed,
-	"WelcomeMission":   MissionCategoryWelcomeMission,
+	"Challenge":                  MissionCategoryChallenge,
+	"Daily":                      MissionCategoryDaily,
+	"Weekly":                     MissionCategoryWeekly,
+	"Achievement":                MissionCategoryAchievement,
+	"GuideMission":               MissionCategoryGuideMission,
+	"All":                        MissionCategoryAll,
+	"MiniGameScore":              MissionCategoryMiniGameScore,
+	"MiniGameEvent":              MissionCategoryMiniGameEvent,
+	"EventAchievement":           MissionCategoryEventAchievement,
+	"DailySudden":                MissionCategoryDailySudden,
+	"DailyFixed":                 MissionCategoryDailyFixed,
+	"EventFixed":                 MissionCategoryEventFixed,
+	"WelcomeMission":             MissionCategoryWelcomeMission,
+	"CharacterAdaptationMission": MissionCategoryCharacterAdaptationMission,
 }
 
 func (v MissionCategory) String() string {

@@ -529,8 +529,20 @@ func (rcv *ShopRecruitExcel) MutateWishListFullStackGachaGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(82, n)
 }
 
+func (rcv *ShopRecruitExcel) RecruitSeason() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRecruitExcel) MutateRecruitSeason(n int64) bool {
+	return rcv._tab.MutateInt64Slot(84, n)
+}
+
 func ShopRecruitExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(40)
+	builder.StartObject(41)
 }
 func ShopRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -657,6 +669,9 @@ func ShopRecruitExcelAddWishListHalfStackGachaGroupId(builder *flatbuffers.Build
 }
 func ShopRecruitExcelAddWishListFullStackGachaGroupId(builder *flatbuffers.Builder, wishListFullStackGachaGroupId int64) {
 	builder.PrependInt64Slot(39, wishListFullStackGachaGroupId, 0)
+}
+func ShopRecruitExcelAddRecruitSeason(builder *flatbuffers.Builder, recruitSeason int64) {
+	builder.PrependInt64Slot(40, recruitSeason, 0)
 }
 func ShopRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

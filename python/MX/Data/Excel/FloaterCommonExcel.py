@@ -66,8 +66,15 @@ class FloaterCommonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # FloaterCommonExcel
+    def LimitedFloaterRandomPosRangeY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def FloaterCommonExcelStart(builder):
-    builder.StartObject(6)
+    builder.StartObject(7)
 
 def Start(builder):
     FloaterCommonExcelStart(builder)
@@ -108,6 +115,12 @@ def FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY)
 def AddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY):
     FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY)
 
+def FloaterCommonExcelAddLimitedFloaterRandomPosRangeY(builder, limitedFloaterRandomPosRangeY):
+    builder.PrependInt32Slot(6, limitedFloaterRandomPosRangeY, 0)
+
+def AddLimitedFloaterRandomPosRangeY(builder, limitedFloaterRandomPosRangeY):
+    FloaterCommonExcelAddLimitedFloaterRandomPosRangeY(builder, limitedFloaterRandomPosRangeY)
+
 def FloaterCommonExcelEnd(builder):
     return builder.EndObject()
 
@@ -126,6 +139,7 @@ class FloaterCommonExcelT(object):
         floaterOffsetPosY = 0,
         floaterRandomPosRangeX = 0,
         floaterRandomPosRangeY = 0,
+        limitedFloaterRandomPosRangeY = 0,
     ):
         self.id = id  # type: int
         self.tacticEntityType = tacticEntityType  # type: int
@@ -133,6 +147,7 @@ class FloaterCommonExcelT(object):
         self.floaterOffsetPosY = floaterOffsetPosY  # type: int
         self.floaterRandomPosRangeX = floaterRandomPosRangeX  # type: int
         self.floaterRandomPosRangeY = floaterRandomPosRangeY  # type: int
+        self.limitedFloaterRandomPosRangeY = limitedFloaterRandomPosRangeY  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -161,6 +176,7 @@ class FloaterCommonExcelT(object):
         self.floaterOffsetPosY = floaterCommonExcel.FloaterOffsetPosY()
         self.floaterRandomPosRangeX = floaterCommonExcel.FloaterRandomPosRangeX()
         self.floaterRandomPosRangeY = floaterCommonExcel.FloaterRandomPosRangeY()
+        self.limitedFloaterRandomPosRangeY = floaterCommonExcel.LimitedFloaterRandomPosRangeY()
 
     # FloaterCommonExcelT
     def Pack(self, builder):
@@ -171,5 +187,6 @@ class FloaterCommonExcelT(object):
         FloaterCommonExcelAddFloaterOffsetPosY(builder, self.floaterOffsetPosY)
         FloaterCommonExcelAddFloaterRandomPosRangeX(builder, self.floaterRandomPosRangeX)
         FloaterCommonExcelAddFloaterRandomPosRangeY(builder, self.floaterRandomPosRangeY)
+        FloaterCommonExcelAddLimitedFloaterRandomPosRangeY(builder, self.limitedFloaterRandomPosRangeY)
         floaterCommonExcel = FloaterCommonExcelEnd(builder)
         return floaterCommonExcel

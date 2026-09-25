@@ -15,6 +15,7 @@ table ShopCashExcel {
     in_mail_purchase_lock: bool;
     use_mail_parcel: bool;
     icon_path: string;
+    sub_icon_path: string;
     display_order: long;
     renewal_display_order: long;
     shop_cash_stepup_id: long;

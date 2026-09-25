@@ -65,8 +65,56 @@ func (rcv *EventContentClueSearchExcel) MutateTitleLocalize(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *EventContentClueSearchExcel) UsePrefabName() []byte {
+func (rcv *EventContentClueSearchExcel) SearchCostGoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentClueSearchExcel) MutateSearchCostGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EventContentClueSearchExcel) DeductionPointItemId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentClueSearchExcel) MutateDeductionPointItemId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *EventContentClueSearchExcel) InspirationConvertCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentClueSearchExcel) MutateInspirationConvertCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *EventContentClueSearchExcel) MaxSearchCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentClueSearchExcel) MutateMaxSearchCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *EventContentClueSearchExcel) UsePrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,7 +122,7 @@ func (rcv *EventContentClueSearchExcel) UsePrefabName() []byte {
 }
 
 func (rcv *EventContentClueSearchExcel) ClueBgImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -82,7 +130,7 @@ func (rcv *EventContentClueSearchExcel) ClueBgImagePath() []byte {
 }
 
 func EventContentClueSearchExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(8)
 }
 func EventContentClueSearchExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -90,11 +138,23 @@ func EventContentClueSearchExcelAddEventContentId(builder *flatbuffers.Builder, 
 func EventContentClueSearchExcelAddTitleLocalize(builder *flatbuffers.Builder, titleLocalize uint32) {
 	builder.PrependUint32Slot(1, titleLocalize, 0)
 }
+func EventContentClueSearchExcelAddSearchCostGoodsId(builder *flatbuffers.Builder, searchCostGoodsId int64) {
+	builder.PrependInt64Slot(2, searchCostGoodsId, 0)
+}
+func EventContentClueSearchExcelAddDeductionPointItemId(builder *flatbuffers.Builder, deductionPointItemId int64) {
+	builder.PrependInt64Slot(3, deductionPointItemId, 0)
+}
+func EventContentClueSearchExcelAddInspirationConvertCount(builder *flatbuffers.Builder, inspirationConvertCount int64) {
+	builder.PrependInt64Slot(4, inspirationConvertCount, 0)
+}
+func EventContentClueSearchExcelAddMaxSearchCount(builder *flatbuffers.Builder, maxSearchCount int64) {
+	builder.PrependInt64Slot(5, maxSearchCount, 0)
+}
 func EventContentClueSearchExcelAddUsePrefabName(builder *flatbuffers.Builder, usePrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(usePrefabName), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(usePrefabName), 0)
 }
 func EventContentClueSearchExcelAddClueBgImagePath(builder *flatbuffers.Builder, clueBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(clueBgImagePath), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(clueBgImagePath), 0)
 }
 func EventContentClueSearchExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

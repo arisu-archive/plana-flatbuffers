@@ -50,6 +50,7 @@ type ShopRecruitExcelDto struct {
 	WishListConfig                WishListConfig         `json:"wish_list_config"`
 	WishListHalfStackGachaGroupID int64                  `json:"wish_list_half_stack_gacha_group_id"`
 	WishListFullStackGachaGroupID int64                  `json:"wish_list_full_stack_gacha_group_id"`
+	RecruitSeason                 int64                  `json:"recruit_season"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -110,6 +111,7 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddWishListConfig(b, t.WishListConfig)
 	ShopRecruitExcelAddWishListHalfStackGachaGroupId(b, t.WishListHalfStackGachaGroupID)
 	ShopRecruitExcelAddWishListFullStackGachaGroupId(b, t.WishListFullStackGachaGroupID)
+	ShopRecruitExcelAddRecruitSeason(b, t.RecruitSeason)
 	return ShopRecruitExcelEnd(b)
 }
 
@@ -168,6 +170,7 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.WishListConfig = e.WishListConfig()
 	t.WishListHalfStackGachaGroupID = e.WishListHalfStackGachaGroupId()
 	t.WishListFullStackGachaGroupID = e.WishListFullStackGachaGroupId()
+	t.RecruitSeason = e.RecruitSeason()
 	return nil
 }
 

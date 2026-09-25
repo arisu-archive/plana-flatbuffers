@@ -34,6 +34,7 @@ table CostumeExcel {
     use_object_hpbar: bool;
     texture_boss: string;
     texture_skill_card: [string];
+    texture_gacha_card: string;
     information_pacel: string;
     animation_ssr: string;
     enter_strategy_animation_name: string;

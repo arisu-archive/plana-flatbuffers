@@ -1,0 +1,20 @@
+namespace MX.Data.Excel;
+
+table CharacterAdaptationStepGrowthExcel {
+    id: long;
+    group_id: long;
+    mission_step: long;
+    character_level: long;
+    equip_slot1_tier: long;
+    equip_slot1_level: long;
+    equip_slot2_tier: long;
+    equip_slot2_level: long;
+    equip_slot3_tier: long;
+    equip_slot3_level: long;
+    ex_skill_level: long;
+    public_skill_level: long;
+    passive_skill_level: long;
+    extra_passive_skill_level: long;
+}
+
+root_type CharacterAdaptationStepGrowthExcel;

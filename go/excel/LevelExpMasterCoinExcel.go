@@ -89,8 +89,108 @@ func (rcv *LevelExpMasterCoinExcel) MutateRatio(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
+func (rcv *LevelExpMasterCoinExcel) ProductMonthlyId1(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) ProductMonthlyId1Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutateProductMonthlyId1(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *LevelExpMasterCoinExcel) PlusMasterCoinRatio1() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutatePlusMasterCoinRatio1(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *LevelExpMasterCoinExcel) PlusMasterCoinIconName1() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LevelExpMasterCoinExcel) ProductMonthlyId2(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) ProductMonthlyId2Length() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutateProductMonthlyId2(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *LevelExpMasterCoinExcel) PlusMasterCoinRatio2() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LevelExpMasterCoinExcel) MutatePlusMasterCoinRatio2(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *LevelExpMasterCoinExcel) PlusMasterCoinIconName2() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LevelExpMasterCoinExcel) PlusMasterCoinIconName3() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func LevelExpMasterCoinExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(11)
 }
 func LevelExpMasterCoinExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -103,6 +203,33 @@ func LevelExpMasterCoinExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel i
 }
 func LevelExpMasterCoinExcelAddRatio(builder *flatbuffers.Builder, ratio int32) {
 	builder.PrependInt32Slot(3, ratio, 0)
+}
+func LevelExpMasterCoinExcelAddProductMonthlyId1(builder *flatbuffers.Builder, productMonthlyId1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(productMonthlyId1), 0)
+}
+func LevelExpMasterCoinExcelStartProductMonthlyId1Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func LevelExpMasterCoinExcelAddPlusMasterCoinRatio1(builder *flatbuffers.Builder, plusMasterCoinRatio1 int64) {
+	builder.PrependInt64Slot(5, plusMasterCoinRatio1, 0)
+}
+func LevelExpMasterCoinExcelAddPlusMasterCoinIconName1(builder *flatbuffers.Builder, plusMasterCoinIconName1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(plusMasterCoinIconName1), 0)
+}
+func LevelExpMasterCoinExcelAddProductMonthlyId2(builder *flatbuffers.Builder, productMonthlyId2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(productMonthlyId2), 0)
+}
+func LevelExpMasterCoinExcelStartProductMonthlyId2Vector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func LevelExpMasterCoinExcelAddPlusMasterCoinRatio2(builder *flatbuffers.Builder, plusMasterCoinRatio2 int64) {
+	builder.PrependInt64Slot(8, plusMasterCoinRatio2, 0)
+}
+func LevelExpMasterCoinExcelAddPlusMasterCoinIconName2(builder *flatbuffers.Builder, plusMasterCoinIconName2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(plusMasterCoinIconName2), 0)
+}
+func LevelExpMasterCoinExcelAddPlusMasterCoinIconName3(builder *flatbuffers.Builder, plusMasterCoinIconName3 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(plusMasterCoinIconName3), 0)
 }
 func LevelExpMasterCoinExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -25,6 +25,8 @@ type TacticalRelayStageExcelDto struct {
 	PrevStageID                   int64                  `json:"prev_stage_id"`
 	GroundID                      int64                  `json:"ground_id"`
 	StageTopography               StageTopography        `json:"stage_topography"`
+	EnemyArmorType                ArmorType              `json:"enemy_armor_type"`
+	EnemySubArmorType             ArmorType              `json:"enemy_sub_armor_type"`
 	StageEnterCostType            ParcelType             `json:"stage_enter_cost_type"`
 	StageEnterCostID              int64                  `json:"stage_enter_cost_id"`
 	StageEnterCostAmount          int32                  `json:"stage_enter_cost_amount"`
@@ -95,6 +97,8 @@ func (t *TacticalRelayStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	TacticalRelayStageExcelAddPrevStageId(b, t.PrevStageID)
 	TacticalRelayStageExcelAddGroundId(b, t.GroundID)
 	TacticalRelayStageExcelAddStageTopography(b, t.StageTopography)
+	TacticalRelayStageExcelAddEnemyArmorType(b, t.EnemyArmorType)
+	TacticalRelayStageExcelAddEnemySubArmorType(b, t.EnemySubArmorType)
 	TacticalRelayStageExcelAddStageEnterCostType(b, t.StageEnterCostType)
 	TacticalRelayStageExcelAddStageEnterCostId(b, t.StageEnterCostID)
 	TacticalRelayStageExcelAddStageEnterCostAmount(b, t.StageEnterCostAmount)
@@ -149,6 +153,8 @@ func (t *TacticalRelayStageExcelDto) UnmarshalMessage(e *TacticalRelayStageExcel
 	t.PrevStageID = e.PrevStageId()
 	t.GroundID = e.GroundId()
 	t.StageTopography = e.StageTopography()
+	t.EnemyArmorType = e.EnemyArmorType()
+	t.EnemySubArmorType = e.EnemySubArmorType()
 	t.StageEnterCostType = e.StageEnterCostType()
 	t.StageEnterCostID = e.StageEnterCostId()
 	t.StageEnterCostAmount = e.StageEnterCostAmount()

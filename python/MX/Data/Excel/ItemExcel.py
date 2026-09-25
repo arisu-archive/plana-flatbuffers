@@ -316,8 +316,15 @@ class ItemExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # ItemExcel
+    def ShowContents(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
 def ItemExcelStart(builder):
-    builder.StartObject(36)
+    builder.StartObject(37)
 
 def Start(builder):
     ItemExcelStart(builder)
@@ -550,6 +557,12 @@ def ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe):
 def AddShiftingCraftRecipe(builder, shiftingCraftRecipe):
     ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe)
 
+def ItemExcelAddShowContents(builder, showContents):
+    builder.PrependBoolSlot(36, showContents, 0)
+
+def AddShowContents(builder, showContents):
+    ItemExcelAddShowContents(builder, showContents)
+
 def ItemExcelEnd(builder):
     return builder.EndObject()
 
@@ -602,6 +615,7 @@ class ItemExcelT(object):
         gachaTicket = 0,
         alertPopupId = 0,
         shiftingCraftRecipe = 0,
+        showContents = False,
     ):
         self.id = id  # type: int
         self.groupId = groupId  # type: int
@@ -639,6 +653,7 @@ class ItemExcelT(object):
         self.gachaTicket = gachaTicket  # type: int
         self.alertPopupId = alertPopupId  # type: int
         self.shiftingCraftRecipe = shiftingCraftRecipe  # type: int
+        self.showContents = showContents  # type: bool
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -709,6 +724,7 @@ class ItemExcelT(object):
         self.gachaTicket = itemExcel.GachaTicket()
         self.alertPopupId = itemExcel.AlertPopupId()
         self.shiftingCraftRecipe = itemExcel.ShiftingCraftRecipe()
+        self.showContents = itemExcel.ShowContents()
 
     # ItemExcelT
     def Pack(self, builder):
@@ -776,5 +792,6 @@ class ItemExcelT(object):
         ItemExcelAddGachaTicket(builder, self.gachaTicket)
         ItemExcelAddAlertPopupId(builder, self.alertPopupId)
         ItemExcelAddShiftingCraftRecipe(builder, self.shiftingCraftRecipe)
+        ItemExcelAddShowContents(builder, self.showContents)
         itemExcel = ItemExcelEnd(builder)
         return itemExcel

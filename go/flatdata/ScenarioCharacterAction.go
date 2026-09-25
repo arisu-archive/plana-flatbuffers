@@ -7,36 +7,42 @@ import "strconv"
 type ScenarioCharacterAction int32
 
 const (
-	ScenarioCharacterActionIdle          ScenarioCharacterAction = 0
-	ScenarioCharacterActionShake         ScenarioCharacterAction = 1
-	ScenarioCharacterActionGreeting      ScenarioCharacterAction = 2
-	ScenarioCharacterActionFalldownLeft  ScenarioCharacterAction = 3
-	ScenarioCharacterActionFalldownRight ScenarioCharacterAction = 4
-	ScenarioCharacterActionStiff         ScenarioCharacterAction = 5
-	ScenarioCharacterActionHophop        ScenarioCharacterAction = 6
-	ScenarioCharacterActionJump          ScenarioCharacterAction = 7
+	ScenarioCharacterActionIdle              ScenarioCharacterAction = 0
+	ScenarioCharacterActionShake             ScenarioCharacterAction = 1
+	ScenarioCharacterActionGreeting          ScenarioCharacterAction = 2
+	ScenarioCharacterActionFalldownLeft      ScenarioCharacterAction = 3
+	ScenarioCharacterActionFalldownRight     ScenarioCharacterAction = 4
+	ScenarioCharacterActionStiff             ScenarioCharacterAction = 5
+	ScenarioCharacterActionHophop            ScenarioCharacterAction = 6
+	ScenarioCharacterActionJump              ScenarioCharacterAction = 7
+	ScenarioCharacterActionFalldownLeftAuto  ScenarioCharacterAction = 8
+	ScenarioCharacterActionFalldownRightAuto ScenarioCharacterAction = 9
 )
 
 var EnumNamesScenarioCharacterAction = map[ScenarioCharacterAction]string{
-	ScenarioCharacterActionIdle:          "Idle",
-	ScenarioCharacterActionShake:         "Shake",
-	ScenarioCharacterActionGreeting:      "Greeting",
-	ScenarioCharacterActionFalldownLeft:  "FalldownLeft",
-	ScenarioCharacterActionFalldownRight: "FalldownRight",
-	ScenarioCharacterActionStiff:         "Stiff",
-	ScenarioCharacterActionHophop:        "Hophop",
-	ScenarioCharacterActionJump:          "Jump",
+	ScenarioCharacterActionIdle:              "Idle",
+	ScenarioCharacterActionShake:             "Shake",
+	ScenarioCharacterActionGreeting:          "Greeting",
+	ScenarioCharacterActionFalldownLeft:      "FalldownLeft",
+	ScenarioCharacterActionFalldownRight:     "FalldownRight",
+	ScenarioCharacterActionStiff:             "Stiff",
+	ScenarioCharacterActionHophop:            "Hophop",
+	ScenarioCharacterActionJump:              "Jump",
+	ScenarioCharacterActionFalldownLeftAuto:  "FalldownLeftAuto",
+	ScenarioCharacterActionFalldownRightAuto: "FalldownRightAuto",
 }
 
 var EnumValuesScenarioCharacterAction = map[string]ScenarioCharacterAction{
-	"Idle":          ScenarioCharacterActionIdle,
-	"Shake":         ScenarioCharacterActionShake,
-	"Greeting":      ScenarioCharacterActionGreeting,
-	"FalldownLeft":  ScenarioCharacterActionFalldownLeft,
-	"FalldownRight": ScenarioCharacterActionFalldownRight,
-	"Stiff":         ScenarioCharacterActionStiff,
-	"Hophop":        ScenarioCharacterActionHophop,
-	"Jump":          ScenarioCharacterActionJump,
+	"Idle":              ScenarioCharacterActionIdle,
+	"Shake":             ScenarioCharacterActionShake,
+	"Greeting":          ScenarioCharacterActionGreeting,
+	"FalldownLeft":      ScenarioCharacterActionFalldownLeft,
+	"FalldownRight":     ScenarioCharacterActionFalldownRight,
+	"Stiff":             ScenarioCharacterActionStiff,
+	"Hophop":            ScenarioCharacterActionHophop,
+	"Jump":              ScenarioCharacterActionJump,
+	"FalldownLeftAuto":  ScenarioCharacterActionFalldownLeftAuto,
+	"FalldownRightAuto": ScenarioCharacterActionFalldownRightAuto,
 }
 
 func (v ScenarioCharacterAction) String() string {
