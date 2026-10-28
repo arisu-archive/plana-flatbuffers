@@ -52,8 +52,50 @@ class ConstContentsExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # ConstContentsExcel
+    def CharacterUsageRaidRecentSeason(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstContentsExcel
+    def CharacterUsageEliminateRaidRecentSeason(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstContentsExcel
+    def CharacterUsageMinSampleDifficulty(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstContentsExcel
+    def CharacterUsageMinAccountSampleCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstContentsExcel
+    def CharacterUsageRawDataRetentionInDays(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstContentsExcel
+    def CharacterUsageAggregateCycleInHours(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def ConstContentsExcelStart(builder):
-    builder.StartObject(4)
+    builder.StartObject(10)
 
 def Start(builder):
     ConstContentsExcelStart(builder)
@@ -82,6 +124,42 @@ def ConstContentsExcelAddLobbyNightTimeFrom(builder, lobbyNightTimeFrom):
 def AddLobbyNightTimeFrom(builder, lobbyNightTimeFrom):
     ConstContentsExcelAddLobbyNightTimeFrom(builder, lobbyNightTimeFrom)
 
+def ConstContentsExcelAddCharacterUsageRaidRecentSeason(builder, characterUsageRaidRecentSeason):
+    builder.PrependInt32Slot(4, characterUsageRaidRecentSeason, 0)
+
+def AddCharacterUsageRaidRecentSeason(builder, characterUsageRaidRecentSeason):
+    ConstContentsExcelAddCharacterUsageRaidRecentSeason(builder, characterUsageRaidRecentSeason)
+
+def ConstContentsExcelAddCharacterUsageEliminateRaidRecentSeason(builder, characterUsageEliminateRaidRecentSeason):
+    builder.PrependInt32Slot(5, characterUsageEliminateRaidRecentSeason, 0)
+
+def AddCharacterUsageEliminateRaidRecentSeason(builder, characterUsageEliminateRaidRecentSeason):
+    ConstContentsExcelAddCharacterUsageEliminateRaidRecentSeason(builder, characterUsageEliminateRaidRecentSeason)
+
+def ConstContentsExcelAddCharacterUsageMinSampleDifficulty(builder, characterUsageMinSampleDifficulty):
+    builder.PrependInt32Slot(6, characterUsageMinSampleDifficulty, 0)
+
+def AddCharacterUsageMinSampleDifficulty(builder, characterUsageMinSampleDifficulty):
+    ConstContentsExcelAddCharacterUsageMinSampleDifficulty(builder, characterUsageMinSampleDifficulty)
+
+def ConstContentsExcelAddCharacterUsageMinAccountSampleCount(builder, characterUsageMinAccountSampleCount):
+    builder.PrependInt32Slot(7, characterUsageMinAccountSampleCount, 0)
+
+def AddCharacterUsageMinAccountSampleCount(builder, characterUsageMinAccountSampleCount):
+    ConstContentsExcelAddCharacterUsageMinAccountSampleCount(builder, characterUsageMinAccountSampleCount)
+
+def ConstContentsExcelAddCharacterUsageRawDataRetentionInDays(builder, characterUsageRawDataRetentionInDays):
+    builder.PrependInt32Slot(8, characterUsageRawDataRetentionInDays, 0)
+
+def AddCharacterUsageRawDataRetentionInDays(builder, characterUsageRawDataRetentionInDays):
+    ConstContentsExcelAddCharacterUsageRawDataRetentionInDays(builder, characterUsageRawDataRetentionInDays)
+
+def ConstContentsExcelAddCharacterUsageAggregateCycleInHours(builder, characterUsageAggregateCycleInHours):
+    builder.PrependInt32Slot(9, characterUsageAggregateCycleInHours, 0)
+
+def AddCharacterUsageAggregateCycleInHours(builder, characterUsageAggregateCycleInHours):
+    ConstContentsExcelAddCharacterUsageAggregateCycleInHours(builder, characterUsageAggregateCycleInHours)
+
 def ConstContentsExcelEnd(builder):
     return builder.EndObject()
 
@@ -98,11 +176,23 @@ class ConstContentsExcelT(object):
         searchUpdateTime = 0.0,
         lobbyDayTimeFrom = 0,
         lobbyNightTimeFrom = 0,
+        characterUsageRaidRecentSeason = 0,
+        characterUsageEliminateRaidRecentSeason = 0,
+        characterUsageMinSampleDifficulty = 0,
+        characterUsageMinAccountSampleCount = 0,
+        characterUsageRawDataRetentionInDays = 0,
+        characterUsageAggregateCycleInHours = 0,
     ):
         self.useSearchFieldOptimize = useSearchFieldOptimize  # type: bool
         self.searchUpdateTime = searchUpdateTime  # type: float
         self.lobbyDayTimeFrom = lobbyDayTimeFrom  # type: int
         self.lobbyNightTimeFrom = lobbyNightTimeFrom  # type: int
+        self.characterUsageRaidRecentSeason = characterUsageRaidRecentSeason  # type: int
+        self.characterUsageEliminateRaidRecentSeason = characterUsageEliminateRaidRecentSeason  # type: int
+        self.characterUsageMinSampleDifficulty = characterUsageMinSampleDifficulty  # type: int
+        self.characterUsageMinAccountSampleCount = characterUsageMinAccountSampleCount  # type: int
+        self.characterUsageRawDataRetentionInDays = characterUsageRawDataRetentionInDays  # type: int
+        self.characterUsageAggregateCycleInHours = characterUsageAggregateCycleInHours  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -129,6 +219,12 @@ class ConstContentsExcelT(object):
         self.searchUpdateTime = constContentsExcel.SearchUpdateTime()
         self.lobbyDayTimeFrom = constContentsExcel.LobbyDayTimeFrom()
         self.lobbyNightTimeFrom = constContentsExcel.LobbyNightTimeFrom()
+        self.characterUsageRaidRecentSeason = constContentsExcel.CharacterUsageRaidRecentSeason()
+        self.characterUsageEliminateRaidRecentSeason = constContentsExcel.CharacterUsageEliminateRaidRecentSeason()
+        self.characterUsageMinSampleDifficulty = constContentsExcel.CharacterUsageMinSampleDifficulty()
+        self.characterUsageMinAccountSampleCount = constContentsExcel.CharacterUsageMinAccountSampleCount()
+        self.characterUsageRawDataRetentionInDays = constContentsExcel.CharacterUsageRawDataRetentionInDays()
+        self.characterUsageAggregateCycleInHours = constContentsExcel.CharacterUsageAggregateCycleInHours()
 
     # ConstContentsExcelT
     def Pack(self, builder):
@@ -137,9 +233,15 @@ class ConstContentsExcelT(object):
         ConstContentsExcelAddSearchUpdateTime(builder, self.searchUpdateTime)
         ConstContentsExcelAddLobbyDayTimeFrom(builder, self.lobbyDayTimeFrom)
         ConstContentsExcelAddLobbyNightTimeFrom(builder, self.lobbyNightTimeFrom)
+        ConstContentsExcelAddCharacterUsageRaidRecentSeason(builder, self.characterUsageRaidRecentSeason)
+        ConstContentsExcelAddCharacterUsageEliminateRaidRecentSeason(builder, self.characterUsageEliminateRaidRecentSeason)
+        ConstContentsExcelAddCharacterUsageMinSampleDifficulty(builder, self.characterUsageMinSampleDifficulty)
+        ConstContentsExcelAddCharacterUsageMinAccountSampleCount(builder, self.characterUsageMinAccountSampleCount)
+        ConstContentsExcelAddCharacterUsageRawDataRetentionInDays(builder, self.characterUsageRawDataRetentionInDays)
+        ConstContentsExcelAddCharacterUsageAggregateCycleInHours(builder, self.characterUsageAggregateCycleInHours)
         constContentsExcel = ConstContentsExcelEnd(builder)
         return constContentsExcel
 
 # plana-flatbuffer: object-api conversion
 from FlatData._conversion import install_object_api as _install_object_api
-_install_object_api(ConstContentsExcelT, 'ConstContentsExcel', (('searchUpdateTime', 'float32', False), ('lobbyDayTimeFrom', 'int32', False), ('lobbyNightTimeFrom', 'int32', False)))
+_install_object_api(ConstContentsExcelT, 'ConstContentsExcel', (('searchUpdateTime', 'float32', False), ('lobbyDayTimeFrom', 'int32', False), ('lobbyNightTimeFrom', 'int32', False), ('characterUsageRaidRecentSeason', 'int32', False), ('characterUsageEliminateRaidRecentSeason', 'int32', False), ('characterUsageMinSampleDifficulty', 'int32', False), ('characterUsageMinAccountSampleCount', 'int32', False), ('characterUsageRawDataRetentionInDays', 'int32', False), ('characterUsageAggregateCycleInHours', 'int32', False)))

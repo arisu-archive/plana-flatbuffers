@@ -13,7 +13,6 @@ type RaidContentPlayGuideExcelDto struct {
 	ID                int64             `json:"id"`
 	RaidBossGroupType RaidBossGroupType `json:"raid_boss_group_type"`
 	IsPcBuild         bool              `json:"is_pc_build"`
-	IDExport          bool              `json:"id_export"`
 	DisplayOrder      int32             `json:"display_order"`
 	GuideTitle        uint32            `json:"guide_title"`
 	GuideImagePath    string            `json:"guide_image_path"`
@@ -27,7 +26,6 @@ func (t *RaidContentPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	RaidContentPlayGuideExcelAddId(b, t.ID)
 	RaidContentPlayGuideExcelAddRaidBossGroupType(b, t.RaidBossGroupType)
 	RaidContentPlayGuideExcelAddIsPcBuild(b, t.IsPcBuild)
-	RaidContentPlayGuideExcelAddIdExport(b, t.IDExport)
 	RaidContentPlayGuideExcelAddDisplayOrder(b, t.DisplayOrder)
 	RaidContentPlayGuideExcelAddGuideTitle(b, t.GuideTitle)
 	RaidContentPlayGuideExcelAddGuideImagePath(b, guideImagePathOffset)
@@ -47,7 +45,6 @@ func (t *RaidContentPlayGuideExcelDto) UnmarshalMessage(e *RaidContentPlayGuideE
 	t.ID = e.Id()
 	t.RaidBossGroupType = e.RaidBossGroupType()
 	t.IsPcBuild = e.IsPcBuild()
-	t.IDExport = e.IdExport()
 	t.DisplayOrder = e.DisplayOrder()
 	t.GuideTitle = e.GuideTitle()
 	t.GuideImagePath = string(e.GuideImagePath())

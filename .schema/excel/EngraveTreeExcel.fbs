@@ -1,3 +1,4 @@
+include "EngraveNodeType.fbs";
 include "EquipmentOptionType.fbs";
 include "NodeGrade.fbs";
 
@@ -5,8 +6,10 @@ namespace MX.Data.Excel;
 
 table EngraveTreeExcel {
     id: long;
+    node_type: EngraveNodeType;
     node_index: int;
     is_unlock: bool;
+    pre_node_type: EngraveNodeType;
     pre_node_index: [int];
     grade_type: NodeGrade;
     localize_etc_id: string;

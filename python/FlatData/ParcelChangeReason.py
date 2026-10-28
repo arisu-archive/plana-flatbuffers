@@ -232,3 +232,6 @@ class ParcelChangeReason(object):
     WeekDungeon_ChaserEResult = 226
     ClueSearch_Investigate = 227
     ClueSearch_Reveal = 228
+    MiniGame_TankRaceEndBattle = 229
+    MiniGame_TankRaceTankLevelUp = 230
+    MiniGame_TankRaceSweep = 231

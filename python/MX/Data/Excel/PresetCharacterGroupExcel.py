@@ -256,28 +256,62 @@ class PresetCharacterGroupExcel(object):
         return 0
 
     # PresetCharacterGroupExcel
-    def EngraveLevelEgo(self):
+    def EngraveNormalNodeIndex(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # PresetCharacterGroupExcel
-    def EngraveLevelConscious(self):
+    def EngraveSpecialNodeIndices(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveSpecialNodeIndicesAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveSpecialNodeIndicesLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveSpecialNodeIndicesIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        return o == 0
+
+    # PresetCharacterGroupExcel
+    def EngraveLevelEgo(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # PresetCharacterGroupExcel
+    def EngraveLevelConscious(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # PresetCharacterGroupExcel
     def EngraveLevelUnconscious(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def PresetCharacterGroupExcelStart(builder):
-    builder.StartObject(36)
+    builder.StartObject(38)
 
 def Start(builder):
     PresetCharacterGroupExcelStart(builder)
@@ -480,20 +514,38 @@ def PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03):
 def AddPotentialLevel03(builder, potentialLevel03):
     PresetCharacterGroupExcelAddPotentialLevel03(builder, potentialLevel03)
 
+def PresetCharacterGroupExcelAddEngraveNormalNodeIndex(builder, engraveNormalNodeIndex):
+    builder.PrependInt32Slot(33, engraveNormalNodeIndex, 0)
+
+def AddEngraveNormalNodeIndex(builder, engraveNormalNodeIndex):
+    PresetCharacterGroupExcelAddEngraveNormalNodeIndex(builder, engraveNormalNodeIndex)
+
+def PresetCharacterGroupExcelAddEngraveSpecialNodeIndices(builder, engraveSpecialNodeIndices):
+    builder.PrependUOffsetTRelativeSlot(34, flatbuffers.number_types.UOffsetTFlags.py_type(engraveSpecialNodeIndices), 0)
+
+def AddEngraveSpecialNodeIndices(builder, engraveSpecialNodeIndices):
+    PresetCharacterGroupExcelAddEngraveSpecialNodeIndices(builder, engraveSpecialNodeIndices)
+
+def PresetCharacterGroupExcelStartEngraveSpecialNodeIndicesVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartEngraveSpecialNodeIndicesVector(builder, numElems):
+    return PresetCharacterGroupExcelStartEngraveSpecialNodeIndicesVector(builder, numElems)
+
 def PresetCharacterGroupExcelAddEngraveLevelEgo(builder, engraveLevelEgo):
-    builder.PrependInt32Slot(33, engraveLevelEgo, 0)
+    builder.PrependInt32Slot(35, engraveLevelEgo, 0)
 
 def AddEngraveLevelEgo(builder, engraveLevelEgo):
     PresetCharacterGroupExcelAddEngraveLevelEgo(builder, engraveLevelEgo)
 
 def PresetCharacterGroupExcelAddEngraveLevelConscious(builder, engraveLevelConscious):
-    builder.PrependInt32Slot(34, engraveLevelConscious, 0)
+    builder.PrependInt32Slot(36, engraveLevelConscious, 0)
 
 def AddEngraveLevelConscious(builder, engraveLevelConscious):
     PresetCharacterGroupExcelAddEngraveLevelConscious(builder, engraveLevelConscious)
 
 def PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, engraveLevelUnconscious):
-    builder.PrependInt32Slot(35, engraveLevelUnconscious, 0)
+    builder.PrependInt32Slot(37, engraveLevelUnconscious, 0)
 
 def AddEngraveLevelUnconscious(builder, engraveLevelUnconscious):
     PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, engraveLevelUnconscious)
@@ -504,6 +556,10 @@ def PresetCharacterGroupExcelEnd(builder):
 def End(builder):
     return PresetCharacterGroupExcelEnd(builder)
 
+try:
+    from typing import List
+except:
+    pass
 
 class PresetCharacterGroupExcelT(object):
 
@@ -543,6 +599,8 @@ class PresetCharacterGroupExcelT(object):
         potentialLevel02 = 0,
         potentialType03 = 0,
         potentialLevel03 = 0,
+        engraveNormalNodeIndex = 0,
+        engraveSpecialNodeIndices = None,
         engraveLevelEgo = 0,
         engraveLevelConscious = 0,
         engraveLevelUnconscious = 0,
@@ -580,6 +638,8 @@ class PresetCharacterGroupExcelT(object):
         self.potentialLevel02 = potentialLevel02  # type: int
         self.potentialType03 = potentialType03  # type: int
         self.potentialLevel03 = potentialLevel03  # type: int
+        self.engraveNormalNodeIndex = engraveNormalNodeIndex  # type: int
+        self.engraveSpecialNodeIndices = engraveSpecialNodeIndices  # type: Optional[List[int]]
         self.engraveLevelEgo = engraveLevelEgo  # type: int
         self.engraveLevelConscious = engraveLevelConscious  # type: int
         self.engraveLevelUnconscious = engraveLevelUnconscious  # type: int
@@ -638,6 +698,14 @@ class PresetCharacterGroupExcelT(object):
         self.potentialLevel02 = presetCharacterGroupExcel.PotentialLevel02()
         self.potentialType03 = presetCharacterGroupExcel.PotentialType03()
         self.potentialLevel03 = presetCharacterGroupExcel.PotentialLevel03()
+        self.engraveNormalNodeIndex = presetCharacterGroupExcel.EngraveNormalNodeIndex()
+        if not presetCharacterGroupExcel.EngraveSpecialNodeIndicesIsNone():
+            if np is None:
+                self.engraveSpecialNodeIndices = []
+                for i in range(presetCharacterGroupExcel.EngraveSpecialNodeIndicesLength()):
+                    self.engraveSpecialNodeIndices.append(presetCharacterGroupExcel.EngraveSpecialNodeIndices(i))
+            else:
+                self.engraveSpecialNodeIndices = presetCharacterGroupExcel.EngraveSpecialNodeIndicesAsNumpy()
         self.engraveLevelEgo = presetCharacterGroupExcel.EngraveLevelEgo()
         self.engraveLevelConscious = presetCharacterGroupExcel.EngraveLevelConscious()
         self.engraveLevelUnconscious = presetCharacterGroupExcel.EngraveLevelUnconscious()
@@ -646,6 +714,14 @@ class PresetCharacterGroupExcelT(object):
     def Pack(self, builder):
         if self.getPresetType is not None:
             getPresetType = builder.CreateString(self.getPresetType)
+        if self.engraveSpecialNodeIndices is not None:
+            if np is not None and type(self.engraveSpecialNodeIndices) is np.ndarray:
+                engraveSpecialNodeIndices = builder.CreateNumpyVector(self.engraveSpecialNodeIndices)
+            else:
+                PresetCharacterGroupExcelStartEngraveSpecialNodeIndicesVector(builder, len(self.engraveSpecialNodeIndices))
+                for i in reversed(range(len(self.engraveSpecialNodeIndices))):
+                    builder.PrependInt32(self.engraveSpecialNodeIndices[i])
+                engraveSpecialNodeIndices = builder.EndVector()
         PresetCharacterGroupExcelStart(builder)
         PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, self.presetCharacterGroupId)
         if self.getPresetType is not None:
@@ -681,6 +757,9 @@ class PresetCharacterGroupExcelT(object):
         PresetCharacterGroupExcelAddPotentialLevel02(builder, self.potentialLevel02)
         PresetCharacterGroupExcelAddPotentialType03(builder, self.potentialType03)
         PresetCharacterGroupExcelAddPotentialLevel03(builder, self.potentialLevel03)
+        PresetCharacterGroupExcelAddEngraveNormalNodeIndex(builder, self.engraveNormalNodeIndex)
+        if self.engraveSpecialNodeIndices is not None:
+            PresetCharacterGroupExcelAddEngraveSpecialNodeIndices(builder, engraveSpecialNodeIndices)
         PresetCharacterGroupExcelAddEngraveLevelEgo(builder, self.engraveLevelEgo)
         PresetCharacterGroupExcelAddEngraveLevelConscious(builder, self.engraveLevelConscious)
         PresetCharacterGroupExcelAddEngraveLevelUnconscious(builder, self.engraveLevelUnconscious)

@@ -1,0 +1,14 @@
+include "TankRacingItemType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTankItemExcel {
+    event_content_id: long;
+    unique_id: long;
+    item_type: TankRacingItemType;
+    item_parameter: int;
+    spawn_lane: [int];
+    prefab_name: string;
+}
+
+root_type MiniGameTankItemExcel;

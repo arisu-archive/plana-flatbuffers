@@ -593,8 +593,20 @@ func (rcv *EventContentStageExcel) MutateEchelonExtensionType(n EchelonExtension
 	return rcv._tab.MutateInt32Slot(88, int32(n))
 }
 
+func (rcv *EventContentStageExcel) EchelonRecommendPresetId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentStageExcel) MutateEchelonRecommendPresetId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(90, n)
+}
+
 func EventContentStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(43)
+	builder.StartObject(44)
 }
 func EventContentStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -736,6 +748,9 @@ func EventContentStageExcelAddStageHint(builder *flatbuffers.Builder, stageHint 
 }
 func EventContentStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
 	builder.PrependInt32Slot(42, int32(echelonExtensionType), 0)
+}
+func EventContentStageExcelAddEchelonRecommendPresetId(builder *flatbuffers.Builder, echelonRecommendPresetId int32) {
+	builder.PrependInt32Slot(43, echelonRecommendPresetId, 0)
 }
 func EventContentStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -54,6 +54,8 @@ var fbs = map[string]reflect.Type{
 	"constminigameroadpuzzleexceltable": reflect.TypeOf((*ConstMinigameRoadPuzzleExcelTableDto)(nil)).Elem(),
 	"constminigameshootingexcel": reflect.TypeOf((*ConstMiniGameShootingExcelDto)(nil)).Elem(),
 	"constminigameshootingexceltable": reflect.TypeOf((*ConstMiniGameShootingExcelTableDto)(nil)).Elem(),
+	"constminigametankexcel": reflect.TypeOf((*ConstMiniGameTankExcelDto)(nil)).Elem(),
+	"constminigametankexceltable": reflect.TypeOf((*ConstMiniGameTankExcelTableDto)(nil)).Elem(),
 	"constminigametbgexcel": reflect.TypeOf((*ConstMinigameTBGExcelDto)(nil)).Elem(),
 	"constminigametbgexceltable": reflect.TypeOf((*ConstMinigameTBGExcelTableDto)(nil)).Elem(),
 	"constnewbiecontentexcel": reflect.TypeOf((*ConstNewbieContentExcelDto)(nil)).Elem(),

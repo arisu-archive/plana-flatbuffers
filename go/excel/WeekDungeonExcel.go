@@ -353,8 +353,37 @@ func (rcv *WeekDungeonExcel) MutateEchelonExtensionType(n EchelonExtensionType) 
 	return rcv._tab.MutateInt32Slot(40, int32(n))
 }
 
+func (rcv *WeekDungeonExcel) EchelonRecommendPresetId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WeekDungeonExcel) MutateEchelonRecommendPresetId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
+}
+
+func (rcv *WeekDungeonExcel) HideChaserPortraitSpawnTemplateId(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *WeekDungeonExcel) HideChaserPortraitSpawnTemplateIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
 func WeekDungeonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(19)
+	builder.StartObject(21)
 }
 func WeekDungeonExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
 	builder.PrependInt64Slot(0, stageId, 0)
@@ -430,6 +459,15 @@ func WeekDungeonExcelStartGroupBuffIdVector(builder *flatbuffers.Builder, numEle
 }
 func WeekDungeonExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
 	builder.PrependInt32Slot(18, int32(echelonExtensionType), 0)
+}
+func WeekDungeonExcelAddEchelonRecommendPresetId(builder *flatbuffers.Builder, echelonRecommendPresetId int32) {
+	builder.PrependInt32Slot(19, echelonRecommendPresetId, 0)
+}
+func WeekDungeonExcelAddHideChaserPortraitSpawnTemplateId(builder *flatbuffers.Builder, hideChaserPortraitSpawnTemplateId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(hideChaserPortraitSpawnTemplateId), 0)
+}
+func WeekDungeonExcelStartHideChaserPortraitSpawnTemplateIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func WeekDungeonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

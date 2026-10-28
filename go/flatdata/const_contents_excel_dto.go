@@ -10,10 +10,16 @@ import (
 // ConstContentsExcelDto represents a FlatBuffers table.
 type ConstContentsExcelDto struct {
 	fbsutils.FlatBuffer
-	UseSearchFieldOptimize bool    `json:"use_search_field_optimize"`
-	SearchUpdateTime       float32 `json:"search_update_time"`
-	LobbyDayTimeFrom       int32   `json:"lobby_day_time_from"`
-	LobbyNightTimeFrom     int32   `json:"lobby_night_time_from"`
+	UseSearchFieldOptimize                  bool       `json:"use_search_field_optimize"`
+	SearchUpdateTime                        float32    `json:"search_update_time"`
+	LobbyDayTimeFrom                        int32      `json:"lobby_day_time_from"`
+	LobbyNightTimeFrom                      int32      `json:"lobby_night_time_from"`
+	CharacterUsageRaidRecentSeason          int32      `json:"character_usage_raid_recent_season"`
+	CharacterUsageEliminateRaidRecentSeason int32      `json:"character_usage_eliminate_raid_recent_season"`
+	CharacterUsageMinSampleDifficulty       Difficulty `json:"character_usage_min_sample_difficulty"`
+	CharacterUsageMinAccountSampleCount     int32      `json:"character_usage_min_account_sample_count"`
+	CharacterUsageRawDataRetentionInDays    int32      `json:"character_usage_raw_data_retention_in_days"`
+	CharacterUsageAggregateCycleInHours     int32      `json:"character_usage_aggregate_cycle_in_hours"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -26,6 +32,12 @@ func (t *ConstContentsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	ConstContentsExcelAddSearchUpdateTime(b, fbsutils.Encode(t.SearchUpdateTime, t.FlatBuffer.TableKey))
 	ConstContentsExcelAddLobbyDayTimeFrom(b, fbsutils.Encode(t.LobbyDayTimeFrom, t.FlatBuffer.TableKey))
 	ConstContentsExcelAddLobbyNightTimeFrom(b, fbsutils.Encode(t.LobbyNightTimeFrom, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddCharacterUsageRaidRecentSeason(b, fbsutils.Encode(t.CharacterUsageRaidRecentSeason, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddCharacterUsageEliminateRaidRecentSeason(b, fbsutils.Encode(t.CharacterUsageEliminateRaidRecentSeason, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddCharacterUsageMinSampleDifficulty(b, Difficulty(fbsutils.Encode(int32(t.CharacterUsageMinSampleDifficulty), t.FlatBuffer.TableKey)))
+	ConstContentsExcelAddCharacterUsageMinAccountSampleCount(b, fbsutils.Encode(t.CharacterUsageMinAccountSampleCount, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddCharacterUsageRawDataRetentionInDays(b, fbsutils.Encode(t.CharacterUsageRawDataRetentionInDays, t.FlatBuffer.TableKey))
+	ConstContentsExcelAddCharacterUsageAggregateCycleInHours(b, fbsutils.Encode(t.CharacterUsageAggregateCycleInHours, t.FlatBuffer.TableKey))
 	return ConstContentsExcelEnd(b)
 }
 
@@ -45,6 +57,12 @@ func (t *ConstContentsExcelDto) UnmarshalMessage(e *ConstContentsExcel) error {
 	t.SearchUpdateTime = fbsutils.Decode(e.SearchUpdateTime(), t.FlatBuffer.TableKey)
 	t.LobbyDayTimeFrom = fbsutils.Decode(e.LobbyDayTimeFrom(), t.FlatBuffer.TableKey)
 	t.LobbyNightTimeFrom = fbsutils.Decode(e.LobbyNightTimeFrom(), t.FlatBuffer.TableKey)
+	t.CharacterUsageRaidRecentSeason = fbsutils.Decode(e.CharacterUsageRaidRecentSeason(), t.FlatBuffer.TableKey)
+	t.CharacterUsageEliminateRaidRecentSeason = fbsutils.Decode(e.CharacterUsageEliminateRaidRecentSeason(), t.FlatBuffer.TableKey)
+	t.CharacterUsageMinSampleDifficulty = Difficulty(fbsutils.Decode(int32(e.CharacterUsageMinSampleDifficulty()), t.FlatBuffer.TableKey))
+	t.CharacterUsageMinAccountSampleCount = fbsutils.Decode(e.CharacterUsageMinAccountSampleCount(), t.FlatBuffer.TableKey)
+	t.CharacterUsageRawDataRetentionInDays = fbsutils.Decode(e.CharacterUsageRawDataRetentionInDays(), t.FlatBuffer.TableKey)
+	t.CharacterUsageAggregateCycleInHours = fbsutils.Decode(e.CharacterUsageAggregateCycleInHours(), t.FlatBuffer.TableKey)
 	return nil
 }
 

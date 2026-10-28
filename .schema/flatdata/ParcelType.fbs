@@ -33,4 +33,5 @@ enum ParcelType: int {
     SNSPost = 29,
     ProductDailyRecord = 30,
     StudentFrame = 31,
+    ProductStreakRecord = 32,
 }

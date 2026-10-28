@@ -1,0 +1,25 @@
+include "ParcelType.fbs";
+include "StarGoalType.fbs";
+include "TankRacingStageType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTankStageExcel {
+    event_content_id: long;
+    unique_id: long;
+    stage_number: long;
+    name: uint;
+    stage_type: TankRacingStageType;
+    prev_stage_id: long;
+    stage_duration: long;
+    cost_parcel_type: ParcelType;
+    cost_parcel_id: long;
+    cost_parcel_amount: int;
+    reward_group_id: long;
+    star_goal: [StarGoalType];
+    star_goal_amount: [int];
+    boss_entry_player_tank_group_ids: [long];
+    boss_entry_boss_group_ids: [long];
+}
+
+root_type MiniGameTankStageExcel;

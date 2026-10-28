@@ -1,0 +1,9 @@
+include "ConstMiniGameTankExcel.fbs";
+
+namespace FlatData;
+
+table ConstMiniGameTankExcelTable {
+    data_list: [ConstMiniGameTankExcel];
+}
+
+root_type ConstMiniGameTankExcelTable;

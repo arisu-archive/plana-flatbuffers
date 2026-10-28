@@ -203,6 +203,12 @@ const (
 	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear                  MissionCompleteConditionType = 193
 	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount                       MissionCompleteConditionType = 194
 	MissionCompleteConditionTypeAchieve_EngraveLevelUpCount                           MissionCompleteConditionType = 195
+	MissionCompleteConditionTypeReset_TankRacingClearCount                            MissionCompleteConditionType = 196
+	MissionCompleteConditionTypeReset_TankRacingUpgradeTierCheck                      MissionCompleteConditionType = 197
+	MissionCompleteConditionTypeReset_ClearSpecificTankRacingStage                    MissionCompleteConditionType = 198
+	MissionCompleteConditionTypeReset_ClearSpecificCampaignStageWithAdaptationCount   MissionCompleteConditionType = 199
+	MissionCompleteConditionTypeReset_ClearSpecificPermanentRaidCount                 MissionCompleteConditionType = 200
+	MissionCompleteConditionTypeReset_CharacterAtSpecificSkillLevelReachCount         MissionCompleteConditionType = 201
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -402,6 +408,12 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear:                  "Reset_SpecificTacticalRelayWaveClear",
 	MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount:                       "Achieve_ClearTacticalRelayCount",
 	MissionCompleteConditionTypeAchieve_EngraveLevelUpCount:                           "Achieve_EngraveLevelUpCount",
+	MissionCompleteConditionTypeReset_TankRacingClearCount:                            "Reset_TankRacingClearCount",
+	MissionCompleteConditionTypeReset_TankRacingUpgradeTierCheck:                      "Reset_TankRacingUpgradeTierCheck",
+	MissionCompleteConditionTypeReset_ClearSpecificTankRacingStage:                    "Reset_ClearSpecificTankRacingStage",
+	MissionCompleteConditionTypeReset_ClearSpecificCampaignStageWithAdaptationCount:   "Reset_ClearSpecificCampaignStageWithAdaptationCount",
+	MissionCompleteConditionTypeReset_ClearSpecificPermanentRaidCount:                 "Reset_ClearSpecificPermanentRaidCount",
+	MissionCompleteConditionTypeReset_CharacterAtSpecificSkillLevelReachCount:         "Reset_CharacterAtSpecificSkillLevelReachCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -601,6 +613,12 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_SpecificTacticalRelayWaveClear":                  MissionCompleteConditionTypeReset_SpecificTacticalRelayWaveClear,
 	"Achieve_ClearTacticalRelayCount":                       MissionCompleteConditionTypeAchieve_ClearTacticalRelayCount,
 	"Achieve_EngraveLevelUpCount":                           MissionCompleteConditionTypeAchieve_EngraveLevelUpCount,
+	"Reset_TankRacingClearCount":                            MissionCompleteConditionTypeReset_TankRacingClearCount,
+	"Reset_TankRacingUpgradeTierCheck":                      MissionCompleteConditionTypeReset_TankRacingUpgradeTierCheck,
+	"Reset_ClearSpecificTankRacingStage":                    MissionCompleteConditionTypeReset_ClearSpecificTankRacingStage,
+	"Reset_ClearSpecificCampaignStageWithAdaptationCount":   MissionCompleteConditionTypeReset_ClearSpecificCampaignStageWithAdaptationCount,
+	"Reset_ClearSpecificPermanentRaidCount":                 MissionCompleteConditionTypeReset_ClearSpecificPermanentRaidCount,
+	"Reset_CharacterAtSpecificSkillLevelReachCount":         MissionCompleteConditionTypeReset_CharacterAtSpecificSkillLevelReachCount,
 }
 
 func (v MissionCompleteConditionType) String() string {

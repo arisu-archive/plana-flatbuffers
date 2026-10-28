@@ -236,6 +236,9 @@ const (
 	ParcelChangeReasonWeekDungeon_ChaserEResult            ParcelChangeReason = 226
 	ParcelChangeReasonClueSearch_Investigate               ParcelChangeReason = 227
 	ParcelChangeReasonClueSearch_Reveal                    ParcelChangeReason = 228
+	ParcelChangeReasonMiniGame_TankRaceEndBattle           ParcelChangeReason = 229
+	ParcelChangeReasonMiniGame_TankRaceTankLevelUp         ParcelChangeReason = 230
+	ParcelChangeReasonMiniGame_TankRaceSweep               ParcelChangeReason = 231
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -468,6 +471,9 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonWeekDungeon_ChaserEResult:            "WeekDungeon_ChaserEResult",
 	ParcelChangeReasonClueSearch_Investigate:               "ClueSearch_Investigate",
 	ParcelChangeReasonClueSearch_Reveal:                    "ClueSearch_Reveal",
+	ParcelChangeReasonMiniGame_TankRaceEndBattle:           "MiniGame_TankRaceEndBattle",
+	ParcelChangeReasonMiniGame_TankRaceTankLevelUp:         "MiniGame_TankRaceTankLevelUp",
+	ParcelChangeReasonMiniGame_TankRaceSweep:               "MiniGame_TankRaceSweep",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -700,6 +706,9 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"WeekDungeon_ChaserEResult":            ParcelChangeReasonWeekDungeon_ChaserEResult,
 	"ClueSearch_Investigate":               ParcelChangeReasonClueSearch_Investigate,
 	"ClueSearch_Reveal":                    ParcelChangeReasonClueSearch_Reveal,
+	"MiniGame_TankRaceEndBattle":           ParcelChangeReasonMiniGame_TankRaceEndBattle,
+	"MiniGame_TankRaceTankLevelUp":         ParcelChangeReasonMiniGame_TankRaceTankLevelUp,
+	"MiniGame_TankRaceSweep":               ParcelChangeReasonMiniGame_TankRaceSweep,
 }
 
 func (v ParcelChangeReason) String() string {

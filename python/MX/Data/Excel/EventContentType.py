@@ -48,3 +48,4 @@ class EventContentType(object):
     InteractiveWorldRaid = 42
     ClueSearch = 43
     MinigameJanken = 44
+    MiniGameTank = 45

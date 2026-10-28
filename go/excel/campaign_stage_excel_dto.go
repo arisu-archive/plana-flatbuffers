@@ -43,6 +43,7 @@ type CampaignStageExcelDto struct {
 	TacticRewardExp               int64                `json:"tactic_reward_exp"`
 	FixedEchelonID                int64                `json:"fixed_echelon_id"`
 	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
+	EchelonRecommendPresetID      int32                `json:"echelon_recommend_preset_id"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -107,6 +108,7 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CampaignStageExcelAddTacticRewardExp(b, t.TacticRewardExp)
 	CampaignStageExcelAddFixedEchelonId(b, t.FixedEchelonID)
 	CampaignStageExcelAddEchelonExtensionType(b, t.EchelonExtensionType)
+	CampaignStageExcelAddEchelonRecommendPresetId(b, t.EchelonRecommendPresetID)
 	return CampaignStageExcelEnd(b)
 }
 
@@ -164,6 +166,7 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	t.TacticRewardExp = e.TacticRewardExp()
 	t.FixedEchelonID = e.FixedEchelonId()
 	t.EchelonExtensionType = e.EchelonExtensionType()
+	t.EchelonRecommendPresetID = e.EchelonRecommendPresetId()
 	return nil
 }
 

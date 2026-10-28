@@ -212,6 +212,9 @@ type ConstCommonExcelDto struct {
 	ExSkillLevelMaxByEngrave                    int32            `json:"ex_skill_level_max_by_engrave"`
 	ExSkillUpgradeLevelMax                      int32            `json:"ex_skill_upgrade_level_max"`
 	RaidResetCount                              int32            `json:"raid_reset_count"`
+	GachaHistoryCount                           int32            `json:"gacha_history_count"`
+	GachaHistoryTimeToLiveInDays                int32            `json:"gacha_history_time_to_live_in_days"`
+	ProductMonthlyExtensionLookbackDays         int32            `json:"product_monthly_extension_lookback_days"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -461,6 +464,9 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddExSkillLevelMaxByEngrave(b, fbsutils.Encode(t.ExSkillLevelMaxByEngrave, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddExSkillUpgradeLevelMax(b, fbsutils.Encode(t.ExSkillUpgradeLevelMax, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidResetCount(b, fbsutils.Encode(t.RaidResetCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddGachaHistoryCount(b, fbsutils.Encode(t.GachaHistoryCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddGachaHistoryTimeToLiveInDays(b, fbsutils.Encode(t.GachaHistoryTimeToLiveInDays, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddProductMonthlyExtensionLookbackDays(b, fbsutils.Encode(t.ProductMonthlyExtensionLookbackDays, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -699,6 +705,9 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ExSkillLevelMaxByEngrave = fbsutils.Decode(e.ExSkillLevelMaxByEngrave(), t.FlatBuffer.TableKey)
 	t.ExSkillUpgradeLevelMax = fbsutils.Decode(e.ExSkillUpgradeLevelMax(), t.FlatBuffer.TableKey)
 	t.RaidResetCount = fbsutils.Decode(e.RaidResetCount(), t.FlatBuffer.TableKey)
+	t.GachaHistoryCount = fbsutils.Decode(e.GachaHistoryCount(), t.FlatBuffer.TableKey)
+	t.GachaHistoryTimeToLiveInDays = fbsutils.Decode(e.GachaHistoryTimeToLiveInDays(), t.FlatBuffer.TableKey)
+	t.ProductMonthlyExtensionLookbackDays = fbsutils.Decode(e.ProductMonthlyExtensionLookbackDays(), t.FlatBuffer.TableKey)
 	return nil
 }
 

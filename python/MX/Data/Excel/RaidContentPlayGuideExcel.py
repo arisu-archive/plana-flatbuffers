@@ -46,42 +46,35 @@ class RaidContentPlayGuideExcel(object):
         return False
 
     # RaidContentPlayGuideExcel
-    def IdExport(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # RaidContentPlayGuideExcel
     def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # RaidContentPlayGuideExcel
     def GuideTitle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # RaidContentPlayGuideExcel
     def GuideImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # RaidContentPlayGuideExcel
     def GuideText(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
 def RaidContentPlayGuideExcelStart(builder):
-    builder.StartObject(8)
+    builder.StartObject(7)
 
 def Start(builder):
     RaidContentPlayGuideExcelStart(builder)
@@ -104,32 +97,26 @@ def RaidContentPlayGuideExcelAddIsPcBuild(builder, isPcBuild):
 def AddIsPcBuild(builder, isPcBuild):
     RaidContentPlayGuideExcelAddIsPcBuild(builder, isPcBuild)
 
-def RaidContentPlayGuideExcelAddIdExport(builder, idExport):
-    builder.PrependBoolSlot(3, idExport, 0)
-
-def AddIdExport(builder, idExport):
-    RaidContentPlayGuideExcelAddIdExport(builder, idExport)
-
 def RaidContentPlayGuideExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt32Slot(4, displayOrder, 0)
+    builder.PrependInt32Slot(3, displayOrder, 0)
 
 def AddDisplayOrder(builder, displayOrder):
     RaidContentPlayGuideExcelAddDisplayOrder(builder, displayOrder)
 
 def RaidContentPlayGuideExcelAddGuideTitle(builder, guideTitle):
-    builder.PrependUint32Slot(5, guideTitle, 0)
+    builder.PrependUint32Slot(4, guideTitle, 0)
 
 def AddGuideTitle(builder, guideTitle):
     RaidContentPlayGuideExcelAddGuideTitle(builder, guideTitle)
 
 def RaidContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
 
 def AddGuideImagePath(builder, guideImagePath):
     RaidContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
 
 def RaidContentPlayGuideExcelAddGuideText(builder, guideText):
-    builder.PrependUint32Slot(7, guideText, 0)
+    builder.PrependUint32Slot(6, guideText, 0)
 
 def AddGuideText(builder, guideText):
     RaidContentPlayGuideExcelAddGuideText(builder, guideText)
@@ -149,7 +136,6 @@ class RaidContentPlayGuideExcelT(object):
         id = 0,
         raidBossGroupType = 0,
         isPcBuild = False,
-        idExport = False,
         displayOrder = 0,
         guideTitle = 0,
         guideImagePath = None,
@@ -158,7 +144,6 @@ class RaidContentPlayGuideExcelT(object):
         self.id = id  # type: int
         self.raidBossGroupType = raidBossGroupType  # type: int
         self.isPcBuild = isPcBuild  # type: bool
-        self.idExport = idExport  # type: bool
         self.displayOrder = displayOrder  # type: int
         self.guideTitle = guideTitle  # type: int
         self.guideImagePath = guideImagePath  # type: Optional[str]
@@ -188,7 +173,6 @@ class RaidContentPlayGuideExcelT(object):
         self.id = raidContentPlayGuideExcel.Id()
         self.raidBossGroupType = raidContentPlayGuideExcel.RaidBossGroupType()
         self.isPcBuild = raidContentPlayGuideExcel.IsPcBuild()
-        self.idExport = raidContentPlayGuideExcel.IdExport()
         self.displayOrder = raidContentPlayGuideExcel.DisplayOrder()
         self.guideTitle = raidContentPlayGuideExcel.GuideTitle()
         self.guideImagePath = raidContentPlayGuideExcel.GuideImagePath()
@@ -202,7 +186,6 @@ class RaidContentPlayGuideExcelT(object):
         RaidContentPlayGuideExcelAddId(builder, self.id)
         RaidContentPlayGuideExcelAddRaidBossGroupType(builder, self.raidBossGroupType)
         RaidContentPlayGuideExcelAddIsPcBuild(builder, self.isPcBuild)
-        RaidContentPlayGuideExcelAddIdExport(builder, self.idExport)
         RaidContentPlayGuideExcelAddDisplayOrder(builder, self.displayOrder)
         RaidContentPlayGuideExcelAddGuideTitle(builder, self.guideTitle)
         if self.guideImagePath is not None:

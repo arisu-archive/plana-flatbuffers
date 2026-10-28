@@ -277,8 +277,35 @@ class WeekDungeonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # WeekDungeonExcel
+    def EchelonRecommendPresetId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # WeekDungeonExcel
+    def HideChaserPortraitSpawnTemplateId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # WeekDungeonExcel
+    def HideChaserPortraitSpawnTemplateIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # WeekDungeonExcel
+    def HideChaserPortraitSpawnTemplateIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        return o == 0
+
 def WeekDungeonExcelStart(builder):
-    builder.StartObject(19)
+    builder.StartObject(21)
 
 def Start(builder):
     WeekDungeonExcelStart(builder)
@@ -433,6 +460,24 @@ def WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType):
 def AddEchelonExtensionType(builder, echelonExtensionType):
     WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType)
 
+def WeekDungeonExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    builder.PrependInt32Slot(19, echelonRecommendPresetId, 0)
+
+def AddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    WeekDungeonExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId)
+
+def WeekDungeonExcelAddHideChaserPortraitSpawnTemplateId(builder, hideChaserPortraitSpawnTemplateId):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(hideChaserPortraitSpawnTemplateId), 0)
+
+def AddHideChaserPortraitSpawnTemplateId(builder, hideChaserPortraitSpawnTemplateId):
+    WeekDungeonExcelAddHideChaserPortraitSpawnTemplateId(builder, hideChaserPortraitSpawnTemplateId)
+
+def WeekDungeonExcelStartHideChaserPortraitSpawnTemplateIdVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartHideChaserPortraitSpawnTemplateIdVector(builder, numElems):
+    return WeekDungeonExcelStartHideChaserPortraitSpawnTemplateIdVector(builder, numElems)
+
 def WeekDungeonExcelEnd(builder):
     return builder.EndObject()
 
@@ -468,6 +513,8 @@ class WeekDungeonExcelT(object):
         battleRewardPlayerExp = 0,
         groupBuffId = None,
         echelonExtensionType = 0,
+        echelonRecommendPresetId = 0,
+        hideChaserPortraitSpawnTemplateId = None,
     ):
         self.stageId = stageId  # type: int
         self.weekDungeonType = weekDungeonType  # type: int
@@ -488,6 +535,8 @@ class WeekDungeonExcelT(object):
         self.battleRewardPlayerExp = battleRewardPlayerExp  # type: int
         self.groupBuffId = groupBuffId  # type: Optional[List[int]]
         self.echelonExtensionType = echelonExtensionType  # type: int
+        self.echelonRecommendPresetId = echelonRecommendPresetId  # type: int
+        self.hideChaserPortraitSpawnTemplateId = hideChaserPortraitSpawnTemplateId  # type: Optional[List[Optional[str]]]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -565,6 +614,11 @@ class WeekDungeonExcelT(object):
             else:
                 self.groupBuffId = weekDungeonExcel.GroupBuffIdAsNumpy()
         self.echelonExtensionType = weekDungeonExcel.EchelonExtensionType()
+        self.echelonRecommendPresetId = weekDungeonExcel.EchelonRecommendPresetId()
+        if not weekDungeonExcel.HideChaserPortraitSpawnTemplateIdIsNone():
+            self.hideChaserPortraitSpawnTemplateId = []
+            for i in range(weekDungeonExcel.HideChaserPortraitSpawnTemplateIdLength()):
+                self.hideChaserPortraitSpawnTemplateId.append(weekDungeonExcel.HideChaserPortraitSpawnTemplateId(i))
 
     # WeekDungeonExcelT
     def Pack(self, builder):
@@ -616,6 +670,14 @@ class WeekDungeonExcelT(object):
                 for i in reversed(range(len(self.groupBuffId))):
                     builder.PrependInt64(self.groupBuffId[i])
                 groupBuffId = builder.EndVector()
+        if self.hideChaserPortraitSpawnTemplateId is not None:
+            hideChaserPortraitSpawnTemplateIdlist = []
+            for i in range(len(self.hideChaserPortraitSpawnTemplateId)):
+                hideChaserPortraitSpawnTemplateIdlist.append(builder.CreateString(self.hideChaserPortraitSpawnTemplateId[i]))
+            WeekDungeonExcelStartHideChaserPortraitSpawnTemplateIdVector(builder, len(self.hideChaserPortraitSpawnTemplateId))
+            for i in reversed(range(len(self.hideChaserPortraitSpawnTemplateId))):
+                builder.PrependUOffsetTRelative(hideChaserPortraitSpawnTemplateIdlist[i])
+            hideChaserPortraitSpawnTemplateId = builder.EndVector()
         WeekDungeonExcelStart(builder)
         WeekDungeonExcelAddStageId(builder, self.stageId)
         WeekDungeonExcelAddWeekDungeonType(builder, self.weekDungeonType)
@@ -642,5 +704,8 @@ class WeekDungeonExcelT(object):
         if self.groupBuffId is not None:
             WeekDungeonExcelAddGroupBuffId(builder, groupBuffId)
         WeekDungeonExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        WeekDungeonExcelAddEchelonRecommendPresetId(builder, self.echelonRecommendPresetId)
+        if self.hideChaserPortraitSpawnTemplateId is not None:
+            WeekDungeonExcelAddHideChaserPortraitSpawnTemplateId(builder, hideChaserPortraitSpawnTemplateId)
         weekDungeonExcel = WeekDungeonExcelEnd(builder)
         return weekDungeonExcel

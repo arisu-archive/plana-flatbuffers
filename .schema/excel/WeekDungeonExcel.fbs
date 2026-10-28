@@ -26,6 +26,8 @@ table WeekDungeonExcel {
     battle_reward_player_exp: long;
     group_buff_id: [long];
     echelon_extension_type: EchelonExtensionType;
+    echelon_recommend_preset_id: int;
+    hide_chaser_portrait_spawn_template_id: [string];
 }
 
 root_type WeekDungeonExcel;

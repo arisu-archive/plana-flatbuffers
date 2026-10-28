@@ -335,8 +335,15 @@ class CampaignStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # CampaignStageExcel
+    def EchelonRecommendPresetId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def CampaignStageExcelStart(builder):
-    builder.StartObject(33)
+    builder.StartObject(34)
 
 def Start(builder):
     CampaignStageExcelStart(builder)
@@ -563,6 +570,12 @@ def CampaignStageExcelAddEchelonExtensionType(builder, echelonExtensionType):
 def AddEchelonExtensionType(builder, echelonExtensionType):
     CampaignStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
 
+def CampaignStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    builder.PrependInt32Slot(33, echelonRecommendPresetId, 0)
+
+def AddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    CampaignStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId)
+
 def CampaignStageExcelEnd(builder):
     return builder.EndObject()
 
@@ -612,6 +625,7 @@ class CampaignStageExcelT(object):
         tacticRewardExp = 0,
         fixedEchelonId = 0,
         echelonExtensionType = 0,
+        echelonRecommendPresetId = 0,
     ):
         self.id = id  # type: int
         self.deprecated = deprecated  # type: bool
@@ -646,6 +660,7 @@ class CampaignStageExcelT(object):
         self.tacticRewardExp = tacticRewardExp  # type: int
         self.fixedEchelonId = fixedEchelonId  # type: int
         self.echelonExtensionType = echelonExtensionType  # type: int
+        self.echelonRecommendPresetId = echelonRecommendPresetId  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -725,6 +740,7 @@ class CampaignStageExcelT(object):
         self.tacticRewardExp = campaignStageExcel.TacticRewardExp()
         self.fixedEchelonId = campaignStageExcel.FixedEchelonId()
         self.echelonExtensionType = campaignStageExcel.EchelonExtensionType()
+        self.echelonRecommendPresetId = campaignStageExcel.EchelonRecommendPresetId()
 
     # CampaignStageExcelT
     def Pack(self, builder):
@@ -816,5 +832,6 @@ class CampaignStageExcelT(object):
         CampaignStageExcelAddTacticRewardExp(builder, self.tacticRewardExp)
         CampaignStageExcelAddFixedEchelonId(builder, self.fixedEchelonId)
         CampaignStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        CampaignStageExcelAddEchelonRecommendPresetId(builder, self.echelonRecommendPresetId)
         campaignStageExcel = CampaignStageExcelEnd(builder)
         return campaignStageExcel

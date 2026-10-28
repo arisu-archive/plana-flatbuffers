@@ -11,8 +11,10 @@ import (
 type EngraveTreeExcelDto struct {
 	fbsutils.FlatBuffer
 	ID             int64                 `json:"id"`
+	NodeType       EngraveNodeType       `json:"node_type"`
 	NodeIndex      int32                 `json:"node_index"`
 	IsUnlock       bool                  `json:"is_unlock"`
+	PreNodeType    EngraveNodeType       `json:"pre_node_type"`
 	PreNodeIndex   []int32               `json:"pre_node_index"`
 	GradeType      NodeGrade             `json:"grade_type"`
 	LocalizeEtcID  string                `json:"localize_etc_id"`
@@ -44,8 +46,10 @@ func (t *EngraveTreeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	statValueOffset := b.EndVector(len(t.StatValue))
 	EngraveTreeExcelStart(b)
 	EngraveTreeExcelAddId(b, t.ID)
+	EngraveTreeExcelAddNodeType(b, t.NodeType)
 	EngraveTreeExcelAddNodeIndex(b, t.NodeIndex)
 	EngraveTreeExcelAddIsUnlock(b, t.IsUnlock)
+	EngraveTreeExcelAddPreNodeType(b, t.PreNodeType)
 	EngraveTreeExcelAddPreNodeIndex(b, preNodeIndexOffset)
 	EngraveTreeExcelAddGradeType(b, t.GradeType)
 	EngraveTreeExcelAddLocalizeEtcId(b, localizeEtcIDOffset)
@@ -67,8 +71,10 @@ func (t *EngraveTreeExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers table.
 func (t *EngraveTreeExcelDto) UnmarshalMessage(e *EngraveTreeExcel) error {
 	t.ID = e.Id()
+	t.NodeType = e.NodeType()
 	t.NodeIndex = e.NodeIndex()
 	t.IsUnlock = e.IsUnlock()
+	t.PreNodeType = e.PreNodeType()
 	t.PreNodeIndex = make([]int32, e.PreNodeIndexLength())
 	for i := 0; i < e.PreNodeIndexLength(); i++ {
 		t.PreNodeIndex[i] = e.PreNodeIndex(i)

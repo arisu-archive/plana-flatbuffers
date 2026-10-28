@@ -405,8 +405,15 @@ class EventContentStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # EventContentStageExcel
+    def EchelonRecommendPresetId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(90))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def EventContentStageExcelStart(builder):
-    builder.StartObject(43)
+    builder.StartObject(44)
 
 def Start(builder):
     EventContentStageExcelStart(builder)
@@ -693,6 +700,12 @@ def EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
 def AddEchelonExtensionType(builder, echelonExtensionType):
     EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
 
+def EventContentStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    builder.PrependInt32Slot(43, echelonRecommendPresetId, 0)
+
+def AddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    EventContentStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId)
+
 def EventContentStageExcelEnd(builder):
     return builder.EndObject()
 
@@ -752,6 +765,7 @@ class EventContentStageExcelT(object):
         isDefeatBattle = False,
         stageHint = 0,
         echelonExtensionType = 0,
+        echelonRecommendPresetId = 0,
     ):
         self.id = id  # type: int
         self.name = name  # type: Optional[str]
@@ -796,6 +810,7 @@ class EventContentStageExcelT(object):
         self.isDefeatBattle = isDefeatBattle  # type: bool
         self.stageHint = stageHint  # type: int
         self.echelonExtensionType = echelonExtensionType  # type: int
+        self.echelonRecommendPresetId = echelonRecommendPresetId  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -885,6 +900,7 @@ class EventContentStageExcelT(object):
         self.isDefeatBattle = eventContentStageExcel.IsDefeatBattle()
         self.stageHint = eventContentStageExcel.StageHint()
         self.echelonExtensionType = eventContentStageExcel.EchelonExtensionType()
+        self.echelonRecommendPresetId = eventContentStageExcel.EchelonRecommendPresetId()
 
     # EventContentStageExcelT
     def Pack(self, builder):
@@ -983,5 +999,6 @@ class EventContentStageExcelT(object):
         EventContentStageExcelAddIsDefeatBattle(builder, self.isDefeatBattle)
         EventContentStageExcelAddStageHint(builder, self.stageHint)
         EventContentStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        EventContentStageExcelAddEchelonRecommendPresetId(builder, self.echelonRecommendPresetId)
         eventContentStageExcel = EventContentStageExcelEnd(builder)
         return eventContentStageExcel

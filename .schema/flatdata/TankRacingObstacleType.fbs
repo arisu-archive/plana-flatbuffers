@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum TankRacingObstacleType: int {
+    None = 0,
+    Fixed = 1,
+    Falling = 2,
+}

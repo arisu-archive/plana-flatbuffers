@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+enum TankRacingStageType: int {
+    None = 0,
+    Racing = 1,
+    Boss = 2,
+    Free = 3,
+}

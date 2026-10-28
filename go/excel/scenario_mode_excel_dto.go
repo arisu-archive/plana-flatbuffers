@@ -25,6 +25,7 @@ type ScenarioModeExcelDto struct {
 	FrontScenarioGroupID       []int64              `json:"front_scenario_group_id"`
 	StrategyID                 int64                `json:"strategy_id"`
 	GroundID                   int64                `json:"ground_id"`
+	EchelonRecommendPresetID   int32                `json:"echelon_recommend_preset_id"`
 	IsDefeatBattle             bool                 `json:"is_defeat_battle"`
 	BattleDuration             int64                `json:"battle_duration"`
 	FieldDateID                int64                `json:"field_date_id"`
@@ -93,6 +94,7 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddFrontScenarioGroupId(b, frontScenarioGroupIDOffset)
 	ScenarioModeExcelAddStrategyId(b, t.StrategyID)
 	ScenarioModeExcelAddGroundId(b, t.GroundID)
+	ScenarioModeExcelAddEchelonRecommendPresetId(b, t.EchelonRecommendPresetID)
 	ScenarioModeExcelAddIsDefeatBattle(b, t.IsDefeatBattle)
 	ScenarioModeExcelAddBattleDuration(b, t.BattleDuration)
 	ScenarioModeExcelAddFieldDateId(b, t.FieldDateID)
@@ -151,6 +153,7 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	}
 	t.StrategyID = e.StrategyId()
 	t.GroundID = e.GroundId()
+	t.EchelonRecommendPresetID = e.EchelonRecommendPresetId()
 	t.IsDefeatBattle = e.IsDefeatBattle()
 	t.BattleDuration = e.BattleDuration()
 	t.FieldDateID = e.FieldDateId()

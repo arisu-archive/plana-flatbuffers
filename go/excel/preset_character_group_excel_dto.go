@@ -43,6 +43,8 @@ type PresetCharacterGroupExcelDto struct {
 	PotentialLevel02          int32                      `json:"potential_level02"`
 	PotentialType03           PotentialStatBonusRateType `json:"potential_type03"`
 	PotentialLevel03          int32                      `json:"potential_level03"`
+	EngraveNormalNodeIndex    int32                      `json:"engrave_normal_node_index"`
+	EngraveSpecialNodeIndices []int32                    `json:"engrave_special_node_indices"`
 	EngraveLevelEgo           int32                      `json:"engrave_level_ego"`
 	EngraveLevelConscious     int32                      `json:"engrave_level_conscious"`
 	EngraveLevelUnconscious   int32                      `json:"engrave_level_unconscious"`
@@ -51,6 +53,11 @@ type PresetCharacterGroupExcelDto struct {
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *PresetCharacterGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	getPresetTypeOffset := b.CreateString(t.GetPresetType)
+	PresetCharacterGroupExcelStartEngraveSpecialNodeIndicesVector(b, len(t.EngraveSpecialNodeIndices))
+	for i := len(t.EngraveSpecialNodeIndices) - 1; i >= 0; i-- {
+		b.PrependInt32(t.EngraveSpecialNodeIndices[i])
+	}
+	engraveSpecialNodeIndicesOffset := b.EndVector(len(t.EngraveSpecialNodeIndices))
 	PresetCharacterGroupExcelStart(b)
 	PresetCharacterGroupExcelAddPresetCharacterGroupId(b, t.PresetCharacterGroupID)
 	PresetCharacterGroupExcelAddGetPresetType(b, getPresetTypeOffset)
@@ -85,6 +92,8 @@ func (t *PresetCharacterGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	PresetCharacterGroupExcelAddPotentialLevel02(b, t.PotentialLevel02)
 	PresetCharacterGroupExcelAddPotentialType03(b, t.PotentialType03)
 	PresetCharacterGroupExcelAddPotentialLevel03(b, t.PotentialLevel03)
+	PresetCharacterGroupExcelAddEngraveNormalNodeIndex(b, t.EngraveNormalNodeIndex)
+	PresetCharacterGroupExcelAddEngraveSpecialNodeIndices(b, engraveSpecialNodeIndicesOffset)
 	PresetCharacterGroupExcelAddEngraveLevelEgo(b, t.EngraveLevelEgo)
 	PresetCharacterGroupExcelAddEngraveLevelConscious(b, t.EngraveLevelConscious)
 	PresetCharacterGroupExcelAddEngraveLevelUnconscious(b, t.EngraveLevelUnconscious)
@@ -133,6 +142,11 @@ func (t *PresetCharacterGroupExcelDto) UnmarshalMessage(e *PresetCharacterGroupE
 	t.PotentialLevel02 = e.PotentialLevel02()
 	t.PotentialType03 = e.PotentialType03()
 	t.PotentialLevel03 = e.PotentialLevel03()
+	t.EngraveNormalNodeIndex = e.EngraveNormalNodeIndex()
+	t.EngraveSpecialNodeIndices = make([]int32, e.EngraveSpecialNodeIndicesLength())
+	for i := 0; i < e.EngraveSpecialNodeIndicesLength(); i++ {
+		t.EngraveSpecialNodeIndices[i] = e.EngraveSpecialNodeIndices(i)
+	}
 	t.EngraveLevelEgo = e.EngraveLevelEgo()
 	t.EngraveLevelConscious = e.EngraveLevelConscious()
 	t.EngraveLevelUnconscious = e.EngraveLevelUnconscious()

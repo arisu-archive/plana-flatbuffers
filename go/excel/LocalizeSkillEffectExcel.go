@@ -53,23 +53,31 @@ func (rcv *LocalizeSkillEffectExcel) MutateKey(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *LocalizeSkillEffectExcel) IconSpriteName() []byte {
+func (rcv *LocalizeSkillEffectExcel) SkillFilterActivate() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *LocalizeSkillEffectExcel) SkillEffectNameKr() []byte {
+func (rcv *LocalizeSkillEffectExcel) MutateSkillFilterActivate(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *LocalizeSkillEffectExcel) SkillFilterLogicEffectCategory() LogicEffectCategory {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return LogicEffectCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *LocalizeSkillEffectExcel) SkillEffectNameJp() []byte {
+func (rcv *LocalizeSkillEffectExcel) MutateSkillFilterLogicEffectCategory(n LogicEffectCategory) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *LocalizeSkillEffectExcel) IconSpriteName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -77,7 +85,7 @@ func (rcv *LocalizeSkillEffectExcel) SkillEffectNameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionKr() []byte {
+func (rcv *LocalizeSkillEffectExcel) SkillEffectNameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,7 +93,7 @@ func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionJp() []byte {
+func (rcv *LocalizeSkillEffectExcel) SkillEffectNameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -93,7 +101,7 @@ func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SuffixTextKr() []byte {
+func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -101,7 +109,7 @@ func (rcv *LocalizeSkillEffectExcel) SuffixTextKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SuffixTextJp() []byte {
+func (rcv *LocalizeSkillEffectExcel) SkillEffectDescriptionJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -109,7 +117,7 @@ func (rcv *LocalizeSkillEffectExcel) SuffixTextJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SuffixLabel() []byte {
+func (rcv *LocalizeSkillEffectExcel) SuffixTextKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -117,8 +125,24 @@ func (rcv *LocalizeSkillEffectExcel) SuffixLabel() []byte {
 	return nil
 }
 
-func (rcv *LocalizeSkillEffectExcel) SharedCharacterParcels(j int) int64 {
+func (rcv *LocalizeSkillEffectExcel) SuffixTextJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeSkillEffectExcel) SuffixLabel() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeSkillEffectExcel) SharedCharacterParcels(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -127,7 +151,7 @@ func (rcv *LocalizeSkillEffectExcel) SharedCharacterParcels(j int) int64 {
 }
 
 func (rcv *LocalizeSkillEffectExcel) SharedCharacterParcelsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -135,7 +159,7 @@ func (rcv *LocalizeSkillEffectExcel) SharedCharacterParcelsLength() int {
 }
 
 func (rcv *LocalizeSkillEffectExcel) MutateSharedCharacterParcels(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -144,7 +168,7 @@ func (rcv *LocalizeSkillEffectExcel) MutateSharedCharacterParcels(j int, n int64
 }
 
 func (rcv *LocalizeSkillEffectExcel) TextFontSizeOverride() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -152,47 +176,53 @@ func (rcv *LocalizeSkillEffectExcel) TextFontSizeOverride() float32 {
 }
 
 func (rcv *LocalizeSkillEffectExcel) MutateTextFontSizeOverride(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(24, n)
+	return rcv._tab.MutateFloat32Slot(28, n)
 }
 
 func LocalizeSkillEffectExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
+	builder.StartObject(13)
 }
 func LocalizeSkillEffectExcelAddKey(builder *flatbuffers.Builder, key uint32) {
 	builder.PrependUint32Slot(0, key, 0)
 }
+func LocalizeSkillEffectExcelAddSkillFilterActivate(builder *flatbuffers.Builder, skillFilterActivate bool) {
+	builder.PrependBoolSlot(1, skillFilterActivate, false)
+}
+func LocalizeSkillEffectExcelAddSkillFilterLogicEffectCategory(builder *flatbuffers.Builder, skillFilterLogicEffectCategory LogicEffectCategory) {
+	builder.PrependInt32Slot(2, int32(skillFilterLogicEffectCategory), 0)
+}
 func LocalizeSkillEffectExcelAddIconSpriteName(builder *flatbuffers.Builder, iconSpriteName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(iconSpriteName), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(iconSpriteName), 0)
 }
 func LocalizeSkillEffectExcelAddSkillEffectNameKr(builder *flatbuffers.Builder, skillEffectNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(skillEffectNameKr), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(skillEffectNameKr), 0)
 }
 func LocalizeSkillEffectExcelAddSkillEffectNameJp(builder *flatbuffers.Builder, skillEffectNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(skillEffectNameJp), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(skillEffectNameJp), 0)
 }
 func LocalizeSkillEffectExcelAddSkillEffectDescriptionKr(builder *flatbuffers.Builder, skillEffectDescriptionKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(skillEffectDescriptionKr), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(skillEffectDescriptionKr), 0)
 }
 func LocalizeSkillEffectExcelAddSkillEffectDescriptionJp(builder *flatbuffers.Builder, skillEffectDescriptionJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(skillEffectDescriptionJp), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(skillEffectDescriptionJp), 0)
 }
 func LocalizeSkillEffectExcelAddSuffixTextKr(builder *flatbuffers.Builder, suffixTextKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(suffixTextKr), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(suffixTextKr), 0)
 }
 func LocalizeSkillEffectExcelAddSuffixTextJp(builder *flatbuffers.Builder, suffixTextJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(suffixTextJp), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(suffixTextJp), 0)
 }
 func LocalizeSkillEffectExcelAddSuffixLabel(builder *flatbuffers.Builder, suffixLabel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(suffixLabel), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(suffixLabel), 0)
 }
 func LocalizeSkillEffectExcelAddSharedCharacterParcels(builder *flatbuffers.Builder, sharedCharacterParcels flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(sharedCharacterParcels), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(sharedCharacterParcels), 0)
 }
 func LocalizeSkillEffectExcelStartSharedCharacterParcelsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func LocalizeSkillEffectExcelAddTextFontSizeOverride(builder *flatbuffers.Builder, textFontSizeOverride float32) {
-	builder.PrependFloat32Slot(10, textFontSizeOverride, 0.0)
+	builder.PrependFloat32Slot(12, textFontSizeOverride, 0.0)
 }
 func LocalizeSkillEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

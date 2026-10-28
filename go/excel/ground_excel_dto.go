@@ -10,66 +10,66 @@ import (
 // GroundExcelDto represents a FlatBuffers table.
 type GroundExcelDto struct {
 	fbsutils.FlatBuffer
-	ID                           int64            `json:"id"`
-	StageFileName                []string         `json:"stage_file_name"`
-	GroundSceneName              string           `json:"ground_scene_name"`
-	FormationGroupID             int64            `json:"formation_group_id"`
-	StageTopography              StageTopography  `json:"stage_topography"`
-	EnemyBulletType              BulletType       `json:"enemy_bullet_type"`
-	EnemyArmorType               ArmorType        `json:"enemy_armor_type"`
-	EnemySubArmorType            ArmorType        `json:"enemy_sub_armor_type"`
-	LevelNpc                     int64            `json:"level_npc"`
-	LevelMinion                  int64            `json:"level_minion"`
-	LevelElite                   int64            `json:"level_elite"`
-	LevelChampion                int64            `json:"level_champion"`
-	LevelBoss                    int64            `json:"level_boss"`
-	ObstacleLevel                int64            `json:"obstacle_level"`
-	GradeNpc                     int64            `json:"grade_npc"`
-	GradeMinion                  int64            `json:"grade_minion"`
-	GradeElite                   int64            `json:"grade_elite"`
-	GradeChampion                int64            `json:"grade_champion"`
-	GradeBoss                    int64            `json:"grade_boss"`
-	PlayerSightPointAdd          int64            `json:"player_sight_point_add"`
-	PlayerSightPointRate         int64            `json:"player_sight_point_rate"`
-	PlayerAttackRangeAdd         int64            `json:"player_attack_range_add"`
-	PlayerAttackRangeRate        int64            `json:"player_attack_range_rate"`
-	EnemySightPointAdd           int64            `json:"enemy_sight_point_add"`
-	EnemySightPointRate          int64            `json:"enemy_sight_point_rate"`
-	EnemyAttackRangeAdd          int64            `json:"enemy_attack_range_add"`
-	EnemyAttackRangeRate         int64            `json:"enemy_attack_range_rate"`
-	PlayerSkillRangeAdd          int64            `json:"player_skill_range_add"`
-	PlayerSkillRangeRate         int64            `json:"player_skill_range_rate"`
-	EnemySkillRangeAdd           int64            `json:"enemy_skill_range_add"`
-	EnemySkillRangeRate          int64            `json:"enemy_skill_range_rate"`
-	PlayerMinimumPositionGapRate int64            `json:"player_minimum_position_gap_rate"`
-	EnemyMinimumPositionGapRate  int64            `json:"enemy_minimum_position_gap_rate"`
-	PlayerSightRangeMax          bool             `json:"player_sight_range_max"`
-	EnemySightRangeMax           bool             `json:"enemy_sight_range_max"`
-	TssAirUnitHeight             int64            `json:"tss_air_unit_height"`
-	IsPhaseBgm                   bool             `json:"is_phase_bgm"`
-	BgmID                        int64            `json:"bgm_id"`
-	WarningUI                    bool             `json:"warning_ui"`
-	TssHatchOpen                 bool             `json:"tss_hatch_open"`
-	ForcedTacticSpeed            TacticSpeed      `json:"forced_tactic_speed"`
-	ForcedSkillUse               TacticSkillUse   `json:"forced_skill_use"`
-	ShowNpcSkillCutIn            ShowSkillCutIn   `json:"show_npc_skill_cut_in"`
-	ImmuneHitBeforeTimeOutEnd    bool             `json:"immune_hit_before_time_out_end"`
-	UIBattleHideFromScratch      bool             `json:"ui_battle_hide_from_scratch"`
-	UIEnemyCount                 UIEnemyCountType `json:"ui_enemy_count"`
-	BattleReadyTimelinePath      string           `json:"battle_ready_timeline_path"`
-	BeforeVictoryTimelinePath    string           `json:"before_victory_timeline_path"`
-	SkipBattleEnd                bool             `json:"skip_battle_end"`
-	HideNpcWhenBattleEnd         bool             `json:"hide_npc_when_battle_end"`
-	CoverPointOff                bool             `json:"cover_point_off"`
-	UIHpScale                    float32          `json:"ui_hp_scale"`
-	UIEmojiScale                 float32          `json:"ui_emoji_scale"`
-	UISkillMainLogScale          float32          `json:"ui_skill_main_log_scale"`
-	EffectCountLimit             int32            `json:"effect_count_limit"`
-	CarrierSkillGroupID          int64            `json:"carrier_skill_group_id"`
-	AllyPassiveSkillID           []string         `json:"ally_passive_skill_id"`
-	AllyPassiveSkillLevel        []int32          `json:"ally_passive_skill_level"`
-	EnemyPassiveSkillID          []string         `json:"enemy_passive_skill_id"`
-	EnemyPassiveSkillLevel       []int32          `json:"enemy_passive_skill_level"`
+	ID                           int64             `json:"id"`
+	StageFileName                []string          `json:"stage_file_name"`
+	GroundSceneName              string            `json:"ground_scene_name"`
+	FormationGroupID             int64             `json:"formation_group_id"`
+	StageTopography              []StageTopography `json:"stage_topography"`
+	EnemyBulletType              BulletType        `json:"enemy_bullet_type"`
+	EnemyArmorType               ArmorType         `json:"enemy_armor_type"`
+	EnemySubArmorType            ArmorType         `json:"enemy_sub_armor_type"`
+	LevelNpc                     int64             `json:"level_npc"`
+	LevelMinion                  int64             `json:"level_minion"`
+	LevelElite                   int64             `json:"level_elite"`
+	LevelChampion                int64             `json:"level_champion"`
+	LevelBoss                    int64             `json:"level_boss"`
+	ObstacleLevel                int64             `json:"obstacle_level"`
+	GradeNpc                     int64             `json:"grade_npc"`
+	GradeMinion                  int64             `json:"grade_minion"`
+	GradeElite                   int64             `json:"grade_elite"`
+	GradeChampion                int64             `json:"grade_champion"`
+	GradeBoss                    int64             `json:"grade_boss"`
+	PlayerSightPointAdd          int64             `json:"player_sight_point_add"`
+	PlayerSightPointRate         int64             `json:"player_sight_point_rate"`
+	PlayerAttackRangeAdd         int64             `json:"player_attack_range_add"`
+	PlayerAttackRangeRate        int64             `json:"player_attack_range_rate"`
+	EnemySightPointAdd           int64             `json:"enemy_sight_point_add"`
+	EnemySightPointRate          int64             `json:"enemy_sight_point_rate"`
+	EnemyAttackRangeAdd          int64             `json:"enemy_attack_range_add"`
+	EnemyAttackRangeRate         int64             `json:"enemy_attack_range_rate"`
+	PlayerSkillRangeAdd          int64             `json:"player_skill_range_add"`
+	PlayerSkillRangeRate         int64             `json:"player_skill_range_rate"`
+	EnemySkillRangeAdd           int64             `json:"enemy_skill_range_add"`
+	EnemySkillRangeRate          int64             `json:"enemy_skill_range_rate"`
+	PlayerMinimumPositionGapRate int64             `json:"player_minimum_position_gap_rate"`
+	EnemyMinimumPositionGapRate  int64             `json:"enemy_minimum_position_gap_rate"`
+	PlayerSightRangeMax          bool              `json:"player_sight_range_max"`
+	EnemySightRangeMax           bool              `json:"enemy_sight_range_max"`
+	TssAirUnitHeight             int64             `json:"tss_air_unit_height"`
+	IsPhaseBgm                   bool              `json:"is_phase_bgm"`
+	BgmID                        int64             `json:"bgm_id"`
+	WarningUI                    bool              `json:"warning_ui"`
+	TssHatchOpen                 bool              `json:"tss_hatch_open"`
+	ForcedTacticSpeed            TacticSpeed       `json:"forced_tactic_speed"`
+	ForcedSkillUse               TacticSkillUse    `json:"forced_skill_use"`
+	ShowNpcSkillCutIn            ShowSkillCutIn    `json:"show_npc_skill_cut_in"`
+	ImmuneHitBeforeTimeOutEnd    bool              `json:"immune_hit_before_time_out_end"`
+	UIBattleHideFromScratch      bool              `json:"ui_battle_hide_from_scratch"`
+	UIEnemyCount                 UIEnemyCountType  `json:"ui_enemy_count"`
+	BattleReadyTimelinePath      string            `json:"battle_ready_timeline_path"`
+	BeforeVictoryTimelinePath    string            `json:"before_victory_timeline_path"`
+	SkipBattleEnd                bool              `json:"skip_battle_end"`
+	HideNpcWhenBattleEnd         bool              `json:"hide_npc_when_battle_end"`
+	CoverPointOff                bool              `json:"cover_point_off"`
+	UIHpScale                    float32           `json:"ui_hp_scale"`
+	UIEmojiScale                 float32           `json:"ui_emoji_scale"`
+	UISkillMainLogScale          float32           `json:"ui_skill_main_log_scale"`
+	EffectCountLimit             int32             `json:"effect_count_limit"`
+	CarrierSkillGroupID          int64             `json:"carrier_skill_group_id"`
+	AllyPassiveSkillID           []string          `json:"ally_passive_skill_id"`
+	AllyPassiveSkillLevel        []int32           `json:"ally_passive_skill_level"`
+	EnemyPassiveSkillID          []string          `json:"enemy_passive_skill_id"`
+	EnemyPassiveSkillLevel       []int32           `json:"enemy_passive_skill_level"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -85,6 +85,11 @@ func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	}
 	stageFileNameOffset = b.EndVector(len(t.StageFileName))
 	groundSceneNameOffset := b.CreateString(t.GroundSceneName)
+	GroundExcelStartStageTopographyVector(b, len(t.StageTopography))
+	for i := len(t.StageTopography) - 1; i >= 0; i-- {
+		b.PrependInt32(int32(t.StageTopography[i]))
+	}
+	stageTopographyOffset := b.EndVector(len(t.StageTopography))
 	battleReadyTimelinePathOffset := b.CreateString(t.BattleReadyTimelinePath)
 	beforeVictoryTimelinePathOffset := b.CreateString(t.BeforeVictoryTimelinePath)
 	var allyPassiveSkillIDOffset flatbuffers.UOffsetT
@@ -122,7 +127,7 @@ func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	GroundExcelAddStageFileName(b, stageFileNameOffset)
 	GroundExcelAddGroundSceneName(b, groundSceneNameOffset)
 	GroundExcelAddFormationGroupId(b, t.FormationGroupID)
-	GroundExcelAddStageTopography(b, t.StageTopography)
+	GroundExcelAddStageTopography(b, stageTopographyOffset)
 	GroundExcelAddEnemyBulletType(b, t.EnemyBulletType)
 	GroundExcelAddEnemyArmorType(b, t.EnemyArmorType)
 	GroundExcelAddEnemySubArmorType(b, t.EnemySubArmorType)
@@ -197,7 +202,10 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	}
 	t.GroundSceneName = string(e.GroundSceneName())
 	t.FormationGroupID = e.FormationGroupId()
-	t.StageTopography = e.StageTopography()
+	t.StageTopography = make([]StageTopography, e.StageTopographyLength())
+	for i := 0; i < e.StageTopographyLength(); i++ {
+		t.StageTopography[i] = e.StageTopography(i)
+	}
 	t.EnemyBulletType = e.EnemyBulletType()
 	t.EnemyArmorType = e.EnemyArmorType()
 	t.EnemySubArmorType = e.EnemySubArmorType()

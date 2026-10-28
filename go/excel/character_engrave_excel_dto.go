@@ -12,6 +12,7 @@ type CharacterEngraveExcelDto struct {
 	fbsutils.FlatBuffer
 	ID                    int64 `json:"id"`
 	UnlockAllNode         bool  `json:"unlock_all_node"`
+	NodeTreeID            int64 `json:"node_tree_id"`
 	NodeTreeEgo           int64 `json:"node_tree_ego"`
 	NodeTreeConsciousness int64 `json:"node_tree_consciousness"`
 	NodeTreeUnconscious   int64 `json:"node_tree_unconscious"`
@@ -22,6 +23,7 @@ func (t *CharacterEngraveExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	CharacterEngraveExcelStart(b)
 	CharacterEngraveExcelAddId(b, t.ID)
 	CharacterEngraveExcelAddUnlockAllNode(b, t.UnlockAllNode)
+	CharacterEngraveExcelAddNodeTreeId(b, t.NodeTreeID)
 	CharacterEngraveExcelAddNodeTreeEgo(b, t.NodeTreeEgo)
 	CharacterEngraveExcelAddNodeTreeConsciousness(b, t.NodeTreeConsciousness)
 	CharacterEngraveExcelAddNodeTreeUnconscious(b, t.NodeTreeUnconscious)
@@ -39,6 +41,7 @@ func (t *CharacterEngraveExcelDto) Marshal() ([]byte, error) {
 func (t *CharacterEngraveExcelDto) UnmarshalMessage(e *CharacterEngraveExcel) error {
 	t.ID = e.Id()
 	t.UnlockAllNode = e.UnlockAllNode()
+	t.NodeTreeID = e.NodeTreeId()
 	t.NodeTreeEgo = e.NodeTreeEgo()
 	t.NodeTreeConsciousness = e.NodeTreeConsciousness()
 	t.NodeTreeUnconscious = e.NodeTreeUnconscious()

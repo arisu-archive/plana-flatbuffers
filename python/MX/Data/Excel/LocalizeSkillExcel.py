@@ -73,8 +73,35 @@ class LocalizeSkillExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # LocalizeSkillExcel
+    def SkillEffectList(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # LocalizeSkillExcel
+    def SkillEffectListAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
+        return 0
+
+    # LocalizeSkillExcel
+    def SkillEffectListLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # LocalizeSkillExcel
+    def SkillEffectListIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
 def LocalizeSkillExcelStart(builder):
-    builder.StartObject(7)
+    builder.StartObject(8)
 
 def Start(builder):
     LocalizeSkillExcelStart(builder)
@@ -121,12 +148,28 @@ def LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder, skillInvokeLocalizeJp):
 def AddSkillInvokeLocalizeJp(builder, skillInvokeLocalizeJp):
     LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder, skillInvokeLocalizeJp)
 
+def LocalizeSkillExcelAddSkillEffectList(builder, skillEffectList):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(skillEffectList), 0)
+
+def AddSkillEffectList(builder, skillEffectList):
+    LocalizeSkillExcelAddSkillEffectList(builder, skillEffectList)
+
+def LocalizeSkillExcelStartSkillEffectListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartSkillEffectListVector(builder, numElems):
+    return LocalizeSkillExcelStartSkillEffectListVector(builder, numElems)
+
 def LocalizeSkillExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return LocalizeSkillExcelEnd(builder)
 
+try:
+    from typing import List
+except:
+    pass
 
 class LocalizeSkillExcelT(object):
 
@@ -140,6 +183,7 @@ class LocalizeSkillExcelT(object):
         nameJp = None,
         descriptionJp = None,
         skillInvokeLocalizeJp = None,
+        skillEffectList = None,
     ):
         self.key = key  # type: int
         self.nameKr = nameKr  # type: Optional[str]
@@ -148,6 +192,7 @@ class LocalizeSkillExcelT(object):
         self.nameJp = nameJp  # type: Optional[str]
         self.descriptionJp = descriptionJp  # type: Optional[str]
         self.skillInvokeLocalizeJp = skillInvokeLocalizeJp  # type: Optional[str]
+        self.skillEffectList = skillEffectList  # type: Optional[List[int]]
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -177,6 +222,13 @@ class LocalizeSkillExcelT(object):
         self.nameJp = localizeSkillExcel.NameJp()
         self.descriptionJp = localizeSkillExcel.DescriptionJp()
         self.skillInvokeLocalizeJp = localizeSkillExcel.SkillInvokeLocalizeJp()
+        if not localizeSkillExcel.SkillEffectListIsNone():
+            if np is None:
+                self.skillEffectList = []
+                for i in range(localizeSkillExcel.SkillEffectListLength()):
+                    self.skillEffectList.append(localizeSkillExcel.SkillEffectList(i))
+            else:
+                self.skillEffectList = localizeSkillExcel.SkillEffectListAsNumpy()
 
     # LocalizeSkillExcelT
     def Pack(self, builder):
@@ -192,6 +244,14 @@ class LocalizeSkillExcelT(object):
             descriptionJp = builder.CreateString(self.descriptionJp)
         if self.skillInvokeLocalizeJp is not None:
             skillInvokeLocalizeJp = builder.CreateString(self.skillInvokeLocalizeJp)
+        if self.skillEffectList is not None:
+            if np is not None and type(self.skillEffectList) is np.ndarray:
+                skillEffectList = builder.CreateNumpyVector(self.skillEffectList)
+            else:
+                LocalizeSkillExcelStartSkillEffectListVector(builder, len(self.skillEffectList))
+                for i in reversed(range(len(self.skillEffectList))):
+                    builder.PrependUint32(self.skillEffectList[i])
+                skillEffectList = builder.EndVector()
         LocalizeSkillExcelStart(builder)
         LocalizeSkillExcelAddKey(builder, self.key)
         if self.nameKr is not None:
@@ -206,5 +266,7 @@ class LocalizeSkillExcelT(object):
             LocalizeSkillExcelAddDescriptionJp(builder, descriptionJp)
         if self.skillInvokeLocalizeJp is not None:
             LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder, skillInvokeLocalizeJp)
+        if self.skillEffectList is not None:
+            LocalizeSkillExcelAddSkillEffectList(builder, skillEffectList)
         localizeSkillExcel = LocalizeSkillExcelEnd(builder)
         return localizeSkillExcel

@@ -24,6 +24,11 @@ const (
 	GachaTicketTypePackageThreeStar_R88_Mystic    GachaTicketType = 14
 	GachaTicketTypePackageThreeStar_R88_Pierce    GachaTicketType = 15
 	GachaTicketTypePackageThreeStar_R88_Sonic     GachaTicketType = 16
+	GachaTicketTypePackageUnownedThreeStar        GachaTicketType = 17
+	GachaTicketTypePackageThreeStar_R97_Explosion GachaTicketType = 18
+	GachaTicketTypePackageThreeStar_R97_Mystic    GachaTicketType = 19
+	GachaTicketTypePackageThreeStar_R97_Pierce    GachaTicketType = 20
+	GachaTicketTypePackageThreeStar_R97_Sonic     GachaTicketType = 21
 )
 
 var EnumNamesGachaTicketType = map[GachaTicketType]string{
@@ -44,6 +49,11 @@ var EnumNamesGachaTicketType = map[GachaTicketType]string{
 	GachaTicketTypePackageThreeStar_R88_Mystic:    "PackageThreeStar_R88_Mystic",
 	GachaTicketTypePackageThreeStar_R88_Pierce:    "PackageThreeStar_R88_Pierce",
 	GachaTicketTypePackageThreeStar_R88_Sonic:     "PackageThreeStar_R88_Sonic",
+	GachaTicketTypePackageUnownedThreeStar:        "PackageUnownedThreeStar",
+	GachaTicketTypePackageThreeStar_R97_Explosion: "PackageThreeStar_R97_Explosion",
+	GachaTicketTypePackageThreeStar_R97_Mystic:    "PackageThreeStar_R97_Mystic",
+	GachaTicketTypePackageThreeStar_R97_Pierce:    "PackageThreeStar_R97_Pierce",
+	GachaTicketTypePackageThreeStar_R97_Sonic:     "PackageThreeStar_R97_Sonic",
 }
 
 var EnumValuesGachaTicketType = map[string]GachaTicketType{
@@ -64,6 +74,11 @@ var EnumValuesGachaTicketType = map[string]GachaTicketType{
 	"PackageThreeStar_R88_Mystic":    GachaTicketTypePackageThreeStar_R88_Mystic,
 	"PackageThreeStar_R88_Pierce":    GachaTicketTypePackageThreeStar_R88_Pierce,
 	"PackageThreeStar_R88_Sonic":     GachaTicketTypePackageThreeStar_R88_Sonic,
+	"PackageUnownedThreeStar":        GachaTicketTypePackageUnownedThreeStar,
+	"PackageThreeStar_R97_Explosion": GachaTicketTypePackageThreeStar_R97_Explosion,
+	"PackageThreeStar_R97_Mystic":    GachaTicketTypePackageThreeStar_R97_Mystic,
+	"PackageThreeStar_R97_Pierce":    GachaTicketTypePackageThreeStar_R97_Pierce,
+	"PackageThreeStar_R97_Sonic":     GachaTicketTypePackageThreeStar_R97_Sonic,
 }
 
 func (v GachaTicketType) String() string {

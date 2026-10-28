@@ -44,3 +44,5 @@ class ShopCategoryType(object):
     CafeSummonTicket = 38
     SelectPickupFesGacha = 39
     SelectPickupLimitedGacha = 40
+    UnownedTicketGacha = 41
+    TacticalRelayBeta = 42

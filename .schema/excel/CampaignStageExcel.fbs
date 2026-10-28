@@ -40,6 +40,7 @@ table CampaignStageExcel {
     tactic_reward_exp: long;
     fixed_echelon_id: long;
     echelon_extension_type: EchelonExtensionType;
+    echelon_recommend_preset_id: int;
 }
 
 root_type CampaignStageExcel;

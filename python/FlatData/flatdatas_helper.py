@@ -51,6 +51,8 @@ _MODELS = {
     'constminigameroadpuzzleexceltable': ('FlatData.ConstMinigameRoadPuzzleExcelTable', 'ConstMinigameRoadPuzzleExcelTableT'),
     'constminigameshootingexcel': ('FlatData.ConstMiniGameShootingExcel', 'ConstMiniGameShootingExcelT'),
     'constminigameshootingexceltable': ('FlatData.ConstMiniGameShootingExcelTable', 'ConstMiniGameShootingExcelTableT'),
+    'constminigametankexcel': ('FlatData.ConstMiniGameTankExcel', 'ConstMiniGameTankExcelT'),
+    'constminigametankexceltable': ('FlatData.ConstMiniGameTankExcelTable', 'ConstMiniGameTankExcelTableT'),
     'constminigametbgexcel': ('FlatData.ConstMinigameTBGExcel', 'ConstMinigameTBGExcelT'),
     'constminigametbgexceltable': ('FlatData.ConstMinigameTBGExcelTable', 'ConstMinigameTBGExcelTableT'),
     'constnewbiecontentexcel': ('FlatData.ConstNewbieContentExcel', 'ConstNewbieContentExcelT'),

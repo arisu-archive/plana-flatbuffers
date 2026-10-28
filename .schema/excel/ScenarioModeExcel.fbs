@@ -24,6 +24,7 @@ table ScenarioModeExcel {
     front_scenario_group_id: [long];
     strategy_id: long;
     ground_id: long;
+    echelon_recommend_preset_id: int;
     is_defeat_battle: bool;
     battle_duration: long;
     field_date_id: long;

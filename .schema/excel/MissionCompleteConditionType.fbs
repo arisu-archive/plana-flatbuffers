@@ -197,4 +197,10 @@ enum MissionCompleteConditionType: int {
     Reset_SpecificTacticalRelayWaveClear = 193,
     Achieve_ClearTacticalRelayCount = 194,
     Achieve_EngraveLevelUpCount = 195,
+    Reset_TankRacingClearCount = 196,
+    Reset_TankRacingUpgradeTierCheck = 197,
+    Reset_ClearSpecificTankRacingStage = 198,
+    Reset_ClearSpecificCampaignStageWithAdaptationCount = 199,
+    Reset_ClearSpecificPermanentRaidCount = 200,
+    Reset_CharacterAtSpecificSkillLevelReachCount = 201,
 }

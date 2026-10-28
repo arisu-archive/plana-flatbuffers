@@ -1,3 +1,5 @@
+include "Difficulty.fbs";
+
 namespace FlatData;
 
 table ConstContentsExcel {
@@ -5,4 +7,10 @@ table ConstContentsExcel {
     search_update_time: float;
     lobby_day_time_from: int;
     lobby_night_time_from: int;
+    character_usage_raid_recent_season: int;
+    character_usage_eliminate_raid_recent_season: int;
+    character_usage_min_sample_difficulty: Difficulty;
+    character_usage_min_account_sample_count: int;
+    character_usage_raw_data_retention_in_days: int;
+    character_usage_aggregate_cycle_in_hours: int;
 }

@@ -53,6 +53,7 @@ table EventContentStageExcel {
     is_defeat_battle: bool;
     stage_hint: uint;
     echelon_extension_type: EchelonExtensionType;
+    echelon_recommend_preset_id: int;
 }
 
 root_type EventContentStageExcel;

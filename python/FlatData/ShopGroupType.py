@@ -14,3 +14,4 @@ class ShopGroupType(object):
     EliminateRaid = 8
     Gem = 9
     Chaser = 10
+    TacticalRelayBeta = 11
