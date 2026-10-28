@@ -11,3 +11,4 @@ class PurchaseSourceType(object):
     ProductGooglePoint = 5
     ProductDailyRecord = 6
     ProductStreakRecord = 7
+    ProductPickupPackage_UseGlobal = 8

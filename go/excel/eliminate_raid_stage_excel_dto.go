@@ -26,6 +26,7 @@ type EliminateRaidStageExcelDto struct {
 	IsOpen                        bool                 `json:"is_open"`
 	MaxPlayerCount                int64                `json:"max_player_count"`
 	RaidRoomLifeTime              int32                `json:"raid_room_life_time"`
+	ExtraRoomLifeTime             int32                `json:"extra_room_life_time"`
 	BattleDuration                int64                `json:"battle_duration"`
 	GroundID                      int64                `json:"ground_id"`
 	RaidBossGroupType             RaidBossGroupType    `json:"raid_boss_group_type"`
@@ -102,6 +103,7 @@ func (t *EliminateRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	EliminateRaidStageExcelAddIsOpen(b, t.IsOpen)
 	EliminateRaidStageExcelAddMaxPlayerCount(b, t.MaxPlayerCount)
 	EliminateRaidStageExcelAddRaidRoomLifeTime(b, t.RaidRoomLifeTime)
+	EliminateRaidStageExcelAddExtraRoomLifeTime(b, t.ExtraRoomLifeTime)
 	EliminateRaidStageExcelAddBattleDuration(b, t.BattleDuration)
 	EliminateRaidStageExcelAddGroundId(b, t.GroundID)
 	EliminateRaidStageExcelAddRaidBossGroupType(b, t.RaidBossGroupType)
@@ -156,6 +158,7 @@ func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel
 	t.IsOpen = e.IsOpen()
 	t.MaxPlayerCount = e.MaxPlayerCount()
 	t.RaidRoomLifeTime = e.RaidRoomLifeTime()
+	t.ExtraRoomLifeTime = e.ExtraRoomLifeTime()
 	t.BattleDuration = e.BattleDuration()
 	t.GroundID = e.GroundId()
 	t.RaidBossGroupType = e.RaidBossGroupType()

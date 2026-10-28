@@ -66,11 +66,31 @@ class GroundExcel(object):
         return 0
 
     # GroundExcel
-    def StageTopography(self):
+    def StageTopography(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
+
+    # GroundExcel
+    def StageTopographyAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # GroundExcel
+    def StageTopographyLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # GroundExcel
+    def StageTopographyIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
 
     # GroundExcel
     def EnemyBulletType(self):
@@ -560,10 +580,16 @@ def AddFormationGroupId(builder, formationGroupId):
     GroundExcelAddFormationGroupId(builder, formationGroupId)
 
 def GroundExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(4, stageTopography, 0)
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stageTopography), 0)
 
 def AddStageTopography(builder, stageTopography):
     GroundExcelAddStageTopography(builder, stageTopography)
+
+def GroundExcelStartStageTopographyVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartStageTopographyVector(builder, numElems):
+    return GroundExcelStartStageTopographyVector(builder, numElems)
 
 def GroundExcelAddEnemyBulletType(builder, enemyBulletType):
     builder.PrependInt32Slot(5, enemyBulletType, 0)
@@ -939,7 +965,7 @@ class GroundExcelT(object):
         stageFileName = None,
         groundSceneName = None,
         formationGroupId = 0,
-        stageTopography = 0,
+        stageTopography = None,
         enemyBulletType = 0,
         enemyArmorType = 0,
         enemySubArmorType = 0,
@@ -1000,7 +1026,7 @@ class GroundExcelT(object):
         self.stageFileName = stageFileName  # type: Optional[List[Optional[str]]]
         self.groundSceneName = groundSceneName  # type: Optional[str]
         self.formationGroupId = formationGroupId  # type: int
-        self.stageTopography = stageTopography  # type: int
+        self.stageTopography = stageTopography  # type: Optional[List[int]]
         self.enemyBulletType = enemyBulletType  # type: int
         self.enemyArmorType = enemyArmorType  # type: int
         self.enemySubArmorType = enemySubArmorType  # type: int
@@ -1085,7 +1111,13 @@ class GroundExcelT(object):
                 self.stageFileName.append(groundExcel.StageFileName(i))
         self.groundSceneName = groundExcel.GroundSceneName()
         self.formationGroupId = groundExcel.FormationGroupId()
-        self.stageTopography = groundExcel.StageTopography()
+        if not groundExcel.StageTopographyIsNone():
+            if np is None:
+                self.stageTopography = []
+                for i in range(groundExcel.StageTopographyLength()):
+                    self.stageTopography.append(groundExcel.StageTopography(i))
+            else:
+                self.stageTopography = groundExcel.StageTopographyAsNumpy()
         self.enemyBulletType = groundExcel.EnemyBulletType()
         self.enemyArmorType = groundExcel.EnemyArmorType()
         self.enemySubArmorType = groundExcel.EnemySubArmorType()
@@ -1172,6 +1204,14 @@ class GroundExcelT(object):
             stageFileName = builder.EndVector()
         if self.groundSceneName is not None:
             groundSceneName = builder.CreateString(self.groundSceneName)
+        if self.stageTopography is not None:
+            if np is not None and type(self.stageTopography) is np.ndarray:
+                stageTopography = builder.CreateNumpyVector(self.stageTopography)
+            else:
+                GroundExcelStartStageTopographyVector(builder, len(self.stageTopography))
+                for i in reversed(range(len(self.stageTopography))):
+                    builder.PrependInt32(self.stageTopography[i])
+                stageTopography = builder.EndVector()
         if self.battleReadyTimelinePath is not None:
             battleReadyTimelinePath = builder.CreateString(self.battleReadyTimelinePath)
         if self.beforeVictoryTimelinePath is not None:
@@ -1215,7 +1255,8 @@ class GroundExcelT(object):
         if self.groundSceneName is not None:
             GroundExcelAddGroundSceneName(builder, groundSceneName)
         GroundExcelAddFormationGroupId(builder, self.formationGroupId)
-        GroundExcelAddStageTopography(builder, self.stageTopography)
+        if self.stageTopography is not None:
+            GroundExcelAddStageTopography(builder, stageTopography)
         GroundExcelAddEnemyBulletType(builder, self.enemyBulletType)
         GroundExcelAddEnemyArmorType(builder, self.enemyArmorType)
         GroundExcelAddEnemySubArmorType(builder, self.enemySubArmorType)

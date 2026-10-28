@@ -329,8 +329,20 @@ func (rcv *SchoolDungeonStageExcel) MutateEchelonExtensionType(n EchelonExtensio
 	return rcv._tab.MutateInt32Slot(36, int32(n))
 }
 
+func (rcv *SchoolDungeonStageExcel) EchelonRecommendPresetId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonStageExcel) MutateEchelonRecommendPresetId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(38, n)
+}
+
 func SchoolDungeonStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(17)
+	builder.StartObject(18)
 }
 func SchoolDungeonStageExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
 	builder.PrependInt64Slot(0, stageId, 0)
@@ -400,6 +412,9 @@ func SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Build
 }
 func SchoolDungeonStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
 	builder.PrependInt32Slot(16, int32(echelonExtensionType), 0)
+}
+func SchoolDungeonStageExcelAddEchelonRecommendPresetId(builder *flatbuffers.Builder, echelonRecommendPresetId int32) {
+	builder.PrependInt32Slot(17, echelonRecommendPresetId, 0)
 }
 func SchoolDungeonStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

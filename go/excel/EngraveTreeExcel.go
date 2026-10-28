@@ -53,8 +53,20 @@ func (rcv *EngraveTreeExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EngraveTreeExcel) NodeIndex() int32 {
+func (rcv *EngraveTreeExcel) NodeType() EngraveNodeType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return EngraveNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EngraveTreeExcel) MutateNodeType(n EngraveNodeType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *EngraveTreeExcel) NodeIndex() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -62,11 +74,11 @@ func (rcv *EngraveTreeExcel) NodeIndex() int32 {
 }
 
 func (rcv *EngraveTreeExcel) MutateNodeIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func (rcv *EngraveTreeExcel) IsUnlock() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -74,11 +86,23 @@ func (rcv *EngraveTreeExcel) IsUnlock() bool {
 }
 
 func (rcv *EngraveTreeExcel) MutateIsUnlock(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *EngraveTreeExcel) PreNodeType() EngraveNodeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return EngraveNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EngraveTreeExcel) MutatePreNodeType(n EngraveNodeType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *EngraveTreeExcel) PreNodeIndex(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -87,7 +111,7 @@ func (rcv *EngraveTreeExcel) PreNodeIndex(j int) int32 {
 }
 
 func (rcv *EngraveTreeExcel) PreNodeIndexLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -95,7 +119,7 @@ func (rcv *EngraveTreeExcel) PreNodeIndexLength() int {
 }
 
 func (rcv *EngraveTreeExcel) MutatePreNodeIndex(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -104,7 +128,7 @@ func (rcv *EngraveTreeExcel) MutatePreNodeIndex(j int, n int32) bool {
 }
 
 func (rcv *EngraveTreeExcel) GradeType() NodeGrade {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return NodeGrade(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -112,11 +136,11 @@ func (rcv *EngraveTreeExcel) GradeType() NodeGrade {
 }
 
 func (rcv *EngraveTreeExcel) MutateGradeType(n NodeGrade) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func (rcv *EngraveTreeExcel) LocalizeEtcId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -124,7 +148,7 @@ func (rcv *EngraveTreeExcel) LocalizeEtcId() []byte {
 }
 
 func (rcv *EngraveTreeExcel) Recipe() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -132,11 +156,11 @@ func (rcv *EngraveTreeExcel) Recipe() int64 {
 }
 
 func (rcv *EngraveTreeExcel) MutateRecipe(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *EngraveTreeExcel) MaxLevel() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -144,11 +168,11 @@ func (rcv *EngraveTreeExcel) MaxLevel() int64 {
 }
 
 func (rcv *EngraveTreeExcel) MutateMaxLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func (rcv *EngraveTreeExcel) LearnSkillSlot() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -156,7 +180,7 @@ func (rcv *EngraveTreeExcel) LearnSkillSlot() []byte {
 }
 
 func (rcv *EngraveTreeExcel) StatType(j int) EquipmentOptionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return EquipmentOptionType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -165,7 +189,7 @@ func (rcv *EngraveTreeExcel) StatType(j int) EquipmentOptionType {
 }
 
 func (rcv *EngraveTreeExcel) StatTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -173,7 +197,7 @@ func (rcv *EngraveTreeExcel) StatTypeLength() int {
 }
 
 func (rcv *EngraveTreeExcel) MutateStatType(j int, n EquipmentOptionType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -182,7 +206,7 @@ func (rcv *EngraveTreeExcel) MutateStatType(j int, n EquipmentOptionType) bool {
 }
 
 func (rcv *EngraveTreeExcel) StatValue(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -191,7 +215,7 @@ func (rcv *EngraveTreeExcel) StatValue(j int) int64 {
 }
 
 func (rcv *EngraveTreeExcel) StatValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -199,7 +223,7 @@ func (rcv *EngraveTreeExcel) StatValueLength() int {
 }
 
 func (rcv *EngraveTreeExcel) MutateStatValue(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -208,46 +232,52 @@ func (rcv *EngraveTreeExcel) MutateStatValue(j int, n int64) bool {
 }
 
 func EngraveTreeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
+	builder.StartObject(13)
 }
 func EngraveTreeExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
+func EngraveTreeExcelAddNodeType(builder *flatbuffers.Builder, nodeType EngraveNodeType) {
+	builder.PrependInt32Slot(1, int32(nodeType), 0)
+}
 func EngraveTreeExcelAddNodeIndex(builder *flatbuffers.Builder, nodeIndex int32) {
-	builder.PrependInt32Slot(1, nodeIndex, 0)
+	builder.PrependInt32Slot(2, nodeIndex, 0)
 }
 func EngraveTreeExcelAddIsUnlock(builder *flatbuffers.Builder, isUnlock bool) {
-	builder.PrependBoolSlot(2, isUnlock, false)
+	builder.PrependBoolSlot(3, isUnlock, false)
+}
+func EngraveTreeExcelAddPreNodeType(builder *flatbuffers.Builder, preNodeType EngraveNodeType) {
+	builder.PrependInt32Slot(4, int32(preNodeType), 0)
 }
 func EngraveTreeExcelAddPreNodeIndex(builder *flatbuffers.Builder, preNodeIndex flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(preNodeIndex), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(preNodeIndex), 0)
 }
 func EngraveTreeExcelStartPreNodeIndexVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EngraveTreeExcelAddGradeType(builder *flatbuffers.Builder, gradeType NodeGrade) {
-	builder.PrependInt32Slot(4, int32(gradeType), 0)
+	builder.PrependInt32Slot(6, int32(gradeType), 0)
 }
 func EngraveTreeExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(localizeEtcId), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(localizeEtcId), 0)
 }
 func EngraveTreeExcelAddRecipe(builder *flatbuffers.Builder, recipe int64) {
-	builder.PrependInt64Slot(6, recipe, 0)
+	builder.PrependInt64Slot(8, recipe, 0)
 }
 func EngraveTreeExcelAddMaxLevel(builder *flatbuffers.Builder, maxLevel int64) {
-	builder.PrependInt64Slot(7, maxLevel, 0)
+	builder.PrependInt64Slot(9, maxLevel, 0)
 }
 func EngraveTreeExcelAddLearnSkillSlot(builder *flatbuffers.Builder, learnSkillSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(learnSkillSlot), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(learnSkillSlot), 0)
 }
 func EngraveTreeExcelAddStatType(builder *flatbuffers.Builder, statType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(statType), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(statType), 0)
 }
 func EngraveTreeExcelStartStatTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EngraveTreeExcelAddStatValue(builder *flatbuffers.Builder, statValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(statValue), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(statValue), 0)
 }
 func EngraveTreeExcelStartStatValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

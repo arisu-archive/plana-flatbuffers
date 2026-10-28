@@ -65,7 +65,7 @@ func (rcv *CharacterEngraveExcel) MutateUnlockAllNode(n bool) bool {
 	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *CharacterEngraveExcel) NodeTreeEgo() int64 {
+func (rcv *CharacterEngraveExcel) NodeTreeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,11 +73,11 @@ func (rcv *CharacterEngraveExcel) NodeTreeEgo() int64 {
 	return 0
 }
 
-func (rcv *CharacterEngraveExcel) MutateNodeTreeEgo(n int64) bool {
+func (rcv *CharacterEngraveExcel) MutateNodeTreeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *CharacterEngraveExcel) NodeTreeConsciousness() int64 {
+func (rcv *CharacterEngraveExcel) NodeTreeEgo() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,11 +85,11 @@ func (rcv *CharacterEngraveExcel) NodeTreeConsciousness() int64 {
 	return 0
 }
 
-func (rcv *CharacterEngraveExcel) MutateNodeTreeConsciousness(n int64) bool {
+func (rcv *CharacterEngraveExcel) MutateNodeTreeEgo(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CharacterEngraveExcel) NodeTreeUnconscious() int64 {
+func (rcv *CharacterEngraveExcel) NodeTreeConsciousness() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -97,12 +97,24 @@ func (rcv *CharacterEngraveExcel) NodeTreeUnconscious() int64 {
 	return 0
 }
 
-func (rcv *CharacterEngraveExcel) MutateNodeTreeUnconscious(n int64) bool {
+func (rcv *CharacterEngraveExcel) MutateNodeTreeConsciousness(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
+func (rcv *CharacterEngraveExcel) NodeTreeUnconscious() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterEngraveExcel) MutateNodeTreeUnconscious(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
 func CharacterEngraveExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(6)
 }
 func CharacterEngraveExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -110,14 +122,17 @@ func CharacterEngraveExcelAddId(builder *flatbuffers.Builder, id int64) {
 func CharacterEngraveExcelAddUnlockAllNode(builder *flatbuffers.Builder, unlockAllNode bool) {
 	builder.PrependBoolSlot(1, unlockAllNode, false)
 }
+func CharacterEngraveExcelAddNodeTreeId(builder *flatbuffers.Builder, nodeTreeId int64) {
+	builder.PrependInt64Slot(2, nodeTreeId, 0)
+}
 func CharacterEngraveExcelAddNodeTreeEgo(builder *flatbuffers.Builder, nodeTreeEgo int64) {
-	builder.PrependInt64Slot(2, nodeTreeEgo, 0)
+	builder.PrependInt64Slot(3, nodeTreeEgo, 0)
 }
 func CharacterEngraveExcelAddNodeTreeConsciousness(builder *flatbuffers.Builder, nodeTreeConsciousness int64) {
-	builder.PrependInt64Slot(3, nodeTreeConsciousness, 0)
+	builder.PrependInt64Slot(4, nodeTreeConsciousness, 0)
 }
 func CharacterEngraveExcelAddNodeTreeUnconscious(builder *flatbuffers.Builder, nodeTreeUnconscious int64) {
-	builder.PrependInt64Slot(4, nodeTreeUnconscious, 0)
+	builder.PrependInt64Slot(5, nodeTreeUnconscious, 0)
 }
 func CharacterEngraveExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

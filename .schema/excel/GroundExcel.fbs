@@ -13,7 +13,7 @@ table GroundExcel {
     stage_file_name: [string];
     ground_scene_name: string;
     formation_group_id: long;
-    stage_topography: StageTopography;
+    stage_topography: [StageTopography];
     enemy_bullet_type: BulletType;
     enemy_armor_type: ArmorType;
     enemy_sub_armor_type: ArmorType;

@@ -24,6 +24,7 @@ table SchoolDungeonStageExcel {
     stage_reward_id: long;
     play_time_limit_in_seconds: long;
     echelon_extension_type: EchelonExtensionType;
+    echelon_recommend_preset_id: int;
 }
 
 root_type SchoolDungeonStageExcel;

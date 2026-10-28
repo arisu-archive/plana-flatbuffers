@@ -1,0 +1,21 @@
+namespace MX.Data.Excel;
+
+table MiniGameTankLevelExcel {
+    event_content_id: long;
+    stage_id: long;
+    art_level: string;
+    bgm_id: long;
+    first_pattern_distance: long;
+    goal_create_distance: long;
+    rival_rush_distance: long;
+    rival_character_id: [long];
+    rival_vanish_time: long;
+    rival_interval: long;
+    min_vertical_spacing: long;
+    max_vertical_spacing: long;
+    item_id: [long];
+    item_create_distance: [long];
+    item_interval: [long];
+}
+
+root_type MiniGameTankLevelExcel;

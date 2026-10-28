@@ -1,4 +1,6 @@
 include "BulletType.fbs";
+include "SkillDamagedTargetCountingRule.fbs";
+include "SkillKind.fbs";
 
 namespace MX.Data.Excel;
 
@@ -34,6 +36,9 @@ table SkillExcel {
     texture_skill_card_for_form_conversion: string;
     skill_card_label_path: string;
     skill_remain_count_override: string;
+    skill_damage_target_count: SkillDamagedTargetCountingRule;
+    skill_filter_activate: bool;
+    skill_kind: SkillKind;
 }
 
 root_type SkillExcel;

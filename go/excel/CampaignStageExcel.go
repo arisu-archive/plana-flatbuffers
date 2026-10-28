@@ -469,8 +469,20 @@ func (rcv *CampaignStageExcel) MutateEchelonExtensionType(n EchelonExtensionType
 	return rcv._tab.MutateInt32Slot(68, int32(n))
 }
 
+func (rcv *CampaignStageExcel) EchelonRecommendPresetId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CampaignStageExcel) MutateEchelonRecommendPresetId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(70, n)
+}
+
 func CampaignStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(33)
+	builder.StartObject(34)
 }
 func CampaignStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -582,6 +594,9 @@ func CampaignStageExcelAddFixedEchelonId(builder *flatbuffers.Builder, fixedEche
 }
 func CampaignStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
 	builder.PrependInt32Slot(32, int32(echelonExtensionType), 0)
+}
+func CampaignStageExcelAddEchelonRecommendPresetId(builder *flatbuffers.Builder, echelonRecommendPresetId int32) {
+	builder.PrependInt32Slot(33, echelonRecommendPresetId, 0)
 }
 func CampaignStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

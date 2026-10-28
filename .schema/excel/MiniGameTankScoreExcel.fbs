@@ -1,0 +1,19 @@
+namespace MX.Data.Excel;
+
+table MiniGameTankScoreExcel {
+    event_content_id: long;
+    distance_score: long;
+    destroy_score: long;
+    min_combo_value: long;
+    combo_step_interval: long;
+    combo_multiplier: float;
+    max_combo_multiplier: float;
+    combo_duration: long;
+    rival_destroy_score: long;
+    boss_time_max_score: long;
+    boss_per_sec_minus_score: long;
+    boss_hit_score: long;
+    boss_hit_minus_score: long;
+}
+
+root_type MiniGameTankScoreExcel;

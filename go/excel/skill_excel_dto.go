@@ -10,37 +10,40 @@ import (
 // SkillExcelDto represents a FlatBuffers table.
 type SkillExcelDto struct {
 	fbsutils.FlatBuffer
-	ID                                int64      `json:"id"`
-	LocalizeSkillID                   uint32     `json:"localize_skill_id"`
-	GroupID                           string     `json:"group_id"`
-	SkillDataKey                      string     `json:"skill_data_key"`
-	VisualDataKey                     string     `json:"visual_data_key"`
-	Level                             int32      `json:"level"`
-	SkillCost                         int32      `json:"skill_cost"`
-	ExtraSkillCost                    int32      `json:"extra_skill_cost"`
-	EnemySkillCost                    int32      `json:"enemy_skill_cost"`
-	ExtraEnemySkillCost               int32      `json:"extra_enemy_skill_cost"`
-	NpcSkillCost                      int32      `json:"npc_skill_cost"`
-	ExtraNpcSkillCost                 int32      `json:"extra_npc_skill_cost"`
-	BulletType                        BulletType `json:"bullet_type"`
-	StartCoolTime                     int32      `json:"start_cool_time"`
-	CoolTime                          int32      `json:"cool_time"`
-	EnemyStartCoolTime                int32      `json:"enemy_start_cool_time"`
-	EnemyCoolTime                     int32      `json:"enemy_cool_time"`
-	NpcStartCoolTime                  int32      `json:"npc_start_cool_time"`
-	NpcCoolTime                       int32      `json:"npc_cool_time"`
-	UseAtg                            int32      `json:"use_atg"`
-	RequireCharacterLevel             int32      `json:"require_character_level"`
-	RequireLevelUpMaterial            int64      `json:"require_level_up_material"`
-	IconName                          string     `json:"icon_name"`
-	IsShowInfo                        bool       `json:"is_show_info"`
-	IsShowSpeechbubble                bool       `json:"is_show_speechbubble"`
-	PublicSpeechDuration              int32      `json:"public_speech_duration"`
-	AdditionalToolTipID               int64      `json:"additional_tool_tip_id"`
-	SelectExSkillToolTipID            int64      `json:"select_ex_skill_tool_tip_id"`
-	TextureSkillCardForFormConversion string     `json:"texture_skill_card_for_form_conversion"`
-	SkillCardLabelPath                string     `json:"skill_card_label_path"`
-	SkillRemainCountOverride          string     `json:"skill_remain_count_override"`
+	ID                                int64                          `json:"id"`
+	LocalizeSkillID                   uint32                         `json:"localize_skill_id"`
+	GroupID                           string                         `json:"group_id"`
+	SkillDataKey                      string                         `json:"skill_data_key"`
+	VisualDataKey                     string                         `json:"visual_data_key"`
+	Level                             int32                          `json:"level"`
+	SkillCost                         int32                          `json:"skill_cost"`
+	ExtraSkillCost                    int32                          `json:"extra_skill_cost"`
+	EnemySkillCost                    int32                          `json:"enemy_skill_cost"`
+	ExtraEnemySkillCost               int32                          `json:"extra_enemy_skill_cost"`
+	NpcSkillCost                      int32                          `json:"npc_skill_cost"`
+	ExtraNpcSkillCost                 int32                          `json:"extra_npc_skill_cost"`
+	BulletType                        BulletType                     `json:"bullet_type"`
+	StartCoolTime                     int32                          `json:"start_cool_time"`
+	CoolTime                          int32                          `json:"cool_time"`
+	EnemyStartCoolTime                int32                          `json:"enemy_start_cool_time"`
+	EnemyCoolTime                     int32                          `json:"enemy_cool_time"`
+	NpcStartCoolTime                  int32                          `json:"npc_start_cool_time"`
+	NpcCoolTime                       int32                          `json:"npc_cool_time"`
+	UseAtg                            int32                          `json:"use_atg"`
+	RequireCharacterLevel             int32                          `json:"require_character_level"`
+	RequireLevelUpMaterial            int64                          `json:"require_level_up_material"`
+	IconName                          string                         `json:"icon_name"`
+	IsShowInfo                        bool                           `json:"is_show_info"`
+	IsShowSpeechbubble                bool                           `json:"is_show_speechbubble"`
+	PublicSpeechDuration              int32                          `json:"public_speech_duration"`
+	AdditionalToolTipID               int64                          `json:"additional_tool_tip_id"`
+	SelectExSkillToolTipID            int64                          `json:"select_ex_skill_tool_tip_id"`
+	TextureSkillCardForFormConversion string                         `json:"texture_skill_card_for_form_conversion"`
+	SkillCardLabelPath                string                         `json:"skill_card_label_path"`
+	SkillRemainCountOverride          string                         `json:"skill_remain_count_override"`
+	SkillDamageTargetCount            SkillDamagedTargetCountingRule `json:"skill_damage_target_count"`
+	SkillFilterActivate               bool                           `json:"skill_filter_activate"`
+	SkillKind                         SkillKind                      `json:"skill_kind"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -84,6 +87,9 @@ func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	SkillExcelAddTextureSkillCardForFormConversion(b, textureSkillCardForFormConversionOffset)
 	SkillExcelAddSkillCardLabelPath(b, skillCardLabelPathOffset)
 	SkillExcelAddSkillRemainCountOverride(b, skillRemainCountOverrideOffset)
+	SkillExcelAddSkillDamageTargetCount(b, t.SkillDamageTargetCount)
+	SkillExcelAddSkillFilterActivate(b, t.SkillFilterActivate)
+	SkillExcelAddSkillKind(b, t.SkillKind)
 	return SkillExcelEnd(b)
 }
 
@@ -127,6 +133,9 @@ func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
 	t.TextureSkillCardForFormConversion = string(e.TextureSkillCardForFormConversion())
 	t.SkillCardLabelPath = string(e.SkillCardLabelPath())
 	t.SkillRemainCountOverride = string(e.SkillRemainCountOverride())
+	t.SkillDamageTargetCount = e.SkillDamageTargetCount()
+	t.SkillFilterActivate = e.SkillFilterActivate()
+	t.SkillKind = e.SkillKind()
 	return nil
 }
 

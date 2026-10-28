@@ -22,6 +22,7 @@ type RaidStageExcelDto struct {
 	DifficultyOpenCondition       bool                 `json:"difficulty_open_condition"`
 	MaxPlayerCount                int64                `json:"max_player_count"`
 	RaidRoomLifeTime              int32                `json:"raid_room_life_time"`
+	ExtraRoomLifeTime             int32                `json:"extra_room_life_time"`
 	BattleDuration                int64                `json:"battle_duration"`
 	GroundID                      int64                `json:"ground_id"`
 	RaidBossGroupType             RaidBossGroupType    `json:"raid_boss_group_type"`
@@ -93,6 +94,7 @@ func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	RaidStageExcelAddDifficultyOpenCondition(b, t.DifficultyOpenCondition)
 	RaidStageExcelAddMaxPlayerCount(b, t.MaxPlayerCount)
 	RaidStageExcelAddRaidRoomLifeTime(b, t.RaidRoomLifeTime)
+	RaidStageExcelAddExtraRoomLifeTime(b, t.ExtraRoomLifeTime)
 	RaidStageExcelAddBattleDuration(b, t.BattleDuration)
 	RaidStageExcelAddGroundId(b, t.GroundID)
 	RaidStageExcelAddRaidBossGroupType(b, t.RaidBossGroupType)
@@ -143,6 +145,7 @@ func (t *RaidStageExcelDto) UnmarshalMessage(e *RaidStageExcel) error {
 	t.DifficultyOpenCondition = e.DifficultyOpenCondition()
 	t.MaxPlayerCount = e.MaxPlayerCount()
 	t.RaidRoomLifeTime = e.RaidRoomLifeTime()
+	t.ExtraRoomLifeTime = e.ExtraRoomLifeTime()
 	t.BattleDuration = e.BattleDuration()
 	t.GroundID = e.GroundId()
 	t.RaidBossGroupType = e.RaidBossGroupType()

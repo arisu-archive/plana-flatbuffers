@@ -1,0 +1,51 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTankCharacterExcel {
+    event_content_id: long;
+    group_id: long;
+    unique_id: long;
+    prev_grade_id: long;
+    playable: bool;
+    grade: long;
+    tank_name: uint;
+    team_name: uint;
+    model_prefab_name: string;
+    icon_resource_name: string;
+    hud_icon_resource_name: string;
+    unlock_condition_stage_id: long;
+    upgrade_item_parcel_type: ParcelType;
+    upgrade_item_parcel_id: long;
+    upgrade_item_amount: long;
+    max_hp: long;
+    attack_power: long;
+    attack_cooltime: long;
+    deceleration_scale: float;
+    deceleration_cycle: long;
+    deceleration_time: long;
+    acceleration: long;
+    min_speed: long;
+    max_speed: long;
+    drift_speed: long;
+    dash_item_speed: long;
+    perfect_start_dash_speed: long;
+    rival_destroy_dash_speed: long;
+    rival_destroy_dash_duration: long;
+    cornering: long;
+    max_fuel: long;
+    fuel_reduction_amount: long;
+    fuel_reduction_rate: long;
+    min_boss_reaction_time: long;
+    max_boss_reaction_time: long;
+    min_boss_chase_time: long;
+    max_boss_chase_time: long;
+    min_boss_delay_time: long;
+    max_boss_delay_time: long;
+    normal_attack_skill_data: string;
+    public_skill_base_weight: [long];
+    public_skill_max_consecutive: [long];
+    public_skill_data: [string];
+}
+
+root_type MiniGameTankCharacterExcel;

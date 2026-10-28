@@ -10,17 +10,19 @@ import (
 // LocalizeSkillEffectExcelDto represents a FlatBuffers table.
 type LocalizeSkillEffectExcelDto struct {
 	fbsutils.FlatBuffer
-	Key                      uint32  `json:"key"`
-	IconSpriteName           string  `json:"icon_sprite_name"`
-	SkillEffectNameKr        string  `json:"skill_effect_name_kr"`
-	SkillEffectNameJp        string  `json:"skill_effect_name_jp"`
-	SkillEffectDescriptionKr string  `json:"skill_effect_description_kr"`
-	SkillEffectDescriptionJp string  `json:"skill_effect_description_jp"`
-	SuffixTextKr             string  `json:"suffix_text_kr"`
-	SuffixTextJp             string  `json:"suffix_text_jp"`
-	SuffixLabel              string  `json:"suffix_label"`
-	SharedCharacterParcels   []int64 `json:"shared_character_parcels"`
-	TextFontSizeOverride     float32 `json:"text_font_size_override"`
+	Key                            uint32              `json:"key"`
+	SkillFilterActivate            bool                `json:"skill_filter_activate"`
+	SkillFilterLogicEffectCategory LogicEffectCategory `json:"skill_filter_logic_effect_category"`
+	IconSpriteName                 string              `json:"icon_sprite_name"`
+	SkillEffectNameKr              string              `json:"skill_effect_name_kr"`
+	SkillEffectNameJp              string              `json:"skill_effect_name_jp"`
+	SkillEffectDescriptionKr       string              `json:"skill_effect_description_kr"`
+	SkillEffectDescriptionJp       string              `json:"skill_effect_description_jp"`
+	SuffixTextKr                   string              `json:"suffix_text_kr"`
+	SuffixTextJp                   string              `json:"suffix_text_jp"`
+	SuffixLabel                    string              `json:"suffix_label"`
+	SharedCharacterParcels         []int64             `json:"shared_character_parcels"`
+	TextFontSizeOverride           float32             `json:"text_font_size_override"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -40,6 +42,8 @@ func (t *LocalizeSkillEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	sharedCharacterParcelsOffset := b.EndVector(len(t.SharedCharacterParcels))
 	LocalizeSkillEffectExcelStart(b)
 	LocalizeSkillEffectExcelAddKey(b, t.Key)
+	LocalizeSkillEffectExcelAddSkillFilterActivate(b, t.SkillFilterActivate)
+	LocalizeSkillEffectExcelAddSkillFilterLogicEffectCategory(b, t.SkillFilterLogicEffectCategory)
 	LocalizeSkillEffectExcelAddIconSpriteName(b, iconSpriteNameOffset)
 	LocalizeSkillEffectExcelAddSkillEffectNameKr(b, skillEffectNameKrOffset)
 	LocalizeSkillEffectExcelAddSkillEffectNameJp(b, skillEffectNameJpOffset)
@@ -63,6 +67,8 @@ func (t *LocalizeSkillEffectExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers table.
 func (t *LocalizeSkillEffectExcelDto) UnmarshalMessage(e *LocalizeSkillEffectExcel) error {
 	t.Key = e.Key()
+	t.SkillFilterActivate = e.SkillFilterActivate()
+	t.SkillFilterLogicEffectCategory = e.SkillFilterLogicEffectCategory()
 	t.IconSpriteName = string(e.IconSpriteName())
 	t.SkillEffectNameKr = string(e.SkillEffectNameKr())
 	t.SkillEffectNameJp = string(e.SkillEffectNameJp())

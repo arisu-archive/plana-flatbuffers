@@ -1,0 +1,15 @@
+namespace MX.Data.Excel;
+
+table MiniGameTankPatternExcel {
+    event_content_id: long;
+    stage_id: long;
+    unique_id: long;
+    pattern: string;
+    base_weight: long;
+    min_req_speed: long;
+    max_req_speed: long;
+    max_consecutive: int;
+    spacing: long;
+}
+
+root_type MiniGameTankPatternExcel;

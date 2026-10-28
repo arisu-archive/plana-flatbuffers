@@ -18,6 +18,7 @@ table RaidStageExcel {
     difficulty_open_condition: bool;
     max_player_count: long;
     raid_room_life_time: int;
+    extra_room_life_time: int;
     battle_duration: long;
     ground_id: long;
     raid_boss_group_type: RaidBossGroupType;

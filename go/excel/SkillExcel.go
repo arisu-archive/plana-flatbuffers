@@ -385,8 +385,44 @@ func (rcv *SkillExcel) SkillRemainCountOverride() []byte {
 	return nil
 }
 
+func (rcv *SkillExcel) SkillDamageTargetCount() SkillDamagedTargetCountingRule {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	if o != 0 {
+		return SkillDamagedTargetCountingRule(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *SkillExcel) MutateSkillDamageTargetCount(n SkillDamagedTargetCountingRule) bool {
+	return rcv._tab.MutateInt32Slot(66, int32(n))
+}
+
+func (rcv *SkillExcel) SkillFilterActivate() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *SkillExcel) MutateSkillFilterActivate(n bool) bool {
+	return rcv._tab.MutateBoolSlot(68, n)
+}
+
+func (rcv *SkillExcel) SkillKind() SkillKind {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
+	if o != 0 {
+		return SkillKind(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *SkillExcel) MutateSkillKind(n SkillKind) bool {
+	return rcv._tab.MutateInt32Slot(70, int32(n))
+}
+
 func SkillExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(31)
+	builder.StartObject(34)
 }
 func SkillExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -480,6 +516,15 @@ func SkillExcelAddSkillCardLabelPath(builder *flatbuffers.Builder, skillCardLabe
 }
 func SkillExcelAddSkillRemainCountOverride(builder *flatbuffers.Builder, skillRemainCountOverride flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(30, flatbuffers.UOffsetT(skillRemainCountOverride), 0)
+}
+func SkillExcelAddSkillDamageTargetCount(builder *flatbuffers.Builder, skillDamageTargetCount SkillDamagedTargetCountingRule) {
+	builder.PrependInt32Slot(31, int32(skillDamageTargetCount), 0)
+}
+func SkillExcelAddSkillFilterActivate(builder *flatbuffers.Builder, skillFilterActivate bool) {
+	builder.PrependBoolSlot(32, skillFilterActivate, false)
+}
+func SkillExcelAddSkillKind(builder *flatbuffers.Builder, skillKind SkillKind) {
+	builder.PrependInt32Slot(33, int32(skillKind), 0)
 }
 func SkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

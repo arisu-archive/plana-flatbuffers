@@ -101,8 +101,34 @@ func (rcv *LocalizeSkillExcel) SkillInvokeLocalizeJp() []byte {
 	return nil
 }
 
+func (rcv *LocalizeSkillExcel) SkillEffectList(j int) uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *LocalizeSkillExcel) SkillEffectListLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *LocalizeSkillExcel) MutateSkillEffectList(j int, n uint32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
 func LocalizeSkillExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func LocalizeSkillExcelAddKey(builder *flatbuffers.Builder, key uint32) {
 	builder.PrependUint32Slot(0, key, 0)
@@ -124,6 +150,12 @@ func LocalizeSkillExcelAddDescriptionJp(builder *flatbuffers.Builder, descriptio
 }
 func LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder *flatbuffers.Builder, skillInvokeLocalizeJp flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(skillInvokeLocalizeJp), 0)
+}
+func LocalizeSkillExcelAddSkillEffectList(builder *flatbuffers.Builder, skillEffectList flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(skillEffectList), 0)
+}
+func LocalizeSkillExcelStartSkillEffectListVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func LocalizeSkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

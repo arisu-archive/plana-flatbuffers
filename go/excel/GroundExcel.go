@@ -90,16 +90,30 @@ func (rcv *GroundExcel) MutateFormationGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *GroundExcel) StageTopography() StageTopography {
+func (rcv *GroundExcel) StageTopography(j int) StageTopography {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return StageTopography(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *GroundExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+func (rcv *GroundExcel) StageTopographyLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *GroundExcel) MutateStageTopography(j int, n StageTopography) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
 }
 
 func (rcv *GroundExcel) EnemyBulletType() BulletType {
@@ -810,8 +824,11 @@ func GroundExcelAddGroundSceneName(builder *flatbuffers.Builder, groundSceneName
 func GroundExcelAddFormationGroupId(builder *flatbuffers.Builder, formationGroupId int64) {
 	builder.PrependInt64Slot(3, formationGroupId, 0)
 }
-func GroundExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(4, int32(stageTopography), 0)
+func GroundExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(stageTopography), 0)
+}
+func GroundExcelStartStageTopographyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func GroundExcelAddEnemyBulletType(builder *flatbuffers.Builder, enemyBulletType BulletType) {
 	builder.PrependInt32Slot(5, int32(enemyBulletType), 0)

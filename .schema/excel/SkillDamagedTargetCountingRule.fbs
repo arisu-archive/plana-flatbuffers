@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum SkillDamagedTargetCountingRule: int {
+    None = 0,
+    SingleTarget = 1,
+    MultiTarget = 2,
+}

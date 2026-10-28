@@ -1,0 +1,22 @@
+namespace FlatData;
+
+table ConstMiniGameTankExcel {
+    start_count_duration: long;
+    perfect_start_duration: long;
+    first_pattern_trigger_offset: long;
+    rival_spawn_offset: long;
+    boss_spawn_offset: long;
+    appear_surplus_speed: long;
+    distance_to_player: long;
+    disappear_accelerate_value: long;
+    disappear_duration: long;
+    adjust_accelerate_time: long;
+    obstacle_check_interval: long;
+    projectile_speed: long;
+    projectile_extinct_time: long;
+    boss_stage_speed: long;
+    combo_voice_play_interval: int;
+    speed_effect_threshold1: long;
+    speed_effect_threshold2: long;
+    speed_visual_multiplier: float;
+}

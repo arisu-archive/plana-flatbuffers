@@ -1,0 +1,7 @@
+namespace FlatData;
+
+enum TankRacingItemType: int {
+    None = 0,
+    Fuel = 1,
+    Dash = 2,
+}

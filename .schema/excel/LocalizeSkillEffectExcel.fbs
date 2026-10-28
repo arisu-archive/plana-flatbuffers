@@ -1,7 +1,11 @@
+include "LogicEffectCategory.fbs";
+
 namespace MX.Data.Excel;
 
 table LocalizeSkillEffectExcel {
     key: uint;
+    skill_filter_activate: bool;
+    skill_filter_logic_effect_category: LogicEffectCategory;
     icon_sprite_name: string;
     skill_effect_name_kr: string;
     skill_effect_name_jp: string;

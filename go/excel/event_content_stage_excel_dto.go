@@ -53,6 +53,7 @@ type EventContentStageExcelDto struct {
 	IsDefeatBattle                           bool                 `json:"is_defeat_battle"`
 	StageHint                                uint32               `json:"stage_hint"`
 	EchelonExtensionType                     EchelonExtensionType `json:"echelon_extension_type"`
+	EchelonRecommendPresetID                 int32                `json:"echelon_recommend_preset_id"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -126,6 +127,7 @@ func (t *EventContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	EventContentStageExcelAddIsDefeatBattle(b, t.IsDefeatBattle)
 	EventContentStageExcelAddStageHint(b, t.StageHint)
 	EventContentStageExcelAddEchelonExtensionType(b, t.EchelonExtensionType)
+	EventContentStageExcelAddEchelonRecommendPresetId(b, t.EchelonRecommendPresetID)
 	return EventContentStageExcelEnd(b)
 }
 
@@ -193,6 +195,7 @@ func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) 
 	t.IsDefeatBattle = e.IsDefeatBattle()
 	t.StageHint = e.StageHint()
 	t.EchelonExtensionType = e.EchelonExtensionType()
+	t.EchelonRecommendPresetID = e.EchelonRecommendPresetId()
 	return nil
 }
 

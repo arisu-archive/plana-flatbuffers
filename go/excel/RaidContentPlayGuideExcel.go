@@ -77,20 +77,8 @@ func (rcv *RaidContentPlayGuideExcel) MutateIsPcBuild(n bool) bool {
 	return rcv._tab.MutateBoolSlot(8, n)
 }
 
-func (rcv *RaidContentPlayGuideExcel) IdExport() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *RaidContentPlayGuideExcel) MutateIdExport(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
 func (rcv *RaidContentPlayGuideExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -98,11 +86,11 @@ func (rcv *RaidContentPlayGuideExcel) DisplayOrder() int32 {
 }
 
 func (rcv *RaidContentPlayGuideExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
 func (rcv *RaidContentPlayGuideExcel) GuideTitle() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -110,11 +98,11 @@ func (rcv *RaidContentPlayGuideExcel) GuideTitle() uint32 {
 }
 
 func (rcv *RaidContentPlayGuideExcel) MutateGuideTitle(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
+	return rcv._tab.MutateUint32Slot(12, n)
 }
 
 func (rcv *RaidContentPlayGuideExcel) GuideImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -122,7 +110,7 @@ func (rcv *RaidContentPlayGuideExcel) GuideImagePath() []byte {
 }
 
 func (rcv *RaidContentPlayGuideExcel) GuideText() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -130,11 +118,11 @@ func (rcv *RaidContentPlayGuideExcel) GuideText() uint32 {
 }
 
 func (rcv *RaidContentPlayGuideExcel) MutateGuideText(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(18, n)
+	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func RaidContentPlayGuideExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(8)
+	builder.StartObject(7)
 }
 func RaidContentPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -145,20 +133,17 @@ func RaidContentPlayGuideExcelAddRaidBossGroupType(builder *flatbuffers.Builder,
 func RaidContentPlayGuideExcelAddIsPcBuild(builder *flatbuffers.Builder, isPcBuild bool) {
 	builder.PrependBoolSlot(2, isPcBuild, false)
 }
-func RaidContentPlayGuideExcelAddIdExport(builder *flatbuffers.Builder, idExport bool) {
-	builder.PrependBoolSlot(3, idExport, false)
-}
 func RaidContentPlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(4, displayOrder, 0)
+	builder.PrependInt32Slot(3, displayOrder, 0)
 }
 func RaidContentPlayGuideExcelAddGuideTitle(builder *flatbuffers.Builder, guideTitle uint32) {
-	builder.PrependUint32Slot(5, guideTitle, 0)
+	builder.PrependUint32Slot(4, guideTitle, 0)
 }
 func RaidContentPlayGuideExcelAddGuideImagePath(builder *flatbuffers.Builder, guideImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(guideImagePath), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(guideImagePath), 0)
 }
 func RaidContentPlayGuideExcelAddGuideText(builder *flatbuffers.Builder, guideText uint32) {
-	builder.PrependUint32Slot(7, guideText, 0)
+	builder.PrependUint32Slot(6, guideText, 0)
 }
 func RaidContentPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

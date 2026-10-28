@@ -20,3 +20,8 @@ class GachaTicketType(object):
     PackageThreeStar_R88_Mystic = 14
     PackageThreeStar_R88_Pierce = 15
     PackageThreeStar_R88_Sonic = 16
+    PackageUnownedThreeStar = 17
+    PackageThreeStar_R97_Explosion = 18
+    PackageThreeStar_R97_Mystic = 19
+    PackageThreeStar_R97_Pierce = 20
+    PackageThreeStar_R97_Sonic = 21

@@ -52,6 +52,7 @@ const (
 	EventContentTypeInteractiveWorldRaid    EventContentType = 42
 	EventContentTypeClueSearch              EventContentType = 43
 	EventContentTypeMinigameJanken          EventContentType = 44
+	EventContentTypeMiniGameTank            EventContentType = 45
 )
 
 var EnumNamesEventContentType = map[EventContentType]string{
@@ -100,6 +101,7 @@ var EnumNamesEventContentType = map[EventContentType]string{
 	EventContentTypeInteractiveWorldRaid:    "InteractiveWorldRaid",
 	EventContentTypeClueSearch:              "ClueSearch",
 	EventContentTypeMinigameJanken:          "MinigameJanken",
+	EventContentTypeMiniGameTank:            "MiniGameTank",
 }
 
 var EnumValuesEventContentType = map[string]EventContentType{
@@ -148,6 +150,7 @@ var EnumValuesEventContentType = map[string]EventContentType{
 	"InteractiveWorldRaid":    EventContentTypeInteractiveWorldRaid,
 	"ClueSearch":              EventContentTypeClueSearch,
 	"MinigameJanken":          EventContentTypeMinigameJanken,
+	"MiniGameTank":            EventContentTypeMiniGameTank,
 }
 
 func (v EventContentType) String() string {

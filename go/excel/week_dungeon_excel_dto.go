@@ -10,25 +10,27 @@ import (
 // WeekDungeonExcelDto represents a FlatBuffers table.
 type WeekDungeonExcelDto struct {
 	fbsutils.FlatBuffer
-	StageID                int64                `json:"stage_id"`
-	WeekDungeonType        WeekDungeonType      `json:"week_dungeon_type"`
-	Difficulty             int32                `json:"difficulty"`
-	BattleDuration         int64                `json:"battle_duration"`
-	PrevStageID            int64                `json:"prev_stage_id"`
-	StageEnterCostType     []ParcelType         `json:"stage_enter_cost_type"`
-	StageEnterCostID       []int64              `json:"stage_enter_cost_id"`
-	StageEnterCostAmount   []int32              `json:"stage_enter_cost_amount"`
-	GroundID               int32                `json:"ground_id"`
-	StarGoal               []StarGoalType       `json:"star_goal"`
-	StarGoalAmount         []int32              `json:"star_goal_amount"`
-	StageTopography        StageTopography      `json:"stage_topography"`
-	RecommandLevel         int64                `json:"recommand_level"`
-	StageRewardID          int64                `json:"stage_reward_id"`
-	PlayTimeLimitInSeconds int64                `json:"play_time_limit_in_seconds"`
-	BattleRewardExp        int64                `json:"battle_reward_exp"`
-	BattleRewardPlayerExp  int64                `json:"battle_reward_player_exp"`
-	GroupBuffID            []int64              `json:"group_buff_id"`
-	EchelonExtensionType   EchelonExtensionType `json:"echelon_extension_type"`
+	StageID                           int64                `json:"stage_id"`
+	WeekDungeonType                   WeekDungeonType      `json:"week_dungeon_type"`
+	Difficulty                        int32                `json:"difficulty"`
+	BattleDuration                    int64                `json:"battle_duration"`
+	PrevStageID                       int64                `json:"prev_stage_id"`
+	StageEnterCostType                []ParcelType         `json:"stage_enter_cost_type"`
+	StageEnterCostID                  []int64              `json:"stage_enter_cost_id"`
+	StageEnterCostAmount              []int32              `json:"stage_enter_cost_amount"`
+	GroundID                          int32                `json:"ground_id"`
+	StarGoal                          []StarGoalType       `json:"star_goal"`
+	StarGoalAmount                    []int32              `json:"star_goal_amount"`
+	StageTopography                   StageTopography      `json:"stage_topography"`
+	RecommandLevel                    int64                `json:"recommand_level"`
+	StageRewardID                     int64                `json:"stage_reward_id"`
+	PlayTimeLimitInSeconds            int64                `json:"play_time_limit_in_seconds"`
+	BattleRewardExp                   int64                `json:"battle_reward_exp"`
+	BattleRewardPlayerExp             int64                `json:"battle_reward_player_exp"`
+	GroupBuffID                       []int64              `json:"group_buff_id"`
+	EchelonExtensionType              EchelonExtensionType `json:"echelon_extension_type"`
+	EchelonRecommendPresetID          int32                `json:"echelon_recommend_preset_id"`
+	HideChaserPortraitSpawnTemplateID []string             `json:"hide_chaser_portrait_spawn_template_id"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -63,6 +65,16 @@ func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(t.GroupBuffID[i])
 	}
 	groupBuffIDOffset := b.EndVector(len(t.GroupBuffID))
+	var hideChaserPortraitSpawnTemplateIDOffset flatbuffers.UOffsetT
+	hideChaserPortraitSpawnTemplateIDOffsets := make([]flatbuffers.UOffsetT, len(t.HideChaserPortraitSpawnTemplateID))
+	for i := range t.HideChaserPortraitSpawnTemplateID {
+		hideChaserPortraitSpawnTemplateIDOffsets[i] = b.CreateString(t.HideChaserPortraitSpawnTemplateID[i])
+	}
+	WeekDungeonExcelStartHideChaserPortraitSpawnTemplateIdVector(b, len(t.HideChaserPortraitSpawnTemplateID))
+	for i := len(hideChaserPortraitSpawnTemplateIDOffsets) - 1; i >= 0; i-- {
+		b.PrependUOffsetT(hideChaserPortraitSpawnTemplateIDOffsets[i])
+	}
+	hideChaserPortraitSpawnTemplateIDOffset = b.EndVector(len(t.HideChaserPortraitSpawnTemplateID))
 	WeekDungeonExcelStart(b)
 	WeekDungeonExcelAddStageId(b, t.StageID)
 	WeekDungeonExcelAddWeekDungeonType(b, t.WeekDungeonType)
@@ -83,6 +95,8 @@ func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	WeekDungeonExcelAddBattleRewardPlayerExp(b, t.BattleRewardPlayerExp)
 	WeekDungeonExcelAddGroupBuffId(b, groupBuffIDOffset)
 	WeekDungeonExcelAddEchelonExtensionType(b, t.EchelonExtensionType)
+	WeekDungeonExcelAddEchelonRecommendPresetId(b, t.EchelonRecommendPresetID)
+	WeekDungeonExcelAddHideChaserPortraitSpawnTemplateId(b, hideChaserPortraitSpawnTemplateIDOffset)
 	return WeekDungeonExcelEnd(b)
 }
 
@@ -132,6 +146,11 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 		t.GroupBuffID[i] = e.GroupBuffId(i)
 	}
 	t.EchelonExtensionType = e.EchelonExtensionType()
+	t.EchelonRecommendPresetID = e.EchelonRecommendPresetId()
+	t.HideChaserPortraitSpawnTemplateID = make([]string, e.HideChaserPortraitSpawnTemplateIdLength())
+	for i := 0; i < e.HideChaserPortraitSpawnTemplateIdLength(); i++ {
+		t.HideChaserPortraitSpawnTemplateID[i] = string(e.HideChaserPortraitSpawnTemplateId(i))
+	}
 	return nil
 }
 

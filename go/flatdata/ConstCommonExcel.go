@@ -2547,8 +2547,44 @@ func (rcv *ConstCommonExcel) MutateRaidResetCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(406, n)
 }
 
+func (rcv *ConstCommonExcel) GachaHistoryCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(408))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateGachaHistoryCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(408, n)
+}
+
+func (rcv *ConstCommonExcel) GachaHistoryTimeToLiveInDays() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(410))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateGachaHistoryTimeToLiveInDays(n int32) bool {
+	return rcv._tab.MutateInt32Slot(410, n)
+}
+
+func (rcv *ConstCommonExcel) ProductMonthlyExtensionLookbackDays() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(412))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateProductMonthlyExtensionLookbackDays(n int32) bool {
+	return rcv._tab.MutateInt32Slot(412, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(202)
+	builder.StartObject(205)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -3176,6 +3212,15 @@ func ConstCommonExcelAddExSkillUpgradeLevelMax(builder *flatbuffers.Builder, exS
 }
 func ConstCommonExcelAddRaidResetCount(builder *flatbuffers.Builder, raidResetCount int32) {
 	builder.PrependInt32Slot(201, raidResetCount, 0)
+}
+func ConstCommonExcelAddGachaHistoryCount(builder *flatbuffers.Builder, gachaHistoryCount int32) {
+	builder.PrependInt32Slot(202, gachaHistoryCount, 0)
+}
+func ConstCommonExcelAddGachaHistoryTimeToLiveInDays(builder *flatbuffers.Builder, gachaHistoryTimeToLiveInDays int32) {
+	builder.PrependInt32Slot(203, gachaHistoryTimeToLiveInDays, 0)
+}
+func ConstCommonExcelAddProductMonthlyExtensionLookbackDays(builder *flatbuffers.Builder, productMonthlyExtensionLookbackDays int32) {
+	builder.PrependInt32Slot(204, productMonthlyExtensionLookbackDays, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

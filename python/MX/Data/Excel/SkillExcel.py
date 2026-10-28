@@ -241,8 +241,29 @@ class SkillExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # SkillExcel
+    def SkillDamageTargetCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def SkillFilterActivate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # SkillExcel
+    def SkillKind(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def SkillExcelStart(builder):
-    builder.StartObject(31)
+    builder.StartObject(34)
 
 def Start(builder):
     SkillExcelStart(builder)
@@ -433,6 +454,24 @@ def SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride):
 def AddSkillRemainCountOverride(builder, skillRemainCountOverride):
     SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride)
 
+def SkillExcelAddSkillDamageTargetCount(builder, skillDamageTargetCount):
+    builder.PrependInt32Slot(31, skillDamageTargetCount, 0)
+
+def AddSkillDamageTargetCount(builder, skillDamageTargetCount):
+    SkillExcelAddSkillDamageTargetCount(builder, skillDamageTargetCount)
+
+def SkillExcelAddSkillFilterActivate(builder, skillFilterActivate):
+    builder.PrependBoolSlot(32, skillFilterActivate, 0)
+
+def AddSkillFilterActivate(builder, skillFilterActivate):
+    SkillExcelAddSkillFilterActivate(builder, skillFilterActivate)
+
+def SkillExcelAddSkillKind(builder, skillKind):
+    builder.PrependInt32Slot(33, skillKind, 0)
+
+def AddSkillKind(builder, skillKind):
+    SkillExcelAddSkillKind(builder, skillKind)
+
 def SkillExcelEnd(builder):
     return builder.EndObject()
 
@@ -476,6 +515,9 @@ class SkillExcelT(object):
         textureSkillCardForFormConversion = None,
         skillCardLabelPath = None,
         skillRemainCountOverride = None,
+        skillDamageTargetCount = 0,
+        skillFilterActivate = False,
+        skillKind = 0,
     ):
         self.id = id  # type: int
         self.localizeSkillId = localizeSkillId  # type: int
@@ -508,6 +550,9 @@ class SkillExcelT(object):
         self.textureSkillCardForFormConversion = textureSkillCardForFormConversion  # type: Optional[str]
         self.skillCardLabelPath = skillCardLabelPath  # type: Optional[str]
         self.skillRemainCountOverride = skillRemainCountOverride  # type: Optional[str]
+        self.skillDamageTargetCount = skillDamageTargetCount  # type: int
+        self.skillFilterActivate = skillFilterActivate  # type: bool
+        self.skillKind = skillKind  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -561,6 +606,9 @@ class SkillExcelT(object):
         self.textureSkillCardForFormConversion = skillExcel.TextureSkillCardForFormConversion()
         self.skillCardLabelPath = skillExcel.SkillCardLabelPath()
         self.skillRemainCountOverride = skillExcel.SkillRemainCountOverride()
+        self.skillDamageTargetCount = skillExcel.SkillDamageTargetCount()
+        self.skillFilterActivate = skillExcel.SkillFilterActivate()
+        self.skillKind = skillExcel.SkillKind()
 
     # SkillExcelT
     def Pack(self, builder):
@@ -617,5 +665,8 @@ class SkillExcelT(object):
             SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
         if self.skillRemainCountOverride is not None:
             SkillExcelAddSkillRemainCountOverride(builder, skillRemainCountOverride)
+        SkillExcelAddSkillDamageTargetCount(builder, self.skillDamageTargetCount)
+        SkillExcelAddSkillFilterActivate(builder, self.skillFilterActivate)
+        SkillExcelAddSkillKind(builder, self.skillKind)
         skillExcel = SkillExcelEnd(builder)
         return skillExcel

@@ -8,6 +8,7 @@ table LocalizeSkillExcel {
     name_jp: string;
     description_jp: string;
     skill_invoke_localize_jp: string;
+    skill_effect_list: [uint];
 }
 
 root_type LocalizeSkillExcel;

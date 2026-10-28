@@ -1,0 +1,7 @@
+namespace MX.Data.Excel;
+
+enum SkillKind: int {
+    Normal = 0,
+    SelectableChild = 1,
+    CardChangeOnly = 2,
+}

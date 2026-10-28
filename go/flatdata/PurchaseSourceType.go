@@ -7,36 +7,39 @@ import "strconv"
 type PurchaseSourceType int32
 
 const (
-	PurchaseSourceTypeNone                PurchaseSourceType = 0
-	PurchaseSourceTypeProduct             PurchaseSourceType = 1
-	PurchaseSourceTypeProductMonthly      PurchaseSourceType = 2
-	PurchaseSourceTypeProductBattlePass   PurchaseSourceType = 3
-	PurchaseSourceTypeProductSelect       PurchaseSourceType = 4
-	PurchaseSourceTypeProductGooglePoint  PurchaseSourceType = 5
-	PurchaseSourceTypeProductDailyRecord  PurchaseSourceType = 6
-	PurchaseSourceTypeProductStreakRecord PurchaseSourceType = 7
+	PurchaseSourceTypeNone                           PurchaseSourceType = 0
+	PurchaseSourceTypeProduct                        PurchaseSourceType = 1
+	PurchaseSourceTypeProductMonthly                 PurchaseSourceType = 2
+	PurchaseSourceTypeProductBattlePass              PurchaseSourceType = 3
+	PurchaseSourceTypeProductSelect                  PurchaseSourceType = 4
+	PurchaseSourceTypeProductGooglePoint             PurchaseSourceType = 5
+	PurchaseSourceTypeProductDailyRecord             PurchaseSourceType = 6
+	PurchaseSourceTypeProductStreakRecord            PurchaseSourceType = 7
+	PurchaseSourceTypeProductPickupPackage_UseGlobal PurchaseSourceType = 8
 )
 
 var EnumNamesPurchaseSourceType = map[PurchaseSourceType]string{
-	PurchaseSourceTypeNone:                "None",
-	PurchaseSourceTypeProduct:             "Product",
-	PurchaseSourceTypeProductMonthly:      "ProductMonthly",
-	PurchaseSourceTypeProductBattlePass:   "ProductBattlePass",
-	PurchaseSourceTypeProductSelect:       "ProductSelect",
-	PurchaseSourceTypeProductGooglePoint:  "ProductGooglePoint",
-	PurchaseSourceTypeProductDailyRecord:  "ProductDailyRecord",
-	PurchaseSourceTypeProductStreakRecord: "ProductStreakRecord",
+	PurchaseSourceTypeNone:                           "None",
+	PurchaseSourceTypeProduct:                        "Product",
+	PurchaseSourceTypeProductMonthly:                 "ProductMonthly",
+	PurchaseSourceTypeProductBattlePass:              "ProductBattlePass",
+	PurchaseSourceTypeProductSelect:                  "ProductSelect",
+	PurchaseSourceTypeProductGooglePoint:             "ProductGooglePoint",
+	PurchaseSourceTypeProductDailyRecord:             "ProductDailyRecord",
+	PurchaseSourceTypeProductStreakRecord:            "ProductStreakRecord",
+	PurchaseSourceTypeProductPickupPackage_UseGlobal: "ProductPickupPackage_UseGlobal",
 }
 
 var EnumValuesPurchaseSourceType = map[string]PurchaseSourceType{
-	"None":                PurchaseSourceTypeNone,
-	"Product":             PurchaseSourceTypeProduct,
-	"ProductMonthly":      PurchaseSourceTypeProductMonthly,
-	"ProductBattlePass":   PurchaseSourceTypeProductBattlePass,
-	"ProductSelect":       PurchaseSourceTypeProductSelect,
-	"ProductGooglePoint":  PurchaseSourceTypeProductGooglePoint,
-	"ProductDailyRecord":  PurchaseSourceTypeProductDailyRecord,
-	"ProductStreakRecord": PurchaseSourceTypeProductStreakRecord,
+	"None":                           PurchaseSourceTypeNone,
+	"Product":                        PurchaseSourceTypeProduct,
+	"ProductMonthly":                 PurchaseSourceTypeProductMonthly,
+	"ProductBattlePass":              PurchaseSourceTypeProductBattlePass,
+	"ProductSelect":                  PurchaseSourceTypeProductSelect,
+	"ProductGooglePoint":             PurchaseSourceTypeProductGooglePoint,
+	"ProductDailyRecord":             PurchaseSourceTypeProductDailyRecord,
+	"ProductStreakRecord":            PurchaseSourceTypeProductStreakRecord,
+	"ProductPickupPackage_UseGlobal": PurchaseSourceTypeProductPickupPackage_UseGlobal,
 }
 
 func (v PurchaseSourceType) String() string {

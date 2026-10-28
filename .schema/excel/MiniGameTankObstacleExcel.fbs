@@ -1,0 +1,15 @@
+include "TankRacingObstacleType.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTankObstacleExcel {
+    event_content_id: long;
+    unique_id: long;
+    prefab_name: string;
+    obstacle_type: TankRacingObstacleType;
+    falling_scan_distance: long;
+    falling_indicator_display_time: long;
+    falling_time: long;
+}
+
+root_type MiniGameTankObstacleExcel;

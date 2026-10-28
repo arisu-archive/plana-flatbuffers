@@ -1,0 +1,18 @@
+include "TankRacingChatBubbleType.fbs";
+include "TankRacingVoiceCondition.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameTankVoiceExcel {
+    event_content_id: long;
+    character_group_id: long;
+    unique_id: long;
+    voice_condition: TankRacingVoiceCondition;
+    chat_bubble_type: TankRacingChatBubbleType;
+    voice_clip: uint;
+    subtitle_localize_kr: string;
+    subtitle_localize_jp: string;
+    subtitle_portrait: string;
+}
+
+root_type MiniGameTankVoiceExcel;

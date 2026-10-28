@@ -263,8 +263,15 @@ class SchoolDungeonStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # SchoolDungeonStageExcel
+    def EchelonRecommendPresetId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def SchoolDungeonStageExcelStart(builder):
-    builder.StartObject(17)
+    builder.StartObject(18)
 
 def Start(builder):
     SchoolDungeonStageExcelStart(builder)
@@ -407,6 +414,12 @@ def SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType
 def AddEchelonExtensionType(builder, echelonExtensionType):
     SchoolDungeonStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
 
+def SchoolDungeonStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    builder.PrependInt32Slot(17, echelonRecommendPresetId, 0)
+
+def AddEchelonRecommendPresetId(builder, echelonRecommendPresetId):
+    SchoolDungeonStageExcelAddEchelonRecommendPresetId(builder, echelonRecommendPresetId)
+
 def SchoolDungeonStageExcelEnd(builder):
     return builder.EndObject()
 
@@ -440,6 +453,7 @@ class SchoolDungeonStageExcelT(object):
         stageRewardId = 0,
         playTimeLimitInSeconds = 0,
         echelonExtensionType = 0,
+        echelonRecommendPresetId = 0,
     ):
         self.stageId = stageId  # type: int
         self.dungeonType = dungeonType  # type: int
@@ -458,6 +472,7 @@ class SchoolDungeonStageExcelT(object):
         self.stageRewardId = stageRewardId  # type: int
         self.playTimeLimitInSeconds = playTimeLimitInSeconds  # type: int
         self.echelonExtensionType = echelonExtensionType  # type: int
+        self.echelonRecommendPresetId = echelonRecommendPresetId  # type: int
 
     @classmethod
     def InitFromBuf(cls, buf, pos):
@@ -533,6 +548,7 @@ class SchoolDungeonStageExcelT(object):
         self.stageRewardId = schoolDungeonStageExcel.StageRewardId()
         self.playTimeLimitInSeconds = schoolDungeonStageExcel.PlayTimeLimitInSeconds()
         self.echelonExtensionType = schoolDungeonStageExcel.EchelonExtensionType()
+        self.echelonRecommendPresetId = schoolDungeonStageExcel.EchelonRecommendPresetId()
 
     # SchoolDungeonStageExcelT
     def Pack(self, builder):
@@ -608,5 +624,6 @@ class SchoolDungeonStageExcelT(object):
         SchoolDungeonStageExcelAddStageRewardId(builder, self.stageRewardId)
         SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, self.playTimeLimitInSeconds)
         SchoolDungeonStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        SchoolDungeonStageExcelAddEchelonRecommendPresetId(builder, self.echelonRecommendPresetId)
         schoolDungeonStageExcel = SchoolDungeonStageExcelEnd(builder)
         return schoolDungeonStageExcel

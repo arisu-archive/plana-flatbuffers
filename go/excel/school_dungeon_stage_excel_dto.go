@@ -27,6 +27,7 @@ type SchoolDungeonStageExcelDto struct {
 	StageRewardID               int64                `json:"stage_reward_id"`
 	PlayTimeLimitInSeconds      int64                `json:"play_time_limit_in_seconds"`
 	EchelonExtensionType        EchelonExtensionType `json:"echelon_extension_type"`
+	EchelonRecommendPresetID    int32                `json:"echelon_recommend_preset_id"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -79,6 +80,7 @@ func (t *SchoolDungeonStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	SchoolDungeonStageExcelAddStageRewardId(b, t.StageRewardID)
 	SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(b, t.PlayTimeLimitInSeconds)
 	SchoolDungeonStageExcelAddEchelonExtensionType(b, t.EchelonExtensionType)
+	SchoolDungeonStageExcelAddEchelonRecommendPresetId(b, t.EchelonRecommendPresetID)
 	return SchoolDungeonStageExcelEnd(b)
 }
 
@@ -126,6 +128,7 @@ func (t *SchoolDungeonStageExcelDto) UnmarshalMessage(e *SchoolDungeonStageExcel
 	t.StageRewardID = e.StageRewardId()
 	t.PlayTimeLimitInSeconds = e.PlayTimeLimitInSeconds()
 	t.EchelonExtensionType = e.EchelonExtensionType()
+	t.EchelonRecommendPresetID = e.EchelonRecommendPresetId()
 	return nil
 }
 

@@ -1,0 +1,23 @@
+namespace MX.Data.Excel;
+
+table EchelonRecommendPresetExcel {
+    id: int;
+    tank: int;
+    damage_dealer: int;
+    healer: int;
+    supporter: int;
+    tsa: int;
+    character_level: int;
+    ex_skill_level: int;
+    public_skill_level: int;
+    passive_skill_level: int;
+    extra_passive_skill_level: int;
+    equipment1_tier: int;
+    equipment1_level: int;
+    equipment2_tier: int;
+    equipment2_level: int;
+    equipment3_tier: int;
+    equipment3_level: int;
+}
+
+root_type EchelonRecommendPresetExcel;

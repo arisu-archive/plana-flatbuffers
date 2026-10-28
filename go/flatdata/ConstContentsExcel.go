@@ -89,8 +89,80 @@ func (rcv *ConstContentsExcel) MutateLobbyNightTimeFrom(n int32) bool {
 	return rcv._tab.MutateInt32Slot(10, n)
 }
 
+func (rcv *ConstContentsExcel) CharacterUsageRaidRecentSeason() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageRaidRecentSeason(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *ConstContentsExcel) CharacterUsageEliminateRaidRecentSeason() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageEliminateRaidRecentSeason(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *ConstContentsExcel) CharacterUsageMinSampleDifficulty() Difficulty {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageMinSampleDifficulty(n Difficulty) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *ConstContentsExcel) CharacterUsageMinAccountSampleCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageMinAccountSampleCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *ConstContentsExcel) CharacterUsageRawDataRetentionInDays() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageRawDataRetentionInDays(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ConstContentsExcel) CharacterUsageAggregateCycleInHours() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstContentsExcel) MutateCharacterUsageAggregateCycleInHours(n int32) bool {
+	return rcv._tab.MutateInt32Slot(22, n)
+}
+
 func ConstContentsExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
+	builder.StartObject(10)
 }
 func ConstContentsExcelAddUseSearchFieldOptimize(builder *flatbuffers.Builder, useSearchFieldOptimize bool) {
 	builder.PrependBoolSlot(0, useSearchFieldOptimize, false)
@@ -103,6 +175,24 @@ func ConstContentsExcelAddLobbyDayTimeFrom(builder *flatbuffers.Builder, lobbyDa
 }
 func ConstContentsExcelAddLobbyNightTimeFrom(builder *flatbuffers.Builder, lobbyNightTimeFrom int32) {
 	builder.PrependInt32Slot(3, lobbyNightTimeFrom, 0)
+}
+func ConstContentsExcelAddCharacterUsageRaidRecentSeason(builder *flatbuffers.Builder, characterUsageRaidRecentSeason int32) {
+	builder.PrependInt32Slot(4, characterUsageRaidRecentSeason, 0)
+}
+func ConstContentsExcelAddCharacterUsageEliminateRaidRecentSeason(builder *flatbuffers.Builder, characterUsageEliminateRaidRecentSeason int32) {
+	builder.PrependInt32Slot(5, characterUsageEliminateRaidRecentSeason, 0)
+}
+func ConstContentsExcelAddCharacterUsageMinSampleDifficulty(builder *flatbuffers.Builder, characterUsageMinSampleDifficulty Difficulty) {
+	builder.PrependInt32Slot(6, int32(characterUsageMinSampleDifficulty), 0)
+}
+func ConstContentsExcelAddCharacterUsageMinAccountSampleCount(builder *flatbuffers.Builder, characterUsageMinAccountSampleCount int32) {
+	builder.PrependInt32Slot(7, characterUsageMinAccountSampleCount, 0)
+}
+func ConstContentsExcelAddCharacterUsageRawDataRetentionInDays(builder *flatbuffers.Builder, characterUsageRawDataRetentionInDays int32) {
+	builder.PrependInt32Slot(8, characterUsageRawDataRetentionInDays, 0)
+}
+func ConstContentsExcelAddCharacterUsageAggregateCycleInHours(builder *flatbuffers.Builder, characterUsageAggregateCycleInHours int32) {
+	builder.PrependInt32Slot(9, characterUsageAggregateCycleInHours, 0)
 }
 func ConstContentsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,13 +10,14 @@ import (
 // LocalizeSkillExcelDto represents a FlatBuffers table.
 type LocalizeSkillExcelDto struct {
 	fbsutils.FlatBuffer
-	Key                   uint32 `json:"key"`
-	NameKr                string `json:"name_kr"`
-	DescriptionKr         string `json:"description_kr"`
-	SkillInvokeLocalizeKr string `json:"skill_invoke_localize_kr"`
-	NameJp                string `json:"name_jp"`
-	DescriptionJp         string `json:"description_jp"`
-	SkillInvokeLocalizeJp string `json:"skill_invoke_localize_jp"`
+	Key                   uint32   `json:"key"`
+	NameKr                string   `json:"name_kr"`
+	DescriptionKr         string   `json:"description_kr"`
+	SkillInvokeLocalizeKr string   `json:"skill_invoke_localize_kr"`
+	NameJp                string   `json:"name_jp"`
+	DescriptionJp         string   `json:"description_jp"`
+	SkillInvokeLocalizeJp string   `json:"skill_invoke_localize_jp"`
+	SkillEffectList       []uint32 `json:"skill_effect_list"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -27,6 +28,11 @@ func (t *LocalizeSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	nameJpOffset := b.CreateString(t.NameJp)
 	descriptionJpOffset := b.CreateString(t.DescriptionJp)
 	skillInvokeLocalizeJpOffset := b.CreateString(t.SkillInvokeLocalizeJp)
+	LocalizeSkillExcelStartSkillEffectListVector(b, len(t.SkillEffectList))
+	for i := len(t.SkillEffectList) - 1; i >= 0; i-- {
+		b.PrependUint32(t.SkillEffectList[i])
+	}
+	skillEffectListOffset := b.EndVector(len(t.SkillEffectList))
 	LocalizeSkillExcelStart(b)
 	LocalizeSkillExcelAddKey(b, t.Key)
 	LocalizeSkillExcelAddNameKr(b, nameKrOffset)
@@ -35,6 +41,7 @@ func (t *LocalizeSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	LocalizeSkillExcelAddNameJp(b, nameJpOffset)
 	LocalizeSkillExcelAddDescriptionJp(b, descriptionJpOffset)
 	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, skillInvokeLocalizeJpOffset)
+	LocalizeSkillExcelAddSkillEffectList(b, skillEffectListOffset)
 	return LocalizeSkillExcelEnd(b)
 }
 
@@ -54,6 +61,10 @@ func (t *LocalizeSkillExcelDto) UnmarshalMessage(e *LocalizeSkillExcel) error {
 	t.NameJp = string(e.NameJp())
 	t.DescriptionJp = string(e.DescriptionJp())
 	t.SkillInvokeLocalizeJp = string(e.SkillInvokeLocalizeJp())
+	t.SkillEffectList = make([]uint32, e.SkillEffectListLength())
+	for i := 0; i < e.SkillEffectListLength(); i++ {
+		t.SkillEffectList[i] = e.SkillEffectList(i)
+	}
 	return nil
 }
 

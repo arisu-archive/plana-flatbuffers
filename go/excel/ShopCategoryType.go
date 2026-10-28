@@ -48,6 +48,8 @@ const (
 	ShopCategoryTypeCafeSummonTicket         ShopCategoryType = 38
 	ShopCategoryTypeSelectPickupFesGacha     ShopCategoryType = 39
 	ShopCategoryTypeSelectPickupLimitedGacha ShopCategoryType = 40
+	ShopCategoryTypeUnownedTicketGacha       ShopCategoryType = 41
+	ShopCategoryTypeTacticalRelayBeta        ShopCategoryType = 42
 )
 
 var EnumNamesShopCategoryType = map[ShopCategoryType]string{
@@ -92,6 +94,8 @@ var EnumNamesShopCategoryType = map[ShopCategoryType]string{
 	ShopCategoryTypeCafeSummonTicket:         "CafeSummonTicket",
 	ShopCategoryTypeSelectPickupFesGacha:     "SelectPickupFesGacha",
 	ShopCategoryTypeSelectPickupLimitedGacha: "SelectPickupLimitedGacha",
+	ShopCategoryTypeUnownedTicketGacha:       "UnownedTicketGacha",
+	ShopCategoryTypeTacticalRelayBeta:        "TacticalRelayBeta",
 }
 
 var EnumValuesShopCategoryType = map[string]ShopCategoryType{
@@ -136,6 +140,8 @@ var EnumValuesShopCategoryType = map[string]ShopCategoryType{
 	"CafeSummonTicket":         ShopCategoryTypeCafeSummonTicket,
 	"SelectPickupFesGacha":     ShopCategoryTypeSelectPickupFesGacha,
 	"SelectPickupLimitedGacha": ShopCategoryTypeSelectPickupLimitedGacha,
+	"UnownedTicketGacha":       ShopCategoryTypeUnownedTicketGacha,
+	"TacticalRelayBeta":        ShopCategoryTypeTacticalRelayBeta,
 }
 
 func (v ShopCategoryType) String() string {
