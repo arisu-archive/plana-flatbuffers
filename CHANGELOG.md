@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1](https://github.com/arisu-archive/plana-flatbuffers/compare/v0.18.0...v0.18.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* **workflow:** correct URL for downloading decompiled zip file ([86877ee](https://github.com/arisu-archive/plana-flatbuffers/commit/86877ee5c630f9249ef25f320169f99d29148458))
+
 ## [0.18.0](https://github.com/arisu-archive/plana-flatbuffers/compare/v0.17.0...v0.18.0) (2026-10-28)
 
 
