@@ -89,7 +89,7 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Download decompiled zip file
-        run: curl -s https://ba.pokeguy.dev/com.YostarJP.BlueArchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
+        run: curl -s https://ba.pokeguy.dev/com.YostarJP.BlueArchive/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
         run: unzip output.zip -d output "DiffableCs/BlueArchive/**"
       - name: Setup Go
